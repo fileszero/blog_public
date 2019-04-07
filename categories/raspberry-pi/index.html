@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/categories/raspberry-pi/index.xml">
+
+<link rel="canonical" href="/categories/raspberry-pi/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Raspberry Pi - My New Hugo Site</title>
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    
+    <header class="page-title">
+      <h1 class="title">Raspberry Pi</h1>
+    </header>
+    
+
+    <div class="articles">
+      <div class="mrow">
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-11-12-raspberrypiwifistable3/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; WiFiを安定させるVer3</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-12T13:52:29JST">Nov 12, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p>Raspberry PiのWifiを安定させようと<a href="http://localhost:8000/unclassified/429/" title="Raspberry Pi + WiFiを安定させる" target="_blank">色々</a>と<a href="/posts/2014-03-11-raspberrypiwifistable2" title="Raspberry Pi + WiFiを安定させるVer2" target="_blank">試行錯誤</a>したりして、結構安定していたようなんですが、</p>
+
+<p>ココ最近、また不安定になってきました。</p>
+
+<p>なんで？寒くなってきたから？</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-08-15-raspberrypiwebcam/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">RaspberryPi webcam</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-08-15T08:45:27JST">Aug 15, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p>愛犬のモニタリング用にネットワークカメラ使ってたんですが、壊れた。</p>
+
+<p>外から携帯（いわゆるガラケー、フィーチャーフォン）からアクセスしたいけど、</p>
+
+<p>最近のネットワークカメラで携帯対応うたってる機種って無いのね。</p>
+
+<p>てことでraspberry piでネットワークカメラ作ってみます。</p>
+
+<p>スマホで動画、ガラケーでは動画はキツいので静止画を見れるようにします。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-03-11-raspberrypiwifistable2/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; WiFiを安定させるVer2</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-11T11:07:34JST">Mar 11, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">以前WiFi安定化に向けて小細工したけど、結局安定してません。
+なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。
+そんな事でググって見た所こんなん発見しました。
+Wifi and Ethernet dropout problems in raspberry pi
+症状的には非常に酷似してるようです。
+意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。
+1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &#34;[$cnn]&#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-10-08-raspberry-pi-miner-setting/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Rasberry Pi こまい設定</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-10-08T07:32:12JST">Oct 8, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Tools もろもろ必要になりそうなツールをインストール。
+1 2 3  $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool   MacからRasPiへファイルのコピー scpを使います。
+1  mac $ scp filename pi@192.168.1.5:~/   WiFi設定 USBのwifiトングルを刺す。
+認識されたか確認
+1 2 3 4  $ lsusb Bus 001 Device 007: ID 0411:01a2 BUFFALO INC. (formerly MelCo., Inc.) WLI-UC-GNM Wireless LAN Adapter [Ralink RT8070] $ ifconfig wlan0 Link encap:Ethernet .......   こことか参考に無線lanにつなぎます。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-10-06-raspberrypishairportnoise/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; shairportのノイズ</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-10-06T12:49:14JST">Oct 6, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。
+色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじったりして、
+結局だめだったんですが&#8230;
+有線LANからWiFiにしたらあっさり解決しました。
+なんじゃそら。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-09-19-raspberrypiwifistable/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; WiFiを安定させる</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-09-19T13:47:38JST">Sep 19, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。
+簡単なスクリプト書いて切れてる様子なら再接続するようにします。
+$ cat /home/pi/bin/restartwlan0.sh
+1 2 3 4 5 6 7 8 9 10 11  #!/bin/sh  cnn=`/sbin/ifconfig wlan0 | /bin/grep &#34;inet addr:&#34;` logger &#34;[$cnn]&#34; echo &#34;$cnn&#34; if [ &#34;$cnn&#34; = &#34;&#34; ]; then ifup --force wlan0 logger &#34;wlan0 restarted&#34; echo &#34;wlan0 restarted&#34; fi   cron に登録
+*/5 * * * * /home/pi/bin/restartwlan0.sh
+５分ごとに実行する感じで。
+うまく行くか分かりませんが、しばらく様子見ですな。
+追記：
+微妙にうまく行ってません。
+Raspberry Pi + WiFiを安定させるVer3も要参照。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-09-08-raspberry-pi-time-machine/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; Time Machine</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-09-08T10:48:58JST">Sep 8, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev
+$ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz
+$ cd netatalk-3.0.5/
+$ ./configure &#8211;with-init-style=debian
+$ make
+$ sudo make install
+$ sudo mkdir -p /mnt/timemachine
+$ sudo chown pi /mnt/timemachine
+$ sudo nano /etc/fstab
+デバイスは/dev/sda21でext3でフォーマット済み
+$ sudo cat /etc/fstab
+proc /proc proc defaults 0 0
+/dev/mmcblk0p1 /boot vfat defaults 0 2
+/dev/mmcblk0p2 / ext4 defaults,noatime 0 1
+# a swapfile is not a swap partition, so no using swapon|off from here on, use dphys-swapfile swap[on|off] for that</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-08-30-raspberry-pi-samba/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; SAMBA</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-30T13:37:01JST">Aug 30, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。
+作業前には
+$ sudo rpi-update
+$ sudo apt-get update
+$ sudo apt-get upgrade
+をやっとくといいかもしれません。
+ストレージ ストレージとしては1TByteのUSB-HDDを使います。
+/dev/sdaとして認識されました。
+パーティションは２つにきります。
+/dev/sda1をSAMBA用
+/dev/sda2をMacのTimeMachine用
+にします。
+こんな感じ。
+pi@raspi ~ $ sudo fdisk /dev/sda
+Command (m for help): p
+Disk /dev/sda: 1000.2 GB, 1000204885504 bytes
+255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-08-26-raspberry-pi-usb-dac/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; USB-DAC</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-26T14:47:38JST">Aug 26, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。
+デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。
+内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。
+色々調べた結果、
+http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866
+こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。
+んでリブート。
+超クリアに音でてるー。
+dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。
+要はUSBの帯域が足りなかったという事ですね。
+8&frasl;29 追記
+dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。
+うーん、むずかしいな。
+dwc_otg.speed=1を消して、
+$ sudo rpi-update
+してみる。
+ちょっと改善するも、今度はプチプチノイズが出るようになった。
+dwc_otg.fiq_split_enable=0
+をつけてみる。
+なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。
+しばらく様子見だな。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-08-21-raspberry-pi-airplay/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; AirPlay</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-21T14:24:01JST">Aug 21, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Raspberry PiにAirPlay入れたメモ
+参考：
+Raspberry Piを「AirPlay化」して音楽をストリーミングする方法
+Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。
+問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perl
+で
+dpkg: error processing avahi-daemon (&#8211;configure):
+subprocess installed post-installation script returned error exit status 1
+dpkg: dependency problems prevent configuration of avahi-utils:
+avahi-utils depends on avahi-daemon; however:
+Package avahi-daemon is not configured yet.
+が発生。
+解決： dbusが必要らしい。
+$ sudo /etc/init.d/dbus start
+$ sudo chkconfig dbus on
+問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo .</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+      </div>
+    </div>
+
+    
+<nav class="paging">
+  
+
+  
+  <a href="/categories/raspberry-pi/page/2/" rel="next">Next</a>
+  
+</nav>
+
+
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

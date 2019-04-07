@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2013-08-21-raspberry-pi-airplay/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Raspberry Pi &#43; AirPlay - My New Hugo Site</title>
+    
+
+<meta name="description" content="Raspberry PiにAirPlay入れたメモ参考：Raspberry Piを「AirPlay化」して音楽をストリーミングする方法Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perlでdpkg: error processing avahi-daemon (&amp;#8211;configure):subprocess installed post-installation script returned error exit status 1dpkg: dependency problems prevent configuration of avahi-utils:avahi-utils depends on avahi-daemon; however:Package avahi-daemon is not configured yet.が発生。解決： dbusが必要らしい。$ sudo /etc/init.d/dbus start$ sudo chkconfig dbus on問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo .">
+
+<meta property="og:title" content="Raspberry Pi &#43; AirPlay - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2013-08-21-raspberry-pi-airplay/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="Raspberry PiにAirPlay入れたメモ参考：Raspberry Piを「AirPlay化」して音楽をストリーミングする方法Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perlでdpkg: error processing avahi-daemon (&amp;#8211;configure):subprocess installed post-installation script returned error exit status 1dpkg: dependency problems prevent configuration of avahi-utils:avahi-utils depends on avahi-daemon; however:Package avahi-daemon is not configured yet.が発生。解決： dbusが必要らしい。$ sudo /etc/init.d/dbus start$ sudo chkconfig dbus on問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo .">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2013-08-21-raspberry-pi-airplay/">
+<meta name="twitter:title" content="Raspberry Pi &#43; AirPlay - My New Hugo Site">
+<meta name="twitter:description" content="Raspberry PiにAirPlay入れたメモ参考：Raspberry Piを「AirPlay化」して音楽をストリーミングする方法Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perlでdpkg: error processing avahi-daemon (&amp;#8211;configure):subprocess installed post-installation script returned error exit status 1dpkg: dependency problems prevent configuration of avahi-utils:avahi-utils depends on avahi-daemon; however:Package avahi-daemon is not configured yet.が発生。解決： dbusが必要らしい。$ sudo /etc/init.d/dbus start$ sudo chkconfig dbus on問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo .">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Raspberry Pi &#43; AirPlay - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-08-21T14:24:01JST",
+    "dateModified": "2013-08-21T14:24:01JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "Raspberry PiにAirPlay入れたメモ
+参考：
+Raspberry Piを「AirPlay化」して音楽をストリーミングする方法
+Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。
+問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perl
+で
+dpkg: error processing avahi-daemon (&#8211;configure):
+subprocess installed post-installation script returned error exit status 1
+dpkg: dependency problems prevent configuration of avahi-utils:
+avahi-utils depends on avahi-daemon; however:
+Package avahi-daemon is not configured yet.
+が発生。
+解決： dbusが必要らしい。
+$ sudo /etc/init.d/dbus start
+$ sudo chkconfig dbus on
+問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo ."
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">Raspberry Pi &#43; AirPlay</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-21T14:24:01JST">Aug 21, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&title=Raspberry%20Pi%20%2b%20AirPlay" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&text=Raspberry%20Pi%20%2b%20AirPlay&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&t=Raspberry%20Pi%20%2b%20AirPlay" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&title=Raspberry%20Pi%20%2b%20AirPlay" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Raspberry%20Pi%20%2b%20AirPlay %2fposts%2f2013-08-21-raspberry-pi-airplay%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<p>Raspberry PiにAirPlay入れたメモ</p>
+
+<p>参考：</p>
+
+<p><a href="http://www.lifehacker.jp/2013/03/130306raspberry_piairplay.html" target="_blank">Raspberry Piを「AirPlay化」して音楽をストリーミングする方法</a></p>
+
+<p><a href="http://takuya-1st.hatenablog.jp/entry/2013/08/08/051851" target="_blank">Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。</a></p>
+
+<h4 id="問題-avahi-utilsがインストールできない">問題：avahi-utilsがインストールできない</h4>
+
+<p>$ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perl</p>
+
+<p>で</p>
+
+<p>dpkg: error processing avahi-daemon (&#8211;configure):</p>
+
+<p>subprocess installed post-installation script returned error exit status 1</p>
+
+<p>dpkg: dependency problems prevent configuration of avahi-utils:</p>
+
+<p>avahi-utils depends on avahi-daemon; however:</p>
+
+<p>Package avahi-daemon is not configured yet.</p>
+
+<p>が発生。</p>
+
+<h4 id="解決">解決：</h4>
+
+<p>dbusが必要らしい。</p>
+
+<p>$ sudo /etc/init.d/dbus start</p>
+
+<p>$ sudo chkconfig dbus on</p>
+
+<h4 id="問題-avahi-mdns-dns-sd-daemonが動かん">問題：Avahi mDNS/DNS-SD Daemonが動かん</h4>
+
+<p>$ sudo ./shairport.pl -a AirPiFailed to create client object: Daemon not running</p>
+
+<p>avahi daemon terminated or &#8216;avahi-publish-service&#8217; binary not found at ./shairport.pl line 237, <DATA> line 23.</p>
+
+<p>$ sudo /etc/init.d/avahi-daemon start</p>
+
+<p>Starting Avahi mDNS/DNS-SD Daemon: avahi-daemonavahi-daemon disabled because there is a unicast .local domain &#8230; (warning).</p>
+
+<h4 id="解決-1">解決：</h4>
+
+<p>勝手にできたファイルを消す</p>
+
+<p>$ sudo rm /var/run/avahi-daemon/disabled-for-unicast-local</p>
+
+<p>$ sudo /etc/init.d/avahi-daemon restart</p>
+
+<p><del datetime="2013-08-30T10:16:29+00:00">勝手に作られないようにする。<br /> sudo nano /etc/init.d/avahi-daemon<br /> DISABLE_TAG=&#8221;/var/run/avahi-daemon/disabled-for-unicast-local-DISABLED&#8221;<br /> </del></p>
+
+<p>↑はうそ</p>
+
+<p><a href="/posts/2013-08-30-avahi-and-local" title="avahiとlocal" target="_blank">avahiとlocal</a>をご参照するべし。</p>
+
+<h4 id="問題">問題：</h4>
+
+<p>AirPlayで繋がるけど</p>
+
+<p>ALSA lib pcm.c:2217:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front</p>
+
+<p>とかいって音が出ない</p>
+
+<h4 id="解決-2">解決：</h4>
+
+<p>sudo nano /usr/share/alsa/alsa.conf</p>
+
+<p>change the line “pcm.front cards.pcm.front” to “pcm.front cards.pcm.default”</p>
+
+<p>参考</p>
+
+<p><a href="http://cagewebdev.com/index.php/raspberry-pi-getting-audio-working/" target="_blank">Raspberry PI – getting audio working</a></p>
+
+<p>音出たー。しかし音質がいまいち。USB-DAC的なものが要るかも。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&title=Raspberry%20Pi%20%2b%20AirPlay" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&text=Raspberry%20Pi%20%2b%20AirPlay&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&t=Raspberry%20Pi%20%2b%20AirPlay" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2013-08-21-raspberry-pi-airplay%2f&title=Raspberry%20Pi%20%2b%20AirPlay" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Raspberry%20Pi%20%2b%20AirPlay %2fposts%2f2013-08-21-raspberry-pi-airplay%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Raspberry Pi &#43; AirPlay</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/raspberry-pi/">Raspberry Pi</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2013-08-13-raspberry-pi/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-08-13-raspberry-pi/WS000086.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Raspberry Pi</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-13T04:07:16JST">Aug 13, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2013-08-26-raspberry-pi-usb-dac/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Raspberry Pi &#43; USB-DAC</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-26T14:47:38JST">Aug 26, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

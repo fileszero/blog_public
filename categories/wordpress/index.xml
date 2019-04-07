@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wordpress on My New Hugo Site</title>
+    <link>/categories/wordpress/</link>
+    <description>Recent content in Wordpress on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Apr 2019 04:47:49 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</title>
+      <link>/posts/2019-04-02-debug-docker-php-xdebug-vscode/</link>
+      <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
+      
+      <guid>/posts/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
+      <description>&lt;p&gt;Dockerでwordpress環境を作ってプラグインのデバックをしたかったのでxdebugを使ったんですが、&lt;/p&gt;
+
+&lt;p&gt;ブレークしなくて激しくはまったのでメモ。&lt;/p&gt;
+
+&lt;h3 id=&#34;結論&#34;&gt;結論&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;xdebug用のポートのexposeは要らない！&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>wordpressとgitで自動deploy</title>
+      <link>/posts/2017-02-11-auto-deploy-wordpress-and-git/</link>
+      <pubDate>Sat, 11 Feb 2017 12:37:26 +0000</pubDate>
+      
+      <guid>/posts/2017-02-11-auto-deploy-wordpress-and-git/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
+
+&lt;p&gt;いちいち転送ソフト立ち上げるのもめんどくさいし、転送忘れとかもありそうです。&lt;/p&gt;
+
+&lt;p&gt;てことで、ローカル（Mac)で編集した内容をgit pushでwordpress本番サーバ(VPS)に反映させるようにします。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker for Macでwordpressの開発環境を作ってみる</title>
+      <link>/posts/2017-02-08-docker-for-mac-wp/</link>
+      <pubDate>Wed, 08 Feb 2017 14:29:07 +0000</pubDate>
+      
+      <guid>/posts/2017-02-08-docker-for-mac-wp/</guid>
+      <description>&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;
+
+&lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>spam対策</title>
+      <link>/posts/2013-11-28-ban-spam/</link>
+      <pubDate>Thu, 28 Nov 2013 02:29:39 +0000</pubDate>
+      
+      <guid>/posts/2013-11-28-ban-spam/</guid>
+      <description>今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。
+今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異常。
+ちなみにAkismetの統計では
+2013-10 193件　に対し
+2013-11 37,208件
+とまさしく桁違いの数。
+なんかあったの？
+Akismetでブロックしてくれますが、page viewのカウントとかにも影響あるので、
+IPでアクセスブロックできる、WP-Ban というプラグインを導入してみました。
+効果は絶大です。
+ただ、IPは手動で入力せねばならないので経過観察は必要ですねー。
+Akismetと連携して自動でIPセットしてくれるようなプラグインは無いのでしょうか？denyhosts的な。</description>
+    </item>
+    
+    <item>
+      <title>ブログ書くのに必要な装備</title>
+      <link>/posts/2013-05-11-equipment-for-blogging/</link>
+      <pubDate>Sat, 11 May 2013 01:21:03 +0000</pubDate>
+      
+      <guid>/posts/2013-05-11-equipment-for-blogging/</guid>
+      <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
+スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
+WordPressのプラグインより先に導入するべしですな。
+色々あるかとは思いますが、有名どころのWinShotを入れてみました。
+設定的には
+ファイルの保存場所をRAMディスクに(どーせすぐアップロードして消すし)
+「保存後に保存フォルダを開く」にチェック
+JPEG保存のショートカット(規定ではCtrl+Alt+F9)
+矩形範囲を毎回指定する
+みたいな感じにしておけばとっても快適にスクリーンショットがとれます。
+スクショとったらフォルダが表示されるので、  でアップロード。
+こんな感じで絵が出ます。
+ オシャンティな枠とか影とかはWordPressが勝手に付けてくれるのですね～。
+コード貼り付け 後はコードの貼り付けのときに見た目よくするやつ。
+SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます。
+まず管理画面のからプラグイン検索で「SyntaxHighlighter Evolved」を検索。
+ そうすっと
+ 出てくるので、「今すぐインストール」。
+こんな感じでインストールが終わります。
+ んで、「プラグインを有効化」
+タグ[code][/code]で囲ってやると、こんな感じでとってもコードっぽく表示されるんすね。
+1 2 3 4 5 6 7 8 9 10 11 12  location /wordpress { index index.php index.html index.htm; # static files include /etc/nginx/conf.d/common/expires.conf; # request to index.php if (!-e $request_filename) { # rewrite ^(.+)$ /index.php?q=$1 last; rewrite ^.</description>
+    </item>
+    
+  </channel>
+</rss>

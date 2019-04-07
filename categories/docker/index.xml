@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on My New Hugo Site</title>
+    <link>/categories/docker/</link>
+    <description>Recent content in Docker on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Apr 2019 04:47:49 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</title>
+      <link>/posts/2019-04-02-debug-docker-php-xdebug-vscode/</link>
+      <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
+      
+      <guid>/posts/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
+      <description>&lt;p&gt;Dockerでwordpress環境を作ってプラグインのデバックをしたかったのでxdebugを使ったんですが、&lt;/p&gt;
+
+&lt;p&gt;ブレークしなくて激しくはまったのでメモ。&lt;/p&gt;
+
+&lt;h3 id=&#34;結論&#34;&gt;結論&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;xdebug用のポートのexposeは要らない！&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker &#43; .Net Core &#43; Visual studio 2015</title>
+      <link>/posts/2017-05-17-dockerdotnetcorevisualstudio2015/</link>
+      <pubDate>Wed, 17 May 2017 03:33:00 +0000</pubDate>
+      
+      <guid>/posts/2017-05-17-dockerdotnetcorevisualstudio2015/</guid>
+      <description>&lt;p&gt;Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。&lt;/p&gt;
+
+&lt;p&gt;てことで、少しいじってみます。&lt;/p&gt;
+
+&lt;p&gt;もしかしたらクラウドな環境にデプロイするかもしれないんで、試しにDockerで開発してみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker for Macでwordpressの開発環境を作ってみる</title>
+      <link>/posts/2017-02-08-docker-for-mac-wp/</link>
+      <pubDate>Wed, 08 Feb 2017 14:29:07 +0000</pubDate>
+      
+      <guid>/posts/2017-02-08-docker-for-mac-wp/</guid>
+      <description>&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;
+
+&lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

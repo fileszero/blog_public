@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on My New Hugo Site</title>
+    <link>/categories/mac/</link>
+    <description>Recent content in Mac on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Feb 2017 14:29:07 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker for Macでwordpressの開発環境を作ってみる</title>
+      <link>/posts/2017-02-08-docker-for-mac-wp/</link>
+      <pubDate>Wed, 08 Feb 2017 14:29:07 +0000</pubDate>
+      
+      <guid>/posts/2017-02-08-docker-for-mac-wp/</guid>
+      <description>&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;
+
+&lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mac Tips</title>
+      <link>/posts/2016-09-01-mac-tips/</link>
+      <pubDate>Thu, 01 Sep 2016 01:14:19 +0000</pubDate>
+      
+      <guid>/posts/2016-09-01-mac-tips/</guid>
+      <description>&lt;p&gt;いつも忘れるMacOS関係のメモ。随時更新予定。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PhoneGapでビルドしたアプリがインストールできない</title>
+      <link>/posts/2015-05-18-application-not-installed/</link>
+      <pubDate>Mon, 18 May 2015 08:05:49 +0000</pubDate>
+      
+      <guid>/posts/2015-05-18-application-not-installed/</guid>
+      <description>&lt;p&gt;PhoneGapアプリをエミュで実行させようとして、&lt;/p&gt;
+
+&lt;p&gt;phonegap run android -e としますと、&lt;/p&gt;
+
+&lt;p&gt;LAUNCH SUCCESSとかでるくせに、実際のとこインストールすらされていないという現象に悩まされています。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ruby環境(Mac)</title>
+      <link>/posts/2015-04-01-ruby-on-mac/</link>
+      <pubDate>Wed, 01 Apr 2015 04:19:22 +0000</pubDate>
+      
+      <guid>/posts/2015-04-01-ruby-on-mac/</guid>
+      <description>&lt;p&gt;何かと必要になってくるrubyをインストール。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mac各種パッケージのバージョンアップ</title>
+      <link>/posts/2015-03-31-version-up-npm/</link>
+      <pubDate>Tue, 31 Mar 2015 12:17:53 +0000</pubDate>
+      
+      <guid>/posts/2015-03-31-version-up-npm/</guid>
+      <description>&lt;p&gt;とってもべんりなパッケージ管理ソフト、パッケージ管理ソフトも複数あったりして、アップデート方法忘れがち。&lt;/p&gt;
+
+&lt;p&gt;まとめときます。&lt;/p&gt;
+
+&lt;h3 id=&#34;node-js-npm&#34;&gt;node.js npm&lt;/h3&gt;
+
+&lt;p&gt;node.jsのパッケージ管理ソフト&lt;/p&gt;
+
+&lt;p&gt;そんなnpm自身をアップデートするには&lt;/p&gt;
+
+&lt;p&gt;If you update npm itself, do NOT use the npm update command.&lt;/p&gt;
+
+&lt;p&gt;The upstream-recommended way to update npm is:&lt;/p&gt;
+
+&lt;p&gt;npm install -g npm@latest&lt;/p&gt;
+
+&lt;p&gt;だそうです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vagrant&#43;chef(mac)</title>
+      <link>/posts/2015-03-26-vagrant-chef-mac/</link>
+      <pubDate>Wed, 25 Mar 2015 15:32:39 +0000</pubDate>
+      
+      <guid>/posts/2015-03-26-vagrant-chef-mac/</guid>
+      <description>&lt;p&gt;VMの自動構成には&lt;a href=&#34;https://www.chef.io/&#34; target=&#34;_blank&#34;&gt;Chef&lt;/a&gt;(とその仲間達)を使うといいみたいです。&lt;/p&gt;
+
+&lt;p&gt;chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。&lt;/p&gt;
+
+&lt;p&gt;公式もあてにならなかったりします。&lt;/p&gt;
+
+&lt;p&gt;そんな中&lt;a href=&#34;http://koooya.hatenablog.com/entry/2014/12/22/051400&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;http://www.creationline.com/lab/6401&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にさせていただきました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vagrant(mac)</title>
+      <link>/posts/2015-03-20-try-vagrant/</link>
+      <pubDate>Fri, 20 Mar 2015 11:14:38 +0000</pubDate>
+      
+      <guid>/posts/2015-03-20-try-vagrant/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.apple.com/jp/macbook/&#34; target=&#34;_blank&#34;&gt;新しいMac Book&lt;/a&gt;発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…&lt;/p&gt;
+
+&lt;p&gt;期待していただけに、物欲が抑えきれずにマイナーチェンジした&lt;a href=&#34;https://www.apple.com/jp/macbook-pro/&#34; target=&#34;_blank&#34;&gt;Mac Book Pro 13inch&lt;/a&gt;をポチってしまいました。&lt;/p&gt;
+
+&lt;p&gt;今まで使ってた&lt;a href=&#34;https://support.apple.com/kb/SP500?locale=ja_JP&amp;#038;viewlocale=ja_JP&#34; target=&#34;_blank&#34;&gt;MacBook Late2008&lt;/a&gt;もかなりの名機だと思うんですけど、最近のモデルに比べるとやっぱり見劣りしちます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://vaio.com/products/z/&#34; target=&#34;_blank&#34;&gt;VAIO Z&lt;/a&gt;も魅力的だったんですが、OSがなー、高い機械にWin8ってのはなんか違う気がしてしまって、今回はパス。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

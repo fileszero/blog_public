@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse on My New Hugo Site</title>
+    <link>/categories/eclipse/</link>
+    <description>Recent content in Eclipse on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Dec 2015 12:04:26 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/eclipse/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Laravel&#43;Homestead&#43;XDebug&#43;Eclipse</title>
+      <link>/posts/2015-12-12-laravelhomesteadeclipse/</link>
+      <pubDate>Sat, 12 Dec 2015 12:04:26 +0000</pubDate>
+      
+      <guid>/posts/2015-12-12-laravelhomesteadeclipse/</guid>
+      <description>&lt;p&gt;Laravelちょっと&lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart.html&#34; target=&#34;_blank&#34;&gt;チュートリアル&lt;/a&gt;的なことをやってみましたが、良い感じです。&lt;/p&gt;
+
+&lt;p&gt;開発環境の設定で若干試行錯誤があったので、メモしときます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ruby(dbi) &#43; db(sqlite3)</title>
+      <link>/posts/2014-06-19-rubydbsqlite3/</link>
+      <pubDate>Thu, 19 Jun 2014 04:39:34 +0000</pubDate>
+      
+      <guid>/posts/2014-06-19-rubydbsqlite3/</guid>
+      <description>Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。
+rubyからDBにアクセスするには、
+ DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。
+DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。
+DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。
+1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。
+最新版はこちらから。
+rubyライブラリの準備 先ずはsqlite3用のライブラリ。
+DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。
+1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。
+こちらもgemで。
+1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。
+eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインで
+Kepler &amp;#8211; http://download.eclipse.org/releases/kepler
+&amp;#8220;Database Development&amp;#8221;</description>
+    </item>
+    
+    <item>
+      <title>WindowsでEclipse&#43;Ruby</title>
+      <link>/posts/2014-06-14-windows-eclipse-ruby/</link>
+      <pubDate>Sat, 14 Jun 2014 09:07:11 +0000</pubDate>
+      
+      <guid>/posts/2014-06-14-windows-eclipse-ruby/</guid>
+      <description>テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。
+軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。
+Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。
+例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。
+D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。
+インストールはこれで終了。インストーラないほうが好きです。
+あ、日本語化はしません。
+RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。
+このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ
+ RDT=純Rubyの統合開発環境
+RadRails=RDTにRailsのサポートを追加したもの
+Aptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの
+ と理解しときます。
+一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。
+手順は標準的なplugin入れる方法で、
+Help -&amp;gt; Install New Software&amp;#8230; で
+Work withに&amp;#8221;Kepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;amp;#8221;を選択。
+ Programming Languages -&amp;gt; Dynamic Languages Toolkit &amp;#8211; Ruby Development Tools
+にチェックを入れてNext-&amp;gt;Next-&amp;gt; I accept -&amp;gt; Finish
+でRubyなEclipseができるはずです。
+Rubyのインストール ためしにプロジェクト作ってみようと
+File-&amp;gt;New-&amp;gt;Project&amp;#8230; -&amp;gt; Ruby-&amp;gt;Ruby Project
+Project Name: FirstRubyProject
+まで来たら&amp;#8221;At least one interpreter must be configured&amp;#8221;
+とのこと。</description>
+    </item>
+    
+    <item>
+      <title>Tiny Tiny RSS – Android Clientをビルドしてみる</title>
+      <link>/posts/2013-06-03-buidling-ttrss-android/</link>
+      <pubDate>Mon, 03 Jun 2013 14:45:09 +0000</pubDate>
+      
+      <guid>/posts/2013-06-03-buidling-ttrss-android/</guid>
+      <description>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。
+APIバージョンを確認→17でOK。
+Google APIsを入れてみる→ダメ。
+プロジェクトのプロパティを見てみると、こんなん発見。
+ こりゃ色々足りてませんな。
+エラーメッセージを元にライブラリを探してくるしかないみたいです。
+Android-ViewPagerIndicator こちらもGitHubで公開されています。
+さくっといただきます。
+1 2 3 4 5 6 7  \workspace\ttrss&amp;gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &amp;#39;Android-ViewPagerIndicator&amp;#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると
+「library] Unable to resolve target &amp;#8216;android-16&amp;#8217;」と出ます。</description>
+    </item>
+    
+    <item>
+      <title>ADTのアップデート</title>
+      <link>/posts/2013-06-03-updating-adt/</link>
+      <pubDate>Mon, 03 Jun 2013 12:41:36 +0000</pubDate>
+      
+      <guid>/posts/2013-06-03-updating-adt/</guid>
+      <description>前回 git 使ってみる流れでTiny Tiny RSS – Android Clientをビルドしようとしたけど、
+ADTアップデートしろと出ました。
+こんなん
+ いいようにコンピュータに使われてますな。
+EclipseのHelp-Install new softwareでInstallerを起動。
+Work withに「Android Developer Tools Update Site &amp;#8211; http://dl-ssl.google.com/android/eclipse/」を選択。
+「Developer tools」を選んでNext-&amp;gt;Next-&amp;gt;Agree-&amp;gt;Finish!
+ アップデートが始まります。
+なんかgoogle I/Oで新しい開発ツールの紹介があったもよう。Eclipseとは別物みたいですけど、どんなんでしょか。
+とか書いてたら、「No repository found containing: 」とか出てインストールエラー
+そーゆーときはレポジトリをアップデート。Window-&amp;gt;Preferencesで Install/Update-&amp;gt;Available software Sitesで登録されてるサイトを一通りreload
+ で、再度インストールをば・・・・だめでした。
+しょうがないんで、
+http://developer.android.com/intl/ja/sdk/installing/installing-adt.html からプラグインを直でダウンロード
+Work withのとこのAdd-&amp;gt;ArchiveでZIPを指定してみます。
+ これで一応アップデートできたみたいです。Firewall関係かな～。
+ビルドは次回。</description>
+    </item>
+    
+    <item>
+      <title>gitを使ってみる</title>
+      <link>/posts/2013-05-31-using-git/</link>
+      <pubDate>Fri, 31 May 2013 13:37:37 +0000</pubDate>
+      
+      <guid>/posts/2013-05-31-using-git/</guid>
+      <description>gitインストールしたんで使ってみましょう。
+手始めにGitHubからソースをいただいてみます。
+お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。
+↑のページからGitHubにリンクが張られていますんで、即クリック。
+レポジトリのURLは
+ に出てますね。
+コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます
+1 2 3 4 5 6 7 8 9 10 11 12 13  \workspace&amp;gt;mkdir ttrss \workspace&amp;gt;cd ttrss \workspace\ttrss&amp;gt;git init Initialized empty Git repository in /workspace/ttrss/.git/ \workspace\ttrss&amp;gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS -for-Honeycomb.git Cloning into &amp;#39;Tiny-Tiny-RSS-for-Honeycomb&amp;#39;... remote: Counting objects: 7896, done. remote: Compressing objects: 100% (2415/2415), done. remote: Total 7896 (delta 3910), reused 7724 (delta 3745) Receiving objects: 100% (7896/7896), 3.</description>
+    </item>
+    
+    <item>
+      <title>Eclipseでsmarty</title>
+      <link>/posts/2013-05-26-eclipse-with-smarty/</link>
+      <pubDate>Sun, 26 May 2013 13:21:51 +0000</pubDate>
+      
+      <guid>/posts/2013-05-26-eclipse-with-smarty/</guid>
+      <description>EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。
+MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。
+テンプレートエンジンではsmartyとか有名みたいですね。
+んで、例によってEclipseはsmartyな構文をサポートしてないわけです。
+そういう時は誰かしらがプラグインとか作ってくれてるわけです。
+ハイこれっ
+Smarty Support for PDT
+こういうの作る人ってマジで天才だと思う。
+んで、インストールはInstallSmartyPDTを参考に進めます。
+まずは.tplに既存の関連付けが無いか確認。
+Window-&amp;gt;Preferences-&amp;gt;General-&amp;gt;Content TypesのTEXT配下のHTMLとPHPの拡張子に.tplがないか確認。もしあったら削除。
+ うちにはありませんでした。
+そしたら Help-&amp;gt; Install New Software。いつも思うんですが、なんでHelpからインストールなんですかね？
+Work withのとこに
+http://smartypdt.googlecode.com/svn/trunk/org.eclipse.php.smarty.updatesite/
+を入れてエンター。するとプラグインが選べるようになるんで[Next]-&amp;gt;[Next]-&amp;gt;(読んで)[I accept&amp;#8230;]-&amp;gt;[Finish]
+ インストール中に署名されてないとか何とか言ってくるかもしれませんが、自己責任でＯＫで良いんではないかと思われます。
+リスタートするか聞いてきたら、素直にリスタート。
+.tplを開くと、こんなん出てます
+Didn&amp;#8217;t find the default PHP executable, please define a default PHP executable of type &amp;#8216;Zend Debugger&amp;#8217;.
+インストール説明書にデバッガを設定しろとあるので、とりあえずしてみたところこちらのエラーも消えました。
+なんで？
+デバッガの設定は　Window-&amp;gt;Preferences-&amp;gt;PHP-&amp;gt;PHP Executables　で[Add]
+実行ファイルとiniのパスを設定します。
+ 基本、配布元の説明の通りですね。
+良い感じで色ついてます。
+ </description>
+    </item>
+    
+    <item>
+      <title>EclipseでDatabase開発</title>
+      <link>/posts/2013-05-20-developping-database-on-eclipse/</link>
+      <pubDate>Mon, 20 May 2013 14:05:09 +0000</pubDate>
+      
+      <guid>/posts/2013-05-20-developping-database-on-eclipse/</guid>
+      <description>PHPといえばWebアプリ、Webアプリといえばデータベース。
+ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。
+開発環境がXAMPP+Eclipse+PDTなのでDBMSにはMySQLを使います。
+当然SQLも書くんですが、Eclipse+PDTにSQL用のエディタが無いので追加します。
+今回はEDTを使ってみます。
+work withに「http://download.eclipse.org/datatools/updates」
+なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。
+このコンポーネントが多機能SQLエディタを含んでるっぽい
+ [Eclipse Data Tools Platform 1.7.0]も入れてみる。
+こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽい
+インストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。
+一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。
+ [Type]のあたりにMySQLが出てくれば良さそうです。
+そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。
+JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。
+こちらから JDBC Driver for MySQL (Connector/J) をDL
+ダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)
+[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add]
+ [MySQL JDBC Driver]の[5.1]を選択
+ [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。
+ とりあえず、ここまででインストール関係はひと段落。
+後は接続情報をEclipseに教えます。
+[Open perspective]-[New]-[Other]
+ [Database Development]
+ で、データベースいじるパースペクティブを開きます。
+[Data Source Explorer]-[Database connections]-右クリック-[New]
+ [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]
+資格情報とかセットして
+ Finish!</description>
+    </item>
+    
+    <item>
+      <title>PHPをはじめてみる(3)</title>
+      <link>/posts/2013-05-16-starting-php-3/</link>
+      <pubDate>Wed, 15 May 2013 15:00:09 +0000</pubDate>
+      
+      <guid>/posts/2013-05-16-starting-php-3/</guid>
+      <description>Eclipse の調整 前回でインストールは終わったのでこまい設定をします。
+なるべく素の状態で使う主義ですが、以下の設定はしときます。
+Window-Preferences設定画面を開いて。
+General-&amp;gt;Keys　Command:[Next Editor] の Binding　を　Ctrl+Tab　に。
+ 同じくGeneral-&amp;gt;Workspace　の　text file encoding　を Other UTF-8　に。
+ Run/Debug-&amp;gt;Launching の Launch Option　を　Always Launch …に
+ Hello world 一応環境ができたので、簡単なプログラムを作って実行してみます。
+File-New-PHP Projectで新しいProjectを作ります。
+Project name : HelloWorld
+Contects を Create Project at existing locationにして
+Directory を xmappのhtdocs以下のHelloWorldにします。
+ ほかは良くわからんのでデフォルトで。[Next]-&amp;gt;[Next]-&amp;gt;[Finish]！
+こんな感じでProjectができました。
+ 物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。
+ プロジェクトの名前を右クリックで[New]-[PHP File]
+File Nameをindex.phpに。
+ [Use PHP Template]はOnにして、[New PHP file &amp;#8211; HTML frameset]を選択して[Finish]!</description>
+    </item>
+    
+  </channel>
+</rss>

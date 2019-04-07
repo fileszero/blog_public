@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on My New Hugo Site</title>
+    <link>/categories/vim/</link>
+    <description>Recent content in Vim on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Aug 2014 07:37:32 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>railsでvimのお勉強#2</title>
+      <link>/posts/2014-08-05-sutadying-rails-and-vim-2/</link>
+      <pubDate>Tue, 05 Aug 2014 07:37:32 +0000</pubDate>
+      
+      <guid>/posts/2014-08-05-sutadying-rails-and-vim-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014-08-05-sutadying-rails-and-vim-1&#34; title=&#34;railsでvimのお勉強#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;OSセットアップからrailsアプリの作成までやりました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>railsでvimのお勉強#1</title>
+      <link>/posts/2014-08-05-sutadying-rails-and-vim-1/</link>
+      <pubDate>Tue, 05 Aug 2014 02:30:26 +0000</pubDate>
+      
+      <guid>/posts/2014-08-05-sutadying-rails-and-vim-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.vim.org/&#34; target=&#34;_blank&#34;&gt;vim&lt;/a&gt;、プログラマならみんな手足のように使えますよね。&lt;/p&gt;
+
+&lt;p&gt;ま、自分はまったく使えませんが。&lt;/p&gt;
+
+&lt;p&gt;vim、マスターすれば魔法のようにコードが湧いてくるとか、VBな人もマシン語が２進で読めるようになるとか噂なので、&lt;/p&gt;
+
+&lt;p&gt;前々から使えるようになりたいと思ってたんですわ。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、どっぷりwindowsな人生なので使う機会もあまりなく、sakuraとかvisual studioとかで事足りてしまうわけです。&lt;/p&gt;
+
+&lt;p&gt;という事で、ターミナル経由のlinuxでrailsのお勉強をして、vimをマスターしてしまおうという企画の作業メモです。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

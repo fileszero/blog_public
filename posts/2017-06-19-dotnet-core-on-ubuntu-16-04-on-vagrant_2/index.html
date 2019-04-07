@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;&lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;&lt;p&gt;本命は&lt;a href=&#34;https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu&#34; target=&#34;_blank&#34;&gt;SQL Server on Linux&lt;/a&gt;なんですが、&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;なんで、却下。&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;&lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;&lt;p&gt;本命は&lt;a href=&#34;https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu&#34; target=&#34;_blank&#34;&gt;SQL Server on Linux&lt;/a&gt;なんですが、&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;なんで、却下。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/">
+<meta name="twitter:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;&lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;&lt;p&gt;本命は&lt;a href=&#34;https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu&#34; target=&#34;_blank&#34;&gt;SQL Server on Linux&lt;/a&gt;なんですが、&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;なんで、却下。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-06-19T03:17:49JST",
+    "dateModified": "2017-06-19T03:17:49JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1" target="_blank">前回</a>、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。</p>
+
+<p>DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。</p>
+
+<p>本命は<a href="https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu" target="_blank">SQL Server on Linux</a>なんですが、</p>
+
+<blockquote>
+<p>You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements</p>
+</blockquote>
+
+<p>なんで、却下。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000129.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-19T03:17:49JST">Jun 19, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&text=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&t=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232 %2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1" target="_blank">前回</a>、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。</p>
+
+<p>DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。</p>
+
+<p>本命は<a href="https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu" target="_blank">SQL Server on Linux</a>なんですが、</p>
+
+<blockquote>
+<p>You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements</p>
+</blockquote>
+
+<p>なんで、却下。</p>
+
+<h3 id="postgresqlインストール">PostgreSQLインストール</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo apt-get update
+vagrant@vagrant:~$ sudo apt-get install postgresql postgresql-contrib</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="dbユーザーとdb作成">dbユーザーとDB作成</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ psql
+psql: FATAL:  role <span class="s2">&#34;vagrant&#34;</span> does not exist
+vagrant@vagrant:~$ sudo -i -u postgres
+postgres@vagrant:~$ createuser vagrant
+postgres@vagrant:~$ createdb aspnetdb -O vagrant       <span class="c1">#本番用</span>
+postgres@vagrant:~$ createdb aspnetdb_dev -O vagrant   <span class="c1">#開発用</span>
+postgres@vagrant:~$ psql -l
+                                   List of databases
+     Name     <span class="p">|</span>  Owner   <span class="p">|</span> Encoding <span class="p">|</span>   Collate   <span class="p">|</span>    Ctype    <span class="p">|</span>   Access privileges
+--------------+----------+----------+-------------+-------------+-----------------------
+ aspnetdb     <span class="p">|</span> vagrant  <span class="p">|</span> UTF8     <span class="p">|</span> en_US.UTF-8 <span class="p">|</span> en_US.UTF-8 <span class="p">|</span>
+ aspnetdb_dev <span class="p">|</span> vagrant  <span class="p">|</span> UTF8     <span class="p">|</span> en_US.UTF-8 <span class="p">|</span> en_US.UTF-8 <span class="p">|</span>
+ postgres     <span class="p">|</span> postgres <span class="p">|</span> UTF8     <span class="p">|</span> en_US.UTF-8 <span class="p">|</span> en_US.UTF-8 <span class="p">|</span>
+ template0    <span class="p">|</span> postgres <span class="p">|</span> UTF8     <span class="p">|</span> en_US.UTF-8 <span class="p">|</span> en_US.UTF-8 <span class="p">|</span> <span class="o">=</span>c/postgres          +
+              <span class="p">|</span>          <span class="p">|</span>          <span class="p">|</span>             <span class="p">|</span>             <span class="p">|</span> <span class="nv">postgres</span><span class="o">=</span>CTc/postgres
+ template1    <span class="p">|</span> postgres <span class="p">|</span> UTF8     <span class="p">|</span> en_US.UTF-8 <span class="p">|</span> en_US.UTF-8 <span class="p">|</span> <span class="o">=</span>c/postgres          +
+              <span class="p">|</span>          <span class="p">|</span>          <span class="p">|</span>             <span class="p">|</span>             <span class="p">|</span> <span class="nv">postgres</span><span class="o">=</span>CTc/postgres
+<span class="o">(</span><span class="m">5</span> rows<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ホストos-windows-から接続">ホストOS(Windows)から接続</h3>
+
+<p>Postgresに外部から接続可能にしとく。</p>
+
+<p>guestからhostは10.0.2.* に見えるらしい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo nano /etc/postgresql/9.5/main/postgresql.conf
+<span class="c1">#追記します</span>
+<span class="nv">listen_addresses</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+vagrant@vagrant:~$ sudo nano /etc/postgresql/9.5/main/pg_hba.conf
+<span class="c1">#追記します</span>
+host    all             vagrant         <span class="m">10</span>.0.2.1/24             trust
+
+vagrant@vagrant:~$ sudo systemctl restart postgresql</code></pre></td></tr></table>
+</div>
+</div>
+<p>Vagrantfileにポートマッピング追記</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;forwarded_port&#34;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">5432</span>
+<span class="c1"># $&gt;vagrant reload</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>windowsから接続テスト</p>
+
+<p><a href="https://www.pgadmin.org/" target="_blank">pgAdmin</a>をインストールします。pgadmin4-1.5-x86.exe</p>
+
+<p>サーバ追加で</p>
+
+<p>Host: localhost</p>
+
+<p>port: 5432</p>
+
+<p>database: aspnetdb_dev</p>
+
+<p>username: vagrant</p>
+
+<p>で追加</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000129.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000129_hu6e901edc3c620cdfe7ebb384482ce09d_30709_240x0_resize_q75_box.jpg" width="240"
+                height="263" data-original="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000129.jpg" />
+    </a>
+
+
+<p>ちゃんとつながればOK。</p>
+
+<h3 id="entity-framework-coreでコードファースト">Entity Framework coreでコードファースト</h3>
+
+<p>VS2017のPackage Manager Consoleで</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
+PM&gt; Install-Package Microsoft.EntityFrameworkCore.Tools -Version <span class="m">1</span>.1.1</code></pre></td></tr></table>
+</div>
+</div>
+<p>適当なサンプルとして<a href="https://docs.microsoft.com/en-us/ef/core/index" target="_blank">こちらのBloggingContext</a>をコピってきます。</p>
+
+<h4 id="接続設定">接続設定</h4>
+
+<p>サンプルのコンテキストクラスをpostgres向けに変更します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseSqlServer</span><span class="p">(</span><span class="s">@&#34;Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=True;&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>を</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseNpgsql</span><span class="p">(</span><span class="s">@&#34;Host=localhost;Database=aspnetdb_dev;Username=vagrant&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>に変更する。</p>
+
+<h4 id="db-migration">DB migration</h4>
+
+<p>Enable-Migrationは要らないみたいです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; Add-Migration InitialCreate
+PM&gt; Update-Database
+DDL系のSQLが出力されます。</code></pre></td></tr></table>
+</div>
+</div>
+<p>pgAdminでテーブルができてればOK。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000130.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000130_hu4c81068eeafb49dc01c53cac8d2f007d_36551_240x0_resize_q75_box.jpg" width="240"
+                height="338" data-original="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000130.jpg" />
+    </a>
+
+
+<h4 id="データ更新サンプル">データ更新サンプル</h4>
+
+<p>気の利いたもの作るのも面倒なので、AboutにアクセスでInsert、Homeでリスト表示するようなのにします。</p>
+
+<p>HomeControllerのIndexとAboutを</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">IActionResult</span> <span class="n">Index</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">BloggingContext</span><span class="p">()){</span>
+                <span class="kt">var</span> <span class="n">blogs</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Blogs</span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">b</span> <span class="p">=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Url</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
+                <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="n">blogs</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">IActionResult</span> <span class="n">About</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">ViewData</span><span class="na">[&#34;Message&#34;]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
+            <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">BloggingContext</span><span class="p">()){</span>
+                <span class="kt">var</span> <span class="n">blog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Blog</span> <span class="p">{</span> <span class="n">Url</span> <span class="p">=</span> <span class="s">&#34;http://sample.com/&#34;</span><span class="p">+</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;yyyyMMdd_hhmmssms&#34;</span><span class="p">)</span> <span class="p">};</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Blogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">blog</span><span class="p">);</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">View</span><span class="p">();</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>にします。</p>
+
+<p>index.cshtmlの先頭部分を</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">@model</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WebApplication3</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">Blog</span><span class="p">&gt;</span>
+<span class="err">@</span><span class="p">{</span>
+    <span class="n">ViewData</span><span class="na">[&#34;Title&#34;]</span> <span class="p">=</span> <span class="s">&#34;Home Page&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">&lt;</span><span class="n">ol</span><span class="p">&gt;</span>
+    <span class="n">@foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">blog</span> <span class="k">in</span> <span class="n">Model</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="p">&lt;</span><span class="n">li</span> <span class="p">&gt;</span><span class="err">@</span><span class="p">(</span><span class="n">blog</span><span class="p">.</span><span class="n">Url</span><span class="p">)&lt;/</span><span class="n">li</span><span class="p">&gt;</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="n">ol</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>こんな感じにします。</p>
+
+<p>Aboutに何度かアクセスした後Indexにリストが出てればOK。
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000131.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000131_huba809438124edb7b6ee4268ab3a90d80_31472_240x0_resize_q75_box.jpg" width="240"
+                height="169" data-original="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000131.jpg" />
+    </a>
+</p>
+
+<p>ついでにpgAdminでデータを見てみるとちゃんとできてます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000132.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000132_hua15750bc985ef64009b59777677aaac1_71995_240x0_resize_q75_box.jpg" width="240"
+                height="167" data-original="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000132.jpg" />
+    </a>
+
+
+<p>Windows上のasp.net mvcからubuntuのpostgresを使えたんですが、asp.net mvcをubuntuで動かすにはまだいろいろやらねばならなさそうです。</p>
+
+<p>長いんで、<a href="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3" target="_blank">次回に続く</a><del datetime="2017-06-19T14:10:08+00:00">予定</del>。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&text=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&t=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%232 %2fposts%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/linux/">linux</a></li>
+          
+          <li><a href="/categories/vagrant/">vagrant</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/CAP000127.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-15T03:53:51JST">Jun 15, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/CAP000133.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-19T13:40:34JST">Jun 19, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

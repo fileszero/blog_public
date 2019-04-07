@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2014-11-21-try-node-js-with-windows-1/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>node.jsを使ってみる(Windows)#1 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;node.js流行ってますね。むしろもう一般常識？&lt;/p&gt;&lt;p&gt;いまさらですがちょっといじってみます。&lt;/p&gt;&lt;h3 id=&#34;node-jsって&#34;&gt;node.jsって？&lt;/h3&gt;&lt;p&gt;自分的にはザックリ、&lt;/p&gt;&lt;p&gt;&lt;strong&gt;JavaScriptインタプリタ　＋　便利ライブラリ&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;と理解しときます。&lt;/p&gt;&lt;p&gt;スゲー進化したBASICみたいなもんですな。&lt;/p&gt;">
+
+<meta property="og:title" content="node.jsを使ってみる(Windows)#1 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2014-11-21-try-node-js-with-windows-1/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;node.js流行ってますね。むしろもう一般常識？&lt;/p&gt;&lt;p&gt;いまさらですがちょっといじってみます。&lt;/p&gt;&lt;h3 id=&#34;node-jsって&#34;&gt;node.jsって？&lt;/h3&gt;&lt;p&gt;自分的にはザックリ、&lt;/p&gt;&lt;p&gt;&lt;strong&gt;JavaScriptインタプリタ　＋　便利ライブラリ&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;と理解しときます。&lt;/p&gt;&lt;p&gt;スゲー進化したBASICみたいなもんですな。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2014-11-21-try-node-js-with-windows-1/">
+<meta name="twitter:title" content="node.jsを使ってみる(Windows)#1 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;node.js流行ってますね。むしろもう一般常識？&lt;/p&gt;&lt;p&gt;いまさらですがちょっといじってみます。&lt;/p&gt;&lt;h3 id=&#34;node-jsって&#34;&gt;node.jsって？&lt;/h3&gt;&lt;p&gt;自分的にはザックリ、&lt;/p&gt;&lt;p&gt;&lt;strong&gt;JavaScriptインタプリタ　＋　便利ライブラリ&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;と理解しときます。&lt;/p&gt;&lt;p&gt;スゲー進化したBASICみたいなもんですな。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "node.jsを使ってみる(Windows)#1 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-11-21T04:01:13JST",
+    "dateModified": "2014-11-21T04:01:13JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>node.js流行ってますね。むしろもう一般常識？</p>
+
+<p>いまさらですがちょっといじってみます。</p>
+
+<h3 id="node-jsって">node.jsって？</h3>
+
+<p>自分的にはザックリ、</p>
+
+<p><strong>JavaScriptインタプリタ　＋　便利ライブラリ</strong></p>
+
+<p>と理解しときます。</p>
+
+<p>スゲー進化したBASICみたいなもんですな。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-11-21-try-node-js-with-windows-1/CAP000052.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">node.jsを使ってみる(Windows)#1</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-21T04:01:13JST">Nov 21, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&text=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&t=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231 %2fposts%2f2014-11-21-try-node-js-with-windows-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>node.js流行ってますね。むしろもう一般常識？</p>
+
+<p>いまさらですがちょっといじってみます。</p>
+
+<h3 id="node-jsって">node.jsって？</h3>
+
+<p>自分的にはザックリ、</p>
+
+<p><strong>JavaScriptインタプリタ　＋　便利ライブラリ</strong></p>
+
+<p>と理解しときます。</p>
+
+<p>スゲー進化したBASICみたいなもんですな。</p>
+
+<h3 id="install">Install</h3>
+
+<p>Windows7 64bitです。</p>
+
+<p><a href="http://nodejs.org/" target="_blank"><a href="http://nodejs.org/">http://nodejs.org/</a></a>のINSTALLをクリック。</p>
+
+<p>node-v0.10.33-x64.msiがダウンロードされましたんで、実行。</p>
+
+<p>デフォルトのまま次＞次…</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-11-21-try-node-js-with-windows-1/CAP000052.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-11-21-try-node-js-with-windows-1/CAP000052_hu95cb4697240771eddab1c4fe9427fce7_46308_240x0_resize_q75_box.jpg" width="240"
+                height="187" data-original="/posts/2014-11-21-try-node-js-with-windows-1/CAP000052.jpg" />
+    </a>
+
+
+<p>インストールが終了するとスタートメニューにnode.jsが追加されます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-11-21-try-node-js-with-windows-1/CAP000053.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-11-21-try-node-js-with-windows-1/CAP000053_hu431cd30116345a5ef010888b75b2fbff_10126_240x0_resize_q75_box.jpg" width="240"
+                height="118" data-original="/posts/2014-11-21-try-node-js-with-windows-1/CAP000053.jpg" />
+    </a>
+
+
+<p>上から</p>
+
+<dl>
+<dt>Node.js command prompt</dt>
+<dd>node.js用に環境設定されたコマンドプロンプト。サーバ起動とかnpmとか、作業するときはこれか？</dd>
+<dt>Node.js documentation</dt>
+<dd>ドキュメントサイトへのリンク</dd>
+<dt>Node.js website</dt>
+<dd>node.js本家サイトへのリンク</dd>
+<dt>Node.js</dt>
+<dd>Node.js(node.exe)そのもの起動。対話型のインターフェース。1+1とか実行できます。</dd>
+</dl>
+
+<h3 id="tutorial">Tutorial</h3>
+
+<p>ど素人なので<a href="http://nodeschool.io/" target="_blank">NodeSchool</a>のチュートリアルをやってみます。</p>
+
+<p>&#8220;Node.js command prompt&#8221;を開いて、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="se">\&gt;</span>npm install -g javascripting
+<span class="se">\&gt;</span>javascripting</code></pre></td></tr></table>
+</div>
+</div>
+<p>なにやらメニューが表示されます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-11-21-try-node-js-with-windows-1/CAP000054.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-11-21-try-node-js-with-windows-1/CAP000054_huc892c85ed1baf616c25bdcf4d5c51bde_13275_240x0_resize_q75_box.jpg" width="240"
+                height="110" data-original="/posts/2014-11-21-try-node-js-with-windows-1/CAP000054.jpg" />
+    </a>
+
+
+<p>&#8220;INTRODUCTION&#8221;を選んでみます。</p>
+
+<p>なにやら、英語の文書が表示されます…</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-11-21-try-node-js-with-windows-1/CAP000055.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-11-21-try-node-js-with-windows-1/CAP000055_hu77086d22a3811b5d0f31bcfaf9b0edde_20813_240x0_resize_q75_box.jpg" width="240"
+                height="122" data-original="/posts/2014-11-21-try-node-js-with-windows-1/CAP000055.jpg" />
+    </a>
+
+
+<p>なんというか、、、単なるドキュメントじゃだめなんでしょうか？</p>
+
+<p>とりあえず言われたとおりにやってみます。</p>
+
+<p>作業用フォルダは D:\nodejs にしました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">D:<span class="se">\n</span>odejs&gt;mkdir javascripting
+D:<span class="se">\n</span>odejs&gt;cd javascripting
+D:<span class="se">\n</span>odejs<span class="se">\j</span>avascripting&gt;vim introduction.js   <span class="c1">#チュートリアルではtouchして好きなエディタで編集となっとりました。</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">console.log(&#39;hello&#39;);</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">D:<span class="se">\n</span>odejs<span class="se">\j</span>avascripting&gt;javascripting verify introduction.js</code></pre></td></tr></table>
+</div>
+</div>
+<p>うまくいくと、お褒めの言葉と解説が表示されるようです。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-11-21-try-node-js-with-windows-1/CAP000056.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-11-21-try-node-js-with-windows-1/CAP000056_hu5591f0906222ef7ae96277c212888e4b_22019_240x0_resize_q75_box.jpg" width="240"
+                height="123" data-original="/posts/2014-11-21-try-node-js-with-windows-1/CAP000056.jpg" />
+    </a>
+
+
+<p>、、、単なるドキュメントじゃだめなんでしょうか？</p>
+
+<p>再度　javascripting を実行すると、先のメニュー画面に戻り、次のステップに進みます。</p>
+
+<p>INTRODUCTIONに[COMPLETED]がついてますね。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-11-21-try-node-js-with-windows-1/CAP000057.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-11-21-try-node-js-with-windows-1/CAP000057_hu5e4d93c47aeaa5e6429fe1fa8094c2cd_15923_240x0_resize_q75_box.jpg" width="240"
+                height="61" data-original="/posts/2014-11-21-try-node-js-with-windows-1/CAP000057.jpg" />
+    </a>
+
+
+<p>次は&#8221;VARIABLES&#8221;…と順に進めていきます。</p>
+
+<p>進めると[COMPLETED]が増えますんで、かすかな達成感があります。所要時間は１時間ぐらいでしょうか。</p>
+
+<p>javascripting はjavascriptのチュートリアルなのでやらなくていいかも。</p>
+
+<p>次にlearnyounode行ってみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">D:<span class="se">\n</span>odejs&gt;npm install learnyounode -g
+D:<span class="se">\n</span>odejs&gt;mkdir learnyounode
+D:<span class="se">\n</span>odejs&gt;cd learnyounode
+D:<span class="se">\n</span>odejs<span class="se">\l</span>earnyounode&gt; learnyounode</code></pre></td></tr></table>
+</div>
+</div>
+<p>&#8220;MY FIRST I/O!&#8221;あたりからnode.jsっぽい内容になってきます。</p>
+
+<h3 id="exercise別メモ">Exercise別メモ</h3>
+
+<h4 id="http-client">HTTP CLIENT</h4>
+
+<h5 id="けっこう深い継承">けっこう深い継承</h5>
+
+<p>callbackに渡されてくるresponseオブジェクトのon()とかsetEncodingとか、ドキュメントにないっすけど。。。</p>
+
+<p>よくよく読んでみると、responseは<strong>http.ServerResponsではなく</strong>http.IncomingMessageというもの（クラスではないらしい。匿名クラス？）で、こいつが Readable Streamってインターフェースを実装してますよとの事。</p>
+
+<p>Readable Streamの説明にはsetEncodingとか&#8221;data&#8221;イベントとかの説明がありますね。</p>
+
+<h5 id="んじゃon-は">んじゃon()は？</h5>
+
+<p>Readable StreamはStreamってインターフェースの実装らしく、このStreamがさらにEventEmitterのインスタンスだよとの事。</p>
+
+<p>EventEmitterにon()の定義が在りました。</p>
+
+<p>JavaScriptだからか、実装とかインスタンスとかって言葉がごちゃまぜに出てきますな。きちんと理解しないとハマるポイントになりそう。。。だけど今はスルー。</p>
+
+<h4 id="http-collect">HTTP COLLECT</h4>
+
+<p>チュートリアルで3rdパーティーライブラリつかうんか。bl使います。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">D:<span class="se">\n</span>odejs<span class="se">\l</span>earnyounode&gt;npm install bl
+bl@0.9.3 node_modules<span class="se">\b</span>l
+└── readable-stream@1.0.33 <span class="o">(</span>isarray@0.0.1, inherits@2.0.1, string_decoder@0.10.31, core-util-is@1.0.1<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="http-uppercaserer">HTTP UPPERCASERER</h4>
+
+<p>こちらでもパッケージ追加。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">D:<span class="se">\n</span>odejs<span class="se">\l</span>earnyounode&gt;npm install through2-map
+through2-map@1.4.0 node_modules<span class="se">\t</span>hrough2-map
+├── xtend@3.0.0
+├── terminus@1.0.11 <span class="o">(</span>xtend@4.0.0, readable-stream@1.0.33<span class="o">)</span>
+└── through2@0.5.1 <span class="o">(</span>readable-stream@1.0.33<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>という事で、javascriptingとlearnyounodeやったわけですが、</p>
+
+<p>node.js自体はJavaScriptなわけだから、激しく難しいわけではないですな。</p>
+
+<p>英語がよくわかんないけど。</p>
+
+<p>次はなんかちっさいツール作ってみるかも。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&text=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&t=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-11-21-try-node-js-with-windows-1%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%231 %2fposts%2f2014-11-21-try-node-js-with-windows-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">node.jsを使ってみる(Windows)#1</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/node.js/">node.js</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2014-11-12-raspberrypiwifistable3/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Raspberry Pi &#43; WiFiを安定させるVer3</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-12T13:52:29JST">Nov 12, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2014-11-22-try-node-js-with-windows-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-11-22-try-node-js-with-windows-2/CAP000058.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">node.jsを使ってみる(Windows) #2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-21T15:26:51JST">Nov 21, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

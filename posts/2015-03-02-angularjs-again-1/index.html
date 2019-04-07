@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-03-02-angularjs-again-1/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>再度AngularJS(#1) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;http://www.buildinsider.net/web/popularjslib/2015&#34; target=&#34;_blank&#34;&gt;JavaScriptライブラリ人気調査&lt;/a&gt;によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。&lt;/p&gt;&lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;">
+
+<meta property="og:title" content="再度AngularJS(#1) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-03-02-angularjs-again-1/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;http://www.buildinsider.net/web/popularjslib/2015&#34; target=&#34;_blank&#34;&gt;JavaScriptライブラリ人気調査&lt;/a&gt;によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。&lt;/p&gt;&lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-03-02-angularjs-again-1/">
+<meta name="twitter:title" content="再度AngularJS(#1) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;http://www.buildinsider.net/web/popularjslib/2015&#34; target=&#34;_blank&#34;&gt;JavaScriptライブラリ人気調査&lt;/a&gt;によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。&lt;/p&gt;&lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "再度AngularJS(#1) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-03-02T05:22:43JST",
+    "dateModified": "2015-03-02T05:22:43JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="http://www.buildinsider.net/web/popularjslib/2015" target="_blank">JavaScriptライブラリ人気調査</a>によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。</p>
+
+<p>MS謹製ということでKnockout.js使ってしまってちょっと後悔。</p>
+
+<p>Visual Studio 2013 Community Editionも出ましたし、<a href="/posts/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1(サーバ側)" target="_blank">以前にさらっと</a>いじったAngularJSを新しめの環境で使ってみたいと思います、</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-03-02-angularjs-again-1/WSW000001.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">再度AngularJS(#1)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-02T05:22:43JST">Mar 2, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-03-02-angularjs-again-1%2f&title=%e5%86%8d%e5%ba%a6AngularJS%28%231%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-03-02-angularjs-again-1%2f&text=%e5%86%8d%e5%ba%a6AngularJS%28%231%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-03-02-angularjs-again-1%2f&t=%e5%86%8d%e5%ba%a6AngularJS%28%231%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-03-02-angularjs-again-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-03-02-angularjs-again-1%2f&title=%e5%86%8d%e5%ba%a6AngularJS%28%231%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?%e5%86%8d%e5%ba%a6AngularJS%28%231%29 %2fposts%2f2015-03-02-angularjs-again-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="http://www.buildinsider.net/web/popularjslib/2015" target="_blank">JavaScriptライブラリ人気調査</a>によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。</p>
+
+<p>MS謹製ということでKnockout.js使ってしまってちょっと後悔。</p>
+
+<p>Visual Studio 2013 Community Editionも出ましたし、<a href="/posts/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1(サーバ側)" target="_blank">以前にさらっと</a>いじったAngularJSを新しめの環境で使ってみたいと思います、</p>
+
+<p>開発環境はVisual Studio 2013 Community Edition。</p>
+
+<p><a href="http://js.studio-kingdom.com/angularjs" target="_blank">こちらのページ</a>のTodoサンプルをASP.NETで焼き直します。</p>
+
+<p>WebAPI使って永続化をサポートするようにします。</p>
+
+<h3 id="プロジェクト">プロジェクト</h3>
+
+<p>フレームワークは「.Net Framework 4.5.1」</p>
+
+<p>テンプレートは[Visual C#] &#8211; [Web] &#8211; [ASP.NET Web Application]</p>
+
+<p>名前は適当にAGSampleとしました。</p>
+
+<p>さらにサブテンプレート(?)で[Empty]を選択、[MVC]にチェックを入れてOK。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-03-02-angularjs-again-1/WSW000001.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-03-02-angularjs-again-1/WSW000001_hu4fad36aba40e5cded4900badfd4898b0_57082_240x0_resize_q75_box.jpg" width="240"
+                height="179" data-original="/posts/2015-03-02-angularjs-again-1/WSW000001.jpg" />
+    </a>
+
+
+<p>参照設定とか細かくされてますけど、ソースファイルとして作られるのはそんなに多くありません。gitで見るとわかりやすい（？）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="se">\A</span>GSample&gt;git add .
+<span class="se">\A</span>GSample&gt;git status
+On branch master
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">&#34;git reset HEAD &lt;file&gt;...&#34;</span> to unstage<span class="o">)</span>
+
+        new file:   AGSample.sln
+        new file:   AGSample/AGSample.csproj
+        new file:   AGSample/App_Start/RouteConfig.cs
+        new file:   AGSample/Global.asax
+        new file:   AGSample/Global.asax.cs
+        new file:   AGSample/Properties/AssemblyInfo.cs
+        new file:   AGSample/Views/web.config
+        new file:   AGSample/Web.Debug.config
+        new file:   AGSample/Web.Release.config
+        new file:   AGSample/Web.config
+        new file:   AGSample/packages.config</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ライブラリ追加">ライブラリ追加</h3>
+
+<p>NuGetで</p>
+
+<p><a href="https://www.nuget.org/packages/angularjs/1.3.13" target="_blank">AngularJS </a></p>
+
+<p><a href="https://www.nuget.org/packages/EntityFramework" target="_blank">EntityFramework </a></p>
+
+<p><a href="https://www.nuget.org/packages/EntityFramework.SqlServerCompact/6.1.2" target="_blank">EntityFramework.SqlServerCompact</a></p>
+
+<p>をインストールします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; Install-Package angularjs -Version <span class="m">1</span>.3.13
+PM&gt; Install-Package EntityFramework -Version <span class="m">6</span>.1.2
+PM&gt; Install-Package EntityFramework.SqlServerCompact -Version <span class="m">6</span>.1.2</code></pre></td></tr></table>
+</div>
+</div>
+<p>バージョン部分は現時点での最新安定版。</p>
+
+<h3 id="model">Model</h3>
+
+<p><a href="http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application" target="_blank">この辺り</a>を斜め読みして、かなり端折ってます。</p>
+
+<p>ModelsフォルダTodo.csを追加。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.ComponentModel.DataAnnotations.Schema</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Web</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">AGSample.Models</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Todo</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Text</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">bool</span> <span class="n">Done</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>DALフォルダを作って、AGSampleContext.csとAGSampleInitializer.csを追加。(DAL:Data Access Layer)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">AGSample.Models</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Data.Entity</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Web</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">AGSample.DAL</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">AGSampleContext</span> <span class="p">:</span> <span class="n">DbContext</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">AGSampleContext</span><span class="p">()</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="s">&#34;AGSampleDb&#34;</span><span class="p">){}</span> <span class="c1">//connection string name
+</span><span class="c1"></span>        <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Todo</span><span class="p">&gt;</span> <span class="n">Todos</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">AGSample.Models</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Web</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">AGSample.DAL</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">AGSampleInitializer</span> <span class="p">:</span> <span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Entity</span><span class="p">.</span><span class="n">DropCreateDatabaseIfModelChanges</span><span class="p">&lt;</span><span class="n">AGSampleContext</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="n">Seed</span><span class="p">(</span><span class="n">AGSampleContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">todos</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Todo</span><span class="p">&gt;</span> <span class="p">{</span>
+                <span class="k">new</span> <span class="n">Todo</span><span class="p">{</span><span class="n">Text</span><span class="p">=</span><span class="s">&#34;AngularJSの学習&#34;</span><span class="p">,</span><span class="n">Done</span><span class="p">=</span><span class="k">false</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Todo</span><span class="p">{</span><span class="n">Text</span><span class="p">=</span><span class="s">&#34;AngularJSのアプリケーション構築&#34;</span><span class="p">,</span><span class="n">Done</span><span class="p">=</span><span class="k">false</span><span class="p">},</span>
+            <span class="p">};</span>
+            <span class="n">todos</span><span class="p">.</span><span class="n">ForEach</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="n">context</span><span class="p">.</span><span class="n">Todos</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+            <span class="n">context</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>web.configに接続文字列とInitializerの設定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;/configSections&gt;</span>
+  <span class="nt">&lt;connectionStrings&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&#34;AGSampleDb&#34;</span> <span class="na">connectionString=</span><span class="s">&#34;Data Source=|DataDirectory|\AGSampleDatabase.sdf&#34;</span> <span class="na">providerName=</span><span class="s">&#34;System.Data.SqlServerCe.4.0&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/connectionStrings&gt;</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;entityFramework&gt;</span>
+    <span class="nt">&lt;contexts&gt;</span>
+      <span class="nt">&lt;context</span> <span class="na">type=</span><span class="s">&#34;AGSample.DAL.AGSampleContext, AGSample&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;databaseInitializer</span> <span class="na">type=</span><span class="s">&#34;AGSample.DAL.AGSampleInitializer, AGSample&#34;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/context&gt;</span>
+    <span class="nt">&lt;/contexts&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ここでいったんコンパイル。</p>
+
+<h3 id="controller-for-api">Controller(for API)</h3>
+
+<p>Controllersで右クリック [Add]-[Controller]で「Web API 2 Controller with actions,using Entity Framework」を選択。</p>
+
+<p>ModelにTodo、Data ContextにAGSampleContext、せっかくなのでasyncなオプションをONにして、名前は「TodoesController」にしました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-03-02-angularjs-again-1/WSW000002.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-03-02-angularjs-again-1/WSW000002_huef1725b615a294c64a68cc0ad136c157_21489_240x0_resize_q75_box.jpg" width="240"
+                height="100" data-original="/posts/2015-03-02-angularjs-again-1/WSW000002.jpg" />
+    </a>
+
+
+<p>AddするとTodoesController.csが追加され、なにやらreadme.txtが表示されます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Visual Studio has added the full set of dependencies for ASP.NET Web API 2 to project &#39;AGSample&#39;. 
+
+The Global.asax.cs file in the project may require additional changes to enable ASP.NET Web API.
+
+1. Add the following namespace references:
+
+    using System.Web.Http;
+    using System.Web.Routing;
+
+2. If the code does not already define an Application_Start method, add the following method:
+
+    protected void Application_Start()
+    {
+    }
+
+3. Add the following lines to the beginning of the Application_Start method:
+
+    GlobalConfiguration.Configure(WebApiConfig.Register);</code></pre></td></tr></table>
+</div>
+</div>
+<p>言われた通り、Global.asax.cs のApplication_Start()に</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">System</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Http</span><span class="p">.</span><span class="n">GlobalConfiguration</span><span class="p">.</span><span class="n">Configure</span><span class="p">(</span><span class="n">WebApiConfig</span><span class="p">.</span><span class="n">Register</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加。</p>
+
+<p><strong>RouteConfig.RegisterRoutes(RouteTable.Routes);より前に追加しないとダメみたいです。</strong></p>
+
+<h3 id="controller-for-view">Controller(for View)</h3>
+
+<p>そろそろ実行したいので表示用ページとコントローラとして、View\Home\Index.cshtmlとControllers\HomeController.csを作成します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Web</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Web.Mvc</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">AGSample.Controllers</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">HomeController</span> <span class="p">:</span> <span class="n">Controller</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">ActionResult</span> <span class="n">Index</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">View</span><span class="p">();</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">@{
+    Layout = null;
+}
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="err">ng-app</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content=</span><span class="s">&#34;width=device-width&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>AngularJS Sample SPA<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;~/Scripts/angular.min.js&#34;</span><span class="nt">&gt;&lt;/script&gt;</span> <span class="c">&lt;!-- don&#39;t need Url.Content from MVC4--&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        Home\Index.cshtml
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ちなみにウイザードでMVC5用のViewを作るとjQueryとかbootstrapとか勝手にインストールされるので、今回は使用しません。</p>
+
+<p>View\Home\Index.cshtmlの編集ではインテリセンスが効きます！</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-03-02-angularjs-again-1/WSW000004.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-03-02-angularjs-again-1/WSW000004_hua3e82ba217e79ace413fbbdbcccfdea8_18801_240x0_resize_q75_box.jpg" width="240"
+                height="197" data-original="/posts/2015-03-02-angularjs-again-1/WSW000004.jpg" />
+    </a>
+
+
+<p>やったね！</p>
+
+<p>デバッグで<a href="http://localhost:????/api/todoes">http://localhost:????/api/todoes</a> にアクセスするとデータが出るはず。</p>
+
+<p>長くなったので、<a href="/posts/2015-03-02-angularjs-again-2" title="再度AngularJS(#2)" target="_blank">続きは次回</a>に…</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-03-02-angularjs-again-1%2f&title=%e5%86%8d%e5%ba%a6AngularJS%28%231%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-03-02-angularjs-again-1%2f&text=%e5%86%8d%e5%ba%a6AngularJS%28%231%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-03-02-angularjs-again-1%2f&t=%e5%86%8d%e5%ba%a6AngularJS%28%231%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-03-02-angularjs-again-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-03-02-angularjs-again-1%2f&title=%e5%86%8d%e5%ba%a6AngularJS%28%231%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?%e5%86%8d%e5%ba%a6AngularJS%28%231%29 %2fposts%2f2015-03-02-angularjs-again-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">再度AngularJS(#1)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-02-15-webdav-on-win7-cdrive-issue/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-02-15-webdav-on-win7-cdrive-issue/WS000098.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">OneDrive for Bisinessにバックアップする</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-02-15T07:00:41JST">Feb 15, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-03-02-angularjs-again-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-03-02-angularjs-again-2/WSW000005.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">再度AngularJS(#2)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-02T05:23:12JST">Mar 2, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

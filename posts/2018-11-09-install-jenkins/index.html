@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2018-11-09-install-jenkins/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Install Jenkins - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;いまさらながらJenkinsです。&lt;/p&gt;&lt;p&gt;みなさんJenkinsでCIでCDでAgileなDevOpsしてますよね。&lt;/p&gt;&lt;p&gt;しかし自分は&lt;/p&gt;&lt;ul&gt;&lt;li&gt;.Net/C#プロジェクトが多い。&lt;/li&gt;&lt;li&gt;一人プロジェクトが多い。&lt;/li&gt;&lt;li&gt;なんか利点がいまいちわからん。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ってことで使ってきませんでした。&lt;/p&gt;&lt;p&gt;やってみないと良さがわからんのかも？ってことで、いまさらながら環境だけでも作ってみます。&lt;/p&gt;">
+
+<meta property="og:title" content="Install Jenkins - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2018-11-09-install-jenkins/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;いまさらながらJenkinsです。&lt;/p&gt;&lt;p&gt;みなさんJenkinsでCIでCDでAgileなDevOpsしてますよね。&lt;/p&gt;&lt;p&gt;しかし自分は&lt;/p&gt;&lt;ul&gt;&lt;li&gt;.Net/C#プロジェクトが多い。&lt;/li&gt;&lt;li&gt;一人プロジェクトが多い。&lt;/li&gt;&lt;li&gt;なんか利点がいまいちわからん。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ってことで使ってきませんでした。&lt;/p&gt;&lt;p&gt;やってみないと良さがわからんのかも？ってことで、いまさらながら環境だけでも作ってみます。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2018-11-09-install-jenkins/">
+<meta name="twitter:title" content="Install Jenkins - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;いまさらながらJenkinsです。&lt;/p&gt;&lt;p&gt;みなさんJenkinsでCIでCDでAgileなDevOpsしてますよね。&lt;/p&gt;&lt;p&gt;しかし自分は&lt;/p&gt;&lt;ul&gt;&lt;li&gt;.Net/C#プロジェクトが多い。&lt;/li&gt;&lt;li&gt;一人プロジェクトが多い。&lt;/li&gt;&lt;li&gt;なんか利点がいまいちわからん。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ってことで使ってきませんでした。&lt;/p&gt;&lt;p&gt;やってみないと良さがわからんのかも？ってことで、いまさらながら環境だけでも作ってみます。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Install Jenkins - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2018-11-09T02:32:35JST",
+    "dateModified": "2018-11-09T02:32:35JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>いまさらながらJenkinsです。</p>
+
+<p>みなさんJenkinsでCIでCDでAgileなDevOpsしてますよね。</p>
+
+<p>しかし自分は</p>
+
+<ul>
+<li>.Net/C#プロジェクトが多い。</li>
+<li>一人プロジェクトが多い。</li>
+<li>なんか利点がいまいちわからん。</li>
+</ul>
+
+<p>ってことで使ってきませんでした。</p>
+
+<p>やってみないと良さがわからんのかも？ってことで、いまさらながら環境だけでも作ってみます。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Install Jenkins</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-11-09-install-jenkins%2f&title=Install%20Jenkins" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-11-09-install-jenkins%2f&text=Install%20Jenkins&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-11-09-install-jenkins%2f&t=Install%20Jenkins" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-11-09-install-jenkins%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-11-09-install-jenkins%2f&title=Install%20Jenkins" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Install%20Jenkins %2fposts%2f2018-11-09-install-jenkins%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>いまさらながらJenkinsです。</p>
+
+<p>みなさんJenkinsでCIでCDでAgileなDevOpsしてますよね。</p>
+
+<p>しかし自分は</p>
+
+<ul>
+<li>.Net/C#プロジェクトが多い。</li>
+<li>一人プロジェクトが多い。</li>
+<li>なんか利点がいまいちわからん。</li>
+</ul>
+
+<p>ってことで使ってきませんでした。</p>
+
+<p>やってみないと良さがわからんのかも？ってことで、いまさらながら環境だけでも作ってみます。</p>
+
+<p>環境は</p>
+
+<p>Ubuntu 16.04 on Vagrant (masterにします)</p>
+
+<p>Windows 7 ( slave にします)</p>
+
+<p>です。</p>
+
+<p>.NetプロジェクトをCIしてみたいのでLinuxをmaster、windowsをslaveとした構成を作ります。</p>
+
+<h3 id="linux-master">Linux(master)</h3>
+
+<p>ちょい前に作った<a href="/posts/2018-08-30-upgrade-alminium-environment-1" rel="noopener" target="_blank">ALMinium(Redmine)環境</a>に追加します。</p>
+
+<h4 id="jenkins">Jenkins</h4>
+
+<p>see <a href="https://pkg.jenkins.io/debian/" rel="noopener" target="_blank"><a href="https://pkg.jenkins.io/debian/">https://pkg.jenkins.io/debian/</a></a></p>
+
+<p>see <a href="https://github.com/ayapapa/alminium/blob/master/jenkins/setup/debian/install.sh" rel="noopener" target="_blank"><a href="https://github.com/ayapapa/alminium/blob/master/jenkins/setup/debian/install.sh">https://github.com/ayapapa/alminium/blob/master/jenkins/setup/debian/install.sh</a></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">admin@vagrant:~$ sudo apt-get update
+admin@vagrant:~$ sudo apt-get install -y openjdk-8-jre-headless
+admin@vagrant:~$ wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key <span class="p">|</span> sudo apt-key add -
+admin@vagrant:~$ <span class="nb">echo</span> <span class="s2">&#34;deb https://pkg.jenkins.io/debian binary/&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/jenkins.list
+admin@vagrant:~$ sudo apt-get update
+admin@vagrant:~$ sudo apt-get -y install jenkins
+admin@vagrant:~$ sudo sed -i <span class="s1">&#39;s/JENKINS_ARGS=&#34;--webroot/JENKINS_ARGS=&#34;--prefix=\/jenkins --webroot/&#39;</span> /etc/default/jenkins
+admin@vagrant:~$ sudo service jenkins restart</code></pre></td></tr></table>
+</div>
+</div>
+<p>これで http://<em>linuxserver</em>:8080/jenkins でJenkinsが見れるはず。</p>
+
+<h4 id="apache-reverse-proxy">Apache reverse proxy</h4>
+
+<p>8080はかっこ悪いのでreverse proxyを設定します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">admin@vagrant:~$ sudo nano /etc/apache2/conf-available/jenkins.conf
+admin@vagrant:~$ cat /etc/apache2/conf-available/jenkins.conf
+ProxyPass           /jenkins http://127.0.0.1:8080/jenkins nocanon
+ProxyPassReverse    /jenkins http://127.0.0.1:8080/jenkins
+ProxyRequests       Off
+AllowEncodedSlashes NoDecode
+
+&lt;Proxy http://127.0.0.1:8080/jenkins*&gt;
+  Order deny,allow
+  Allow from all
+&lt;/Proxy&gt;
+admin@vagrant:~$ <span class="nb">cd</span> /etc/apache2/conf-enabled
+admin@vagrant:/etc/apache2/conf-enabled$ sudo ln -s ../conf-available/jenkins.conf
+admin@vagrant:/etc/apache2/conf-enabled$ sudo  systemctl restart apache2</code></pre></td></tr></table>
+</div>
+</div>
+<p>これで http://<em>linuxserver</em>/jenkins でもJenkinsが見れるはず。</p>
+
+<p>Jenkinsの管理&gt;システム設定&gt;Jenkinsの位置&gt;Jenkins URL を　http://<em>linuxserver</em>/jenkins/　にする。</p>
+
+<h4 id="plugin">Plugin</h4>
+
+<p>see <a href="https://blog.engineer-memo.com/2015/06/08/windows-%E3%81%AB-jenkins-%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%A6-windows-%E3%82%B9%E3%83%AC%E3%83%BC%E3%83%96%E3%82%92%E8%BF%BD%E5%8A%A0/" rel="noopener" target="_blank">windows Slave</a></p>
+
+<p>Windows Slaves</p>
+
+<h4 id="enable-jnlp">Enable JNLP</h4>
+
+<p>Jenkinsの管理&gt;グローバルセキュリティの設定&gt;Agents&gt;TCP port for JNLP agents&gt; 固定:50100</p>
+
+<h4 id="ノード作成">ノード作成</h4>
+
+<p>Jenkinsの管理&gt;ノードの管理&gt;新規ノード作成&gt;</p>
+
+<p>ノード名 : windows7</p>
+
+<p>リモートFSルート: c:\var\jenkins</p>
+
+<p>ラベル: windows</p>
+
+<p>用途: このマシーンを特定ジョブ専用にする</p>
+
+<p>起動方法:Launch agent via Java Web Start</p>
+
+<h4 id="ジョブ作成">ジョブ作成</h4>
+
+<p>「実行するノードを制限」をチェック、ラベル式に&#8221;windows7&#8243;</p>
+
+<p>他はジョブ毎に調整。</p>
+
+<h3 id="windows-slave">Windows(Slave)</h3>
+
+<h4 id="エージェントのインストール">エージェントのインストール</h4>
+
+<p>ブラウザでJenkinsにアクセスして、</p>
+
+<p>Jenkinsの管理&gt;ノードの管理&gt;windows7</p>
+
+<p>download slave-agent.jnlp (right click &#8220;Launch&#8221; Icon and download)</p>
+
+<p>open command prompt <strong>as Admin</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ javaws slave-agent.jnlp</code></pre></td></tr></table>
+</div>
+</div>
+<p>小さいウインドウが出るので、file&gt; install as a service を選択。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-11-09-install-jenkins/WS000039.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-11-09-install-jenkins/WS000039_hucdafb78d6daa5e7f484f7c7c098b87fc_9140_240x0_resize_q75_box.jpg" width="240"
+                height="144" data-original="/posts/2018-11-09-install-jenkins/WS000039.jpg" />
+    </a>
+
+
+<p>サービスとして登録されます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-11-09-install-jenkins/WS000040.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-11-09-install-jenkins/WS000040_hu8f97def229fcc32b49d94894ae3739f9_63097_240x0_resize_q75_box.jpg" width="240"
+                height="74" data-original="/posts/2018-11-09-install-jenkins/WS000040.jpg" />
+    </a>
+
+
+<h3 id="で">で</h3>
+
+<p>とりあえず環境はできました。</p>
+
+<p>試しに単純なコマンドラインツールをビルドするジョブを作ってみましたが、そんなに難しくは無いようです。</p>
+
+<p>ネット上の情報はほとんどlinuxを前提としているので、masterはlinuxに入れといたほうが無難だと思います。</p>
+
+<p>master/slave構成ってのができるって事と、slaveにはJenkinsインストール不要ってことを知らないと、</p>
+
+<p>いきなりWindowsにjenkinsをインストールしたりしますよね～。</p>
+
+<p>もしかしたら ASP.NET MVCなアプリのCI/CDに挑戦するかも。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-11-09-install-jenkins%2f&title=Install%20Jenkins" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-11-09-install-jenkins%2f&text=Install%20Jenkins&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-11-09-install-jenkins%2f&t=Install%20Jenkins" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-11-09-install-jenkins%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-11-09-install-jenkins%2f&title=Install%20Jenkins" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Install%20Jenkins %2fposts%2f2018-11-09-install-jenkins%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Install Jenkins</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/jenkins/">Jenkins</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

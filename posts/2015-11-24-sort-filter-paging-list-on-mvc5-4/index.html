@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;&lt;p&gt;今回は、検索ボックスひとつだけパターンで実装します。(けっしてめんどくさいわけではありません）&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;&lt;p&gt;今回は、検索ボックスひとつだけパターンで実装します。(けっしてめんどくさいわけではありません）&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/">
+<meta name="twitter:title" content="ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;&lt;p&gt;今回は、検索ボックスひとつだけパターンで実装します。(けっしてめんどくさいわけではありません）&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-11-24T12:02:21JST",
+    "dateModified": "2015-11-24T12:02:21JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3" target="_blank">前回</a>でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。</p>
+
+<p><a href="http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina" target="_blank">codeprojectのサンプル</a>だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。</p>
+
+<p>今回は、検索ボックスひとつだけパターンで実装します。(けっしてめんどくさいわけではありません）</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/WS000112.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-11-24T12:02:21JST">Nov 24, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&text=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&t=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234 %2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3" target="_blank">前回</a>でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。</p>
+
+<p><a href="http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina" target="_blank">codeprojectのサンプル</a>だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。</p>
+
+<p>今回は、検索ボックスひとつだけパターンで実装します。(けっしてめんどくさいわけではありません）</p>
+
+<h3 id="controller">controller</h3>
+
+<p>検索とか言っても、要はLINQのWhere句を足すだけなので、</p>
+
+<p>ロジックはcontrollerをちょっと変更するだけです。</p>
+
+<p>（ほんとはレポジトリクラスとかでやるのかな）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">ActionResult</span> <span class="n">Index</span><span class="p">(</span><span class="kt">string</span> <span class="n">sort</span><span class="p">,</span><span class="kt">string</span> <span class="n">filter</span><span class="p">)</span>   <span class="c1">//filter追加
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">query</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Articles</span><span class="p">.</span><span class="n">AsQueryable</span><span class="p">();</span>  <span class="c1">//データソース
+</span><span class="c1"></span>            <span class="c1">// filterロジック
+</span><span class="c1"></span>            <span class="k">if</span><span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">filter</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">query</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">a</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">filter</span><span class="p">)</span> <span class="p">||</span> <span class="n">a</span><span class="p">.</span><span class="n">Description</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">filter</span><span class="p">));</span>
+            <span class="p">}</span>
+ <span class="p">...</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>actionの引数にfilterを追加して、データソースとなるクエリにwhereを足してます。</p>
+
+<p>検索対象はTitleとDeacription.</p>
+
+<p>Viewには検索用のフォームを追加します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">@using (Html.BeginForm(new { sort = SortDef.SortKey })) {
+    @Html.TextBox(&#34;filter&#34;,&#34;test&#34;)
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&#34;submit&#34;</span> <span class="na">value=</span><span class="s">&#34;search&#34;</span> <span class="nt">/&gt;</span>
+    
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>動かすとかんな感じです。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/WS000112.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/WS000112_hufda38851f96696ab7aa80b0804d17237_26120_240x0_resize_q75_box.jpg" width="240"
+                height="69" data-original="/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/WS000112.jpg" />
+    </a>
+
+
+<h3 id="sortとfilterパラメータの保持">Sortとfilterパラメータの保持</h3>
+
+<p>一見いけているように見えますが、ソートすると検索フィルタがクリアされてしまいます。</p>
+
+<p>ソート用のActionLinkにフィルター情報が無いからですね。</p>
+
+<p>ひとまずViewBagでフィルター情報をViewに渡すようにします。</p>
+
+<h4 id="controller-1">controller</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ViewBag</span><span class="p">.</span><span class="n">SortDef</span> <span class="p">=</span> <span class="n">sort_def</span><span class="p">;</span>     <span class="c1">//リンク作成用にソート定義を渡す
+</span><span class="c1"></span>            <span class="n">ViewBag</span><span class="p">.</span><span class="n">InputedFilter</span> <span class="p">=</span> <span class="n">filter</span><span class="p">;</span> <span class="c1">//入力されたフィルター       ←追加
+</span><span class="c1"></span>            <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="n">query</span><span class="p">.</span><span class="n">ToList</span><span class="p">());</span>    <span class="c1">//ソート済み結果をViewに返す。
+</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="view">View</h4>
+
+<p>ViewではViewBagの内容をStringに詰め替えて各ソートリンクのrouteValueにセットします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">@{
+    ViewBag.Title = &#34;Index&#34;;
+    SortDefinition<span class="nt">&lt;Article&gt;</span> SortDef = ViewBag.SortDef;   //型付け
+    string InputedFilter = ViewBag.InputedFilter; //ユーザー入力フィルタ               ←追加
+}
+
+...
+...
+            @Html.ActionLink(
+         Html.DisplayNameFor(model =&gt; model.Url).ToString(),
+         &#34;Index&#34;, new { sort = SortDef.GetNextSortKey(model =&gt; model.Url) , filter = InputedFilter})</code></pre></td></tr></table>
+</div>
+</div>
+<p>一応、意図した動きをしているようですが、なんか書き方が冗長な気がします。</p>
+
+<p>後でもう少し簡潔に書けるように変更するかも。</p>
+
+<p>その前に、やる気が出たらページングを追加します。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&text=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&t=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%234 %2fposts%2f2015-11-24-sort-filter-paging-list-on-mvc5-4%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+          <li><a href="/categories/bootstrap/">bootstrap</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/WS000111.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#３</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-10-18T09:00:39JST">Oct 18, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-12-05-try-laravel-windows-setup/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-12-05-try-laravel-windows-setup/WS000113.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Laravel を使ってみる（Windowsセットアップ編)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-12-04T15:47:18JST">Dec 4, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

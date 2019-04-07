@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2017-11-08-use-log4js-slack-appender/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>log4jsのSlack Appenderを使ってみる(node&#43;typescript) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;https://slack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Slack&lt;/a&gt;流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。&lt;/p&gt;&lt;p&gt;さみしいんで、ログをSlackで読めるようにします。&lt;/p&gt;&lt;p&gt;きっとにぎやかになるね(泣)&lt;/p&gt;&lt;p&gt;使う環境は&lt;/p&gt;&lt;p&gt;node.js(v6.11.3)&lt;/p&gt;&lt;p&gt;typescript(2.5.3)&lt;/p&gt;&lt;p&gt;です。&lt;/p&gt;">
+
+<meta property="og:title" content="log4jsのSlack Appenderを使ってみる(node&#43;typescript) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2017-11-08-use-log4js-slack-appender/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;https://slack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Slack&lt;/a&gt;流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。&lt;/p&gt;&lt;p&gt;さみしいんで、ログをSlackで読めるようにします。&lt;/p&gt;&lt;p&gt;きっとにぎやかになるね(泣)&lt;/p&gt;&lt;p&gt;使う環境は&lt;/p&gt;&lt;p&gt;node.js(v6.11.3)&lt;/p&gt;&lt;p&gt;typescript(2.5.3)&lt;/p&gt;&lt;p&gt;です。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2017-11-08-use-log4js-slack-appender/">
+<meta name="twitter:title" content="log4jsのSlack Appenderを使ってみる(node&#43;typescript) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;https://slack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Slack&lt;/a&gt;流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。&lt;/p&gt;&lt;p&gt;さみしいんで、ログをSlackで読めるようにします。&lt;/p&gt;&lt;p&gt;きっとにぎやかになるね(泣)&lt;/p&gt;&lt;p&gt;使う環境は&lt;/p&gt;&lt;p&gt;node.js(v6.11.3)&lt;/p&gt;&lt;p&gt;typescript(2.5.3)&lt;/p&gt;&lt;p&gt;です。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "log4jsのSlack Appenderを使ってみる(node&#43;typescript) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-11-07T15:10:40JST",
+    "dateModified": "2017-11-07T15:10:40JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="https://slack.com/" rel="noopener" target="_blank">Slack</a>流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。</p>
+
+<p>さみしいんで、ログをSlackで読めるようにします。</p>
+
+<p>きっとにぎやかになるね(泣)</p>
+
+<p>使う環境は</p>
+
+<p>node.js(v6.11.3)</p>
+
+<p>typescript(2.5.3)</p>
+
+<p>です。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-11-08-use-log4js-slack-appender/CAP000183.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">log4jsのSlack Appenderを使ってみる(node&#43;typescript)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-11-07T15:10:40JST">Nov 7, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&title=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&text=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&t=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&title=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29 %2fposts%2f2017-11-08-use-log4js-slack-appender%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="https://slack.com/" rel="noopener" target="_blank">Slack</a>流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。</p>
+
+<p>さみしいんで、ログをSlackで読めるようにします。</p>
+
+<p>きっとにぎやかになるね(泣)</p>
+
+<p>使う環境は</p>
+
+<p>node.js(v6.11.3)</p>
+
+<p>typescript(2.5.3)</p>
+
+<p>です。</p>
+
+<p><a href="https://github.com/log4js-node/log4js-node/blob/master/docs/slack.md" rel="noopener" target="_blank">配布元</a>を参考に設定していきます。</p>
+
+<h3 id="無いなら-slackワークスペース作成">(無いなら)Slackワークスペース作成</h3>
+
+<p><a href="https://slack.com/" rel="noopener" target="_blank">Slack</a>で”Create Workspace”。</p>
+
+<p>最初のユーザー(＝管理者)のメールアドレスを入力して画面の指示に従います。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000165_2.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000165_2_hu807adc4af2babf66c57e211dd513e596_72482_240x0_resize_q75_box.jpg" width="240"
+                height="121" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000165_2.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000166_2.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000166_2_hu752f8dbd6b4745a5ea2628c9ae462278_49812_240x0_resize_q75_box.jpg" width="240"
+                height="121" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000166_2.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000167.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000167_hu5d7596adf1892f16e4a6d7c26db7b8d1_42626_240x0_resize_q75_box.jpg" width="240"
+                height="121" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000167.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000168.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000168_hu5d7596adf1892f16e4a6d7c26db7b8d1_38113_240x0_resize_q75_box.jpg" width="240"
+                height="121" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000168.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000169.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000169_hu5ea00b27aa68366ebb58352509023b06_43303_240x0_resize_q75_box.jpg" width="240"
+                height="140" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000169.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000170.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000170_hu40ceddaac33d93789a318082fa5f92e3_31339_240x0_resize_q75_box.jpg" width="240"
+                height="126" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000170.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000171.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000171_hu40ceddaac33d93789a318082fa5f92e3_44272_240x0_resize_q75_box.jpg" width="240"
+                height="134" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000171.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000172.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000172_hu92c04046da3d4074953cad185e3935e5_26611_240x0_resize_q75_box.jpg" width="240"
+                height="134" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000172.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000173.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000173_hu73d0c72df28e6c0f791f98d2fa1ac521_43560_240x0_resize_q75_box.jpg" width="240"
+                height="156" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000173.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000174.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000174_hu73128dec63cbe7cca4a7da686e48337f_63373_240x0_resize_q75_box.jpg" width="240"
+                height="156" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000174.jpg" />
+    </a>
+
+
+<p>できた。</p>
+
+<h3 id="nodeプロジェクトの作成">nodeプロジェクトの作成</h3>
+
+<p>npm initなりpackage.json をコピーするなりしてnodeプロジェクトを作成します。</p>
+
+<p>絶対必要なパッケージはlog4jsですかね。</p>
+
+<p>token idなんかをgitに流さないようにするためconfigも使います。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; npm install log4js config --save</code></pre></td></tr></table>
+</div>
+</div>
+<p>その他もろもろ開発に必要なパッケージをインストールしてこんな感じになりました。</p>
+
+<script src="https://gist.github.com/fileszero/24acc61e4bf589e9a27f112bd456d5a0.js?file=package.json"></script>
+
+<p>npm installを忘れずに。</p>
+
+<h3 id="configファイルの作成">configファイルの作成</h3>
+
+<p>プロジェクトフォルダ下にconfigフォルダを作って、</p>
+
+<ul>
+<li>default.json</li>
+<li>development.json</li>
+<li>production.json</li>
+</ul>
+
+<p>の３ファイルを作ります。</p>
+
+<p>そのうちdevelopment,productionはgit管理から外すため、.gitignoreに</p>
+
+<script src="https://gist.github.com/fileszero/24acc61e4bf589e9a27f112bd456d5a0.js?file=.gitignore"></script>
+  
+
+<p>を追記。</p>
+
+<p><strong>これ忘れると機密情報が漏洩したりするんで要注意。</strong></p>
+
+<h4 id="config-default-json">config/default.json</h4>
+
+<p>とりあえずコンソールにのみ出力する設定にしておきます。</p>
+
+<script src="https://gist.github.com/fileszero/24acc61e4bf589e9a27f112bd456d5a0.js?file=config-default.json"></script>
+
+<h3 id="ログ書き出しプログラム">ログ書き出しプログラム</h3>
+
+<p>configの設定に基づいてログを吐くスクリプトを書きます。</p>
+
+<script src="https://gist.github.com/fileszero/24acc61e4bf589e9a27f112bd456d5a0.js?file=logWithConfig.ts"></script>
+
+<p>configを読むようにしておけばスクリプト変更なしで出力先の切り替えができます。</p>
+
+<p>実行するとコンソールに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">[2017-11-07 22:39:50.932] [FATAL] default - Some system messages
+[2017-11-07 22:39:50.932] [ERROR] default - Some error messages
+[2017-11-07 22:39:50.932] [WARN] default - Some warn messages
+[2017-11-07 22:39:50.932] [INFO] default - Some info messages
+[2017-11-07 22:39:50.932] [DEBUG] default - Some debug messages</code></pre></td></tr></table>
+</div>
+</div>
+<p>みたいに表示されます。</p>
+
+<h3 id="開発環境用設定追加-development-json">開発環境用設定追加(development.json)</h3>
+
+<p>試しにファイルにも出力するようにdevelopment.jsonを変更してみます。</p>
+
+<h4 id="config-development-json">config/development.json</h4>
+
+<script src="https://gist.github.com/fileszero/24acc61e4bf589e9a27f112bd456d5a0.js?file=config-development-1.json"></script>
+  
+
+<p>ここに書いた情報でdefault.jsonが上書きされます。</p>
+
+<p>これで実行するとコンソールと同じ内容がlogs/logWithConfig.logにも書き出されます。</p>
+
+<h3 id="slack-api-トークンの生成">Slack API トークンの生成</h3>
+
+<p><a href="https://api.slack.com/slack-apps" rel="noopener" target="_blank">公式のドキュメント</a>を参考にAPIトークンを生成します。</p>
+
+<p>まずは<a href="https://api.slack.com/apps/new" rel="noopener" target="_blank">アプリ作成</a>にアクセス。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000175.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000175_hu49487d14c16cb72ed0b19efe1621ee47_43061_240x0_resize_q75_box.jpg" width="240"
+                height="242" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000175.jpg" />
+    </a>
+
+
+<p>アプリ名と先に作ったワークスペースを入力し&#8221;Create App&#8221;</p>
+
+<p>アプリが作成されると<strong>Basic Information</strong>ページに移動するので、</p>
+
+<p>&#8220;Add features and functionality&#8221;セクションで&#8221;Permissions&#8221;を選んでみる。</p>
+
+<p>う～ん、log4jsが何使うかわからないけど、とりあえず&#8221;Send messages as log4jsSample&#8221;を許可しとく。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000180.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000180_hu32892b83e8766b1d0a794571dfc8a14e_43149_240x0_resize_q75_box.jpg" width="240"
+                height="192" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000180.jpg" />
+    </a>
+
+
+<p>&#8220;Basic Information&#8221;に戻って&#8221;Install your app to your workspace&#8221;で&#8221;Install App to Workspace&#8221;を押す。</p>
+
+<p>んで&#8221;Authorize&#8221;
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000181.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000181_hu5c3e858068ce6107a72fdf4a4d3e8a39_22747_240x0_resize_q75_box.jpg" width="240"
+                height="229" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000181.jpg" />
+    </a>
+</p>
+
+<p>**成功すると&#8221;OAuth &amp; Permissions&#8221;の&#8221;OAuth Access Token&#8221;に値が入ります。</p>
+
+<p>これがapi tokenになるみたいです。**</p>
+
+<h3 id="log4jsでslack-appenderの設定">log4jsでSlack Appenderの設定</h3>
+
+<p><a href="https://log4js-node.github.io/log4js-node/slack.html" rel="noopener" target="_blank">こちら</a>を参考にdevelopment.jsonに追記。</p>
+
+<h4 id="config-development-json-1">config/development.json</h4>
+
+<script src="https://gist.github.com/fileszero/24acc61e4bf589e9a27f112bd456d5a0.js?file=config-development-2.json"></script>
+
+<h3 id="実行">実行</h3>
+
+<p>上手くいくとslackにログが出ます。
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-11-08-use-log4js-slack-appender/CAP000182.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-11-08-use-log4js-slack-appender/CAP000182_hu68cbcd310f172082fc44852343b3ea3e_33053_240x0_resize_q75_box.jpg" width="240"
+                height="94" data-original="/posts/2017-11-08-use-log4js-slack-appender/CAP000182.jpg" />
+    </a>
+</p>
+
+<p>結構簡単だし、使い方によっては便利かと。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&title=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&text=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&t=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-11-08-use-log4js-slack-appender%2f&title=log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?log4js%e3%81%aeSlack%20Appender%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28node%2btypescript%29 %2fposts%2f2017-11-08-use-log4js-slack-appender%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">log4jsのSlack Appenderを使ってみる(node&#43;typescript)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/node.js/">node.js</a></li>
+          
+          <li><a href="/categories/typescript/">typescript</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2017-10-10-angularjs-httpd-content-type-trap/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-10-10-angularjs-httpd-content-type-trap/AngularJS.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">AngularJSの$httpdでファイルのアップロード(でハマった話)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-10-10T14:05:08JST">Oct 10, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2017-12-11-cannot-inject-changedetectorref-on-ng5/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-12-11-cannot-inject-changedetectorref-on-ng5/CAP000193-624x294.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Angular5でChangeDetectorRefをInject出来なかった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-12-11T07:17:18JST">Dec 11, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

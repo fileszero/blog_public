@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2018-02-14-try-azure-functions-on-local/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Azure Functionsの雰囲気をローカルで試す - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;&lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;&lt;p&gt;とはいえ、クラウドアカウント持ってないんでローカルで雰囲気だけでも感じてみます。&lt;/p&gt;&lt;p&gt;Azure Functionsです。&lt;/p&gt;">
+
+<meta property="og:title" content="Azure Functionsの雰囲気をローカルで試す - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2018-02-14-try-azure-functions-on-local/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;&lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;&lt;p&gt;とはいえ、クラウドアカウント持ってないんでローカルで雰囲気だけでも感じてみます。&lt;/p&gt;&lt;p&gt;Azure Functionsです。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2018-02-14-try-azure-functions-on-local/">
+<meta name="twitter:title" content="Azure Functionsの雰囲気をローカルで試す - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;&lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;&lt;p&gt;とはいえ、クラウドアカウント持ってないんでローカルで雰囲気だけでも感じてみます。&lt;/p&gt;&lt;p&gt;Azure Functionsです。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Azure Functionsの雰囲気をローカルで試す - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2018-02-14T07:06:30JST",
+    "dateModified": "2018-02-14T07:06:30JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>サーバーレス、流行ってますね。</p>
+
+<p>なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。</p>
+
+<p>とはいえ、クラウドアカウント持ってないんでローカルで雰囲気だけでも感じてみます。</p>
+
+<p>Azure Functionsです。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-02-14-try-azure-functions-on-local/CAP000207.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Azure Functionsの雰囲気をローカルで試す</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-02-14T07:06:30JST">Feb 14, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&title=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&text=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&t=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&title=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99 %2fposts%2f2018-02-14-try-azure-functions-on-local%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>サーバーレス、流行ってますね。</p>
+
+<p>なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。</p>
+
+<p>とはいえ、クラウドアカウント持ってないんでローカルで雰囲気だけでも感じてみます。</p>
+
+<p>Azure Functionsです。</p>
+
+<h3 id="開発環境">開発環境</h3>
+
+<p><a href="https://www.visualstudio.com/ja/downloads/" rel="noopener" target="_blank">Visual Studio 2017</a> + 「Azureの開発」</p>
+
+<p>Azure Functions Core (CLI) ツール</p>
+
+<p><a href="https://www.microsoft.com/net/download/dotnet-framework-runtime/net471" rel="noopener" target="_blank">.NET Framework 4.7.1</a></p>
+
+<p><a href="https://azure.microsoft.com/en-us/features/storage-explorer/" rel="noopener" target="_blank">Azure Storage Explorer</a></p>
+
+<p>「Azureの開発」はVS2017のメニューで「ツール」→「ツールと機能を取得」→「Azureの開発」</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000207.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000207_hu48df1ad1014a272c01b2ed8c1ff8d2fc_139354_240x0_resize_q75_box.jpg" width="240"
+                height="134" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000207.jpg" />
+    </a>
+
+
+<p>「Azure Functions Core (CLI) ツール」は初回デバッグ時にVSからインストールを要求されるので、指示に従ってインストール。</p>
+
+<h3 id="動かしてみる">動かしてみる</h3>
+
+<h4 id="プロジェクトの作成">プロジェクトの作成</h4>
+
+<p>VSで「ファイル」→「新規作成」→「プロジェクト」→「VisualC#」→「Cloud」→「Azure Functions」</p>
+
+<p>名前は「FunctionApp1」にしました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000208.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000208_huef5a12d9cddee741baf4438effe66f05_82799_240x0_resize_q75_box.jpg" width="240"
+                height="166" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000208.jpg" />
+    </a>
+
+
+<h4 id="接続先設定">接続先設定</h4>
+
+<p>local.settings.jsonを以下のように書き換え。こうするとAzure Functions Core (CLI) ツールが提供するローカルのFunction環境に接続するらしい。</p>
+
+<script src="https://gist.github.com/fileszero/f1c1d916dc10f0b615f3074c5af81118.js?file=local.settings.json"></script>
+  
+
+<p>OreOreQueueStorageはあとで使います。</p>
+
+<h4 id="function追加">Function追加</h4>
+
+<p>Queueになにか入ったら実行されるFunctionを作ってみます。</p>
+
+<p>「ソリューションエクスプローラー」のプロジェクトを右クリックで「追加」→「新しい項目」→「Azure関数」</p>
+
+<p>名前は「Function1.cs」にしました。
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000209.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000209_hu5c5ebd71587e4d0bd25a8a1da6b3e870_77046_240x0_resize_q75_box.jpg" width="240"
+                height="166" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000209.jpg" />
+    </a>
+</p>
+
+<p>「Queue trigger」を選んで、Connectionをlocal.settings.jsonに設定した変数名&#8221;OreOreQueueStorage&#8221;に、Pathは任意の名前にします。ここでは&#8221;watashino-items&#8221;にしました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000210.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000210_hubdd7c2e44761eba4476f19992f42c803_41517_240x0_resize_q75_box.jpg" width="240"
+                height="156" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000210.jpg" />
+    </a>
+
+
+<p>OKでFunction1.csが作成されます。</p>
+
+<script src="https://gist.github.com/fileszero/f1c1d916dc10f0b615f3074c5af81118.js?file=Function1.cs"></script>
+
+<h4 id="queueの作成">Queueの作成</h4>
+
+<p>Azure Storage Explorerを起動して、</p>
+
+<p>(Local and Attached)-Storage Accounts-(Development)-Queue-右クリック-Create Queue</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000213.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000213_hu8639985d4024e0f340943bedffa5099c_51911_240x0_resize_q75_box.jpg" width="240"
+                height="168" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000213.jpg" />
+    </a>
+
+
+<p>&#8220;watashino-items&#8221;でQueueを作成します。</p>
+
+<h3 id="実行">実行</h3>
+
+<p>ここで実行(F5)してみます。Azure Functions Core (CLI) ツールが無い場合はのインストールを要求されます。</p>
+
+<p>Functionsのエミュ環境が立ち上がってきます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000214.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000214_huf229fe9ca4933f6376add241ff494afb_62459_240x0_resize_q75_box.jpg" width="240"
+                height="150" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000214.jpg" />
+    </a>
+
+
+<p>先ほど作ったキューに適当な値を入れると</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000215.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000215_hu41c4ca5fb1d3ae87a39b0166f8bd2644_25445_240x0_resize_q75_box.jpg" width="240"
+                height="276" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000215.jpg" />
+    </a>
+
+
+<p>若干タイムラグがありつつ、エミュ環境でFunctionが実行されます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-02-14-try-azure-functions-on-local/CAP000216.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-02-14-try-azure-functions-on-local/CAP000216_huf79f9e0d3fa4a318720cc058da8572c4_84111_240x0_resize_q75_box.jpg" width="240"
+                height="148" data-original="/posts/2018-02-14-try-azure-functions-on-local/CAP000216.jpg" />
+    </a>
+
+
+<h3 id="で">で</h3>
+
+<p>実際のアプリに適用するには(理解度的に)まだまだですが、なんとなく使えるような気がします。</p>
+
+<h3 id="追記">追記</h3>
+
+<p>HTTPトリガーを別サーバ(別ポート)で作って実行とすると</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Failed to load http://localhost:7071/api/Function2: Response to preflight request doesn&#39;t pass access control check: No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource. Origin &#39;http://localhost:5500&#39; is therefore not allowed access. The response had HTTP status code 404.</code></pre></td></tr></table>
+</div>
+</div>
+<p>みたいなエラーが出たりします。<a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#local-settings-file" rel="noopener" target="_blank">CORSの設定</a>が必要です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">&#34;Host&#34;: {
+    &#34;CORS&#34;: &#34;*&#34;
+  }</code></pre></td></tr></table>
+</div>
+</div>
+<p>をlocal.settings.jsonに追加して解決</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&title=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&text=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&t=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-02-14-try-azure-functions-on-local%2f&title=Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Azure%20Functions%e3%81%ae%e9%9b%b0%e5%9b%b2%e6%b0%97%e3%82%92%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%81%a7%e8%a9%a6%e3%81%99 %2fposts%2f2018-02-14-try-azure-functions-on-local%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Azure Functionsの雰囲気をローカルで試す</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/azure/">azure</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2018-01-05-onedrive-for-biz-date-format/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-01-05-onedrive-for-biz-date-format/CAP000204.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">OneDrive for Businessの更新日時を日付＋時間にする</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-01-05T04:34:17JST">Jan 5, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2018-06-08-unable-to-find-valid-cert/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">unable to find valid certification path to requested target</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-06-08T05:22:32JST">Jun 8, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

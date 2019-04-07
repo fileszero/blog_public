@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2014-03-14-setup-sublime-text-2/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Sublime Text 2設定 - My New Hugo Site</title>
+    
+
+<meta name="description" content="Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。 コード補完も動くみたいだし、ctrl&#43;bで実行もできていい感じなんですが、ちょいちょい使いずらいところもあるのでカスタマイズ。Package Control Package Controlって謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。インストール方法はこちらが原典ですな。ctrl&#43;@ か view-&amp;gt;show console　でコンソール(?)を表示させて、&amp;lt;br /&amp;gt; import urllib2,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404&#39; &#43; &#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &#39;http://sublime.wbond.net/&#39; &#43; pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &#39;wb&#39; ).write(by) if dh == h else None; print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h) if dh !">
+
+<meta property="og:title" content="Sublime Text 2設定 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2014-03-14-setup-sublime-text-2/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。 コード補完も動くみたいだし、ctrl&#43;bで実行もできていい感じなんですが、ちょいちょい使いずらいところもあるのでカスタマイズ。Package Control Package Controlって謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。インストール方法はこちらが原典ですな。ctrl&#43;@ か view-&amp;gt;show console　でコンソール(?)を表示させて、&amp;lt;br /&amp;gt; import urllib2,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404&#39; &#43; &#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &#39;http://sublime.wbond.net/&#39; &#43; pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &#39;wb&#39; ).write(by) if dh == h else None; print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h) if dh !">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2014-03-14-setup-sublime-text-2/">
+<meta name="twitter:title" content="Sublime Text 2設定 - My New Hugo Site">
+<meta name="twitter:description" content="Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。 コード補完も動くみたいだし、ctrl&#43;bで実行もできていい感じなんですが、ちょいちょい使いずらいところもあるのでカスタマイズ。Package Control Package Controlって謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。インストール方法はこちらが原典ですな。ctrl&#43;@ か view-&amp;gt;show console　でコンソール(?)を表示させて、&amp;lt;br /&amp;gt; import urllib2,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404&#39; &#43; &#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &#39;http://sublime.wbond.net/&#39; &#43; pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &#39;wb&#39; ).write(by) if dh == h else None; print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h) if dh !">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Sublime Text 2設定 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-03-14T02:34:27JST",
+    "dateModified": "2014-03-14T02:34:27JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。
+ コード補完も動くみたいだし、ctrl+bで実行もできていい感じなんですが、
+ちょいちょい使いずらいところもあるのでカスタマイズ。
+Package Control Package Controlって謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。
+インストール方法はこちらが原典ですな。
+ctrl+@ か view-&gt;show console　でコンソール(?)を表示させて、
+&lt;br /&gt; import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh !"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-03-14-setup-sublime-text-2/sublime_text_2_firstPython.png)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Sublime Text 2設定</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-14T02:34:27JST">Mar 14, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&title=Sublime%20Text%202%e8%a8%ad%e5%ae%9a" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&text=Sublime%20Text%202%e8%a8%ad%e5%ae%9a&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&t=Sublime%20Text%202%e8%a8%ad%e5%ae%9a" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&title=Sublime%20Text%202%e8%a8%ad%e5%ae%9a" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Sublime%20Text%202%e8%a8%ad%e5%ae%9a %2fposts%2f2014-03-14-setup-sublime-text-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<p>Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-03-14-setup-sublime-text-2/sublime_text_2_firstPython.png">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-03-14-setup-sublime-text-2/sublime_text_2_firstPython_hua02820a51e1d4e88421aaf795da027a6_17537_240x0_resize_box_2.png" width="240"
+                height="194" data-original="/posts/2014-03-14-setup-sublime-text-2/sublime_text_2_firstPython.png" />
+    </a>
+
+
+<p>コード補完も動くみたいだし、ctrl+bで実行もできていい感じなんですが、</p>
+
+<p>ちょいちょい使いずらいところもあるのでカスタマイズ。</p>
+
+<h2 id="package-control">Package Control</h2>
+
+<p><a href="https://sublime.wbond.net/" target="_blank">Package Control</a>って謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。</p>
+
+<p>インストール方法は<a href="https://sublime.wbond.net/installation#st2" target="_blank">こちらが原典</a>ですな。</p>
+
+<p>ctrl+@ か view-&gt;show console　でコンソール(?)を表示させて、</p>
+
+<p><code>&lt;br /&gt;
+import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')&lt;br /&gt;
+</code></p>
+
+<p>を実行。</p>
+
+<p>Sublime Textを再起動して、ctrl+shift+p で出てくるリストに「Package Control: ほにゃらら」が出てればOKっぽい。</p>
+
+<h2 id="imesupport">IMESupport</h2>
+
+<p>なんと漢字がインラインで編集できません。画面の左隅に変換ウインドウが出ます。使いずらい事この上ないので、</p>
+
+<p>ctrl+shift+p -&gt; Package Control:Install Package (pai) -&gt; IMESupport</p>
+
+<p>でIMESupportをインストール。</p>
+
+<h2 id="色">色</h2>
+
+<p>白背景の方が好きなので、Preferences-&gt;Color scheme の配下の色を試してDawnを選択。</p>
+
+<h2 id="空白文字">空白文字</h2>
+
+<p>Pythonはインデントでブロックを識別するようで、インデントにタブと空白が混じっているとまずいみたいです。</p>
+
+<p>タブと空白の区別をつけたいんで、見えるようにします。</p>
+
+<p>Preferences-&gt;Settings-User で設定ファイル(?)が開くようなので、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;draw_white_space&#34;: &#34;all&#34;</code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加。</p>
+
+<p>この設定ファイル、書き方はJSONですかね。</p>
+
+<h2 id="インデントはスペースで">インデントはスペースで</h2>
+
+<p>設定ファイルに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;translate_tabs_to_spaces&#34;: true</code></pre></td></tr></table>
+</div>
+</div>
+<p>追加</p>
+
+<p>とりあえずこんな感じになりました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-03-14-setup-sublime-text-2/sublimetext_custom.png">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-03-14-setup-sublime-text-2/sublimetext_custom_hu39d486d7020f4a89a2d327452352f83c_17930_240x0_resize_box_2.png" width="240"
+                height="232" data-original="/posts/2014-03-14-setup-sublime-text-2/sublimetext_custom.png" />
+    </a>
+
+
+<p>使っていくうちにさらにカスタマイズが必要になると思われます。</p>
+
+<p><ins datetime="2014-03-14T05:43:17+00:00">追記</ins></p>
+
+<h2 id="pythonの実行停止">pythonの実行停止</h2>
+
+<p>ctrl+bで実行だけど、ctrl+breakで終わってくれないので、<a href="http://stackoverflow.com/questions/8551735/how-do-i-run-python-code-from-sublime-text-2" target="_blank">こちらを参考</a>に、</p>
+
+<p>Preferences -&gt; Key Bindings &#8211; User</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">{&#34;keys&#34;: [&#34;ctrl+shift+c&#34;], &#34;command&#34;: &#34;exec&#34;, &#34;args&#34;: {&#34;kill&#34;: true} } ,
+{&#34;keys&#34;: [&#34;pause&#34;], &#34;command&#34;: &#34;exec&#34;, &#34;args&#34;: {&#34;kill&#34;: true} }</code></pre></td></tr></table>
+</div>
+</div>
+<p>追加。</p>
+
+<h2 id="rubyは２タブで">Rubyは２タブで</h2>
+
+<p>rubyなファイルを開く。</p>
+
+<p>ウインドウのすみっこに&#8221;Ruby&#8221;となってることを確認したら、</p>
+
+<p>Preferences -&gt; Settings &#8211; More -&gt; Syntax Specific &#8211; User</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">{
+    &#34;tab_size&#34;: 2,
+    &#34;translate_tabs_to_spaces&#34;: true
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>すでに４タブとかで作っちゃったファイルはそのままみたいなので、気になる場合は、</p>
+
+<p>View -&gt; Indentationでタブ幅を指定して、</p>
+
+<p>全選択 -&gt; Edit -&gt; Line -&gt; Reindent すると良いんではないでしょうか。</p>
+
+<p>ググればいっぱい出てくるけど、原典は<a href="http://www.sublimetext.com/docs/2/indentation.html" target="_blank">これ</a>か？</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&title=Sublime%20Text%202%e8%a8%ad%e5%ae%9a" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&text=Sublime%20Text%202%e8%a8%ad%e5%ae%9a&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&t=Sublime%20Text%202%e8%a8%ad%e5%ae%9a" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-03-14-setup-sublime-text-2%2f&title=Sublime%20Text%202%e8%a8%ad%e5%ae%9a" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Sublime%20Text%202%e8%a8%ad%e5%ae%9a %2fposts%2f2014-03-14-setup-sublime-text-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Sublime Text 2設定</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/sublimetext/">SublimeText</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2014-03-13-installing-sublime-text-2-windows/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-03-13-installing-sublime-text-2-windows/sublime_text_2_init.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Sublime Text 2インストール(Windows)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-13T07:16:12JST">Mar 13, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2014-03-19-install-pip-for-windows/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">pip をwindowsにインストール</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-19T02:41:51JST">Mar 19, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

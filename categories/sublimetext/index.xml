@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sublimetext on My New Hugo Site</title>
+    <link>/categories/sublimetext/</link>
+    <description>Recent content in Sublimetext on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Jun 2015 06:10:50 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/sublimetext/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SublimeTextの設定をGitで共有</title>
+      <link>/posts/2015-06-10-sync-sublime-config-with-git/</link>
+      <pubDate>Wed, 10 Jun 2015 06:10:50 +0000</pubDate>
+      
+      <guid>/posts/2015-06-10-sync-sublime-config-with-git/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.sublimetext.com/3&#34; target=&#34;_blank&#34;&gt;SublimeText3&lt;/a&gt;使い始めてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://atom.io/&#34; target=&#34;_blank&#34;&gt;Atom&lt;/a&gt;も使ってみたけど、ちょっと重いよね。&lt;/p&gt;
+
+&lt;p&gt;Sublime Textはマルチプラットフォームかつ軽いんであちこちのPCで使えそうです。&lt;/p&gt;
+
+&lt;p&gt;そこでやりたくなるのが設定の同期。&lt;/p&gt;
+
+&lt;p&gt;やり方はいろいろあるようですが、&lt;a href=&#34;https://packagecontrol.io/docs/syncing&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にGitで同期してみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 2設定</title>
+      <link>/posts/2014-03-14-setup-sublime-text-2/</link>
+      <pubDate>Fri, 14 Mar 2014 02:34:27 +0000</pubDate>
+      
+      <guid>/posts/2014-03-14-setup-sublime-text-2/</guid>
+      <description>Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。
+ コード補完も動くみたいだし、ctrl+bで実行もできていい感じなんですが、
+ちょいちょい使いずらいところもあるのでカスタマイズ。
+Package Control Package Controlって謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。
+インストール方法はこちらが原典ですな。
+ctrl+@ か view-&amp;gt;show console　でコンソール(?)を表示させて、
+&amp;lt;br /&amp;gt; import urllib2,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404&#39; + &#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &#39;http://sublime.wbond.net/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &#39;wb&#39; ).write(by) if dh == h else None; print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h) if dh !</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 2インストール(Windows)</title>
+      <link>/posts/2014-03-13-installing-sublime-text-2-windows/</link>
+      <pubDate>Thu, 13 Mar 2014 07:16:12 +0000</pubDate>
+      
+      <guid>/posts/2014-03-13-installing-sublime-text-2-windows/</guid>
+      <description>Pythonの開発環境ってよく知らない。
+いい機会なので、なんか最近話題のSublime Text 2を使ってみます。
+無料ではないので良さげだったらお金払います。
+ダウンロード 本家に行って、
+Downloadページの[Windows 64 bit]を選んでインストーラをダウンロードします。
+今日の時点では「Sublime Text 2.0.2 x64 Setup.exe」がダウンロードされました。
+3はまだbetaとかなんとか書いてあるところを見ると、活発に開発が進んでるご様子。
+インストール Sublime Text 2.0.2 x64 Setup.exeを実行。
+&amp;#8220;Add to explorer context menu&amp;#8221;はONにしといたほうが良いかも。
+後はそのままで。
+「C:\Program Files\Sublime Text 2」にインストールされたようです。
+実行 特にショートカット等は作られないみたいなので、
+C:\Program Files\Sublime Text 2\sublime_text.exeを実行します。
+ でました。</description>
+    </item>
+    
+  </channel>
+</rss>

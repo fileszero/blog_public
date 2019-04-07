@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2013-06-03-buidling-ttrss-android/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Tiny Tiny RSS – Android Clientをビルドしてみる - My New Hugo Site</title>
+    
+
+<meta name="description" content="ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。APIバージョンを確認→17でOK。Google APIsを入れてみる→ダメ。プロジェクトのプロパティを見てみると、こんなん発見。 こりゃ色々足りてませんな。エラーメッセージを元にライブラリを探してくるしかないみたいです。Android-ViewPagerIndicator こちらもGitHubで公開されています。さくっといただきます。1 2 3 4 5 6 7  \workspace\ttrss&amp;gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &amp;#39;Android-ViewPagerIndicator&amp;#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると「library] Unable to resolve target &amp;#8216;android-16&amp;#8217;」と出ます。">
+
+<meta property="og:title" content="Tiny Tiny RSS – Android Clientをビルドしてみる - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2013-06-03-buidling-ttrss-android/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。APIバージョンを確認→17でOK。Google APIsを入れてみる→ダメ。プロジェクトのプロパティを見てみると、こんなん発見。 こりゃ色々足りてませんな。エラーメッセージを元にライブラリを探してくるしかないみたいです。Android-ViewPagerIndicator こちらもGitHubで公開されています。さくっといただきます。1 2 3 4 5 6 7  \workspace\ttrss&amp;gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &amp;#39;Android-ViewPagerIndicator&amp;#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると「library] Unable to resolve target &amp;#8216;android-16&amp;#8217;」と出ます。">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2013-06-03-buidling-ttrss-android/">
+<meta name="twitter:title" content="Tiny Tiny RSS – Android Clientをビルドしてみる - My New Hugo Site">
+<meta name="twitter:description" content="ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。APIバージョンを確認→17でOK。Google APIsを入れてみる→ダメ。プロジェクトのプロパティを見てみると、こんなん発見。 こりゃ色々足りてませんな。エラーメッセージを元にライブラリを探してくるしかないみたいです。Android-ViewPagerIndicator こちらもGitHubで公開されています。さくっといただきます。1 2 3 4 5 6 7  \workspace\ttrss&amp;gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &amp;#39;Android-ViewPagerIndicator&amp;#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると「library] Unable to resolve target &amp;#8216;android-16&amp;#8217;」と出ます。">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Tiny Tiny RSS – Android Clientをビルドしてみる - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-06-03T14:45:09JST",
+    "dateModified": "2013-06-03T14:45:09JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。
+APIバージョンを確認→17でOK。
+Google APIsを入れてみる→ダメ。
+プロジェクトのプロパティを見てみると、こんなん発見。
+ こりゃ色々足りてませんな。
+エラーメッセージを元にライブラリを探してくるしかないみたいです。
+Android-ViewPagerIndicator こちらもGitHubで公開されています。
+さくっといただきます。
+1 2 3 4 5 6 7  \workspace\ttrss&gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &#39;Android-ViewPagerIndicator&#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると
+「library] Unable to resolve target &#8216;android-16&#8217;」と出ます。"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-06-03-buidling-ttrss-android/WS000081.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Tiny Tiny RSS – Android Clientをビルドしてみる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-03T14:45:09JST">Jun 3, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&title=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&text=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&t=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&title=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b %2fposts%2f2013-06-03-buidling-ttrss-android%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<p>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。</p>
+
+<p>APIバージョンを確認→17でOK。</p>
+
+<p>Google APIsを入れてみる→ダメ。</p>
+
+<p>プロジェクトのプロパティを見てみると、こんなん発見。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2013-06-03-buidling-ttrss-android/WS000081.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2013-06-03-buidling-ttrss-android/WS000081_hu5d9cbfd4f7c7ac94f7d79e6bcea7a6a6_92708_240x0_resize_q75_box.jpg" width="240"
+                height="226" data-original="/posts/2013-06-03-buidling-ttrss-android/WS000081.jpg" />
+    </a>
+
+
+<p>こりゃ色々足りてませんな。</p>
+
+<p>エラーメッセージを元にライブラリを探してくるしかないみたいです。</p>
+
+<h3 id="android-viewpagerindicator">Android-ViewPagerIndicator</h3>
+
+<p>こちらも<a href="https://github.com/JakeWharton/Android-ViewPagerIndicator" target="_blank">GitHub</a>で公開されています。</p>
+
+<p>さくっといただきます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">\workspace\ttrss&gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git
+Cloning into &#39;Android-ViewPagerIndicator&#39;...
+remote: Counting objects: 2700, done.
+remote: Compressing objects: 100% (1325/1325), done.
+remote: Total 2700 (delta 1111), reused 2430 (delta 867)
+Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done.
+Resolving deltas: 100% (1111/1111), done.</code></pre></td></tr></table>
+</div>
+</div>
+<p>Eclipseにインポートすると</p>
+
+<p>「library] Unable to resolve target &#8216;android-16&#8217;」と出ます。</p>
+
+<p>Android SDKマネージャで API16をインストール！</p>
+
+<h3 id="actionbarsherlock">ActionBarSherlock</h3>
+
+<p><a href="http://actionbarsherlock.com/" target="_blank"><a href="http://actionbarsherlock.com/">http://actionbarsherlock.com/</a></a>ここからZIPをダウンロードして展開。</p>
+
+<p>Eclipseのプロジェクトになっているので、インポートします。</p>
+
+<p>今度は</p>
+
+<p>「actionbarsherlock] Unable to resolve target &#8216;android-14&#8217;」</p>
+
+<p>Android SDKマネージャで API14をインストール！</p>
+
+<h3 id="slidingmenu">SlidingMenu</h3>
+
+<p>こちらは<a href="https://github.com/jfeinstein10/SlidingMenu" target="_blank">GitHub</a>からいただきます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">\workspace\ttrss&gt;git clone https://github.com/jfeinstein10/SlidingMenu.git
+Cloning into &#39;SlidingMenu&#39;...
+remote: Counting objects: 5316, done.
+remote: Compressing objects: 100% (2289/2289), done.
+remote: Total 5316 (delta 2267), reused 4971 (delta 2008)
+Receiving objects: 100% (5316/5316), 23.82 MiB | 2.96 MiB/s, done.
+Resolving deltas: 100% (2267/2267), done.</code></pre></td></tr></table>
+</div>
+</div>
+<p>Eclipseにインポート&#8230;しようとしたらAndroid-ViewPagerIndicatorとプロジェクト名が[library]でかぶっててできません。</p>
+
+<p>ViewPagerIndicatorのほうのプロジェクト名を[ViewPagerIndicator]に変えちゃいます。</p>
+
+<h3 id="android-support-v4-jar">android-support-v4.jar</h3>
+
+<p>一応ビルドはできましたが、Warningが鬼のように残ってます。デバッグ実行してもエラーで落ちるし。</p>
+
+<p>ここでeclipseを再起動させてみると</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">org.fox.ttrss] Found 4 versions of android-support-v4.jar in the dependency list,
+org.fox.ttrss] but not all the versions are identical (check is based on SHA-1 only at this time).
+org.fox.ttrss] All versions of the libraries must be the same at this time.</code></pre></td></tr></table>
+</div>
+</div>
+<p>とかでてる～。</p>
+
+<p>ttrssのandroid-support-v4.jarを各プロジェクトのlibsに上書きコピーしてみる。</p>
+
+<p>そうすっと、さっきまで出てなかったエラーが・・・</p>
+
+<p>「Call requires API level 11 (current min is 8): android.widget.SearchView#setOnQueryTextListener」</p>
+
+<p>プロジェクト上で右クリック Android Tools-&gt;Clear Lint Markers でクリアされました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2013-06-03-buidling-ttrss-android/WS000082.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2013-06-03-buidling-ttrss-android/WS000082_hu681aa251844cacaa20082328b1fd8784_45386_240x0_resize_q75_box.jpg" width="240"
+                height="118" data-original="/posts/2013-06-03-buidling-ttrss-android/WS000082.jpg" />
+    </a>
+
+
+<p>ここで実行してみると、そこそこ動いてますが、androidエミュ上で[Error:JSON parse failed]と出ます。</p>
+
+<p>いよいよもってコード読まねばなりませんかな。</p>
+
+<p>とおもったらURLの設定間違えてただけだった。</p>
+
+<p>うごいとるー。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&title=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&text=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&t=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2013-06-03-buidling-ttrss-android%2f&title=Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Tiny%20Tiny%20RSS%20%e2%80%93%20Android%20Client%e3%82%92%e3%83%93%e3%83%ab%e3%83%89%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b %2fposts%2f2013-06-03-buidling-ttrss-android%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Tiny Tiny RSS – Android Clientをビルドしてみる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          
+          <li><a href="/categories/git/">git</a></li>
+          
+          <li><a href="/categories/tt-rss/">tt-rss</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2013-06-03-updating-adt/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-06-03-updating-adt/WS000077.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ADTのアップデート</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-03T12:41:36JST">Jun 3, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2013-06-13-where-should-i-write-event-bind-code/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-06-13-where-should-i-write-event-bind-code/WS000084.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">jQuery mobileのイベントバインドの記述場所</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-13T13:24:10JST">Jun 13, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

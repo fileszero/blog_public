@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml">
+
+<link rel="canonical" href="/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>My New Hugo Site</title>
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    
+
+    <div class="articles">
+      <div class="mrow">
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-08-21-raspberry-pi-airplay/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; AirPlay</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-21T14:24:01JST">Aug 21, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Raspberry PiにAirPlay入れたメモ
+参考：
+Raspberry Piを「AirPlay化」して音楽をストリーミングする方法
+Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。
+問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perl
+で
+dpkg: error processing avahi-daemon (&#8211;configure):
+subprocess installed post-installation script returned error exit status 1
+dpkg: dependency problems prevent configuration of avahi-utils:
+avahi-utils depends on avahi-daemon; however:
+Package avahi-daemon is not configured yet.
+が発生。
+解決： dbusが必要らしい。
+$ sudo /etc/init.d/dbus start
+$ sudo chkconfig dbus on
+問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo .</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-08-13-raspberry-pi/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-08-13-raspberry-pi/WS000086.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-13T04:07:16JST">Aug 13, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">日経のRaspberry Piセット本が増刷されてたので、買ってみました。
+OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。
+一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。
+ＤＬしたファイルを展開後Win32 Disk Imagerを使って、ＳＤカードに書き込みます。
+起動 ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。
+ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。
+モニタへの出力も何もありません。
+ＤＬしたイメージの確認をしっかりしましょう。
+ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。
+ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、
+Puttyとか適当なSSHクライアントで接続します。
+ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。
+そうするとこんな感じでログインできます。
+&lt;br /&gt; login as: pi&lt;br /&gt; pi@192.168.1.12's password:&lt;br /&gt; Linux raspberrypi 3.6.11+ #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&lt;/p&gt; &lt;p&gt;The programs included with the Debian GNU/Linux system are free software;&lt;br /&gt; the exact distribution terms for each program are described in the&lt;br /&gt; individual files in /usr/share/doc/*/copyright.&lt;/p&gt; &lt;p&gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&lt;br /&gt; permitted by applicable law.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-07-04-electric-worker/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">第２種電気工事士</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-07-04T12:39:34JST">Jul 4, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">ソフトウエアばっかりやってないでたまには現物に触りましょう。
+ってことで、第２種電気工事士の試験に挑戦してみようかと思っております。
+とはいえ、電気の知識とか全然ないんで、合格できるかどうかは半々ってとこですかね。
+今までパソコンいじってた時間を勉強に当てていますんで、このブログも更新できなくなっとります。
+久々に勉強ってものをしとるわけですが、この試験、基本的に暗記勝負みたいです。
+よる年波には勝てず、記憶力は蟻並みですんで、かなり苦戦中。
+あと、書いて覚えるつもりが、久々に鉛筆使ったからか、筆圧低くて字がまともにかけません。
+さらに漢字が書けないんで覚える事に集中できません。
+いつの間にかおじいちゃん化している自分に気づくのでした。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-06-17-pdo-constracter-slow/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">PDOのコンストラクタが遅い</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-17T12:11:33JST">Jun 17, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">phpが妙に遅いのでちょっと処理を追っかけてみたところ、
+どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。
+いまどきのPCでそりゃ無いでしょ。
+コンストラクタ呼んでるコードは
+1 2 3 4 5 6 7 8 9  $dsn=&#39;mysql:host=localhost;dbname=&#39; . DB_NAME . &#39;&#39;; try{ $this-&gt;connection= new PDO($dsn, DB_USER, DB_PASS); $this-&gt;connection-&gt;exec(&#34;set names utf8&#34;); $this-&gt;connection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	} catch(PDOException $e) { echo $e-&gt;getMessage(); exit(); }   特に問題なさそうに見えるけど、$dsnを
+1  $dsn=&#39;mysql:host=127.0.0.1;dbname=&#39; . DB_NAME . &#39;&#39;;   て書き換えたら見違えるほど早くなった。localhost難しかったですか、そーですか。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-06-13-where-should-i-write-event-bind-code/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-06-13-where-should-i-write-event-bind-code/WS000084.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">jQuery mobileのイベントバインドの記述場所</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-13T13:24:10JST">Jun 13, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">jQuery mobileなかなか難しいです。
+jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。
+ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。
+サンプルで実験してみます。
+ソース中の &lt;!&#8211; 候補地　Ｘ &#8211;&gt;にスクリプトを入れて挙動を試してみます。
+最初に読むページとして、「home.php」をこんな感じで作ります。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  &lt;!DOCTYPE html &gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=UTF-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, maximum-scale=1.5, minimum-scale=1.0,user-scalable=yes,initial-scale=1.0&#34; /&gt; &lt;title&gt;TITLE&lt;/title&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css&#34; /&gt; &lt;script src=&#34;http://code.jquery.com/jquery-1.9.1.min.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js&#34;&gt;&lt;/script&gt; &lt;!-- 候補地　３ --&gt; &lt;/head&gt; &lt;body&gt; &lt;div data-role=&#34;page&#34; id=&#39;home&#39;&gt; &lt;div data-role=&#34;header&#34;&gt; &lt;h1&gt;Home&lt;/h1&gt; &lt;a href=&#34;#home&#34; data-icon=&#34;home&#34;&gt;Home&lt;/a&gt; &lt;/div&gt; &lt;div data-role=&#34;content&#34;&gt; &lt;a href=&#34;next.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-06-03-buidling-ttrss-android/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-06-03-buidling-ttrss-android/WS000081.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Tiny Tiny RSS – Android Clientをビルドしてみる</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-03T14:45:09JST">Jun 3, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。
+APIバージョンを確認→17でOK。
+Google APIsを入れてみる→ダメ。
+プロジェクトのプロパティを見てみると、こんなん発見。
+ こりゃ色々足りてませんな。
+エラーメッセージを元にライブラリを探してくるしかないみたいです。
+Android-ViewPagerIndicator こちらもGitHubで公開されています。
+さくっといただきます。
+1 2 3 4 5 6 7  \workspace\ttrss&gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &#39;Android-ViewPagerIndicator&#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると
+「library] Unable to resolve target &#8216;android-16&#8217;」と出ます。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-06-03-updating-adt/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-06-03-updating-adt/WS000077.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">ADTのアップデート</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-03T12:41:36JST">Jun 3, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">前回 git 使ってみる流れでTiny Tiny RSS – Android Clientをビルドしようとしたけど、
+ADTアップデートしろと出ました。
+こんなん
+ いいようにコンピュータに使われてますな。
+EclipseのHelp-Install new softwareでInstallerを起動。
+Work withに「Android Developer Tools Update Site &#8211; http://dl-ssl.google.com/android/eclipse/」を選択。
+「Developer tools」を選んでNext-&gt;Next-&gt;Agree-&gt;Finish!
+ アップデートが始まります。
+なんかgoogle I/Oで新しい開発ツールの紹介があったもよう。Eclipseとは別物みたいですけど、どんなんでしょか。
+とか書いてたら、「No repository found containing: 」とか出てインストールエラー
+そーゆーときはレポジトリをアップデート。Window-&gt;Preferencesで Install/Update-&gt;Available software Sitesで登録されてるサイトを一通りreload
+ で、再度インストールをば・・・・だめでした。
+しょうがないんで、
+http://developer.android.com/intl/ja/sdk/installing/installing-adt.html からプラグインを直でダウンロード
+Work withのとこのAdd-&gt;ArchiveでZIPを指定してみます。
+ これで一応アップデートできたみたいです。Firewall関係かな～。
+ビルドは次回。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-05-31-using-git/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-05-31-using-git/WS000070.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">gitを使ってみる</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-31T13:37:37JST">May 31, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">gitインストールしたんで使ってみましょう。
+手始めにGitHubからソースをいただいてみます。
+お目当てはTiny Tiny RSS &#8211; Android Clientです。
+↑のページからGitHubにリンクが張られていますんで、即クリック。
+レポジトリのURLは
+ に出てますね。
+コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます
+1 2 3 4 5 6 7 8 9 10 11 12 13  \workspace&gt;mkdir ttrss \workspace&gt;cd ttrss \workspace\ttrss&gt;git init Initialized empty Git repository in /workspace/ttrss/.git/ \workspace\ttrss&gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS -for-Honeycomb.git Cloning into &#39;Tiny-Tiny-RSS-for-Honeycomb&#39;... remote: Counting objects: 7896, done. remote: Compressing objects: 100% (2415/2415), done. remote: Total 7896 (delta 3910), reused 7724 (delta 3745) Receiving objects: 100% (7896/7896), 3.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-05-30-starting-git/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-05-30-starting-git/WS000066s.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">gitはじめてみる</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-30T14:18:41JST">May 30, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">git　みんな使ってますね。みんなって誰だよ。
+こんなサービスもできたりして、盛り上がってますな。
+少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。
+linuxから出たツールですがwindowsでもいけるようです。
+windowsだったらGit Extensionsいれときゃ間違いないのではないでしょうか。よく知らんけど。
+Download latest version:のmsiをダウンロードして、実行。
+Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。
+ ほかはdefaultでいいと思われます。
+まず、Kdiff2のインストールが始まりますんでなにも考えずにすべてdefaultでインスコ。
+引き続いてmsysgit。
+好みですけどexplorer統合はsimpleにしときました。
+ PATHは素のコマンドプロンプトでも使えるようにします。
+ ほかはデフォで。
+そしたらすたーとめにゅーからGit Extensionsを起動！
+言語を選んで、グローバル設定のユーザー名とメアドをセットしときます。
+コマンドプロンプト開いて
+1 2  R:\&gt;git version git version 1.8.1.msysgit.1   とか出れば良いんじゃないでしょうか。
+ワインうめー。ねる。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-05-28-pageinit-dose-not-fire/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">jQuery Mobileのpageinitが発火しない</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-28T13:02:51JST">May 28, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">PHPついでにjQuery Mobileはじめました。
+jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバインドしろみたいな事が書いてあって、
+さらにpageinitの説明見ると
+1 2 3  $( &#39;#home&#39; ).live( &#39;pageinit&#39;,function(event){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   こんな風に書いてあったから、こぴぺしてみましたが、実行されません。なぜー。
+そこで
+1 2 3  $(document).delegate(&#39;#home&#39;, &#39;pageinit&#39;, function(){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   って書いてみたら動いた。
+なぜだー。わからん。
+jQueryも良くわからんのにmobileは早すぎたか？</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+      </div>
+    </div>
+
+    
+<nav class="paging">
+  
+  <a href="/page/11/" rel="prev">Prev</a>
+  
+
+  
+  <a href="/page/13/" rel="next">Next</a>
+  
+</nav>
+
+
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nightmare on My New Hugo Site</title>
+    <link>/categories/nightmare/</link>
+    <description>Recent content in Nightmare on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2017 13:47:05 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/nightmare/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nightmareを使ってみる#2</title>
+      <link>/posts/2017-09-21-try-nightmare-js-2/</link>
+      <pubDate>Thu, 21 Sep 2017 13:47:05 +0000</pubDate>
+      
+      <guid>/posts/2017-09-21-try-nightmare-js-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-09-20-try-nightmare-js-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、基本的なところをお試ししてみましたが、&lt;/p&gt;
+
+&lt;p&gt;もう少しなんかやらせてみたいので、数あてゲームをやらせてみます。&lt;/p&gt;
+
+&lt;p&gt;ランダムな数字を、ヒント(High or Low)を基に当てる超楽しいゲームね。。。&lt;/p&gt;
+
+&lt;p&gt;実用性は皆無ですが、条件分岐、ループ、演算と、一通りのことを試すのにはいいかなと。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nightmareを使ってみる#1</title>
+      <link>/posts/2017-09-20-try-nightmare-js-1/</link>
+      <pubDate>Wed, 20 Sep 2017 13:51:21 +0000</pubDate>
+      
+      <guid>/posts/2017-09-20-try-nightmare-js-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.nightmarejs.org/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Nightmare.js&lt;/a&gt;つーのが便利そうなんで使ってみます。&lt;/p&gt;
+
+&lt;p&gt;環境はWindows7&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

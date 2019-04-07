@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on My New Hugo Site</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Feb 2018 07:06:30 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>.Net</title>
+      <link>/categories/.net/</link>
+      <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
+      
+      <guid>/categories/.net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Alminium</title>
+      <link>/categories/alminium/</link>
+      <pubDate>Tue, 19 Mar 2019 00:50:34 +0000</pubDate>
+      
+      <guid>/categories/alminium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>/categories/android/</link>
+      <pubDate>Fri, 08 Jun 2018 05:22:32 +0000</pubDate>
+      
+      <guid>/categories/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Angular</title>
+      <link>/categories/angular/</link>
+      <pubDate>Mon, 11 Dec 2017 07:17:18 +0000</pubDate>
+      
+      <guid>/categories/angular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Angularjs</title>
+      <link>/categories/angularjs/</link>
+      <pubDate>Tue, 10 Oct 2017 14:05:08 +0000</pubDate>
+      
+      <guid>/categories/angularjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>/categories/azure/</link>
+      <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
+      
+      <guid>/categories/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bootstrap</title>
+      <link>/categories/bootstrap/</link>
+      <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
+      
+      <guid>/categories/bootstrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cordova</title>
+      <link>/categories/cordova/</link>
+      <pubDate>Thu, 09 Aug 2018 07:39:27 +0000</pubDate>
+      
+      <guid>/categories/cordova/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>/categories/docker/</link>
+      <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
+      
+      <guid>/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eclipse</title>
+      <link>/categories/eclipse/</link>
+      <pubDate>Sat, 12 Dec 2015 12:04:26 +0000</pubDate>
+      
+      <guid>/categories/eclipse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Editor</title>
+      <link>/categories/editor/</link>
+      <pubDate>Wed, 14 Dec 2016 03:42:35 +0000</pubDate>
+      
+      <guid>/categories/editor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Electric</title>
+      <link>/categories/electric/</link>
+      <pubDate>Sat, 18 Jan 2014 15:22:24 +0000</pubDate>
+      
+      <guid>/categories/electric/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>/categories/git/</link>
+      <pubDate>Fri, 28 Apr 2017 04:00:40 +0000</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>/categories/hugo/</link>
+      <pubDate>Tue, 20 Nov 2018 04:47:06 +0000</pubDate>
+      
+      <guid>/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ionic</title>
+      <link>/categories/ionic/</link>
+      <pubDate>Thu, 09 Aug 2018 07:39:27 +0000</pubDate>
+      
+      <guid>/categories/ionic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>/categories/java/</link>
+      <pubDate>Fri, 08 Jun 2018 05:22:32 +0000</pubDate>
+      
+      <guid>/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>/categories/javascript/</link>
+      <pubDate>Thu, 21 Sep 2017 13:47:05 +0000</pubDate>
+      
+      <guid>/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jenkins</title>
+      <link>/categories/jenkins/</link>
+      <pubDate>Fri, 09 Nov 2018 02:32:35 +0000</pubDate>
+      
+      <guid>/categories/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jquery Mobile</title>
+      <link>/categories/jquery-mobile/</link>
+      <pubDate>Thu, 13 Jun 2013 13:24:10 +0000</pubDate>
+      
+      <guid>/categories/jquery-mobile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Knockoutjs</title>
+      <link>/categories/knockoutjs/</link>
+      <pubDate>Fri, 29 Aug 2014 03:47:56 +0000</pubDate>
+      
+      <guid>/categories/knockoutjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laravel</title>
+      <link>/categories/laravel/</link>
+      <pubDate>Sat, 09 Jan 2016 08:14:59 +0000</pubDate>
+      
+      <guid>/categories/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Thu, 30 Aug 2018 05:05:34 +0000</pubDate>
+      
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>/categories/mac/</link>
+      <pubDate>Wed, 08 Feb 2017 14:29:07 +0000</pubDate>
+      
+      <guid>/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>/categories/mysql/</link>
+      <pubDate>Mon, 20 May 2013 14:23:17 +0000</pubDate>
+      
+      <guid>/categories/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nightmare</title>
+      <link>/categories/nightmare/</link>
+      <pubDate>Thu, 21 Sep 2017 13:47:05 +0000</pubDate>
+      
+      <guid>/categories/nightmare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>/categories/node.js/</link>
+      <pubDate>Tue, 07 Nov 2017 15:10:40 +0000</pubDate>
+      
+      <guid>/categories/node.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Office</title>
+      <link>/categories/office/</link>
+      <pubDate>Thu, 12 May 2016 00:21:20 +0000</pubDate>
+      
+      <guid>/categories/office/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Onsenui</title>
+      <link>/categories/onsenui/</link>
+      <pubDate>Mon, 27 Jun 2016 06:11:12 +0000</pubDate>
+      
+      <guid>/categories/onsenui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pc</title>
+      <link>/categories/pc/</link>
+      <pubDate>Wed, 24 Oct 2018 14:07:24 +0000</pubDate>
+      
+      <guid>/categories/pc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phonegap</title>
+      <link>/categories/phonegap/</link>
+      <pubDate>Wed, 24 Jun 2015 06:14:55 +0000</pubDate>
+      
+      <guid>/categories/phonegap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Php</title>
+      <link>/categories/php/</link>
+      <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
+      
+      <guid>/categories/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/categories/python/</link>
+      <pubDate>Thu, 14 Sep 2017 03:49:38 +0000</pubDate>
+      
+      <guid>/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi</title>
+      <link>/categories/raspberry-pi/</link>
+      <pubDate>Wed, 12 Nov 2014 13:52:29 +0000</pubDate>
+      
+      <guid>/categories/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redmine</title>
+      <link>/categories/redmine/</link>
+      <pubDate>Tue, 19 Mar 2019 00:50:34 +0000</pubDate>
+      
+      <guid>/categories/redmine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>/categories/ruby/</link>
+      <pubDate>Wed, 01 Apr 2015 04:19:22 +0000</pubDate>
+      
+      <guid>/categories/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>/categories/software/</link>
+      <pubDate>Sat, 25 Oct 2014 12:32:56 +0000</pubDate>
+      
+      <guid>/categories/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sql Server</title>
+      <link>/categories/sql-server/</link>
+      <pubDate>Thu, 29 Nov 2018 04:15:36 +0000</pubDate>
+      
+      <guid>/categories/sql-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sublimetext</title>
+      <link>/categories/sublimetext/</link>
+      <pubDate>Wed, 10 Jun 2015 06:10:50 +0000</pubDate>
+      
+      <guid>/categories/sublimetext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tt Rss</title>
+      <link>/categories/tt-rss/</link>
+      <pubDate>Tue, 27 Dec 2016 15:02:43 +0000</pubDate>
+      
+      <guid>/categories/tt-rss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Typescript</title>
+      <link>/categories/typescript/</link>
+      <pubDate>Thu, 12 Jul 2018 08:46:41 +0000</pubDate>
+      
+      <guid>/categories/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unittest</title>
+      <link>/categories/unittest/</link>
+      <pubDate>Fri, 17 Jan 2014 01:54:38 +0000</pubDate>
+      
+      <guid>/categories/unittest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant</title>
+      <link>/categories/vagrant/</link>
+      <pubDate>Thu, 30 Aug 2018 05:05:34 +0000</pubDate>
+      
+      <guid>/categories/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>/categories/vim/</link>
+      <pubDate>Tue, 05 Aug 2014 07:37:32 +0000</pubDate>
+      
+      <guid>/categories/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Code</title>
+      <link>/categories/visual-studio-code/</link>
+      <pubDate>Wed, 11 Jan 2017 08:22:15 +0000</pubDate>
+      
+      <guid>/categories/visual-studio-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>/categories/windows/</link>
+      <pubDate>Thu, 08 Dec 2016 08:24:22 +0000</pubDate>
+      
+      <guid>/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wordpress</title>
+      <link>/categories/wordpress/</link>
+      <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
+      
+      <guid>/categories/wordpress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>未分類</title>
+      <link>/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</link>
+      <pubDate>Fri, 05 Jan 2018 04:34:17 +0000</pubDate>
+      
+      <guid>/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

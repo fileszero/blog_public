@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unittest on My New Hugo Site</title>
+    <link>/categories/unittest/</link>
+    <description>Recent content in Unittest on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Jan 2014 01:54:38 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/unittest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Visual Studio 2010 &#43; NUnit デバッグ実行</title>
+      <link>/posts/2014-01-17-vs2010nunitdebug/</link>
+      <pubDate>Fri, 17 Jan 2014 01:54:38 +0000</pubDate>
+      
+      <guid>/posts/2014-01-17-vs2010nunitdebug/</guid>
+      <description>TDDもうあたりまえになってるんでしょうかね。
+Visual StudioでNUnitデバック実行ではまったのでメモ。
+「Visual Studio NUnit デバック実行」でググるといろんなサイトが出てきますが、とりあえずこちらを参考に
+VS2010+NUnit2.5.10でテストメソッドをデバッグ
+外部プログラムの開始→NUnit.exeのフルパス
+コマンドライン引数→DLL名(特にパスは指定しないでファイル名だけでOKみたいです。)
+nunit.exe.configの
+1 2 3  &amp;lt;startup useLegacyV2RuntimeActivationPolicy=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;!-- Comment out the next line to force use of .NET 4.0 --&amp;gt; &amp;lt;/startup&amp;gt;   を
+1 2 3 4  &amp;lt;startup useLegacyV2RuntimeActivationPolicy=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;!-- Comment out the next line to force use of .NET 4.0 --&amp;gt; &amp;lt;supportedRuntime version=&amp;#34;v4.0.30319&amp;#34; /&amp;gt; &amp;lt;/startup&amp;gt;   と変更してデバック実行。
+・・・ブレークポイントに反応しません、
+ちなみに、NUnitのバージョンは2.6.3.13283となっております。
+いろいろ試した結果、
+[Tools]-[Settings]-[Test Loader]-[Assembly Isolation]-[Default Process Model]
+を</description>
+    </item>
+    
+  </channel>
+</rss>

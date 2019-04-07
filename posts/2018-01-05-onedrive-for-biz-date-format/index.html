@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2018-01-05-onedrive-for-biz-date-format/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>OneDrive for Businessの更新日時を日付＋時間にする - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;OneDrive for Businessの更新日時って最近のもの以外は日付しか表示されません。&lt;/p&gt;                                            &lt;a class=&#34;luminous&#34; href=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34;&gt;            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg&#34; width=&#34;240&#34;                height=&#34;116&#34; data-original=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34; /&gt;    &lt;/a&gt;&lt;p&gt;まぁ、ほぼこれで事足りるんですが、たまに時間まで正確に知りたいことが有ったりします。&lt;/p&gt;&lt;p&gt;表示形式を日付＋時間にする方法をメモ。&lt;/p&gt;">
+
+<meta property="og:title" content="OneDrive for Businessの更新日時を日付＋時間にする - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2018-01-05-onedrive-for-biz-date-format/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;OneDrive for Businessの更新日時って最近のもの以外は日付しか表示されません。&lt;/p&gt;                                            &lt;a class=&#34;luminous&#34; href=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34;&gt;            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg&#34; width=&#34;240&#34;                height=&#34;116&#34; data-original=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34; /&gt;    &lt;/a&gt;&lt;p&gt;まぁ、ほぼこれで事足りるんですが、たまに時間まで正確に知りたいことが有ったりします。&lt;/p&gt;&lt;p&gt;表示形式を日付＋時間にする方法をメモ。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2018-01-05-onedrive-for-biz-date-format/">
+<meta name="twitter:title" content="OneDrive for Businessの更新日時を日付＋時間にする - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;OneDrive for Businessの更新日時って最近のもの以外は日付しか表示されません。&lt;/p&gt;                                            &lt;a class=&#34;luminous&#34; href=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34;&gt;            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg&#34; width=&#34;240&#34;                height=&#34;116&#34; data-original=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34; /&gt;    &lt;/a&gt;&lt;p&gt;まぁ、ほぼこれで事足りるんですが、たまに時間まで正確に知りたいことが有ったりします。&lt;/p&gt;&lt;p&gt;表示形式を日付＋時間にする方法をメモ。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "OneDrive for Businessの更新日時を日付＋時間にする - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2018-01-05T04:34:17JST",
+    "dateModified": "2018-01-05T04:34:17JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>OneDrive for Businessの更新日時って最近のもの以外は日付しか表示されません。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg" width="240"
+                height="116" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg" />
+    </a>
+
+
+<p>まぁ、ほぼこれで事足りるんですが、たまに時間まで正確に知りたいことが有ったりします。</p>
+
+<p>表示形式を日付＋時間にする方法をメモ。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-01-05-onedrive-for-biz-date-format/CAP000204.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">OneDrive for Businessの更新日時を日付＋時間にする</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-01-05T04:34:17JST">Jan 5, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&title=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&text=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&t=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&title=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b %2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>OneDrive for Businessの更新日時って最近のもの以外は日付しか表示されません。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg" width="240"
+                height="116" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg" />
+    </a>
+
+
+<p>まぁ、ほぼこれで事足りるんですが、たまに時間まで正確に知りたいことが有ったりします。</p>
+
+<p>表示形式を日付＋時間にする方法をメモ。</p>
+
+<h3 id="やりかた">やりかた</h3>
+
+<p>OneDriveを開いて[設定(ギアマーク)]→[サイトの設定]</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000198.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000198_hu6995eb1e88556e92c08501b9a4ededc0_11660_240x0_resize_q75_box.jpg" width="240"
+                height="301" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000198.jpg" />
+    </a>
+
+
+<p>多すぎるメニューが開くので、「サイトのライブラリとリスト」を探してクリック。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000199.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000199_hu2ed37f77fd1709aaedbc8875548c7ab7_31938_240x0_resize_q75_box.jpg" width="240"
+                height="405" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000199.jpg" />
+    </a>
+
+
+<p>「&#8221;ドキュメント&#8221; のカスタマイズ 」をクリック。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000200.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000200_hubb8c023968851c2a4c7304aa4d51c7ce_30887_240x0_resize_q75_box.jpg" width="240"
+                height="98" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000200.jpg" />
+    </a>
+
+
+<p>「列」から変更したい項目を選択、今回は「更新日時」</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000201.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000201_hu49d8f49a5d8b71ceb097b78def627498_35319_240x0_resize_q75_box.jpg" width="240"
+                height="116" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000201.jpg" />
+    </a>
+
+
+<p>表示形式を「フレンドリ」から「標準」に変更して「OK」</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000202.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000202_hu3774947884e45a47b8c78a7d0196f1da_50065_240x0_resize_q75_box.jpg" width="240"
+                height="193" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000202.jpg" />
+    </a>
+
+
+<p>OneDrive再読み込みで時刻まで表示されます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000203.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000203_hud06c4aef7f1cdb8151780166940d88ff_10556_240x0_resize_q75_box.jpg" width="240"
+                height="91" data-original="/posts/2018-01-05-onedrive-for-biz-date-format/CAP000203.jpg" />
+    </a>
+
+
+<h3 id="で">で</h3>
+
+<p>「更新日<strong>時</strong>」なんだから時刻まで表示してほしいもんです。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&title=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&text=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&t=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f&title=OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?OneDrive%20for%20Business%e3%81%ae%e6%9b%b4%e6%96%b0%e6%97%a5%e6%99%82%e3%82%92%e6%97%a5%e4%bb%98%ef%bc%8b%e6%99%82%e9%96%93%e3%81%ab%e3%81%99%e3%82%8b %2fposts%2f2018-01-05-onedrive-for-biz-date-format%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">OneDrive for Businessの更新日時を日付＋時間にする</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/">未分類</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2017-12-11-cannot-inject-changedetectorref-on-ng5/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-12-11-cannot-inject-changedetectorref-on-ng5/CAP000193-624x294.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Angular5でChangeDetectorRefをInject出来なかった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-12-11T07:17:18JST">Dec 11, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2018-02-14-try-azure-functions-on-local/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-02-14-try-azure-functions-on-local/CAP000207.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Azure Functionsの雰囲気をローカルで試す</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-02-14T07:06:30JST">Feb 14, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

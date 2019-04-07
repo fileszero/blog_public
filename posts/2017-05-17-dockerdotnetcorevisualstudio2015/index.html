@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Docker &#43; .Net Core &#43; Visual studio 2015 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。&lt;/p&gt;&lt;p&gt;てことで、少しいじってみます。&lt;/p&gt;&lt;p&gt;もしかしたらクラウドな環境にデプロイするかもしれないんで、試しにDockerで開発してみます。&lt;/p&gt;">
+
+<meta property="og:title" content="Docker &#43; .Net Core &#43; Visual studio 2015 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。&lt;/p&gt;&lt;p&gt;てことで、少しいじってみます。&lt;/p&gt;&lt;p&gt;もしかしたらクラウドな環境にデプロイするかもしれないんで、試しにDockerで開発してみます。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/">
+<meta name="twitter:title" content="Docker &#43; .Net Core &#43; Visual studio 2015 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。&lt;/p&gt;&lt;p&gt;てことで、少しいじってみます。&lt;/p&gt;&lt;p&gt;もしかしたらクラウドな環境にデプロイするかもしれないんで、試しにDockerで開発してみます。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Docker &#43; .Net Core &#43; Visual studio 2015 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-05-17T03:33:00JST",
+    "dateModified": "2017-05-17T03:33:00JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。</p>
+
+<p>てことで、少しいじってみます。</p>
+
+<p>もしかしたらクラウドな環境にデプロイするかもしれないんで、試しにDockerで開発してみます。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000121.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Docker &#43; .Net Core &#43; Visual studio 2015</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-17T03:33:00JST">May 17, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&title=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&text=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&t=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&title=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015 %2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。</p>
+
+<p>てことで、少しいじってみます。</p>
+
+<p>もしかしたらクラウドな環境にデプロイするかもしれないんで、試しにDockerで開発してみます。</p>
+
+<h3 id="環境">環境</h3>
+
+<p>諸般の事情でwindows7です。win7なんでDocker Toolboxになります。</p>
+
+<p>Windows 7 SP1</p>
+
+<p>Visual studio 2015 Pro Update3</p>
+
+<p><a href="https://www.microsoft.com/net/download/core" target="_blank">.NET Core SDK (contains .NET Core 1.0 and 1.1) Visual Studio 2015 Tools</a></p>
+
+<p><a href="https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.VisualStudioToolsforDocker-Preview" target="_blank">Visual Studio Tools for Docker &#8211; Preview</a> これインストールするとdocker-composeとかをビルド対象にして、いい感じでdockerで実行してくれるみたいです。</p>
+
+<p><a href="https://www.docker.com/products/docker-toolbox" target="_blank">Docker Toolbox version 1.13.1</a></p>
+
+<h3 id="プロジェクトの作成">プロジェクトの作成</h3>
+
+<p>New project -&gt; Visual C# -&gt; .Net Core -&gt; ASP.NET Core Web Application(.NET Core)</p>
+
+<p>今回の名前はCoreWebApp1</p>
+
+<p>TemplateはWeb Applicationを使用。</p>
+
+<p>Projectを右クリックでAdd-&gt;Docker support</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000121.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000121_hufa64c205d065e7993cae6f778dd2654f_70362_240x0_resize_q75_box.jpg" width="240"
+                height="161" data-original="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000121.jpg" />
+    </a>
+
+
+<h3 id="docker-ホストの構成">Docker ホストの構成</h3>
+
+<h4 id="ビルドでエラー">ビルドでエラー</h4>
+
+<p>こんな感じのエラーが出たら、要ホスト構成です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Microsoft.DotNet.Docker.CommandLineClientException: error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.26/containers/json?filters=%7B%22name%22%3A%7B%22corewebapp1_corewebapp1%22%3Atrue%7D%7D&amp;limit=1: open //./pipe/docker_engine: The system cannot find the file specified. In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running.</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="環境構成">環境構成</h4>
+
+<p><a href="https://docs.microsoft.com/ja-jp/azure/vs-azure-tools-docker-setup" target="_blank">こちら</a>を参考にPackage Manager Consoleで環境構成。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#defaultマシンがあるか確認</span>
+PM&gt; docker-machine ls
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
+default   -        virtualbox   Running   tcp://192.168.99.100:2376           v1.13.1   
+
+<span class="c1">#構成用のコマンド確認。コマンドオプションがMSのサイトと若干違います。</span>
+PM&gt; docker-machine.exe env default --shell powershell
+<span class="nv">$Env</span>:DOCKER_TLS_VERIFY <span class="o">=</span> <span class="s2">&#34;1&#34;</span>
+<span class="nv">$Env</span>:DOCKER_HOST <span class="o">=</span> <span class="s2">&#34;tcp://192.168.99.100:2376&#34;</span>
+<span class="nv">$Env</span>:DOCKER_CERT_PATH <span class="o">=</span> <span class="s2">&#34;C:\Users\??????\.docker\machine\machines\default&#34;</span>
+<span class="nv">$Env</span>:DOCKER_MACHINE_NAME <span class="o">=</span> <span class="s2">&#34;default&#34;</span>
+<span class="nv">$Env</span>:COMPOSE_CONVERT_WINDOWS_PATHS <span class="o">=</span> <span class="s2">&#34;true&#34;</span>
+<span class="c1"># Run this command to configure your shell:</span> 
+<span class="c1"># &amp; &#34;C:\Program Files\Docker Toolbox\docker-machine.exe&#34; env default --shell powershell | Invoke-Expression</span>
+
+#
+<span class="c1"># 構成実行!!</span>
+#
+PM&gt; docker-machine.exe env default --shell powershell <span class="p">|</span> Invoke-Expression</code></pre></td></tr></table>
+</div>
+</div>
+<p>この設定はVS再起動でクリアされてしまうので、毎回実行する必要があるみたいです。</p>
+
+<p>Task runnerとかで上手い事自動化できないもんでしょうか？</p>
+
+<h4 id="ボリュームマッピングの変更">ボリュームマッピングの変更</h4>
+
+<p>こんな感じのエラーが出たら、docker-compose.dev.debug.ymlを修正します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Error	MSB4018	The &#34;PrepareForLaunch&#34; task failed unexpectedly.
+System.InvalidOperationException: Unable to validate volume mapping. For troubleshooting, follow instructions from http://aka.ms/DockerToolsTroubleshooting</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">--- a/src/CoreWebApp1/docker-compose.dev.debug.yml
+</span><span class="gd"></span><span class="gi">+++ b/src/CoreWebApp1/docker-compose.dev.debug.yml
+</span><span class="gi"></span><span class="gu">@@ -4,14 +4,13 @@ services:
+</span><span class="gu"></span>   corewebapp1:
+     build:
+       args:
+<span class="gd">-        source: obj/Docker/empty/
+</span><span class="gd"></span><span class="gi">+        source: .
+</span><span class="gi"></span>     labels:
+       - &#34;com.microsoft.visualstudio.targetoperatingsystem=linux&#34;
+     environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+       - DOTNET_USE_POLLING_FILE_WATCHER=1
+     volumes:
+<span class="gd">-      - .:/app
+</span><span class="gd"></span>       - ~/.nuget/packages:/root/.nuget/packages:ro
+       - ~/clrdbg:/clrdbg:ro
+     entrypoint: tail -f /dev/null
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>上手くいくとDockerコンテナができます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; docker ps
+CONTAINER ID        IMAGE                  COMMAND               CREATED             STATUS              PORTS                   NAMES
+1c591fcc3508        user/corewebapp1:dev   <span class="s2">&#34;tail -f /dev/null&#34;</span>   <span class="m">3</span> minutes ago       Up <span class="m">3</span> minutes        <span class="m">0</span>.0.0.0:32769-&gt;80/tcp   corewebapp1_corewebapp1_1
+PM&gt; </code></pre></td></tr></table>
+</div>
+</div>
+<p>Docker outputに</p>
+
+<p>Launching <a href="http://localhost:32769/">http://localhost:32769/</a> &#8230;</p>
+
+<p>みたいなのが出力されますが、localhostではだめで、DOCKER_HOSTのipにアクセスします。</p>
+
+<p>手元の環境では<a href="http://192.168.99.100:????/でした。(docker">http://192.168.99.100:????/でした。(docker</a> for windowsならlocalhostでも行ける？)</p>
+
+<p>Properties/launchSettings.jsonを編集しときます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">--- a/src/CoreWebApp1/Properties/launchSettings.json
+</span><span class="gd"></span><span class="gi">+++ b/src/CoreWebApp1/Properties/launchSettings.json
+</span><span class="gi"></span><span class="gu">@@ -24,8 +24,8 @@
+</span><span class="gu"></span>       }
+     },
+     &#34;Docker&#34;: {
+<span class="gd">-      &#34;launchBrowser&#34;: true,
+</span><span class="gd">-      &#34;launchUrl&#34;: &#34;http://localhost:{ServicePort}&#34;
+</span><span class="gd"></span><span class="gi">+        &#34;launchBrowser&#34;: true,
+</span><span class="gi">+        &#34;launchUrl&#34;: &#34;http://192.168.99.100:{ServicePort}&#34;
+</span><span class="gi"></span>     }
+   }
+ }
+</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="デバッグ">デバッグ</h3>
+
+<p>ブレークポイントもちゃんと動作してくれます。</p>
+
+<p>変なWatchも動いてます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000123.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000123_hu68a4c92b4a52ab226493d8ca03e41c5f_68863_240x0_resize_q75_box.jpg" width="240"
+                height="95" data-original="/posts/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000123.jpg" />
+    </a>
+
+
+<p>すごいね。</p>
+
+<h3 id="その他エラー">その他エラー</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Error response from daemon: Container xxxxxxxxxxxxx is not running</code></pre></td></tr></table>
+</div>
+</div>
+<p>コンテナを削除しちゃうのが手っ取り早いと思われます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt;docker stop xxxxxxxxxxxxx
+PM&gt;docker rm xxxxxxxxxxxxx</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="vs2015はオワコン-net-core">VS2015はオワコン@.Net Core</h3>
+
+<p>えーー</p>
+
+<blockquote>
+<p><a href="https://docs.microsoft.com/ja-jp/dotnet/articles/core/windows-prerequisites" target="_blank">プレビュー バージョンの .NET Core ツールで Visual Studio 2015 を使用できる場合でも、これらのプロジェクトは project.json ベースであるため、推奨されなくなりました。 Visual Studio 2017 では、MSBuild に基づくプロジェクト ファイルが使用されます。 この形式変更の詳細については、変更点の大まかな概要に関するページをご覧ください。</a></p>
+</blockquote></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&title=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&text=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&t=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f&title=Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Docker%20%2b%20.Net%20Core%20%2b%20Visual%20studio%202015 %2fposts%2f2017-05-17-dockerdotnetcorevisualstudio2015%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Docker &#43; .Net Core &#43; Visual studio 2015</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/docker/">docker</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2017-04-28-msoffice-document-diff-on-git-ext/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-04-28-msoffice-document-diff-on-git-ext/CAP000120.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Git ExtentionsでOffice文書の差分表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-28T04:00:40JST">Apr 28, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2017-06-12-shrink-sql-server-log/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Server 2012トランザクションログの圧縮</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-12T00:28:07JST">Jun 12, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

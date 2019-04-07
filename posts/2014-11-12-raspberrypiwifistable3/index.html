@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2014-11-12-raspberrypiwifistable3/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Raspberry Pi &#43; WiFiを安定させるVer3 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi &#43; WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;/posts/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi &#43; WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;&lt;p&gt;ココ最近、また不安定になってきました。&lt;/p&gt;&lt;p&gt;なんで？寒くなってきたから？&lt;/p&gt;">
+
+<meta property="og:title" content="Raspberry Pi &#43; WiFiを安定させるVer3 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2014-11-12-raspberrypiwifistable3/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi &#43; WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;/posts/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi &#43; WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;&lt;p&gt;ココ最近、また不安定になってきました。&lt;/p&gt;&lt;p&gt;なんで？寒くなってきたから？&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2014-11-12-raspberrypiwifistable3/">
+<meta name="twitter:title" content="Raspberry Pi &#43; WiFiを安定させるVer3 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi &#43; WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;/posts/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi &#43; WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;&lt;p&gt;ココ最近、また不安定になってきました。&lt;/p&gt;&lt;p&gt;なんで？寒くなってきたから？&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Raspberry Pi &#43; WiFiを安定させるVer3 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-11-12T13:52:29JST",
+    "dateModified": "2014-11-12T13:52:29JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>Raspberry PiのWifiを安定させようと<a href="http://localhost:8000/unclassified/429/" title="Raspberry Pi + WiFiを安定させる" target="_blank">色々</a>と<a href="/posts/2014-03-11-raspberrypiwifistable2" title="Raspberry Pi + WiFiを安定させるVer2" target="_blank">試行錯誤</a>したりして、結構安定していたようなんですが、</p>
+
+<p>ココ最近、また不安定になってきました。</p>
+
+<p>なんで？寒くなってきたから？</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">Raspberry Pi &#43; WiFiを安定させるVer3</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-12T13:52:29JST">Nov 12, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&title=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&text=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&t=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&title=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3 %2fposts%2f2014-11-12-raspberrypiwifistable3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>Raspberry PiのWifiを安定させようと<a href="http://localhost:8000/unclassified/429/" title="Raspberry Pi + WiFiを安定させる" target="_blank">色々</a>と<a href="/posts/2014-03-11-raspberrypiwifistable2" title="Raspberry Pi + WiFiを安定させるVer2" target="_blank">試行錯誤</a>したりして、結構安定していたようなんですが、</p>
+
+<p>ココ最近、また不安定になってきました。</p>
+
+<p>なんで？寒くなってきたから？</p>
+
+<p>wifiドングルを抜き差しすれば再接続するので、usbデバイスがよろしくない状態になっているのでは？</p>
+
+<p>という仮説の元、ネットが切れているようならusbデバイスをリセットするようにしてみました。</p>
+
+<p>ちなみにwifiドングルはこちらを使ってます。</p>
+
+<div>あまぞんりんく</div>
+
+<p>BUFFALO Air Station NFINITI HighPower 11n/g/b USB用 無線子機 WLI-UC-GNHP</p>
+
+<p>まずは<a href="http://askubuntu.com/questions/645/how-do-you-reset-a-usb-device-from-the-command-line" target="_blank">こちら</a>を参考にデバイスリセット用のプログラムを作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/src $ vim usbreset.c</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;errno.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/ioctl.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;linux/usbdevice_fs.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;Usage: usbreset device-filename</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">O_WRONLY</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">&#34;Error opening output file&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Resetting USB device %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">USBDEVFS_RESET</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">&#34;Error in ioctl&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Reset successful</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+
+    <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/src $ cc usbreset.c -o usbreset
+~/src $ ls -la
+total <span class="m">20</span>
+drwxr-xr-x <span class="m">2</span> pi pi <span class="m">4096</span> Nov <span class="m">11</span> <span class="m">19</span>:36 .
+drwxr-xr-x <span class="m">7</span> pi pi <span class="m">4096</span> Nov <span class="m">11</span> <span class="m">19</span>:35 ..
+-rwxr-xr-x <span class="m">1</span> pi pi <span class="m">6373</span> Nov <span class="m">11</span> <span class="m">19</span>:36 usbreset
+-rw-r--r-- <span class="m">1</span> pi pi  <span class="m">706</span> Nov <span class="m">11</span> <span class="m">19</span>:35 usbreset.c</code></pre></td></tr></table>
+</div>
+</div>
+<p>コンパイルが通ったら、デバイスファイル名を特定して、実行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/src $ sudo lsusb <span class="p">|</span> grep <span class="s2">&#34;Wireless LAN Adapter&#34;</span>
+Bus <span class="m">001</span> Device <span class="m">007</span>: ID <span class="m">0411</span>:0158 BUFFALO INC. <span class="o">(</span>formerly MelCo., Inc.<span class="o">)</span> WLI-UC-GNHP Wireless LAN Adapter
+~/src $ sudo ./usbreset /dev/bus/usb/001/007</code></pre></td></tr></table>
+</div>
+</div>
+<p>うむむ、ネットワークが戻ってきません。</p>
+
+<p>ちなみに作業はSSH経由でやってますんで、wifiアダプタがリセットされたら接続も切れます。</p>
+
+<p><del datetime="2014-11-12T13:23:32+00:00">wifiドングル直接リセットはダメみたいなんで、usbハブをリセットしてみます。</del></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/src $ sudo lsusb <span class="p">|</span> grep <span class="s2">&#34;USB-2.0 4-Port HUB&#34;</span>
+Bus <span class="m">001</span> Device <span class="m">004</span>: ID 05e3:0608 Genesys Logic, Inc. USB-2.0 <span class="m">4</span>-Port HUB
+~/src $ sudo ./usbreset /dev/bus/usb/001/004
+Resetting USB device /dev/bus/usb/001/004
+Reset successful</code></pre></td></tr></table>
+</div>
+</div>
+<p><del datetime="2014-11-12T13:23:32+00:00">とりあえず動いたようです。</del></p>
+
+<p>いろいろやってるうちにusbハブリセットでもネットワークが戻って来なくなってしまいました。</p>
+
+<p>どうもusbデバイスの準備が整う前にifupをやってもうまく動かないみたいです。</p>
+
+<p>usbリセット後にsleepを入れて ifupも失敗しているようならリトライするようにしました。</p>
+
+<p>これを<a href="http://localhost:8000/unclassified/429/" title="Raspberry Pi + WiFiを安定させる" target="_blank">こちらの記事</a>のスクリプトに組み込んでみます。</p>
+
+<p>最終的なスクリプトはこちら。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="c1"># reset usb device by name (part)</span>
+<span class="c1"># arg1: part of usb device name</span>
+reset_usb_device<span class="o">()</span>
+<span class="o">{</span>
+        <span class="nb">local</span> <span class="nv">dev_name</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+        <span class="nb">local</span> <span class="nv">usb_info</span><span class="o">=</span><span class="sb">`</span>lsusb <span class="p">|</span> grep <span class="s2">&#34;</span><span class="nv">$dev_name</span><span class="s2">&#34;</span><span class="sb">`</span>
+
+        <span class="nb">echo</span> <span class="nv">$usb_info</span>
+        <span class="nb">local</span> <span class="nv">bus_num</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$usb_info</span> <span class="p">|</span> awk <span class="s1">&#39;{ printf(&#34;%.3s&#34;, $2) }&#39;</span><span class="sb">`</span>
+        <span class="nb">local</span> <span class="nv">dev_num</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$usb_info</span> <span class="p">|</span> awk <span class="s1">&#39;{ printf(&#34;%.3s&#34;, $4) }&#39;</span><span class="sb">`</span>
+
+        <span class="nb">local</span> <span class="nv">usb_dev_file</span><span class="o">=</span>/dev/bus/usb/<span class="nv">$bus_num</span>/<span class="nv">$dev_num</span>
+
+        <span class="nb">echo</span> <span class="nv">$usb_dev_file</span>
+
+        /home/pi/src/usbreset <span class="nv">$usb_dev_file</span>
+
+        <span class="c1">#lsusb &gt;&gt; /home/pi/src/lsusb.txt</span>
+<span class="o">}</span>
+
+<span class="c1"># check network status</span>
+<span class="c1"># return: 0: inactive</span>
+<span class="c1">#         1: active</span>
+is_network_active<span class="o">()</span>
+<span class="o">{</span>
+        <span class="nb">local</span> <span class="nv">cnn</span><span class="o">=</span><span class="sb">`</span>/sbin/ifconfig wlan0 <span class="p">|</span> /bin/grep  <span class="s2">&#34;inet addr:&#34;</span><span class="sb">`</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$cnn</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+                <span class="k">return</span> <span class="m">0</span>
+        <span class="k">fi</span>
+        <span class="k">return</span> <span class="m">1</span>
+<span class="o">}</span>
+
+<span class="c1"># restart wlan0</span>
+wlan0_up<span class="o">()</span>
+<span class="o">{</span>
+        <span class="nb">local</span> <span class="nv">act</span><span class="o">=</span><span class="m">0</span>
+        <span class="nb">local</span> <span class="nv">retry</span><span class="o">=</span><span class="m">0</span>
+        <span class="k">while</span> <span class="o">[</span> <span class="nv">$act</span> -eq <span class="m">0</span> <span class="o">]</span>
+        <span class="k">do</span>
+                ifup --force wlan0
+                is_network_active
+                <span class="nv">act</span><span class="o">=</span><span class="nv">$?</span>
+                <span class="nb">echo</span> <span class="nv">$act</span>
+                <span class="nv">retry</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$retry</span> + <span class="m">1</span><span class="sb">`</span>
+        <span class="k">done</span>
+        <span class="nb">echo</span> retry <span class="nv">$retry</span>
+<span class="o">}</span>
+
+<span class="c1"># main</span>
+is_network_active
+<span class="k">if</span>  <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        reset_usb_device <span class="s2">&#34;WLI-UC-GNHP Wireless LAN Adapter&#34;</span>
+        <span class="c1">#reset_usb_device &#34;Genesys Logic, Inc. USB-2.0 4-Port HUB&#34;</span>
+        sleep 5s        <span class="c1">#wait for device up</span>
+        wlan0_up        <span class="c1">#ifup</span>
+        logger <span class="s2">&#34;wlan0 restarted&#34;</span>
+<span class="k">fi</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ちょっと長くなったので、関数とか使ってみました。</p>
+
+<p>ちなみにRaspberryPiにはキーボードとかモニタとか付いてないので、すべてSSH経由での作業です。</p>
+
+<p>インターフェースぶち切るスクリプトをネットワーク経由で作るので、</p>
+
+<p>ヘマするとすぐ繋がらなくなります。</p>
+
+<p>なんかMS-DOSでプログラム作ってて、暴走させるとリセットするしか無かったあの頃を思い出しますな。</p>
+
+<p>とりあえずこれでまた様子見です。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&title=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&text=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&t=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-11-12-raspberrypiwifistable3%2f&title=Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Raspberry%20Pi%20%2b%20WiFi%e3%82%92%e5%ae%89%e5%ae%9a%e3%81%95%e3%81%9b%e3%82%8bVer3 %2fposts%2f2014-11-12-raspberrypiwifistable3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Raspberry Pi &#43; WiFiを安定させるVer3</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/raspberry-pi/">Raspberry Pi</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2014-10-25-installing-etckeeper/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">etckeeperをインストール</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-10-25T12:32:56JST">Oct 25, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2014-11-21-try-node-js-with-windows-1/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-11-21-try-node-js-with-windows-1/CAP000052.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">node.jsを使ってみる(Windows)#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-21T04:01:13JST">Nov 21, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

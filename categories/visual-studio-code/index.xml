@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visual Studio Code on My New Hugo Site</title>
+    <link>/categories/visual-studio-code/</link>
+    <description>Recent content in Visual Studio Code on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Jan 2017 08:22:15 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/visual-studio-code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Angular2を使ってみる</title>
+      <link>/posts/2017-01-11-try-ng2/</link>
+      <pubDate>Wed, 11 Jan 2017 08:22:15 +0000</pubDate>
+      
+      <guid>/posts/2017-01-11-try-ng2/</guid>
+      <description>&lt;p&gt;SPAの強い味方Angularから2がリリースされました。&lt;/p&gt;
+
+&lt;p&gt;てことで試してみます。&lt;/p&gt;
+
+&lt;p&gt;環境は&lt;/p&gt;
+
+&lt;p&gt;windows 7&lt;/p&gt;
+
+&lt;p&gt;visual studio code&lt;/p&gt;
+
+&lt;p&gt;npm 4.1.1&lt;/p&gt;
+
+&lt;p&gt;node 6.9.2&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Code メモ</title>
+      <link>/posts/2016-12-14-visual-studio-code-memo/</link>
+      <pubDate>Wed, 14 Dec 2016 03:42:35 +0000</pubDate>
+      
+      <guid>/posts/2016-12-14-visual-studio-code-memo/</guid>
+      <description>&lt;p&gt;Visual Studio Code良いですよね。Sublime(買って)使ってましたが乗り換えようかと思っとります。&lt;/p&gt;
+
+&lt;p&gt;随時更新でちょっとしたメモを残しときます。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

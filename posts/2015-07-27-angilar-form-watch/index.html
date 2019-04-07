@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-07-27-angilar-form-watch/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>AngularJSでフォームに変更があったらボタンをアクティブにする - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;AngularJS使ってます。&lt;/p&gt;&lt;p&gt;よくあるフォームの処理で、半日ほどハマッたのでメモ。&lt;/p&gt;&lt;p&gt;やりたいことは、&lt;/p&gt;&lt;ul&gt;&lt;li&gt;サーバからデータを取得&lt;/li&gt;&lt;li&gt;フォームに読み込み&lt;/li&gt;&lt;li&gt;ユーザーがなんか入力&lt;/li&gt;&lt;li&gt;送信ボタンをアクティブにする&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;って、よくあるパターンのやつ。&lt;/p&gt;">
+
+<meta property="og:title" content="AngularJSでフォームに変更があったらボタンをアクティブにする - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-07-27-angilar-form-watch/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;AngularJS使ってます。&lt;/p&gt;&lt;p&gt;よくあるフォームの処理で、半日ほどハマッたのでメモ。&lt;/p&gt;&lt;p&gt;やりたいことは、&lt;/p&gt;&lt;ul&gt;&lt;li&gt;サーバからデータを取得&lt;/li&gt;&lt;li&gt;フォームに読み込み&lt;/li&gt;&lt;li&gt;ユーザーがなんか入力&lt;/li&gt;&lt;li&gt;送信ボタンをアクティブにする&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;って、よくあるパターンのやつ。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-07-27-angilar-form-watch/">
+<meta name="twitter:title" content="AngularJSでフォームに変更があったらボタンをアクティブにする - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;AngularJS使ってます。&lt;/p&gt;&lt;p&gt;よくあるフォームの処理で、半日ほどハマッたのでメモ。&lt;/p&gt;&lt;p&gt;やりたいことは、&lt;/p&gt;&lt;ul&gt;&lt;li&gt;サーバからデータを取得&lt;/li&gt;&lt;li&gt;フォームに読み込み&lt;/li&gt;&lt;li&gt;ユーザーがなんか入力&lt;/li&gt;&lt;li&gt;送信ボタンをアクティブにする&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;って、よくあるパターンのやつ。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "AngularJSでフォームに変更があったらボタンをアクティブにする - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-07-27T12:39:56JST",
+    "dateModified": "2015-07-27T12:39:56JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>AngularJS使ってます。</p>
+
+<p>よくあるフォームの処理で、半日ほどハマッたのでメモ。</p>
+
+<p>やりたいことは、</p>
+
+<ul>
+<li>サーバからデータを取得</li>
+<li>フォームに読み込み</li>
+<li>ユーザーがなんか入力</li>
+<li>送信ボタンをアクティブにする</li>
+</ul>
+
+<p>って、よくあるパターンのやつ。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-07-27-angilar-form-watch/WS000104.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">AngularJSでフォームに変更があったらボタンをアクティブにする</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-07-27T12:39:56JST">Jul 27, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-07-27-angilar-form-watch%2f&title=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-07-27-angilar-form-watch%2f&text=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-07-27-angilar-form-watch%2f&t=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-07-27-angilar-form-watch%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-07-27-angilar-form-watch%2f&title=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b %2fposts%2f2015-07-27-angilar-form-watch%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>AngularJS使ってます。</p>
+
+<p>よくあるフォームの処理で、半日ほどハマッたのでメモ。</p>
+
+<p>やりたいことは、</p>
+
+<ul>
+<li>サーバからデータを取得</li>
+<li>フォームに読み込み</li>
+<li>ユーザーがなんか入力</li>
+<li>送信ボタンをアクティブにする</li>
+</ul>
+
+<p>って、よくあるパターンのやつ。</p>
+
+<h3 id="html">HTML</h3>
+
+<p>サンプルの構成はindex.htmlとapp.jsのみ。</p>
+
+<p>angularjs,bootstrapは面倒なんでCDNを使わせていただきました。</p>
+
+<p>ＨＴＭＬはこんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&#34;utf-8&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>watch test<span class="nt">&lt;/title&gt;</span>
+
+    <span class="c">&lt;!-- Bootstrap --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href=</span><span class="s">&#34;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href=</span><span class="s">&#34;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css&#34;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- AngularJS --&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;./app.js&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>Test<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-app=</span><span class="s">&#34;app&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&#34;FormTestController&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;form&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;Model.Name&#34;</span> <span class="na">ng-change=</span><span class="s">&#34;changed($event)&#34;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;Model.Age&#34;</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&#34;reload($event);&#34;</span><span class="nt">&gt;</span>Reload!<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&#34;btn btn-primary&#34;</span> <span class="na">href=</span><span class="s">&#34;&#34;</span> <span class="na">role=</span><span class="s">&#34;button&#34;</span> <span class="na">ng-class=</span><span class="s">&#34;{disabled : !Modified}&#34;</span><span class="nt">&gt;</span>変更したらアクティブになるボタン<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/form&gt;</span>
+            変更済み?{{Modified}}<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+            氏名:{{Model.Name}}<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+            年齢:{{Model.Age}}<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="c">&lt;!-- jQuery (necessary for Bootstrap&#39;s JavaScript plugins) --&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ブラウザで見るとこんな感じ。（app.jsでModelをセットしてます)</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-07-27-angilar-form-watch/WS000104.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-07-27-angilar-form-watch/WS000104_huef7e54cb9f6b3f0647d698e5e95268b3_12672_240x0_resize_q75_box.jpg" width="240"
+                height="90" data-original="/posts/2015-07-27-angilar-form-watch/WS000104.jpg" />
+    </a>
+
+
+<p>Modifiedフラグでボタンのactive/inactiveを制御します。</p>
+
+<p>面白くもなんとも無いですが、ま、サンプルですし。</p>
+
+<h3 id="うまくいかなかったapp-js">うまくいかなかったapp.js</h3>
+
+<p>最初app.jsはこんな感じで書いたんですが、期待した動作にはなりませんでした。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">//このスクリプトはちゃんと動きません。
+(function () {
+    var app = angular.module(&#34;app&#34;,[]);
+
+    angular.module(&#34;app&#34;).controller(&#34;FormTestController&#34;, [&#39;$scope&#39;, function ($scope) {
+        //メンバー
+        var loadTimes = 0;          //ダミー生成用
+
+        $scope.Model = null;        //編集対象
+        $scope.Modified = false;    //編集されたか？フラグ
+
+        // 初期化
+        loadModel();            //初期値ロード
+
+        function loadModel() {
+            //web apiとかでモデルをゲット(今回はダミー)
+            $scope.Model = { Name: &#34;氏名&#34;, Age: 18 + (loadTimes++)};
+            //クライアント上では更新されてないのでModifiedをfalseにセット
+            $scope.Modified = false;
+        }
+
+        //監視対象が更新されたらModifiedをtrueにする
+        $scope.$watchCollection(&#34;Model&#34;, function (newVal, oldVal) {
+            if (newVal != oldVal) {
+                $scope.Modified = true;
+            }
+        });
+
+        //ダミー更新用イベントハンドラ
+        $scope.reload = function () {
+            loadModel();    //データがリフレッシュされて、変更済みフラグがリセットされるはず！
+        };
+
+    }]);
+})();</code></pre></td></tr></table>
+</div>
+</div>
+<p>やってることは単純で、$scope.$watchCollectionでModelの変更を監視して、変更があったらModified をTrueにするだけ。</p>
+
+<p>これ、最初はうまくいくんですが、reloadしてもModified はtrueのままになってしまいます。</p>
+
+<p>loadModelでModel変更<strong>後</strong>にModifiedをリセットしてるんで、falseのままなはずと思ってたんですが、デバッグしてみるとreloadイベント終了後に$watchCollectionが発火しているご様子。しかもnewVal != oldValで。</p>
+
+<h3 id="なぜ">なぜ？</h3>
+
+<p>理由はangularの仕様で、watch関係はイベントハンドラ処理が終わった後に実行されるから。</p>
+
+<p><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$apply" target="_blank">$applyとそれに続くLife cycle</a>の説明をよーーーーく読むと解るような気がします。</p>
+
+<p>angularでのイベント処理は</p>
+
+<ul>
+<li>Formイベントとかタイマーイベントとかのときはangularが$apply経由でハンドラ呼ぶよ。</li>
+<li>$applyの中ではハンドラ実行後に$digest呼ぶよ。</li>
+<li>$digestでwatch処理するよ。</li>
+</ul>
+
+<p>ということなので、ハンドラ内で処理順を気にしても無駄なのでした。</p>
+
+<h3 id="結局どうしたか">結局どうしたか</h3>
+
+<p>ロード直後のModelと変更後のModelを比較するという、とても効率の悪そうな方法しか思い浮かびませんでした。</p>
+
+<p>ただwatch内で比較するので、変更されたっぽいタイミングのみでの比較になるので、そんなに負荷はかからないはずと信じます。</p>
+
+<p>んで、改良版がこちら</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">(function () {
+    var app = angular.module(&#34;app&#34;,[]);
+
+    angular.module(&#34;app&#34;).controller(&#34;FormTestController&#34;, [&#39;$scope&#39;, function ($scope) {
+        //メンバー
+        var loadTimes = 0;          //ダミー生成用
+        var originModel=null;       //編集前Model(シリアライズ済み)
+
+        $scope.Model = null;        //編集対象
+        $scope.Modified = false;    //編集されたか？フラグ
+
+        // 初期化
+        loadModel();            //初期値ロード
+
+        function loadModel() {
+            //web apiとかでモデルをゲット(今回はダミー)
+            $scope.Model = { Name: &#34;氏名&#34;, Age: 18 + (loadTimes++)};
+            //編集前モデルを保存
+            originModel=JSON.stringify($scope.Model );
+            //クライアント上では更新されてないのでModifiedをfalseにセット
+            $scope.Modified = false;
+        }
+
+        //監視対象が更新されたらModifiedをtrueにする
+        $scope.$watchCollection(&#34;Model&#34;, function (newVal, oldVal) {
+            if (newVal != oldVal) {
+                var curModel=JSON.stringify(newVal);    //現在のModelをシリアライズ
+                if(originModel!=curModel){              //シリアライズした値を比較(Deep Compare)
+                    $scope.Modified = true;             //変更あり！
+                } else{
+                    $scope.Modified = false;            //読み込んだ当時の姿です。
+                }
+            }
+        });
+
+        //ダミー更新用イベントハンドラ
+        $scope.reload = function () {
+            loadModel();    //データがリフレッシュされて、変更済みフラグがリセットされるはず！
+        };
+
+    }]);
+})();</code></pre></td></tr></table>
+</div>
+</div>
+<p>読み込み直後にJSON.stringifyでオリジナルを文字列(originModel)として保存して、watchで比較してます。</p>
+
+<p>この方法だと、フォーム上で変更しても元の値を入力しなおすとModifiedをfalseになるような処理もかけます。</p>
+
+<p>angularの理解が進めば、もっと良い方法があるような気もしますが、現時点ではこれで。</p>
+
+<p>だれか良い方法おしえてー。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-07-27-angilar-form-watch%2f&title=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-07-27-angilar-form-watch%2f&text=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-07-27-angilar-form-watch%2f&t=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-07-27-angilar-form-watch%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-07-27-angilar-form-watch%2f&title=AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?AngularJS%e3%81%a7%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%8c%e3%81%82%e3%81%a3%e3%81%9f%e3%82%89%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e3%82%a2%e3%82%af%e3%83%86%e3%82%a3%e3%83%96%e3%81%ab%e3%81%99%e3%82%8b %2fposts%2f2015-07-27-angilar-form-watch%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">AngularJSでフォームに変更があったらボタンをアクティブにする</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-06-24-phonegap-cordova-traps/">
+    
+
+
+
+  
+  
+    
+      
+      
+        
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&amp;#038;l=as2&amp;#038;o=9&amp;#038;a=4774162116)"></div>
+
+
+    <div class="inner">
+      <div class="title">PhoneGap/Cordova Tips &amp; つまづきポイント</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-06-24T06:14:55JST">Jun 24, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-08-11-asp-net-identity-with-adfs/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-08-11-asp-net-identity-with-adfs/CAP000071.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET IdentityでActive Directory認証</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-08-11T07:44:05JST">Aug 11, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

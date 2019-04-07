@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-02-12-try-phonegap-android/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>PhoneGapを使ってみる(Android編) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;h3 id=&#34;android開発環境&#34;&gt;Android開発環境&lt;/h3&gt;&lt;p&gt;IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。&lt;/p&gt;&lt;p&gt;今回はAndroid Studioで行きます。&lt;/p&gt;&lt;p&gt;てことで&lt;/p&gt;&lt;p&gt;OSX(Yosemite) &#43; PhoneGap &#43; Android Studioでエミュレーターで実行できるまでの記録です。&lt;/p&gt;">
+
+<meta property="og:title" content="PhoneGapを使ってみる(Android編) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-02-12-try-phonegap-android/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;h3 id=&#34;android開発環境&#34;&gt;Android開発環境&lt;/h3&gt;&lt;p&gt;IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。&lt;/p&gt;&lt;p&gt;今回はAndroid Studioで行きます。&lt;/p&gt;&lt;p&gt;てことで&lt;/p&gt;&lt;p&gt;OSX(Yosemite) &#43; PhoneGap &#43; Android Studioでエミュレーターで実行できるまでの記録です。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-02-12-try-phonegap-android/">
+<meta name="twitter:title" content="PhoneGapを使ってみる(Android編) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;h3 id=&#34;android開発環境&#34;&gt;Android開発環境&lt;/h3&gt;&lt;p&gt;IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。&lt;/p&gt;&lt;p&gt;今回はAndroid Studioで行きます。&lt;/p&gt;&lt;p&gt;てことで&lt;/p&gt;&lt;p&gt;OSX(Yosemite) &#43; PhoneGap &#43; Android Studioでエミュレーターで実行できるまでの記録です。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "PhoneGapを使ってみる(Android編) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-02-12T06:59:07JST",
+    "dateModified": "2015-02-12T06:59:07JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<h3 id="android開発環境">Android開発環境</h3>
+
+<p>IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。</p>
+
+<p>今回はAndroid Studioで行きます。</p>
+
+<p>てことで</p>
+
+<p>OSX(Yosemite) + PhoneGap + Android Studioでエミュレーターで実行できるまでの記録です。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-02-12-try-phonegap-android/SSandroidStudioMenu.png)"></div>
+
+  <header class="article-header">
+    <h1 class="title">PhoneGapを使ってみる(Android編)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-02-12T06:59:07JST">Feb 12, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-02-12-try-phonegap-android%2f&title=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-02-12-try-phonegap-android%2f&text=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-02-12-try-phonegap-android%2f&t=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-02-12-try-phonegap-android%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-02-12-try-phonegap-android%2f&title=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29 %2fposts%2f2015-02-12-try-phonegap-android%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><h3 id="android開発環境">Android開発環境</h3>
+
+<p>IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。</p>
+
+<p>今回はAndroid Studioで行きます。</p>
+
+<p>てことで</p>
+
+<p>OSX(Yosemite) + PhoneGap + Android Studioでエミュレーターで実行できるまでの記録です。</p>
+
+<h4 id="jdk">JDK</h4>
+
+<p>JDK7を<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Oracle</a>からダウンロードインストール。</p>
+
+<p>(Android StudioがJDK7を名指しなので、JDK8は使いませんでした(Android Studioに組み込んどいてほしいわ))</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#JDK</span>
+~$ java -version
+java version <span class="s2">&#34;1.7.0_71&#34;</span>
+Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build <span class="m">1</span>.7.0_71-b14<span class="o">)</span>
+Java HotSpot<span class="o">(</span>TM<span class="o">)</span> <span class="m">64</span>-Bit Server VM <span class="o">(</span>build <span class="m">24</span>.71-b01, mixed mode<span class="o">)</span>
+<span class="c1">#JRE</span>
+~$ /Library/Internet<span class="se">\ </span>Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -version
+java version <span class="s2">&#34;1.7.0_71&#34;</span>
+Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build <span class="m">1</span>.7.0_71-b14<span class="o">)</span>
+Java HotSpot<span class="o">(</span>TM<span class="o">)</span> <span class="m">64</span>-Bit Server VM <span class="o">(</span>build <span class="m">24</span>.71-b01, mixed mode<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="android-studio">Android Studio</h4>
+
+<p><a href="http://developer.android.com/sdk/index.html" target="_blank">Android Studio</a>をダウンロード、インストール。</p>
+
+<p>Android Studioのバージョンは1.0.1でした。</p>
+
+<p><a href="http://tools.android.com/tech-docs/configuration/osx-jdk" target="_blank">Yosemite (Mac OSX 10.10) Issues</a>があるらしいので、STUDIO_JDKを設定。</p>
+
+<p>~/.bash_profileに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">STUDIO_JDK</span><span class="o">=</span>/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk</code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加して</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~$ <span class="nb">source</span> ~/.bash_profile
+~$ open /Applications/Android<span class="se">\ </span>Studio.app</code></pre></td></tr></table>
+</div>
+</div>
+<p>インストーラが走るので、素直に画面の指示に従います。</p>
+
+<p>再起動してすぐAndroid Studioを立ち上げようとするとJDKが見つからない的なことを言われるので、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~$ sudo vim /etc/launchd.conf
+setenv STUDIO_JDK /Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk</code></pre></td></tr></table>
+</div>
+</div>
+<p>としました。。。が動きません。</p>
+
+<p>Yosemiteではlaunchd効かないらしいので、とりあえず~/.bash_profileに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">launchctl setenv STUDIO_JDK <span class="nv">$STUDIO_JDK</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加しときます。</p>
+
+<h4 id="android用-platform追加-phonegap-build">android用 platform追加(phonegap build)</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/src/pgapp$ phonegap build android</code></pre></td></tr></table>
+</div>
+</div>
+<p>とすると</p>
+
+<p>Error: ANDROID_HOME is not set and &#8220;android&#8221; command not in your PATH. You must fulfill at least one of these conditions.</p>
+
+<p>とか怒られます。</p>
+
+<p>STUDIO_JDKと同じようにANDROID_HOMEも追加。</p>
+
+<p>再度ビルドしようとすると、今度は</p>
+
+<p>Error: Please install Android target &#8220;android-19&#8221;.</p>
+
+<p>Hint: Run &#8220;android&#8221; from your command-line to open the SDK manager.</p>
+
+<p>と怒られます。</p>
+
+<p>Android Studioを起動してConfigure→SDK Manager→Android 4.4.2(API 19) をインストール。</p>
+
+
+
+
+<p>やっとこさ、ビルド成功。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~/src/pgapp$ phonegap build android
+<span class="o">[</span>phonegap<span class="o">]</span> executing <span class="s1">&#39;cordova platform add android&#39;</span>...
+<span class="o">[</span>phonegap<span class="o">]</span> completed <span class="s1">&#39;cordova platform add android&#39;</span>
+<span class="o">[</span>phonegap<span class="o">]</span> executing <span class="s1">&#39;cordova build android&#39;</span>...
+<span class="o">[</span>phonegap<span class="o">]</span> completed <span class="s1">&#39;cordova build android&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="環境変数">環境変数</h4>
+
+<p>最終的にphonegap buildまでに設定が必要な環境変数は２つ。合わせてこんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">STUDIO_JDK</span><span class="o">=</span>/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk
+<span class="nb">export</span> <span class="nv">ANDROID_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/Library/Android/sdk/
+
+launchctl setenv STUDIO_JDK <span class="nv">$STUDIO_JDK</span>
+launchctl setenv ANDROID_HOME <span class="nv">$ANDROID_HOME</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="android-studioで実行">Android Studioで実行</h3>
+
+<p>Android Studioで&#8221;Import Non-Android Studio project&#8221;</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-02-12-try-phonegap-android/SSandroidStudioMenu.png">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-02-12-try-phonegap-android/SSandroidStudioMenu_hu8026b7809c64ecce50f7ff50f15bf981_189085_240x0_resize_box_2.png" width="240"
+                height="192" data-original="/posts/2015-02-12-try-phonegap-android/SSandroidStudioMenu.png" />
+    </a>
+
+
+<p>phonegapで作成したフォルダを選択。 /Users/cozy/src/pgapp とか。</p>
+
+<p>platform/androidは無視していいみたいです。</p>
+
+<p>ウィーザードが始まりますのでnext, next&#8230;</p>
+
+<p>途中SDKのバージョン選択画面が出るので&#8221;Android API 19 Platform&#8221;を選択。</p>
+
+<p>RunメニューにRun&#8217;Android&#8217;からRun!</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-02-12-try-phonegap-android/SS2015-02-1223.46.png">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-02-12-try-phonegap-android/SS2015-02-1223.46_hu2e7c1c2d95211032f589425555c8549f_284282_240x0_resize_box_2.png" width="240"
+                height="392" data-original="/posts/2015-02-12-try-phonegap-android/SS2015-02-1223.46.png" />
+    </a>
+
+
+<p>一応動いてます。</p>
+
+<p>Android Studioはバージョンに敏感なようです。</p>
+
+<p>Androidはいろいろフラメン起こってって仕事でやってる人は大変そうですな。</p>
+
+<p>追記:</p>
+
+<p>勘でやらずに先に<a href="http://www.tricedesigns.com/2013/05/16/phonegap-android-studio/" target="_blank">説明書</a>を読みましょう</p>
+
+<h3 id="以下-間違えた記録">以下、間違えた記録</h3>
+
+<div style="background-color:gray; padding: 0 1em 1em 1em; opacity: 0.5">
+  <h3>
+    Android Studioで実行
+  </h3>
+  
+  <p>
+    Android Studioで&#8221;Import Non-Android Studio project&#8221;<br /> 
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-02-12-try-phonegap-android/SSandroidStudioMenu.png">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-02-12-try-phonegap-android/SSandroidStudioMenu_hu8026b7809c64ecce50f7ff50f15bf981_189085_240x0_resize_box_2.png" width="240"
+                height="192" data-original="/posts/2015-02-12-try-phonegap-android/SSandroidStudioMenu.png" />
+    </a>
+<br /> /platforms/android/ を選択するとなんかいい感じに読み込んでくれました。
+  </p>
+  
+  <p>
+    Build->Make Projectをすると
+  </p>
+  
+  ```plain
+
+Error:(3) A problem occurred evaluating root project 'android'.
+> Failed to apply plugin [id 'android']
+   > Gradle version 1.10 is required. Current version is 2.2.1. If using the gradle wrapper, try editing the distributionUrl in /Users/????/src/????/platforms/android/gradle/wrapper/gradle-wrapper.properties to gradle-1.10-all.zip
+```
+
+  
+  <p>
+    となります。<br /> platforms/android/build.gradleの
+  </p>
+  
+  ```plain
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.10.+'
+    }
+```
+
+  
+  <p>
+    を
+  </p>
+  
+  ```plain
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.+'
+    }
+```
+
+  
+  <p>
+    とします。
+  </p>
+  
+  <p>
+    次に出たエラーがこれ（もうやめたい…）
+  </p>
+  
+  ```plain
+
+Error:failed to find Build Tools revision 19.0.0
+<a href="install.build.tools">Install Build Tools 19.0.0 and sync project</a>
+```
+
+  
+  <p>
+    
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-02-12-try-phonegap-android/SS_INSTALL_SDKBUILD19.png">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-02-12-try-phonegap-android/SS_INSTALL_SDKBUILD19_hu38f8c20707809d04a3dca7c76434ffe0_363820_240x0_resize_box_2.png" width="240"
+                height="181" data-original="/posts/2015-02-12-try-phonegap-android/SS_INSTALL_SDKBUILD19.png" />
+    </a>
+<br /> Tools->Android->SDK Managerから&#8221;Android SDK Build Tools 19&#8243;をインストールします。
+  </p>
+  
+  <p>
+    はい次のエラー
+  </p>
+  
+  ```plain
+
+Task '' not found in root project 'android'.
+```
+
+  
+  <p>
+    ちょっと分けが分からなくなってきたので、Android Studioを再起動してみると…<br /> はい、また別のエラー
+  </p>
+  
+  ```plain
+
+Error:The SDK Build Tools revision (19.0.0) is too low for project 'android'. Minimum required is 19.1.0
+```
+
+  
+  <p>
+    さっき19.0.0って言ったじゃん。<br /> 怒りを抑えつつ、<br /> Tools->Android->SDK Managerから&#8221;Android SDK Build Tools 19.1&#8243;をインストールします。
+  </p>
+  
+  <p>
+    インストールしただけだとダメなようで、<br /> platforms/android/build.gradle と platforms/android/CordovaLib/build.gradle の<br /> buildToolsVersion &#8220;19.0.0&#8221;<br /> を<br /> buildToolsVersion &#8220;19.1&#8221;<br /> にします。
+  </p>
+  
+  <p>
+    はい次
+  </p>
+  
+  ```plain
+
+Error:(13, 5) uses-sdk:minSdkVersion 7 cannot be smaller than version 10 declared in library /platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/AndroidManifest.xml
+```
+
+  
+  <p>
+    なにこの懐かしのDLL hell みたいな泥沼。<br /> AndroidManifest.xmlのsdk:minSdkVersionを10にします。
+  </p>
+  
+  <p>
+    一応ビルド成功するのですが、なぜかmavenのアップデートが走ります。<br /> 
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-02-12-try-phonegap-android/SSUpdateMaven150212.png">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-02-12-try-phonegap-android/SSUpdateMaven150212_huf51321b87d0fbe12dddbbafcdbae0d5e_12359_240x0_resize_box_2.png" width="240"
+                height="23" data-original="/posts/2015-02-12-try-phonegap-android/SSUpdateMaven150212.png" />
+    </a>
+<br /> Updating[central] http://repo1.maven.org/maven2
+  </p>
+  
+  <p>
+    最終的にphonegap build androidから変更した内容は、
+  </p>
+  
+  ```plain
+
+$ git --no-pager diff platforms/android/AndroidManifest.xml platforms/android/build.gradle platforms/android/CordovaLib/build.gradle
+diff --git a/platforms/android/AndroidManifest.xml b/platforms/android/AndroidManifest.xml
+index b2d2adc..2151e33 100644
+--- a/platforms/android/AndroidManifest.xml
++++ b/platforms/android/AndroidManifest.xml
+@@ -10,5 +10,5 @@
+             </intent-filter>
+         </activity>
+     </application>
+-    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19" />
++    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
+ </manifest>
+diff --git a/platforms/android/CordovaLib/build.gradle b/platforms/android/CordovaLib/build.gradle
+index 47341b3..e1db448 100644
+--- a/platforms/android/CordovaLib/build.gradle
++++ b/platforms/android/CordovaLib/build.gradle
+@@ -25,7 +25,7 @@ buildscript {
+     }
+ 
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:0.10.+'
++        classpath 'com.android.tools.build:gradle:1.0.+'
+     }
+ }
+ 
+@@ -33,7 +33,7 @@ apply plugin: 'android-library'
+ 
+ android {
+     compileSdkVersion 19
+-    buildToolsVersion "19.0.0"
++    buildToolsVersion "19.1"
+ 
+     compileOptions {
+         sourceCompatibility JavaVersion.VERSION_1_7
+diff --git a/platforms/android/build.gradle b/platforms/android/build.gradle
+index 9d1d45a..ea38dde 100644
+--- a/platforms/android/build.gradle
++++ b/platforms/android/build.gradle
+@@ -8,7 +8,7 @@ buildscript {
+     }
+ 
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:0.10.+'
++        classpath 'com.android.tools.build:gradle:1.0.+'
+     }
+ }
+ 
+@@ -39,7 +39,7 @@ android {
+     }
+ 
+     compileSdkVersion 19
+-    buildToolsVersion "19.0.0"
++    buildToolsVersion "19.1"
+ 
+     if (multiarch || System.env.BUILD_MULTIPLE_APKS) {
+         productFlavors {
+```
+</div></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-02-12-try-phonegap-android%2f&title=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-02-12-try-phonegap-android%2f&text=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-02-12-try-phonegap-android%2f&t=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-02-12-try-phonegap-android%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-02-12-try-phonegap-android%2f&title=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29 %2fposts%2f2015-02-12-try-phonegap-android%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">PhoneGapを使ってみる(Android編)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/android/">android</a></li>
+          
+          <li><a href="/categories/phonegap/">phonegap</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-01-21-try-phonegap-ios/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">PhoneGapを使ってみる(iOS編)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-01-21T11:47:30JST">Jan 21, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-02-15-webdav-on-win7-cdrive-issue/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-02-15-webdav-on-win7-cdrive-issue/WS000098.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">OneDrive for Bisinessにバックアップする</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-02-15T07:00:41JST">Feb 15, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-08-11-asp-net-identity-with-adfs/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET IdentityでActive Directory認証 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。&lt;/p&gt;&lt;p&gt;これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。&lt;/p&gt;&lt;p&gt;社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。&lt;/p&gt;&lt;p&gt;AD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET IdentityでActive Directory認証 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-08-11-asp-net-identity-with-adfs/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。&lt;/p&gt;&lt;p&gt;これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。&lt;/p&gt;&lt;p&gt;社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。&lt;/p&gt;&lt;p&gt;AD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-08-11-asp-net-identity-with-adfs/">
+<meta name="twitter:title" content="ASP.NET IdentityでActive Directory認証 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。&lt;/p&gt;&lt;p&gt;これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。&lt;/p&gt;&lt;p&gt;社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。&lt;/p&gt;&lt;p&gt;AD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET IdentityでActive Directory認証 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-08-11T07:44:05JST",
+    "dateModified": "2015-08-11T07:44:05JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。</p>
+
+<p>これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。</p>
+
+<p>社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。</p>
+
+<p>AD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-08-11-asp-net-identity-with-adfs/CAP000071.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET IdentityでActive Directory認証</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-08-11T07:44:05JST">Aug 11, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&text=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&t=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc %2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。</p>
+
+<p>これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。</p>
+
+<p>社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。</p>
+
+<p>AD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。</p>
+
+<h3 id="プロジェクトの準備">プロジェクトの準備</h3>
+
+<p>ASP.NET MVC5のプロジェクト作成時に認証方法をIndividual User Accountsにしとく。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-08-11-asp-net-identity-with-adfs/CAP000071.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-08-11-asp-net-identity-with-adfs/CAP000071_hu4a32990e9686787f136195663085b477_28178_240x0_resize_q75_box.jpg" width="240"
+                height="107" data-original="/posts/2015-08-11-asp-net-identity-with-adfs/CAP000071.jpg" />
+    </a>
+
+
+<p>後から変更できるかは不明。（できるんだろうけど大変そう）</p>
+
+<p>参照設定でSystem.DirectoryServices.AccountManagementを追加。</p>
+
+<h3 id="ユーザーモデル-applicationuser">ユーザーモデル ApplicationUser</h3>
+
+<p>ユーザーそのものを表現するクラスです。ユーザ名とかIDとか。</p>
+
+<p>テンプレートではIdentityUserを継承していますが、IUserインターフェースを実装するように変更します。</p>
+
+<p><small>(IdentityUserを継承しない時点でASP.NET Identityでは無いような気がしますが、気にしないでおきます)</small></p>
+
+<p>ActiveDirectoryのユーザー情報はここにコンポジションしてます。</p>
+
+<p>Id,NameともにSamAccountNameを使います。</p>
+
+<p>GenerateUserIdentityAsyncメソッドはCookie関係の処理で必要そうなので残しときます。</p>
+
+<h4 id="models-identitymodels-cs">\Models\IdentityModels.cs</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">ApplicationUser</span> <span class="p">:</span> <span class="n">IUser</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ClaimsIdentity</span><span class="p">&gt;</span> <span class="n">GenerateUserIdentityAsync</span><span class="p">(</span><span class="n">UserManager</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span> <span class="n">manager</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">userIdentity</span> <span class="p">=</span> <span class="k">await</span> <span class="n">manager</span><span class="p">.</span><span class="n">CreateIdentityAsync</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">DefaultAuthenticationTypes</span><span class="p">.</span><span class="n">ApplicationCookie</span><span class="p">);</span>
+            <span class="c1">// Add custom user claims here
+</span><span class="c1"></span>            <span class="k">return</span> <span class="n">userIdentity</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">ApplicationUser</span><span class="p">(</span><span class="n">UserPrincipal</span> <span class="n">ADUser</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">mADUser</span> <span class="p">=</span> <span class="n">ADUser</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="n">UserPrincipal</span> <span class="n">mADUser</span><span class="p">;</span>
+        <span class="cp">#region IUser&lt;string&gt; Members
+</span><span class="cp"></span>        <span class="k">public</span> <span class="kt">string</span> <span class="n">Id</span> <span class="p">{</span>
+            <span class="k">get</span><span class="p">{</span>
+                <span class="k">return</span> <span class="n">mADUser</span><span class="p">.</span><span class="n">SamAccountName</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">UserName</span> <span class="p">{</span>
+            <span class="k">get</span><span class="p">{</span>
+                <span class="k">return</span> <span class="n">mADUser</span><span class="p">.</span><span class="n">SamAccountName</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">set</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="cp">#endregion
+</span><span class="cp"></span>    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ユーザーストア-applicationuserstore">ユーザーストア ApplicationUserStore</h3>
+
+<p>ユーザーの操作(CRUD)を担当するクラスです。</p>
+
+<p>テンプレートだとIdentityDbContext<ApplicationUser>を継承してDBとのやり取りをうまいことしてくれるようですが、IUserStore<ApplicationUser>を実装してADを読むようにします。</p>
+
+<p>追加・変更・削除はAD上でやるので、読み取りのみの実装になります。</p>
+
+<p>ADへの接続情報にあたるPrincipalContextはOwinのIoC的な機能を利用します（PrincipalContextは\App_Start\Startup.Auth.csでOwinのコンテキストに登録→context.Getで取得)</p>
+
+<p>ユーザー読み取りの肝はUserPrincipal.FindByIdentityです。</p>
+
+<h4 id="models-identitymodels-cs-1">\Models\IdentityModels.cs</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">ApplicationUserStore</span> <span class="p">:</span> <span class="n">IUserStore</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">PrincipalContext</span> <span class="n">_context</span><span class="p">;</span>
+        <span class="k">private</span> <span class="n">ApplicationUserStore</span><span class="p">(</span><span class="n">PrincipalContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">_context</span> <span class="p">=</span> <span class="n">context</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// PrincipalContext will be set by Owin.
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">static</span> <span class="n">ApplicationUserStore</span> <span class="n">Create</span><span class="p">(</span><span class="n">IdentityFactoryOptions</span><span class="p">&lt;</span><span class="n">ApplicationUserStore</span><span class="p">&gt;</span> <span class="n">options</span><span class="p">,</span> <span class="n">IOwinContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">principal_context</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">PrincipalContext</span><span class="p">&gt;();</span>
+            <span class="kt">var</span> <span class="n">store</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ApplicationUserStore</span><span class="p">(</span><span class="n">principal_context</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">store</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="cp">#region IUserStore&lt;ApplicationUser,string&gt; Members
+</span><span class="cp"></span>
+        <span class="k">public</span> <span class="n">Task</span> <span class="n">CreateAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Task</span> <span class="n">DeleteAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span> <span class="n">FindByIdAsync</span><span class="p">(</span><span class="kt">string</span> <span class="n">userId</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">user</span><span class="p">=</span><span class="n">UserPrincipal</span><span class="p">.</span><span class="n">FindByIdentity</span><span class="p">(</span><span class="n">_context</span><span class="p">,</span> <span class="n">userId</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">ApplicationUser</span><span class="p">(</span><span class="n">user</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span> <span class="n">FindByNameAsync</span><span class="p">(</span><span class="kt">string</span> <span class="n">userName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">user</span> <span class="p">=</span> <span class="n">UserPrincipal</span><span class="p">.</span><span class="n">FindByIdentity</span><span class="p">(</span><span class="n">_context</span><span class="p">,</span> <span class="n">userName</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">ApplicationUser</span><span class="p">(</span><span class="n">user</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Task</span> <span class="n">UpdateAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="cp">#endregion
+</span><span class="cp"></span>
+        <span class="cp">#region IDisposable Members
+</span><span class="cp"></span>
+        <span class="k">public</span> <span class="k">void</span> <span class="n">Dispose</span><span class="p">()</span> <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="cp">#endregion
+</span><span class="cp"></span>    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ユーザーマネージャapplicationusermanager">ユーザーマネージャApplicationUserManager</h3>
+
+<p>ユーザーマネージャはユーザーに対するいろんな機能を提供するクラスみたいです。</p>
+
+<p>テンプレートを見るとパスワードポリシーとか二要素認証とかユーザーのロックルールとかいろいろな機能が提供されています。</p>
+
+<p>ユーザーストアがDAOだとするとユーザーマネージャはビジネスロジックにあたる部分でしょうか。</p>
+
+<p>便利機能はさっくり消して、パスワードチェックを実装します。</p>
+
+<h4 id="app-start-identityconfig-cs">App_Start\IdentityConfig.cs</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">ApplicationUserManager</span> <span class="p">:</span> <span class="n">UserManager</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">PrincipalContext</span> <span class="n">_context</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">ApplicationUserManager</span><span class="p">(</span><span class="n">IUserStore</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span> <span class="n">store</span><span class="p">,</span> <span class="n">PrincipalContext</span> <span class="n">context</span><span class="p">)</span>
+            <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">store</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">_context</span> <span class="p">=</span> <span class="n">context</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="n">ApplicationUserManager</span> <span class="n">Create</span><span class="p">(</span><span class="n">IdentityFactoryOptions</span><span class="p">&lt;</span><span class="n">ApplicationUserManager</span><span class="p">&gt;</span> <span class="n">options</span><span class="p">,</span> <span class="n">IOwinContext</span> <span class="n">context</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">user_store</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">ApplicationUserStore</span><span class="p">&gt;();</span>
+            <span class="kt">var</span> <span class="n">principal_context</span><span class="p">=</span><span class="n">context</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">PrincipalContext</span><span class="p">&gt;();</span>
+            <span class="kt">var</span> <span class="n">manager</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ApplicationUserManager</span><span class="p">(</span><span class="n">user_store</span><span class="p">,</span> <span class="n">principal_context</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">manager</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;</span> <span class="n">CheckPasswordAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">,</span> <span class="kt">string</span> <span class="n">password</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">(</span><span class="n">_context</span><span class="p">.</span><span class="n">ValidateCredentials</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">UserName</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">ContextOptions</span><span class="p">.</span><span class="n">Negotiate</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>パスワードチェックにはCheckPasswordAsyncをオーバーライドすればOKみたいです。</p>
+
+<p>このCheckPasswordAsync、MSの<a href="https://msdn.microsoft.com/ja-jp/library/dn468199(v=vs.111).aspx" target="_blank">日本語ドキュメント</a>には出てません。日本語のドキュメントはASP.NET Identity 1.0で止まってるんですかね？</p>
+
+<p><a href="https://msdn.microsoft.com/en-US/library/dn468199(v=vs.108).aspx" target="_blank">英語ドキュメント</a>には出てました。</p>
+
+<h3 id="サインインマネージャapplicationsigninmanager">サインインマネージャApplicationSignInManager</h3>
+
+<p>ユーザーマネージャとの棲み分けがよくわからないんですが、サインインマネージャでログイン状態を管理してるようです。Controllerからはこのクラスを使います。</p>
+
+<p>テンプレートそのままでいけるかと思いきや、コントローラのLoginメソッドでPasswordSignInAsyncをコールすると、Store does not implement IUserLockoutStore<TUser>って怒られます。</p>
+
+<p>どうもUserStoreにはIUserStore以外にもいろいろ実装しないといけないようです。が、面倒なので、SignInManagerの方で対応します。</p>
+
+<p>でことでPasswordSignInAsyncをオーバーライド。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">ApplicationSignInManager</span> <span class="p">:</span> <span class="n">SignInManager</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">ApplicationSignInManager</span><span class="p">(</span><span class="n">ApplicationUserManager</span> <span class="n">userManager</span><span class="p">,</span> <span class="n">IAuthenticationManager</span> <span class="n">authenticationManager</span><span class="p">)</span>
+            <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">userManager</span><span class="p">,</span> <span class="n">authenticationManager</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ClaimsIdentity</span><span class="p">&gt;</span> <span class="n">CreateUserIdentityAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">user</span><span class="p">.</span><span class="n">GenerateUserIdentityAsync</span><span class="p">((</span><span class="n">ApplicationUserManager</span><span class="p">)</span><span class="n">UserManager</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="n">ApplicationSignInManager</span> <span class="n">Create</span><span class="p">(</span><span class="n">IdentityFactoryOptions</span><span class="p">&lt;</span><span class="n">ApplicationSignInManager</span><span class="p">&gt;</span> <span class="n">options</span><span class="p">,</span> <span class="n">IOwinContext</span> <span class="n">context</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">ApplicationSignInManager</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">GetUserManager</span><span class="p">&lt;</span><span class="n">ApplicationUserManager</span><span class="p">&gt;(),</span> <span class="n">context</span><span class="p">.</span><span class="n">Authentication</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">async</span> <span class="k">override</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">SignInStatus</span><span class="p">&gt;</span> <span class="n">PasswordSignInAsync</span><span class="p">(</span><span class="kt">string</span> <span class="n">userName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">password</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">isPersistent</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">shouldLockout</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">SignInStatus</span><span class="p">.</span><span class="n">Failure</span><span class="p">;</span>  <span class="c1">//default fail
+</span><span class="c1"></span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="kt">var</span> <span class="n">user</span> <span class="p">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="n">UserManager</span><span class="p">.</span><span class="n">FindAsync</span><span class="p">(</span><span class="n">userName</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">user</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="n">SignInAsync</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">isPersistent</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+                    <span class="n">result</span> <span class="p">=</span> <span class="n">SignInStatus</span><span class="p">.</span><span class="n">Success</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+                <span class="n">result</span> <span class="p">=</span> <span class="n">SignInStatus</span><span class="p">.</span><span class="n">Failure</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ロックアウトとかその辺はさっくり省略しています。</p>
+
+<h3 id="認証コンポーネントの登録">認証コンポーネントの登録</h3>
+
+<p>Owinが若干理解できてないんですが、App_Start\Startup.Auth.csのStartupクラスで認証関連のコンポーネントの登録をするようです。</p>
+
+<p>こちらにも外部ログインとか二要素認証なんかのコードがあったので、さっくり削除。</p>
+
+<h4 id="app-start-startup-auth-cs">App_Start\Startup.Auth.cs</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Startup</span>
+    <span class="p">{</span>
+        <span class="c1">// For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">ConfigureAuth</span><span class="p">(</span><span class="n">IAppBuilder</span> <span class="n">app</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Configure the db context, user manager and signin manager to use a single instance per request
+</span><span class="c1"></span>            <span class="n">app</span><span class="p">.</span><span class="n">CreatePerOwinContext</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">PrincipalContext</span><span class="p">(</span><span class="n">ContextType</span><span class="p">.</span><span class="n">Domain</span><span class="p">));</span>   <span class="c1">//ADD
+</span><span class="c1"></span>            <span class="n">app</span><span class="p">.</span><span class="n">CreatePerOwinContext</span><span class="p">&lt;</span><span class="n">ApplicationUserStore</span><span class="p">&gt;(</span><span class="n">ApplicationUserStore</span><span class="p">.</span><span class="n">Create</span><span class="p">);</span>    <span class="c1">//modify
+</span><span class="c1"></span>            <span class="n">app</span><span class="p">.</span><span class="n">CreatePerOwinContext</span><span class="p">&lt;</span><span class="n">ApplicationUserManager</span><span class="p">&gt;(</span><span class="n">ApplicationUserManager</span><span class="p">.</span><span class="n">Create</span><span class="p">);</span>
+            <span class="n">app</span><span class="p">.</span><span class="n">CreatePerOwinContext</span><span class="p">&lt;</span><span class="n">ApplicationSignInManager</span><span class="p">&gt;(</span><span class="n">ApplicationSignInManager</span><span class="p">.</span><span class="n">Create</span><span class="p">);</span>
+
+            <span class="c1">// Enable the application to use a cookie to store information for the signed in user
+</span><span class="c1"></span>            <span class="c1">// and to use a cookie to temporarily store information about a user logging in with a third party login provider
+</span><span class="c1"></span>            <span class="c1">// Configure the sign in cookie
+</span><span class="c1"></span>            <span class="n">app</span><span class="p">.</span><span class="n">UseCookieAuthentication</span><span class="p">(</span><span class="k">new</span> <span class="n">CookieAuthenticationOptions</span>
+            <span class="p">{</span>
+                <span class="n">AuthenticationType</span> <span class="p">=</span> <span class="n">DefaultAuthenticationTypes</span><span class="p">.</span><span class="n">ApplicationCookie</span><span class="p">,</span>
+                <span class="n">LoginPath</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PathString</span><span class="p">(</span><span class="s">&#34;/Account/Login&#34;</span><span class="p">),</span>
+                <span class="n">Provider</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CookieAuthenticationProvider</span>
+                <span class="p">{</span>
+                    <span class="c1">// Enables the application to validate the security stamp when the user logs in.
+</span><span class="c1"></span>                    <span class="c1">// This is a security feature which is used when you change a password or add an external login to your account.  
+</span><span class="c1"></span>                    <span class="n">OnValidateIdentity</span> <span class="p">=</span> <span class="n">SecurityStampValidator</span><span class="p">.</span><span class="n">OnValidateIdentity</span><span class="p">&lt;</span><span class="n">ApplicationUserManager</span><span class="p">,</span> <span class="n">ApplicationUser</span><span class="p">&gt;(</span>
+                        <span class="n">validateInterval</span><span class="p">:</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">30</span><span class="p">),</span>
+                        <span class="n">regenerateIdentity</span><span class="p">:</span> <span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">user</span><span class="p">.</span><span class="n">GenerateUserIdentityAsync</span><span class="p">(</span><span class="n">manager</span><span class="p">))</span>
+                <span class="p">}</span>
+            <span class="p">});</span>            
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ログインフォーム変更">ログインフォーム変更</h3>
+
+<p>いわゆるView部の変更です。ユーザーModelの変更と不要な部分を削除が主な作業。</p>
+
+<p>emailをuseridにします。</p>
+
+<h4 id="モデル-models-accountviewmodels-cs">モデル(\Models\AccountViewModels.cs)</h4>
+
+<p>ログインフォーム用モデルを変更します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">LoginViewModel</span>
+    <span class="p">{</span><span class="na">
+</span><span class="na">        [Required]
+</span><span class="na">        [Display(Name = &#34;User ID&#34;)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">UserID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [Required]
+</span><span class="na">        [DataType(DataType.Password)]
+</span><span class="na">        [Display(Name = &#34;Password&#34;)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Password</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [Display(Name = &#34;Remember me?&#34;)]</span>
+        <span class="k">public</span> <span class="kt">bool</span> <span class="n">RememberMe</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>例によって便利機能関係のViewModelは削除。(LoginViewModelのみ残しました)</p>
+
+<h4 id="ビュー-views-account-login-cshtml">ビュー(\Views\Account\Login.cshtml)</h4>
+
+<p>モデルに合わせて変更します。</p>
+
+<p>外部ログイン用のコンテンツ(_ExternalLoginsListPartial)も削除</p>
+
+<p>Login.cshtml以外のcshtmlは消しました。</p>
+
+<h4 id="コントローラー-controllers-accountcontroller-cs">コントローラー(Controllers\AccountController.cs)</h4>
+
+<p>Login/LogOff以外のメソッドをざっくり削除。</p>
+
+<p>残したのは</p>
+
+<p>メソッド:コンストラクタ/Login/LogOff/Dispose/RedirectToLocal</p>
+
+<p>プロパティ:SignInManager/UserManager/AuthenticationManager</p>
+
+<p>LoginメソッドのPasswordSignInAsync部分をModelに合わせて書き換えます(Email→UserID)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">await</span> <span class="n">SignInManager</span><span class="p">.</span><span class="n">PasswordSignInAsync</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">UserID</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">Password</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">RememberMe</span><span class="p">,</span> <span class="n">shouldLockout</span><span class="p">:</span> <span class="k">false</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="長い">長い</h3>
+
+<p><a href="http://localhost:????/Account/Loginから、ADのユーザー名、パスワードでログインできます。">http://localhost:????/Account/Loginから、ADのユーザー名、パスワードでログインできます。</a></p>
+
+<p>う～ん、もともとの多機能テンプレートもいいけど、ADで(+Formで)認証とか需要あると思うんで、もっと簡単にできないもんでしょうかね～。</p>
+
+<p>もしかしたら<a href="/posts/2015-08-18-asp-net-identity-with-adfs-2" target="_blank">続く</a>かも(Role関係?)</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&text=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&t=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc %2fposts%2f2015-08-11-asp-net-identity-with-adfs%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET IdentityでActive Directory認証</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-07-27-angilar-form-watch/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-07-27-angilar-form-watch/WS000104.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">AngularJSでフォームに変更があったらボタンをアクティブにする</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-07-27T12:39:56JST">Jul 27, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-08-18-asp-net-identity-with-adfs-2/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET IdentityでActive Directory認証#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-08-18T04:04:05JST">Aug 18, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

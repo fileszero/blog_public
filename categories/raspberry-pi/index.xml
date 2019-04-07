@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on My New Hugo Site</title>
+    <link>/categories/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Nov 2014 13:52:29 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Raspberry Pi &#43; WiFiを安定させるVer3</title>
+      <link>/posts/2014-11-12-raspberrypiwifistable3/</link>
+      <pubDate>Wed, 12 Nov 2014 13:52:29 +0000</pubDate>
+      
+      <guid>/posts/2014-11-12-raspberrypiwifistable3/</guid>
+      <description>&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi + WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;/posts/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi + WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;
+
+&lt;p&gt;ココ最近、また不安定になってきました。&lt;/p&gt;
+
+&lt;p&gt;なんで？寒くなってきたから？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RaspberryPi webcam</title>
+      <link>/posts/2014-08-15-raspberrypiwebcam/</link>
+      <pubDate>Fri, 15 Aug 2014 08:45:27 +0000</pubDate>
+      
+      <guid>/posts/2014-08-15-raspberrypiwebcam/</guid>
+      <description>&lt;p&gt;愛犬のモニタリング用にネットワークカメラ使ってたんですが、壊れた。&lt;/p&gt;
+
+&lt;p&gt;外から携帯（いわゆるガラケー、フィーチャーフォン）からアクセスしたいけど、&lt;/p&gt;
+
+&lt;p&gt;最近のネットワークカメラで携帯対応うたってる機種って無いのね。&lt;/p&gt;
+
+&lt;p&gt;てことでraspberry piでネットワークカメラ作ってみます。&lt;/p&gt;
+
+&lt;p&gt;スマホで動画、ガラケーでは動画はキツいので静止画を見れるようにします。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &#43; WiFiを安定させるVer2</title>
+      <link>/posts/2014-03-11-raspberrypiwifistable2/</link>
+      <pubDate>Tue, 11 Mar 2014 11:07:34 +0000</pubDate>
+      
+      <guid>/posts/2014-03-11-raspberrypiwifistable2/</guid>
+      <description>以前WiFi安定化に向けて小細工したけど、結局安定してません。
+なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。
+そんな事でググって見た所こんなん発見しました。
+Wifi and Ethernet dropout problems in raspberry pi
+症状的には非常に酷似してるようです。
+意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。
+1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &amp;gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &amp;#34;[$cnn]&amp;#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。</description>
+    </item>
+    
+    <item>
+      <title>Rasberry Pi こまい設定</title>
+      <link>/posts/2013-10-08-raspberry-pi-miner-setting/</link>
+      <pubDate>Tue, 08 Oct 2013 07:32:12 +0000</pubDate>
+      
+      <guid>/posts/2013-10-08-raspberry-pi-miner-setting/</guid>
+      <description>Tools もろもろ必要になりそうなツールをインストール。
+1 2 3  $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool   MacからRasPiへファイルのコピー scpを使います。
+1  mac $ scp filename pi@192.168.1.5:~/   WiFi設定 USBのwifiトングルを刺す。
+認識されたか確認
+1 2 3 4  $ lsusb Bus 001 Device 007: ID 0411:01a2 BUFFALO INC. (formerly MelCo., Inc.) WLI-UC-GNM Wireless LAN Adapter [Ralink RT8070] $ ifconfig wlan0 Link encap:Ethernet .......   こことか参考に無線lanにつなぎます。</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &#43; shairportのノイズ</title>
+      <link>/posts/2013-10-06-raspberrypishairportnoise/</link>
+      <pubDate>Sun, 06 Oct 2013 12:49:14 +0000</pubDate>
+      
+      <guid>/posts/2013-10-06-raspberrypishairportnoise/</guid>
+      <description>Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。
+色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじったりして、
+結局だめだったんですが&amp;#8230;
+有線LANからWiFiにしたらあっさり解決しました。
+なんじゃそら。</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &#43; WiFiを安定させる</title>
+      <link>/posts/2013-09-19-raspberrypiwifistable/</link>
+      <pubDate>Thu, 19 Sep 2013 13:47:38 +0000</pubDate>
+      
+      <guid>/posts/2013-09-19-raspberrypiwifistable/</guid>
+      <description>Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。
+簡単なスクリプト書いて切れてる様子なら再接続するようにします。
+$ cat /home/pi/bin/restartwlan0.sh
+1 2 3 4 5 6 7 8 9 10 11  #!/bin/sh  cnn=`/sbin/ifconfig wlan0 | /bin/grep &amp;#34;inet addr:&amp;#34;` logger &amp;#34;[$cnn]&amp;#34; echo &amp;#34;$cnn&amp;#34; if [ &amp;#34;$cnn&amp;#34; = &amp;#34;&amp;#34; ]; then ifup --force wlan0 logger &amp;#34;wlan0 restarted&amp;#34; echo &amp;#34;wlan0 restarted&amp;#34; fi   cron に登録
+*/5 * * * * /home/pi/bin/restartwlan0.sh
+５分ごとに実行する感じで。
+うまく行くか分かりませんが、しばらく様子見ですな。
+追記：
+微妙にうまく行ってません。
+Raspberry Pi + WiFiを安定させるVer3も要参照。</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &#43; Time Machine</title>
+      <link>/posts/2013-09-08-raspberry-pi-time-machine/</link>
+      <pubDate>Sun, 08 Sep 2013 10:48:58 +0000</pubDate>
+      
+      <guid>/posts/2013-09-08-raspberry-pi-time-machine/</guid>
+      <description>$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev
+$ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz
+$ cd netatalk-3.0.5/
+$ ./configure &amp;#8211;with-init-style=debian
+$ make
+$ sudo make install
+$ sudo mkdir -p /mnt/timemachine
+$ sudo chown pi /mnt/timemachine
+$ sudo nano /etc/fstab
+デバイスは/dev/sda21でext3でフォーマット済み
+$ sudo cat /etc/fstab
+proc /proc proc defaults 0 0
+/dev/mmcblk0p1 /boot vfat defaults 0 2
+/dev/mmcblk0p2 / ext4 defaults,noatime 0 1
+# a swapfile is not a swap partition, so no using swapon|off from here on, use dphys-swapfile swap[on|off] for that</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &#43; SAMBA</title>
+      <link>/posts/2013-08-30-raspberry-pi-samba/</link>
+      <pubDate>Fri, 30 Aug 2013 13:37:01 +0000</pubDate>
+      
+      <guid>/posts/2013-08-30-raspberry-pi-samba/</guid>
+      <description>省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。
+作業前には
+$ sudo rpi-update
+$ sudo apt-get update
+$ sudo apt-get upgrade
+をやっとくといいかもしれません。
+ストレージ ストレージとしては1TByteのUSB-HDDを使います。
+/dev/sdaとして認識されました。
+パーティションは２つにきります。
+/dev/sda1をSAMBA用
+/dev/sda2をMacのTimeMachine用
+にします。
+こんな感じ。
+pi@raspi ~ $ sudo fdisk /dev/sda
+Command (m for help): p
+Disk /dev/sda: 1000.2 GB, 1000204885504 bytes
+255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &#43; USB-DAC</title>
+      <link>/posts/2013-08-26-raspberry-pi-usb-dac/</link>
+      <pubDate>Mon, 26 Aug 2013 14:47:38 +0000</pubDate>
+      
+      <guid>/posts/2013-08-26-raspberry-pi-usb-dac/</guid>
+      <description>Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。
+デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。
+内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。
+色々調べた結果、
+http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866
+こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。
+んでリブート。
+超クリアに音でてるー。
+dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。
+要はUSBの帯域が足りなかったという事ですね。
+8&amp;frasl;29 追記
+dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。
+うーん、むずかしいな。
+dwc_otg.speed=1を消して、
+$ sudo rpi-update
+してみる。
+ちょっと改善するも、今度はプチプチノイズが出るようになった。
+dwc_otg.fiq_split_enable=0
+をつけてみる。
+なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。
+しばらく様子見だな。</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi &#43; AirPlay</title>
+      <link>/posts/2013-08-21-raspberry-pi-airplay/</link>
+      <pubDate>Wed, 21 Aug 2013 14:24:01 +0000</pubDate>
+      
+      <guid>/posts/2013-08-21-raspberry-pi-airplay/</guid>
+      <description>Raspberry PiにAirPlay入れたメモ
+参考：
+Raspberry Piを「AirPlay化」して音楽をストリーミングする方法
+Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。
+問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perl
+で
+dpkg: error processing avahi-daemon (&amp;#8211;configure):
+subprocess installed post-installation script returned error exit status 1
+dpkg: dependency problems prevent configuration of avahi-utils:
+avahi-utils depends on avahi-daemon; however:
+Package avahi-daemon is not configured yet.
+が発生。
+解決： dbusが必要らしい。
+$ sudo /etc/init.d/dbus start
+$ sudo chkconfig dbus on
+問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo .</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi</title>
+      <link>/posts/2013-08-13-raspberry-pi/</link>
+      <pubDate>Tue, 13 Aug 2013 04:07:16 +0000</pubDate>
+      
+      <guid>/posts/2013-08-13-raspberry-pi/</guid>
+      <description>日経のRaspberry Piセット本が増刷されてたので、買ってみました。
+OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。
+一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。
+ＤＬしたファイルを展開後Win32 Disk Imagerを使って、ＳＤカードに書き込みます。
+起動 ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。
+ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。
+モニタへの出力も何もありません。
+ＤＬしたイメージの確認をしっかりしましょう。
+ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。
+ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、
+Puttyとか適当なSSHクライアントで接続します。
+ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。
+そうするとこんな感じでログインできます。
+&amp;lt;br /&amp;gt; login as: pi&amp;lt;br /&amp;gt; pi@192.168.1.12&#39;s password:&amp;lt;br /&amp;gt; Linux raspberrypi 3.6.11+ #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;The programs included with the Debian GNU/Linux system are free software;&amp;lt;br /&amp;gt; the exact distribution terms for each program are described in the&amp;lt;br /&amp;gt; individual files in /usr/share/doc/*/copyright.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&amp;lt;br /&amp;gt; permitted by applicable law.</description>
+    </item>
+    
+  </channel>
+</rss>

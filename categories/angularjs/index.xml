@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angularjs on My New Hugo Site</title>
+    <link>/categories/angularjs/</link>
+    <description>Recent content in Angularjs on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Oct 2017 14:05:08 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/angularjs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AngularJSの$httpdでファイルのアップロード(でハマった話)</title>
+      <link>/posts/2017-10-10-angularjs-httpd-content-type-trap/</link>
+      <pubDate>Tue, 10 Oct 2017 14:05:08 +0000</pubDate>
+      
+      <guid>/posts/2017-10-10-angularjs-httpd-content-type-trap/</guid>
+      <description>&lt;h3 id=&#34;現象&#34;&gt;現象&lt;/h3&gt;
+
+&lt;p&gt;ASP.NET の Web APIにファイルをポストしようとして、&lt;/p&gt;
+
+&lt;p&gt;angulerjsの$httpで&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jscript&#34; data-lang=&#34;jscript&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jscript&#34; data-lang=&#34;jscript&#34;&gt;$http({
+        url: url,
+        method: &amp;#39;POST&amp;#39;,
+        data: data,
+        processData: false,
+        contentType: false,
+    });&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;的な呼び出しをしても、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;Invalid &amp;#39;HttpContent&amp;#39; instance provided. It does not have a content type header starting with &amp;#39;multipart/&amp;#39;.&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;と怒られて、multipartなPostとなりません。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Angular2を使ってみる</title>
+      <link>/posts/2017-01-11-try-ng2/</link>
+      <pubDate>Wed, 11 Jan 2017 08:22:15 +0000</pubDate>
+      
+      <guid>/posts/2017-01-11-try-ng2/</guid>
+      <description>&lt;p&gt;SPAの強い味方Angularから2がリリースされました。&lt;/p&gt;
+
+&lt;p&gt;てことで試してみます。&lt;/p&gt;
+
+&lt;p&gt;環境は&lt;/p&gt;
+
+&lt;p&gt;windows 7&lt;/p&gt;
+
+&lt;p&gt;visual studio code&lt;/p&gt;
+
+&lt;p&gt;npm 4.1.1&lt;/p&gt;
+
+&lt;p&gt;node 6.9.2&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>angular fullstackのwatchをBrowserSyncにする</title>
+      <link>/posts/2016-07-16-angular-fullstack-with-rowsersync/</link>
+      <pubDate>Sat, 16 Jul 2016 05:47:40 +0000</pubDate>
+      
+      <guid>/posts/2016-07-16-angular-fullstack-with-rowsersync/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>nfsをgulp watchできない時にやったこと</title>
+      <link>/posts/2016-07-15-gulp-watch-on-nfs/</link>
+      <pubDate>Fri, 15 Jul 2016 00:50:49 +0000</pubDate>
+      
+      <guid>/posts/2016-07-15-gulp-watch-on-nfs/</guid>
+      <description>&lt;p&gt;angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。&lt;/p&gt;
+
+&lt;p&gt;構成は&lt;/p&gt;
+
+&lt;p&gt;・Mac(nfsサーバ　 + ソースファイル )&lt;/p&gt;
+
+&lt;p&gt;・Vagrant + ubuntu/xenial64&lt;/p&gt;
+
+&lt;p&gt;config.vm.synced_folder &amp;#8220;src/&amp;#8221;, home_dir + &amp;#8220;/src&amp;#8221;,　type: &amp;#8220;nfs&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;でmacとubuntuでファイルを共有します。&lt;/p&gt;
+
+&lt;p&gt;ソースの編集はmac上のエディタ(sublime)で、gulp serveはubuntu上で実行します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>angular-fullstackでgulp buildできない時にやったこと</title>
+      <link>/posts/2016-07-07-angular-fullstack-gulp-build-failed/</link>
+      <pubDate>Thu, 07 Jul 2016 07:35:21 +0000</pubDate>
+      
+      <guid>/posts/2016-07-07-angular-fullstack-gulp-build-failed/</guid>
+      <description>&lt;p&gt;七夕ですね。&lt;/p&gt;
+
+&lt;p&gt;$ yo angular-fullstack&lt;/p&gt;
+
+&lt;p&gt;でプロジェクト作って、gulp buildとかgulp serveしてもどうにも動かない。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4</title>
+      <link>/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
+      <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
+      
+      <guid>/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;
+
+&lt;p&gt;今回は、検索ボックスひとつだけパターンで実装します。(けっしてめんどくさいわけではありません）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#３</title>
+      <link>/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
+      <pubDate>Sun, 18 Oct 2015 09:00:39 +0000</pubDate>
+      
+      <guid>/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#2</title>
+      <link>/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
+      <pubDate>Sat, 17 Oct 2015 10:42:07 +0000</pubDate>
+      
+      <guid>/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
+
+&lt;p&gt;今回はwebアプリから使ってみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</title>
+      <link>/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
+      <pubDate>Thu, 15 Oct 2015 13:49:32 +0000</pubDate>
+      
+      <guid>/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
+      <description>&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;
+
+&lt;div&gt;あまぞんりんく&lt;/div&gt;
+
+&lt;p&gt;&lt;div&gt;あまぞんりんく&lt;/div&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&amp;#038;l=as2&amp;#038;o=9&amp;#038;a=4798041793&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;必要な内容が体系的に理解できる良書かと思います。&lt;/p&gt;
+
+&lt;p&gt;非常にお勧めできる内容です。&lt;/p&gt;
+
+&lt;p&gt;が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。&lt;/p&gt;
+
+&lt;p&gt;似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。&lt;/p&gt;
+
+&lt;p&gt;てことで、もうちょっと再利用できるような形にしてみたいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJSでフォームに変更があったらボタンをアクティブにする</title>
+      <link>/posts/2015-07-27-angilar-form-watch/</link>
+      <pubDate>Mon, 27 Jul 2015 12:39:56 +0000</pubDate>
+      
+      <guid>/posts/2015-07-27-angilar-form-watch/</guid>
+      <description>&lt;p&gt;AngularJS使ってます。&lt;/p&gt;
+
+&lt;p&gt;よくあるフォームの処理で、半日ほどハマッたのでメモ。&lt;/p&gt;
+
+&lt;p&gt;やりたいことは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;サーバからデータを取得&lt;/li&gt;
+&lt;li&gt;フォームに読み込み&lt;/li&gt;
+&lt;li&gt;ユーザーがなんか入力&lt;/li&gt;
+&lt;li&gt;送信ボタンをアクティブにする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;って、よくあるパターンのやつ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>再度AngularJS(#2)</title>
+      <link>/posts/2015-03-02-angularjs-again-2/</link>
+      <pubDate>Mon, 02 Mar 2015 05:23:12 +0000</pubDate>
+      
+      <guid>/posts/2015-03-02-angularjs-again-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>再度AngularJS(#1)</title>
+      <link>/posts/2015-03-02-angularjs-again-1/</link>
+      <pubDate>Mon, 02 Mar 2015 05:22:43 +0000</pubDate>
+      
+      <guid>/posts/2015-03-02-angularjs-again-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.buildinsider.net/web/popularjslib/2015&#34; target=&#34;_blank&#34;&gt;JavaScriptライブラリ人気調査&lt;/a&gt;によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。&lt;/p&gt;
+
+&lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;
+
+&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJSでバリデーション</title>
+      <link>/posts/2014-04-17-angularjsvalidation/</link>
+      <pubDate>Thu, 17 Apr 2014 04:54:59 +0000</pubDate>
+      
+      <guid>/posts/2014-04-17-angularjsvalidation/</guid>
+      <description>&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;/posts/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS + Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;
+
+&lt;p&gt;ポイント的には&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;
+&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; Bootstrap</title>
+      <link>/posts/2014-04-16-angularjsbootstrap/</link>
+      <pubDate>Wed, 16 Apr 2014 08:04:57 +0000</pubDate>
+      
+      <guid>/posts/2014-04-16-angularjsbootstrap/</guid>
+      <description>&lt;p&gt;Bootstrapはやってますね。使ったことありませんが、お手軽にきれいなサイトができるらしいっす。&lt;/p&gt;
+
+&lt;p&gt;てことで、&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;AngularJS と Bootstrapを合わせ技で使う場合、&lt;a href=&#34;http://angular-ui.github.io/bootstrap/&#34; target=&#34;_blank&#34;&gt;UI Bootstrap&lt;/a&gt;がよさそうです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; ASP.NET MVC 4 #3(更新・削除)</title>
+      <link>/posts/2014-04-14-angularjsasp-netmvc4_3/</link>
+      <pubDate>Mon, 14 Apr 2014 06:39:12 +0000</pubDate>
+      
+      <guid>/posts/2014-04-14-angularjsasp-netmvc4_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
+
+&lt;p&gt;CRUDのUです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加)</title>
+      <link>/posts/2014-04-11-angularjsasp-netmvc4_2/</link>
+      <pubDate>Fri, 11 Apr 2014 05:19:24 +0000</pubDate>
+      
+      <guid>/posts/2014-04-11-angularjsasp-netmvc4_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)</title>
+      <link>/posts/2014-04-11-angularjsasp-netmvc4_1/</link>
+      <pubDate>Fri, 11 Apr 2014 05:18:46 +0000</pubDate>
+      
+      <guid>/posts/2014-04-11-angularjsasp-netmvc4_1/</guid>
+      <description>&lt;p&gt;AngularJS + ASP.NET MVC 4でなんか作ってみます。&lt;/p&gt;
+
+&lt;p&gt;Visual Studio 2010 &lt;a href=&#34;http://localhost:8000/unclassified/577/&#34; title=&#34;Visual Studio 2010 + ASP.NET MVC 4&#34; target=&#34;_blank&#34;&gt;+ MVC4&lt;/a&gt;で開発します。2013とかほしいっす。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

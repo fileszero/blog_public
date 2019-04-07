@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/categories/software/index.xml">
+
+<link rel="canonical" href="/categories/software/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Software - My New Hugo Site</title>
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    
+    <header class="page-title">
+      <h1 class="title">Software</h1>
+    </header>
+    
+
+    <div class="articles">
+      <div class="mrow">
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-10-25-installing-etckeeper/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">etckeeperをインストール</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-10-25T12:32:56JST">Oct 25, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p>VPSを借りてこのブログを運用しています。</p>
+
+<p>linux CentOS6です。</p>
+
+<p>ブログ書くだけならわざわざVPSなんぞ借りずに無料ブログサービスを使えばいいじゃんって事なんですが、</p>
+
+<p>お勉強のために色々設定いじれるrootな権限がほしいわけです。</p>
+
+<p>あと、毎月お金払ってるんで、放置できないようにプレッシャーをかけてくれます。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-09-18-vmwareautostart/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">vmware 自動起動</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-09-18T02:30:24JST">Sep 18, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">vmwareの自動起動設定ではまったのでメモ。
+vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、
+ホストＯＳがWindowsの場合、サービスとして登録する方法が詳細されています。
+http://www.kinusati.net/2011/10/03/vmware-player%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%8C%96/
+とか簡潔で参考になります。
+サービスの実行時アカウントが重要で、このアカウントでＶＭが起動できる状態になっていないとダメみたいです。
+普段使ってるアカウントがADのアカウントとかで、ポリシーでパスワード有効期限が切ってあったりすると、サービスの方もいちいちパスワードを設定しなおさなければなりません。
+めんどくさいんでローカルアカウントを作ったりするんですが、作ったアカウントでいったんログオンして、一度ＶＭを起動しないとサービスとして立ち上がってきません。
+playerの設定もアップデートの確認やらなんやらをしないようにしとくといいかと思われます。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-05-23-tiny-tiny-rss-update-feeds/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-05-23-tiny-tiny-rss-update-feeds/WS000059.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Tiny Tiny RSSのFeed更新</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-23T13:33:41JST">May 23, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Tiny Tiny RSS良い感じで使っております。
+webのUI上からフィードをダブルクリックすると記事が更新されるんですが、
+自動で定期的に更新してくれないと困りますね。
+てことで自動更新の仕方を参考に設定していきます。
+[Update daemon]方式がお勧めみたいですが、CentOSへの組み込み方が良くわからんのでパス。
+cronで実行するのが簡単そうな感じがします。
+要するに
+update.php &#8211;feeds
+を定期的に実行するわけですな。
+daemon方式のところにwebサイトユーザー権限で実行しろ見たいなことが書いてあるので、こっちもそんな感じで設定します。
+まずは普通にコマンドから実行してみますか。
+suでルートになって
+# sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &#8211;feeds
+そーすっと、なにやらごにょごにょ初めて
+これが
+ こうなります
+ 読み切れねー。
+更新自体は問題ないようです。
+
+rootのcrontabに登録します。
+
+
+# crontab -e
+*/15 * * * * sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &#8211;feeds &#8211;quiet
+これで快適情強生活ができるでしょうか。
+
+
+・・・できませんでした。
+朝起きてみるとcronさんから
+「sudo: sorry, you must have a tty to run sudo」
+こんなメールが大量に！
+sudoは端末からじゃないとだめなのね。
+
+ってことで
+rootのスケジュールはさっくり消して、
+1 2 3 4 5  # sudo -u nginx crontab -e no crontab for nginx - using an empty one crontab: installing new crontab # sudo -u nginx crontab -l */15 * * * * /usr/bin/php /tt/rss/dir/update.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-05-21-tiny-tiny-rss/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-05-21-tiny-tiny-rss/WS000052.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Tiny Tiny RSS</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-21T14:18:03JST">May 21, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Google Readerが終わってしまいますね。
+feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。
+ざっと検索したところTiny Tiny RSSが良いみたい。
+まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGet
+wgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。
+1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。
+データベースの用意
+1 2 3 4 5  $ mysql -u root -p mysql&gt; create database ttrss; mysql&gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &#39;******&#39;; mysql&gt; FLUSH PRIVILEGES; mysql&gt; exit   ソースを展開してwebに配置
+1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-05-11-equipment-for-blogging/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2013-05-11-equipment-for-blogging/WS000001.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">ブログ書くのに必要な装備</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-11T01:21:03JST">May 11, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
+スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
+WordPressのプラグインより先に導入するべしですな。
+色々あるかとは思いますが、有名どころのWinShotを入れてみました。
+設定的には
+ファイルの保存場所をRAMディスクに(どーせすぐアップロードして消すし)
+「保存後に保存フォルダを開く」にチェック
+JPEG保存のショートカット(規定ではCtrl+Alt+F9)
+矩形範囲を毎回指定する
+みたいな感じにしておけばとっても快適にスクリーンショットがとれます。
+スクショとったらフォルダが表示されるので、  でアップロード。
+こんな感じで絵が出ます。
+ オシャンティな枠とか影とかはWordPressが勝手に付けてくれるのですね～。
+コード貼り付け 後はコードの貼り付けのときに見た目よくするやつ。
+SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます。
+まず管理画面のからプラグイン検索で「SyntaxHighlighter Evolved」を検索。
+ そうすっと
+ 出てくるので、「今すぐインストール」。
+こんな感じでインストールが終わります。
+ んで、「プラグインを有効化」
+タグ[code][/code]で囲ってやると、こんな感じでとってもコードっぽく表示されるんすね。
+1 2 3 4 5 6 7 8 9 10 11 12  location /wordpress { index index.php index.html index.htm; # static files include /etc/nginx/conf.d/common/expires.conf; # request to index.php if (!-e $request_filename) { # rewrite ^(.+)$ /index.php?q=$1 last; rewrite ^.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+      </div>
+    </div>
+
+    
+
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml">
+
+<link rel="canonical" href="/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>My New Hugo Site</title>
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    
+
+    <div class="articles">
+      <div class="mrow">
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-08-05-sutadying-rails-and-vim-1/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">railsでvimのお勉強#1</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-08-05T02:30:26JST">Aug 5, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p><a href="http://www.vim.org/" target="_blank">vim</a>、プログラマならみんな手足のように使えますよね。</p>
+
+<p>ま、自分はまったく使えませんが。</p>
+
+<p>vim、マスターすれば魔法のようにコードが湧いてくるとか、VBな人もマシン語が２進で読めるようになるとか噂なので、</p>
+
+<p>前々から使えるようになりたいと思ってたんですわ。</p>
+
+<p>とはいえ、どっぷりwindowsな人生なので使う機会もあまりなく、sakuraとかvisual studioとかで事足りてしまうわけです。</p>
+
+<p>という事で、ターミナル経由のlinuxでrailsのお勉強をして、vimをマスターしてしまおうという企画の作業メモです。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-06-19-rubydbsqlite3/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-06-19-rubydbsqlite3/WS000087.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">ruby(dbi) &#43; db(sqlite3)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-19T04:39:34JST">Jun 19, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。
+rubyからDBにアクセスするには、
+ DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&#8216;等の&#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。
+DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。
+DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。
+1 2 3 4  C:\&gt;sqlite3 SQLite version 3.5.6 Enter &#34;.help&#34; for instructions sqlite&gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。
+最新版はこちらから。
+rubyライブラリの準備 先ずはsqlite3用のライブラリ。
+DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。
+1 2  #&gt; gem install sqlite3 #&gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。
+こちらもgemで。
+1 2  #&gt; gem install dbi #&gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。
+eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインで
+Kepler &#8211; http://download.eclipse.org/releases/kepler
+&#8220;Database Development&#8221;</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-06-14-windows-eclipse-ruby/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-06-14-windows-eclipse-ruby/CAP000029.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">WindowsでEclipse&#43;Ruby</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-14T09:07:11JST">Jun 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。
+軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。
+Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。
+例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。
+D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。
+インストールはこれで終了。インストーラないほうが好きです。
+あ、日本語化はしません。
+RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。
+このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ
+ RDT=純Rubyの統合開発環境
+RadRails=RDTにRailsのサポートを追加したもの
+Aptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの
+ と理解しときます。
+一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。
+手順は標準的なplugin入れる方法で、
+Help -&gt; Install New Software&#8230; で
+Work withに&#8221;Kepler &#8211; http://download.eclipse.org/releases/kepler&amp;#8221;を選択。
+ Programming Languages -&gt; Dynamic Languages Toolkit &#8211; Ruby Development Tools
+にチェックを入れてNext-&gt;Next-&gt; I accept -&gt; Finish
+でRubyなEclipseができるはずです。
+Rubyのインストール ためしにプロジェクト作ってみようと
+File-&gt;New-&gt;Project&#8230; -&gt; Ruby-&gt;Ruby Project
+Project Name: FirstRubyProject
+まで来たら&#8221;At least one interpreter must be configured&#8221;
+とのこと。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-05-14-svn-git-translate/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-05-14-svn-git-translate/CAP000019.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">SubversionをGitにする</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-05-14T14:45:05JST">May 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。
+こちらを参考にさせていただきました。
+Windowsマシンでgit svnを使ってみる
+windowsで作業します。
+Git Extensions使ってます。
+元レポジトリ:D:\TEMP\SVN_FSFS
+このレポジトリはソースの管理とかではなくオフィスドキュメントとかの類を管理していたものなので、trunkとかそーいった難しい事はしてませんので、-sオプションは使いません。
+ちなみに revisionは841。サイズは3Gとかあります。分割できればしたいです。
+1  $ git svn clone file:///D:/TEMP/SVN_FSFS   とやると
+Permission denied: Can&#8217;t open &#8216;/tmp/report.tmp&#8217;: Permission denied at /usr/lib/perl5/site_perl/Git/SVN.pm line 1210
+とか出てうまくいきませんでした。
+svnでdump-&gt;loadしてやる必要があるみたいです。
+TortoiseSVN 1.8.6, Build 25419 &#8211; 64 Bit
+をコマンドラインツール付きでインストールします。
+ （既定ではインストールされません）
+1 2 3 4 5 6  D:\TEMP&gt;svnadmin dump SVN_FSFS &gt; svnrepo.dump * Dumped revision 999. 長い D:\TEMP&gt;mkdir svn_repo2 D:\TEMP&gt;svnadmin create --fs-type fsfs svn_repo2 D:\TEMP&gt;svnadmin load svn_repo2 &lt; svnrepo.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-04-17-angularjsvalidation/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-04-17-angularjsvalidation/CAP000018.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">AngularJSでバリデーション</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-17T04:54:59JST">Apr 17, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><h3 id="クライアントでバリデーション">クライアントでバリデーション</h3>
+
+<p><a href="/posts/2014-04-16-angularjsbootstrap" title="AngularJS + Bootstrap" target="_blank">前回作った新規入力フォーム</a>にバリデーション機能を付けてみたので、コツっぽいものをメモ。</p>
+
+<p>ポイント的には</p>
+
+<ul>
+<li>フォームやフォーム部品には名前(name属性)を付ける。</li>
+<li>$errorや$validの評価はエレメントにつけた名前で行う。</li>
+</ul>
+
+<p>ぐらいでしょうか。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-04-16-angularjsbootstrap/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-04-16-angularjsbootstrap/CAP000015.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">AngularJS &#43; Bootstrap</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-16T08:04:57JST">Apr 16, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p>Bootstrapはやってますね。使ったことありませんが、お手軽にきれいなサイトができるらしいっす。</p>
+
+<p>てことで、<a href="/posts/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1(サーバ側)" target="_blank">AngularJSの練習</a>で作ったプロジェクトにBootstrapを組み込んでみたいと思います。</p>
+
+<p>AngularJS と Bootstrapを合わせ技で使う場合、<a href="http://angular-ui.github.io/bootstrap/" target="_blank">UI Bootstrap</a>がよさそうです。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-04-14-angularjsasp-netmvc4_3/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-04-14-angularjsasp-netmvc4_3/CAP000009.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">AngularJS &#43; ASP.NET MVC 4 #3(更新・削除)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-14T06:39:12JST">Apr 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p><a href="/posts/2014-04-11-angularjsasp-netmvc4_2" title="AngularJS + ASP.NET MVC 4 #2(一覧・追加)" target="_blank">一覧と追加</a>ができたっぽいので、難関な予感がする更新に手を付けてみます。</p>
+
+<p>CRUDのUです。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-04-11-angularjsasp-netmvc4_2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-04-11-angularjsasp-netmvc4_2/CAP000008.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-11T05:19:24JST">Apr 11, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p><a href="/posts/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1" target="_blank">Model,Controllerを作った</a>ので、次はViewです。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-04-11-angularjsasp-netmvc4_1/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-11T05:18:46JST">Apr 11, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p>AngularJS + ASP.NET MVC 4でなんか作ってみます。</p>
+
+<p>Visual Studio 2010 <a href="http://localhost:8000/unclassified/577/" title="Visual Studio 2010 + ASP.NET MVC 4" target="_blank">+ MVC4</a>で開発します。2013とかほしいっす。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-04-09-visualstudio2010asp-netmvc4/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-04-09-visualstudio2010asp-netmvc4/CAP000003.jpg)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Visual Studio 2010 &#43; ASP.NET MVC 4</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-09T05:27:57JST">Apr 9, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。
+ただし我がVisual Studio 2010(SP1) 、つるしの状態だとMVC3までのサポートなので、4を使えるようにします。
+http://www.microsoft.com/ja-jp/download/details.aspx?id=30683から
+AspNetMVC4Setup.exe と AspNetMVC4Setup_JPN.exeをダウンロード。
+AspNetMVC4Setup.exe
+AspNetMVC4Setup_JPN.exe
+の順で実行してみました。
+「Processing: Microsoft Visual Studio 2010」のところでやけに時間がかかるので、
+タスクマネージャを見ると[VS10SP1-KB2581019-x86.exe]がハングしているような予感（勘です）
+インストーラをキャンセルしてPCリブート。
+再実行してもダメなので
+SP1を再適用…しようとするとディスク容量が不足とか出ます。TEMPをRAM Disk(500M)に割り当ててるからでしょう、たぶん。
+そこでコマンドプロンプトを立ち上げ、
+D:&gt;cd D:\DownloadFiles\VisualStudio
+D:\DownloadFiles\VisualStudio &gt; set TEMP=D:\TEMP
+D:\DownloadFiles\VisualStudio &gt; set TMP=D:\TEMP
+D:\DownloadFiles\VisualStudio &gt; AspNetMVC4Setup.exe
+D:\DownloadFiles\VisualStudio &gt; AspNetMVC4Setup_JPN.exe
+で実行したところなんとか終了。所要時間２０分ぐらいでした。
+でました
+ </div>
+    </div>
+  </a>
+</article>
+</div>
+        
+      </div>
+    </div>
+
+    
+<nav class="paging">
+  
+  <a href="/page/8/" rel="prev">Prev</a>
+  
+
+  
+  <a href="/page/10/" rel="next">Next</a>
+  
+</nav>
+
+
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

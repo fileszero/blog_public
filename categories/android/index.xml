@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on My New Hugo Site</title>
+    <link>/categories/android/</link>
+    <description>Recent content in Android on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Jun 2018 05:22:32 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>unable to find valid certification path to requested target</title>
+      <link>/posts/2018-06-08-unable-to-find-valid-cert/</link>
+      <pubDate>Fri, 08 Jun 2018 05:22:32 +0000</pubDate>
+      
+      <guid>/posts/2018-06-08-unable-to-find-valid-cert/</guid>
+      <description>&lt;p&gt;ionic + cordova on windows 7で&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ionic cordova emulate android&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;すると、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;SunCertPathBuilderException: unable to find valid certification path to requested target&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;的なエラーが出て、はまったのでメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PhoneGap/Cordova Tips &amp; つまづきポイント</title>
+      <link>/posts/2015-06-24-phonegap-cordova-traps/</link>
+      <pubDate>Wed, 24 Jun 2015 06:14:55 +0000</pubDate>
+      
+      <guid>/posts/2015-06-24-phonegap-cordova-traps/</guid>
+      <description>&lt;p&gt;PhoneGap/Cordovaで手探り状態で開発してます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;/posts/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PhoneGapを使ってみる(Android編)</title>
+      <link>/posts/2015-02-12-try-phonegap-android/</link>
+      <pubDate>Thu, 12 Feb 2015 06:59:07 +0000</pubDate>
+      
+      <guid>/posts/2015-02-12-try-phonegap-android/</guid>
+      <description>&lt;h3 id=&#34;android開発環境&#34;&gt;Android開発環境&lt;/h3&gt;
+
+&lt;p&gt;IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。&lt;/p&gt;
+
+&lt;p&gt;今回はAndroid Studioで行きます。&lt;/p&gt;
+
+&lt;p&gt;てことで&lt;/p&gt;
+
+&lt;p&gt;OSX(Yosemite) + PhoneGap + Android Studioでエミュレーターで実行できるまでの記録です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Android の連絡先がgoogleと同期しない</title>
+      <link>/posts/2014-10-04-androidaddressbookgooglesyncproblem/</link>
+      <pubDate>Sat, 04 Oct 2014 14:02:33 +0000</pubDate>
+      
+      <guid>/posts/2014-10-04-androidaddressbookgooglesyncproblem/</guid>
+      <description>&lt;p&gt;Androidの本体側の連絡先をすべてGoogle連絡先に移しました。&lt;/p&gt;
+
+&lt;p&gt;まぁ、携帯時代からアッチ行ったりコッチ行ったりしながら、長い間使ってきたアドレス帳なんで何せ汚い。&lt;/p&gt;
+
+&lt;p&gt;データクレンジング的な事をしたかったんですが、Androidの電話帳って編集するには向かないっすよね。&lt;/p&gt;
+
+&lt;p&gt;てことで、googleに全部持ってって、PCで編集しようって魂胆です。連絡先統合機能とかもあるしー。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

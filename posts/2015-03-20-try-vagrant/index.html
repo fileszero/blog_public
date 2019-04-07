@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-03-20-try-vagrant/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Vagrant(mac) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;https://www.apple.com/jp/macbook/&#34; target=&#34;_blank&#34;&gt;新しいMac Book&lt;/a&gt;発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…&lt;/p&gt;&lt;p&gt;期待していただけに、物欲が抑えきれずにマイナーチェンジした&lt;a href=&#34;https://www.apple.com/jp/macbook-pro/&#34; target=&#34;_blank&#34;&gt;Mac Book Pro 13inch&lt;/a&gt;をポチってしまいました。&lt;/p&gt;&lt;p&gt;今まで使ってた&lt;a href=&#34;https://support.apple.com/kb/SP500?locale=ja_JP&amp;#038;viewlocale=ja_JP&#34; target=&#34;_blank&#34;&gt;MacBook Late2008&lt;/a&gt;もかなりの名機だと思うんですけど、最近のモデルに比べるとやっぱり見劣りしちます。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://vaio.com/products/z/&#34; target=&#34;_blank&#34;&gt;VAIO Z&lt;/a&gt;も魅力的だったんですが、OSがなー、高い機械にWin8ってのはなんか違う気がしてしまって、今回はパス。&lt;/p&gt;">
+
+<meta property="og:title" content="Vagrant(mac) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-03-20-try-vagrant/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;https://www.apple.com/jp/macbook/&#34; target=&#34;_blank&#34;&gt;新しいMac Book&lt;/a&gt;発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…&lt;/p&gt;&lt;p&gt;期待していただけに、物欲が抑えきれずにマイナーチェンジした&lt;a href=&#34;https://www.apple.com/jp/macbook-pro/&#34; target=&#34;_blank&#34;&gt;Mac Book Pro 13inch&lt;/a&gt;をポチってしまいました。&lt;/p&gt;&lt;p&gt;今まで使ってた&lt;a href=&#34;https://support.apple.com/kb/SP500?locale=ja_JP&amp;#038;viewlocale=ja_JP&#34; target=&#34;_blank&#34;&gt;MacBook Late2008&lt;/a&gt;もかなりの名機だと思うんですけど、最近のモデルに比べるとやっぱり見劣りしちます。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://vaio.com/products/z/&#34; target=&#34;_blank&#34;&gt;VAIO Z&lt;/a&gt;も魅力的だったんですが、OSがなー、高い機械にWin8ってのはなんか違う気がしてしまって、今回はパス。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-03-20-try-vagrant/">
+<meta name="twitter:title" content="Vagrant(mac) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;https://www.apple.com/jp/macbook/&#34; target=&#34;_blank&#34;&gt;新しいMac Book&lt;/a&gt;発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…&lt;/p&gt;&lt;p&gt;期待していただけに、物欲が抑えきれずにマイナーチェンジした&lt;a href=&#34;https://www.apple.com/jp/macbook-pro/&#34; target=&#34;_blank&#34;&gt;Mac Book Pro 13inch&lt;/a&gt;をポチってしまいました。&lt;/p&gt;&lt;p&gt;今まで使ってた&lt;a href=&#34;https://support.apple.com/kb/SP500?locale=ja_JP&amp;#038;viewlocale=ja_JP&#34; target=&#34;_blank&#34;&gt;MacBook Late2008&lt;/a&gt;もかなりの名機だと思うんですけど、最近のモデルに比べるとやっぱり見劣りしちます。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://vaio.com/products/z/&#34; target=&#34;_blank&#34;&gt;VAIO Z&lt;/a&gt;も魅力的だったんですが、OSがなー、高い機械にWin8ってのはなんか違う気がしてしまって、今回はパス。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Vagrant(mac) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-03-20T11:14:38JST",
+    "dateModified": "2015-03-20T11:14:38JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="https://www.apple.com/jp/macbook/" target="_blank">新しいMac Book</a>発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…</p>
+
+<p>期待していただけに、物欲が抑えきれずにマイナーチェンジした<a href="https://www.apple.com/jp/macbook-pro/" target="_blank">Mac Book Pro 13inch</a>をポチってしまいました。</p>
+
+<p>今まで使ってた<a href="https://support.apple.com/kb/SP500?locale=ja_JP&#038;viewlocale=ja_JP" target="_blank">MacBook Late2008</a>もかなりの名機だと思うんですけど、最近のモデルに比べるとやっぱり見劣りしちます。</p>
+
+<p><a href="https://vaio.com/products/z/" target="_blank">VAIO Z</a>も魅力的だったんですが、OSがなー、高い機械にWin8ってのはなんか違う気がしてしまって、今回はパス。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">Vagrant(mac)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-20T11:14:38JST">Mar 20, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-03-20-try-vagrant%2f&title=Vagrant%28mac%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-03-20-try-vagrant%2f&text=Vagrant%28mac%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-03-20-try-vagrant%2f&t=Vagrant%28mac%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-03-20-try-vagrant%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-03-20-try-vagrant%2f&title=Vagrant%28mac%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Vagrant%28mac%29 %2fposts%2f2015-03-20-try-vagrant%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="https://www.apple.com/jp/macbook/" target="_blank">新しいMac Book</a>発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…</p>
+
+<p>期待していただけに、物欲が抑えきれずにマイナーチェンジした<a href="https://www.apple.com/jp/macbook-pro/" target="_blank">Mac Book Pro 13inch</a>をポチってしまいました。</p>
+
+<p>今まで使ってた<a href="https://support.apple.com/kb/SP500?locale=ja_JP&#038;viewlocale=ja_JP" target="_blank">MacBook Late2008</a>もかなりの名機だと思うんですけど、最近のモデルに比べるとやっぱり見劣りしちます。</p>
+
+<p><a href="https://vaio.com/products/z/" target="_blank">VAIO Z</a>も魅力的だったんですが、OSがなー、高い機械にWin8ってのはなんか違う気がしてしまって、今回はパス。</p>
+
+<p>さて新Mac、メモリ16Gにしました。CPUも強力だし、SSDも今までの倍以上、余裕があります。</p>
+
+<p>ま、はっきり言って持て余してるわけです。</p>
+
+<p>てことで、リソース食いの代表格、仮想環境を構築してみたいと思います。</p>
+
+<p>Vagrantってのがなかなか便利そうなんで、これでVPSのステージング環境構築を目指します。</p>
+
+<h3 id="install">Install</h3>
+
+<h4 id="vagrant">Vagrant</h4>
+
+<p><a href="https://www.vagrantup.com/" target="_blank">本家サイト</a>の<a href="http://www.vagrantup.com/downloads" target="_blank">ダウンロードページ</a>からMac用パッケージ(dmg)を持ってきてmount、pkgでインストール。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ vagrant --version
+Vagrant <span class="m">1</span>.7.2</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="virtualbox">VirtualBox</h4>
+
+<p><a href="https://www.virtualbox.org/" target="_blank">本家サイト</a>の<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">ダウンロードページ</a>からMac用パッケージ(dmg)を持ってきてmount、pkgでインストール。</p>
+
+<h3 id="run">RUN</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ mkdir vagrant
+Mac ~$ <span class="nb">cd</span> vagrant/
+Mac ~/vagrant$ vagrant init hashicorp/precise32
+A <span class="sb">`</span>Vagrantfile<span class="sb">`</span> has been placed in this directory. You are now
+ready to <span class="sb">`</span>vagrant up<span class="sb">`</span> your first virtual environment! Please <span class="nb">read</span>
+the comments in the Vagrantfile as well as documentation on
+<span class="sb">`</span>vagrantup.com<span class="sb">`</span> <span class="k">for</span> more information on using Vagrant.
+Mac ~/vagrant$ ls -la
+total <span class="m">8</span>
+drwxr-xr-x   <span class="m">3</span> pkjit  staff   <span class="m">102</span>  <span class="m">3</span> <span class="m">18</span> <span class="m">15</span>:23 .
+drwxr-xr-x+ <span class="m">31</span> pkjit  staff  <span class="m">1054</span>  <span class="m">3</span> <span class="m">18</span> <span class="m">15</span>:23 ..
+-rw-r--r--   <span class="m">1</span> pkjit  staff  <span class="m">3031</span>  <span class="m">3</span> <span class="m">18</span> <span class="m">15</span>:23 Vagrantfile
+Mac ~/vagrant$ vagrant up</code></pre></td></tr></table>
+</div>
+</div>
+<p>SSLがどうこうってエラーが発生したら、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.
+
+SSL certificate problem: unable to get local issuer certificate
+More details here: http://curl.haxx.se/docs/sslcerts.html</code></pre></td></tr></table>
+</div>
+</div>
+<p>&#8211;insecureオプションをつけてboxを個別にaddします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant$ vagrant box add hashicorp/precise32 --insecure</code></pre></td></tr></table>
+</div>
+</div>
+<p>vagrant upが成功するとコマンドラインに戻ってくるので、vagrant sshで仮想マシンに接続します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant$ vagrant up
+Mac ~/vagrant$ vagrant ssh
+Welcome to Ubuntu <span class="m">12</span>.04 LTS <span class="o">(</span>GNU/Linux <span class="m">3</span>.2.0-23-generic-pae i686<span class="o">)</span>
+
+ * Documentation:  https://help.ubuntu.com/
+New release <span class="s1">&#39;14.04.2 LTS&#39;</span> available.
+Run <span class="s1">&#39;do-release-upgrade&#39;</span> to upgrade to it.
+
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep <span class="m">14</span> <span class="m">06</span>:22:31 <span class="m">2012</span> from <span class="m">10</span>.0.2.2
+vagrant@precise32:~$ uname --all
+Linux precise32 <span class="m">3</span>.2.0-23-generic-pae <span class="c1">#36-Ubuntu SMP Tue Apr 10 22:19:09 UTC 2012 i686 i686 i386 GNU/Linux</span>
+vagrant@precise32:~$ </code></pre></td></tr></table>
+</div>
+</div>
+<p>動いているようです。</p>
+
+<p>boxは~/.vagrant.d/ 仮想マシンは ~/VirtualBox\ VMs/に置かれるようですが、結構なサイズですな。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ du -hs ~/.vagrant.d/
+282M	/Users/user/.vagrant.d/
+Mac ~$ du -hs ~/VirtualBox<span class="se">\ </span>VMs/
+963M	/Users/user/VirtualBox VMs/</code></pre></td></tr></table>
+</div>
+</div>
+<p>消しときます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant<span class="nv">$vagrant</span> destroy
+Mac ~/vagrant<span class="nv">$rm</span> Vagrantfile
+<span class="c1">#destroyすると、vmは消えますが、boxはのこります。</span>
+Mac ~/vagrant<span class="nv">$du</span> -hs ~/.vagrant.d/
+282M	/Users/pkjit/.vagrant.d/
+Mac ~/vagrant<span class="nv">$du</span> -hs ~/VirtualBox<span class="se">\ </span>VMs/
+<span class="m">8</span>.0K	/Users/pkjit/VirtualBox VMs/</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="仮想sakura-vps">仮想Sakura VPS</h3>
+
+<p>別のパターンでさくらのVPSっぽい環境を作ってみます。</p>
+
+<p>ただいま絶賛レンタル中の環境はこんな感じです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Sakura VPS 
+CentOS release 6.5 (Final)
+Kernel 2.6.32-431.29.2.e16.x86_64 on x86_64</code></pre></td></tr></table>
+</div>
+</div>
+<p>作業フォルダ作成。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant<span class="nv">$mkdir</span> ~/vagrant/vps
+Mac ~/vagrant<span class="nv">$cd</span> ~/vagrant/vps</code></pre></td></tr></table>
+</div>
+</div>
+<p>boxを用意。</p>
+
+<p><a href="https://atlas.hashicorp.com/boxes/search" target="_blank">HashiCorp&#8217;s Atlas box catalog.</a>から<a href="https://atlas.hashicorp.com/mobileoverlord/boxes/centos-6.5" target="_blank">それっぽいbox</a>を選びます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant/vps<span class="nv">$vagrant</span> box add mobileoverlord/centos-6.5 --insecure</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant/vps<span class="nv">$vagrant</span> init  mobileoverlord/centos-6.5
+<span class="c1">#git で管理してみる</span>
+Mac ~/vagrant/vps<span class="nv">$git</span> init 
+Mac ~/vagrant/vps<span class="nv">$git</span> add .
+Mac ~/vagrant/vps<span class="nv">$git</span> commit -am <span class="s2">&#34;init&#34;</span>
+
+Mac ~/vagrant/vps<span class="nv">$vagrant</span> up
+Mac ~/vagrant/vps<span class="nv">$vagrant</span> ssh
+<span class="o">[</span>vagrant@localhost ~<span class="o">]</span>$ uname -a
+Linux localhost.localdomain <span class="m">2</span>.6.32-431.5.1.el6.x86_64 <span class="c1">#1 SMP Wed Feb 12 00:41:43 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>実行されると作業フォルダに.vagrantが作成されるようです。</p>
+
+<p>こんな感じで、box落としてきてinit-&gt;upで仮想環境が出来上がります。</p>
+
+<p>かんたんですね。</p>
+
+<p>とはいえ、この状態はOSインストールしただけなので、</p>
+
+<p>この後、サーバやライブラリなんかをインストールするめんどーな環境構築作業が必要なわけです。</p>
+
+<p>んで、めんどーな環境構築作業を自動化してくれるツールがあるらしいので次回使ってみます。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-03-20-try-vagrant%2f&title=Vagrant%28mac%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-03-20-try-vagrant%2f&text=Vagrant%28mac%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-03-20-try-vagrant%2f&t=Vagrant%28mac%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-03-20-try-vagrant%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-03-20-try-vagrant%2f&title=Vagrant%28mac%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Vagrant%28mac%29 %2fposts%2f2015-03-20-try-vagrant%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Vagrant(mac)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/mac/">Mac</a></li>
+          
+          <li><a href="/categories/vagrant/">vagrant</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-03-10-try-mean-with-vs-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-03-10-try-mean-with-vs-2/WSW000015.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">MEANをVisual Studioでやってみる#2(viewとか)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-10T12:16:51JST">Mar 10, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-03-26-vagrant-chef-mac/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Vagrant&#43;chef(mac)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-25T15:32:39JST">Mar 25, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on My New Hugo Site</title>
+    <link>/categories/windows/</link>
+    <description>Recent content in Windows on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Dec 2016 08:24:22 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows7でVirtualBoxのゲストOSを自動起動</title>
+      <link>/posts/2016-12-08-startup-virtualbox-automatically/</link>
+      <pubDate>Thu, 08 Dec 2016 08:24:22 +0000</pubDate>
+      
+      <guid>/posts/2016-12-08-startup-virtualbox-automatically/</guid>
+      <description>&lt;p&gt;VirtualBoxのvmをwindows起動時（ログインしてない状態）に自動起動するようしてみます。&lt;/p&gt;
+
+&lt;p&gt;環境は&lt;/p&gt;
+
+&lt;p&gt;ホスト環境 Windows7 SP1 &lt;small&gt;(仕事ではまだまだこれっす)&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;VirtualBox 5.1.10&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>INotifyPropertyChangedの実装</title>
+      <link>/posts/2016-01-27-implimentation-of-inotifypropertychanged/</link>
+      <pubDate>Wed, 27 Jan 2016 08:22:57 +0000</pubDate>
+      
+      <guid>/posts/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
+      <description>&lt;p&gt;久々にWindows Formsなプログラムを作っております。&lt;/p&gt;
+
+&lt;p&gt;(どのぐらい久々かというと、最後にの記憶がVB6辺りという。。。)&lt;/p&gt;
+
+&lt;p&gt;Windows Formsで必須のテクニックとしてデータバインディングがあります。&lt;/p&gt;
+
+&lt;p&gt;そこで必ず登場するのがINotifyPropertyChanged。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OneDrive for Bisinessにバックアップする</title>
+      <link>/posts/2015-02-15-webdav-on-win7-cdrive-issue/</link>
+      <pubDate>Sun, 15 Feb 2015 07:00:41 +0000</pubDate>
+      
+      <guid>/posts/2015-02-15-webdav-on-win7-cdrive-issue/</guid>
+      <description>&lt;p&gt;Office365を試用中です。&lt;/p&gt;
+
+&lt;p&gt;エディションはbusiness premium。&lt;/p&gt;
+
+&lt;p&gt;主な目的は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;オンラインにバックアップを持っときたい。&lt;/li&gt;
+&lt;li&gt;いくつか所有してるPCとMacにMS-Officeを導入したい。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;の2点。&lt;/p&gt;
+
+&lt;p&gt;あとはSharepointのお勉強に使えれば良いかなと。&lt;/p&gt;
+
+&lt;p&gt;Office 365 Soloも検討しましたが、インストールできる台数、独自ドメインの扱いとか微妙に制限がある割に、お値段の差がそんなに無いのでbusiness premiumを選択。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

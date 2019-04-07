@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alminium on My New Hugo Site</title>
+    <link>/categories/alminium/</link>
+    <description>Recent content in Alminium on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2019 00:50:34 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/alminium/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redmineでチケットに応じたコマンドを表示</title>
+      <link>/posts/2019-03-19-redmine-ticket-command/</link>
+      <pubDate>Tue, 19 Mar 2019 00:50:34 +0000</pubDate>
+      
+      <guid>/posts/2019-03-19-redmine-ticket-command/</guid>
+      <description>&lt;p&gt;タイトル何言ってるかわかりませんか、そーですか。&lt;/p&gt;
+
+&lt;p&gt;運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。&lt;/p&gt;
+
+&lt;p&gt;んで、チケット毎にブランチをきったりフォルダを作ったりするんですが、&lt;/p&gt;
+
+&lt;p&gt;名前規則を、_日付&lt;strong&gt;&lt;em&gt;チケット番号&lt;/em&gt;&lt;/strong&gt;内容_みたいにしてます。&lt;/p&gt;
+
+&lt;p&gt;いちいち手打ちだと面倒なんで、チケット画面からコピペでコマンド打てると楽だなってことです。&lt;/p&gt;
+
+&lt;p&gt;わかりませんね。&lt;/p&gt;
+
+&lt;p&gt;画面はこんな感じ。&lt;/p&gt;
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    &lt;a class=&#34;luminous&#34; href=&#34;/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;
+            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;
+                height=&#34;201&#34; data-original=&#34;/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34; /&gt;
+    &lt;/a&gt;</description>
+    </item>
+    
+    <item>
+      <title>ALMinium環境バージョンアップ#2</title>
+      <link>/posts/2018-08-30-upgrade-alminium-environment-2/</link>
+      <pubDate>Thu, 30 Aug 2018 05:05:34 +0000</pubDate>
+      
+      <guid>/posts/2018-08-30-upgrade-alminium-environment-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2018-08-30-upgrade-alminium-environment-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、新環境のOSセットアップができたようなので、ALMiniumをインストールします。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ALMinium環境バージョンアップ#1</title>
+      <link>/posts/2018-08-30-upgrade-alminium-environment-1/</link>
+      <pubDate>Thu, 30 Aug 2018 02:31:17 +0000</pubDate>
+      
+      <guid>/posts/2018-08-30-upgrade-alminium-environment-1/</guid>
+      <description>&lt;p&gt;個人かつローカルで使ってる&lt;a href=&#34;https://github.com/alminium/alminium&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMinium&lt;/a&gt;環境があるんですが、いい加減古いのでバージョンアップ。&lt;/p&gt;
+
+&lt;p&gt;宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。&lt;/p&gt;
+
+&lt;p&gt;チームで使うと効果的なんでしょうけど、一人でもExcelで課題管理するより数倍効率良いです。&lt;/p&gt;
+
+&lt;p&gt;参考サイト&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/tukiyo3/items/bbee8fb84d801dd6b7a2&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMiniumをバックアップ、バージョンアップ、リストア&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

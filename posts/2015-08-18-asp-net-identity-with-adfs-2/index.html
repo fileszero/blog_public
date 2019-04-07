@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-08-18-asp-net-identity-with-adfs-2/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET IdentityでActive Directory認証#2 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;&lt;p&gt;この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。&lt;/p&gt;&lt;p&gt;アクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。&lt;/p&gt;&lt;p&gt;Webアプリ系のサイトなんて全ページ要認証が基本だと思うんです。&lt;/p&gt;&lt;p&gt;てことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET IdentityでActive Directory認証#2 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-08-18-asp-net-identity-with-adfs-2/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;&lt;p&gt;この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。&lt;/p&gt;&lt;p&gt;アクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。&lt;/p&gt;&lt;p&gt;Webアプリ系のサイトなんて全ページ要認証が基本だと思うんです。&lt;/p&gt;&lt;p&gt;てことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-08-18-asp-net-identity-with-adfs-2/">
+<meta name="twitter:title" content="ASP.NET IdentityでActive Directory認証#2 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;&lt;p&gt;この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。&lt;/p&gt;&lt;p&gt;アクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。&lt;/p&gt;&lt;p&gt;Webアプリ系のサイトなんて全ページ要認証が基本だと思うんです。&lt;/p&gt;&lt;p&gt;てことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET IdentityでActive Directory認証#2 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-08-18T04:04:05JST",
+    "dateModified": "2015-08-18T04:04:05JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2015-08-11-asp-net-identity-with-adfs" target="_blank">前回AD認証の仕組みを作った</a>ので、アクセス制御してみます。</p>
+
+<p>この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。</p>
+
+<p>アクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。</p>
+
+<p>Webアプリ系のサイトなんて全ページ要認証が基本だと思うんです。</p>
+
+<p>てことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET IdentityでActive Directory認証#2</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-08-18T04:04:05JST">Aug 18, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&text=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&t=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232 %2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2015-08-11-asp-net-identity-with-adfs" target="_blank">前回AD認証の仕組みを作った</a>ので、アクセス制御してみます。</p>
+
+<p>この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。</p>
+
+<p>アクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。</p>
+
+<p>Webアプリ系のサイトなんて全ページ要認証が基本だと思うんです。</p>
+
+<p>てことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。</p>
+
+<h3 id="すべてのアクセスに対して要認証にする">すべてのアクセスに対して要認証にする</h3>
+
+<p>要認証にするには<a href="https://msdn.microsoft.com/ja-jp/library/system.web.http.authorizeattribute(v=vs.118).aspx" target="_blank">こちら</a>を参考にAuthorizeAttribute フィルターをグローバル フィルター リストに追加します。</p>
+
+<h4 id="app-start-filterconfig-cs">/App_Start/FilterConfig.cs</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">RegisterGlobalFilters</span><span class="p">(</span><span class="n">GlobalFilterCollection</span> <span class="n">filters</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">filters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">AuthorizeAttribute</span><span class="p">());</span>
+            <span class="n">filters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">HandleErrorAttribute</span><span class="p">());</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>これだけ。この辺がASP.NET Identityに準拠する利点だと思われます。</p>
+
+<p>このフィルタは（場合によるとは思いますが）基本的には一番最初に登録するといいかと思います。</p>
+
+<h3 id="部分的に匿名アクセス許可する">部分的に匿名アクセス許可する</h3>
+
+<p>ウエルカムページや、ログインページは匿名でもアクセスさせたいので、AllowAnonymous属性をつけます。</p>
+
+<h4 id="controllers-accountcontroller-cs">Controllers\AccountController.cs</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">//
+</span><span class="c1"></span>        <span class="c1">// GET: /Account/Login
+</span><span class="c1"></span><span class="na">        [AllowAnonymous]</span>
+        <span class="k">public</span> <span class="n">ActionResult</span> <span class="n">Login</span><span class="p">(</span><span class="kt">string</span> <span class="n">returnUrl</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">ViewBag</span><span class="p">.</span><span class="n">ReturnUrl</span> <span class="p">=</span> <span class="n">returnUrl</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">View</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">//
+</span><span class="c1"></span>        <span class="c1">// POST: /Account/Login
+</span><span class="c1"></span><span class="na">        [HttpPost]
+</span><span class="na">        [AllowAnonymous]
+</span><span class="na">        [ValidateAntiForgeryToken]</span>
+        <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ActionResult</span><span class="p">&gt;</span> <span class="n">Login</span><span class="p">(</span><span class="n">LoginViewModel</span> <span class="n">model</span><span class="p">,</span> <span class="kt">string</span> <span class="n">returnUrl</span><span class="p">)</span>
+        <span class="p">{</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="特定のadグループにアクセス許可する">特定のADグループにアクセス許可する</h3>
+
+<p>いわゆるRoleで制御です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[Authorize(Roles = &#34;ADGroup1,ADGroup2&#34;)]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">OreOreController</span> <span class="p">:</span> <span class="n">Controller</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>的な記述で、アクセス制限をかけます。そのためにはASP.NET IdentityにRole情報を提供してやらないといけないんで、</p>
+
+<p>ApplicationUserStoreにIUserRoleStoreを実装します。</p>
+
+<h4 id="models-identitymodels-cs">\Models\IdentityModels.cs</h4>
+
+<p>先に、プライベートだったApplicationUserのmADUserを公開ます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">UserPrincipal</span> <span class="n">ADuser</span> <span class="p">{</span>
+            <span class="k">get</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">mADUser</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>IUserRoleStoreをこんな感じに実装。Addとかはできないことにしてます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">ApplicationUserStore</span> <span class="p">:</span> <span class="n">IUserStore</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;,</span> <span class="n">IUserRoleStore</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+<span class="p">........</span>
+<span class="cp">#region IUserRoleStore&lt;ApplicationUser,string&gt; Members
+</span><span class="cp"></span>
+        <span class="k">public</span> <span class="n">Task</span> <span class="n">AddToRoleAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">,</span> <span class="kt">string</span> <span class="n">roleName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="n">AddGroupsRecursive</span><span class="p">(</span><span class="n">IList</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">aResult</span><span class="p">,</span><span class="n">Principal</span> <span class="n">aPrincipal</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">PrincipalSearchResult</span><span class="p">&lt;</span><span class="n">Principal</span><span class="p">&gt;</span> <span class="n">groups</span> <span class="p">=</span> <span class="n">aPrincipal</span><span class="p">.</span><span class="n">GetGroups</span><span class="p">();</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="k">group</span> <span class="k">in</span> <span class="n">groups</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">aResult</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="k">group</span><span class="p">.</span><span class="n">SamAccountName</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">aResult</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">group</span><span class="p">.</span><span class="n">SamAccountName</span><span class="p">);</span>
+                    <span class="k">this</span><span class="p">.</span><span class="n">AddGroupsRecursive</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="k">group</span><span class="p">);</span> <span class="c1">//get sub group
+</span><span class="c1"></span>                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">IList</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">GetRolesAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">IList</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+            <span class="n">AddGroupsRecursive</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="n">ADuser</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">&lt;</span><span class="n">IList</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;(</span><span class="n">result</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;</span> <span class="n">IsInRoleAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">,</span> <span class="kt">string</span> <span class="n">roleName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">UserPrincipal</span> <span class="n">aduser</span> <span class="p">=</span> <span class="n">user</span><span class="p">.</span><span class="n">ADuser</span><span class="p">;</span>
+            <span class="kt">var</span> <span class="k">group</span><span class="p">=</span><span class="n">GroupPrincipal</span><span class="p">.</span><span class="n">FindByIdentity</span><span class="p">(</span><span class="n">_context</span><span class="p">,</span><span class="n">roleName</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;(</span><span class="n">aduser</span><span class="p">.</span><span class="n">IsMemberOf</span><span class="p">(</span><span class="k">group</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Task</span> <span class="n">RemoveFromRoleAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">,</span> <span class="kt">string</span> <span class="n">roleName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="cp">#endregion
+</span><span class="cp"></span>    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>グループは再帰的に取得する必要があります。最初UserPrincipalのGetAuthorizationGroupsってメソッドが使えるかと思ったんですが、「グループの列挙中にエラー (1301) が発生しました。グループの SID を解決できませんでした。」となって動きませんでした。仕方がないんで再帰的にグループを持ってくるところは自作（AddGroupsRecursive）。遅いです。なんかいい方法ありませんかね？</p>
+
+<h3 id="web-configでrole指定">web.configでrole指定</h3>
+
+<p>Authorize(Roles = &#8220;ADGroup1,ADGroup2&#8221;)　だと、グループ名がハードコードされてしまうので、なんか変更があった時に再コンパイルが必要になり、運用上よろしくありません。</p>
+
+<p>web.configで指定できるようにしときたいです。</p>
+
+<p>てことでAuthorizeAttributeを拡張してConfiguredAuthorizeAttributeを作ります。</p>
+
+<h4 id="configuredauthorizeattribute-cs">ConfiguredAuthorizeAttribute.cs</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">ConfiguredAuthorizeAttribute</span> <span class="p">:</span> <span class="n">AuthorizeAttribute</span> 
+    <span class="p">{</span>
+        <span class="c1">//Named params
+</span><span class="c1"></span>        <span class="c1">/// &lt;summary&gt;
+</span><span class="c1"></span>        <span class="c1">/// config key names for roles
+</span><span class="c1"></span>        <span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span>        <span class="k">public</span> <span class="kt">string</span> <span class="n">RoleKeys</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="c1">/// &lt;summary&gt;
+</span><span class="c1"></span>        <span class="c1">/// config key names for users
+</span><span class="c1"></span>        <span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span>        <span class="k">public</span> <span class="kt">string</span> <span class="n">UserKeys</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">private</span> <span class="kt">bool</span> <span class="n">mIsExtended</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>   <span class="c1">// Roles and Users has been extended
+</span><span class="c1"></span>
+        <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">OnAuthorization</span><span class="p">(</span><span class="n">AuthorizationContext</span> <span class="n">filterContext</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="n">mIsExtended</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// get config values
+</span><span class="c1"></span>                <span class="kt">var</span> <span class="n">config_values</span> <span class="p">=</span> <span class="p">(</span><span class="n">NameValueCollection</span><span class="p">)</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">GetSection</span><span class="p">(</span><span class="s">&#34;ConfiguredAuthorize&#34;</span><span class="p">);</span>
+                <span class="c1">// role
+</span><span class="c1"></span>                <span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">RoleKeys</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="n">Roles</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">MakeParamString</span><span class="p">(</span><span class="n">config_values</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">RoleKeys</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">Roles</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="c1">// user
+</span><span class="c1"></span>                <span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">UserKeys</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="n">Users</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">MakeParamString</span><span class="p">(</span><span class="n">config_values</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">UserKeys</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">Users</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">mIsExtended</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">base</span><span class="p">.</span><span class="n">OnAuthorization</span><span class="p">(</span><span class="n">filterContext</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">private</span> <span class="kt">string</span> <span class="n">MakeParamString</span><span class="p">(</span><span class="n">NameValueCollection</span> <span class="n">aConfigValues</span><span class="p">,</span> <span class="kt">string</span> <span class="n">aKeys</span><span class="p">,</span> <span class="kt">string</span> <span class="n">aBaseValue</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">keys</span> <span class="p">=</span> <span class="n">aKeys</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">).</span><span class="n">Select</span><span class="p">(</span><span class="n">k</span> <span class="p">=&gt;</span> <span class="n">k</span><span class="p">.</span><span class="n">Trim</span><span class="p">()).</span><span class="n">ToArray</span><span class="p">();</span>
+            <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+            <span class="kt">var</span> <span class="n">joint</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">aBaseValue</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">joint</span> <span class="p">=</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keys</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">aConfigValues</span><span class="na">[key]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">result</span> <span class="p">+=</span> <span class="n">joint</span> <span class="p">+</span> <span class="n">aConfigValues</span><span class="na">[key]</span><span class="p">;</span>
+                    <span class="n">joint</span> <span class="p">=</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">result</span> <span class="p">=</span> <span class="n">aBaseValue</span> <span class="p">+</span> <span class="n">result</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>肝はOnAuthorizationのオーバーライド部分。</p>
+
+<p>やってることは簡単で、ベースのOnAuthorizationの直前にweb.configから読み込んだ設定をRoles とUsers に追記してるだけ。</p>
+
+<h4 id="web-config">web.config</h4>
+
+<p>web.configにConfiguredAuthorizeセクションの定義と、値を設定します。</p>
+
+<p>セクション名は&#8221;ConfiguredAuthorize&#8221;固定にしました。(面倒だから)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
+  <span class="nt">&lt;configSections&gt;</span>
+    <span class="nt">&lt;section</span> <span class="na">name=</span><span class="s">&#34;ConfiguredAuthorize&#34;</span> <span class="na">type=</span><span class="s">&#34;System.Configuration.NameValueSectionHandler&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/configSections&gt;</span>
+....
+  <span class="nt">&lt;ConfiguredAuthorize&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&#34;AdminADGroups&#34;</span> <span class="na">value=</span><span class="s">&#34;ADGroup1,ADGroup2&#34;</span> <span class="nt">/&gt;</span> 
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&#34;AdminADUsers&#34;</span> <span class="na">value=</span><span class="s">&#34;ADUser1,ADUser2&#34;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ConfiguredAuthorize&gt;</span>
+....
+<span class="nt">&lt;configuration&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="controller">Controller</h4>
+
+<p>そしたらControllerの属性を書き換えます。</p>
+
+<p>こんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[ConfiguredAuthorize(RoleKeys = &#34;AdminADGroups&#34;, UserKeys = &#34;AdminADUsers&#34;)]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">OreOreController</span> <span class="p">:</span> <span class="n">Controller</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>これで、再コンパイル無しでWeb.configを書き換えれば権限を差し替えられます。</p>
+
+<p>いちおう動いてますが、デバッグ不十分です。</p>
+
+<p>権限関係のコードを自分で書くのって非常に不安な上に、車輪の再開発をしている気分になりますな。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&text=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&t=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f&title=ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Identity%e3%81%a7Active%20Directory%e8%aa%8d%e8%a8%bc%232 %2fposts%2f2015-08-18-asp-net-identity-with-adfs-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET IdentityでActive Directory認証#2</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-08-11-asp-net-identity-with-adfs/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-08-11-asp-net-identity-with-adfs/CAP000071.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET IdentityでActive Directory認証</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-08-11T07:44:05JST">Aug 11, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-09-16-ef-insert-duplicate-object/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-09-16-ef-insert-duplicate-object/CAP000078.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Entity FrameworkでInsertするときに関連するレコードもInsertされる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-09-16T05:49:39JST">Sep 16, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2014-08-29-asp-net-mvc-4-basicknockout/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET MVC 4を基本で作った後でknockout.js等使う - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;&lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET MVC 4を基本で作った後でknockout.js等使う - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2014-08-29-asp-net-mvc-4-basicknockout/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;&lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2014-08-29-asp-net-mvc-4-basicknockout/">
+<meta name="twitter:title" content="ASP.NET MVC 4を基本で作った後でknockout.js等使う - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;&lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET MVC 4を基本で作った後でknockout.js等使う - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-08-29T03:47:56JST",
+    "dateModified": "2014-08-29T03:47:56JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>ASP.NET MVC 4プロジェクトを(よせばいいのに)&#8221;基本&#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。</p>
+
+<p>Visual studio 2010です。(新しのほしい。)</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-08-29-asp-net-mvc-4-basicknockout/CAP000048.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET MVC 4を基本で作った後でknockout.js等使う</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-08-29T03:47:56JST">Aug 29, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&title=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&text=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&t=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&title=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86 %2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>ASP.NET MVC 4プロジェクトを(よせばいいのに)&#8221;基本&#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。</p>
+
+<p>Visual studio 2010です。(新しのほしい。)</p>
+
+<h3 id="knockout-jsをインストール">knockout.jsをインストール</h3>
+
+<p>[ツール]-[NuGetパッケージマネジャ]-[ソリューションのNuGetパッケージ管理]</p>
+
+<p>&#8220;knockout mvc&#8221;で検索して、&#8221;K&#8221;なアイコンのそれっぽいパッケージをインストールします。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2014-08-29-asp-net-mvc-4-basicknockout/CAP000048.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2014-08-29-asp-net-mvc-4-basicknockout/CAP000048_hubaf6f0f52881c932ed34f097aaf0867d_129915_240x0_resize_q75_box.jpg" width="240"
+                height="154" data-original="/posts/2014-08-29-asp-net-mvc-4-basicknockout/CAP000048.jpg" />
+    </a>
+
+
+<p>なんか色々入りますな。</p>
+
+<h3 id="ビルドできない">ビルドできない</h3>
+
+<p>とりあえずビルドしてみますが、こんな警告が出てビルドがすんなりいきません。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">ASP.NET のランタイム エラーです: ファイルまたはアセンブリ &#39;Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed&#39;、またはその依存関係の 1 つが読み込めませんでした。見つかったアセンブリのマニフェスト定義はアセンブリ参照に一致しません。 (HRESULT からの例外:0x80131040)</code></pre></td></tr></table>
+</div>
+</div>
+<p>パケージをアップデートしてみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; Update-Package –reinstall Newtonsoft.Json</code></pre></td></tr></table>
+</div>
+</div>
+<p>何度かリビルドしたら解決しました。</p>
+
+<p>なんだったんだ？</p>
+
+<h3 id="jqueryのダウングレード">jQueryのダウングレード</h3>
+
+<p>悲しいことにIE8を未だ捨てられないので、泣きながらダウングレード。</p>
+
+<p>1.9.x系にします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; Uninstall-Package kMVC  <span class="c1">#依存関係があるらしいので先にアンインストール</span>
+PM&gt; Uninstall-Package jQuery
+PM&gt; Install-Package jQuery -Version <span class="m">1</span>.9.1
+PM&gt; Install-Package kMVC -Version <span class="m">0</span>.5.4 <span class="c1">#このパッケージは無くても良いかもな～</span>
+PM&gt; Install-Package jQuery.Validation <span class="c1">#HtmlHelper.EnableClientValidationで必要な気がする</span>
+PM&gt; Install-Package Microsoft.jQuery.Unobtrusive.Validation <span class="c1">#EnableUnobtrusiveJavaScriptで要るかも</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="viewの変更">Viewの変更</h3>
+
+<p>viewにスクリプトへの参照を追加します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/jquery-1.9.1.min.js&#34;)&#34;</span> <span class="na">type=</span><span class="s">&#34;text/javascript&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/knockout-3.1.0.js&#34;)&#34;</span> <span class="na">type=</span><span class="s">&#34;text/javascript&#34;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ASP.NET MVCにはbundling機能ってのがあって、こちらも使えるみたいなんですが、難しそうなんで後回し。</p>
+
+<p>App_Start\BundleConfig.csをうまいこと編集するみたいです。</p>
+
+<h3 id="asp-net-mvcでのjavascriptライブラリ">ASP.NET MVCでのJavaScriptライブラリ</h3>
+
+<p>今回NuGetを使ってJavaScriptライブラリをインストールしてみましたが、</p>
+
+<p>ふつーにjsファイルをプロジェクトに追加しても行けると思われます。</p>
+
+<p>NuGetだと依存関係とか考えてくれるけど、要らん物が入ることも在るんで良し悪しですな。</p>
+
+<p>ちなみに、以前<a href="/posts/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1(サーバ側)" target="_blank">AngularJS</a>使おうかと思ったけど、Knockout.jsに乗り換えました。</p>
+
+<p>なぜならMicrosoftがVisualStudioのテンプレートで採用しているようなので、</p>
+
+<p>MS系で開発するならこれかなと思った次第です。</p>
+
+<p>長いものには巻かれましょう。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&title=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&text=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&t=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f&title=ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20MVC%204%e3%82%92%e5%9f%ba%e6%9c%ac%e3%81%a7%e4%bd%9c%e3%81%a3%e3%81%9f%e5%be%8c%e3%81%a7knockout.js%e7%ad%89%e4%bd%bf%e3%81%86 %2fposts%2f2014-08-29-asp-net-mvc-4-basicknockout%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET MVC 4を基本で作った後でknockout.js等使う</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/knockoutjs/">KnockoutJS</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2014-08-15-raspberrypiwebcam/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">RaspberryPi webcam</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-08-15T08:45:27JST">Aug 15, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2014-10-04-androidaddressbookgooglesyncproblem/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Android の連絡先がgoogleと同期しない</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-10-04T14:02:33JST">Oct 4, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

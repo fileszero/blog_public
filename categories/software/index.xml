@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software on My New Hugo Site</title>
+    <link>/categories/software/</link>
+    <description>Recent content in Software on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Oct 2014 12:32:56 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>etckeeperをインストール</title>
+      <link>/posts/2014-10-25-installing-etckeeper/</link>
+      <pubDate>Sat, 25 Oct 2014 12:32:56 +0000</pubDate>
+      
+      <guid>/posts/2014-10-25-installing-etckeeper/</guid>
+      <description>&lt;p&gt;VPSを借りてこのブログを運用しています。&lt;/p&gt;
+
+&lt;p&gt;linux CentOS6です。&lt;/p&gt;
+
+&lt;p&gt;ブログ書くだけならわざわざVPSなんぞ借りずに無料ブログサービスを使えばいいじゃんって事なんですが、&lt;/p&gt;
+
+&lt;p&gt;お勉強のために色々設定いじれるrootな権限がほしいわけです。&lt;/p&gt;
+
+&lt;p&gt;あと、毎月お金払ってるんで、放置できないようにプレッシャーをかけてくれます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>vmware 自動起動</title>
+      <link>/posts/2013-09-18-vmwareautostart/</link>
+      <pubDate>Wed, 18 Sep 2013 02:30:24 +0000</pubDate>
+      
+      <guid>/posts/2013-09-18-vmwareautostart/</guid>
+      <description>vmwareの自動起動設定ではまったのでメモ。
+vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、
+ホストＯＳがWindowsの場合、サービスとして登録する方法が詳細されています。
+http://www.kinusati.net/2011/10/03/vmware-player%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%8C%96/
+とか簡潔で参考になります。
+サービスの実行時アカウントが重要で、このアカウントでＶＭが起動できる状態になっていないとダメみたいです。
+普段使ってるアカウントがADのアカウントとかで、ポリシーでパスワード有効期限が切ってあったりすると、サービスの方もいちいちパスワードを設定しなおさなければなりません。
+めんどくさいんでローカルアカウントを作ったりするんですが、作ったアカウントでいったんログオンして、一度ＶＭを起動しないとサービスとして立ち上がってきません。
+playerの設定もアップデートの確認やらなんやらをしないようにしとくといいかと思われます。</description>
+    </item>
+    
+    <item>
+      <title>Tiny Tiny RSSのFeed更新</title>
+      <link>/posts/2013-05-23-tiny-tiny-rss-update-feeds/</link>
+      <pubDate>Thu, 23 May 2013 13:33:41 +0000</pubDate>
+      
+      <guid>/posts/2013-05-23-tiny-tiny-rss-update-feeds/</guid>
+      <description>Tiny Tiny RSS良い感じで使っております。
+webのUI上からフィードをダブルクリックすると記事が更新されるんですが、
+自動で定期的に更新してくれないと困りますね。
+てことで自動更新の仕方を参考に設定していきます。
+[Update daemon]方式がお勧めみたいですが、CentOSへの組み込み方が良くわからんのでパス。
+cronで実行するのが簡単そうな感じがします。
+要するに
+update.php &amp;#8211;feeds
+を定期的に実行するわけですな。
+daemon方式のところにwebサイトユーザー権限で実行しろ見たいなことが書いてあるので、こっちもそんな感じで設定します。
+まずは普通にコマンドから実行してみますか。
+suでルートになって
+# sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feeds
+そーすっと、なにやらごにょごにょ初めて
+これが
+ こうなります
+ 読み切れねー。
+更新自体は問題ないようです。
+
+rootのcrontabに登録します。
+
+
+# crontab -e
+*/15 * * * * sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feeds &amp;#8211;quiet
+これで快適情強生活ができるでしょうか。
+
+
+・・・できませんでした。
+朝起きてみるとcronさんから
+「sudo: sorry, you must have a tty to run sudo」
+こんなメールが大量に！
+sudoは端末からじゃないとだめなのね。
+
+ってことで
+rootのスケジュールはさっくり消して、
+1 2 3 4 5  # sudo -u nginx crontab -e no crontab for nginx - using an empty one crontab: installing new crontab # sudo -u nginx crontab -l */15 * * * * /usr/bin/php /tt/rss/dir/update.</description>
+    </item>
+    
+    <item>
+      <title>Tiny Tiny RSS</title>
+      <link>/posts/2013-05-21-tiny-tiny-rss/</link>
+      <pubDate>Tue, 21 May 2013 14:18:03 +0000</pubDate>
+      
+      <guid>/posts/2013-05-21-tiny-tiny-rss/</guid>
+      <description>Google Readerが終わってしまいますね。
+feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。
+ざっと検索したところTiny Tiny RSSが良いみたい。
+まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGet
+wgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。
+1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。
+データベースの用意
+1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置
+1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.</description>
+    </item>
+    
+    <item>
+      <title>ブログ書くのに必要な装備</title>
+      <link>/posts/2013-05-11-equipment-for-blogging/</link>
+      <pubDate>Sat, 11 May 2013 01:21:03 +0000</pubDate>
+      
+      <guid>/posts/2013-05-11-equipment-for-blogging/</guid>
+      <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
+スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
+WordPressのプラグインより先に導入するべしですな。
+色々あるかとは思いますが、有名どころのWinShotを入れてみました。
+設定的には
+ファイルの保存場所をRAMディスクに(どーせすぐアップロードして消すし)
+「保存後に保存フォルダを開く」にチェック
+JPEG保存のショートカット(規定ではCtrl+Alt+F9)
+矩形範囲を毎回指定する
+みたいな感じにしておけばとっても快適にスクリーンショットがとれます。
+スクショとったらフォルダが表示されるので、  でアップロード。
+こんな感じで絵が出ます。
+ オシャンティな枠とか影とかはWordPressが勝手に付けてくれるのですね～。
+コード貼り付け 後はコードの貼り付けのときに見た目よくするやつ。
+SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます。
+まず管理画面のからプラグイン検索で「SyntaxHighlighter Evolved」を検索。
+ そうすっと
+ 出てくるので、「今すぐインストール」。
+こんな感じでインストールが終わります。
+ んで、「プラグインを有効化」
+タグ[code][/code]で囲ってやると、こんな感じでとってもコードっぽく表示されるんすね。
+1 2 3 4 5 6 7 8 9 10 11 12  location /wordpress { index index.php index.html index.htm; # static files include /etc/nginx/conf.d/common/expires.conf; # request to index.php if (!-e $request_filename) { # rewrite ^(.+)$ /index.php?q=$1 last; rewrite ^.</description>
+    </item>
+    
+  </channel>
+</rss>

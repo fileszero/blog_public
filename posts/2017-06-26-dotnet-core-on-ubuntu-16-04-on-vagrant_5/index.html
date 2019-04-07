@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;&lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;&lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/">
+<meta name="twitter:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;&lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-06-26T03:51:03JST",
+    "dateModified": "2017-06-26T03:51:03JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4" target="_blank">前回</a>までで一応アプリができたことにして、万が一公開する時の設定を試してみます。</p>
+
+<p>通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、<a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction" target="_blank">こちら</a>を参考にNginxのリバースプロキシ設定をします。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/CAP000135.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-26T03:51:03JST">Jun 26, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&text=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&t=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235 %2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4" target="_blank">前回</a>までで一応アプリができたことにして、万が一公開する時の設定を試してみます。</p>
+
+<p>通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、<a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction" target="_blank">こちら</a>を参考にNginxのリバースプロキシ設定をします。</p>
+
+<h3 id="nginxインストール">nginxインストール</h3>
+
+<p>nginxは<a href="http://nginx.org/en/linux_packages.html" target="_blank">本家のパッケージ</a>を使うようにします。</p>
+
+<p><a href="http://nginx.org/en/linux_packages.html#stable" target="_blank">Pre-Built Packages for Stable version</a>のFor UbuntuとFor Debian/Ubuntuを参考に（というかそのまま）インストールします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ mkdir temp
+vagrant@vagrant:~$ <span class="nb">cd</span> temp
+vagrant@vagrant:~/temp$ curl http://nginx.org/keys/nginx_signing.key &gt; nginx_signing.key
+vagrant@vagrant:~/temp$ sudo apt-key add nginx_signing.key
+OK
+vagrant@vagrant:~/temp$ sudo nano  /etc/apt/sources.list
+<span class="c1"># http://nginx.org/en/linux_packages.html</span>
+deb http://nginx.org/packages/ubuntu/ xenial nginx         <span class="c1">#追記</span>
+deb-src http://nginx.org/packages/ubuntu/ xenial nginx     <span class="c1">#追記</span>
+
+vagrant@vagrant:~/temp$ sudo apt-get update
+vagrant@vagrant:~/temp$ sudo apt-get install nginx
+vagrant@vagrant:~/temp$ nginx -v
+nginx version: nginx/1.12.0</code></pre></td></tr></table>
+</div>
+</div>
+<p>Vagrantfileに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;forwarded_port&#34;</span><span class="p">,</span> <span class="ss">guest</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="ss">host</span><span class="p">:</span> <span class="mi">8080</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加して、vagrant reload</p>
+
+<p><a href="http://localhost:8080/" target="_blank"><a href="http://localhost:8080/">http://localhost:8080/</a></a>にアクセスして確認。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/CAP000135.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/CAP000135_hue06356cb0078a4747b71922b7f253ef3_40810_240x0_resize_q75_box.jpg" width="240"
+                height="132" data-original="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/CAP000135.jpg" />
+    </a>
+
+
+<h3 id="リバースプロキシ設定">リバースプロキシ設定</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo nano /etc/nginx/conf.d/default.conf</code></pre></td></tr></table>
+</div>
+</div>
+<p>元の&#8221;location /&#8221;の定義をリバースプロキシにします。たぶん本番じゃ使えないよろしくない設定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">#    location / {
+#        root   /usr/share/nginx/html;
+#        index  index.html index.htm;
+#    }
+
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection keep-alive;
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }</code></pre></td></tr></table>
+</div>
+</div>
+<p>設定リロード</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo nginx -s reload</code></pre></td></tr></table>
+</div>
+</div>
+<p><a href="http://localhost:8080/" target="_blank"><a href="http://localhost:8080/">http://localhost:8080/</a></a>にアクセスするとアプリが出るはず。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/CAP000136.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/CAP000136_hu6678bc074b611db83d3c95f435368cf6_41600_240x0_resize_q75_box.jpg" width="240"
+                height="113" data-original="/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/CAP000136.jpg" />
+    </a>
+
+
+<h3 id="アプリをサービスにする">アプリをサービスにする</h3>
+
+<p>いちいちログインしてdotnetコマンドを入れるわけにはいかないんで、systemdに登録します。</p>
+
+<p>MSドキュメントをまねて</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo nano /etc/systemd/system/kestrel-WebApplication3.service</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">[Unit]
+Description=WebApplication3 running on Ubuntu
+
+[Service]
+WorkingDirectory=/home/vagrant/src/publish
+ExecStart=/usr/bin/dotnet /home/vagrant/src/publish/WebApplication3.dll
+Restart=always
+RestartSec=10  # Restart service after 10 seconds if dotnet service crashes
+SyslogIdentifier=dotnet-example
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo systemctl <span class="nb">enable</span> kestrel-WebApplication3.service
+Created symlink from /etc/systemd/system/multi-user.target.wants/kestrel-WebApplication3.service to /etc/systemd/system/kestrel-WebApplication3.service.
+vagrant@vagrant:~$ sudo systemctl start kestrel-WebApplication3.service
+vagrant@vagrant:~$ sudo systemctl status kestrel-WebApplication3.service
+● kestrel-WebApplication3.service - WebApplication3 running on Ubuntu
+   Loaded: loaded <span class="o">(</span>/etc/systemd/system/kestrel-WebApplication3.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+   Active: active <span class="o">(</span>running<span class="o">)</span> since Tue <span class="m">2017</span>-06-20 <span class="m">02</span>:46:09 UTC<span class="p">;</span> 15s ago
+ Main PID: <span class="m">2005</span> <span class="o">(</span>dotnet<span class="o">)</span>
+    Tasks: <span class="m">16</span>
+   Memory: <span class="m">39</span>.6M
+      CPU: <span class="m">2</span>.709s
+   CGroup: /system.slice/kestrel-WebApplication3.service
+           └─2005 /usr/bin/dotnet /home/vagrant/src/publish/WebApplication3.dll
+
+Jun <span class="m">20</span> <span class="m">02</span>:46:11 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>:       Executed DbCommand <span class="o">(</span>4ms<span class="o">)</span> <span class="o">[</span><span class="nv">Parameters</span><span class="o">=[]</span>, <span class="nv">CommandType</span><span class="o">=</span><span class="s1">&#39;Text&#39;</span>, <span class="nv">CommandTimeout</span><span class="o">=</span><span class="s1">&#39;30&#39;</span><span class="o">]</span>
+Jun <span class="m">20</span> <span class="m">02</span>:46:11 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>:       SELECT <span class="s2">&#34;MigrationId&#34;</span>, <span class="s2">&#34;ProductVersion&#34;</span>
+Jun <span class="m">20</span> <span class="m">02</span>:46:11 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>:       FROM <span class="s2">&#34;__EFMigrationsHistory&#34;</span>
+Jun <span class="m">20</span> <span class="m">02</span>:46:11 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>:       ORDER BY <span class="s2">&#34;MigrationId&#34;</span><span class="p">;</span>
+Jun <span class="m">20</span> <span class="m">02</span>:46:11 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>: dbug: Npgsql.NpgsqlConnection<span class="o">[</span><span class="m">4</span><span class="o">]</span>
+Jun <span class="m">20</span> <span class="m">02</span>:46:11 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>:       Closing connection to database <span class="s1">&#39;aspnetdb&#39;</span> on server <span class="s1">&#39;tcp://localhost:5432&#39;</span>.
+Jun <span class="m">20</span> <span class="m">02</span>:46:12 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>: Hosting environment: Production
+Jun <span class="m">20</span> <span class="m">02</span>:46:12 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>: Content root path: /home/vagrant/src/publish
+Jun <span class="m">20</span> <span class="m">02</span>:46:12 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>: Now listening on: http://0.0.0.0:5000
+Jun <span class="m">20</span> <span class="m">02</span>:46:12 vagrant dotnet-example<span class="o">[</span><span class="m">2005</span><span class="o">]</span>: Application started. Press Ctrl+C to shut down.</code></pre></td></tr></table>
+</div>
+</div>
+<p>リブートしても動いてればOK。</p>
+
+<h3 id="サブディレクトリで動くようにする">サブディレクトリで動くようにする</h3>
+
+<h4 id="appsettings-jsonでurlを切り替え">appsettings.*.jsonでURLを切り替え</h4>
+
+<p>&#8220;location /&#8221;にリバースプロキシを設定しましたが、実用的でないのでサブディレクトリで動くようにします。</p>
+
+<p>エントリーポイントのMainメソッド内の、UseUrlsにサブディレクトリ付きでURLを渡せばいいみたいですが、ハードコードは嫌なのでappsettings.*.jsonでURLを切り替えたいところです。</p>
+
+<p>appsettings.*.jsonはStartupクラスで読み込んでいますが、Mainからはアクセスできないようなので、Mainからも別に読むようにします。</p>
+
+<p>読み込み処理は共通化したいのでStartupにstaticメソッドを追加。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Startup</span>
+    <span class="p">{</span>
+        <span class="c1">//読み込み処理を公開
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">static</span> <span class="n">IConfigurationRoot</span> <span class="n">BulidConfiguration</span><span class="p">(</span><span class="kt">string</span> <span class="n">basePath</span><span class="p">,</span><span class="kt">string</span> <span class="n">EnvironmentName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">builder</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ConfigurationBuilder</span><span class="p">()</span>
+                <span class="p">.</span><span class="n">SetBasePath</span><span class="p">(</span><span class="n">basePath</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">&#34;appsettings.json&#34;</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span> <span class="n">reloadOnChange</span><span class="p">:</span> <span class="k">true</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">$&#34;appsettings.{EnvironmentName}.json&#34;</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="k">true</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">AddEnvironmentVariables</span><span class="p">();</span>
+            <span class="k">return</span> <span class="n">builder</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">Startup</span><span class="p">(</span><span class="n">IHostingEnvironment</span> <span class="n">env</span><span class="p">)</span>
+        <span class="p">{</span>
+　　        <span class="c1">//変更
+</span><span class="c1"></span>            <span class="n">Configuration</span> <span class="p">=</span> <span class="n">BulidConfiguration</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">ContentRootPath</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">EnvironmentName</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">....</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><a href="https://stackoverflow.com/a/37468237" target="_blank">こちらのコメント</a>を参考に環境別のappsettings.*.jsonから設定を読むようにします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">hostBuilder</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebHostBuilder</span><span class="p">();</span>
+
+            <span class="kt">var</span> <span class="n">config</span> <span class="p">=</span> <span class="n">Startup</span><span class="p">.</span><span class="n">BulidConfiguration</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetCurrentDirectory</span><span class="p">(),</span> <span class="n">hostBuilder</span><span class="p">.</span><span class="n">GetSetting</span><span class="p">(</span><span class="s">&#34;environment&#34;</span><span class="p">));</span>
+            <span class="kt">var</span> <span class="n">urls</span> <span class="p">=</span> <span class="n">config</span><span class="p">.</span><span class="n">GetSection</span><span class="p">(</span><span class="s">&#34;urls&#34;</span><span class="p">).</span><span class="n">Value</span><span class="p">;</span>
+
+            <span class="kt">var</span> <span class="n">host</span><span class="p">=</span><span class="n">hostBuilder</span>
+                <span class="p">.</span><span class="n">UseKestrel</span><span class="p">()</span>
+                <span class="p">.</span><span class="n">UseContentRoot</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetCurrentDirectory</span><span class="p">())</span>
+                <span class="p">.</span><span class="n">UseIISIntegration</span><span class="p">()</span>
+                <span class="p">.</span><span class="n">UseStartup</span><span class="p">&lt;</span><span class="n">Startup</span><span class="p">&gt;()</span>
+                <span class="p">.</span><span class="n">UseUrls</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span> <span class="c1">// 公開設定
+</span><span class="c1"></span>                <span class="p">.</span><span class="n">UseApplicationInsights</span><span class="p">()</span>
+                <span class="p">.</span><span class="n">Build</span><span class="p">();</span>
+
+            <span class="n">host</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>appsettings.*.jsonに&#8221;urls&#8221;を追加します。</p>
+
+<p>appsettings.jsonには</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">{
+  &#34;Logging&#34;: {
+    &#34;IncludeScopes&#34;: false,
+    &#34;LogLevel&#34;: {
+      &#34;Default&#34;: &#34;Warning&#34;
+    }
+  },
+  &#34;urls&#34;: &#34;http://0.0.0.0:5000/&#34;
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>appsettings.Development.jsonには</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;urls&#34;: &#34;http://0.0.0.0:5000/dev&#34;</code></pre></td></tr></table>
+</div>
+</div>
+<p>appsettings.Production.jsonには</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;urls&#34;: &#34;http://0.0.0.0:5000/App3&#34;</code></pre></td></tr></table>
+</div>
+</div>
+<p>としてみました。</p>
+
+<p>デバッグ実行で</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Hosting environment: Development
+Content root path: c:\usr\vstest\WebApplication3\WebApplication3
+Now listening on: http://0.0.0.0:5000/dev
+Application started. Press Ctrl+C to shut down.</code></pre></td></tr></table>
+</div>
+</div>
+<p>こんなログが出て<a href="http://localhost:5000/dev" target="_blank"><a href="http://localhost:5000/dev">http://localhost:5000/dev</a></a>で問題なく動けばOK。</p>
+
+<h4 id="deployとnginxの設定">deployとnginxの設定</h4>
+
+<p>例によって</p>
+
+<blockquote>
+<p>dotnet publish -r ubuntu.16.04-x64 -c Release</p>
+</blockquote>
+
+<p>して、コピー</p>
+
+<p>アプリリスタート</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo systemctl restart kestrel-WebApplication3.service
+vagrant@vagrant:~$ sudo systemctl status kestrel-WebApplication3.service
+Now listening on: http://0.0.0.0:5000/app3  <span class="c1">#&lt;-- appsettings.Production.jsonのurlで待ち受けしてる</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>/etc/nginx/conf.d/default.confの&#8221;location /&#8221;を元に戻して,&#8221;location /app3&#8243;を設定します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    location /app3 {
+        proxy_pass http://localhost:5000/app3;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection keep-alive;
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }</code></pre></td></tr></table>
+</div>
+</div>
+<p>sudo nginx -s reloadして<a href="http://localhost:8080/app3" target="_blank"><a href="http://localhost:8080/app3">http://localhost:8080/app3</a></a>でアプリが動けばOK。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&text=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&t=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%235 %2fposts%2f2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/linux/">linux</a></li>
+          
+          <li><a href="/categories/vagrant/">vagrant</a></li>
+          
+          <li><a href="/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/">未分類</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/CAP000134.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-20T13:35:42JST">Jun 20, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2017-09-11-try-pythononwindows/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2017-09-11-try-pythononwindows/CAP000146.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">python&#43;windows 7</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-09-11T13:35:19JST">Sep 11, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

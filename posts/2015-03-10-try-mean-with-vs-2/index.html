@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2015-03-10-try-mean-with-vs-2/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>MEANをVisual Studioでやってみる#2(viewとか) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;&lt;p&gt;お題としては名簿アプリ。典型的なCRUD系のアプリですな。&lt;/p&gt;">
+
+<meta property="og:title" content="MEANをVisual Studioでやってみる#2(viewとか) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2015-03-10-try-mean-with-vs-2/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;&lt;p&gt;お題としては名簿アプリ。典型的なCRUD系のアプリですな。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2015-03-10-try-mean-with-vs-2/">
+<meta name="twitter:title" content="MEANをVisual Studioでやってみる#2(viewとか) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;&lt;p&gt;お題としては名簿アプリ。典型的なCRUD系のアプリですな。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "MEANをVisual Studioでやってみる#2(viewとか) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-03-10T12:16:51JST",
+    "dateModified": "2015-03-10T12:16:51JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2015-03-06-try-mean-with-vs-1" title="MEANをVisual Studioでやってみる#1(開発環境)" target="_blank">いちおうの開発環境</a>が用意できたので、簡単なサンプルアプリを作ってみます。</p>
+
+<p>お題としては名簿アプリ。典型的なCRUD系のアプリですな。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-03-10-try-mean-with-vs-2/WSW000015.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">MEANをVisual Studioでやってみる#2(viewとか)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-10T12:16:51JST">Mar 10, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&text=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&t=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29 %2fposts%2f2015-03-10-try-mean-with-vs-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2015-03-06-try-mean-with-vs-1" title="MEANをVisual Studioでやってみる#1(開発環境)" target="_blank">いちおうの開発環境</a>が用意できたので、簡単なサンプルアプリを作ってみます。</p>
+
+<p>お題としては名簿アプリ。典型的なCRUD系のアプリですな。</p>
+
+<p>機能（ページ）としては</p>
+
+<ul>
+<li>名前・年齢・コメントを登録（新規登録）</li>
+<li>登録した内容を一覧表示（一覧）</li>
+<li>１件分の詳細表示（詳細表示）</li>
+<li>詳細表示で編集・削除（詳細表示）</li>
+</ul>
+
+<p>でいってみます。</p>
+
+<h3 id="ページ-view-の追加">ページ(view)の追加</h3>
+
+<p>新規登録用のページを作ってみます。</p>
+
+<p>Expressでページを追加する基本は</p>
+
+<ul>
+<li>ルーティングの追加</li>
+<li>ルーティングハンドラの追加</li>
+<li>Viewの追加</li>
+</ul>
+
+<p>の３ステップみたいです。</p>
+
+<h4 id="ルーティングの追加">ルーティングの追加</h4>
+
+<p>app.tsに追加します。</p>
+
+<p>urlは &#8220;<a href="http://hostname/newForm&amp;#8221;　にします。">http://hostname/newForm&amp;#8221;　にします。</a></p>
+
+<p>今回は/routes/index.tsにハンドラを追加するつもりなので、こんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">app.get(&#39;/&#39;, routes.index);
+app.get(&#39;/newForm&#39;, routes.newForm);    //追加！
+app.get(&#39;/users&#39;, user.list);</code></pre></td></tr></table>
+</div>
+</div>
+<p>VSテンプレートでroutesにuser.tsってのも勝手に作成されるンですが、ユーザーコードはこっちに書けって事なんでしょうか？要調査です。</p>
+
+<h4 id="ルーティングハンドラの追加">ルーティングハンドラの追加</h4>
+
+<p>ルーティング追加で指定したハンドラを実装します。</p>
+
+<p>ハンドラは/routes以下にまとめられているようです。MVCでいうところのControllerにあたるんでしょうか。</p>
+
+<p>今回の追加先は/routes/index.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">export function newForm(req: express.Request, res: express.Response) {
+    res.render(&#39;newForm&#39;, { title: &#39;New Item&#39; });
+};</code></pre></td></tr></table>
+</div>
+</div>
+<p>VSテンプレートで作成済みのindexメソッドを真似してます。単純にViewをレンダリングするだけの処理ですね。</p>
+
+<h4 id="viewの追加">Viewの追加</h4>
+
+<p>viewsフォルダで右クリック[Add]-[New Item]-[Jade File]で名前を&#8221;newForm.jade&#8221;で作ります。</p>
+
+<p>Expressでは<a href="http://jade-lang.com/" target="_blank">jade</a>というテンプレートエンジンが標準らしく、VSテンプレートでも採用されています。</p>
+
+<p>このjade、独特の表記で最初はなんじゃこりゃって感じの文法ですが、書いてみると意外といい感じです。</p>
+
+<p>なんとなく生産性も高いような気がします。</p>
+
+<h5 id="スクリプト用ブロックを設定">スクリプト用ブロックを設定</h5>
+
+<p>scriptタグを書くためのブロックをlayout.jadeに追加します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">doctype html
+html
+  head
+    title= title
+    link(rel=&#39;stylesheet&#39;, href=&#39;/stylesheets/style.css&#39;)
+  body
+    block content
+    block script</code></pre></td></tr></table>
+</div>
+</div>
+<p>scriptタグはbody閉じタグの直前に書くべしとのことをどっかで見たので、この位置です。気に入らなければ追加した行を移動すればOK。便利ですね。</p>
+
+<h5 id="newform-jade">newForm.jade</h5>
+
+<p>newForm.jadeはこんな感じにしました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">extends layout
+
+block content
+    div(ng-app)
+        h1= title
+        form
+            p
+                label Name
+                input(type=&#34;text&#34;)
+            p
+                label Age
+                input(type=&#34;text&#34;)
+            p
+                label Comment
+                textarea
+            p
+                input(type=&#34;button&#34;,value=&#34;submit&#34;)
+                    
+block script
+    script(src=&#34;https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js&#34;)</code></pre></td></tr></table>
+</div>
+</div>
+<p>見た目とかは追々やるとして、いまは骨格だけです。AngularJSはこの段階で読み込んでます。</p>
+
+<p>この時点で実行して /newFormにアクセスすると、</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/posts/2015-03-10-try-mean-with-vs-2/WSW000015.jpg">
+            <img style="max-width: 100%; height: auto;" src="/posts/2015-03-10-try-mean-with-vs-2/WSW000015_hu198c2b80e6a9473b72b203bb8172884a_15858_240x0_resize_q75_box.jpg" width="240"
+                height="249" data-original="/posts/2015-03-10-try-mean-with-vs-2/WSW000015.jpg" />
+    </a>
+
+
+<p>こんな感じです。</p>
+
+<p>次回、このフォームとデータを関連付けます。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&text=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&t=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2015-03-10-try-mean-with-vs-2%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%232%28view%e3%81%a8%e3%81%8b%29 %2fposts%2f2015-03-10-try-mean-with-vs-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">MEANをVisual Studioでやってみる#2(viewとか)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/node.js/">node.js</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-03-06-try-mean-with-vs-1/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-03-06-try-mean-with-vs-1/WS000099.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">MEANをVisual Studioでやってみる#1(開発環境)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-06T12:15:46JST">Mar 6, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2015-03-20-try-vagrant/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Vagrant(mac)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-20T11:14:38JST">Mar 20, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

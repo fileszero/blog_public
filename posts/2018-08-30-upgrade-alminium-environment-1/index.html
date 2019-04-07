@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ALMinium環境バージョンアップ#1 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;個人かつローカルで使ってる&lt;a href=&#34;https://github.com/alminium/alminium&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMinium&lt;/a&gt;環境があるんですが、いい加減古いのでバージョンアップ。&lt;/p&gt;&lt;p&gt;宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。&lt;/p&gt;&lt;p&gt;チームで使うと効果的なんでしょうけど、一人でもExcelで課題管理するより数倍効率良いです。&lt;/p&gt;&lt;p&gt;参考サイト&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://qiita.com/tukiyo3/items/bbee8fb84d801dd6b7a2&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMiniumをバックアップ、バージョンアップ、リストア&lt;/a&gt;&lt;/p&gt;">
+
+<meta property="og:title" content="ALMinium環境バージョンアップ#1 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2018-08-30-upgrade-alminium-environment-1/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;個人かつローカルで使ってる&lt;a href=&#34;https://github.com/alminium/alminium&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMinium&lt;/a&gt;環境があるんですが、いい加減古いのでバージョンアップ。&lt;/p&gt;&lt;p&gt;宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。&lt;/p&gt;&lt;p&gt;チームで使うと効果的なんでしょうけど、一人でもExcelで課題管理するより数倍効率良いです。&lt;/p&gt;&lt;p&gt;参考サイト&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://qiita.com/tukiyo3/items/bbee8fb84d801dd6b7a2&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMiniumをバックアップ、バージョンアップ、リストア&lt;/a&gt;&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2018-08-30-upgrade-alminium-environment-1/">
+<meta name="twitter:title" content="ALMinium環境バージョンアップ#1 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;個人かつローカルで使ってる&lt;a href=&#34;https://github.com/alminium/alminium&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMinium&lt;/a&gt;環境があるんですが、いい加減古いのでバージョンアップ。&lt;/p&gt;&lt;p&gt;宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。&lt;/p&gt;&lt;p&gt;チームで使うと効果的なんでしょうけど、一人でもExcelで課題管理するより数倍効率良いです。&lt;/p&gt;&lt;p&gt;参考サイト&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://qiita.com/tukiyo3/items/bbee8fb84d801dd6b7a2&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMiniumをバックアップ、バージョンアップ、リストア&lt;/a&gt;&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ALMinium環境バージョンアップ#1 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2018-08-30T02:31:17JST",
+    "dateModified": "2018-08-30T02:31:17JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>個人かつローカルで使ってる<a href="https://github.com/alminium/alminium" rel="noopener" target="_blank">ALMinium</a>環境があるんですが、いい加減古いのでバージョンアップ。</p>
+
+<p>宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。</p>
+
+<p>チームで使うと効果的なんでしょうけど、一人でもExcelで課題管理するより数倍効率良いです。</p>
+
+<p>参考サイト</p>
+
+<p><a href="https://qiita.com/tukiyo3/items/bbee8fb84d801dd6b7a2" rel="noopener" target="_blank">ALMiniumをバックアップ、バージョンアップ、リストア</a></p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ALMinium環境バージョンアップ#1</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&title=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&text=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&t=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&title=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231 %2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>個人かつローカルで使ってる<a href="https://github.com/alminium/alminium" rel="noopener" target="_blank">ALMinium</a>環境があるんですが、いい加減古いのでバージョンアップ。</p>
+
+<p>宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。</p>
+
+<p>チームで使うと効果的なんでしょうけど、一人でもExcelで課題管理するより数倍効率良いです。</p>
+
+<p>参考サイト</p>
+
+<p><a href="https://qiita.com/tukiyo3/items/bbee8fb84d801dd6b7a2" rel="noopener" target="_blank">ALMiniumをバックアップ、バージョンアップ、リストア</a></p>
+
+<h3 id="環境">環境</h3>
+
+<h4 id="旧環境">旧環境</h4>
+
+<p>OS: VirtualBox上でCentOS6.2(どうやってインストールしたかは忘れた。ISOからかなぁ?)</p>
+
+<p>ALMinium: バージョンはよくわからず、2013年9月頃にインストールしたものらしいです。</p>
+
+<p>Redmine: 2.3.1.stable</p>
+
+<p>Host OS:Winodws 7</p>
+
+<p>VMからHostOS(win7)のフォルダをマウントしてバックアップ先としています。</p>
+
+<h4 id="新環境">新環境</h4>
+
+<p>OS: Vagrant + VirtualBox(on Windows 7) + Ubuntu16.04</p>
+
+<p>ALMinium: <a href="https://github.com/ayapapa/alminium" rel="noopener" target="_blank">ayapapa版ALMinium</a>の最新版を使います。</p>
+
+<p>Redmine: 3.4</p>
+
+<p>Host OS:Winodws 7</p>
+
+<p>いまどきDockerじゃねーの？って気もしますが、Win7でDocker tools使って(一人用とはいえ)本番環境作るのはちょっと怖い気がします。</p>
+
+<h3 id="バージョンアップ方法">バージョンアップ方法</h3>
+
+<p>まっさらな環境(VM)を作ってデータを移行します。</p>
+
+<p>出来ればプロビジョンでさっくり再構築できるようにしたいので、なるべくコマンドラインで作業します。</p>
+
+<h3 id="新環境構築-os">新環境構築(OS)</h3>
+
+<p>VirtualBoxやVagrantは事前にインストール済み。</p>
+
+<p>ssh接続できるツールがあると良いと思います。git bashが入ってたのでこちらを利用。</p>
+
+<h4 id="ubuntu16-04">Ubuntu16.04</h4>
+
+<p>vagrantでさっくり作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mkdir c:<span class="se">\v</span>ar<span class="se">\a</span>lm
+$ <span class="nb">cd</span> c:<span class="se">\v</span>ar<span class="se">\a</span>lm
+c:<span class="se">\v</span>ar<span class="se">\a</span>lm$ vagrant init bento/ubuntu-16.04</code></pre></td></tr></table>
+</div>
+</div>
+<p>gitで構成管理します。<a href="https://github.com/hashicorp/vagrant/blob/master/.gitignore" rel="noopener" target="_blank">.gitignore</a>を追加して。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">c:<span class="se">\v</span>ar<span class="se">\a</span>lm$ git init
+c:<span class="se">\v</span>ar<span class="se">\a</span>lm$ git add .
+c:<span class="se">\v</span>ar<span class="se">\a</span>lm$ git commit -am <span class="s2">&#34;Init&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>後は随時コミットしていきます。</p>
+
+<h4 id="ネットワーク-暫定">ネットワーク(暫定)</h4>
+
+<p>旧環境と同じIPを使いたいところですが、セットアップ中はプライベートアドレスを使います。</p>
+
+<p>Vagrantfileに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;private_network&#34;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&#34;192.168.33.18&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>を追記。</p>
+
+<p>IPアドレスはプライベートアドレスならなんでもいいんじゃないすかね。</p>
+
+<h4 id="起動と確認">起動と確認</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">c:<span class="se">\v</span>ar<span class="se">\a</span>lm$ vagrant up
+c:<span class="se">\v</span>ar<span class="se">\a</span>lm$ vagrant ssh
+Welcome to Ubuntu <span class="m">16</span>.04.4 LTS <span class="o">(</span>GNU/Linux <span class="m">4</span>.4.0-116-generic x86_64<span class="o">)</span>
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+<span class="m">0</span> packages can be updated.
+<span class="m">0</span> updates are security updates.
+
+<span class="c1">#ネットワークが外までつながってるか確認</span>
+vagrant@vagrant:~$ curl  www.google.com
+&lt;!doctype html&gt;&lt;html <span class="nv">itemscope</span><span class="o">=</span><span class="s2">&#34;&#34;</span> itemtype
+... だー ...
+vagrant@vagrant:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>sshでもチェック。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ssh vagrant@192.168.33.18
+vagrant@192.168.33.18<span class="err">&#39;</span>s password: <span class="c1">#初期パスワードは vagrant</span>
+Welcome to Ubuntu <span class="m">16</span>.04.4 LTS <span class="o">(</span>GNU/Linux <span class="m">4</span>.4.0-116-generic x86_64<span class="o">)</span>
+...</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="作業用ユーザー追加">作業用ユーザー追加</h4>
+
+<p>旧環境ではadminというユーザー名で作業したたんで、同じに作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ <span class="nv">PASSWORD</span><span class="o">=</span><span class="k">$(</span>perl -e <span class="s1">&#39;print crypt(&#34;some_password&#34;, &#34;\$6\$&#34;. crypt(rand, rand 100));&#39;</span><span class="k">)</span>
+vagrant@vagrant:~$ sudo useradd -m -s /bin/bash -k /etc/skel -p <span class="nv">$PASSWORD</span> admin 
+vagrant@vagrant:~$ sudo gpasswd -a admin sudo</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="ssh接続の設定">ssh接続の設定</h4>
+
+<p>旧環境から /home/admin/.ssh/authorized_keysの内容をVagrantフォルダ以下の適当なファイル(c:\var\alm\admin\authorized_keysにしました)にコピーします。</p>
+
+<p>今回は $cat /home/admin/.ssh/authorized_keys　して、PC上のエディタでコピペ。</p>
+
+<p>そしたら新環境に取り込みます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ sudo -u admin mkdir /home/admin/.ssh
+vagrant@vagrant:~$ sudo -u admin cp /vagrant/admin/authorized_keys /home/admin/.ssh/
+vagrant@vagrant:~$ sudo chmod <span class="m">600</span> /home/admin/.ssh/authorized_keys
+vagrant@vagrant:~$ sudo chmod <span class="m">700</span> /home/admin/.ssh</code></pre></td></tr></table>
+</div>
+</div>
+<p>その後sshクライアントで、旧環境の設定をコピーして接続できるはず。</p>
+
+<p>ssh コマンドだったら ~/.ssh/configを編集ですな。</p>
+
+<h4 id="sshdサーバの設定">sshdサーバの設定</h4>
+
+<p>鍵認証必須にします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#バックアップ</span>
+vagrant@vagrant:~$ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.<span class="sb">`</span>date +%s<span class="sb">`</span>.bck
+<span class="c1">#変更</span>
+vagrant@vagrant:~$ sudo sed -r -i <span class="s2">&#34;s/^#?(PasswordAuthentication) yes/\1 no/&#34;</span> /etc/ssh/sshd_config
+<span class="c1">#反映 sshD じゃないのね</span>
+vagrant@vagrant:~$ sudo service ssh restart</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="スクリプト">スクリプト</h3>
+
+<p>ここまでの作業をスクリプト化しました。</p>
+
+<script src="https://gist.github.com/fileszero/40a48c5d5544225e9277b4493b6a67a9.js?file=provision.sh"></script>
+
+<p>Vagrantfileに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&#34;provision.sh&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>すると、プロビジョン時に実行されます。</p>
+
+<p>次にALMiniumのインストールになります。</p>
+
+<p>長くなったんで<a href="/posts/2018-08-30-upgrade-alminium-environment-2" rel="noopener" target="_blank">次に書きます</a>。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&title=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&text=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&t=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f&title=ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ALMinium%e7%92%b0%e5%a2%83%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97%231 %2fposts%2f2018-08-30-upgrade-alminium-environment-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ALMinium環境バージョンアップ#1</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/alminium/">ALMinium</a></li>
+          
+          <li><a href="/categories/linux/">linux</a></li>
+          
+          <li><a href="/categories/vagrant/">vagrant</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml">
+
+<link rel="canonical" href="/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>My New Hugo Site</title>
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    
+
+    <div class="articles">
+      <div class="mrow">
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-03-19-install-pip-for-windows/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">pip をwindowsにインストール</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-19T02:41:51JST">Mar 19, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">pythonにもパッケージ管理ツールがあるみたいで、pipってのが有名なようです。
+こちらを参考にインストールします。
+get-pip.pyをD:\DownloadFiles\python\にダウンロード
+D:\DownloadFiles\python\で作業します。
+1 2 3 4 5 6  d:\DownloadFiles\python&gt; python get-pip.py Downloading/unpacking pip Downloading/unpacking setuptools Installing collected packages: pip, setuptools Successfully installed pip setuptools Cleaning up...   でpythonのインストールフォルダにpip(とsetuptools)がインストールされるようです。
+うちの環境では
+c:\Python27\Scripts\pip.exe
+です。PATHを通すか悩むところ。。。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-03-14-setup-sublime-text-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-03-14-setup-sublime-text-2/sublime_text_2_firstPython.png)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Sublime Text 2設定</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-14T02:34:27JST">Mar 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。
+ コード補完も動くみたいだし、ctrl+bで実行もできていい感じなんですが、
+ちょいちょい使いずらいところもあるのでカスタマイズ。
+Package Control Package Controlって謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。
+インストール方法はこちらが原典ですな。
+ctrl+@ か view-&gt;show console　でコンソール(?)を表示させて、
+&lt;br /&gt; import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh !</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-03-13-installing-sublime-text-2-windows/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2014-03-13-installing-sublime-text-2-windows/sublime_text_2_init.png)"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Sublime Text 2インストール(Windows)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-13T07:16:12JST">Mar 13, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Pythonの開発環境ってよく知らない。
+いい機会なので、なんか最近話題のSublime Text 2を使ってみます。
+無料ではないので良さげだったらお金払います。
+ダウンロード 本家に行って、
+Downloadページの[Windows 64 bit]を選んでインストーラをダウンロードします。
+今日の時点では「Sublime Text 2.0.2 x64 Setup.exe」がダウンロードされました。
+3はまだbetaとかなんとか書いてあるところを見ると、活発に開発が進んでるご様子。
+インストール Sublime Text 2.0.2 x64 Setup.exeを実行。
+&#8220;Add to explorer context menu&#8221;はONにしといたほうが良いかも。
+後はそのままで。
+「C:\Program Files\Sublime Text 2」にインストールされたようです。
+実行 特にショートカット等は作られないみたいなので、
+C:\Program Files\Sublime Text 2\sublime_text.exeを実行します。
+ でました。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-03-13-installing-python-windows/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Pythonインストール(Windows)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-13T06:54:49JST">Mar 13, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Pythonやってみようかと思う。
+環境は Windows7 64bit. Pythonは2系を使います。
+ダウンロード ご本尊にいき、
+Download-&gt;Windows-&gt;Latest Python 2 Release &#8211; Python 2.X.X
+Windows X86-64 MSI Installer (2.X.X)
+をダウンロード。
+現時点では2.7.6が最新っぽい。
+python-2.7.6.amd64.msi みたいなファイルがダウンロードされます。
+インストール ダウンロードしたファイルを実行。
+インストールオプションは全部そのままで「次へ」連打。
+C:\Python27　にインストールされました。
+環境変数PATH Windowsの環境変数PATHに「C:\Python27;」を追加しときます。
+おわり コマンドプロンプトで
+&lt;br /&gt; #:\&gt;python --version&lt;br /&gt; Python 2.7.6&lt;br /&gt; 
+みたいな感じになればOKではないかと。
+インストール簡単、ファイルサイズも小さいわ。
+ただし&#8221;python&#8221;打ちにくい。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-03-11-raspberrypiwifistable2/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; WiFiを安定させるVer2</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-03-11T11:07:34JST">Mar 11, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">以前WiFi安定化に向けて小細工したけど、結局安定してません。
+なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。
+そんな事でググって見た所こんなん発見しました。
+Wifi and Ethernet dropout problems in raspberry pi
+症状的には非常に酷似してるようです。
+意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。
+1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &#34;[$cnn]&#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-02-11-itunes-wifi-sync/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">iTunes Wifi同期できないの解決</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-02-11T14:00:04JST">Feb 11, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">iPadとiTunesをWifiで同期できなくで困ってたんです。
+一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
+試しにmacのipv6をオンにしてみたら動きやがった〜。
+ipv6とか使わないからオフにしといたんだけどなー。
+つーかシステム条件とやらに書いといてほしいわ。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-01-19-electric-test2/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">第２種電気工事士試験 技能試験</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-01-18T15:22:24JST">Jan 18, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">無事筆記も合格しまして、技能もなんとか合格いたしました。
+技能は自己採点できないから、合格発表までヤキモキしますね。
+一応合格したんで、技能の方も勉強方法をメモしときます。
+技能に関する知識・経験ともに無しからのスタートです。
+まずは筆記試験の自己採点で合格した事を見越して、工具と教材を購入。
+工具はコレ。
+あまぞんりんく 定番っぽいような雰囲気です。
+この中の「VVFストリッパー P-957」、コレが無ければ合格できたか分からんぐらいお役に立ちました。
+教材はコレ。
+あまぞんりんく どのくらい練習が必要なもんか分からんので、３回分にしましたが、２回でも良かったかもなー。
+テキストにはこちら
+あまぞんりんく を使用。筆記と同じくすい〜っとシリーズですな。
+全部で約35,000円ですよ、たけー。
+勉強方法は基本的にテキストをこなしていきました。
+テキストの前半にケーブルの加工方法とか、各種部品への接続方法やら書いてあるんで一通り読んだ後、
+No.12を手取り足取り教えてくれてる章で初めて実際に作業。
+この章で大体の感じをつかんだら、後は候補問題をひたすらこなします。
+教材は注文して４日ぐらいですべて揃ったんで、お勉強期間は２ヶ月ぐらいですかね。
+１．５ヶ月ぐらいで２周、試験前の１週間で３周目をこなしました。
+候補問題をやる時は、
+・部材を揃える
+　問題に必要な部材のみ机に出ている状態にします。
+・開始時間メモ
+・作業
+・終了時間メモ
+　作業時間は常に意識すると良いかと思われます。
+・お片づけ
+　コレがクソメンドクセーっす
+で最初は１問１時間ぐらいかかってましたが、
+作業自体は２５分〜３０分ぐらいでこなせるようになり、
+片付け含めても４０分かからなくなりました。
+部材のケーブルですが、練習１・２周目ではカットしないで長いまま。３周目で材料表の長さにカットして作業しました。
+なぜなら、あらかじめ材料表の長さにカットしてしまうと、半端な長さのケーブルが残ってしまい、もったいない事になるからです。
+とは言え、実際の試験ではケーブル使い放題って訳ではないので、限られた長さのケーブルでの練習もやっときたいので、３周目は予想問題通りの長さで練習しました。
+作業では、複線図を書いて施行となる訳ですが、
+複線図書く時は４色ボールペンで電線の色も最初から意識して書くようにしました。
+テキストだと全部黒で書いて電線の色は最後に記号で記入って事になってましたが、
+自分にはちょっと合わなかったです。
+複線図の書き方は自分に合った書き方を見つけられると楽かもしれません。
+ちなみに、付属の複線図練習ノートは使いませんでした。
+練習する時は作業スペースをあまり広くしない方が本番で焦らなくて済むと思います。
+自分の場合は日本工学院で受験だったんですが、机の奥行きは４０センチぐらいで幅は８０センチぐらいでした。
+幅はともかく、奥行き４０センチはけっこう狭いっす。
+あと、剥いたビニールだとか電線の切れっ端とかは、マメに片付ける癖をつけといた方が作業スペースを有効に使えるようになると思いますー。
+VVFストリッパーがあれば電工ナイフが必要なのはVVRを剥く時ぐらいかと思われますが、
+VVFの外装とか電線皮むきとか、ナイフだけで一通りの事はできるように成っとくと安心できますね。
+と言う事で、無事試験には合格しましたが、免許申請がこれまためんどくさそうです。
+行政、土日やれよー。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2014-01-17-vs2010nunitdebug/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Visual Studio 2010 &#43; NUnit デバッグ実行</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-01-17T01:54:38JST">Jan 17, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">TDDもうあたりまえになってるんでしょうかね。
+Visual StudioでNUnitデバック実行ではまったのでメモ。
+「Visual Studio NUnit デバック実行」でググるといろんなサイトが出てきますが、とりあえずこちらを参考に
+VS2010+NUnit2.5.10でテストメソッドをデバッグ
+外部プログラムの開始→NUnit.exeのフルパス
+コマンドライン引数→DLL名(特にパスは指定しないでファイル名だけでOKみたいです。)
+nunit.exe.configの
+1 2 3  &lt;startup useLegacyV2RuntimeActivationPolicy=&#34;true&#34;&gt; &lt;!-- Comment out the next line to force use of .NET 4.0 --&gt; &lt;/startup&gt;   を
+1 2 3 4  &lt;startup useLegacyV2RuntimeActivationPolicy=&#34;true&#34;&gt; &lt;!-- Comment out the next line to force use of .NET 4.0 --&gt; &lt;supportedRuntime version=&#34;v4.0.30319&#34; /&gt; &lt;/startup&gt;   と変更してデバック実行。
+・・・ブレークポイントに反応しません、
+ちなみに、NUnitのバージョンは2.6.3.13283となっております。
+いろいろ試した結果、
+[Tools]-[Settings]-[Test Loader]-[Assembly Isolation]-[Default Process Model]
+を</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-11-28-ban-spam/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">spam対策</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-11-28T02:29:39JST">Nov 28, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。
+今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異常。
+ちなみにAkismetの統計では
+2013-10 193件　に対し
+2013-11 37,208件
+とまさしく桁違いの数。
+なんかあったの？
+Akismetでブロックしてくれますが、page viewのカウントとかにも影響あるので、
+IPでアクセスブロックできる、WP-Ban というプラグインを導入してみました。
+効果は絶大です。
+ただ、IPは手動で入力せねばならないので経過観察は必要ですねー。
+Akismetと連携して自動でIPセットしてくれるようなプラグインは無いのでしょうか？denyhosts的な。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-11-04-ruby-install-from-soruce/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">rubyのインストール（ソースから版)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-11-04T08:54:57JST">Nov 4, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。
+今回はソースからインストールしてみます。
+さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。
+という事で、作業はすべて一般ユーザーアカウントで行います。
+ユーザーhomeにソース展開用のフォルダを作って、
+rubyのダウンロードページ
+https://www.ruby-lang.org/ja/downloads/
+から最新のソースをゲットして展開します。
+1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。
+1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。
+1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。
+1 2 3 4 5 6 7 8 9  ruby-2.</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+      </div>
+    </div>
+
+    
+<nav class="paging">
+  
+  <a href="/page/9/" rel="prev">Prev</a>
+  
+
+  
+  <a href="/page/11/" rel="next">Next</a>
+  
+</nav>
+
+
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vagrant on My New Hugo Site</title>
+    <link>/categories/vagrant/</link>
+    <description>Recent content in Vagrant on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Aug 2018 05:05:34 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ALMinium環境バージョンアップ#2</title>
+      <link>/posts/2018-08-30-upgrade-alminium-environment-2/</link>
+      <pubDate>Thu, 30 Aug 2018 05:05:34 +0000</pubDate>
+      
+      <guid>/posts/2018-08-30-upgrade-alminium-environment-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2018-08-30-upgrade-alminium-environment-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、新環境のOSセットアップができたようなので、ALMiniumをインストールします。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ALMinium環境バージョンアップ#1</title>
+      <link>/posts/2018-08-30-upgrade-alminium-environment-1/</link>
+      <pubDate>Thu, 30 Aug 2018 02:31:17 +0000</pubDate>
+      
+      <guid>/posts/2018-08-30-upgrade-alminium-environment-1/</guid>
+      <description>&lt;p&gt;個人かつローカルで使ってる&lt;a href=&#34;https://github.com/alminium/alminium&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMinium&lt;/a&gt;環境があるんですが、いい加減古いのでバージョンアップ。&lt;/p&gt;
+
+&lt;p&gt;宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。&lt;/p&gt;
+
+&lt;p&gt;チームで使うと効果的なんでしょうけど、一人でもExcelで課題管理するより数倍効率良いです。&lt;/p&gt;
+
+&lt;p&gt;参考サイト&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/tukiyo3/items/bbee8fb84d801dd6b7a2&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMiniumをバックアップ、バージョンアップ、リストア&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5</title>
+      <link>/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
+      <pubDate>Mon, 26 Jun 2017 03:51:03 +0000</pubDate>
+      
+      <guid>/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
+
+&lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4</title>
+      <link>/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</link>
+      <pubDate>Tue, 20 Jun 2017 13:35:42 +0000</pubDate>
+      
+      <guid>/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3</title>
+      <link>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</link>
+      <pubDate>Mon, 19 Jun 2017 13:40:34 +0000</pubDate>
+      
+      <guid>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
+
+&lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2</title>
+      <link>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</link>
+      <pubDate>Mon, 19 Jun 2017 03:17:49 +0000</pubDate>
+      
+      <guid>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
+
+&lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;
+
+&lt;p&gt;本命は&lt;a href=&#34;https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu&#34; target=&#34;_blank&#34;&gt;SQL Server on Linux&lt;/a&gt;なんですが、&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;なんで、却下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#1</title>
+      <link>/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</link>
+      <pubDate>Thu, 15 Jun 2017 03:53:51 +0000</pubDate>
+      
+      <guid>/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</guid>
+      <description>&lt;p&gt;ASP.NET Coreをubuntuで動かしてみます。&lt;/p&gt;
+
+&lt;p&gt;環境は&lt;/p&gt;
+
+&lt;p&gt;Vagrant(+VirtualBox)&lt;/p&gt;
+
+&lt;p&gt;Host OS: Windows 7&lt;/p&gt;
+
+&lt;p&gt;Guest OS: ubuntu-16.04&lt;/p&gt;
+
+&lt;p&gt;Visual Studio 2017 Community + &amp;#8220;.NET Core cross-platform development&amp;#8221;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>nfsをgulp watchできない時にやったこと</title>
+      <link>/posts/2016-07-15-gulp-watch-on-nfs/</link>
+      <pubDate>Fri, 15 Jul 2016 00:50:49 +0000</pubDate>
+      
+      <guid>/posts/2016-07-15-gulp-watch-on-nfs/</guid>
+      <description>&lt;p&gt;angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。&lt;/p&gt;
+
+&lt;p&gt;構成は&lt;/p&gt;
+
+&lt;p&gt;・Mac(nfsサーバ　 + ソースファイル )&lt;/p&gt;
+
+&lt;p&gt;・Vagrant + ubuntu/xenial64&lt;/p&gt;
+
+&lt;p&gt;config.vm.synced_folder &amp;#8220;src/&amp;#8221;, home_dir + &amp;#8220;/src&amp;#8221;,　type: &amp;#8220;nfs&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;でmacとubuntuでファイルを共有します。&lt;/p&gt;
+
+&lt;p&gt;ソースの編集はmac上のエディタ(sublime)で、gulp serveはubuntu上で実行します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vagrant&#43;chef(mac)</title>
+      <link>/posts/2015-03-26-vagrant-chef-mac/</link>
+      <pubDate>Wed, 25 Mar 2015 15:32:39 +0000</pubDate>
+      
+      <guid>/posts/2015-03-26-vagrant-chef-mac/</guid>
+      <description>&lt;p&gt;VMの自動構成には&lt;a href=&#34;https://www.chef.io/&#34; target=&#34;_blank&#34;&gt;Chef&lt;/a&gt;(とその仲間達)を使うといいみたいです。&lt;/p&gt;
+
+&lt;p&gt;chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。&lt;/p&gt;
+
+&lt;p&gt;公式もあてにならなかったりします。&lt;/p&gt;
+
+&lt;p&gt;そんな中&lt;a href=&#34;http://koooya.hatenablog.com/entry/2014/12/22/051400&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;http://www.creationline.com/lab/6401&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にさせていただきました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vagrant(mac)</title>
+      <link>/posts/2015-03-20-try-vagrant/</link>
+      <pubDate>Fri, 20 Mar 2015 11:14:38 +0000</pubDate>
+      
+      <guid>/posts/2015-03-20-try-vagrant/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.apple.com/jp/macbook/&#34; target=&#34;_blank&#34;&gt;新しいMac Book&lt;/a&gt;発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…&lt;/p&gt;
+
+&lt;p&gt;期待していただけに、物欲が抑えきれずにマイナーチェンジした&lt;a href=&#34;https://www.apple.com/jp/macbook-pro/&#34; target=&#34;_blank&#34;&gt;Mac Book Pro 13inch&lt;/a&gt;をポチってしまいました。&lt;/p&gt;
+
+&lt;p&gt;今まで使ってた&lt;a href=&#34;https://support.apple.com/kb/SP500?locale=ja_JP&amp;#038;viewlocale=ja_JP&#34; target=&#34;_blank&#34;&gt;MacBook Late2008&lt;/a&gt;もかなりの名機だと思うんですけど、最近のモデルに比べるとやっぱり見劣りしちます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://vaio.com/products/z/&#34; target=&#34;_blank&#34;&gt;VAIO Z&lt;/a&gt;も魅力的だったんですが、OSがなー、高い機械にWin8ってのはなんか違う気がしてしまって、今回はパス。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

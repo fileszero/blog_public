@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/posts/2016-01-09-laravel-tips-and-rule/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Laravel tips&amp;オレオレルール - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。&lt;/p&gt;">
+
+<meta property="og:title" content="Laravel tips&amp;オレオレルール - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/posts/2016-01-09-laravel-tips-and-rule/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/posts/2016-01-09-laravel-tips-and-rule/">
+<meta name="twitter:title" content="Laravel tips&amp;オレオレルール - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Laravel tips&amp;オレオレルール - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2016-01-09T08:14:59JST",
+    "dateModified": "2016-01-09T08:14:59JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">Laravel tips&amp;オレオレルール</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-01-09T08:14:59JST">Jan 9, 2016</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&title=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&text=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&t=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&title=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab %2fposts%2f2016-01-09-laravel-tips-and-rule%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。</p>
+
+<h3 id="よく使うartisanコマンド">よく使うartisanコマンド</h3>
+
+<p>命名規則は個人的な趣味です。</p>
+
+<dl class="cmd">
+  <dt>
+    php artisan migrate
+  </dt>
+  
+  <dd>
+    DBマイグレーションの実行。実行はサーバ上（Homestead上）で
+  </dd>
+  
+  <dt>
+    php artisan make:migration create_<em>[table_name]</em>_table &#45;&#45;create=<em>[table_name]</em>
+  </dt>
+  
+  <dd>
+    テーブル作成マイグレーション。<em>[table_name]</em>は複数形を使用する(users,tasks等)。スネークケースを使う
+  </dd>
+  
+  <dt>
+    php artisan make:seeder <em>[TableName]</em>Seeder
+  </dt>
+  
+  <dd>
+    シーダー作成<em>[TableName]</em>はデータをセットするテーブル名をキャメルケースにしたもの(Users,TableNames等)。<br /> 小規模なマスターデータとかは、既存のDatabaseSeederを使うといいと思う。
+  </dd>
+  
+  <dt>
+    php artisan make:model <em>[ModelName]</em></p> 
+    
+    <dt>
+      <dd>
+        モデルを生成する。モデル名には単数形を使う(User,Task等)
+      </dd>
+      
+      <dt>
+        php artisan make:controller <em>HogeHogeController</em> &#8211;plain</p> 
+        
+        <dd>
+          コントローラを作成。コントローラー名は主に取り扱う対象(単数)に&#8221;Controller&#8221;をつける(UserController,TaskController等)
+        </dd></dl> 
+        
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;h3&gt;
+      viewは？
+    &lt;/h3&gt;
+
+    &lt;p&gt;
+      modelとcontrollerはスキャフォールディングできるんだから、viewも…というわけにはいかず、viewは地道にファイルを追加しないといかんみたい。&lt;br /&gt; パスは resources/views/&lt;em&gt;[models]&lt;/em&gt;/index.blade.php みたいな感じ。
+    &lt;/p&gt;
+
+    &lt;h3&gt;
+      ヘルパークラスを作る
+    &lt;/h3&gt;
+
+    &lt;p&gt;
+      bladeで使えるヘルパ関数。グローバルでなくクラスのスタティックメソッドで実装。&lt;br /&gt; HTML関係のヘルパはクライアントサイドのフレームワークと競合しないように、なるべく細かい出力を作るだけに専念した方がいいような気がする。
+    &lt;/p&gt;
+
+    &lt;h4&gt;
+      クラス本体
+    &lt;/h4&gt;
+
+    &lt;p&gt;
+      ファイルの追加はapp/Helpers/に&lt;br /&gt; サンプルとしてapp/Helpers/HtmlHelper.php
+    &lt;/p&gt;
+
+    ```php</pre></td></tr></table>
+</div>
+</div>
+<p>&lt;?php
+namespace App\Helpers;
+use App\SelectOption;</p>
+
+<p>class HtmlHelper {
+    public static function Selected(SelectOption $option){
+        if( !old($option-&gt;name) ){
+            return ($option-&gt;selected ? &ldquo;selected&rdquo;:&ldquo;&rdquo;);
+        } else {
+            return (old($option-&gt;name)==$option-&gt;value ? &ldquo;selected&rdquo;:&ldquo;&rdquo;);
+        }
+    }
+}</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        &lt;p&gt;
+          処理内容はともかくとして、クラスとスタティックメソッドを作ります。
+        &lt;/p&gt;
+        
+        &lt;h4&gt;
+          composer.json
+        &lt;/h4&gt;
+        
+        ```jscript
+
+    &#34;autoload&#34;: {
+        &#34;files&#34;: [
+            &#34;app/Helpers/HtmlHelper.php&#34;   //&lt;-追加
+        ],
+    },</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;p&gt;
+      編集したら反映させる
+    &lt;/p&gt;
+
+    ```bash</pre></td></tr></table>
+</div>
+</div>
+<p>$ composer dump-autoload</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        &lt;h4&gt;
+          config/app.php
+        &lt;/h4&gt;
+        
+        ```php
+
+    &#39;aliases&#39; =&gt; [
+         &#39;HtmlHelper&#39;=&gt; App\Helpers\HtmlHelper::class,   //&lt;-追加
+    ],</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;h4&gt;
+      bladeで使う
+    &lt;/h4&gt;
+
+    ```xml</pre></td></tr></table>
+</div>
+</div>
+<p><option value="{{$opt->value}}&rdquo; {{ HtmlHelper::Selected($opt)}}&gt;{{$opt-&gt;text}}</option></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        &lt;h3&gt;
+          git clone後
+        &lt;/h3&gt;
+        
+        &lt;p&gt;
+          laravelプロジェクトをgit cloneした後は依存するライブラリや機密情報等がない状態なので
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          $ composer install&lt;br /&gt; &amp;#8220;.env.example&amp;#8221;をコピーして.envファイルを作成・編集&lt;br /&gt; $ php artisan key:generate
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          しときます。
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          上記をやっとかないと&lt;br /&gt; Whoops, looks like something went wrong.&lt;br /&gt; とか&lt;br /&gt; No supported encrypter found. The cipher and / or key length are invalid.&lt;br /&gt; とかいわれます。
+        &lt;/p&gt;
+        
+        &lt;h3&gt;
+          PHPUnit
+        &lt;/h3&gt;
+        
+        &lt;p&gt;
+          project&gt; vendor/bin/phpunit
+        &lt;/p&gt;
+        
+        &lt;h3&gt;
+          Model（とか）のプロパティ
+        &lt;/h3&gt;
+        
+        &lt;p&gt;
+          チュートリアルやドキュメントを見ていると何の説明もなしに &lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart-intermediate.html#eloquent-models&#34; target=&#34;_blank&#34;&gt;$fillable&lt;/a&gt; や &lt;a href=&#34;http://readouble.com/laravel/5/1/ja/eloquent.html#eloquent-model-conventions&#34; target=&#34;_blank&#34;&gt;$table&lt;/a&gt; とか出てきて、なにこれ？ってなります。&lt;br /&gt; &lt;a href=&#34;http://laravel.com/api/5.0/Illuminate/Database/Eloquent/Model.html&#34; target=&#34;_blank&#34;&gt;APIリファレンス&lt;/a&gt;見ても何も出てないんですよね。&lt;br /&gt; ソース読めってことでしょうか？&lt;br /&gt; vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php&lt;br /&gt; 不親切な感じがしますが、コメントがしっかりしているので、リファレンスに使えます。
+        &lt;/p&gt;
+        
+        &lt;h3&gt;
+          Homestead
+        &lt;/h3&gt;
+        
+        &lt;h4&gt;
+          MySQLのパスワード
+        &lt;/h4&gt;
+        
+        &lt;p&gt;
+          vagrant@homestead:~$ mysql -uroot -psecret
+        &lt;/p&gt;
+        
+        &lt;h3&gt;
+          try catchが効かない
+        &lt;/h3&gt;
+        
+        &lt;p&gt;
+          こんな感じで「エラーが出たらとにかくリダイレクト」みたいな処理を書いたんだけど、catchが反応せず。
+        &lt;/p&gt;
+        
+        ```php
+
+        try{
+            $provider_user = Socialite::with($provider)-&gt;user();    //driver
+        } catch (Exception $e) {
+            return redirect()-&gt;route(&#39;auth.login&#39;)-&gt;withErrors([&#39;message&#39;=&gt;&#39;ログインできませんでした&#39;]);
+        }</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;p&gt;
+      &lt;strong&gt;Exception の前に&amp;#8221;\&amp;#8221;が要ります!!&lt;/strong&gt;
+    &lt;/p&gt;
+
+    ```php
+
+    try{
+        $provider_user = Socialite::with($provider)-&gt;user();    //driver
+    } catch (\Exception $e) {
+        return redirect()-&gt;route(&#39;auth.login&#39;)-&gt;withErrors([&#39;message&#39;=&gt;&#39;ログインできませんでした&#39;]);
+    }</pre></td></tr></table>
+</div>
+</div>
+<p>```</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;p&gt;
+      ３日悩んだ。
+    &lt;/p&gt;</pre></td></tr></table>
+</div>
+</div></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&title=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&text=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&t=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2fposts%2f2016-01-09-laravel-tips-and-rule%2f&title=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab %2fposts%2f2016-01-09-laravel-tips-and-rule%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Laravel tips&amp;オレオレルール</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/laravel/">Laravel</a></li>
+          
+          <li><a href="/categories/php/">PHP</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/posts/2015-12-12-laravelhomesteadeclipse/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2015-12-12-laravelhomesteadeclipse/SS.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Laravel&#43;Homestead&#43;XDebug&#43;Eclipse</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-12-12T12:04:26JST">Dec 12, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/posts/2016-01-27-implimentation-of-inotifypropertychanged/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">INotifyPropertyChangedの実装</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-01-27T08:22:57JST">Jan 27, 2016</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/posts/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/posts/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+
