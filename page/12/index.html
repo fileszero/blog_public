@@ -56,6 +56,55 @@
       <div class="mrow">
         
         <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-08-26-raspberry-pi-usb-dac/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">Raspberry Pi &#43; USB-DAC</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-26T14:47:38JST">Aug 26, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。
+デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。
+内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。
+色々調べた結果、
+http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866
+こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。
+んでリブート。
+超クリアに音でてるー。
+dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。
+要はUSBの帯域が足りなかったという事ですね。
+8&frasl;29 追記
+dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。
+うーん、むずかしいな。
+dwc_otg.speed=1を消して、
+$ sudo rpi-update
+してみる。
+ちょっと改善するも、今度はプチプチノイズが出るようになった。
+dwc_otg.fiq_split_enable=0
+をつけてみる。
+なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。
+しばらく様子見だな。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
   <a href="/posts/2013-08-21-raspberry-pi-airplay/">
     
 
@@ -472,42 +521,6 @@ Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。
 </article>
 </div>
         
-        <div class="mcol c6"><article class="li">
-  <a href="/posts/2013-05-28-pageinit-dose-not-fire/">
-    
-
-
-
-  
-  
-
-
-
-  <div class="thumb"></div>
-
-
-    <div class="inner">
-      <h2 class="title">jQuery Mobileのpageinitが発火しない</h2>
-
-      <ul class="facts">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-28T13:02:51JST">May 28, 2013</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-      <div class="summary">PHPついでにjQuery Mobileはじめました。
-jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバインドしろみたいな事が書いてあって、
-さらにpageinitの説明見ると
-1 2 3  $( &#39;#home&#39; ).live( &#39;pageinit&#39;,function(event){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   こんな風に書いてあったから、こぴぺしてみましたが、実行されません。なぜー。
-そこで
-1 2 3  $(document).delegate(&#39;#home&#39;, &#39;pageinit&#39;, function(){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   って書いてみたら動いた。
-なぜだー。わからん。
-jQueryも良くわからんのにmobileは早すぎたか？</div>
-    </div>
-  </a>
-</article>
-</div>
-        
       </div>
     </div>
 
@@ -554,6 +567,34 @@ jQueryも良くわからんのにmobileは早すぎたか？</div>
 
       <ul class="facts sm">
         <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">新しいWordPressエディタ</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T09:20:18JST">Mar 19, 2019</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
         
       </ul>
@@ -825,34 +866,6 @@ jQueryも良くわからんのにmobileは早すぎたか？</div>
 
       <ul class="facts sm">
         <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-    </div>
-  </a>
-</article>
-
-      
-      <article class="lism">
-  <a href="/posts/2018-07-12-typescript-my-local-library/">
-    
-
-
-
-  
-  
-
-
-
-  <div class="thumb"></div>
-
-
-    <div class="inner">
-      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
-
-      <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
         
       </ul>

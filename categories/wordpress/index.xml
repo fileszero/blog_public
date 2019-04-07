@@ -27,6 +27,16 @@
     </item>
     
     <item>
+      <title>新しいWordPressエディタ</title>
+      <link>/posts/2019-03-19-/</link>
+      <pubDate>Tue, 19 Mar 2019 09:20:18 +0000</pubDate>
+      
+      <guid>/posts/2019-03-19-/</guid>
+      <description>すげー使いにくい。
+純粋に文書を書くにはいいんだろうけどねー。</description>
+    </item>
+    
+    <item>
       <title>wordpressとgitで自動deploy</title>
       <link>/posts/2017-02-11-auto-deploy-wordpress-and-git/</link>
       <pubDate>Sat, 11 Feb 2017 12:37:26 +0000</pubDate>

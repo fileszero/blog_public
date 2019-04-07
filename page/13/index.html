@@ -56,6 +56,42 @@
       <div class="mrow">
         
         <div class="mcol c6"><article class="li">
+  <a href="/posts/2013-05-28-pageinit-dose-not-fire/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <h2 class="title">jQuery Mobileのpageinitが発火しない</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-28T13:02:51JST">May 28, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary">PHPついでにjQuery Mobileはじめました。
+jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバインドしろみたいな事が書いてあって、
+さらにpageinitの説明見ると
+1 2 3  $( &#39;#home&#39; ).live( &#39;pageinit&#39;,function(event){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   こんな風に書いてあったから、こぴぺしてみましたが、実行されません。なぜー。
+そこで
+1 2 3  $(document).delegate(&#39;#home&#39;, &#39;pageinit&#39;, function(){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   って書いてみたら動いた。
+なぜだー。わからん。
+jQueryも良くわからんのにmobileは早すぎたか？</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
   <a href="/posts/2013-05-26-eclipse-with-smarty/">
     
 
@@ -572,66 +608,6 @@ Apacheをスタートさせると今度はこんな…
 </article>
 </div>
         
-        <div class="mcol c6"><article class="li">
-  <a href="/posts/2013-05-11-equipment-for-blogging/">
-    
-
-
-
-  
-  
-    
-      
-      
-      
-        
-        
-        
-      
-    
-  
-
-
-
-  <div class="thumb " style="background-image:url(/posts/2013-05-11-equipment-for-blogging/WS000001.jpg)"></div>
-
-
-    <div class="inner">
-      <h2 class="title">ブログ書くのに必要な装備</h2>
-
-      <ul class="facts">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-11T01:21:03JST">May 11, 2013</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-      <div class="summary">いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
-スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
-WordPressのプラグインより先に導入するべしですな。
-色々あるかとは思いますが、有名どころのWinShotを入れてみました。
-設定的には
-ファイルの保存場所をRAMディスクに(どーせすぐアップロードして消すし)
-「保存後に保存フォルダを開く」にチェック
-JPEG保存のショートカット(規定ではCtrl+Alt+F9)
-矩形範囲を毎回指定する
-みたいな感じにしておけばとっても快適にスクリーンショットがとれます。
-スクショとったらフォルダが表示されるので、  でアップロード。
-こんな感じで絵が出ます。
- オシャンティな枠とか影とかはWordPressが勝手に付けてくれるのですね～。
-コード貼り付け 後はコードの貼り付けのときに見た目よくするやつ。
-SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます。
-まず管理画面のからプラグイン検索で「SyntaxHighlighter Evolved」を検索。
- そうすっと
- 出てくるので、「今すぐインストール」。
-こんな感じでインストールが終わります。
- んで、「プラグインを有効化」
-タグ[code][/code]で囲ってやると、こんな感じでとってもコードっぽく表示されるんすね。
-1 2 3 4 5 6 7 8 9 10 11 12  location /wordpress { index index.php index.html index.htm; # static files include /etc/nginx/conf.d/common/expires.conf; # request to index.php if (!-e $request_filename) { # rewrite ^(.+)$ /index.php?q=$1 last; rewrite ^.</div>
-    </div>
-  </a>
-</article>
-</div>
-        
       </div>
     </div>
 
@@ -678,6 +654,34 @@ SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます�
 
       <ul class="facts sm">
         <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/posts/2019-03-19-/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">新しいWordPressエディタ</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T09:20:18JST">Mar 19, 2019</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
         
       </ul>
@@ -949,34 +953,6 @@ SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます�
 
       <ul class="facts sm">
         <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-    </div>
-  </a>
-</article>
-
-      
-      <article class="lism">
-  <a href="/posts/2018-07-12-typescript-my-local-library/">
-    
-
-
-
-  
-  
-
-
-
-  <div class="thumb"></div>
-
-
-    <div class="inner">
-      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
-
-      <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
         
       </ul>
