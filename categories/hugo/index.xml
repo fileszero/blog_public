@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on FILES=0</title>
-    <link>/categories/hugo/</link>
+    <link>https://fileszero.kimurak.net/categories/hugo/</link>
     <description>Recent content in Hugo on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Apr 2019 13:05:43 +0900</lastBuildDate>
     
-	<atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Migrate to Hugo</title>
-      <link>/2019-04-08-migrate-to-hugo/</link>
+      <link>https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/</link>
       <pubDate>Mon, 08 Apr 2019 13:05:43 +0900</pubDate>
       
-      <guid>/2019-04-08-migrate-to-hugo/</guid>
+      <guid>https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/</guid>
       <description>&lt;h3 id=&#34;moved&#34;&gt;HUGOに引っ越しました&lt;/h3&gt;
 
 &lt;p&gt;Wordpressのエディタが&lt;a href=&#34;https://ja.wordpress.org/plugins/gutenberg/&#34; target=&#34;_blank&#34;&gt;Gutenberg&lt;/a&gt;に変更されましたね。
@@ -25,10 +25,10 @@
     
     <item>
       <title>HUGO</title>
-      <link>/2018-11-20-try-hugo/</link>
+      <link>https://fileszero.kimurak.net/2018-11-20-try-hugo/</link>
       <pubDate>Tue, 20 Nov 2018 04:47:06 +0000</pubDate>
       
-      <guid>/2018-11-20-try-hugo/</guid>
+      <guid>https://fileszero.kimurak.net/2018-11-20-try-hugo/</guid>
       <description>&lt;p&gt;なんかwordpress疲れが出てきたので静的サイトをいい感じで作ってくれる&lt;a href=&#34;https://gohugo.io/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;というOSSを使ってみます。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;

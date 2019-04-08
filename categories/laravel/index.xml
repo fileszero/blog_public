@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Laravel on FILES=0</title>
-    <link>/categories/laravel/</link>
+    <link>https://fileszero.kimurak.net/categories/laravel/</link>
     <description>Recent content in Laravel on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 Jan 2016 08:14:59 +0000</lastBuildDate>
     
-	<atom:link href="/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Laravel tips&amp;オレオレルール</title>
-      <link>/2016-01-09-laravel-tips-and-rule/</link>
+      <link>https://fileszero.kimurak.net/2016-01-09-laravel-tips-and-rule/</link>
       <pubDate>Sat, 09 Jan 2016 08:14:59 +0000</pubDate>
       
-      <guid>/2016-01-09-laravel-tips-and-rule/</guid>
+      <guid>https://fileszero.kimurak.net/2016-01-09-laravel-tips-and-rule/</guid>
       <description>&lt;p&gt;laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Laravel&#43;Homestead&#43;XDebug&#43;Eclipse</title>
-      <link>/2015-12-12-laravelhomesteadeclipse/</link>
+      <link>https://fileszero.kimurak.net/2015-12-12-laravelhomesteadeclipse/</link>
       <pubDate>Sat, 12 Dec 2015 12:04:26 +0000</pubDate>
       
-      <guid>/2015-12-12-laravelhomesteadeclipse/</guid>
+      <guid>https://fileszero.kimurak.net/2015-12-12-laravelhomesteadeclipse/</guid>
       <description>&lt;p&gt;Laravelちょっと&lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart.html&#34; target=&#34;_blank&#34;&gt;チュートリアル&lt;/a&gt;的なことをやってみましたが、良い感じです。&lt;/p&gt;
 
 &lt;p&gt;開発環境の設定で若干試行錯誤があったので、メモしときます。&lt;/p&gt;</description>
@@ -33,21 +33,21 @@
     
     <item>
       <title>Laravel を使ってみる（Macセットアップ編)</title>
-      <link>/2015-12-04-try-laravel-mac-setup/</link>
+      <link>https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/</link>
       <pubDate>Fri, 04 Dec 2015 15:48:52 +0000</pubDate>
       
-      <guid>/2015-12-04-try-laravel-mac-setup/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
 
 &lt;p&gt;Shellで作業を進めます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Laravel を使ってみる（Windowsセットアップ編)</title>
-      <link>/2015-12-04-try-laravel-windows-setup/</link>
+      <link>https://fileszero.kimurak.net/2015-12-04-try-laravel-windows-setup/</link>
       <pubDate>Fri, 04 Dec 2015 15:47:18 +0000</pubDate>
       
-      <guid>/2015-12-04-try-laravel-windows-setup/</guid>
+      <guid>https://fileszero.kimurak.net/2015-12-04-try-laravel-windows-setup/</guid>
       <description>&lt;p&gt;ちょっとPHPを触ることになるかもしれないので、お勉強がてら&lt;a href=&#34;http://qiita.com/shukotang/items/055058b33b553b48c164&#34; target=&#34;_blank&#34;&gt;最近のフレームワーク事情&lt;/a&gt;を見てたらLaravelってのが人気らしい。&lt;/p&gt;
 
 &lt;p&gt;初耳ー。&lt;/p&gt;

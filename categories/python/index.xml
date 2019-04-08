@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on FILES=0</title>
-    <link>/categories/python/</link>
+    <link>https://fileszero.kimurak.net/categories/python/</link>
     <description>Recent content in Python on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 14 Sep 2017 03:49:38 +0000</lastBuildDate>
     
-	<atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>pythonの初歩コード</title>
-      <link>/2017-09-14-python-basic/</link>
+      <link>https://fileszero.kimurak.net/2017-09-14-python-basic/</link>
       <pubDate>Thu, 14 Sep 2017 03:49:38 +0000</pubDate>
       
-      <guid>/2017-09-14-python-basic/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-09-11-try-pythononwindows&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;pythonの開発環境を作ったんで、簡単なコードを書いてみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-09-14-python-basic/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-09-11-try-pythononwindows&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;pythonの開発環境を作ったんで、簡単なコードを書いてみます。&lt;/p&gt;
 
 &lt;p&gt;今回からコードはgistに置いてみることにしました～&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>python&#43;windows 7</title>
-      <link>/2017-09-11-try-pythononwindows/</link>
+      <link>https://fileszero.kimurak.net/2017-09-11-try-pythononwindows/</link>
       <pubDate>Mon, 11 Sep 2017 13:35:19 +0000</pubDate>
       
-      <guid>/2017-09-11-try-pythononwindows/</guid>
+      <guid>https://fileszero.kimurak.net/2017-09-11-try-pythononwindows/</guid>
       <description>&lt;p&gt;とある本に刺激されて、新しい言語を勉強してみたくなりました。&lt;/p&gt;
 
 &lt;p&gt;なんかpythonが人気らしいので、ちょっといインストールしてみました。&lt;/p&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>pip をwindowsにインストール</title>
-      <link>/2014-03-19-install-pip-for-windows/</link>
+      <link>https://fileszero.kimurak.net/2014-03-19-install-pip-for-windows/</link>
       <pubDate>Wed, 19 Mar 2014 02:41:51 +0000</pubDate>
       
-      <guid>/2014-03-19-install-pip-for-windows/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-19-install-pip-for-windows/</guid>
       <description>pythonにもパッケージ管理ツールがあるみたいで、pipってのが有名なようです。
 こちらを参考にインストールします。
 get-pip.pyをD:\DownloadFiles\python\にダウンロード

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wordpress on FILES=0</title>
-    <link>/categories/wordpress/</link>
+    <link>https://fileszero.kimurak.net/categories/wordpress/</link>
     <description>Recent content in Wordpress on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Apr 2019 04:47:49 +0000</lastBuildDate>
     
-	<atom:link href="/categories/wordpress/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/wordpress/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</title>
-      <link>/2019-04-02-debug-docker-php-xdebug-vscode/</link>
+      <link>https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/</link>
       <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
       
-      <guid>/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
+      <guid>https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
       <description>&lt;p&gt;Dockerでwordpress環境を作ってプラグインのデバックをしたかったのでxdebugを使ったんですが、&lt;/p&gt;
 
 &lt;p&gt;ブレークしなくて激しくはまったのでメモ。&lt;/p&gt;
@@ -28,11 +28,11 @@
     
     <item>
       <title>wordpressとgitで自動deploy</title>
-      <link>/2017-02-11-auto-deploy-wordpress-and-git/</link>
+      <link>https://fileszero.kimurak.net/2017-02-11-auto-deploy-wordpress-and-git/</link>
       <pubDate>Sat, 11 Feb 2017 12:37:26 +0000</pubDate>
       
-      <guid>/2017-02-11-auto-deploy-wordpress-and-git/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-02-11-auto-deploy-wordpress-and-git/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
 
 &lt;p&gt;いちいち転送ソフト立ち上げるのもめんどくさいし、転送忘れとかもありそうです。&lt;/p&gt;
 
@@ -41,10 +41,10 @@
     
     <item>
       <title>Docker for Macでwordpressの開発環境を作ってみる</title>
-      <link>/2017-02-08-docker-for-mac-wp/</link>
+      <link>https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp/</link>
       <pubDate>Wed, 08 Feb 2017 14:29:07 +0000</pubDate>
       
-      <guid>/2017-02-08-docker-for-mac-wp/</guid>
+      <guid>https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp/</guid>
       <description>&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;
 
 &lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;</description>
@@ -52,10 +52,10 @@
     
     <item>
       <title>spam対策</title>
-      <link>/2013-11-28-ban-spam/</link>
+      <link>https://fileszero.kimurak.net/2013-11-28-ban-spam/</link>
       <pubDate>Thu, 28 Nov 2013 02:29:39 +0000</pubDate>
       
-      <guid>/2013-11-28-ban-spam/</guid>
+      <guid>https://fileszero.kimurak.net/2013-11-28-ban-spam/</guid>
       <description>今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。
 今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異常。
 ちなみにAkismetの統計では
@@ -72,10 +72,10 @@ Akismetと連携して自動でIPセットしてくれるようなプラグイ�
     
     <item>
       <title>ブログ書くのに必要な装備</title>
-      <link>/2013-05-11-equipment-for-blogging/</link>
+      <link>https://fileszero.kimurak.net/2013-05-11-equipment-for-blogging/</link>
       <pubDate>Sat, 11 May 2013 01:21:03 +0000</pubDate>
       
-      <guid>/2013-05-11-equipment-for-blogging/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-11-equipment-for-blogging/</guid>
       <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
 スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
 WordPressのプラグインより先に導入するべしですな。

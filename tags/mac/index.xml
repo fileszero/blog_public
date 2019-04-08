@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mac on FILES=0</title>
-    <link>/tags/mac/</link>
+    <link>https://fileszero.kimurak.net/tags/mac/</link>
     <description>Recent content in Mac on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Feb 2014 14:00:04 +0000</lastBuildDate>
     
-	<atom:link href="/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>iTunes Wifi同期できないの解決</title>
-      <link>/2014-02-11-itunes-wifi-sync/</link>
+      <link>https://fileszero.kimurak.net/2014-02-11-itunes-wifi-sync/</link>
       <pubDate>Tue, 11 Feb 2014 14:00:04 +0000</pubDate>
       
-      <guid>/2014-02-11-itunes-wifi-sync/</guid>
+      <guid>https://fileszero.kimurak.net/2014-02-11-itunes-wifi-sync/</guid>
       <description>iPadとiTunesをWifiで同期できなくで困ってたんです。
 一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
 試しにmacのipv6をオンにしてみたら動きやがった〜。

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on FILES=0</title>
-    <link>/tags/</link>
+    <link>https://fileszero.kimurak.net/tags/</link>
     <description>Recent content in Tags on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Feb 2014 14:00:04 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mac</title>
-      <link>/tags/mac/</link>
+      <link>https://fileszero.kimurak.net/tags/mac/</link>
       <pubDate>Tue, 11 Feb 2014 14:00:04 +0000</pubDate>
       
-      <guid>/tags/mac/</guid>
+      <guid>https://fileszero.kimurak.net/tags/mac/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mac on FILES=0</title>
-    <link>/categories/mac/</link>
+    <link>https://fileszero.kimurak.net/categories/mac/</link>
     <description>Recent content in Mac on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 08 Feb 2017 14:29:07 +0000</lastBuildDate>
     
-	<atom:link href="/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/mac/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker for Macでwordpressの開発環境を作ってみる</title>
-      <link>/2017-02-08-docker-for-mac-wp/</link>
+      <link>https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp/</link>
       <pubDate>Wed, 08 Feb 2017 14:29:07 +0000</pubDate>
       
-      <guid>/2017-02-08-docker-for-mac-wp/</guid>
+      <guid>https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp/</guid>
       <description>&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;
 
 &lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;</description>
@@ -24,19 +24,19 @@
     
     <item>
       <title>Mac Tips</title>
-      <link>/2016-09-01-mac-tips/</link>
+      <link>https://fileszero.kimurak.net/2016-09-01-mac-tips/</link>
       <pubDate>Thu, 01 Sep 2016 01:14:19 +0000</pubDate>
       
-      <guid>/2016-09-01-mac-tips/</guid>
+      <guid>https://fileszero.kimurak.net/2016-09-01-mac-tips/</guid>
       <description>&lt;p&gt;いつも忘れるMacOS関係のメモ。随時更新予定。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PhoneGapでビルドしたアプリがインストールできない</title>
-      <link>/2015-05-18-application-not-installed/</link>
+      <link>https://fileszero.kimurak.net/2015-05-18-application-not-installed/</link>
       <pubDate>Mon, 18 May 2015 08:05:49 +0000</pubDate>
       
-      <guid>/2015-05-18-application-not-installed/</guid>
+      <guid>https://fileszero.kimurak.net/2015-05-18-application-not-installed/</guid>
       <description>&lt;p&gt;PhoneGapアプリをエミュで実行させようとして、&lt;/p&gt;
 
 &lt;p&gt;phonegap run android -e としますと、&lt;/p&gt;
@@ -46,19 +46,19 @@
     
     <item>
       <title>ruby環境(Mac)</title>
-      <link>/2015-04-01-ruby-on-mac/</link>
+      <link>https://fileszero.kimurak.net/2015-04-01-ruby-on-mac/</link>
       <pubDate>Wed, 01 Apr 2015 04:19:22 +0000</pubDate>
       
-      <guid>/2015-04-01-ruby-on-mac/</guid>
+      <guid>https://fileszero.kimurak.net/2015-04-01-ruby-on-mac/</guid>
       <description>&lt;p&gt;何かと必要になってくるrubyをインストール。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mac各種パッケージのバージョンアップ</title>
-      <link>/2015-03-31-version-up-npm/</link>
+      <link>https://fileszero.kimurak.net/2015-03-31-version-up-npm/</link>
       <pubDate>Tue, 31 Mar 2015 12:17:53 +0000</pubDate>
       
-      <guid>/2015-03-31-version-up-npm/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-31-version-up-npm/</guid>
       <description>&lt;p&gt;とってもべんりなパッケージ管理ソフト、パッケージ管理ソフトも複数あったりして、アップデート方法忘れがち。&lt;/p&gt;
 
 &lt;p&gt;まとめときます。&lt;/p&gt;
@@ -80,10 +80,10 @@
     
     <item>
       <title>Vagrant&#43;chef(mac)</title>
-      <link>/2015-03-25-vagrant-chef-mac/</link>
+      <link>https://fileszero.kimurak.net/2015-03-25-vagrant-chef-mac/</link>
       <pubDate>Wed, 25 Mar 2015 15:32:39 +0000</pubDate>
       
-      <guid>/2015-03-25-vagrant-chef-mac/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-25-vagrant-chef-mac/</guid>
       <description>&lt;p&gt;VMの自動構成には&lt;a href=&#34;https://www.chef.io/&#34; target=&#34;_blank&#34;&gt;Chef&lt;/a&gt;(とその仲間達)を使うといいみたいです。&lt;/p&gt;
 
 &lt;p&gt;chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。&lt;/p&gt;
@@ -95,10 +95,10 @@
     
     <item>
       <title>Vagrant(mac)</title>
-      <link>/2015-03-20-try-vagrant/</link>
+      <link>https://fileszero.kimurak.net/2015-03-20-try-vagrant/</link>
       <pubDate>Fri, 20 Mar 2015 11:14:38 +0000</pubDate>
       
-      <guid>/2015-03-20-try-vagrant/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-20-try-vagrant/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.apple.com/jp/macbook/&#34; target=&#34;_blank&#34;&gt;新しいMac Book&lt;/a&gt;発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…&lt;/p&gt;
 
 &lt;p&gt;期待していただけに、物欲が抑えきれずにマイナーチェンジした&lt;a href=&#34;https://www.apple.com/jp/macbook-pro/&#34; target=&#34;_blank&#34;&gt;Mac Book Pro 13inch&lt;/a&gt;をポチってしまいました。&lt;/p&gt;

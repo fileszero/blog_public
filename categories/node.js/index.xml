@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node.js on FILES=0</title>
-    <link>/categories/node.js/</link>
+    <link>https://fileszero.kimurak.net/categories/node.js/</link>
     <description>Recent content in Node.js on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Nov 2017 15:10:40 +0000</lastBuildDate>
     
-	<atom:link href="/categories/node.js/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/node.js/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>log4jsのSlack Appenderを使ってみる(node&#43;typescript)</title>
-      <link>/2017-11-07-use-log4js-slack-appender/</link>
+      <link>https://fileszero.kimurak.net/2017-11-07-use-log4js-slack-appender/</link>
       <pubDate>Tue, 07 Nov 2017 15:10:40 +0000</pubDate>
       
-      <guid>/2017-11-07-use-log4js-slack-appender/</guid>
+      <guid>https://fileszero.kimurak.net/2017-11-07-use-log4js-slack-appender/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://slack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Slack&lt;/a&gt;流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。&lt;/p&gt;
 
 &lt;p&gt;さみしいんで、ログをSlackで読めるようにします。&lt;/p&gt;
@@ -34,19 +34,19 @@
     
     <item>
       <title>angular fullstackのwatchをBrowserSyncにする</title>
-      <link>/2016-07-16-angular-fullstack-with-rowsersync/</link>
+      <link>https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/</link>
       <pubDate>Sat, 16 Jul 2016 05:47:40 +0000</pubDate>
       
-      <guid>/2016-07-16-angular-fullstack-with-rowsersync/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>nfsをgulp watchできない時にやったこと</title>
-      <link>/2016-07-15-gulp-watch-on-nfs/</link>
+      <link>https://fileszero.kimurak.net/2016-07-15-gulp-watch-on-nfs/</link>
       <pubDate>Fri, 15 Jul 2016 00:50:49 +0000</pubDate>
       
-      <guid>/2016-07-15-gulp-watch-on-nfs/</guid>
+      <guid>https://fileszero.kimurak.net/2016-07-15-gulp-watch-on-nfs/</guid>
       <description>&lt;p&gt;angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。&lt;/p&gt;
 
 &lt;p&gt;構成は&lt;/p&gt;
@@ -64,10 +64,10 @@
     
     <item>
       <title>angular-fullstackでgulp buildできない時にやったこと</title>
-      <link>/2016-07-07-angular-fullstack-gulp-build-failed/</link>
+      <link>https://fileszero.kimurak.net/2016-07-07-angular-fullstack-gulp-build-failed/</link>
       <pubDate>Thu, 07 Jul 2016 07:35:21 +0000</pubDate>
       
-      <guid>/2016-07-07-angular-fullstack-gulp-build-failed/</guid>
+      <guid>https://fileszero.kimurak.net/2016-07-07-angular-fullstack-gulp-build-failed/</guid>
       <description>&lt;p&gt;七夕ですね。&lt;/p&gt;
 
 &lt;p&gt;$ yo angular-fullstack&lt;/p&gt;
@@ -77,10 +77,10 @@
     
     <item>
       <title>Mac各種パッケージのバージョンアップ</title>
-      <link>/2015-03-31-version-up-npm/</link>
+      <link>https://fileszero.kimurak.net/2015-03-31-version-up-npm/</link>
       <pubDate>Tue, 31 Mar 2015 12:17:53 +0000</pubDate>
       
-      <guid>/2015-03-31-version-up-npm/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-31-version-up-npm/</guid>
       <description>&lt;p&gt;とってもべんりなパッケージ管理ソフト、パッケージ管理ソフトも複数あったりして、アップデート方法忘れがち。&lt;/p&gt;
 
 &lt;p&gt;まとめときます。&lt;/p&gt;
@@ -102,21 +102,21 @@
     
     <item>
       <title>MEANをVisual Studioでやってみる#2(viewとか)</title>
-      <link>/2015-03-10-try-mean-with-vs-2/</link>
+      <link>https://fileszero.kimurak.net/2015-03-10-try-mean-with-vs-2/</link>
       <pubDate>Tue, 10 Mar 2015 12:16:51 +0000</pubDate>
       
-      <guid>/2015-03-10-try-mean-with-vs-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-03-10-try-mean-with-vs-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;
 
 &lt;p&gt;お題としては名簿アプリ。典型的なCRUD系のアプリですな。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MEANをVisual Studioでやってみる#1(開発環境)</title>
-      <link>/2015-03-06-try-mean-with-vs-1/</link>
+      <link>https://fileszero.kimurak.net/2015-03-06-try-mean-with-vs-1/</link>
       <pubDate>Fri, 06 Mar 2015 12:15:46 +0000</pubDate>
       
-      <guid>/2015-03-06-try-mean-with-vs-1/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-06-try-mean-with-vs-1/</guid>
       <description>&lt;p&gt;Visual Studio 2013になってJavaScriptのコード補完がかなりいい感じです。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://nodejstools.codeplex.com/&#34; target=&#34;_blank&#34;&gt;Node.js Tools for Visual Studio&lt;/a&gt;なんてのも在って、これならnode.jsもVisual Studioで書いたほうが良いんじゃね？&lt;/p&gt;
@@ -130,11 +130,11 @@
     
     <item>
       <title>node.jsを使ってみる(Mac) #3</title>
-      <link>/2014-11-23-try-node-js-with-mac-3/</link>
+      <link>https://fileszero.kimurak.net/2014-11-23-try-node-js-with-mac-3/</link>
       <pubDate>Sun, 23 Nov 2014 13:42:24 +0000</pubDate>
       
-      <guid>/2014-11-23-try-node-js-with-mac-3/</guid>
-      <description>&lt;p&gt;Windows環境で&lt;a href=&#34;/posts/2014/2014-11-22-try-node-js-with-windows-2&#34; title=&#34;node.jsを使ってみる(Windows) #2&#34; target=&#34;_blank&#34;&gt;ちょっと試した&lt;/a&gt;node.js。Macでも試してみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2014-11-23-try-node-js-with-mac-3/</guid>
+      <description>&lt;p&gt;Windows環境で&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-11-22-try-node-js-with-windows-2&#34; title=&#34;node.jsを使ってみる(Windows) #2&#34; target=&#34;_blank&#34;&gt;ちょっと試した&lt;/a&gt;node.js。Macでも試してみます。&lt;/p&gt;
 
 &lt;p&gt;node.jsのインストールですが、&lt;a href=&#34;https://github.com/creationix/nvm&#34; target=&#34;_blank&#34;&gt;nvmって便利ツール&lt;/a&gt;があるようです。&lt;/p&gt;
 
@@ -143,11 +143,11 @@
     
     <item>
       <title>node.jsを使ってみる(Windows) #2</title>
-      <link>/2014-11-21-try-node-js-with-windows-2/</link>
+      <link>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-2/</link>
       <pubDate>Fri, 21 Nov 2014 15:26:51 +0000</pubDate>
       
-      <guid>/2014-11-21-try-node-js-with-windows-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://socket.io/&#34; target=&#34;_blank&#34;&gt;socket.io&lt;/a&gt;という楽しげなパッケージがあるので、&lt;/p&gt;
 
@@ -156,10 +156,10 @@
     
     <item>
       <title>node.jsを使ってみる(Windows)#1</title>
-      <link>/2014-11-21-try-node-js-with-windows-1/</link>
+      <link>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-1/</link>
       <pubDate>Fri, 21 Nov 2014 04:01:13 +0000</pubDate>
       
-      <guid>/2014-11-21-try-node-js-with-windows-1/</guid>
+      <guid>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-1/</guid>
       <description>&lt;p&gt;node.js流行ってますね。むしろもう一般常識？&lt;/p&gt;
 
 &lt;p&gt;いまさらですがちょっといじってみます。&lt;/p&gt;

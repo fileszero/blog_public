@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vim on FILES=0</title>
-    <link>/categories/vim/</link>
+    <link>https://fileszero.kimurak.net/categories/vim/</link>
     <description>Recent content in Vim on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Aug 2014 07:37:32 +0000</lastBuildDate>
     
-	<atom:link href="/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/vim/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>railsでvimのお勉強#2</title>
-      <link>/2014-08-05-sutadying-rails-and-vim-2/</link>
+      <link>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-2/</link>
       <pubDate>Tue, 05 Aug 2014 07:37:32 +0000</pubDate>
       
-      <guid>/2014-08-05-sutadying-rails-and-vim-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-08-05-sutadying-rails-and-vim-1&#34; title=&#34;railsでvimのお勉強#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;OSセットアップからrailsアプリの作成までやりました。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-08-05-sutadying-rails-and-vim-1&#34; title=&#34;railsでvimのお勉強#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;OSセットアップからrailsアプリの作成までやりました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>railsでvimのお勉強#1</title>
-      <link>/2014-08-05-sutadying-rails-and-vim-1/</link>
+      <link>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-1/</link>
       <pubDate>Tue, 05 Aug 2014 02:30:26 +0000</pubDate>
       
-      <guid>/2014-08-05-sutadying-rails-and-vim-1/</guid>
+      <guid>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.vim.org/&#34; target=&#34;_blank&#34;&gt;vim&lt;/a&gt;、プログラマならみんな手足のように使えますよね。&lt;/p&gt;
 
 &lt;p&gt;ま、自分はまったく使えませんが。&lt;/p&gt;

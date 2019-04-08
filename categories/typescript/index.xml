@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Typescript on FILES=0</title>
-    <link>/categories/typescript/</link>
+    <link>https://fileszero.kimurak.net/categories/typescript/</link>
     <description>Recent content in Typescript on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Jul 2018 08:46:41 +0000</lastBuildDate>
     
-	<atom:link href="/categories/typescript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/typescript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Typescriptで自分用のローカルなライブラリを作る</title>
-      <link>/2018-07-12-typescript-my-local-library/</link>
+      <link>https://fileszero.kimurak.net/2018-07-12-typescript-my-local-library/</link>
       <pubDate>Thu, 12 Jul 2018 08:46:41 +0000</pubDate>
       
-      <guid>/2018-07-12-typescript-my-local-library/</guid>
+      <guid>https://fileszero.kimurak.net/2018-07-12-typescript-my-local-library/</guid>
       <description>&lt;p&gt;typescriptで共通ライブラリといえばnpmでinstallなんですが、&lt;/p&gt;
 
 &lt;p&gt;自作の小さいライブラリなんかだと、npm publishするほどのものではないし、いちいちgit経由つーのもめんどくさい。&lt;/p&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>log4jsのSlack Appenderを使ってみる(node&#43;typescript)</title>
-      <link>/2017-11-07-use-log4js-slack-appender/</link>
+      <link>https://fileszero.kimurak.net/2017-11-07-use-log4js-slack-appender/</link>
       <pubDate>Tue, 07 Nov 2017 15:10:40 +0000</pubDate>
       
-      <guid>/2017-11-07-use-log4js-slack-appender/</guid>
+      <guid>https://fileszero.kimurak.net/2017-11-07-use-log4js-slack-appender/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://slack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Slack&lt;/a&gt;流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。&lt;/p&gt;
 
 &lt;p&gt;さみしいんで、ログをSlackで読めるようにします。&lt;/p&gt;

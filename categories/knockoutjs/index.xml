@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Knockoutjs on FILES=0</title>
-    <link>/categories/knockoutjs/</link>
+    <link>https://fileszero.kimurak.net/categories/knockoutjs/</link>
     <description>Recent content in Knockoutjs on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Aug 2014 03:47:56 +0000</lastBuildDate>
     
-	<atom:link href="/categories/knockoutjs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/knockoutjs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ASP.NET MVC 4を基本で作った後でknockout.js等使う</title>
-      <link>/2014-08-29-asp-net-mvc-4-basicknockout/</link>
+      <link>https://fileszero.kimurak.net/2014-08-29-asp-net-mvc-4-basicknockout/</link>
       <pubDate>Fri, 29 Aug 2014 03:47:56 +0000</pubDate>
       
-      <guid>/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
+      <guid>https://fileszero.kimurak.net/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
       <description>&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;
 
 &lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;</description>

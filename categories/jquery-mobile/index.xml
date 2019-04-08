@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jquery Mobile on FILES=0</title>
-    <link>/categories/jquery-mobile/</link>
+    <link>https://fileszero.kimurak.net/categories/jquery-mobile/</link>
     <description>Recent content in Jquery Mobile on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Jun 2013 13:24:10 +0000</lastBuildDate>
     
-	<atom:link href="/categories/jquery-mobile/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/jquery-mobile/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>jQuery mobileのイベントバインドの記述場所</title>
-      <link>/2013-06-13-where-should-i-write-event-bind-code/</link>
+      <link>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</link>
       <pubDate>Thu, 13 Jun 2013 13:24:10 +0000</pubDate>
       
-      <guid>/2013-06-13-where-should-i-write-event-bind-code/</guid>
+      <guid>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</guid>
       <description>jQuery mobileなかなか難しいです。
 jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。
 ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。
@@ -28,10 +28,10 @@ ajaxなページ遷移をしないようにすれば従来どおりの概念で�
     
     <item>
       <title>jQuery Mobileのpageinitが発火しない</title>
-      <link>/2013-05-28-pageinit-dose-not-fire/</link>
+      <link>https://fileszero.kimurak.net/2013-05-28-pageinit-dose-not-fire/</link>
       <pubDate>Tue, 28 May 2013 13:02:51 +0000</pubDate>
       
-      <guid>/2013-05-28-pageinit-dose-not-fire/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-28-pageinit-dose-not-fire/</guid>
       <description>PHPついでにjQuery Mobileはじめました。
 jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバインドしろみたいな事が書いてあって、
 さらにpageinitの説明見ると

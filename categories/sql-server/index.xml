@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sql Server on FILES=0</title>
-    <link>/categories/sql-server/</link>
+    <link>https://fileszero.kimurak.net/categories/sql-server/</link>
     <description>Recent content in Sql Server on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 29 Nov 2018 04:15:36 +0000</lastBuildDate>
     
-	<atom:link href="/categories/sql-server/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/sql-server/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SQL Serverのバックアップとリストア</title>
-      <link>/2018-11-29-sqlserver-backup-restore-basic/</link>
+      <link>https://fileszero.kimurak.net/2018-11-29-sqlserver-backup-restore-basic/</link>
       <pubDate>Thu, 29 Nov 2018 04:15:36 +0000</pubDate>
       
-      <guid>/2018-11-29-sqlserver-backup-restore-basic/</guid>
+      <guid>https://fileszero.kimurak.net/2018-11-29-sqlserver-backup-restore-basic/</guid>
       <description>&lt;p&gt;バックアップ戻すことってほとんどないですよね。&lt;/p&gt;
 
 &lt;p&gt;幸か不幸か運用環境でマジでリストアしたことって一度もありません。&lt;/p&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>SQL Server 2012トランザクションログの圧縮</title>
-      <link>/2017-06-12-shrink-sql-server-log/</link>
+      <link>https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/</link>
       <pubDate>Mon, 12 Jun 2017 00:28:07 +0000</pubDate>
       
-      <guid>/2017-06-12-shrink-sql-server-log/</guid>
+      <guid>https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/</guid>
       <description>&lt;p&gt;開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。&lt;/p&gt;
 
 &lt;p&gt;ちょっと前だと&lt;/p&gt;

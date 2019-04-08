@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on FILES=0</title>
-    <link>/posts/</link>
+    <link>https://fileszero.kimurak.net/posts/</link>
     <description>Recent content in Posts on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Apr 2019 13:05:43 +0900</lastBuildDate>
     
-	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Migrate to Hugo</title>
-      <link>/2019-04-08-migrate-to-hugo/</link>
+      <link>https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/</link>
       <pubDate>Mon, 08 Apr 2019 13:05:43 +0900</pubDate>
       
-      <guid>/2019-04-08-migrate-to-hugo/</guid>
+      <guid>https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/</guid>
       <description>&lt;h3 id=&#34;moved&#34;&gt;HUGOに引っ越しました&lt;/h3&gt;
 
 &lt;p&gt;Wordpressのエディタが&lt;a href=&#34;https://ja.wordpress.org/plugins/gutenberg/&#34; target=&#34;_blank&#34;&gt;Gutenberg&lt;/a&gt;に変更されましたね。
@@ -25,10 +25,10 @@
     
     <item>
       <title>Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</title>
-      <link>/2019-04-02-debug-docker-php-xdebug-vscode/</link>
+      <link>https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/</link>
       <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
       
-      <guid>/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
+      <guid>https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
       <description>&lt;p&gt;Dockerでwordpress環境を作ってプラグインのデバックをしたかったのでxdebugを使ったんですが、&lt;/p&gt;
 
 &lt;p&gt;ブレークしなくて激しくはまったのでメモ。&lt;/p&gt;
@@ -40,10 +40,10 @@
     
     <item>
       <title>Redmineでチケットに応じたコマンドを表示</title>
-      <link>/2019-03-19-redmine-ticket-command/</link>
+      <link>https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/</link>
       <pubDate>Tue, 19 Mar 2019 00:50:34 +0000</pubDate>
       
-      <guid>/2019-03-19-redmine-ticket-command/</guid>
+      <guid>https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/</guid>
       <description>&lt;p&gt;タイトル何言ってるかわかりませんか、そーですか。&lt;/p&gt;
 
 &lt;p&gt;運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。&lt;/p&gt;
@@ -69,18 +69,18 @@
     
     
     
-    &lt;a class=&#34;luminous&#34; href=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;
-            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;
+    &lt;a class=&#34;luminous&#34; href=&#34;https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;
+            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;
                 height=&#34;201&#34; data-original=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34; /&gt;
     &lt;/a&gt;</description>
     </item>
     
     <item>
       <title>SQL Serverのバックアップとリストア</title>
-      <link>/2018-11-29-sqlserver-backup-restore-basic/</link>
+      <link>https://fileszero.kimurak.net/2018-11-29-sqlserver-backup-restore-basic/</link>
       <pubDate>Thu, 29 Nov 2018 04:15:36 +0000</pubDate>
       
-      <guid>/2018-11-29-sqlserver-backup-restore-basic/</guid>
+      <guid>https://fileszero.kimurak.net/2018-11-29-sqlserver-backup-restore-basic/</guid>
       <description>&lt;p&gt;バックアップ戻すことってほとんどないですよね。&lt;/p&gt;
 
 &lt;p&gt;幸か不幸か運用環境でマジでリストアしたことって一度もありません。&lt;/p&gt;
@@ -92,10 +92,10 @@
     
     <item>
       <title>HUGO</title>
-      <link>/2018-11-20-try-hugo/</link>
+      <link>https://fileszero.kimurak.net/2018-11-20-try-hugo/</link>
       <pubDate>Tue, 20 Nov 2018 04:47:06 +0000</pubDate>
       
-      <guid>/2018-11-20-try-hugo/</guid>
+      <guid>https://fileszero.kimurak.net/2018-11-20-try-hugo/</guid>
       <description>&lt;p&gt;なんかwordpress疲れが出てきたので静的サイトをいい感じで作ってくれる&lt;a href=&#34;https://gohugo.io/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;というOSSを使ってみます。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;
@@ -109,10 +109,10 @@
     
     <item>
       <title>Install Jenkins</title>
-      <link>/2018-11-09-install-jenkins/</link>
+      <link>https://fileszero.kimurak.net/2018-11-09-install-jenkins/</link>
       <pubDate>Fri, 09 Nov 2018 02:32:35 +0000</pubDate>
       
-      <guid>/2018-11-09-install-jenkins/</guid>
+      <guid>https://fileszero.kimurak.net/2018-11-09-install-jenkins/</guid>
       <description>&lt;p&gt;いまさらながらJenkinsです。&lt;/p&gt;
 
 &lt;p&gt;みなさんJenkinsでCIでCDでAgileなDevOpsしてますよね。&lt;/p&gt;
@@ -132,10 +132,10 @@
     
     <item>
       <title>Logicoolマウスの保証交換してみた</title>
-      <link>/2018-10-24-logicool-mouse-warranty/</link>
+      <link>https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/</link>
       <pubDate>Wed, 24 Oct 2018 14:07:24 +0000</pubDate>
       
-      <guid>/2018-10-24-logicool-mouse-warranty/</guid>
+      <guid>https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/</guid>
       <description>&lt;p&gt;Logicoolのマウスm705tがチャタリングを起こすようになってしまいました。購入後１年５か月です。&lt;/p&gt;
 
 &lt;p&gt;このマウス、すごく使いやすくて気に入っていて、すでに３台目。&lt;/p&gt;
@@ -153,19 +153,19 @@
     
     <item>
       <title>ALMinium環境バージョンアップ#2</title>
-      <link>/2018-08-30-upgrade-alminium-environment-2/</link>
+      <link>https://fileszero.kimurak.net/2018-08-30-upgrade-alminium-environment-2/</link>
       <pubDate>Thu, 30 Aug 2018 05:05:34 +0000</pubDate>
       
-      <guid>/2018-08-30-upgrade-alminium-environment-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2018/2018-08-30-upgrade-alminium-environment-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、新環境のOSセットアップができたようなので、ALMiniumをインストールします。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2018-08-30-upgrade-alminium-environment-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2018/2018-08-30-upgrade-alminium-environment-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、新環境のOSセットアップができたようなので、ALMiniumをインストールします。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ALMinium環境バージョンアップ#1</title>
-      <link>/2018-08-30-upgrade-alminium-environment-1/</link>
+      <link>https://fileszero.kimurak.net/2018-08-30-upgrade-alminium-environment-1/</link>
       <pubDate>Thu, 30 Aug 2018 02:31:17 +0000</pubDate>
       
-      <guid>/2018-08-30-upgrade-alminium-environment-1/</guid>
+      <guid>https://fileszero.kimurak.net/2018-08-30-upgrade-alminium-environment-1/</guid>
       <description>&lt;p&gt;個人かつローカルで使ってる&lt;a href=&#34;https://github.com/alminium/alminium&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;ALMinium&lt;/a&gt;環境があるんですが、いい加減古いのでバージョンアップ。&lt;/p&gt;
 
 &lt;p&gt;宝の持ち腐れですが、ALMinium環境は完全に一人で使ってます。&lt;/p&gt;
@@ -179,10 +179,10 @@
     
     <item>
       <title>ionic native plugin</title>
-      <link>/2018-08-09-create-ionic-native-plugin/</link>
+      <link>https://fileszero.kimurak.net/2018-08-09-create-ionic-native-plugin/</link>
       <pubDate>Thu, 09 Aug 2018 07:39:27 +0000</pubDate>
       
-      <guid>/2018-08-09-create-ionic-native-plugin/</guid>
+      <guid>https://fileszero.kimurak.net/2018-08-09-create-ionic-native-plugin/</guid>
       <description>&lt;p&gt;ionic用のプラグインを作ってみたくなったんでやってみる。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;
@@ -202,10 +202,10 @@
     
     <item>
       <title>Typescriptで自分用のローカルなライブラリを作る</title>
-      <link>/2018-07-12-typescript-my-local-library/</link>
+      <link>https://fileszero.kimurak.net/2018-07-12-typescript-my-local-library/</link>
       <pubDate>Thu, 12 Jul 2018 08:46:41 +0000</pubDate>
       
-      <guid>/2018-07-12-typescript-my-local-library/</guid>
+      <guid>https://fileszero.kimurak.net/2018-07-12-typescript-my-local-library/</guid>
       <description>&lt;p&gt;typescriptで共通ライブラリといえばnpmでinstallなんですが、&lt;/p&gt;
 
 &lt;p&gt;自作の小さいライブラリなんかだと、npm publishするほどのものではないし、いちいちgit経由つーのもめんどくさい。&lt;/p&gt;
@@ -219,10 +219,10 @@
     
     <item>
       <title>unable to find valid certification path to requested target</title>
-      <link>/2018-06-08-unable-to-find-valid-cert/</link>
+      <link>https://fileszero.kimurak.net/2018-06-08-unable-to-find-valid-cert/</link>
       <pubDate>Fri, 08 Jun 2018 05:22:32 +0000</pubDate>
       
-      <guid>/2018-06-08-unable-to-find-valid-cert/</guid>
+      <guid>https://fileszero.kimurak.net/2018-06-08-unable-to-find-valid-cert/</guid>
       <description>&lt;p&gt;ionic + cordova on windows 7で&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -243,10 +243,10 @@
     
     <item>
       <title>Azure Functionsの雰囲気をローカルで試す</title>
-      <link>/2018-02-14-try-azure-functions-on-local/</link>
+      <link>https://fileszero.kimurak.net/2018-02-14-try-azure-functions-on-local/</link>
       <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
       
-      <guid>/2018-02-14-try-azure-functions-on-local/</guid>
+      <guid>https://fileszero.kimurak.net/2018-02-14-try-azure-functions-on-local/</guid>
       <description>&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;
 
 &lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;
@@ -258,10 +258,10 @@
     
     <item>
       <title>OneDrive for Businessの更新日時を日付＋時間にする</title>
-      <link>/2018-01-05-onedrive-for-biz-date-format/</link>
+      <link>https://fileszero.kimurak.net/2018-01-05-onedrive-for-biz-date-format/</link>
       <pubDate>Fri, 05 Jan 2018 04:34:17 +0000</pubDate>
       
-      <guid>/2018-01-05-onedrive-for-biz-date-format/</guid>
+      <guid>https://fileszero.kimurak.net/2018-01-05-onedrive-for-biz-date-format/</guid>
       <description>&lt;p&gt;OneDrive for Businessの更新日時って最近のもの以外は日付しか表示されません。&lt;/p&gt;
 
 
@@ -275,8 +275,8 @@
     
     
     
-    &lt;a class=&#34;luminous&#34; href=&#34;/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34;&gt;
-            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg&#34; width=&#34;240&#34;
+    &lt;a class=&#34;luminous&#34; href=&#34;https://fileszero.kimurak.net/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34;&gt;
+            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;https://fileszero.kimurak.net/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg&#34; width=&#34;240&#34;
                 height=&#34;116&#34; data-original=&#34;/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34; /&gt;
     &lt;/a&gt;
 
@@ -288,10 +288,10 @@
     
     <item>
       <title>Angular5でChangeDetectorRefをInject出来なかった話</title>
-      <link>/2017-12-11-cannot-inject-changedetectorref-on-ng5/</link>
+      <link>https://fileszero.kimurak.net/2017-12-11-cannot-inject-changedetectorref-on-ng5/</link>
       <pubDate>Mon, 11 Dec 2017 07:17:18 +0000</pubDate>
       
-      <guid>/2017-12-11-cannot-inject-changedetectorref-on-ng5/</guid>
+      <guid>https://fileszero.kimurak.net/2017-12-11-cannot-inject-changedetectorref-on-ng5/</guid>
       <description>Angular5(5.1.0)使ってChangeDetectorRefをInjectしようとしたらある日
 1 2  compiler.js?dd9e:466 Uncaught Error: Can&amp;#39;t resolve all parameters for コンポーネント名: (?). at syntaxError (webpack-internal:///135:684:34)   と出て、動かなくなった。
 コンポーネントのコンストラクタは
@@ -302,10 +302,10 @@
     
     <item>
       <title>log4jsのSlack Appenderを使ってみる(node&#43;typescript)</title>
-      <link>/2017-11-07-use-log4js-slack-appender/</link>
+      <link>https://fileszero.kimurak.net/2017-11-07-use-log4js-slack-appender/</link>
       <pubDate>Tue, 07 Nov 2017 15:10:40 +0000</pubDate>
       
-      <guid>/2017-11-07-use-log4js-slack-appender/</guid>
+      <guid>https://fileszero.kimurak.net/2017-11-07-use-log4js-slack-appender/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://slack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Slack&lt;/a&gt;流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。&lt;/p&gt;
 
 &lt;p&gt;さみしいんで、ログをSlackで読めるようにします。&lt;/p&gt;
@@ -323,10 +323,10 @@
     
     <item>
       <title>AngularJSの$httpdでファイルのアップロード(でハマった話)</title>
-      <link>/2017-10-10-angularjs-httpd-content-type-trap/</link>
+      <link>https://fileszero.kimurak.net/2017-10-10-angularjs-httpd-content-type-trap/</link>
       <pubDate>Tue, 10 Oct 2017 14:05:08 +0000</pubDate>
       
-      <guid>/2017-10-10-angularjs-httpd-content-type-trap/</guid>
+      <guid>https://fileszero.kimurak.net/2017-10-10-angularjs-httpd-content-type-trap/</guid>
       <description>&lt;h3 id=&#34;現象&#34;&gt;現象&lt;/h3&gt;
 
 &lt;p&gt;ASP.NET の Web APIにファイルをポストしようとして、&lt;/p&gt;
@@ -366,11 +366,11 @@
     
     <item>
       <title>Nightmareを使ってみる#2</title>
-      <link>/2017-09-21-try-nightmare-js-2/</link>
+      <link>https://fileszero.kimurak.net/2017-09-21-try-nightmare-js-2/</link>
       <pubDate>Thu, 21 Sep 2017 13:47:05 +0000</pubDate>
       
-      <guid>/2017-09-21-try-nightmare-js-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-09-20-try-nightmare-js-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、基本的なところをお試ししてみましたが、&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-09-21-try-nightmare-js-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-09-20-try-nightmare-js-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、基本的なところをお試ししてみましたが、&lt;/p&gt;
 
 &lt;p&gt;もう少しなんかやらせてみたいので、数あてゲームをやらせてみます。&lt;/p&gt;
 
@@ -381,10 +381,10 @@
     
     <item>
       <title>Nightmareを使ってみる#1</title>
-      <link>/2017-09-20-try-nightmare-js-1/</link>
+      <link>https://fileszero.kimurak.net/2017-09-20-try-nightmare-js-1/</link>
       <pubDate>Wed, 20 Sep 2017 13:51:21 +0000</pubDate>
       
-      <guid>/2017-09-20-try-nightmare-js-1/</guid>
+      <guid>https://fileszero.kimurak.net/2017-09-20-try-nightmare-js-1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.nightmarejs.org/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Nightmare.js&lt;/a&gt;つーのが便利そうなんで使ってみます。&lt;/p&gt;
 
 &lt;p&gt;環境はWindows7&lt;/p&gt;</description>
@@ -392,21 +392,21 @@
     
     <item>
       <title>pythonの初歩コード</title>
-      <link>/2017-09-14-python-basic/</link>
+      <link>https://fileszero.kimurak.net/2017-09-14-python-basic/</link>
       <pubDate>Thu, 14 Sep 2017 03:49:38 +0000</pubDate>
       
-      <guid>/2017-09-14-python-basic/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-09-11-try-pythononwindows&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;pythonの開発環境を作ったんで、簡単なコードを書いてみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-09-14-python-basic/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-09-11-try-pythononwindows&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;pythonの開発環境を作ったんで、簡単なコードを書いてみます。&lt;/p&gt;
 
 &lt;p&gt;今回からコードはgistに置いてみることにしました～&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>python&#43;windows 7</title>
-      <link>/2017-09-11-try-pythononwindows/</link>
+      <link>https://fileszero.kimurak.net/2017-09-11-try-pythononwindows/</link>
       <pubDate>Mon, 11 Sep 2017 13:35:19 +0000</pubDate>
       
-      <guid>/2017-09-11-try-pythononwindows/</guid>
+      <guid>https://fileszero.kimurak.net/2017-09-11-try-pythononwindows/</guid>
       <description>&lt;p&gt;とある本に刺激されて、新しい言語を勉強してみたくなりました。&lt;/p&gt;
 
 &lt;p&gt;なんかpythonが人気らしいので、ちょっといインストールしてみました。&lt;/p&gt;
@@ -416,42 +416,42 @@
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5</title>
-      <link>/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
+      <link>https://fileszero.kimurak.net/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
       <pubDate>Mon, 26 Jun 2017 03:51:03 +0000</pubDate>
       
-      <guid>/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
 
 &lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4</title>
-      <link>/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</link>
+      <link>https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</link>
       <pubDate>Tue, 20 Jun 2017 13:35:42 +0000</pubDate>
       
-      <guid>/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3</title>
-      <link>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</link>
+      <link>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</link>
       <pubDate>Mon, 19 Jun 2017 13:40:34 +0000</pubDate>
       
-      <guid>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
 
 &lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2</title>
-      <link>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</link>
+      <link>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</link>
       <pubDate>Mon, 19 Jun 2017 03:17:49 +0000</pubDate>
       
-      <guid>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
 
 &lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;
 
@@ -466,10 +466,10 @@
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#1</title>
-      <link>/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</link>
+      <link>https://fileszero.kimurak.net/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</link>
       <pubDate>Thu, 15 Jun 2017 03:53:51 +0000</pubDate>
       
-      <guid>/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</guid>
+      <guid>https://fileszero.kimurak.net/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</guid>
       <description>&lt;p&gt;ASP.NET Coreをubuntuで動かしてみます。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;
@@ -485,10 +485,10 @@
     
     <item>
       <title>SQL Server 2012トランザクションログの圧縮</title>
-      <link>/2017-06-12-shrink-sql-server-log/</link>
+      <link>https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/</link>
       <pubDate>Mon, 12 Jun 2017 00:28:07 +0000</pubDate>
       
-      <guid>/2017-06-12-shrink-sql-server-log/</guid>
+      <guid>https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/</guid>
       <description>&lt;p&gt;開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。&lt;/p&gt;
 
 &lt;p&gt;ちょっと前だと&lt;/p&gt;
@@ -511,10 +511,10 @@
     
     <item>
       <title>Docker &#43; .Net Core &#43; Visual studio 2015</title>
-      <link>/2017-05-17-dockerdotnetcorevisualstudio2015/</link>
+      <link>https://fileszero.kimurak.net/2017-05-17-dockerdotnetcorevisualstudio2015/</link>
       <pubDate>Wed, 17 May 2017 03:33:00 +0000</pubDate>
       
-      <guid>/2017-05-17-dockerdotnetcorevisualstudio2015/</guid>
+      <guid>https://fileszero.kimurak.net/2017-05-17-dockerdotnetcorevisualstudio2015/</guid>
       <description>&lt;p&gt;Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。&lt;/p&gt;
 
 &lt;p&gt;てことで、少しいじってみます。&lt;/p&gt;
@@ -524,10 +524,10 @@
     
     <item>
       <title>Git ExtentionsでOffice文書の差分表示</title>
-      <link>/2017-04-28-msoffice-document-diff-on-git-ext/</link>
+      <link>https://fileszero.kimurak.net/2017-04-28-msoffice-document-diff-on-git-ext/</link>
       <pubDate>Fri, 28 Apr 2017 04:00:40 +0000</pubDate>
       
-      <guid>/2017-04-28-msoffice-document-diff-on-git-ext/</guid>
+      <guid>https://fileszero.kimurak.net/2017-04-28-msoffice-document-diff-on-git-ext/</guid>
       <description>&lt;p&gt;windowsでgitするときには&lt;a href=&#34;https://sourceforge.net/projects/gitextensions/&#34; target=&#34;_blank&#34;&gt;Git Extentions&lt;/a&gt;を使っています。&lt;/p&gt;
 
 &lt;p&gt;かなり便利だと思うんですがWord,Excel,PowerPoint等いわゆるバイナリファイルの差分表示ができません。&lt;/p&gt;
@@ -537,11 +537,11 @@
     
     <item>
       <title>wordpressとgitで自動deploy</title>
-      <link>/2017-02-11-auto-deploy-wordpress-and-git/</link>
+      <link>https://fileszero.kimurak.net/2017-02-11-auto-deploy-wordpress-and-git/</link>
       <pubDate>Sat, 11 Feb 2017 12:37:26 +0000</pubDate>
       
-      <guid>/2017-02-11-auto-deploy-wordpress-and-git/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2017-02-11-auto-deploy-wordpress-and-git/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
 
 &lt;p&gt;いちいち転送ソフト立ち上げるのもめんどくさいし、転送忘れとかもありそうです。&lt;/p&gt;
 
@@ -550,10 +550,10 @@
     
     <item>
       <title>Docker for Macでwordpressの開発環境を作ってみる</title>
-      <link>/2017-02-08-docker-for-mac-wp/</link>
+      <link>https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp/</link>
       <pubDate>Wed, 08 Feb 2017 14:29:07 +0000</pubDate>
       
-      <guid>/2017-02-08-docker-for-mac-wp/</guid>
+      <guid>https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp/</guid>
       <description>&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;
 
 &lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;</description>
@@ -561,10 +561,10 @@
     
     <item>
       <title>fail2banの設定はjail.localに書け</title>
-      <link>/2017-02-07-fail2ban-config-should-be-on-dotlocal/</link>
+      <link>https://fileszero.kimurak.net/2017-02-07-fail2ban-config-should-be-on-dotlocal/</link>
       <pubDate>Tue, 07 Feb 2017 00:57:26 +0000</pubDate>
       
-      <guid>/2017-02-07-fail2ban-config-should-be-on-dotlocal/</guid>
+      <guid>https://fileszero.kimurak.net/2017-02-07-fail2ban-config-should-be-on-dotlocal/</guid>
       <description>&lt;p&gt;どんなに過疎ってるサーバーでも公開している限りいろんな攻撃を受けたりします。&lt;/p&gt;
 
 &lt;p&gt;基本的にはログを監視してアクセス遮断をするわけですが、それを自動でやってくれるのが&lt;a href=&#34;http://www.fail2ban.org/&#34; target=&#34;_blank&#34;&gt;fail2ban&lt;/a&gt;。&lt;/p&gt;</description>
@@ -572,10 +572,10 @@
     
     <item>
       <title>Angular2を使ってみる</title>
-      <link>/2017-01-11-try-ng2/</link>
+      <link>https://fileszero.kimurak.net/2017-01-11-try-ng2/</link>
       <pubDate>Wed, 11 Jan 2017 08:22:15 +0000</pubDate>
       
-      <guid>/2017-01-11-try-ng2/</guid>
+      <guid>https://fileszero.kimurak.net/2017-01-11-try-ng2/</guid>
       <description>&lt;p&gt;SPAの強い味方Angularから2がリリースされました。&lt;/p&gt;
 
 &lt;p&gt;てことで試してみます。&lt;/p&gt;
@@ -593,13 +593,13 @@
     
     <item>
       <title>Tiny Tiny RSSのバージョンアップ</title>
-      <link>/2016-12-27-ttrss-upgrade/</link>
+      <link>https://fileszero.kimurak.net/2016-12-27-ttrss-upgrade/</link>
       <pubDate>Tue, 27 Dec 2016 15:02:43 +0000</pubDate>
       
-      <guid>/2016-12-27-ttrss-upgrade/</guid>
+      <guid>https://fileszero.kimurak.net/2016-12-27-ttrss-upgrade/</guid>
       <description>&lt;p&gt;RSSリーダーには&lt;a href=&#34;https://tt-rss.org/gitlab/fox/tt-rss/wikis/home&#34; target=&#34;_blank&#34;&gt;Tiny Tiny RSS&lt;/a&gt;を使っております。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;/posts/2013/2013-05-21-tiny-tiny-rss&#34; target=&#34;_blank&#34;&gt;インストール&lt;/a&gt;しっぱなしで全然アップデートしておりませんでした。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2013/2013-05-21-tiny-tiny-rss&#34; target=&#34;_blank&#34;&gt;インストール&lt;/a&gt;しっぱなしで全然アップデートしておりませんでした。&lt;/p&gt;
 
 &lt;p&gt;インストール記事が２０１３年なんで３年放置。。。&lt;/p&gt;
 
@@ -608,10 +608,10 @@
     
     <item>
       <title>Visual Studio Code メモ</title>
-      <link>/2016-12-14-visual-studio-code-memo/</link>
+      <link>https://fileszero.kimurak.net/2016-12-14-visual-studio-code-memo/</link>
       <pubDate>Wed, 14 Dec 2016 03:42:35 +0000</pubDate>
       
-      <guid>/2016-12-14-visual-studio-code-memo/</guid>
+      <guid>https://fileszero.kimurak.net/2016-12-14-visual-studio-code-memo/</guid>
       <description>&lt;p&gt;Visual Studio Code良いですよね。Sublime(買って)使ってましたが乗り換えようかと思っとります。&lt;/p&gt;
 
 &lt;p&gt;随時更新でちょっとしたメモを残しときます。&lt;/p&gt;</description>
@@ -619,10 +619,10 @@
     
     <item>
       <title>Windows7でVirtualBoxのゲストOSを自動起動</title>
-      <link>/2016-12-08-startup-virtualbox-automatically/</link>
+      <link>https://fileszero.kimurak.net/2016-12-08-startup-virtualbox-automatically/</link>
       <pubDate>Thu, 08 Dec 2016 08:24:22 +0000</pubDate>
       
-      <guid>/2016-12-08-startup-virtualbox-automatically/</guid>
+      <guid>https://fileszero.kimurak.net/2016-12-08-startup-virtualbox-automatically/</guid>
       <description>&lt;p&gt;VirtualBoxのvmをwindows起動時（ログインしてない状態）に自動起動するようしてみます。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;
@@ -634,19 +634,19 @@
     
     <item>
       <title>Mac Tips</title>
-      <link>/2016-09-01-mac-tips/</link>
+      <link>https://fileszero.kimurak.net/2016-09-01-mac-tips/</link>
       <pubDate>Thu, 01 Sep 2016 01:14:19 +0000</pubDate>
       
-      <guid>/2016-09-01-mac-tips/</guid>
+      <guid>https://fileszero.kimurak.net/2016-09-01-mac-tips/</guid>
       <description>&lt;p&gt;いつも忘れるMacOS関係のメモ。随時更新予定。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Class LibraryとASP.NET MVCのDB-Migration</title>
-      <link>/2016-08-03-class-library-and-mvc-dbmigration/</link>
+      <link>https://fileszero.kimurak.net/2016-08-03-class-library-and-mvc-dbmigration/</link>
       <pubDate>Wed, 03 Aug 2016 08:13:12 +0000</pubDate>
       
-      <guid>/2016-08-03-class-library-and-mvc-dbmigration/</guid>
+      <guid>https://fileszero.kimurak.net/2016-08-03-class-library-and-mvc-dbmigration/</guid>
       <description>&lt;p&gt;ASP.NET MVC(試したのは5)で、entity frameworkを使ったmodelやサービス部を別のクラスライブラリプロジェクトに切り出した時に、update-databaseのやり方で若干ハマったのでメモ。&lt;/p&gt;
 
 &lt;p&gt;環境はVisual studio 2015 update3&lt;/p&gt;
@@ -665,19 +665,19 @@
     
     <item>
       <title>angular fullstackのwatchをBrowserSyncにする</title>
-      <link>/2016-07-16-angular-fullstack-with-rowsersync/</link>
+      <link>https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/</link>
       <pubDate>Sat, 16 Jul 2016 05:47:40 +0000</pubDate>
       
-      <guid>/2016-07-16-angular-fullstack-with-rowsersync/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>nfsをgulp watchできない時にやったこと</title>
-      <link>/2016-07-15-gulp-watch-on-nfs/</link>
+      <link>https://fileszero.kimurak.net/2016-07-15-gulp-watch-on-nfs/</link>
       <pubDate>Fri, 15 Jul 2016 00:50:49 +0000</pubDate>
       
-      <guid>/2016-07-15-gulp-watch-on-nfs/</guid>
+      <guid>https://fileszero.kimurak.net/2016-07-15-gulp-watch-on-nfs/</guid>
       <description>&lt;p&gt;angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。&lt;/p&gt;
 
 &lt;p&gt;構成は&lt;/p&gt;
@@ -695,10 +695,10 @@
     
     <item>
       <title>angular-fullstackでgulp buildできない時にやったこと</title>
-      <link>/2016-07-07-angular-fullstack-gulp-build-failed/</link>
+      <link>https://fileszero.kimurak.net/2016-07-07-angular-fullstack-gulp-build-failed/</link>
       <pubDate>Thu, 07 Jul 2016 07:35:21 +0000</pubDate>
       
-      <guid>/2016-07-07-angular-fullstack-gulp-build-failed/</guid>
+      <guid>https://fileszero.kimurak.net/2016-07-07-angular-fullstack-gulp-build-failed/</guid>
       <description>&lt;p&gt;七夕ですね。&lt;/p&gt;
 
 &lt;p&gt;$ yo angular-fullstack&lt;/p&gt;
@@ -708,10 +708,10 @@
     
     <item>
       <title>OnsenUI&#43;VisualStudio2015</title>
-      <link>/2016-06-27-onsenui-visualstudio2015/</link>
+      <link>https://fileszero.kimurak.net/2016-06-27-onsenui-visualstudio2015/</link>
       <pubDate>Mon, 27 Jun 2016 06:11:12 +0000</pubDate>
       
-      <guid>/2016-06-27-onsenui-visualstudio2015/</guid>
+      <guid>https://fileszero.kimurak.net/2016-06-27-onsenui-visualstudio2015/</guid>
       <description>&lt;p&gt;Visual studio2015 update 2&lt;/p&gt;
 
 &lt;p&gt;参考　&lt;a href=&#34;http://ardalis.com/configure-grunt-in-visual-studio-2015&#34; target=&#34;_blank&#34;&gt;http://ardalis.com/configure-grunt-in-visual-studio-2015&lt;/a&gt;&lt;/p&gt;</description>
@@ -719,10 +719,10 @@
     
     <item>
       <title>Excel-DNA</title>
-      <link>/2016-05-12-try-excel-dna/</link>
+      <link>https://fileszero.kimurak.net/2016-05-12-try-excel-dna/</link>
       <pubDate>Thu, 12 May 2016 00:21:20 +0000</pubDate>
       
-      <guid>/2016-05-12-try-excel-dna/</guid>
+      <guid>https://fileszero.kimurak.net/2016-05-12-try-excel-dna/</guid>
       <description>&lt;p&gt;ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。&lt;/p&gt;
 
 &lt;p&gt;VS+C#でソース管理もしながら開発したいもんです。&lt;/p&gt;
@@ -734,19 +734,19 @@
     
     <item>
       <title>ASP.NET MVC 5でOktaを使う</title>
-      <link>/2016-03-25-using-okta-from-mvc5/</link>
+      <link>https://fileszero.kimurak.net/2016-03-25-using-okta-from-mvc5/</link>
       <pubDate>Fri, 25 Mar 2016 12:44:36 +0000</pubDate>
       
-      <guid>/2016-03-25-using-okta-from-mvc5/</guid>
+      <guid>https://fileszero.kimurak.net/2016-03-25-using-okta-from-mvc5/</guid>
       <description>&lt;p&gt;シングルサインオンサービスの&lt;a href=&#34;https://www.okta.com/&#34; target=&#34;_blank&#34;&gt;Okta&lt;/a&gt;をMVC5のログインに使う羽目になったのでメモ。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>INotifyPropertyChangedの実装</title>
-      <link>/2016-01-27-implimentation-of-inotifypropertychanged/</link>
+      <link>https://fileszero.kimurak.net/2016-01-27-implimentation-of-inotifypropertychanged/</link>
       <pubDate>Wed, 27 Jan 2016 08:22:57 +0000</pubDate>
       
-      <guid>/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
+      <guid>https://fileszero.kimurak.net/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
       <description>&lt;p&gt;久々にWindows Formsなプログラムを作っております。&lt;/p&gt;
 
 &lt;p&gt;(どのぐらい久々かというと、最後にの記憶がVB6辺りという。。。)&lt;/p&gt;
@@ -758,19 +758,19 @@
     
     <item>
       <title>Laravel tips&amp;オレオレルール</title>
-      <link>/2016-01-09-laravel-tips-and-rule/</link>
+      <link>https://fileszero.kimurak.net/2016-01-09-laravel-tips-and-rule/</link>
       <pubDate>Sat, 09 Jan 2016 08:14:59 +0000</pubDate>
       
-      <guid>/2016-01-09-laravel-tips-and-rule/</guid>
+      <guid>https://fileszero.kimurak.net/2016-01-09-laravel-tips-and-rule/</guid>
       <description>&lt;p&gt;laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Laravel&#43;Homestead&#43;XDebug&#43;Eclipse</title>
-      <link>/2015-12-12-laravelhomesteadeclipse/</link>
+      <link>https://fileszero.kimurak.net/2015-12-12-laravelhomesteadeclipse/</link>
       <pubDate>Sat, 12 Dec 2015 12:04:26 +0000</pubDate>
       
-      <guid>/2015-12-12-laravelhomesteadeclipse/</guid>
+      <guid>https://fileszero.kimurak.net/2015-12-12-laravelhomesteadeclipse/</guid>
       <description>&lt;p&gt;Laravelちょっと&lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart.html&#34; target=&#34;_blank&#34;&gt;チュートリアル&lt;/a&gt;的なことをやってみましたが、良い感じです。&lt;/p&gt;
 
 &lt;p&gt;開発環境の設定で若干試行錯誤があったので、メモしときます。&lt;/p&gt;</description>
@@ -778,21 +778,21 @@
     
     <item>
       <title>Laravel を使ってみる（Macセットアップ編)</title>
-      <link>/2015-12-04-try-laravel-mac-setup/</link>
+      <link>https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/</link>
       <pubDate>Fri, 04 Dec 2015 15:48:52 +0000</pubDate>
       
-      <guid>/2015-12-04-try-laravel-mac-setup/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
 
 &lt;p&gt;Shellで作業を進めます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Laravel を使ってみる（Windowsセットアップ編)</title>
-      <link>/2015-12-04-try-laravel-windows-setup/</link>
+      <link>https://fileszero.kimurak.net/2015-12-04-try-laravel-windows-setup/</link>
       <pubDate>Fri, 04 Dec 2015 15:47:18 +0000</pubDate>
       
-      <guid>/2015-12-04-try-laravel-windows-setup/</guid>
+      <guid>https://fileszero.kimurak.net/2015-12-04-try-laravel-windows-setup/</guid>
       <description>&lt;p&gt;ちょっとPHPを触ることになるかもしれないので、お勉強がてら&lt;a href=&#34;http://qiita.com/shukotang/items/055058b33b553b48c164&#34; target=&#34;_blank&#34;&gt;最近のフレームワーク事情&lt;/a&gt;を見てたらLaravelってのが人気らしい。&lt;/p&gt;
 
 &lt;p&gt;初耳ー。&lt;/p&gt;
@@ -804,11 +804,11 @@
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4</title>
-      <link>/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
+      <link>https://fileszero.kimurak.net/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
       <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
       
-      <guid>/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;
 
@@ -817,30 +817,30 @@
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#３</title>
-      <link>/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
+      <link>https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
       <pubDate>Sun, 18 Oct 2015 09:00:39 +0000</pubDate>
       
-      <guid>/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#2</title>
-      <link>/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
+      <link>https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
       <pubDate>Sat, 17 Oct 2015 10:42:07 +0000</pubDate>
       
-      <guid>/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
 
 &lt;p&gt;今回はwebアプリから使ってみます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</title>
-      <link>/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
+      <link>https://fileszero.kimurak.net/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
       <pubDate>Thu, 15 Oct 2015 13:49:32 +0000</pubDate>
       
-      <guid>/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
+      <guid>https://fileszero.kimurak.net/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
       <description>&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;
 
 &lt;div&gt;あまぞんりんく&lt;/div&gt;
@@ -860,10 +860,10 @@
     
     <item>
       <title>Entity FrameworkでInsertするときに関連するレコードもInsertされる</title>
-      <link>/2015-09-16-ef-insert-duplicate-object/</link>
+      <link>https://fileszero.kimurak.net/2015-09-16-ef-insert-duplicate-object/</link>
       <pubDate>Wed, 16 Sep 2015 05:49:39 +0000</pubDate>
       
-      <guid>/2015-09-16-ef-insert-duplicate-object/</guid>
+      <guid>https://fileszero.kimurak.net/2015-09-16-ef-insert-duplicate-object/</guid>
       <description>&lt;p&gt;Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。&lt;/p&gt;
 
 &lt;p&gt;なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？&lt;/p&gt;
@@ -873,11 +873,11 @@
     
     <item>
       <title>ASP.NET IdentityでActive Directory認証#2</title>
-      <link>/2015-08-18-asp-net-identity-with-adfs-2/</link>
+      <link>https://fileszero.kimurak.net/2015-08-18-asp-net-identity-with-adfs-2/</link>
       <pubDate>Tue, 18 Aug 2015 04:04:05 +0000</pubDate>
       
-      <guid>/2015-08-18-asp-net-identity-with-adfs-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-08-18-asp-net-identity-with-adfs-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;
 
 &lt;p&gt;この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。&lt;/p&gt;
 
@@ -890,10 +890,10 @@
     
     <item>
       <title>ASP.NET IdentityでActive Directory認証</title>
-      <link>/2015-08-11-asp-net-identity-with-adfs/</link>
+      <link>https://fileszero.kimurak.net/2015-08-11-asp-net-identity-with-adfs/</link>
       <pubDate>Tue, 11 Aug 2015 07:44:05 +0000</pubDate>
       
-      <guid>/2015-08-11-asp-net-identity-with-adfs/</guid>
+      <guid>https://fileszero.kimurak.net/2015-08-11-asp-net-identity-with-adfs/</guid>
       <description>&lt;p&gt;最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。&lt;/p&gt;
 
 &lt;p&gt;これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。&lt;/p&gt;
@@ -905,10 +905,10 @@
     
     <item>
       <title>AngularJSでフォームに変更があったらボタンをアクティブにする</title>
-      <link>/2015-07-27-angilar-form-watch/</link>
+      <link>https://fileszero.kimurak.net/2015-07-27-angilar-form-watch/</link>
       <pubDate>Mon, 27 Jul 2015 12:39:56 +0000</pubDate>
       
-      <guid>/2015-07-27-angilar-form-watch/</guid>
+      <guid>https://fileszero.kimurak.net/2015-07-27-angilar-form-watch/</guid>
       <description>&lt;p&gt;AngularJS使ってます。&lt;/p&gt;
 
 &lt;p&gt;よくあるフォームの処理で、半日ほどハマッたのでメモ。&lt;/p&gt;
@@ -927,21 +927,21 @@
     
     <item>
       <title>PhoneGap/Cordova Tips &amp; つまづきポイント</title>
-      <link>/2015-06-24-phonegap-cordova-traps/</link>
+      <link>https://fileszero.kimurak.net/2015-06-24-phonegap-cordova-traps/</link>
       <pubDate>Wed, 24 Jun 2015 06:14:55 +0000</pubDate>
       
-      <guid>/2015-06-24-phonegap-cordova-traps/</guid>
+      <guid>https://fileszero.kimurak.net/2015-06-24-phonegap-cordova-traps/</guid>
       <description>&lt;p&gt;PhoneGap/Cordovaで手探り状態で開発してます。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SublimeTextの設定をGitで共有</title>
-      <link>/2015-06-10-sync-sublime-config-with-git/</link>
+      <link>https://fileszero.kimurak.net/2015-06-10-sync-sublime-config-with-git/</link>
       <pubDate>Wed, 10 Jun 2015 06:10:50 +0000</pubDate>
       
-      <guid>/2015-06-10-sync-sublime-config-with-git/</guid>
+      <guid>https://fileszero.kimurak.net/2015-06-10-sync-sublime-config-with-git/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.sublimetext.com/3&#34; target=&#34;_blank&#34;&gt;SublimeText3&lt;/a&gt;使い始めてみました。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://atom.io/&#34; target=&#34;_blank&#34;&gt;Atom&lt;/a&gt;も使ってみたけど、ちょっと重いよね。&lt;/p&gt;
@@ -955,10 +955,10 @@
     
     <item>
       <title>PhoneGapでビルドしたアプリがインストールできない</title>
-      <link>/2015-05-18-application-not-installed/</link>
+      <link>https://fileszero.kimurak.net/2015-05-18-application-not-installed/</link>
       <pubDate>Mon, 18 May 2015 08:05:49 +0000</pubDate>
       
-      <guid>/2015-05-18-application-not-installed/</guid>
+      <guid>https://fileszero.kimurak.net/2015-05-18-application-not-installed/</guid>
       <description>&lt;p&gt;PhoneGapアプリをエミュで実行させようとして、&lt;/p&gt;
 
 &lt;p&gt;phonegap run android -e としますと、&lt;/p&gt;
@@ -968,19 +968,19 @@
     
     <item>
       <title>ruby環境(Mac)</title>
-      <link>/2015-04-01-ruby-on-mac/</link>
+      <link>https://fileszero.kimurak.net/2015-04-01-ruby-on-mac/</link>
       <pubDate>Wed, 01 Apr 2015 04:19:22 +0000</pubDate>
       
-      <guid>/2015-04-01-ruby-on-mac/</guid>
+      <guid>https://fileszero.kimurak.net/2015-04-01-ruby-on-mac/</guid>
       <description>&lt;p&gt;何かと必要になってくるrubyをインストール。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mac各種パッケージのバージョンアップ</title>
-      <link>/2015-03-31-version-up-npm/</link>
+      <link>https://fileszero.kimurak.net/2015-03-31-version-up-npm/</link>
       <pubDate>Tue, 31 Mar 2015 12:17:53 +0000</pubDate>
       
-      <guid>/2015-03-31-version-up-npm/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-31-version-up-npm/</guid>
       <description>&lt;p&gt;とってもべんりなパッケージ管理ソフト、パッケージ管理ソフトも複数あったりして、アップデート方法忘れがち。&lt;/p&gt;
 
 &lt;p&gt;まとめときます。&lt;/p&gt;
@@ -1002,10 +1002,10 @@
     
     <item>
       <title>Vagrant&#43;chef(mac)</title>
-      <link>/2015-03-25-vagrant-chef-mac/</link>
+      <link>https://fileszero.kimurak.net/2015-03-25-vagrant-chef-mac/</link>
       <pubDate>Wed, 25 Mar 2015 15:32:39 +0000</pubDate>
       
-      <guid>/2015-03-25-vagrant-chef-mac/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-25-vagrant-chef-mac/</guid>
       <description>&lt;p&gt;VMの自動構成には&lt;a href=&#34;https://www.chef.io/&#34; target=&#34;_blank&#34;&gt;Chef&lt;/a&gt;(とその仲間達)を使うといいみたいです。&lt;/p&gt;
 
 &lt;p&gt;chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。&lt;/p&gt;
@@ -1017,10 +1017,10 @@
     
     <item>
       <title>Vagrant(mac)</title>
-      <link>/2015-03-20-try-vagrant/</link>
+      <link>https://fileszero.kimurak.net/2015-03-20-try-vagrant/</link>
       <pubDate>Fri, 20 Mar 2015 11:14:38 +0000</pubDate>
       
-      <guid>/2015-03-20-try-vagrant/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-20-try-vagrant/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.apple.com/jp/macbook/&#34; target=&#34;_blank&#34;&gt;新しいMac Book&lt;/a&gt;発表されましたね。パワーアップ＆RetinaなAirが出るんじゃないかとすげー楽しみにしてたんですが、自分的にはコレジャナイ感が…&lt;/p&gt;
 
 &lt;p&gt;期待していただけに、物欲が抑えきれずにマイナーチェンジした&lt;a href=&#34;https://www.apple.com/jp/macbook-pro/&#34; target=&#34;_blank&#34;&gt;Mac Book Pro 13inch&lt;/a&gt;をポチってしまいました。&lt;/p&gt;
@@ -1032,21 +1032,21 @@
     
     <item>
       <title>MEANをVisual Studioでやってみる#2(viewとか)</title>
-      <link>/2015-03-10-try-mean-with-vs-2/</link>
+      <link>https://fileszero.kimurak.net/2015-03-10-try-mean-with-vs-2/</link>
       <pubDate>Tue, 10 Mar 2015 12:16:51 +0000</pubDate>
       
-      <guid>/2015-03-10-try-mean-with-vs-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-03-10-try-mean-with-vs-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;
 
 &lt;p&gt;お題としては名簿アプリ。典型的なCRUD系のアプリですな。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MEANをVisual Studioでやってみる#1(開発環境)</title>
-      <link>/2015-03-06-try-mean-with-vs-1/</link>
+      <link>https://fileszero.kimurak.net/2015-03-06-try-mean-with-vs-1/</link>
       <pubDate>Fri, 06 Mar 2015 12:15:46 +0000</pubDate>
       
-      <guid>/2015-03-06-try-mean-with-vs-1/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-06-try-mean-with-vs-1/</guid>
       <description>&lt;p&gt;Visual Studio 2013になってJavaScriptのコード補完がかなりいい感じです。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://nodejstools.codeplex.com/&#34; target=&#34;_blank&#34;&gt;Node.js Tools for Visual Studio&lt;/a&gt;なんてのも在って、これならnode.jsもVisual Studioで書いたほうが良いんじゃね？&lt;/p&gt;
@@ -1060,32 +1060,32 @@
     
     <item>
       <title>再度AngularJS(#2)</title>
-      <link>/2015-03-02-angularjs-again-2/</link>
+      <link>https://fileszero.kimurak.net/2015-03-02-angularjs-again-2/</link>
       <pubDate>Mon, 02 Mar 2015 05:23:12 +0000</pubDate>
       
-      <guid>/2015-03-02-angularjs-again-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2015-03-02-angularjs-again-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>再度AngularJS(#1)</title>
-      <link>/2015-03-02-angularjs-again-1/</link>
+      <link>https://fileszero.kimurak.net/2015-03-02-angularjs-again-1/</link>
       <pubDate>Mon, 02 Mar 2015 05:22:43 +0000</pubDate>
       
-      <guid>/2015-03-02-angularjs-again-1/</guid>
+      <guid>https://fileszero.kimurak.net/2015-03-02-angularjs-again-1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.buildinsider.net/web/popularjslib/2015&#34; target=&#34;_blank&#34;&gt;JavaScriptライブラリ人気調査&lt;/a&gt;によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。&lt;/p&gt;
 
 &lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;
 
-&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
+&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>OneDrive for Bisinessにバックアップする</title>
-      <link>/2015-02-15-webdav-on-win7-cdrive-issue/</link>
+      <link>https://fileszero.kimurak.net/2015-02-15-webdav-on-win7-cdrive-issue/</link>
       <pubDate>Sun, 15 Feb 2015 07:00:41 +0000</pubDate>
       
-      <guid>/2015-02-15-webdav-on-win7-cdrive-issue/</guid>
+      <guid>https://fileszero.kimurak.net/2015-02-15-webdav-on-win7-cdrive-issue/</guid>
       <description>&lt;p&gt;Office365を試用中です。&lt;/p&gt;
 
 &lt;p&gt;エディションはbusiness premium。&lt;/p&gt;
@@ -1106,10 +1106,10 @@
     
     <item>
       <title>PhoneGapを使ってみる(Android編)</title>
-      <link>/2015-02-12-try-phonegap-android/</link>
+      <link>https://fileszero.kimurak.net/2015-02-12-try-phonegap-android/</link>
       <pubDate>Thu, 12 Feb 2015 06:59:07 +0000</pubDate>
       
-      <guid>/2015-02-12-try-phonegap-android/</guid>
+      <guid>https://fileszero.kimurak.net/2015-02-12-try-phonegap-android/</guid>
       <description>&lt;h3 id=&#34;android開発環境&#34;&gt;Android開発環境&lt;/h3&gt;
 
 &lt;p&gt;IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。&lt;/p&gt;
@@ -1123,10 +1123,10 @@
     
     <item>
       <title>PhoneGapを使ってみる(iOS編)</title>
-      <link>/2015-01-21-try-phonegap-ios/</link>
+      <link>https://fileszero.kimurak.net/2015-01-21-try-phonegap-ios/</link>
       <pubDate>Wed, 21 Jan 2015 11:47:30 +0000</pubDate>
       
-      <guid>/2015-01-21-try-phonegap-ios/</guid>
+      <guid>https://fileszero.kimurak.net/2015-01-21-try-phonegap-ios/</guid>
       <description>&lt;p&gt;スマホアプリ作るのにはObjective-CとかJavaとか別々に覚えて、ライブラリなんかもプラットフォーム別にお勉強するってのが、本来なんでしょうけど、まぁやってられません。&lt;/p&gt;
 
 &lt;p&gt;SPA気分でネイティブ風アプリが開発できる&lt;a href=&#34;http://phonegap.com/&#34; target=&#34;_blank&#34;&gt;PhoneGap&lt;/a&gt;に挑戦してみます。&lt;/p&gt;
@@ -1138,10 +1138,10 @@
     
     <item>
       <title>GitHub上のhtmlをページとして公開</title>
-      <link>/2014-12-01-publish-html-on-github/</link>
+      <link>https://fileszero.kimurak.net/2014-12-01-publish-html-on-github/</link>
       <pubDate>Mon, 01 Dec 2014 12:25:28 +0000</pubDate>
       
-      <guid>/2014-12-01-publish-html-on-github/</guid>
+      <guid>https://fileszero.kimurak.net/2014-12-01-publish-html-on-github/</guid>
       <description>&lt;p&gt;今更ながらGitHub使い始めました。&lt;/p&gt;
 
 &lt;p&gt;コミットが積み重なっていくのって楽しいですよね。&lt;/p&gt;
@@ -1157,11 +1157,11 @@
     
     <item>
       <title>node.jsを使ってみる(Mac) #3</title>
-      <link>/2014-11-23-try-node-js-with-mac-3/</link>
+      <link>https://fileszero.kimurak.net/2014-11-23-try-node-js-with-mac-3/</link>
       <pubDate>Sun, 23 Nov 2014 13:42:24 +0000</pubDate>
       
-      <guid>/2014-11-23-try-node-js-with-mac-3/</guid>
-      <description>&lt;p&gt;Windows環境で&lt;a href=&#34;/posts/2014/2014-11-22-try-node-js-with-windows-2&#34; title=&#34;node.jsを使ってみる(Windows) #2&#34; target=&#34;_blank&#34;&gt;ちょっと試した&lt;/a&gt;node.js。Macでも試してみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2014-11-23-try-node-js-with-mac-3/</guid>
+      <description>&lt;p&gt;Windows環境で&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-11-22-try-node-js-with-windows-2&#34; title=&#34;node.jsを使ってみる(Windows) #2&#34; target=&#34;_blank&#34;&gt;ちょっと試した&lt;/a&gt;node.js。Macでも試してみます。&lt;/p&gt;
 
 &lt;p&gt;node.jsのインストールですが、&lt;a href=&#34;https://github.com/creationix/nvm&#34; target=&#34;_blank&#34;&gt;nvmって便利ツール&lt;/a&gt;があるようです。&lt;/p&gt;
 
@@ -1170,11 +1170,11 @@
     
     <item>
       <title>node.jsを使ってみる(Windows) #2</title>
-      <link>/2014-11-21-try-node-js-with-windows-2/</link>
+      <link>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-2/</link>
       <pubDate>Fri, 21 Nov 2014 15:26:51 +0000</pubDate>
       
-      <guid>/2014-11-21-try-node-js-with-windows-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://socket.io/&#34; target=&#34;_blank&#34;&gt;socket.io&lt;/a&gt;という楽しげなパッケージがあるので、&lt;/p&gt;
 
@@ -1183,10 +1183,10 @@
     
     <item>
       <title>node.jsを使ってみる(Windows)#1</title>
-      <link>/2014-11-21-try-node-js-with-windows-1/</link>
+      <link>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-1/</link>
       <pubDate>Fri, 21 Nov 2014 04:01:13 +0000</pubDate>
       
-      <guid>/2014-11-21-try-node-js-with-windows-1/</guid>
+      <guid>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-1/</guid>
       <description>&lt;p&gt;node.js流行ってますね。むしろもう一般常識？&lt;/p&gt;
 
 &lt;p&gt;いまさらですがちょっといじってみます。&lt;/p&gt;
@@ -1204,11 +1204,11 @@
     
     <item>
       <title>Raspberry Pi &#43; WiFiを安定させるVer3</title>
-      <link>/2014-11-12-raspberrypiwifistable3/</link>
+      <link>https://fileszero.kimurak.net/2014-11-12-raspberrypiwifistable3/</link>
       <pubDate>Wed, 12 Nov 2014 13:52:29 +0000</pubDate>
       
-      <guid>/2014-11-12-raspberrypiwifistable3/</guid>
-      <description>&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi + WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;/posts/2014/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi + WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2014-11-12-raspberrypiwifistable3/</guid>
+      <description>&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi + WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi + WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;
 
 &lt;p&gt;ココ最近、また不安定になってきました。&lt;/p&gt;
 
@@ -1217,10 +1217,10 @@
     
     <item>
       <title>etckeeperをインストール</title>
-      <link>/2014-10-25-installing-etckeeper/</link>
+      <link>https://fileszero.kimurak.net/2014-10-25-installing-etckeeper/</link>
       <pubDate>Sat, 25 Oct 2014 12:32:56 +0000</pubDate>
       
-      <guid>/2014-10-25-installing-etckeeper/</guid>
+      <guid>https://fileszero.kimurak.net/2014-10-25-installing-etckeeper/</guid>
       <description>&lt;p&gt;VPSを借りてこのブログを運用しています。&lt;/p&gt;
 
 &lt;p&gt;linux CentOS6です。&lt;/p&gt;
@@ -1234,10 +1234,10 @@
     
     <item>
       <title>Android の連絡先がgoogleと同期しない</title>
-      <link>/2014-10-04-androidaddressbookgooglesyncproblem/</link>
+      <link>https://fileszero.kimurak.net/2014-10-04-androidaddressbookgooglesyncproblem/</link>
       <pubDate>Sat, 04 Oct 2014 14:02:33 +0000</pubDate>
       
-      <guid>/2014-10-04-androidaddressbookgooglesyncproblem/</guid>
+      <guid>https://fileszero.kimurak.net/2014-10-04-androidaddressbookgooglesyncproblem/</guid>
       <description>&lt;p&gt;Androidの本体側の連絡先をすべてGoogle連絡先に移しました。&lt;/p&gt;
 
 &lt;p&gt;まぁ、携帯時代からアッチ行ったりコッチ行ったりしながら、長い間使ってきたアドレス帳なんで何せ汚い。&lt;/p&gt;
@@ -1249,10 +1249,10 @@
     
     <item>
       <title>ASP.NET MVC 4を基本で作った後でknockout.js等使う</title>
-      <link>/2014-08-29-asp-net-mvc-4-basicknockout/</link>
+      <link>https://fileszero.kimurak.net/2014-08-29-asp-net-mvc-4-basicknockout/</link>
       <pubDate>Fri, 29 Aug 2014 03:47:56 +0000</pubDate>
       
-      <guid>/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
+      <guid>https://fileszero.kimurak.net/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
       <description>&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;
 
 &lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;</description>
@@ -1260,10 +1260,10 @@
     
     <item>
       <title>RaspberryPi webcam</title>
-      <link>/2014-08-15-raspberrypiwebcam/</link>
+      <link>https://fileszero.kimurak.net/2014-08-15-raspberrypiwebcam/</link>
       <pubDate>Fri, 15 Aug 2014 08:45:27 +0000</pubDate>
       
-      <guid>/2014-08-15-raspberrypiwebcam/</guid>
+      <guid>https://fileszero.kimurak.net/2014-08-15-raspberrypiwebcam/</guid>
       <description>&lt;p&gt;愛犬のモニタリング用にネットワークカメラ使ってたんですが、壊れた。&lt;/p&gt;
 
 &lt;p&gt;外から携帯（いわゆるガラケー、フィーチャーフォン）からアクセスしたいけど、&lt;/p&gt;
@@ -1277,19 +1277,19 @@
     
     <item>
       <title>railsでvimのお勉強#2</title>
-      <link>/2014-08-05-sutadying-rails-and-vim-2/</link>
+      <link>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-2/</link>
       <pubDate>Tue, 05 Aug 2014 07:37:32 +0000</pubDate>
       
-      <guid>/2014-08-05-sutadying-rails-and-vim-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-08-05-sutadying-rails-and-vim-1&#34; title=&#34;railsでvimのお勉強#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;OSセットアップからrailsアプリの作成までやりました。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-08-05-sutadying-rails-and-vim-1&#34; title=&#34;railsでvimのお勉強#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;OSセットアップからrailsアプリの作成までやりました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>railsでvimのお勉強#1</title>
-      <link>/2014-08-05-sutadying-rails-and-vim-1/</link>
+      <link>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-1/</link>
       <pubDate>Tue, 05 Aug 2014 02:30:26 +0000</pubDate>
       
-      <guid>/2014-08-05-sutadying-rails-and-vim-1/</guid>
+      <guid>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.vim.org/&#34; target=&#34;_blank&#34;&gt;vim&lt;/a&gt;、プログラマならみんな手足のように使えますよね。&lt;/p&gt;
 
 &lt;p&gt;ま、自分はまったく使えませんが。&lt;/p&gt;
@@ -1305,10 +1305,10 @@
     
     <item>
       <title>ruby(dbi) &#43; db(sqlite3)</title>
-      <link>/2014-06-19-rubydbsqlite3/</link>
+      <link>https://fileszero.kimurak.net/2014-06-19-rubydbsqlite3/</link>
       <pubDate>Thu, 19 Jun 2014 04:39:34 +0000</pubDate>
       
-      <guid>/2014-06-19-rubydbsqlite3/</guid>
+      <guid>https://fileszero.kimurak.net/2014-06-19-rubydbsqlite3/</guid>
       <description>Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。
 rubyからDBにアクセスするには、
  DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。
@@ -1328,10 +1328,10 @@ Kepler &amp;#8211; http://download.eclipse.org/releases/kepler
     
     <item>
       <title>WindowsでEclipse&#43;Ruby</title>
-      <link>/2014-06-14-windows-eclipse-ruby/</link>
+      <link>https://fileszero.kimurak.net/2014-06-14-windows-eclipse-ruby/</link>
       <pubDate>Sat, 14 Jun 2014 09:07:11 +0000</pubDate>
       
-      <guid>/2014-06-14-windows-eclipse-ruby/</guid>
+      <guid>https://fileszero.kimurak.net/2014-06-14-windows-eclipse-ruby/</guid>
       <description>テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。
 軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。
 Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。
@@ -1361,10 +1361,10 @@ Project Name: FirstRubyProject
     
     <item>
       <title>SubversionをGitにする</title>
-      <link>/2014-05-14-svn-git-translate/</link>
+      <link>https://fileszero.kimurak.net/2014-05-14-svn-git-translate/</link>
       <pubDate>Wed, 14 May 2014 14:45:05 +0000</pubDate>
       
-      <guid>/2014-05-14-svn-git-translate/</guid>
+      <guid>https://fileszero.kimurak.net/2014-05-14-svn-git-translate/</guid>
       <description>作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。
 こちらを参考にさせていただきました。
 Windowsマシンでgit svnを使ってみる
@@ -1385,13 +1385,13 @@ TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bit
     
     <item>
       <title>AngularJSでバリデーション</title>
-      <link>/2014-04-17-angularjsvalidation/</link>
+      <link>https://fileszero.kimurak.net/2014-04-17-angularjsvalidation/</link>
       <pubDate>Thu, 17 Apr 2014 04:54:59 +0000</pubDate>
       
-      <guid>/2014-04-17-angularjsvalidation/</guid>
+      <guid>https://fileszero.kimurak.net/2014-04-17-angularjsvalidation/</guid>
       <description>&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS + Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS + Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;
 
 &lt;p&gt;ポイント的には&lt;/p&gt;
 
@@ -1405,43 +1405,43 @@ TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bit
     
     <item>
       <title>AngularJS &#43; Bootstrap</title>
-      <link>/2014-04-16-angularjsbootstrap/</link>
+      <link>https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap/</link>
       <pubDate>Wed, 16 Apr 2014 08:04:57 +0000</pubDate>
       
-      <guid>/2014-04-16-angularjsbootstrap/</guid>
+      <guid>https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap/</guid>
       <description>&lt;p&gt;Bootstrapはやってますね。使ったことありませんが、お手軽にきれいなサイトができるらしいっす。&lt;/p&gt;
 
-&lt;p&gt;てことで、&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
+&lt;p&gt;てことで、&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
 
 &lt;p&gt;AngularJS と Bootstrapを合わせ技で使う場合、&lt;a href=&#34;http://angular-ui.github.io/bootstrap/&#34; target=&#34;_blank&#34;&gt;UI Bootstrap&lt;/a&gt;がよさそうです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AngularJS &#43; ASP.NET MVC 4 #3(更新・削除)</title>
-      <link>/2014-04-14-angularjsasp-netmvc4_3/</link>
+      <link>https://fileszero.kimurak.net/2014-04-14-angularjsasp-netmvc4_3/</link>
       <pubDate>Mon, 14 Apr 2014 06:39:12 +0000</pubDate>
       
-      <guid>/2014-04-14-angularjsasp-netmvc4_3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2014-04-14-angularjsasp-netmvc4_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
 
 &lt;p&gt;CRUDのUです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加)</title>
-      <link>/2014-04-11-angularjsasp-netmvc4_2/</link>
+      <link>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2/</link>
       <pubDate>Fri, 11 Apr 2014 05:19:24 +0000</pubDate>
       
-      <guid>/2014-04-11-angularjsasp-netmvc4_2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
+      <guid>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)</title>
-      <link>/2014-04-11-angularjsasp-netmvc4_1/</link>
+      <link>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1/</link>
       <pubDate>Fri, 11 Apr 2014 05:18:46 +0000</pubDate>
       
-      <guid>/2014-04-11-angularjsasp-netmvc4_1/</guid>
+      <guid>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1/</guid>
       <description>&lt;p&gt;AngularJS + ASP.NET MVC 4でなんか作ってみます。&lt;/p&gt;
 
 &lt;p&gt;Visual Studio 2010 &lt;a href=&#34;http://localhost:8000/unclassified/577/&#34; title=&#34;Visual Studio 2010 + ASP.NET MVC 4&#34; target=&#34;_blank&#34;&gt;+ MVC4&lt;/a&gt;で開発します。2013とかほしいっす。&lt;/p&gt;</description>
@@ -1449,10 +1449,10 @@ TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bit
     
     <item>
       <title>Visual Studio 2010 &#43; ASP.NET MVC 4</title>
-      <link>/2014-04-09-visualstudio2010asp-netmvc4/</link>
+      <link>https://fileszero.kimurak.net/2014-04-09-visualstudio2010asp-netmvc4/</link>
       <pubDate>Wed, 09 Apr 2014 05:27:57 +0000</pubDate>
       
-      <guid>/2014-04-09-visualstudio2010asp-netmvc4/</guid>
+      <guid>https://fileszero.kimurak.net/2014-04-09-visualstudio2010asp-netmvc4/</guid>
       <description>なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。
 ただし我がVisual Studio 2010(SP1) 、つるしの状態だとMVC3までのサポートなので、4を使えるようにします。
 http://www.microsoft.com/ja-jp/download/details.aspx?id=30683から
@@ -1478,10 +1478,10 @@ D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup_JPN.exe
     
     <item>
       <title>pip をwindowsにインストール</title>
-      <link>/2014-03-19-install-pip-for-windows/</link>
+      <link>https://fileszero.kimurak.net/2014-03-19-install-pip-for-windows/</link>
       <pubDate>Wed, 19 Mar 2014 02:41:51 +0000</pubDate>
       
-      <guid>/2014-03-19-install-pip-for-windows/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-19-install-pip-for-windows/</guid>
       <description>pythonにもパッケージ管理ツールがあるみたいで、pipってのが有名なようです。
 こちらを参考にインストールします。
 get-pip.pyをD:\DownloadFiles\python\にダウンロード
@@ -1494,10 +1494,10 @@ c:\Python27\Scripts\pip.exe
     
     <item>
       <title>Sublime Text 2設定</title>
-      <link>/2014-03-14-setup-sublime-text-2/</link>
+      <link>https://fileszero.kimurak.net/2014-03-14-setup-sublime-text-2/</link>
       <pubDate>Fri, 14 Mar 2014 02:34:27 +0000</pubDate>
       
-      <guid>/2014-03-14-setup-sublime-text-2/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-14-setup-sublime-text-2/</guid>
       <description>Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。
  コード補完も動くみたいだし、ctrl+bで実行もできていい感じなんですが、
 ちょいちょい使いずらいところもあるのでカスタマイズ。
@@ -1509,10 +1509,10 @@ ctrl+@ か view-&amp;gt;show console　でコンソール(?)を表示させて�
     
     <item>
       <title>Sublime Text 2インストール(Windows)</title>
-      <link>/2014-03-13-installing-sublime-text-2-windows/</link>
+      <link>https://fileszero.kimurak.net/2014-03-13-installing-sublime-text-2-windows/</link>
       <pubDate>Thu, 13 Mar 2014 07:16:12 +0000</pubDate>
       
-      <guid>/2014-03-13-installing-sublime-text-2-windows/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-13-installing-sublime-text-2-windows/</guid>
       <description>Pythonの開発環境ってよく知らない。
 いい機会なので、なんか最近話題のSublime Text 2を使ってみます。
 無料ではないので良さげだったらお金払います。
@@ -1531,10 +1531,10 @@ C:\Program Files\Sublime Text 2\sublime_text.exeを実行します。
     
     <item>
       <title>Pythonインストール(Windows)</title>
-      <link>/2014-03-13-installing-python-windows/</link>
+      <link>https://fileszero.kimurak.net/2014-03-13-installing-python-windows/</link>
       <pubDate>Thu, 13 Mar 2014 06:54:49 +0000</pubDate>
       
-      <guid>/2014-03-13-installing-python-windows/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-13-installing-python-windows/</guid>
       <description>Pythonやってみようかと思う。
 環境は Windows7 64bit. Pythonは2系を使います。
 ダウンロード ご本尊にいき、
@@ -1556,10 +1556,10 @@ C:\Python27　にインストールされました。
     
     <item>
       <title>Raspberry Pi &#43; WiFiを安定させるVer2</title>
-      <link>/2014-03-11-raspberrypiwifistable2/</link>
+      <link>https://fileszero.kimurak.net/2014-03-11-raspberrypiwifistable2/</link>
       <pubDate>Tue, 11 Mar 2014 11:07:34 +0000</pubDate>
       
-      <guid>/2014-03-11-raspberrypiwifistable2/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-11-raspberrypiwifistable2/</guid>
       <description>以前WiFi安定化に向けて小細工したけど、結局安定してません。
 なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。
 そんな事でググって見た所こんなん発見しました。
@@ -1571,10 +1571,10 @@ Wifi and Ethernet dropout problems in raspberry pi
     
     <item>
       <title>iTunes Wifi同期できないの解決</title>
-      <link>/2014-02-11-itunes-wifi-sync/</link>
+      <link>https://fileszero.kimurak.net/2014-02-11-itunes-wifi-sync/</link>
       <pubDate>Tue, 11 Feb 2014 14:00:04 +0000</pubDate>
       
-      <guid>/2014-02-11-itunes-wifi-sync/</guid>
+      <guid>https://fileszero.kimurak.net/2014-02-11-itunes-wifi-sync/</guid>
       <description>iPadとiTunesをWifiで同期できなくで困ってたんです。
 一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
 試しにmacのipv6をオンにしてみたら動きやがった〜。
@@ -1584,10 +1584,10 @@ ipv6とか使わないからオフにしといたんだけどなー。
     
     <item>
       <title>第２種電気工事士試験 技能試験</title>
-      <link>/2014-01-18-electric-test2/</link>
+      <link>https://fileszero.kimurak.net/2014-01-18-electric-test2/</link>
       <pubDate>Sat, 18 Jan 2014 15:22:24 +0000</pubDate>
       
-      <guid>/2014-01-18-electric-test2/</guid>
+      <guid>https://fileszero.kimurak.net/2014-01-18-electric-test2/</guid>
       <description>無事筆記も合格しまして、技能もなんとか合格いたしました。
 技能は自己採点できないから、合格発表までヤキモキしますね。
 一応合格したんで、技能の方も勉強方法をメモしときます。
@@ -1640,10 +1640,10 @@ VVFの外装とか電線皮むきとか、ナイフだけで一通りの事は�
     
     <item>
       <title>Visual Studio 2010 &#43; NUnit デバッグ実行</title>
-      <link>/2014-01-17-vs2010nunitdebug/</link>
+      <link>https://fileszero.kimurak.net/2014-01-17-vs2010nunitdebug/</link>
       <pubDate>Fri, 17 Jan 2014 01:54:38 +0000</pubDate>
       
-      <guid>/2014-01-17-vs2010nunitdebug/</guid>
+      <guid>https://fileszero.kimurak.net/2014-01-17-vs2010nunitdebug/</guid>
       <description>TDDもうあたりまえになってるんでしょうかね。
 Visual StudioでNUnitデバック実行ではまったのでメモ。
 「Visual Studio NUnit デバック実行」でググるといろんなサイトが出てきますが、とりあえずこちらを参考に
@@ -1662,10 +1662,10 @@ nunit.exe.configの
     
     <item>
       <title>spam対策</title>
-      <link>/2013-11-28-ban-spam/</link>
+      <link>https://fileszero.kimurak.net/2013-11-28-ban-spam/</link>
       <pubDate>Thu, 28 Nov 2013 02:29:39 +0000</pubDate>
       
-      <guid>/2013-11-28-ban-spam/</guid>
+      <guid>https://fileszero.kimurak.net/2013-11-28-ban-spam/</guid>
       <description>今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。
 今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異常。
 ちなみにAkismetの統計では
@@ -1682,10 +1682,10 @@ Akismetと連携して自動でIPセットしてくれるようなプラグイ�
     
     <item>
       <title>rubyのインストール（ソースから版)</title>
-      <link>/2013-11-04-ruby-install-from-soruce/</link>
+      <link>https://fileszero.kimurak.net/2013-11-04-ruby-install-from-soruce/</link>
       <pubDate>Mon, 04 Nov 2013 08:54:57 +0000</pubDate>
       
-      <guid>/2013-11-04-ruby-install-from-soruce/</guid>
+      <guid>https://fileszero.kimurak.net/2013-11-04-ruby-install-from-soruce/</guid>
       <description>前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。
 今回はソースからインストールしてみます。
 さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。
@@ -1702,10 +1702,10 @@ https://www.ruby-lang.org/ja/downloads/
     
     <item>
       <title>rubyのインストール(とりあえずyum版)</title>
-      <link>/2013-11-02-installing-ruby/</link>
+      <link>https://fileszero.kimurak.net/2013-11-02-installing-ruby/</link>
       <pubDate>Sat, 02 Nov 2013 12:53:07 +0000</pubDate>
       
-      <guid>/2013-11-02-installing-ruby/</guid>
+      <guid>https://fileszero.kimurak.net/2013-11-02-installing-ruby/</guid>
       <description>yamでインストールすればとりあえず入る。（けど、最新のgemとか使えなかったりするので要注意。）
 1 2 3 4 5 6 7 8 9 10 11  $ su # rpm -q ruby パッケージ ruby はインストールされていません。 # yum install ruby ruby-devel rdoc irb # yum install rubygems # exit exit $ ruby -v ruby 1.8.7 (2011-06-30 patchlevel 352) [x86_64-linux] $ gem -v 1.3.7   パッケージ的には
 ruby x86_64 1.8.7.352-12.el6_4 updates 534 k
@@ -1715,10 +1715,10 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
     
     <item>
       <title>Rasberry Pi こまい設定</title>
-      <link>/2013-10-08-raspberry-pi-miner-setting/</link>
+      <link>https://fileszero.kimurak.net/2013-10-08-raspberry-pi-miner-setting/</link>
       <pubDate>Tue, 08 Oct 2013 07:32:12 +0000</pubDate>
       
-      <guid>/2013-10-08-raspberry-pi-miner-setting/</guid>
+      <guid>https://fileszero.kimurak.net/2013-10-08-raspberry-pi-miner-setting/</guid>
       <description>Tools もろもろ必要になりそうなツールをインストール。
 1 2 3  $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool   MacからRasPiへファイルのコピー scpを使います。
 1  mac $ scp filename pi@192.168.1.5:~/   WiFi設定 USBのwifiトングルを刺す。
@@ -1728,10 +1728,10 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
     
     <item>
       <title>Raspberry Pi &#43; shairportのノイズ</title>
-      <link>/2013-10-06-raspberrypishairportnoise/</link>
+      <link>https://fileszero.kimurak.net/2013-10-06-raspberrypishairportnoise/</link>
       <pubDate>Sun, 06 Oct 2013 12:49:14 +0000</pubDate>
       
-      <guid>/2013-10-06-raspberrypishairportnoise/</guid>
+      <guid>https://fileszero.kimurak.net/2013-10-06-raspberrypishairportnoise/</guid>
       <description>Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。
 色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじったりして、
 結局だめだったんですが&amp;#8230;
@@ -1741,10 +1741,10 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
     
     <item>
       <title>第２種電気工事士筆記終了</title>
-      <link>/2013-10-05-electric-test1/</link>
+      <link>https://fileszero.kimurak.net/2013-10-05-electric-test1/</link>
       <pubDate>Sat, 05 Oct 2013 14:22:18 +0000</pubDate>
       
-      <guid>/2013-10-05-electric-test1/</guid>
+      <guid>https://fileszero.kimurak.net/2013-10-05-electric-test1/</guid>
       <description>第２種電気工事士試験の筆記が終了しましたー。
 自己採点では何とか合格しているようです。
 一応合格した（っぽい）ので勉強方法とか書いてみます。
@@ -1789,10 +1789,10 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
     
     <item>
       <title>Raspberry Pi &#43; WiFiを安定させる</title>
-      <link>/2013-09-19-raspberrypiwifistable/</link>
+      <link>https://fileszero.kimurak.net/2013-09-19-raspberrypiwifistable/</link>
       <pubDate>Thu, 19 Sep 2013 13:47:38 +0000</pubDate>
       
-      <guid>/2013-09-19-raspberrypiwifistable/</guid>
+      <guid>https://fileszero.kimurak.net/2013-09-19-raspberrypiwifistable/</guid>
       <description>Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。
 簡単なスクリプト書いて切れてる様子なら再接続するようにします。
 $ cat /home/pi/bin/restartwlan0.sh
@@ -1807,10 +1807,10 @@ Raspberry Pi + WiFiを安定させるVer3も要参照。</description>
     
     <item>
       <title>vmware 自動起動</title>
-      <link>/2013-09-18-vmwareautostart/</link>
+      <link>https://fileszero.kimurak.net/2013-09-18-vmwareautostart/</link>
       <pubDate>Wed, 18 Sep 2013 02:30:24 +0000</pubDate>
       
-      <guid>/2013-09-18-vmwareautostart/</guid>
+      <guid>https://fileszero.kimurak.net/2013-09-18-vmwareautostart/</guid>
       <description>vmwareの自動起動設定ではまったのでメモ。
 vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、
 ホストＯＳがWindowsの場合、サービスとして登録する方法が詳細されています。
@@ -1824,10 +1824,10 @@ playerの設定もアップデートの確認やらなんやらをしないよ�
     
     <item>
       <title>Raspberry Pi &#43; Time Machine</title>
-      <link>/2013-09-08-raspberry-pi-time-machine/</link>
+      <link>https://fileszero.kimurak.net/2013-09-08-raspberry-pi-time-machine/</link>
       <pubDate>Sun, 08 Sep 2013 10:48:58 +0000</pubDate>
       
-      <guid>/2013-09-08-raspberry-pi-time-machine/</guid>
+      <guid>https://fileszero.kimurak.net/2013-09-08-raspberry-pi-time-machine/</guid>
       <description>$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev
 $ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz
 $ cd netatalk-3.0.5/
@@ -1847,10 +1847,10 @@ proc /proc proc defaults 0 0
     
     <item>
       <title>Raspberry Pi &#43; SAMBA</title>
-      <link>/2013-08-30-raspberry-pi-samba/</link>
+      <link>https://fileszero.kimurak.net/2013-08-30-raspberry-pi-samba/</link>
       <pubDate>Fri, 30 Aug 2013 13:37:01 +0000</pubDate>
       
-      <guid>/2013-08-30-raspberry-pi-samba/</guid>
+      <guid>https://fileszero.kimurak.net/2013-08-30-raspberry-pi-samba/</guid>
       <description>省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。
 作業前には
 $ sudo rpi-update
@@ -1875,10 +1875,10 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes</description>
     
     <item>
       <title>avahiとlocal</title>
-      <link>/2013-08-30-avahi-and-local/</link>
+      <link>https://fileszero.kimurak.net/2013-08-30-avahi-and-local/</link>
       <pubDate>Fri, 30 Aug 2013 10:23:40 +0000</pubDate>
       
-      <guid>/2013-08-30-avahi-and-local/</guid>
+      <guid>https://fileszero.kimurak.net/2013-08-30-avahi-and-local/</guid>
       <description>syslogにこんな感じのメセージがでてavahiが起動しませんでした。
 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves
 Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus
@@ -1889,10 +1889,10 @@ Aug 29 23:49:16 raspi avahi: since .</description>
     
     <item>
       <title>Raspberry Pi &#43; USB-DAC</title>
-      <link>/2013-08-26-raspberry-pi-usb-dac/</link>
+      <link>https://fileszero.kimurak.net/2013-08-26-raspberry-pi-usb-dac/</link>
       <pubDate>Mon, 26 Aug 2013 14:47:38 +0000</pubDate>
       
-      <guid>/2013-08-26-raspberry-pi-usb-dac/</guid>
+      <guid>https://fileszero.kimurak.net/2013-08-26-raspberry-pi-usb-dac/</guid>
       <description>Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。
 デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。
 内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。
@@ -1918,10 +1918,10 @@ dwc_otg.fiq_split_enable=0
     
     <item>
       <title>Raspberry Pi &#43; AirPlay</title>
-      <link>/2013-08-21-raspberry-pi-airplay/</link>
+      <link>https://fileszero.kimurak.net/2013-08-21-raspberry-pi-airplay/</link>
       <pubDate>Wed, 21 Aug 2013 14:24:01 +0000</pubDate>
       
-      <guid>/2013-08-21-raspberry-pi-airplay/</guid>
+      <guid>https://fileszero.kimurak.net/2013-08-21-raspberry-pi-airplay/</guid>
       <description>Raspberry PiにAirPlay入れたメモ
 参考：
 Raspberry Piを「AirPlay化」して音楽をストリーミングする方法
@@ -1942,10 +1942,10 @@ $ sudo chkconfig dbus on
     
     <item>
       <title>Raspberry Pi</title>
-      <link>/2013-08-13-raspberry-pi/</link>
+      <link>https://fileszero.kimurak.net/2013-08-13-raspberry-pi/</link>
       <pubDate>Tue, 13 Aug 2013 04:07:16 +0000</pubDate>
       
-      <guid>/2013-08-13-raspberry-pi/</guid>
+      <guid>https://fileszero.kimurak.net/2013-08-13-raspberry-pi/</guid>
       <description>日経のRaspberry Piセット本が増刷されてたので、買ってみました。
 OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。
 一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。
@@ -1964,10 +1964,10 @@ Puttyとか適当なSSHクライアントで接続します。
     
     <item>
       <title>第２種電気工事士</title>
-      <link>/2013-07-04-electric-worker/</link>
+      <link>https://fileszero.kimurak.net/2013-07-04-electric-worker/</link>
       <pubDate>Thu, 04 Jul 2013 12:39:34 +0000</pubDate>
       
-      <guid>/2013-07-04-electric-worker/</guid>
+      <guid>https://fileszero.kimurak.net/2013-07-04-electric-worker/</guid>
       <description>ソフトウエアばっかりやってないでたまには現物に触りましょう。
 ってことで、第２種電気工事士の試験に挑戦してみようかと思っております。
 とはいえ、電気の知識とか全然ないんで、合格できるかどうかは半々ってとこですかね。
@@ -1981,10 +1981,10 @@ Puttyとか適当なSSHクライアントで接続します。
     
     <item>
       <title>PDOのコンストラクタが遅い</title>
-      <link>/2013-06-17-pdo-constracter-slow/</link>
+      <link>https://fileszero.kimurak.net/2013-06-17-pdo-constracter-slow/</link>
       <pubDate>Mon, 17 Jun 2013 12:11:33 +0000</pubDate>
       
-      <guid>/2013-06-17-pdo-constracter-slow/</guid>
+      <guid>https://fileszero.kimurak.net/2013-06-17-pdo-constracter-slow/</guid>
       <description>phpが妙に遅いのでちょっと処理を追っかけてみたところ、
 どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。
 いまどきのPCでそりゃ無いでしょ。
@@ -1995,10 +1995,10 @@ Puttyとか適当なSSHクライアントで接続します。
     
     <item>
       <title>jQuery mobileのイベントバインドの記述場所</title>
-      <link>/2013-06-13-where-should-i-write-event-bind-code/</link>
+      <link>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</link>
       <pubDate>Thu, 13 Jun 2013 13:24:10 +0000</pubDate>
       
-      <guid>/2013-06-13-where-should-i-write-event-bind-code/</guid>
+      <guid>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</guid>
       <description>jQuery mobileなかなか難しいです。
 jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。
 ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。
@@ -2010,10 +2010,10 @@ ajaxなページ遷移をしないようにすれば従来どおりの概念で�
     
     <item>
       <title>Tiny Tiny RSS – Android Clientをビルドしてみる</title>
-      <link>/2013-06-03-buidling-ttrss-android/</link>
+      <link>https://fileszero.kimurak.net/2013-06-03-buidling-ttrss-android/</link>
       <pubDate>Mon, 03 Jun 2013 14:45:09 +0000</pubDate>
       
-      <guid>/2013-06-03-buidling-ttrss-android/</guid>
+      <guid>https://fileszero.kimurak.net/2013-06-03-buidling-ttrss-android/</guid>
       <description>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。
 APIバージョンを確認→17でOK。
 Google APIsを入れてみる→ダメ。
@@ -2028,10 +2028,10 @@ Android-ViewPagerIndicator こちらもGitHubで公開されています。
     
     <item>
       <title>ADTのアップデート</title>
-      <link>/2013-06-03-updating-adt/</link>
+      <link>https://fileszero.kimurak.net/2013-06-03-updating-adt/</link>
       <pubDate>Mon, 03 Jun 2013 12:41:36 +0000</pubDate>
       
-      <guid>/2013-06-03-updating-adt/</guid>
+      <guid>https://fileszero.kimurak.net/2013-06-03-updating-adt/</guid>
       <description>前回 git 使ってみる流れでTiny Tiny RSS – Android Clientをビルドしようとしたけど、
 ADTアップデートしろと出ました。
 こんなん
@@ -2053,10 +2053,10 @@ Work withのとこのAdd-&amp;gt;ArchiveでZIPを指定してみます。
     
     <item>
       <title>gitを使ってみる</title>
-      <link>/2013-05-31-using-git/</link>
+      <link>https://fileszero.kimurak.net/2013-05-31-using-git/</link>
       <pubDate>Fri, 31 May 2013 13:37:37 +0000</pubDate>
       
-      <guid>/2013-05-31-using-git/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-31-using-git/</guid>
       <description>gitインストールしたんで使ってみましょう。
 手始めにGitHubからソースをいただいてみます。
 お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。
@@ -2069,10 +2069,10 @@ Work withのとこのAdd-&amp;gt;ArchiveでZIPを指定してみます。
     
     <item>
       <title>gitはじめてみる</title>
-      <link>/2013-05-30-starting-git/</link>
+      <link>https://fileszero.kimurak.net/2013-05-30-starting-git/</link>
       <pubDate>Thu, 30 May 2013 14:18:41 +0000</pubDate>
       
-      <guid>/2013-05-30-starting-git/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-30-starting-git/</guid>
       <description>git　みんな使ってますね。みんなって誰だよ。
 こんなサービスもできたりして、盛り上がってますな。
 少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。
@@ -2095,10 +2095,10 @@ Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。
     
     <item>
       <title>jQuery Mobileのpageinitが発火しない</title>
-      <link>/2013-05-28-pageinit-dose-not-fire/</link>
+      <link>https://fileszero.kimurak.net/2013-05-28-pageinit-dose-not-fire/</link>
       <pubDate>Tue, 28 May 2013 13:02:51 +0000</pubDate>
       
-      <guid>/2013-05-28-pageinit-dose-not-fire/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-28-pageinit-dose-not-fire/</guid>
       <description>PHPついでにjQuery Mobileはじめました。
 jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバインドしろみたいな事が書いてあって、
 さらにpageinitの説明見ると
@@ -2111,10 +2111,10 @@ jQueryも良くわからんのにmobileは早すぎたか？</description>
     
     <item>
       <title>Eclipseでsmarty</title>
-      <link>/2013-05-26-eclipse-with-smarty/</link>
+      <link>https://fileszero.kimurak.net/2013-05-26-eclipse-with-smarty/</link>
       <pubDate>Sun, 26 May 2013 13:21:51 +0000</pubDate>
       
-      <guid>/2013-05-26-eclipse-with-smarty/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-26-eclipse-with-smarty/</guid>
       <description>EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。
 MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。
 テンプレートエンジンではsmartyとか有名みたいですね。
@@ -2146,10 +2146,10 @@ Didn&amp;#8217;t find the default PHP executable, please define a default PHP ex
     
     <item>
       <title>Tiny Tiny RSSのFeed更新</title>
-      <link>/2013-05-23-tiny-tiny-rss-update-feeds/</link>
+      <link>https://fileszero.kimurak.net/2013-05-23-tiny-tiny-rss-update-feeds/</link>
       <pubDate>Thu, 23 May 2013 13:33:41 +0000</pubDate>
       
-      <guid>/2013-05-23-tiny-tiny-rss-update-feeds/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-23-tiny-tiny-rss-update-feeds/</guid>
       <description>Tiny Tiny RSS良い感じで使っております。
 webのUI上からフィードをダブルクリックすると記事が更新されるんですが、
 自動で定期的に更新してくれないと困りますね。
@@ -2190,10 +2190,10 @@ rootのスケジュールはさっくり消して、
     
     <item>
       <title>Tiny Tiny RSS</title>
-      <link>/2013-05-21-tiny-tiny-rss/</link>
+      <link>https://fileszero.kimurak.net/2013-05-21-tiny-tiny-rss/</link>
       <pubDate>Tue, 21 May 2013 14:18:03 +0000</pubDate>
       
-      <guid>/2013-05-21-tiny-tiny-rss/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-21-tiny-tiny-rss/</guid>
       <description>Google Readerが終わってしまいますね。
 feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。
 ざっと検索したところTiny Tiny RSSが良いみたい。
@@ -2207,10 +2207,10 @@ wgetで落とすとなぜだかファイル名が「1.7.9」とかになるの�
     
     <item>
       <title>MySQLの設定(文字コード)</title>
-      <link>/2013-05-20-mysql-setting/</link>
+      <link>https://fileszero.kimurak.net/2013-05-20-mysql-setting/</link>
       <pubDate>Mon, 20 May 2013 14:23:17 +0000</pubDate>
       
-      <guid>/2013-05-20-mysql-setting/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-20-mysql-setting/</guid>
       <description>素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。
 XAMPPのコントロールパネルからmy.iniを編集。
  1 2 3 4 5 6  ## UTF 8 Settings #init-connect=\&amp;#39;SET NAMES utf8\&amp;#39; #collation_server=utf8_unicode_ci #character_set_server=utf8 #skip-character-set-client-handshake #character_sets-dir=&amp;#34;D:/xampp/mysql/share/charsets&amp;#34;   という箇所があったので、コメントを解除してみます。
@@ -2224,10 +2224,10 @@ MySQLのログを見ると
     
     <item>
       <title>EclipseでDatabase開発</title>
-      <link>/2013-05-20-developping-database-on-eclipse/</link>
+      <link>https://fileszero.kimurak.net/2013-05-20-developping-database-on-eclipse/</link>
       <pubDate>Mon, 20 May 2013 14:05:09 +0000</pubDate>
       
-      <guid>/2013-05-20-developping-database-on-eclipse/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-20-developping-database-on-eclipse/</guid>
       <description>PHPといえばWebアプリ、Webアプリといえばデータベース。
 ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。
 開発環境がXAMPP+Eclipse+PDTなのでDBMSにはMySQLを使います。
@@ -2261,10 +2261,10 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
     
     <item>
       <title>PHPをはじめてみる(4)</title>
-      <link>/2013-05-16-starting-php-4/</link>
+      <link>https://fileszero.kimurak.net/2013-05-16-starting-php-4/</link>
       <pubDate>Thu, 16 May 2013 12:51:33 +0000</pubDate>
       
-      <guid>/2013-05-16-starting-php-4/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-16-starting-php-4/</guid>
       <description>まだ続くのかい。
 前回は簡単なプログラムを実行してみたので、今回はデバッグしてみようかと思います。
 DEBUG とりあえずブレークポイントを設定して、
@@ -2278,10 +2278,10 @@ php.iniの最後に
     
     <item>
       <title>PHPをはじめてみる(3)</title>
-      <link>/2013-05-15-starting-php-3/</link>
+      <link>https://fileszero.kimurak.net/2013-05-15-starting-php-3/</link>
       <pubDate>Wed, 15 May 2013 15:00:09 +0000</pubDate>
       
-      <guid>/2013-05-15-starting-php-3/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-15-starting-php-3/</guid>
       <description>Eclipse の調整 前回でインストールは終わったのでこまい設定をします。
 なるべく素の状態で使う主義ですが、以下の設定はしときます。
 Window-Preferences設定画面を開いて。
@@ -2303,10 +2303,10 @@ File Nameをindex.phpに。
     
     <item>
       <title>PHPをはじめてみる(2)</title>
-      <link>/2013-05-14-starting-php-2/</link>
+      <link>https://fileszero.kimurak.net/2013-05-14-starting-php-2/</link>
       <pubDate>Tue, 14 May 2013 15:28:50 +0000</pubDate>
       
-      <guid>/2013-05-14-starting-php-2/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-14-starting-php-2/</guid>
       <description>Eclipse PDT まさかの第二回。
 前回でXAMPPが一応入ったので、今回はEclipse PDTを入れて見る。
 まずはダウンロード
@@ -2323,10 +2323,10 @@ File Nameをindex.phpに。
     
     <item>
       <title>PHPをはじめてみる(1)</title>
-      <link>/2013-05-13-starting-php/</link>
+      <link>https://fileszero.kimurak.net/2013-05-13-starting-php/</link>
       <pubDate>Mon, 13 May 2013 14:57:26 +0000</pubDate>
       
-      <guid>/2013-05-13-starting-php/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-13-starting-php/</guid>
       <description>このブログ、VPSでやってます。
 せっかくなんでPHPとかやってみようかと思います。
 実は、ちょろっとWeb記事見ながらサンプル走らせたことぐらいはあるんですが、動的型付け言語にどーしてもなじめなくって、あんまり真面目に取り組んだこと無いんです。
@@ -2358,10 +2358,10 @@ Apacheをスタートさせると今度はこんな…
     
     <item>
       <title>ブログ書くのに必要な装備</title>
-      <link>/2013-05-11-equipment-for-blogging/</link>
+      <link>https://fileszero.kimurak.net/2013-05-11-equipment-for-blogging/</link>
       <pubDate>Sat, 11 May 2013 01:21:03 +0000</pubDate>
       
-      <guid>/2013-05-11-equipment-for-blogging/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-11-equipment-for-blogging/</guid>
       <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
 スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
 WordPressのプラグインより先に導入するべしですな。
@@ -2388,10 +2388,10 @@ SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます�
     
     <item>
       <title>WordPressはじめました</title>
-      <link>/2013-05-10-start-wordpress/</link>
+      <link>https://fileszero.kimurak.net/2013-05-10-start-wordpress/</link>
       <pubDate>Fri, 10 May 2013 15:43:38 +0000</pubDate>
       
-      <guid>/2013-05-10-start-wordpress/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-10-start-wordpress/</guid>
       <description>書くことないけどはじめるのが大事。
 初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。
 これからカスタマイズを進めていかねば。

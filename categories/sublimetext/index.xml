@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sublimetext on FILES=0</title>
-    <link>/categories/sublimetext/</link>
+    <link>https://fileszero.kimurak.net/categories/sublimetext/</link>
     <description>Recent content in Sublimetext on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Jun 2015 06:10:50 +0000</lastBuildDate>
     
-	<atom:link href="/categories/sublimetext/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/sublimetext/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SublimeTextの設定をGitで共有</title>
-      <link>/2015-06-10-sync-sublime-config-with-git/</link>
+      <link>https://fileszero.kimurak.net/2015-06-10-sync-sublime-config-with-git/</link>
       <pubDate>Wed, 10 Jun 2015 06:10:50 +0000</pubDate>
       
-      <guid>/2015-06-10-sync-sublime-config-with-git/</guid>
+      <guid>https://fileszero.kimurak.net/2015-06-10-sync-sublime-config-with-git/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.sublimetext.com/3&#34; target=&#34;_blank&#34;&gt;SublimeText3&lt;/a&gt;使い始めてみました。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://atom.io/&#34; target=&#34;_blank&#34;&gt;Atom&lt;/a&gt;も使ってみたけど、ちょっと重いよね。&lt;/p&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>Sublime Text 2設定</title>
-      <link>/2014-03-14-setup-sublime-text-2/</link>
+      <link>https://fileszero.kimurak.net/2014-03-14-setup-sublime-text-2/</link>
       <pubDate>Fri, 14 Mar 2014 02:34:27 +0000</pubDate>
       
-      <guid>/2014-03-14-setup-sublime-text-2/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-14-setup-sublime-text-2/</guid>
       <description>Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。
  コード補完も動くみたいだし、ctrl+bで実行もできていい感じなんですが、
 ちょいちょい使いずらいところもあるのでカスタマイズ。
@@ -45,10 +45,10 @@ ctrl+@ か view-&amp;gt;show console　でコンソール(?)を表示させて�
     
     <item>
       <title>Sublime Text 2インストール(Windows)</title>
-      <link>/2014-03-13-installing-sublime-text-2-windows/</link>
+      <link>https://fileszero.kimurak.net/2014-03-13-installing-sublime-text-2-windows/</link>
       <pubDate>Thu, 13 Mar 2014 07:16:12 +0000</pubDate>
       
-      <guid>/2014-03-13-installing-sublime-text-2-windows/</guid>
+      <guid>https://fileszero.kimurak.net/2014-03-13-installing-sublime-text-2-windows/</guid>
       <description>Pythonの開発環境ってよく知らない。
 いい機会なので、なんか最近話題のSublime Text 2を使ってみます。
 無料ではないので良さげだったらお金払います。

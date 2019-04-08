@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Editor on FILES=0</title>
-    <link>/categories/editor/</link>
+    <link>https://fileszero.kimurak.net/categories/editor/</link>
     <description>Recent content in Editor on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 14 Dec 2016 03:42:35 +0000</lastBuildDate>
     
-	<atom:link href="/categories/editor/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/editor/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Visual Studio Code メモ</title>
-      <link>/2016-12-14-visual-studio-code-memo/</link>
+      <link>https://fileszero.kimurak.net/2016-12-14-visual-studio-code-memo/</link>
       <pubDate>Wed, 14 Dec 2016 03:42:35 +0000</pubDate>
       
-      <guid>/2016-12-14-visual-studio-code-memo/</guid>
+      <guid>https://fileszero.kimurak.net/2016-12-14-visual-studio-code-memo/</guid>
       <description>&lt;p&gt;Visual Studio Code良いですよね。Sublime(買って)使ってましたが乗り換えようかと思っとります。&lt;/p&gt;
 
 &lt;p&gt;随時更新でちょっとしたメモを残しときます。&lt;/p&gt;</description>

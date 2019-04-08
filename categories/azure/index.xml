@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure on FILES=0</title>
-    <link>/categories/azure/</link>
+    <link>https://fileszero.kimurak.net/categories/azure/</link>
     <description>Recent content in Azure on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 14 Feb 2018 07:06:30 +0000</lastBuildDate>
     
-	<atom:link href="/categories/azure/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/azure/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Azure Functionsの雰囲気をローカルで試す</title>
-      <link>/2018-02-14-try-azure-functions-on-local/</link>
+      <link>https://fileszero.kimurak.net/2018-02-14-try-azure-functions-on-local/</link>
       <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
       
-      <guid>/2018-02-14-try-azure-functions-on-local/</guid>
+      <guid>https://fileszero.kimurak.net/2018-02-14-try-azure-functions-on-local/</guid>
       <description>&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;
 
 &lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;

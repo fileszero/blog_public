@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php on FILES=0</title>
-    <link>/categories/php/</link>
+    <link>https://fileszero.kimurak.net/categories/php/</link>
     <description>Recent content in Php on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Apr 2019 04:47:49 +0000</lastBuildDate>
     
-	<atom:link href="/categories/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</title>
-      <link>/2019-04-02-debug-docker-php-xdebug-vscode/</link>
+      <link>https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/</link>
       <pubDate>Tue, 02 Apr 2019 04:47:49 +0000</pubDate>
       
-      <guid>/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
+      <guid>https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/</guid>
       <description>&lt;p&gt;Dockerでwordpress環境を作ってプラグインのデバックをしたかったのでxdebugを使ったんですが、&lt;/p&gt;
 
 &lt;p&gt;ブレークしなくて激しくはまったのでメモ。&lt;/p&gt;
@@ -28,19 +28,19 @@
     
     <item>
       <title>Laravel tips&amp;オレオレルール</title>
-      <link>/2016-01-09-laravel-tips-and-rule/</link>
+      <link>https://fileszero.kimurak.net/2016-01-09-laravel-tips-and-rule/</link>
       <pubDate>Sat, 09 Jan 2016 08:14:59 +0000</pubDate>
       
-      <guid>/2016-01-09-laravel-tips-and-rule/</guid>
+      <guid>https://fileszero.kimurak.net/2016-01-09-laravel-tips-and-rule/</guid>
       <description>&lt;p&gt;laravel関係の細かいメモ。お勉強しながら更新なので随時更新する予定。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Laravel&#43;Homestead&#43;XDebug&#43;Eclipse</title>
-      <link>/2015-12-12-laravelhomesteadeclipse/</link>
+      <link>https://fileszero.kimurak.net/2015-12-12-laravelhomesteadeclipse/</link>
       <pubDate>Sat, 12 Dec 2015 12:04:26 +0000</pubDate>
       
-      <guid>/2015-12-12-laravelhomesteadeclipse/</guid>
+      <guid>https://fileszero.kimurak.net/2015-12-12-laravelhomesteadeclipse/</guid>
       <description>&lt;p&gt;Laravelちょっと&lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart.html&#34; target=&#34;_blank&#34;&gt;チュートリアル&lt;/a&gt;的なことをやってみましたが、良い感じです。&lt;/p&gt;
 
 &lt;p&gt;開発環境の設定で若干試行錯誤があったので、メモしときます。&lt;/p&gt;</description>
@@ -48,21 +48,21 @@
     
     <item>
       <title>Laravel を使ってみる（Macセットアップ編)</title>
-      <link>/2015-12-04-try-laravel-mac-setup/</link>
+      <link>https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/</link>
       <pubDate>Fri, 04 Dec 2015 15:48:52 +0000</pubDate>
       
-      <guid>/2015-12-04-try-laravel-mac-setup/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
+      <guid>https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
 
 &lt;p&gt;Shellで作業を進めます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Laravel を使ってみる（Windowsセットアップ編)</title>
-      <link>/2015-12-04-try-laravel-windows-setup/</link>
+      <link>https://fileszero.kimurak.net/2015-12-04-try-laravel-windows-setup/</link>
       <pubDate>Fri, 04 Dec 2015 15:47:18 +0000</pubDate>
       
-      <guid>/2015-12-04-try-laravel-windows-setup/</guid>
+      <guid>https://fileszero.kimurak.net/2015-12-04-try-laravel-windows-setup/</guid>
       <description>&lt;p&gt;ちょっとPHPを触ることになるかもしれないので、お勉強がてら&lt;a href=&#34;http://qiita.com/shukotang/items/055058b33b553b48c164&#34; target=&#34;_blank&#34;&gt;最近のフレームワーク事情&lt;/a&gt;を見てたらLaravelってのが人気らしい。&lt;/p&gt;
 
 &lt;p&gt;初耳ー。&lt;/p&gt;
@@ -74,10 +74,10 @@
     
     <item>
       <title>PDOのコンストラクタが遅い</title>
-      <link>/2013-06-17-pdo-constracter-slow/</link>
+      <link>https://fileszero.kimurak.net/2013-06-17-pdo-constracter-slow/</link>
       <pubDate>Mon, 17 Jun 2013 12:11:33 +0000</pubDate>
       
-      <guid>/2013-06-17-pdo-constracter-slow/</guid>
+      <guid>https://fileszero.kimurak.net/2013-06-17-pdo-constracter-slow/</guid>
       <description>phpが妙に遅いのでちょっと処理を追っかけてみたところ、
 どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。
 いまどきのPCでそりゃ無いでしょ。
@@ -88,10 +88,10 @@
     
     <item>
       <title>jQuery mobileのイベントバインドの記述場所</title>
-      <link>/2013-06-13-where-should-i-write-event-bind-code/</link>
+      <link>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</link>
       <pubDate>Thu, 13 Jun 2013 13:24:10 +0000</pubDate>
       
-      <guid>/2013-06-13-where-should-i-write-event-bind-code/</guid>
+      <guid>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</guid>
       <description>jQuery mobileなかなか難しいです。
 jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。
 ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。
@@ -103,10 +103,10 @@ ajaxなページ遷移をしないようにすれば従来どおりの概念で�
     
     <item>
       <title>PHPをはじめてみる(4)</title>
-      <link>/2013-05-16-starting-php-4/</link>
+      <link>https://fileszero.kimurak.net/2013-05-16-starting-php-4/</link>
       <pubDate>Thu, 16 May 2013 12:51:33 +0000</pubDate>
       
-      <guid>/2013-05-16-starting-php-4/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-16-starting-php-4/</guid>
       <description>まだ続くのかい。
 前回は簡単なプログラムを実行してみたので、今回はデバッグしてみようかと思います。
 DEBUG とりあえずブレークポイントを設定して、
@@ -120,10 +120,10 @@ php.iniの最後に
     
     <item>
       <title>PHPをはじめてみる(3)</title>
-      <link>/2013-05-15-starting-php-3/</link>
+      <link>https://fileszero.kimurak.net/2013-05-15-starting-php-3/</link>
       <pubDate>Wed, 15 May 2013 15:00:09 +0000</pubDate>
       
-      <guid>/2013-05-15-starting-php-3/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-15-starting-php-3/</guid>
       <description>Eclipse の調整 前回でインストールは終わったのでこまい設定をします。
 なるべく素の状態で使う主義ですが、以下の設定はしときます。
 Window-Preferences設定画面を開いて。
@@ -145,10 +145,10 @@ File Nameをindex.phpに。
     
     <item>
       <title>PHPをはじめてみる(2)</title>
-      <link>/2013-05-14-starting-php-2/</link>
+      <link>https://fileszero.kimurak.net/2013-05-14-starting-php-2/</link>
       <pubDate>Tue, 14 May 2013 15:28:50 +0000</pubDate>
       
-      <guid>/2013-05-14-starting-php-2/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-14-starting-php-2/</guid>
       <description>Eclipse PDT まさかの第二回。
 前回でXAMPPが一応入ったので、今回はEclipse PDTを入れて見る。
 まずはダウンロード
@@ -165,10 +165,10 @@ File Nameをindex.phpに。
     
     <item>
       <title>PHPをはじめてみる(1)</title>
-      <link>/2013-05-13-starting-php/</link>
+      <link>https://fileszero.kimurak.net/2013-05-13-starting-php/</link>
       <pubDate>Mon, 13 May 2013 14:57:26 +0000</pubDate>
       
-      <guid>/2013-05-13-starting-php/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-13-starting-php/</guid>
       <description>このブログ、VPSでやってます。
 せっかくなんでPHPとかやってみようかと思います。
 実は、ちょろっとWeb記事見ながらサンプル走らせたことぐらいはあるんですが、動的型付け言語にどーしてもなじめなくって、あんまり真面目に取り組んだこと無いんです。

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Onsenui on FILES=0</title>
-    <link>/categories/onsenui/</link>
+    <link>https://fileszero.kimurak.net/categories/onsenui/</link>
     <description>Recent content in Onsenui on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Jun 2016 06:11:12 +0000</lastBuildDate>
     
-	<atom:link href="/categories/onsenui/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/onsenui/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OnsenUI&#43;VisualStudio2015</title>
-      <link>/2016-06-27-onsenui-visualstudio2015/</link>
+      <link>https://fileszero.kimurak.net/2016-06-27-onsenui-visualstudio2015/</link>
       <pubDate>Mon, 27 Jun 2016 06:11:12 +0000</pubDate>
       
-      <guid>/2016-06-27-onsenui-visualstudio2015/</guid>
+      <guid>https://fileszero.kimurak.net/2016-06-27-onsenui-visualstudio2015/</guid>
       <description>&lt;p&gt;Visual studio2015 update 2&lt;/p&gt;
 
 &lt;p&gt;参考　&lt;a href=&#34;http://ardalis.com/configure-grunt-in-visual-studio-2015&#34; target=&#34;_blank&#34;&gt;http://ardalis.com/configure-grunt-in-visual-studio-2015&lt;/a&gt;&lt;/p&gt;</description>

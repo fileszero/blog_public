@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on FILES=0</title>
-    <link>/categories/windows/</link>
+    <link>https://fileszero.kimurak.net/categories/windows/</link>
     <description>Recent content in Windows on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 08 Dec 2016 08:24:22 +0000</lastBuildDate>
     
-	<atom:link href="/categories/windows/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/windows/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Windows7でVirtualBoxのゲストOSを自動起動</title>
-      <link>/2016-12-08-startup-virtualbox-automatically/</link>
+      <link>https://fileszero.kimurak.net/2016-12-08-startup-virtualbox-automatically/</link>
       <pubDate>Thu, 08 Dec 2016 08:24:22 +0000</pubDate>
       
-      <guid>/2016-12-08-startup-virtualbox-automatically/</guid>
+      <guid>https://fileszero.kimurak.net/2016-12-08-startup-virtualbox-automatically/</guid>
       <description>&lt;p&gt;VirtualBoxのvmをwindows起動時（ログインしてない状態）に自動起動するようしてみます。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>INotifyPropertyChangedの実装</title>
-      <link>/2016-01-27-implimentation-of-inotifypropertychanged/</link>
+      <link>https://fileszero.kimurak.net/2016-01-27-implimentation-of-inotifypropertychanged/</link>
       <pubDate>Wed, 27 Jan 2016 08:22:57 +0000</pubDate>
       
-      <guid>/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
+      <guid>https://fileszero.kimurak.net/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
       <description>&lt;p&gt;久々にWindows Formsなプログラムを作っております。&lt;/p&gt;
 
 &lt;p&gt;(どのぐらい久々かというと、最後にの記憶がVB6辺りという。。。)&lt;/p&gt;
@@ -43,10 +43,10 @@
     
     <item>
       <title>OneDrive for Bisinessにバックアップする</title>
-      <link>/2015-02-15-webdav-on-win7-cdrive-issue/</link>
+      <link>https://fileszero.kimurak.net/2015-02-15-webdav-on-win7-cdrive-issue/</link>
       <pubDate>Sun, 15 Feb 2015 07:00:41 +0000</pubDate>
       
-      <guid>/2015-02-15-webdav-on-win7-cdrive-issue/</guid>
+      <guid>https://fileszero.kimurak.net/2015-02-15-webdav-on-win7-cdrive-issue/</guid>
       <description>&lt;p&gt;Office365を試用中です。&lt;/p&gt;
 
 &lt;p&gt;エディションはbusiness premium。&lt;/p&gt;

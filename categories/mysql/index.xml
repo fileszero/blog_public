@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysql on FILES=0</title>
-    <link>/categories/mysql/</link>
+    <link>https://fileszero.kimurak.net/categories/mysql/</link>
     <description>Recent content in Mysql on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 May 2013 14:23:17 +0000</lastBuildDate>
     
-	<atom:link href="/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fileszero.kimurak.net/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MySQLの設定(文字コード)</title>
-      <link>/2013-05-20-mysql-setting/</link>
+      <link>https://fileszero.kimurak.net/2013-05-20-mysql-setting/</link>
       <pubDate>Mon, 20 May 2013 14:23:17 +0000</pubDate>
       
-      <guid>/2013-05-20-mysql-setting/</guid>
+      <guid>https://fileszero.kimurak.net/2013-05-20-mysql-setting/</guid>
       <description>素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。
 XAMPPのコントロールパネルからmy.iniを編集。
  1 2 3 4 5 6  ## UTF 8 Settings #init-connect=\&amp;#39;SET NAMES utf8\&amp;#39; #collation_server=utf8_unicode_ci #character_set_server=utf8 #skip-character-set-client-handshake #character_sets-dir=&amp;#34;D:/xampp/mysql/share/charsets&amp;#34;   という箇所があったので、コメントを解除してみます。
