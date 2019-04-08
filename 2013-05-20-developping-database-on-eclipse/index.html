@@ -19,23 +19,23 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>EclipseでDatabase開発 - My New Hugo Site</title>
+    <title>EclipseでDatabase開発 - FILES=0</title>
     
 
 <meta name="description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
 
-<meta property="og:title" content="EclipseでDatabase開発 - My New Hugo Site">
+<meta property="og:title" content="EclipseでDatabase開発 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-05-20-developping-database-on-eclipse/">
 <meta property="og:image" content="/images/default.png">
-<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="/2013-05-20-developping-database-on-eclipse/">
-<meta name="twitter:title" content="EclipseでDatabase開発 - My New Hugo Site">
+<meta name="twitter:title" content="EclipseでDatabase開発 - FILES=0">
 <meta name="twitter:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
 <meta name="twitter:image" content="/images/default.png">
 
@@ -48,7 +48,7 @@
       "@type": "WebPage",
       "@id":"/"
     },
-    "headline": "EclipseでDatabase開発 - My New Hugo Site",
+    "headline": "EclipseでDatabase開発 - FILES=0",
     "image": {
       "@type": "ImageObject",
       "url": "/images/default.png",
@@ -59,11 +59,11 @@
     "dateModified": "2013-05-20T14:05:09JST",
     "author": {
       "@type": "Person",
-      "name": "My New Hugo Site"
+      "name": "FILES=0"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "My New Hugo Site",
+      "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
         "url": "/images/logo.png",
@@ -120,9 +120,13 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">My New Hugo Site</a>
+          <a href="/">FILES=0</a>
         </div>
         
+<div class="description">
+  How many files(0-15)?
+</div>
+
 
       </div>
     </header>
@@ -554,6 +558,24 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
 
   <div class="sections sidebar">
     
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+    </div>
+  </div>
+</section>
+
 
     <section class="sidebar">
   <header>LATESTS</header>
@@ -926,7 +948,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
     <footer class="l-footer">
     <div class="l-container">
         <p><span class="h-logo">&copy;
-                My New Hugo Site</span></p>
+                FILES=0</span></p>
         <aside>
             <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
             <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a

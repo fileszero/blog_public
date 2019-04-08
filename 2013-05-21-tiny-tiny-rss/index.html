@@ -19,23 +19,23 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>Tiny Tiny RSS - My New Hugo Site</title>
+    <title>Tiny Tiny RSS - FILES=0</title>
     
 
 <meta name="description" content="Google Readerが終わってしまいますね。feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。ざっと検索したところTiny Tiny RSSが良いみたい。まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGetwgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。データベースの用意1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.">
 
-<meta property="og:title" content="Tiny Tiny RSS - My New Hugo Site">
+<meta property="og:title" content="Tiny Tiny RSS - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-05-21-tiny-tiny-rss/">
 <meta property="og:image" content="/images/default.png">
-<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="Google Readerが終わってしまいますね。feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。ざっと検索したところTiny Tiny RSSが良いみたい。まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGetwgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。データベースの用意1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="/2013-05-21-tiny-tiny-rss/">
-<meta name="twitter:title" content="Tiny Tiny RSS - My New Hugo Site">
+<meta name="twitter:title" content="Tiny Tiny RSS - FILES=0">
 <meta name="twitter:description" content="Google Readerが終わってしまいますね。feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。ざっと検索したところTiny Tiny RSSが良いみたい。まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGetwgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。データベースの用意1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.">
 <meta name="twitter:image" content="/images/default.png">
 
@@ -48,7 +48,7 @@
       "@type": "WebPage",
       "@id":"/"
     },
-    "headline": "Tiny Tiny RSS - My New Hugo Site",
+    "headline": "Tiny Tiny RSS - FILES=0",
     "image": {
       "@type": "ImageObject",
       "url": "/images/default.png",
@@ -59,11 +59,11 @@
     "dateModified": "2013-05-21T14:18:03JST",
     "author": {
       "@type": "Person",
-      "name": "My New Hugo Site"
+      "name": "FILES=0"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "My New Hugo Site",
+      "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
         "url": "/images/logo.png",
@@ -100,9 +100,13 @@ wgetで落とすとなぜだかファイル名が「1.7.9」とかになるの�
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">My New Hugo Site</a>
+          <a href="/">FILES=0</a>
         </div>
         
+<div class="description">
+  How many files(0-15)?
+</div>
+
 
       </div>
     </header>
@@ -518,6 +522,24 @@ $ su
 
   <div class="sections sidebar">
     
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+    </div>
+  </div>
+</section>
+
 
     <section class="sidebar">
   <header>LATESTS</header>
@@ -890,7 +912,7 @@ $ su
     <footer class="l-footer">
     <div class="l-container">
         <p><span class="h-logo">&copy;
-                My New Hugo Site</span></p>
+                FILES=0</span></p>
         <aside>
             <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
             <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a

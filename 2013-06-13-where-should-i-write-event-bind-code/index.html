@@ -19,23 +19,23 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>jQuery mobileのイベントバインドの記述場所 - My New Hugo Site</title>
+    <title>jQuery mobileのイベントバインドの記述場所 - FILES=0</title>
     
 
 <meta name="description" content="jQuery mobileなかなか難しいです。jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。サンプルで実験してみます。ソース中の &amp;lt;!&amp;#8211; 候補地　Ｘ &amp;#8211;&amp;gt;にスクリプトを入れて挙動を試してみます。最初に読むページとして、「home.php」をこんな感じで作ります。1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  &amp;lt;!DOCTYPE html &amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta http-equiv=&amp;#34;Content-Type&amp;#34; content=&amp;#34;text/html; charset=UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, maximum-scale=1.5, minimum-scale=1.0,user-scalable=yes,initial-scale=1.0&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;TITLE&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css&amp;#34; /&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/jquery-1.9.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 候補地　３ --&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div data-role=&amp;#34;page&amp;#34; id=&amp;#39;home&amp;#39;&amp;gt; &amp;lt;div data-role=&amp;#34;header&amp;#34;&amp;gt; &amp;lt;h1&amp;gt;Home&amp;lt;/h1&amp;gt; &amp;lt;a href=&amp;#34;#home&amp;#34; data-icon=&amp;#34;home&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div data-role=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;next.">
 
-<meta property="og:title" content="jQuery mobileのイベントバインドの記述場所 - My New Hugo Site">
+<meta property="og:title" content="jQuery mobileのイベントバインドの記述場所 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-06-13-where-should-i-write-event-bind-code/">
 <meta property="og:image" content="/images/default.png">
-<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="jQuery mobileなかなか難しいです。jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。サンプルで実験してみます。ソース中の &amp;lt;!&amp;#8211; 候補地　Ｘ &amp;#8211;&amp;gt;にスクリプトを入れて挙動を試してみます。最初に読むページとして、「home.php」をこんな感じで作ります。1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  &amp;lt;!DOCTYPE html &amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta http-equiv=&amp;#34;Content-Type&amp;#34; content=&amp;#34;text/html; charset=UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, maximum-scale=1.5, minimum-scale=1.0,user-scalable=yes,initial-scale=1.0&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;TITLE&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css&amp;#34; /&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/jquery-1.9.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 候補地　３ --&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div data-role=&amp;#34;page&amp;#34; id=&amp;#39;home&amp;#39;&amp;gt; &amp;lt;div data-role=&amp;#34;header&amp;#34;&amp;gt; &amp;lt;h1&amp;gt;Home&amp;lt;/h1&amp;gt; &amp;lt;a href=&amp;#34;#home&amp;#34; data-icon=&amp;#34;home&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div data-role=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;next.">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="/2013-06-13-where-should-i-write-event-bind-code/">
-<meta name="twitter:title" content="jQuery mobileのイベントバインドの記述場所 - My New Hugo Site">
+<meta name="twitter:title" content="jQuery mobileのイベントバインドの記述場所 - FILES=0">
 <meta name="twitter:description" content="jQuery mobileなかなか難しいです。jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。サンプルで実験してみます。ソース中の &amp;lt;!&amp;#8211; 候補地　Ｘ &amp;#8211;&amp;gt;にスクリプトを入れて挙動を試してみます。最初に読むページとして、「home.php」をこんな感じで作ります。1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  &amp;lt;!DOCTYPE html &amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta http-equiv=&amp;#34;Content-Type&amp;#34; content=&amp;#34;text/html; charset=UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, maximum-scale=1.5, minimum-scale=1.0,user-scalable=yes,initial-scale=1.0&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;TITLE&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css&amp;#34; /&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/jquery-1.9.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 候補地　３ --&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div data-role=&amp;#34;page&amp;#34; id=&amp;#39;home&amp;#39;&amp;gt; &amp;lt;div data-role=&amp;#34;header&amp;#34;&amp;gt; &amp;lt;h1&amp;gt;Home&amp;lt;/h1&amp;gt; &amp;lt;a href=&amp;#34;#home&amp;#34; data-icon=&amp;#34;home&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div data-role=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;next.">
 <meta name="twitter:image" content="/images/default.png">
 
@@ -48,7 +48,7 @@
       "@type": "WebPage",
       "@id":"/"
     },
-    "headline": "jQuery mobileのイベントバインドの記述場所 - My New Hugo Site",
+    "headline": "jQuery mobileのイベントバインドの記述場所 - FILES=0",
     "image": {
       "@type": "ImageObject",
       "url": "/images/default.png",
@@ -59,11 +59,11 @@
     "dateModified": "2013-06-13T13:24:10JST",
     "author": {
       "@type": "Person",
-      "name": "My New Hugo Site"
+      "name": "FILES=0"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "My New Hugo Site",
+      "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
         "url": "/images/logo.png",
@@ -98,9 +98,13 @@ ajaxなページ遷移をしないようにすれば従来どおりの概念で�
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">My New Hugo Site</a>
+          <a href="/">FILES=0</a>
         </div>
         
+<div class="description">
+  How many files(0-15)?
+</div>
+
 
       </div>
     </header>
@@ -497,6 +501,24 @@ function doAction(){
 
   <div class="sections sidebar">
     
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+    </div>
+  </div>
+</section>
+
 
     <section class="sidebar">
   <header>LATESTS</header>
@@ -869,7 +891,7 @@ function doAction(){
     <footer class="l-footer">
     <div class="l-container">
         <p><span class="h-logo">&copy;
-                My New Hugo Site</span></p>
+                FILES=0</span></p>
         <aside>
             <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
             <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a

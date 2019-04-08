@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>FILES=0</title>
     <link>/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Apr 2019 13:05:43 +0900</lastBuildDate>
@@ -17,19 +17,10 @@
       <pubDate>Mon, 08 Apr 2019 13:05:43 +0900</pubDate>
       
       <guid>/2019-04-08-migrate-to-hugo/</guid>
-      <description>HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるためです。
-引っ越しの手順 引っ越しは結構大変でした。
-wordpressからのエクスポート all-in-one-wp-migrationを使いコンテンツのエクスポート。
-仮想環境作成 Dockerで移行作業用のwordpress環境を作ります。 wordpress-to-hugo-exporterを無理やり自分好みにカスタマイズしてます。
-プラグインとかもろもろ入れた環境がこちら。 ワンショットプログラムなので、コード汚いです。
-要点は
- 記事ごとにフォルダを作成する イメージはリソースとして使えるよう記事と同じフォルダに配置 コードブロックを```で変換 gistへのリンク(scriptタグ)を残す  といったところです。
-仮想環境にインポート→変換 仮想環境上にもall-in-one-wp-migrationが入ってるので、インポートします。 その後Export to HUGOします。
-HUGO環境 公式通りインストール。
-テーマはRobustというテーマがよさげだったので、フォークしてカスタマイズして使わせていただきます。
-Github Pagesで公開 CircleCIでGithub Pagesに公開するようフローを組みます。 やり方は別記事で書くかも。
-で 運用はこれからです。
-Markdownいいんだけど、日本語と記号の切り替えが面倒な気がする。 IMEの設定で「りんく」→「[]()」みたいなの設定してもいいかも。</description>
+      <description>&lt;h3 id=&#34;moved&#34;&gt;HUGOに引っ越しました&lt;/h3&gt;
+
+&lt;p&gt;Wordpressのエディタが&lt;a href=&#34;https://ja.wordpress.org/plugins/gutenberg/&#34; target=&#34;_blank&#34;&gt;Gutenberg&lt;/a&gt;に変更されましたね。
+使える人には使えるんでしょうけど、自分にはちょっと合わなかったので&lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;に引っ越してみました。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -19,23 +19,23 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>PHPをはじめてみる(1) - My New Hugo Site</title>
+    <title>PHPをはじめてみる(1) - FILES=0</title>
     
 
 <meta name="description" content="このブログ、VPSでやってます。せっかくなんでPHPとかやってみようかと思います。実は、ちょろっとWeb記事見ながらサンプル走らせたことぐらいはあるんですが、動的型付け言語にどーしてもなじめなくって、あんまり真面目に取り組んだこと無いんです。開発環境 開発環境はWindows上に構築します。とりあえずは鉄板っぽいXAMPP &#43; Eclipse PDT で行きます。そんな大そうな物を作る気はないんでテキストエディタでもいけそうな気がしますが、貧弱なのでIDEです。XAMPP いやー、ほんと便利っすよねこれ。 XAMPPサイトからWindows版インストーラをダウンロードして実行します。オプションはすべて選択。インストールフォルダはD:ドライブに変えました。「Learn more &amp;#8230;. BitNami &amp;#8230;」のチェックはOFFで。インストールが終わったらXAMPP Control Panelを開きます。なんかこんなん出てます。[Apache] Problem detected![Apache] Port 80 in use by &amp;#8220;system&amp;#8221;!Windowsのサービスで「World Wide Web Publishing Service」が動いてないので、コマンドプロンプトで netstat -ano でPIDを調べて、タスクマネージャを見てみると「NT Kernel&amp;amp;system」とかなってる。????カーネルがProt80直接握るとかあるの？う～ん、よくわからん。よくわからんので「Windows機能の有効化または無効化」の「インターネットインフォメーションサービス」をまるっと無効にしました。再起動・・・解決してねー。サービスで「Microsoft .NET Framework NGEN 」を停止。「自動(遅延開始)」だったので手動に・・・解決せず。「Web Deployment Agent Service」を停止。「自動」から手動に・・・解決！調べたらこんなん出てきた [MEMO] WebMatrix とポート80 の関係を断つ方法　MSめっ。Apacheをスタートさせると今度はこんな… うっとうしーわー。とりあえずアクセスを許可。">
 
-<meta property="og:title" content="PHPをはじめてみる(1) - My New Hugo Site">
+<meta property="og:title" content="PHPをはじめてみる(1) - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-05-13-starting-php/">
 <meta property="og:image" content="/images/default.png">
-<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="このブログ、VPSでやってます。せっかくなんでPHPとかやってみようかと思います。実は、ちょろっとWeb記事見ながらサンプル走らせたことぐらいはあるんですが、動的型付け言語にどーしてもなじめなくって、あんまり真面目に取り組んだこと無いんです。開発環境 開発環境はWindows上に構築します。とりあえずは鉄板っぽいXAMPP &#43; Eclipse PDT で行きます。そんな大そうな物を作る気はないんでテキストエディタでもいけそうな気がしますが、貧弱なのでIDEです。XAMPP いやー、ほんと便利っすよねこれ。 XAMPPサイトからWindows版インストーラをダウンロードして実行します。オプションはすべて選択。インストールフォルダはD:ドライブに変えました。「Learn more &amp;#8230;. BitNami &amp;#8230;」のチェックはOFFで。インストールが終わったらXAMPP Control Panelを開きます。なんかこんなん出てます。[Apache] Problem detected![Apache] Port 80 in use by &amp;#8220;system&amp;#8221;!Windowsのサービスで「World Wide Web Publishing Service」が動いてないので、コマンドプロンプトで netstat -ano でPIDを調べて、タスクマネージャを見てみると「NT Kernel&amp;amp;system」とかなってる。????カーネルがProt80直接握るとかあるの？う～ん、よくわからん。よくわからんので「Windows機能の有効化または無効化」の「インターネットインフォメーションサービス」をまるっと無効にしました。再起動・・・解決してねー。サービスで「Microsoft .NET Framework NGEN 」を停止。「自動(遅延開始)」だったので手動に・・・解決せず。「Web Deployment Agent Service」を停止。「自動」から手動に・・・解決！調べたらこんなん出てきた [MEMO] WebMatrix とポート80 の関係を断つ方法　MSめっ。Apacheをスタートさせると今度はこんな… うっとうしーわー。とりあえずアクセスを許可。">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="/2013-05-13-starting-php/">
-<meta name="twitter:title" content="PHPをはじめてみる(1) - My New Hugo Site">
+<meta name="twitter:title" content="PHPをはじめてみる(1) - FILES=0">
 <meta name="twitter:description" content="このブログ、VPSでやってます。せっかくなんでPHPとかやってみようかと思います。実は、ちょろっとWeb記事見ながらサンプル走らせたことぐらいはあるんですが、動的型付け言語にどーしてもなじめなくって、あんまり真面目に取り組んだこと無いんです。開発環境 開発環境はWindows上に構築します。とりあえずは鉄板っぽいXAMPP &#43; Eclipse PDT で行きます。そんな大そうな物を作る気はないんでテキストエディタでもいけそうな気がしますが、貧弱なのでIDEです。XAMPP いやー、ほんと便利っすよねこれ。 XAMPPサイトからWindows版インストーラをダウンロードして実行します。オプションはすべて選択。インストールフォルダはD:ドライブに変えました。「Learn more &amp;#8230;. BitNami &amp;#8230;」のチェックはOFFで。インストールが終わったらXAMPP Control Panelを開きます。なんかこんなん出てます。[Apache] Problem detected![Apache] Port 80 in use by &amp;#8220;system&amp;#8221;!Windowsのサービスで「World Wide Web Publishing Service」が動いてないので、コマンドプロンプトで netstat -ano でPIDを調べて、タスクマネージャを見てみると「NT Kernel&amp;amp;system」とかなってる。????カーネルがProt80直接握るとかあるの？う～ん、よくわからん。よくわからんので「Windows機能の有効化または無効化」の「インターネットインフォメーションサービス」をまるっと無効にしました。再起動・・・解決してねー。サービスで「Microsoft .NET Framework NGEN 」を停止。「自動(遅延開始)」だったので手動に・・・解決せず。「Web Deployment Agent Service」を停止。「自動」から手動に・・・解決！調べたらこんなん出てきた [MEMO] WebMatrix とポート80 の関係を断つ方法　MSめっ。Apacheをスタートさせると今度はこんな… うっとうしーわー。とりあえずアクセスを許可。">
 <meta name="twitter:image" content="/images/default.png">
 
@@ -48,7 +48,7 @@
       "@type": "WebPage",
       "@id":"/"
     },
-    "headline": "PHPをはじめてみる(1) - My New Hugo Site",
+    "headline": "PHPをはじめてみる(1) - FILES=0",
     "image": {
       "@type": "ImageObject",
       "url": "/images/default.png",
@@ -59,11 +59,11 @@
     "dateModified": "2013-05-13T14:57:26JST",
     "author": {
       "@type": "Person",
-      "name": "My New Hugo Site"
+      "name": "FILES=0"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "My New Hugo Site",
+      "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
         "url": "/images/logo.png",
@@ -118,9 +118,13 @@ Apacheをスタートさせると今度はこんな…
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">My New Hugo Site</a>
+          <a href="/">FILES=0</a>
         </div>
         
+<div class="description">
+  How many files(0-15)?
+</div>
+
 
       </div>
     </header>
@@ -443,6 +447,24 @@ Apacheをスタートさせると今度はこんな…
 
   <div class="sections sidebar">
     
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+    </div>
+  </div>
+</section>
+
 
     <section class="sidebar">
   <header>LATESTS</header>
@@ -815,7 +837,7 @@ Apacheをスタートさせると今度はこんな…
     <footer class="l-footer">
     <div class="l-container">
         <p><span class="h-logo">&copy;
-                My New Hugo Site</span></p>
+                FILES=0</span></p>
         <aside>
             <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
             <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a

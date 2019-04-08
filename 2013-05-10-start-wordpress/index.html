@@ -19,23 +19,23 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>WordPressはじめました - My New Hugo Site</title>
+    <title>WordPressはじめました - FILES=0</title>
     
 
 <meta name="description" content="書くことないけどはじめるのが大事。初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。これからカスタマイズを進めていかねば。と思ったら、パーマリンクがうまく動いてないー。nginxだからですね。設定ファイルのserverディレクティブに下を追加。`location /wordpress {index index.php index.html index.htm;# static filesinclude /etc/nginx/conf.d/common/expires.conf;# request to index.phpif (!-e $request_filename) {rewrite ^(.&#43;)$ /index.php?q=$1 last; 1 2 3 4  rewrite ^.&#43;?($/-.*) $1 last;&amp;lt;br /&amp;gt; rewrite ^.&#43;?(/.*\.php)$ $1 last;&amp;lt;br /&amp;gt; rewrite ^ /wordpress/index.php last;&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt;   }`">
 
-<meta property="og:title" content="WordPressはじめました - My New Hugo Site">
+<meta property="og:title" content="WordPressはじめました - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-05-10-start-wordpress/">
 <meta property="og:image" content="/images/default.png">
-<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="書くことないけどはじめるのが大事。初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。これからカスタマイズを進めていかねば。と思ったら、パーマリンクがうまく動いてないー。nginxだからですね。設定ファイルのserverディレクティブに下を追加。`location /wordpress {index index.php index.html index.htm;# static filesinclude /etc/nginx/conf.d/common/expires.conf;# request to index.phpif (!-e $request_filename) {rewrite ^(.&#43;)$ /index.php?q=$1 last; 1 2 3 4  rewrite ^.&#43;?($/-.*) $1 last;&amp;lt;br /&amp;gt; rewrite ^.&#43;?(/.*\.php)$ $1 last;&amp;lt;br /&amp;gt; rewrite ^ /wordpress/index.php last;&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt;   }`">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="/2013-05-10-start-wordpress/">
-<meta name="twitter:title" content="WordPressはじめました - My New Hugo Site">
+<meta name="twitter:title" content="WordPressはじめました - FILES=0">
 <meta name="twitter:description" content="書くことないけどはじめるのが大事。初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。これからカスタマイズを進めていかねば。と思ったら、パーマリンクがうまく動いてないー。nginxだからですね。設定ファイルのserverディレクティブに下を追加。`location /wordpress {index index.php index.html index.htm;# static filesinclude /etc/nginx/conf.d/common/expires.conf;# request to index.phpif (!-e $request_filename) {rewrite ^(.&#43;)$ /index.php?q=$1 last; 1 2 3 4  rewrite ^.&#43;?($/-.*) $1 last;&amp;lt;br /&amp;gt; rewrite ^.&#43;?(/.*\.php)$ $1 last;&amp;lt;br /&amp;gt; rewrite ^ /wordpress/index.php last;&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt;   }`">
 <meta name="twitter:image" content="/images/default.png">
 
@@ -48,7 +48,7 @@
       "@type": "WebPage",
       "@id":"/"
     },
-    "headline": "WordPressはじめました - My New Hugo Site",
+    "headline": "WordPressはじめました - FILES=0",
     "image": {
       "@type": "ImageObject",
       "url": "/images/default.png",
@@ -59,11 +59,11 @@
     "dateModified": "2013-05-10T15:43:38JST",
     "author": {
       "@type": "Person",
-      "name": "My New Hugo Site"
+      "name": "FILES=0"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "My New Hugo Site",
+      "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
         "url": "/images/logo.png",
@@ -107,9 +107,13 @@ rewrite ^(.+)$ /index.php?q=$1 last;
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">My New Hugo Site</a>
+          <a href="/">FILES=0</a>
         </div>
         
+<div class="description">
+  How many files(0-15)?
+</div>
+
 
       </div>
     </header>
@@ -300,6 +304,24 @@ location /wordpress {<br />
 
   <div class="sections sidebar">
     
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+    </div>
+  </div>
+</section>
+
 
     <section class="sidebar">
   <header>LATESTS</header>
@@ -672,7 +694,7 @@ location /wordpress {<br />
     <footer class="l-footer">
     <div class="l-container">
         <p><span class="h-logo">&copy;
-                My New Hugo Site</span></p>
+                FILES=0</span></p>
         <aside>
             <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
             <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a

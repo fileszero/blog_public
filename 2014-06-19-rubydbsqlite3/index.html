@@ -19,23 +19,23 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>ruby(dbi) &#43; db(sqlite3) - My New Hugo Site</title>
+    <title>ruby(dbi) &#43; db(sqlite3) - FILES=0</title>
     
 
 <meta name="description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
 
-<meta property="og:title" content="ruby(dbi) &#43; db(sqlite3) - My New Hugo Site">
+<meta property="og:title" content="ruby(dbi) &#43; db(sqlite3) - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2014-06-19-rubydbsqlite3/">
 <meta property="og:image" content="/images/default.png">
-<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="/2014-06-19-rubydbsqlite3/">
-<meta name="twitter:title" content="ruby(dbi) &#43; db(sqlite3) - My New Hugo Site">
+<meta name="twitter:title" content="ruby(dbi) &#43; db(sqlite3) - FILES=0">
 <meta name="twitter:description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
 <meta name="twitter:image" content="/images/default.png">
 
@@ -48,7 +48,7 @@
       "@type": "WebPage",
       "@id":"/"
     },
-    "headline": "ruby(dbi) &#43; db(sqlite3) - My New Hugo Site",
+    "headline": "ruby(dbi) &#43; db(sqlite3) - FILES=0",
     "image": {
       "@type": "ImageObject",
       "url": "/images/default.png",
@@ -59,11 +59,11 @@
     "dateModified": "2014-06-19T04:39:34JST",
     "author": {
       "@type": "Person",
-      "name": "My New Hugo Site"
+      "name": "FILES=0"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "My New Hugo Site",
+      "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
         "url": "/images/logo.png",
@@ -106,9 +106,13 @@ Kepler &#8211; http://download.eclipse.org/releases/kepler
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">My New Hugo Site</a>
+          <a href="/">FILES=0</a>
         </div>
         
+<div class="description">
+  How many files(0-15)?
+</div>
+
 
       </div>
     </header>
@@ -577,6 +581,24 @@ sqlite&gt; .quit</code></pre></td></tr></table>
 
   <div class="sections sidebar">
     
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+    </div>
+  </div>
+</section>
+
 
     <section class="sidebar">
   <header>LATESTS</header>
@@ -949,7 +971,7 @@ sqlite&gt; .quit</code></pre></td></tr></table>
     <footer class="l-footer">
     <div class="l-container">
         <p><span class="h-logo">&copy;
-                My New Hugo Site</span></p>
+                FILES=0</span></p>
         <aside>
             <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
             <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a

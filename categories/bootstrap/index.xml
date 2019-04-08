@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bootstrap on My New Hugo Site</title>
+    <title>Bootstrap on FILES=0</title>
     <link>/categories/bootstrap/</link>
-    <description>Recent content in Bootstrap on My New Hugo Site</description>
+    <description>Recent content in Bootstrap on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Nov 2015 12:02:21 +0000</lastBuildDate>

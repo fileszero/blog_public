@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sql Server on My New Hugo Site</title>
+    <title>Sql Server on FILES=0</title>
     <link>/categories/sql-server/</link>
-    <description>Recent content in Sql Server on My New Hugo Site</description>
+    <description>Recent content in Sql Server on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 29 Nov 2018 04:15:36 +0000</lastBuildDate>
