@@ -8,7 +8,7 @@
 
 <meta name="generator" content="Hugo 0.54.0" />
 
-<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
 
 
 <link rel="canonical" href="/2014-06-19-rubydbsqlite3/">
@@ -27,7 +27,7 @@
 <meta property="og:title" content="ruby(dbi) &#43; db(sqlite3) - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2014-06-19-rubydbsqlite3/">
-<meta property="og:image" content="/images/default.png">
+<meta property="og:image" content="images/default.png">
 <meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
 <meta property="og:locale" content="ja_JP">
@@ -37,7 +37,7 @@
 <meta name="twitter:url" content="/2014-06-19-rubydbsqlite3/">
 <meta name="twitter:title" content="ruby(dbi) &#43; db(sqlite3) - FILES=0">
 <meta name="twitter:description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
-<meta name="twitter:image" content="/images/default.png">
+<meta name="twitter:image" content="images/default.png">
 
 
 <script type="application/ld+json">
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"/"
+      "@id":""
     },
     "headline": "ruby(dbi) &#43; db(sqlite3) - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "/images/default.png",
+      "url": "images/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,7 +66,7 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "/images/logo.png",
+        "url": "images/logo.png",
         "width": 600,
         "height": 60
       }
@@ -106,7 +106,7 @@ Kepler &#8211; http://download.eclipse.org/releases/kepler
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">FILES=0</a>
+          <a href="">FILES=0</a>
         </div>
         
 <div class="description">
@@ -150,7 +150,7 @@ Kepler &#8211; http://download.eclipse.org/releases/kepler
 
     <ul class="facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-19T04:39:34JST">Jun 19, 2014</time></li>
-      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="posts/">POSTS</a></li>
       
     </ul>
 
@@ -459,9 +459,9 @@ sqlite&gt; .quit</code></pre></td></tr></table>
       <div>
         <nav class="crumb">
           <ol>
-            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            <li><a href=""><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
             
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
             
             <li class="active">ruby(dbi) &#43; db(sqlite3)</li>
           </ol>
@@ -474,14 +474,14 @@ sqlite&gt; .quit</code></pre></td></tr></table>
     
     <section class="footer">
       <header>
-        <a href="/categories/">CATEGORIES</a>
+        <a href="categories/">CATEGORIES</a>
       </header>
       <div>
         <ul class="terms">
           
-          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          <li><a href="categories/eclipse/">Eclipse</a></li>
           
-          <li><a href="/categories/ruby/">ruby</a></li>
+          <li><a href="categories/ruby/">ruby</a></li>
           
         </ul>
       </div>
@@ -586,7 +586,7 @@ sqlite&gt; .quit</code></pre></td></tr></table>
   <div>
     <div class="author">
       
-      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      <div class="author-thumb" style="background-image: url(images/author.png);"></div>
       
       <div class="author-name">FILES=0</div>
       <ul class="author-facts">
@@ -940,7 +940,7 @@ sqlite&gt; .quit</code></pre></td></tr></table>
   <header>CATEGORIES</header>
   <div>
     <ul class="terms">
-      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+      <li><a href="categories/.net">.net <span class="count">(29)</span></a></li><li><a href="categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="categories/php">php <span class="count">(11)</span></a></li><li><a href="categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="categories/git">git <span class="count">(8)</span></a></li><li><a href="categories/linux">linux <span class="count">(8)</span></a></li><li><a href="categories/ruby">ruby <span class="count">(8)</span></a></li>
     </ul>
   </div>
 </section>
@@ -952,7 +952,7 @@ sqlite&gt; .quit</code></pre></td></tr></table>
   <header>TAGS</header>
   <div>
     <ul class="terms">
-      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+      <li><a href="tags/mac">mac <span class="count">(1)</span></a></li>
     </ul>
   </div>
 </section>

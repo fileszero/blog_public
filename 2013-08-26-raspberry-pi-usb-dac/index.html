@@ -8,7 +8,7 @@
 
 <meta name="generator" content="Hugo 0.54.0" />
 
-<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
 
 
 <link rel="canonical" href="/2013-08-26-raspberry-pi-usb-dac/">
@@ -27,7 +27,7 @@
 <meta property="og:title" content="Raspberry Pi &#43; USB-DAC - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-08-26-raspberry-pi-usb-dac/">
-<meta property="og:image" content="/images/default.png">
+<meta property="og:image" content="images/default.png">
 <meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。色々調べた結果、http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。んでリブート。超クリアに音でてるー。dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。要はUSBの帯域が足りなかったという事ですね。8&amp;frasl;29 追記dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。うーん、むずかしいな。dwc_otg.speed=1を消して、$ sudo rpi-updateしてみる。ちょっと改善するも、今度はプチプチノイズが出るようになった。dwc_otg.fiq_split_enable=0をつけてみる。なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。しばらく様子見だな。">
 <meta property="og:locale" content="ja_JP">
@@ -37,7 +37,7 @@
 <meta name="twitter:url" content="/2013-08-26-raspberry-pi-usb-dac/">
 <meta name="twitter:title" content="Raspberry Pi &#43; USB-DAC - FILES=0">
 <meta name="twitter:description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。色々調べた結果、http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。んでリブート。超クリアに音でてるー。dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。要はUSBの帯域が足りなかったという事ですね。8&amp;frasl;29 追記dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。うーん、むずかしいな。dwc_otg.speed=1を消して、$ sudo rpi-updateしてみる。ちょっと改善するも、今度はプチプチノイズが出るようになった。dwc_otg.fiq_split_enable=0をつけてみる。なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。しばらく様子見だな。">
-<meta name="twitter:image" content="/images/default.png">
+<meta name="twitter:image" content="images/default.png">
 
 
 <script type="application/ld+json">
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"/"
+      "@id":""
     },
     "headline": "Raspberry Pi &#43; USB-DAC - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "/images/default.png",
+      "url": "images/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,7 +66,7 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "/images/logo.png",
+        "url": "images/logo.png",
         "width": 600,
         "height": 60
       }
@@ -112,7 +112,7 @@ dwc_otg.fiq_split_enable=0
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">FILES=0</a>
+          <a href="">FILES=0</a>
         </div>
         
 <div class="description">
@@ -146,7 +146,7 @@ dwc_otg.fiq_split_enable=0
 
     <ul class="facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-26T14:47:38JST">Aug 26, 2013</time></li>
-      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="posts/">POSTS</a></li>
       
     </ul>
 
@@ -222,9 +222,9 @@ dwc_otg.fiq_split_enable=0
       <div>
         <nav class="crumb">
           <ol>
-            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            <li><a href=""><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
             
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
             
             <li class="active">Raspberry Pi &#43; USB-DAC</li>
           </ol>
@@ -237,12 +237,12 @@ dwc_otg.fiq_split_enable=0
     
     <section class="footer">
       <header>
-        <a href="/categories/">CATEGORIES</a>
+        <a href="categories/">CATEGORIES</a>
       </header>
       <div>
         <ul class="terms">
           
-          <li><a href="/categories/raspberry-pi/">Raspberry Pi</a></li>
+          <li><a href="categories/raspberry-pi/">Raspberry Pi</a></li>
           
         </ul>
       </div>
@@ -337,7 +337,7 @@ dwc_otg.fiq_split_enable=0
   <div>
     <div class="author">
       
-      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      <div class="author-thumb" style="background-image: url(images/author.png);"></div>
       
       <div class="author-name">FILES=0</div>
       <ul class="author-facts">
@@ -691,7 +691,7 @@ dwc_otg.fiq_split_enable=0
   <header>CATEGORIES</header>
   <div>
     <ul class="terms">
-      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+      <li><a href="categories/.net">.net <span class="count">(29)</span></a></li><li><a href="categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="categories/php">php <span class="count">(11)</span></a></li><li><a href="categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="categories/git">git <span class="count">(8)</span></a></li><li><a href="categories/linux">linux <span class="count">(8)</span></a></li><li><a href="categories/ruby">ruby <span class="count">(8)</span></a></li>
     </ul>
   </div>
 </section>
@@ -703,7 +703,7 @@ dwc_otg.fiq_split_enable=0
   <header>TAGS</header>
   <div>
     <ul class="terms">
-      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+      <li><a href="tags/mac">mac <span class="count">(1)</span></a></li>
     </ul>
   </div>
 </section>

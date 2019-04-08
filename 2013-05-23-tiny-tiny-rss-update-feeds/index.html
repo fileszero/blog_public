@@ -8,7 +8,7 @@
 
 <meta name="generator" content="Hugo 0.54.0" />
 
-<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
 
 
 <link rel="canonical" href="/2013-05-23-tiny-tiny-rss-update-feeds/">
@@ -27,7 +27,7 @@
 <meta property="og:title" content="Tiny Tiny RSSのFeed更新 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-05-23-tiny-tiny-rss-update-feeds/">
-<meta property="og:image" content="/images/default.png">
+<meta property="og:image" content="images/default.png">
 <meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="Tiny Tiny RSS良い感じで使っております。webのUI上からフィードをダブルクリックすると記事が更新されるんですが、自動で定期的に更新してくれないと困りますね。てことで自動更新の仕方を参考に設定していきます。[Update daemon]方式がお勧めみたいですが、CentOSへの組み込み方が良くわからんのでパス。cronで実行するのが簡単そうな感じがします。要するにupdate.php &amp;#8211;feedsを定期的に実行するわけですな。daemon方式のところにwebサイトユーザー権限で実行しろ見たいなことが書いてあるので、こっちもそんな感じで設定します。まずは普通にコマンドから実行してみますか。suでルートになって# sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feedsそーすっと、なにやらごにょごにょ初めてこれが こうなります 読み切れねー。更新自体は問題ないようです。rootのcrontabに登録します。# crontab -e*/15 * * * * sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feeds &amp;#8211;quietこれで快適情強生活ができるでしょうか。・・・できませんでした。朝起きてみるとcronさんから「sudo: sorry, you must have a tty to run sudo」こんなメールが大量に！sudoは端末からじゃないとだめなのね。ってことでrootのスケジュールはさっくり消して、1 2 3 4 5  # sudo -u nginx crontab -e no crontab for nginx - using an empty one crontab: installing new crontab # sudo -u nginx crontab -l */15 * * * * /usr/bin/php /tt/rss/dir/update.">
 <meta property="og:locale" content="ja_JP">
@@ -37,7 +37,7 @@
 <meta name="twitter:url" content="/2013-05-23-tiny-tiny-rss-update-feeds/">
 <meta name="twitter:title" content="Tiny Tiny RSSのFeed更新 - FILES=0">
 <meta name="twitter:description" content="Tiny Tiny RSS良い感じで使っております。webのUI上からフィードをダブルクリックすると記事が更新されるんですが、自動で定期的に更新してくれないと困りますね。てことで自動更新の仕方を参考に設定していきます。[Update daemon]方式がお勧めみたいですが、CentOSへの組み込み方が良くわからんのでパス。cronで実行するのが簡単そうな感じがします。要するにupdate.php &amp;#8211;feedsを定期的に実行するわけですな。daemon方式のところにwebサイトユーザー権限で実行しろ見たいなことが書いてあるので、こっちもそんな感じで設定します。まずは普通にコマンドから実行してみますか。suでルートになって# sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feedsそーすっと、なにやらごにょごにょ初めてこれが こうなります 読み切れねー。更新自体は問題ないようです。rootのcrontabに登録します。# crontab -e*/15 * * * * sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feeds &amp;#8211;quietこれで快適情強生活ができるでしょうか。・・・できませんでした。朝起きてみるとcronさんから「sudo: sorry, you must have a tty to run sudo」こんなメールが大量に！sudoは端末からじゃないとだめなのね。ってことでrootのスケジュールはさっくり消して、1 2 3 4 5  # sudo -u nginx crontab -e no crontab for nginx - using an empty one crontab: installing new crontab # sudo -u nginx crontab -l */15 * * * * /usr/bin/php /tt/rss/dir/update.">
-<meta name="twitter:image" content="/images/default.png">
+<meta name="twitter:image" content="images/default.png">
 
 
 <script type="application/ld+json">
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"/"
+      "@id":""
     },
     "headline": "Tiny Tiny RSSのFeed更新 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "/images/default.png",
+      "url": "images/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,7 +66,7 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "/images/logo.png",
+        "url": "images/logo.png",
         "width": 600,
         "height": 60
       }
@@ -127,7 +127,7 @@ rootのスケジュールはさっくり消して、
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">FILES=0</a>
+          <a href="">FILES=0</a>
         </div>
         
 <div class="description">
@@ -171,7 +171,7 @@ rootのスケジュールはさっくり消して、
 
     <ul class="facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-23T13:33:41JST">May 23, 2013</time></li>
-      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="posts/">POSTS</a></li>
       
     </ul>
 
@@ -304,9 +304,9 @@ crontab: installing new crontab
       <div>
         <nav class="crumb">
           <ol>
-            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            <li><a href=""><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
             
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
             
             <li class="active">Tiny Tiny RSSのFeed更新</li>
           </ol>
@@ -319,12 +319,12 @@ crontab: installing new crontab
     
     <section class="footer">
       <header>
-        <a href="/categories/">CATEGORIES</a>
+        <a href="categories/">CATEGORIES</a>
       </header>
       <div>
         <ul class="terms">
           
-          <li><a href="/categories/software/">software</a></li>
+          <li><a href="categories/software/">software</a></li>
           
         </ul>
       </div>
@@ -439,7 +439,7 @@ crontab: installing new crontab
   <div>
     <div class="author">
       
-      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      <div class="author-thumb" style="background-image: url(images/author.png);"></div>
       
       <div class="author-name">FILES=0</div>
       <ul class="author-facts">
@@ -793,7 +793,7 @@ crontab: installing new crontab
   <header>CATEGORIES</header>
   <div>
     <ul class="terms">
-      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+      <li><a href="categories/.net">.net <span class="count">(29)</span></a></li><li><a href="categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="categories/php">php <span class="count">(11)</span></a></li><li><a href="categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="categories/git">git <span class="count">(8)</span></a></li><li><a href="categories/linux">linux <span class="count">(8)</span></a></li><li><a href="categories/ruby">ruby <span class="count">(8)</span></a></li>
     </ul>
   </div>
 </section>
@@ -805,7 +805,7 @@ crontab: installing new crontab
   <header>TAGS</header>
   <div>
     <ul class="terms">
-      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+      <li><a href="tags/mac">mac <span class="count">(1)</span></a></li>
     </ul>
   </div>
 </section>

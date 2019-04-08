@@ -8,7 +8,7 @@
 
 <meta name="generator" content="Hugo 0.54.0" />
 
-<link rel="apple-touch-icon" href="/images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
 
 
 <link rel="canonical" href="/2013-05-20-developping-database-on-eclipse/">
@@ -27,7 +27,7 @@
 <meta property="og:title" content="EclipseでDatabase開発 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2013-05-20-developping-database-on-eclipse/">
-<meta property="og:image" content="/images/default.png">
+<meta property="og:image" content="images/default.png">
 <meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
 <meta property="og:locale" content="ja_JP">
@@ -37,7 +37,7 @@
 <meta name="twitter:url" content="/2013-05-20-developping-database-on-eclipse/">
 <meta name="twitter:title" content="EclipseでDatabase開発 - FILES=0">
 <meta name="twitter:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
-<meta name="twitter:image" content="/images/default.png">
+<meta name="twitter:image" content="images/default.png">
 
 
 <script type="application/ld+json">
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"/"
+      "@id":""
     },
     "headline": "EclipseでDatabase開発 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "/images/default.png",
+      "url": "images/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,7 +66,7 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "/images/logo.png",
+        "url": "images/logo.png",
         "width": 600,
         "height": 60
       }
@@ -120,7 +120,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="/">FILES=0</a>
+          <a href="">FILES=0</a>
         </div>
         
 <div class="description">
@@ -164,7 +164,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
 
     <ul class="facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-20T14:05:09JST">May 20, 2013</time></li>
-      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="posts/">POSTS</a></li>
       
     </ul>
 
@@ -428,9 +428,9 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
       <div>
         <nav class="crumb">
           <ol>
-            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            <li><a href=""><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
             
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
             
             <li class="active">EclipseでDatabase開発</li>
           </ol>
@@ -443,12 +443,12 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
     
     <section class="footer">
       <header>
-        <a href="/categories/">CATEGORIES</a>
+        <a href="categories/">CATEGORIES</a>
       </header>
       <div>
         <ul class="terms">
           
-          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          <li><a href="categories/eclipse/">Eclipse</a></li>
           
         </ul>
       </div>
@@ -563,7 +563,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
   <div>
     <div class="author">
       
-      <div class="author-thumb" style="background-image: url(/images/author.png);"></div>
+      <div class="author-thumb" style="background-image: url(images/author.png);"></div>
       
       <div class="author-name">FILES=0</div>
       <ul class="author-facts">
@@ -917,7 +917,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
   <header>CATEGORIES</header>
   <div>
     <ul class="terms">
-      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+      <li><a href="categories/.net">.net <span class="count">(29)</span></a></li><li><a href="categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="categories/php">php <span class="count">(11)</span></a></li><li><a href="categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="categories/git">git <span class="count">(8)</span></a></li><li><a href="categories/linux">linux <span class="count">(8)</span></a></li><li><a href="categories/ruby">ruby <span class="count">(8)</span></a></li>
     </ul>
   </div>
 </section>
@@ -929,7 +929,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
   <header>TAGS</header>
   <div>
     <ul class="terms">
-      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+      <li><a href="tags/mac">mac <span class="count">(1)</span></a></li>
     </ul>
   </div>
 </section>
