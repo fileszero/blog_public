@@ -13,10 +13,10 @@
     
     <item>
       <title>Azure Functionsの雰囲気をローカルで試す</title>
-      <link>/posts/2018-02-14-try-azure-functions-on-local/</link>
+      <link>/2018-02-14-try-azure-functions-on-local/</link>
       <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
       
-      <guid>/posts/2018-02-14-try-azure-functions-on-local/</guid>
+      <guid>/2018-02-14-try-azure-functions-on-local/</guid>
       <description>&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;
 
 &lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;

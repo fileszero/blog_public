@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2015-02-15-webdav-on-win7-cdrive-issue/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>OneDrive for Bisinessにバックアップする - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;Office365を試用中です。&lt;/p&gt;&lt;p&gt;エディションはbusiness premium。&lt;/p&gt;&lt;p&gt;主な目的は&lt;/p&gt;&lt;ul&gt;&lt;li&gt;オンラインにバックアップを持っときたい。&lt;/li&gt;&lt;li&gt;いくつか所有してるPCとMacにMS-Officeを導入したい。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;の2点。&lt;/p&gt;&lt;p&gt;あとはSharepointのお勉強に使えれば良いかなと。&lt;/p&gt;&lt;p&gt;Office 365 Soloも検討しましたが、インストールできる台数、独自ドメインの扱いとか微妙に制限がある割に、お値段の差がそんなに無いのでbusiness premiumを選択。&lt;/p&gt;">
+
+<meta property="og:title" content="OneDrive for Bisinessにバックアップする - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2015-02-15-webdav-on-win7-cdrive-issue/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;Office365を試用中です。&lt;/p&gt;&lt;p&gt;エディションはbusiness premium。&lt;/p&gt;&lt;p&gt;主な目的は&lt;/p&gt;&lt;ul&gt;&lt;li&gt;オンラインにバックアップを持っときたい。&lt;/li&gt;&lt;li&gt;いくつか所有してるPCとMacにMS-Officeを導入したい。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;の2点。&lt;/p&gt;&lt;p&gt;あとはSharepointのお勉強に使えれば良いかなと。&lt;/p&gt;&lt;p&gt;Office 365 Soloも検討しましたが、インストールできる台数、独自ドメインの扱いとか微妙に制限がある割に、お値段の差がそんなに無いのでbusiness premiumを選択。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2015-02-15-webdav-on-win7-cdrive-issue/">
+<meta name="twitter:title" content="OneDrive for Bisinessにバックアップする - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;Office365を試用中です。&lt;/p&gt;&lt;p&gt;エディションはbusiness premium。&lt;/p&gt;&lt;p&gt;主な目的は&lt;/p&gt;&lt;ul&gt;&lt;li&gt;オンラインにバックアップを持っときたい。&lt;/li&gt;&lt;li&gt;いくつか所有してるPCとMacにMS-Officeを導入したい。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;の2点。&lt;/p&gt;&lt;p&gt;あとはSharepointのお勉強に使えれば良いかなと。&lt;/p&gt;&lt;p&gt;Office 365 Soloも検討しましたが、インストールできる台数、独自ドメインの扱いとか微妙に制限がある割に、お値段の差がそんなに無いのでbusiness premiumを選択。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "OneDrive for Bisinessにバックアップする - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-02-15T07:00:41JST",
+    "dateModified": "2015-02-15T07:00:41JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>Office365を試用中です。</p>
+
+<p>エディションはbusiness premium。</p>
+
+<p>主な目的は</p>
+
+<ul>
+<li>オンラインにバックアップを持っときたい。</li>
+<li>いくつか所有してるPCとMacにMS-Officeを導入したい。</li>
+</ul>
+
+<p>の2点。</p>
+
+<p>あとはSharepointのお勉強に使えれば良いかなと。</p>
+
+<p>Office 365 Soloも検討しましたが、インストールできる台数、独自ドメインの扱いとか微妙に制限がある割に、お値段の差がそんなに無いのでbusiness premiumを選択。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-02-15-webdav-on-win7-cdrive-issue/WS000098.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">OneDrive for Bisinessにバックアップする</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-02-15T07:00:41JST">Feb 15, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&title=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&text=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&t=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&title=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b %2f2015-02-15-webdav-on-win7-cdrive-issue%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>Office365を試用中です。</p>
+
+<p>エディションはbusiness premium。</p>
+
+<p>主な目的は</p>
+
+<ul>
+<li>オンラインにバックアップを持っときたい。</li>
+<li>いくつか所有してるPCとMacにMS-Officeを導入したい。</li>
+</ul>
+
+<p>の2点。</p>
+
+<p>あとはSharepointのお勉強に使えれば良いかなと。</p>
+
+<p>Office 365 Soloも検討しましたが、インストールできる台数、独自ドメインの扱いとか微妙に制限がある割に、お値段の差がそんなに無いのでbusiness premiumを選択。</p>
+
+<p>てことで、オンラインバックアップにOneDrive for Businessが使えるか検討中です。</p>
+
+<p>OneDrive for Businessについては<a href="http://nochoice.exblog.jp/23790897" target="_blank">こちら</a>がよくまとまってて良いんじゃないでしょうか。</p>
+
+<h3 id="バックアップ方法">バックアップ方法</h3>
+
+<p>windows7でwebclientサービスを使って、net useでwebdavに接続、robocopyでコピーという原始的な方法です。</p>
+
+<p>テストでいろいろやっていましたがいくつか問題が…</p>
+
+<h4 id="windows7でwebdavするとcドライブがいっぱいになる">windows7でwebdavするとCドライブがいっぱいになる</h4>
+
+<p>大量のファイルをアップロードしてたらなぜかC:ドライブがいっぱいになってしまう現象が…</p>
+
+<p>リソースモニタでオープン中のファイルを見てみると、</p>
+
+<p>C:\Windows\ServiceProfiles\LocalService\AppData\Local\Temp\TfsStore\Tfs_DAV</p>
+
+<p>にアップロード対象のファイルがコピーされておるようです。</p>
+
+<p>しかもアップロード済みのファイルも残っている様子。</p>
+
+<p>C:はSSDで容量少ないんで勘弁してほしいっす。</p>
+
+<p>C:\Windows\ServiceProfiles\LocalService\AppData\Local\Temp\TfsStoreからD:\Temp\Tfs_DAVにシンボリックリンクを作成してみました。</p>
+
+<p>追記:</p>
+
+<p>ファイル消えないのは<a href="https://support.microsoft.com/kb/2790804/ja?wa=wsignin1.0" target="_blank">バグらしい</a>です。Hotfix当てたらなおったっぽいです。</p>
+
+<h4 id="ファイルサイズmax-2g制限に引っかかるとハングしたようになる">ファイルサイズMax 2G制限に引っかかるとハングしたようになる</h4>
+
+<p>OneDrive for Businessとかいっても実態はSharePointなんでいろいろ制限があります。</p>
+
+<p>中でも痛いのが1ファイル2Gまでの制限。</p>
+
+<p>でかい動画とかDVDのイメージとかコピーできませんが、このあたりは追々対策するとして、</p>
+
+<p>2G超えのファイルをコピーしようとすると、robocopyがハングしたようになります。</p>
+
+<p>robocopyのオプションに /MAX:2000000000　をつけてみました。</p>
+
+<p>たぶん/MAX:2147483648 でもいいような気がするけど、多少余裕を持たせます。</p>
+
+<h4 id="拡張子jarはアップロード出来ないっぽい">拡張子jarはアップロード出来ないっぽい</h4>
+
+<p>いくつか<a href="https://support.office.com/en-in/article/Permissions-needed-to-upload-files-in-OneDrive-for-Business-c0d770b2-5165-403d-9d58-62946bcf46dd" target="_blank">NGな拡張子</a>(aspx, master, xap, swf, jar, asmx, ascx, xsf, and htc)があるようです。</p>
+
+<p>まぁ、今回の目的では、どれも失っても痛くない拡張子っぽいのでほっときます。</p>
+
+<p>一番心配していたファイル数20,000制限は同期の制限で、アップロードするには特に問題ないみたいです。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-02-15-webdav-on-win7-cdrive-issue/WS000098.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-02-15-webdav-on-win7-cdrive-issue/WS000098_hu8a457c83b72fac47220a2649d3f62b9d_6541_240x0_resize_q75_box.jpg" width="240"
+                height="110" data-original="/2015-02-15-webdav-on-win7-cdrive-issue/WS000098.jpg" />
+    </a>
+
+
+<p>速度は遅いんで普段使いには向かないですが、最悪の事態が起きたときの備えのバックアップとしてはまぁいいんじゃないでしょうか。</p>
+
+<p>べったり環境依存なバッチファイルを書いて、定期的に実行するようにします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">set USERID=userid@office365
+set PASS=password_for_user
+
+set LOGFILE=&#34;D:\var\backup_to_onedrive.log&#34;
+
+set DIST_BASE=O:\
+rem 除外フォルダ
+set XD=/XD &#34;D:\Users\xxxx\AppData&#34; &#34;c:\usr\local\adt&#34; &#34;C:\usr\local\eclipse&#34; &#34;.gem&#34;
+rem 除外ファイル
+set XF=/XF &#34;desktop*.ini&#34; &#34;desktop.ini&#34; &#34;ntuser.*&#34;
+rem robocopy Option
+set OPT=/MIR /IPG:100 /R:0 /W:0 /XJ /FFT /XO /MAX:2000000000 /NP /LOG+:&#34;%LOGFILE%&#34; /TEE
+rem                                          /MAX:2147483648
+
+
+rem Tfs_DAV 無限増殖対応(パッチ当てたので不要)
+rem net stop WebClient
+rem set NEW_DAV_TEMP=D:\temp\Tfs_DAV
+rem set ORIGIN_DAV_TEMP=C:\Windows\ServiceProfiles\LocalService\AppData\Local\Temp\TfsStore\Tfs_DAV
+rem if not exist &#34;%NEW_DAV_TEMP%&#34; mkdir &#34;%NEW_DAV_TEMP%&#34;
+rem del &#34;%ORIGIN_DAV_TEMP%&#34; /f /q
+rem mklink /D &#34;%ORIGIN_DAV_TEMP%&#34; &#34;%NEW_DAV_TEMP%&#34;
+
+rem コピー本体 net start WebClient =&gt; net stop WebClient で1セッション
+rem ADDRSSはドキュメントライブラリへのアドレス。(ライブラリの設定の「Web アドレス」の&#34;/Forms/AllItems.aspx&#34;より前の部分
+
+net start WebClient
+set ADDRESS=https://onedriveのアドレス-my.sharepoint.com/personal/xxxxxxxxx/DocBackup
+net use /delete O:
+net use O: &#34;%ADDRESS%&#34; %PASS% /USER:%USERID%
+robocopy D:\Users\xxxx %DIST_BASE%\Doc %OPT% %XF% %XD% &#34;D:\Users\xxx\Archive&#34; 
+net stop WebClient
+
+net start WebClient
+set ADDRESS=https://onedriveのアドレス-my.sharepoint.com/personal/xxxxxxxxx/Archive
+net use /delete O:
+net use O: &#34;%ADDRESS%&#34; %PASS% /USER:%USERID%
+robocopy D:\Users\xxxx\Archive %DIST_BASE%\Archive %OPT% %XF% %XD%
+net stop WebClient
+
+:END</code></pre></td></tr></table>
+</div>
+</div>
+<p>ちょっと心配なのは、初回アップロードで大量の通信した事。１週間ぐらいで180Gぐらい。</p>
+
+<p>プロバイダから速度制限とかされなきゃいいんですが…やばいかなー。</p>
+
+<p>追記：</p>
+
+<p>net useが繋がったり繋がらなかったりする。</p>
+
+<p><a href="http://www.iis.net/learn/publish/using-webdav/using-the-webdav-redirector#003" target="_blank">Troubleshooting the WebDAV Redirector</a>を参考に色々試すもどうも安定しない。</p>
+
+<p>IEでoffice365にログイン(ログイン時に「サインインしたままにする」をON)しとくと良いみたいだけど、これだと自動化できないなー。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&title=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&text=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&t=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-02-15-webdav-on-win7-cdrive-issue%2f&title=OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?OneDrive%20for%20Bisiness%e3%81%ab%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%99%e3%82%8b %2f2015-02-15-webdav-on-win7-cdrive-issue%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">OneDrive for Bisinessにバックアップする</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/windows/">Windows</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2015-02-12-try-phonegap-android/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-02-12-try-phonegap-android/SSandroidStudioMenu.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">PhoneGapを使ってみる(Android編)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-02-12T06:59:07JST">Feb 12, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2015-03-02-angularjs-again-1/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-03-02-angularjs-again-1/WSW000001.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">再度AngularJS(#1)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-02T05:22:43JST">Mar 2, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

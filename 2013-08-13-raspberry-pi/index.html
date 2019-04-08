@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2013-08-13-raspberry-pi/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Raspberry Pi - My New Hugo Site</title>
+    
+
+<meta name="description" content="日経のRaspberry Piセット本が増刷されてたので、買ってみました。OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。ＤＬしたファイルを展開後Win32 Disk Imagerを使って、ＳＤカードに書き込みます。起動 ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。モニタへの出力も何もありません。ＤＬしたイメージの確認をしっかりしましょう。ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、Puttyとか適当なSSHクライアントで接続します。ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。そうするとこんな感じでログインできます。&amp;lt;br /&amp;gt; login as: pi&amp;lt;br /&amp;gt; pi@192.168.1.12&#39;s password:&amp;lt;br /&amp;gt; Linux raspberrypi 3.6.11&#43; #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;The programs included with the Debian GNU/Linux system are free software;&amp;lt;br /&amp;gt; the exact distribution terms for each program are described in the&amp;lt;br /&amp;gt; individual files in /usr/share/doc/*/copyright.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&amp;lt;br /&amp;gt; permitted by applicable law.">
+
+<meta property="og:title" content="Raspberry Pi - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2013-08-13-raspberry-pi/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="日経のRaspberry Piセット本が増刷されてたので、買ってみました。OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。ＤＬしたファイルを展開後Win32 Disk Imagerを使って、ＳＤカードに書き込みます。起動 ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。モニタへの出力も何もありません。ＤＬしたイメージの確認をしっかりしましょう。ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、Puttyとか適当なSSHクライアントで接続します。ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。そうするとこんな感じでログインできます。&amp;lt;br /&amp;gt; login as: pi&amp;lt;br /&amp;gt; pi@192.168.1.12&#39;s password:&amp;lt;br /&amp;gt; Linux raspberrypi 3.6.11&#43; #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;The programs included with the Debian GNU/Linux system are free software;&amp;lt;br /&amp;gt; the exact distribution terms for each program are described in the&amp;lt;br /&amp;gt; individual files in /usr/share/doc/*/copyright.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&amp;lt;br /&amp;gt; permitted by applicable law.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2013-08-13-raspberry-pi/">
+<meta name="twitter:title" content="Raspberry Pi - My New Hugo Site">
+<meta name="twitter:description" content="日経のRaspberry Piセット本が増刷されてたので、買ってみました。OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。ＤＬしたファイルを展開後Win32 Disk Imagerを使って、ＳＤカードに書き込みます。起動 ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。モニタへの出力も何もありません。ＤＬしたイメージの確認をしっかりしましょう。ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、Puttyとか適当なSSHクライアントで接続します。ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。そうするとこんな感じでログインできます。&amp;lt;br /&amp;gt; login as: pi&amp;lt;br /&amp;gt; pi@192.168.1.12&#39;s password:&amp;lt;br /&amp;gt; Linux raspberrypi 3.6.11&#43; #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;The programs included with the Debian GNU/Linux system are free software;&amp;lt;br /&amp;gt; the exact distribution terms for each program are described in the&amp;lt;br /&amp;gt; individual files in /usr/share/doc/*/copyright.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&amp;lt;br /&amp;gt; permitted by applicable law.">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Raspberry Pi - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-08-13T04:07:16JST",
+    "dateModified": "2013-08-13T04:07:16JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "日経のRaspberry Piセット本が増刷されてたので、買ってみました。
+OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。
+一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。
+ＤＬしたファイルを展開後Win32 Disk Imagerを使って、ＳＤカードに書き込みます。
+起動 ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。
+ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。
+モニタへの出力も何もありません。
+ＤＬしたイメージの確認をしっかりしましょう。
+ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。
+ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、
+Puttyとか適当なSSHクライアントで接続します。
+ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。
+そうするとこんな感じでログインできます。
+&lt;br /&gt; login as: pi&lt;br /&gt; pi@192.168.1.12's password:&lt;br /&gt; Linux raspberrypi 3.6.11+ #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&lt;/p&gt; &lt;p&gt;The programs included with the Debian GNU/Linux system are free software;&lt;br /&gt; the exact distribution terms for each program are described in the&lt;br /&gt; individual files in /usr/share/doc/*/copyright.&lt;/p&gt; &lt;p&gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&lt;br /&gt; permitted by applicable law."
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-08-13-raspberry-pi/WS000086.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Raspberry Pi</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-13T04:07:16JST">Aug 13, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-08-13-raspberry-pi%2f&title=Raspberry%20Pi" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-08-13-raspberry-pi%2f&text=Raspberry%20Pi&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-08-13-raspberry-pi%2f&t=Raspberry%20Pi" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-08-13-raspberry-pi%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-08-13-raspberry-pi%2f&title=Raspberry%20Pi" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Raspberry%20Pi %2f2013-08-13-raspberry-pi%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<p>日経のRaspberry Piセット本が増刷されてたので、買ってみました。</p>
+
+<h3 id="osのインストール">OSのインストール</h3>
+
+<p><a href="http://www.raspberrypi.org/downloads" target="_blank"><a href="http://www.raspberrypi.org/downloads" target="_blank">http://www.raspberrypi.org/downloads</a></a>から、Raspbian “wheezy”のイメージをＤＬしました。</p>
+
+<p><strong>一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。</strong></p>
+
+<p>ＤＬしたファイルを展開後<a href="http://sourceforge.jp/projects/sfnet_win32diskimager/" target="_blank">Win32 Disk Imager</a>を使って、ＳＤカードに書き込みます。</p>
+
+<h3 id="起動">起動</h3>
+
+<p>ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。</p>
+
+<p>ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。</p>
+
+<p>モニタへの出力も何もありません。</p>
+
+<p>ＤＬしたイメージの確認をしっかりしましょう。</p>
+
+<p>ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。</p>
+
+<p>ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、</p>
+
+<p>Puttyとか適当なSSHクライアントで接続します。</p>
+
+<p>ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。</p>
+
+<p>そうするとこんな感じでログインできます。</p>
+
+<p><code>&lt;br /&gt;
+login as: pi&lt;br /&gt;
+pi@192.168.1.12's password:&lt;br /&gt;
+Linux raspberrypi 3.6.11+ #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&lt;/p&gt;
+&lt;p&gt;The programs included with the Debian GNU/Linux system are free software;&lt;br /&gt;
+the exact distribution terms for each program are described in the&lt;br /&gt;
+individual files in /usr/share/doc/*/copyright.&lt;/p&gt;
+&lt;p&gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&lt;br /&gt;
+permitted by applicable law.&lt;/p&gt;
+&lt;p&gt;NOTICE: the software on this Raspberry Pi has not been fully configured. Please run 'sudo raspi-config'&lt;/p&gt;
+&lt;p&gt;pi@raspberrypi ~ $&lt;/p&gt;
+&lt;p&gt;</code></p>
+
+<p>&#8220;sudo raspi-config&#8221;しろとあるので実行。</p>
+
+<p>そうするとこんな感じのメニューが出ます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-08-13-raspberry-pi/WS000086.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-08-13-raspberry-pi/WS000086_hu84874d6ce06ca92039ea481b9e982a94_60130_240x0_resize_q75_box.jpg" width="240"
+                height="164" data-original="/2013-08-13-raspberry-pi/WS000086.jpg" />
+    </a>
+
+
+<p>じみですな。でもlinuxが走ってるって感じがしますねー。</p>
+
+<p>予想しやすいのを実行してみます。</p>
+
+<h3 id="1-expand-filesystem-ensures-that-all-of-the-sd-card-s">1 Expand Filesystem Ensures that all of the SD card s</h3>
+
+<p>SDカードの空き部分も使うようにするみたい。メニューを選ぶと確認無しでいきなり処理されます。</p>
+
+<h3 id="2-change-user-password-change-password-for-the-default-u">2 Change User Password Change password for the default u</h3>
+
+<p>パスワード変更コマンドが走ります。</p>
+
+<h3 id="3-enable-boot-to-desktop-choose-whether-to-boot-into-a-des">3 Enable Boot to Desktop Choose whether to boot into a des</h3>
+
+<p>起動時にXを立ち上げるかどうかの設定です。 NO を選択</p>
+
+<h3 id="7-overclock-configure-overclocking-for-your-p">7 Overclock Configure overclocking for your P</h3>
+
+<p>ビビりつつMediumを選択</p>
+
+<h3 id="8-advanced-options-configure-advanced-settings">8 Advanced Options Configure advanced settings</h3>
+
+<p>サブメニューあります。</p>
+
+<p>[A3 Memory Split]-&gt;64から16に</p>
+
+<p>その他のメニューは追って試してみますかな。</p>
+
+<p>4 Internationalisation Options Set up language and regional sett</p>
+
+<p>5 Enable Camera Enable this Pi to work with the R</p>
+
+<p>6 Add to Rastrack Add this Pi to the online Raspber</p>
+
+<p>9 About raspi-config Information about this configurat</p>
+
+<h3 id="ファームとか更新">ファームとか更新</h3>
+
+<p>最新のイメージをＤＬしてもアップデートが出ているようです。</p>
+
+<p>$sudo rpi-update</p>
+
+<p>$sudo apt-get update &amp;&amp; sudo apt-get upgrade</p>
+
+<p>結構時間がかかります。やっといたほうがいいみたいです。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-08-13-raspberry-pi%2f&title=Raspberry%20Pi" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-08-13-raspberry-pi%2f&text=Raspberry%20Pi&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-08-13-raspberry-pi%2f&t=Raspberry%20Pi" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-08-13-raspberry-pi%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-08-13-raspberry-pi%2f&title=Raspberry%20Pi" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Raspberry%20Pi %2f2013-08-13-raspberry-pi%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Raspberry Pi</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/raspberry-pi/">Raspberry Pi</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2013-07-04-electric-worker/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">第２種電気工事士</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-07-04T12:39:34JST">Jul 4, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2013-08-21-raspberry-pi-airplay/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Raspberry Pi &#43; AirPlay</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-21T14:24:01JST">Aug 21, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

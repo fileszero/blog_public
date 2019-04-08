@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2014-06-14-windows-eclipse-ruby/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>WindowsでEclipse&#43;Ruby - My New Hugo Site</title>
+    
+
+<meta name="description" content="テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。インストールはこれで終了。インストーラないほうが好きです。あ、日本語化はしません。RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ RDT=純Rubyの統合開発環境RadRails=RDTにRailsのサポートを追加したものAptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの と理解しときます。一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。手順は標準的なplugin入れる方法で、Help -&amp;gt; Install New Software&amp;#8230; でWork withに&amp;#8221;Kepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;amp;#8221;を選択。 Programming Languages -&amp;gt; Dynamic Languages Toolkit &amp;#8211; Ruby Development Toolsにチェックを入れてNext-&amp;gt;Next-&amp;gt; I accept -&amp;gt; FinishでRubyなEclipseができるはずです。Rubyのインストール ためしにプロジェクト作ってみようとFile-&amp;gt;New-&amp;gt;Project&amp;#8230; -&amp;gt; Ruby-&amp;gt;Ruby ProjectProject Name: FirstRubyProjectまで来たら&amp;#8221;At least one interpreter must be configured&amp;#8221;とのこと。">
+
+<meta property="og:title" content="WindowsでEclipse&#43;Ruby - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2014-06-14-windows-eclipse-ruby/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。インストールはこれで終了。インストーラないほうが好きです。あ、日本語化はしません。RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ RDT=純Rubyの統合開発環境RadRails=RDTにRailsのサポートを追加したものAptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの と理解しときます。一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。手順は標準的なplugin入れる方法で、Help -&amp;gt; Install New Software&amp;#8230; でWork withに&amp;#8221;Kepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;amp;#8221;を選択。 Programming Languages -&amp;gt; Dynamic Languages Toolkit &amp;#8211; Ruby Development Toolsにチェックを入れてNext-&amp;gt;Next-&amp;gt; I accept -&amp;gt; FinishでRubyなEclipseができるはずです。Rubyのインストール ためしにプロジェクト作ってみようとFile-&amp;gt;New-&amp;gt;Project&amp;#8230; -&amp;gt; Ruby-&amp;gt;Ruby ProjectProject Name: FirstRubyProjectまで来たら&amp;#8221;At least one interpreter must be configured&amp;#8221;とのこと。">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2014-06-14-windows-eclipse-ruby/">
+<meta name="twitter:title" content="WindowsでEclipse&#43;Ruby - My New Hugo Site">
+<meta name="twitter:description" content="テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。インストールはこれで終了。インストーラないほうが好きです。あ、日本語化はしません。RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ RDT=純Rubyの統合開発環境RadRails=RDTにRailsのサポートを追加したものAptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの と理解しときます。一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。手順は標準的なplugin入れる方法で、Help -&amp;gt; Install New Software&amp;#8230; でWork withに&amp;#8221;Kepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;amp;#8221;を選択。 Programming Languages -&amp;gt; Dynamic Languages Toolkit &amp;#8211; Ruby Development Toolsにチェックを入れてNext-&amp;gt;Next-&amp;gt; I accept -&amp;gt; FinishでRubyなEclipseができるはずです。Rubyのインストール ためしにプロジェクト作ってみようとFile-&amp;gt;New-&amp;gt;Project&amp;#8230; -&amp;gt; Ruby-&amp;gt;Ruby ProjectProject Name: FirstRubyProjectまで来たら&amp;#8221;At least one interpreter must be configured&amp;#8221;とのこと。">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "WindowsでEclipse&#43;Ruby - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-06-14T09:07:11JST",
+    "dateModified": "2014-06-14T09:07:11JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。
+軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。
+Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。
+例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。
+D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。
+インストールはこれで終了。インストーラないほうが好きです。
+あ、日本語化はしません。
+RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。
+このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ
+ RDT=純Rubyの統合開発環境
+RadRails=RDTにRailsのサポートを追加したもの
+Aptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの
+ と理解しときます。
+一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。
+手順は標準的なplugin入れる方法で、
+Help -&gt; Install New Software&#8230; で
+Work withに&#8221;Kepler &#8211; http://download.eclipse.org/releases/kepler&amp;#8221;を選択。
+ Programming Languages -&gt; Dynamic Languages Toolkit &#8211; Ruby Development Tools
+にチェックを入れてNext-&gt;Next-&gt; I accept -&gt; Finish
+でRubyなEclipseができるはずです。
+Rubyのインストール ためしにプロジェクト作ってみようと
+File-&gt;New-&gt;Project&#8230; -&gt; Ruby-&gt;Ruby Project
+Project Name: FirstRubyProject
+まで来たら&#8221;At least one interpreter must be configured&#8221;
+とのこと。"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-06-14-windows-eclipse-ruby/CAP000029.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">WindowsでEclipse&#43;Ruby</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-14T09:07:11JST">Jun 14, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-06-14-windows-eclipse-ruby%2f&title=Windows%e3%81%a7Eclipse%2bRuby" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-06-14-windows-eclipse-ruby%2f&text=Windows%e3%81%a7Eclipse%2bRuby&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-06-14-windows-eclipse-ruby%2f&t=Windows%e3%81%a7Eclipse%2bRuby" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-06-14-windows-eclipse-ruby%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-06-14-windows-eclipse-ruby%2f&title=Windows%e3%81%a7Eclipse%2bRuby" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Windows%e3%81%a7Eclipse%2bRuby %2f2014-06-14-windows-eclipse-ruby%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<p>テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。</p>
+
+<p>軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。</p>
+
+<h3 id="eclipse-install">Eclipse Install</h3>
+
+<p>Eclipseは<a href="http://www.eclipse.org/downloads/" target="_blank">本家</a>のから<a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/SR2/eclipse-standard-kepler-SR2-win32-x86_64.zip" target="_blank">Eclipse Standard 4.3.2 Windows 64bit</a>をダウンロードしました。</p>
+
+<p>例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。</p>
+
+<p>D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。</p>
+
+<p>インストールはこれで終了。インストーラないほうが好きです。</p>
+
+<p>あ、日本語化はしません。</p>
+
+<h3 id="rdtインストール">RDTインストール</h3>
+
+<p>EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。</p>
+
+<p>このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ</p>
+
+<blockquote>
+<p>RDT=純Rubyの統合開発環境</p>
+
+<p>RadRails=RDTにRailsのサポートを追加したもの</p>
+
+<p>Aptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの</p>
+</blockquote>
+
+<p>と理解しときます。</p>
+
+<p>一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。</p>
+
+<p>手順は標準的なplugin入れる方法で、</p>
+
+<p>Help -&gt; Install New Software&#8230; で</p>
+
+<p>Work withに&#8221;Kepler &#8211; <a href="http://download.eclipse.org/releases/kepler&amp;#8221;を選択。" target="_blank">http://download.eclipse.org/releases/kepler&amp;#8221;を選択。</a></p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-06-14-windows-eclipse-ruby/CAP000029.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-06-14-windows-eclipse-ruby/CAP000029_hu6a89caa160a0ba3f5e5b3ec382dee042_99098_240x0_resize_q75_box.jpg" width="240"
+                height="150" data-original="/2014-06-14-windows-eclipse-ruby/CAP000029.jpg" />
+    </a>
+
+
+<p>Programming Languages -&gt; Dynamic Languages Toolkit &#8211; Ruby Development Tools</p>
+
+<p>にチェックを入れてNext-&gt;Next-&gt; I accept -&gt; Finish</p>
+
+<p>でRubyなEclipseができるはずです。</p>
+
+<h3 id="rubyのインストール">Rubyのインストール</h3>
+
+<p>ためしにプロジェクト作ってみようと</p>
+
+<p>File-&gt;New-&gt;Project&#8230; -&gt; Ruby-&gt;Ruby Project</p>
+
+<p>Project Name: FirstRubyProject</p>
+
+<p>まで来たら&#8221;At least one interpreter must be configured&#8221;</p>
+
+<p>とのこと。</p>
+
+<p>なぜならRubyをインストールしてないからですね。そりゃそうですわ。</p>
+
+<p>windows用のバイナリ配布である<a href="http://rubyinstaller.org/" target="_blank">RubyInstaller</a>から2.0系の最新版(Ruby 2.0.0-p481 (x64))をダウンロードして、インストールします。</p>
+
+<p>インストール時のオプションは、Td/Tk,環境変数Path,関連付け全部OFFで。(PATHはONのほうが良いかも)</p>
+
+<p>Window-&gt;Preferences-&gt;Ruby-&gt;Interpreters-&gt;Add</p>
+
+<p>でインストールしたRubyのExeを指定します。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-06-14-windows-eclipse-ruby/CAP000030.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-06-14-windows-eclipse-ruby/CAP000030_hu67f3da12c50e977f1216e6d14a08d1f7_70686_240x0_resize_q75_box.jpg" width="240"
+                height="123" data-original="/2014-06-14-windows-eclipse-ruby/CAP000030.jpg" />
+    </a>
+
+
+<p>これでRuby Projectが作れるはず。</p>
+
+<h3 id="ruby-project作成">Ruby Project作成</h3>
+
+<p>File-&gt;New-&gt;Project&#8230; -&gt; Ruby-&gt;Ruby Project</p>
+
+<p>Project Name: FirstRubyProject</p>
+
+<p>でNext-&gt;Finish</p>
+
+<p>&#8220;Ruby用のパースペクティブがあるけど、今使う？&#8221; みたいなこと聞いてくるので、Yes。</p>
+
+<p>空プロジェクトできました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-06-14-windows-eclipse-ruby/CAP000031.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-06-14-windows-eclipse-ruby/CAP000031_hu01f158953b36627a86c79544648165ef_19647_240x0_resize_q75_box.jpg" width="240"
+                height="163" data-original="/2014-06-14-windows-eclipse-ruby/CAP000031.jpg" />
+    </a>
+
+
+<h3 id="実行してみる">実行してみる</h3>
+
+<p>File-&gt;New-&gt;Empty Ruby File</p>
+
+<p>Name: HelloWorld.rb</p>
+
+<p>内容は</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">puts</span><span class="p">(</span><span class="s2">&#34;Hello world&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>先ずは普通に実行。</p>
+
+<p>Run-&gt;Run As-&gt;Ruby Script</p>
+
+<p>でEclipse内のコンソールにHello World出ます。</p>
+
+<p>次にDebug実行</p>
+
+<p>Run-&gt;Debug As-&gt;Ruby Script</p>
+
+<blockquote>
+<p>Debugging Engine not started</p>
+
+<p>The &#8216;Fast Ruby Debugger (ruby-debug)&#8217; is selected, but the &#8216;ruby-debug&#8217; or &#8216;debugger&#8217; gems don&#8217;t seem to be installed in the selected Ruby Interpreter (C:\Ruby200-x64\bin\ruby.exe)</p>
+</blockquote>
+
+<p>とか出てダメ。デバッガを設定してやらないといけないみたいです。</p>
+
+<p>RDTは既定でFast Ruby Debuggerというのを使うみたいですが、選択肢としてRuby Built-In Debuggerってのがあるので、とりあえずこれを使います。</p>
+
+<p>Window-&gt;Preferences-&gt;Ruby-&gt;Debug-&gt;Engines</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-06-14-windows-eclipse-ruby/CAP000035.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-06-14-windows-eclipse-ruby/CAP000035_hub0a86b5b6545bf54df878fb058240d39_61721_240x0_resize_q75_box.jpg" width="240"
+                height="208" data-original="/2014-06-14-windows-eclipse-ruby/CAP000035.jpg" />
+    </a>
+
+
+<p>んで、ブレークポイントを設定して、デバック実行すると、パースペクティブ切り替えるか聞いてくるのでYes。</p>
+
+<p>一応デバグっぽいことができました。</p>
+
+<h4 id="fast-ruby-debuggerのインストール">Fast Ruby Debuggerのインストール</h4>
+
+<p>要約: <strong>#&gt;gem install debuggerでＯＫ</strong></p>
+
+<p>スクリプトをこんな風に書き換えて、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">puts</span><span class="p">(</span><span class="s2">&#34;Hello world&#34;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">100</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>デバックしてみましたが、iの内容が出てきません。</p>
+
+<p>Ruby Built-In Debuggerは変数の内容が見れない雰囲気です。</p>
+
+<p>しょうがないのでFast Ruby Debuggerなるもののインストールをします。</p>
+
+<p>なにも考えずにgemでインストール使用とすると、Development-Kitが要るから入れろと怒られます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">C:<span class="se">\R</span>uby200-x64<span class="se">\b</span>in&gt;gem install ruby-debug
+Fetching: columnize-0.8.9.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed columnize-0.8.9
+Fetching: rbx-require-relative-0.0.9.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed rbx-require-relative-0.0.9
+Fetching: linecache-0.46.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+ERROR:  Error installing ruby-debug:
+        The <span class="s1">&#39;linecache&#39;</span> native gem requires installed build tools.
+
+Please update your PATH to include build tools or download the DevKit
+from <span class="s1">&#39;http://rubyinstaller.org/downloads&#39;</span> and follow the instructions
+at <span class="s1">&#39;http://github.com/oneclick/rubyinstaller/wiki/Development-Kit&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit#installation-instructions" target="_blank">こちら</a>を参考に、めげずに入れましょう。</p>
+
+<p><a href="http://rubyinstaller.org/downloads/" target="_blank">RubyInstallerをダウンロードしたページ</a>にあるDEVELOPMENT KIT-&gt;For use with Ruby 2.0 (x64 – 64bits only)をダウンロードして実行。</p>
+
+<p>自己解凍形式なので、解凍先をC:\Ruby200-x64\DevKitとしました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span><span class="nb">cd</span> c:<span class="se">\R</span>ubyDevKit
+c:<span class="se">\R</span>ubyDevKit&gt;set <span class="nv">PATH</span><span class="o">=</span>C:<span class="se">\R</span>uby200-x64<span class="se">\b</span>in<span class="p">;</span>%PATH%
+c:<span class="se">\R</span>ubyDevKit&gt;ruby dk.rb init
+
+Initialization complete! Please review and modify the auto-generated
+<span class="s1">&#39;config.yml&#39;</span> file to ensure it contains the root directories to all
+of the installed Rubies you want enhanced by the DevKit.</code></pre></td></tr></table>
+</div>
+</div>
+<p>config.ymlが正しくないから編集しろ見たいな事を言われるので、config.ymlを開いてみるとコメントらしきところで、</p>
+
+<p>「このファイルにはRubyへの絶対パスを書いとけ」的なことが書いてあるので、Exampleを参考に</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">---
+- C:/Ruby200-x64</code></pre></td></tr></table>
+</div>
+</div>
+<p>として、再度</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">c:<span class="se">\R</span>ubyDevKit&gt;ruby dk.rb install</code></pre></td></tr></table>
+</div>
+</div>
+<p><del datetime="2017-07-27T07:23:58+00:00">c:\RubyDevKit&gt;ruby dk.rb init</del></p>
+
+<p>でDevKitがインストールできました。ので、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">C:<span class="se">\R</span>uby200-x64<span class="se">\b</span>in&gt;gem install ruby-debug</code></pre></td></tr></table>
+</div>
+</div>
+<p>しかしながら</p>
+
+<p><strong>Can&#8217;t handle 1.9.x yet</strong>ということでした。どうやら ruby-debugは1.9以降はサポートしてないみたいです。</p>
+
+<p>だめもとで</p>
+
+<blockquote>
+<p>gem install debugger</p>
+</blockquote>
+
+<p>としてみると、なんだかうまく入ったご様子。</p>
+
+<p>デバッグ時に変数の内容も見れてます。</p>
+
+<p>使用感なんかはもうちょっと凝った事してみないとわかりませんが、まぁ今のところ良い感じです。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-06-14-windows-eclipse-ruby%2f&title=Windows%e3%81%a7Eclipse%2bRuby" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-06-14-windows-eclipse-ruby%2f&text=Windows%e3%81%a7Eclipse%2bRuby&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-06-14-windows-eclipse-ruby%2f&t=Windows%e3%81%a7Eclipse%2bRuby" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-06-14-windows-eclipse-ruby%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-06-14-windows-eclipse-ruby%2f&title=Windows%e3%81%a7Eclipse%2bRuby" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Windows%e3%81%a7Eclipse%2bRuby %2f2014-06-14-windows-eclipse-ruby%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">WindowsでEclipse&#43;Ruby</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          
+          <li><a href="/categories/ruby/">ruby</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2014-05-14-svn-git-translate/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-05-14-svn-git-translate/CAP000019.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SubversionをGitにする</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-05-14T14:45:05JST">May 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2014-06-19-rubydbsqlite3/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-06-19-rubydbsqlite3/WS000087.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ruby(dbi) &#43; db(sqlite3)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-19T04:39:34JST">Jun 19, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

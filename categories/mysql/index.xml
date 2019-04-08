@@ -13,10 +13,10 @@
     
     <item>
       <title>MySQLの設定(文字コード)</title>
-      <link>/posts/2013-05-20-mysql-setting/</link>
+      <link>/2013-05-20-mysql-setting/</link>
       <pubDate>Mon, 20 May 2013 14:23:17 +0000</pubDate>
       
-      <guid>/posts/2013-05-20-mysql-setting/</guid>
+      <guid>/2013-05-20-mysql-setting/</guid>
       <description>素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。
 XAMPPのコントロールパネルからmy.iniを編集。
  1 2 3 4 5 6  ## UTF 8 Settings #init-connect=\&amp;#39;SET NAMES utf8\&amp;#39; #collation_server=utf8_unicode_ci #character_set_server=utf8 #skip-character-set-client-handshake #character_sets-dir=&amp;#34;D:/xampp/mysql/share/charsets&amp;#34;   という箇所があったので、コメントを解除してみます。

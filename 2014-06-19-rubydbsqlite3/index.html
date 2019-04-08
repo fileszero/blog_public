@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2014-06-19-rubydbsqlite3/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ruby(dbi) &#43; db(sqlite3) - My New Hugo Site</title>
+    
+
+<meta name="description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
+
+<meta property="og:title" content="ruby(dbi) &#43; db(sqlite3) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2014-06-19-rubydbsqlite3/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2014-06-19-rubydbsqlite3/">
+<meta name="twitter:title" content="ruby(dbi) &#43; db(sqlite3) - My New Hugo Site">
+<meta name="twitter:description" content="Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。rubyからDBにアクセスするには、 DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。最新版はこちらから。rubyライブラリの準備 先ずはsqlite3用のライブラリ。DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。こちらもgemで。1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインでKepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;#8220;Database Development&amp;#8221;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ruby(dbi) &#43; db(sqlite3) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-06-19T04:39:34JST",
+    "dateModified": "2014-06-19T04:39:34JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。
+rubyからDBにアクセスするには、
+ DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&#8216;等の&#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。
+DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。
+DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。
+1 2 3 4  C:\&gt;sqlite3 SQLite version 3.5.6 Enter &#34;.help&#34; for instructions sqlite&gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。
+最新版はこちらから。
+rubyライブラリの準備 先ずはsqlite3用のライブラリ。
+DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。
+1 2  #&gt; gem install sqlite3 #&gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。
+こちらもgemで。
+1 2  #&gt; gem install dbi #&gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。
+eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインで
+Kepler &#8211; http://download.eclipse.org/releases/kepler
+&#8220;Database Development&#8221;"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-06-19-rubydbsqlite3/WS000087.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ruby(dbi) &#43; db(sqlite3)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-19T04:39:34JST">Jun 19, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-06-19-rubydbsqlite3%2f&title=ruby%28dbi%29%20%2b%20db%28sqlite3%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-06-19-rubydbsqlite3%2f&text=ruby%28dbi%29%20%2b%20db%28sqlite3%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-06-19-rubydbsqlite3%2f&t=ruby%28dbi%29%20%2b%20db%28sqlite3%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-06-19-rubydbsqlite3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-06-19-rubydbsqlite3%2f&title=ruby%28dbi%29%20%2b%20db%28sqlite3%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ruby%28dbi%29%20%2b%20db%28sqlite3%29 %2f2014-06-19-rubydbsqlite3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<p>Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。</p>
+
+<p>rubyからDBにアクセスするには、</p>
+
+<ul>
+<li>DBネイティブなライブラリ</li>
+<li>DBI等のベンダ非依存のライブラリ。(&#8216;等の&#8217;とか言ってますがDBI以外知りません)</li>
+<li>ActiveRecord等の高機能O/Rマッパー</li>
+</ul>
+
+<p>なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。</p>
+
+<p>DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。</p>
+
+<h3 id="dbms-sqlite3-の準備">DBMS(sqlite3)の準備</h3>
+
+<p>いつ入れたかわからないけど既に入ってました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span>sqlite3
+SQLite version <span class="m">3</span>.5.6
+Enter <span class="s2">&#34;.help&#34;</span> <span class="k">for</span> instructions
+sqlite&gt; .quit</code></pre></td></tr></table>
+</div>
+</div>
+<p>だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。</p>
+
+<p>最新版は<a href="http://www.sqlite.org/" target="_blank">こちら</a>から。</p>
+
+<h3 id="rubyライブラリの準備">rubyライブラリの準備</h3>
+
+<p>先ずは<a href="https://rubygems.org/gems/sqlite3" target="_blank">sqlite3用のライブラリ</a>。</p>
+
+<p>DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#&gt; gem install sqlite3</span>
+<span class="c1">#&gt; gem install sqlite3-ruby</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>つぎにデータベースへのアクセスをある程度抽象化してくれるという<a href="https://rubygems.org/gems/dbi" target="_blank">DBIというライブラリ</a>。</p>
+
+<p>こちらもgemで。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#&gt; gem install dbi</span>
+<span class="c1">#&gt; gem install dbd-sqlite3</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。</p>
+
+<h3 id="eclipseにdb開発ツールをインストールしてsqlite用に仕立てる">eclipseにDB開発ツールをインストールしてSQLite用に仕立てる</h3>
+
+<p>eclipseのプラグインで</p>
+
+<p>Kepler &#8211; <a href="http://download.eclipse.org/releases/kepler" target="_blank">http://download.eclipse.org/releases/kepler</a></p>
+
+<p>&#8220;Database Development&#8221;</p>
+
+<p>をインストールしときます。</p>
+
+<p><a href="/posts/2013/2013-05-20-developping-database-on-eclipse" title="EclipseでDatabase開発" target="_blank">かつて</a>は違う名前だったような気がしますが、同じようなことできれば何でも良いんです。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-06-19-rubydbsqlite3/WS000087.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-06-19-rubydbsqlite3/WS000087_hu3382508ad86f478e5c925b271a93a787_133847_240x0_resize_q75_box.jpg" width="240"
+                height="169" data-original="/2014-06-19-rubydbsqlite3/WS000087.jpg" />
+    </a>
+
+
+<p>さらにSQLite用のJDBCドライバも必要です。</p>
+
+<p>SQLiteやOracleから公式なドライバは提供されて無いっぽいんで、<a href="https://bitbucket.org/xerial/sqlite-jdbc" target="_blank">このへん</a>からダウンロード(sqlite-jdbc-3.7.2.jar)して適当なフォルダにコピーします。</p>
+
+<p>Preference-&gt;Data Management-&gt;Connectivity-&gt;Driver Definitionで&#8221;Add&#8221;</p>
+
+<p>Name/TypeタブのVendor FilterでSQLiteを選んで、下のリストからSQLite JDBC Driverを選択。</p>
+
+<p>JAR Listタブで&#8221;Add JAR/Zip&#8221;。ダウンロードしたjarファイルを指定します。</p>
+
+<p>Defaultで勝手に入っているjar設定(sqlitejdbc-v051.jarとかなってました)がある場合は削除しときます。</p>
+
+<p>Propertiesタブで好みの既定値をセットしたら&#8221;OK&#8221;。</p>
+
+<p>ちなみにConnection URLを jdbc:sqlite:D:\var\SQLiteDB　とかしてみました。</p>
+
+<h3 id="データベース作成">データベース作成</h3>
+
+<h4 id="sqlファイルと接続設定">SQLファイルと接続設定</h4>
+
+<p>rubyプロジェクトにsqlってフォルダを作って、&#8221;sqlite3.sql&#8221;ファイルを作ります。</p>
+
+<p>sqlファイルを開くとSQL File Editorで開くので、こんな感じのSQLを書きました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">ToDo</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">ToDo</span><span class="p">(</span>
+    <span class="n">id</span>          <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTOINCREMENT</span><span class="p">,</span>   <span class="c1">--surrogate key
+</span><span class="c1"></span>    <span class="n">item_name</span>   <span class="nb">TEXT</span><span class="p">,</span>
+    <span class="n">memo</span>        <span class="nb">TEXT</span><span class="p">,</span>
+    <span class="n">QTY</span>         <span class="nb">INTEGER</span><span class="p">,</span>
+    <span class="n">done</span>        <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">update_time</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span>
+<span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ToDo</span> <span class="p">(</span> <span class="n">item_name</span> <span class="p">,</span> <span class="n">memo</span> <span class="p">,</span>  <span class="n">QTY</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;リンゴ&#39;</span><span class="p">,</span><span class="s1">&#39;なるべく赤いの&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ToDo</span> <span class="p">(</span> <span class="n">item_name</span> <span class="p">,</span> <span class="n">memo</span> <span class="p">,</span>  <span class="n">QTY</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;卵&#39;</span><span class="p">,</span><span class="s1">&#39;１２個入りの&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ToDo</span> <span class="p">(</span> <span class="n">item_name</span> <span class="p">,</span> <span class="n">memo</span> <span class="p">,</span>  <span class="n">QTY</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;チョコ系お菓子&#39;</span><span class="p">,</span><span class="s1">&#39;お好みで&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>エディタ上で右クリックして、&#8221;Set Connection info&#8221;を選びます。</p>
+
+<p>Database Server Type:SQLITE_3.5.9</p>
+
+<p>Connection Frofile Nameで&#8221;Create&#8221;-&gt;SQLiteで Name: RubySQLiteTest -&gt; Next</p>
+
+<p>Database: RubySQLiteTest</p>
+
+<p>Database Location: D:\var\SQLiteDB\RubySQLiteTest.sqlite3 で</p>
+
+<p>こんな感じの設定で</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-06-19-rubydbsqlite3/CAP000041.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-06-19-rubydbsqlite3/CAP000041_hu3b18fdda0dab5d46faf33323dd4d2b9c_76077_240x0_resize_q75_box.jpg" width="240"
+                height="180" data-original="/2014-06-19-rubydbsqlite3/CAP000041.jpg" />
+    </a>
+
+
+<p>&#8220;Finish&#8221;</p>
+
+<p>エディタのダイアログはこんな感じ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-06-19-rubydbsqlite3/CAP000042.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-06-19-rubydbsqlite3/CAP000042_hub25fe16451049525b4ae23ae4d2fbed0_23459_240x0_resize_q75_box.jpg" width="240"
+                height="159" data-original="/2014-06-19-rubydbsqlite3/CAP000042.jpg" />
+    </a>
+
+
+<h4 id="sql実行">SQL実行</h4>
+
+<p>エディタ上で右クリックして、&#8221;Execute All&#8221;で実行されます。</p>
+
+<h4 id="実行結果">実行結果</h4>
+
+<p>実行結果は実行するると勝手に表示されますが、Insertされたデータなんかを見るにはData Source Explorerなるウインドウを表示します。</p>
+
+<p>Window-&gt;Show View-&gt;Other&#8230;-&gt;Data Management-&gt;Data Source Explorer</p>
+
+<p>Database Connectionに先ほど作った接続定義があるはずなんで、掘り進んでいってEditで表示(と編集)ができます。</p>
+
+<h3 id="rubyからアクセス">Rubyからアクセス</h3>
+
+<p>やっとこさ本題のRubyからのアクセスです。</p>
+
+<p><a href="/posts/2014/2014-06-14-windows-eclipse-ruby" title="WindowsでEclipse+Ruby" target="_blank">前回作ったお試しプロジェクト</a>にDBITest.rbを追加します。</p>
+
+<h4 id="eclipseからgemでインストールしたライブラリを参照">eclipseからgemでインストールしたライブラリを参照</h4>
+
+<p>eclipseからgemなライブラリを参照しとかないと、コード補完が利きませんのでソッコーで参照させます。</p>
+
+<p>Window-&gt;Preeferences-&gt;Ruby-&gt;Interpreters-&gt;Interpreter system librariesに</p>
+
+<p>C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems</p>
+
+<p>を追加。</p>
+
+<h4 id="コード書く">コード書く</h4>
+
+<p>ここまでで帰りたくなってきますが、やっとコードです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;dbi&#39;</span>
+
+<span class="n">dbh</span><span class="o">=</span><span class="no">DBI</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&#34;DBI:SQLite3:D:/var/SQLiteDB/RubySQLiteTest.sqlite3&#34;</span><span class="p">)</span>
+
+<span class="n">dbh</span><span class="o">.</span><span class="n">select_all</span><span class="p">(</span> <span class="s1">&#39;select * from ToDo&#39;</span> <span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+  <span class="nb">print</span> <span class="s2">&#34; </span><span class="si">#{</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;item_name&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;memo&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;QTY&#39;</span><span class="o">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+<span class="k">end</span>
+
+<span class="n">dbh</span><span class="o">.</span><span class="n">disconnect</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>結果は</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">リンゴ なるべく赤いの 3
+ 卵 １２個入りの 1
+ チョコ系お菓子 お好みで 1</code></pre></td></tr></table>
+</div>
+</div>
+<p>自分が物知らないだけなんですが、MS系の開発環境(VSとかSQL Managementとか)に慣れてると、eclipseとかrubyとかメジャーどころですら、環境設定に要らん手間が多くて疲れますな。</p>
+
+<p>Macとかならまた違うのか？</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-06-19-rubydbsqlite3%2f&title=ruby%28dbi%29%20%2b%20db%28sqlite3%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-06-19-rubydbsqlite3%2f&text=ruby%28dbi%29%20%2b%20db%28sqlite3%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-06-19-rubydbsqlite3%2f&t=ruby%28dbi%29%20%2b%20db%28sqlite3%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-06-19-rubydbsqlite3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-06-19-rubydbsqlite3%2f&title=ruby%28dbi%29%20%2b%20db%28sqlite3%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ruby%28dbi%29%20%2b%20db%28sqlite3%29 %2f2014-06-19-rubydbsqlite3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ruby(dbi) &#43; db(sqlite3)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          
+          <li><a href="/categories/ruby/">ruby</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2014-06-14-windows-eclipse-ruby/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-06-14-windows-eclipse-ruby/CAP000029.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">WindowsでEclipse&#43;Ruby</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-14T09:07:11JST">Jun 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2014-08-05-sutadying-rails-and-vim-1/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">railsでvimのお勉強#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-08-05T02:30:26JST">Aug 5, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -13,10 +13,10 @@
     
     <item>
       <title>Azure Functionsの雰囲気をローカルで試す</title>
-      <link>/posts/2018-02-14-try-azure-functions-on-local/</link>
+      <link>/2018-02-14-try-azure-functions-on-local/</link>
       <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
       
-      <guid>/posts/2018-02-14-try-azure-functions-on-local/</guid>
+      <guid>/2018-02-14-try-azure-functions-on-local/</guid>
       <description>&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;
 
 &lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>AngularJSの$httpdでファイルのアップロード(でハマった話)</title>
-      <link>/posts/2017-10-10-angularjs-httpd-content-type-trap/</link>
+      <link>/2017-10-10-angularjs-httpd-content-type-trap/</link>
       <pubDate>Tue, 10 Oct 2017 14:05:08 +0000</pubDate>
       
-      <guid>/posts/2017-10-10-angularjs-httpd-content-type-trap/</guid>
+      <guid>/2017-10-10-angularjs-httpd-content-type-trap/</guid>
       <description>&lt;h3 id=&#34;現象&#34;&gt;現象&lt;/h3&gt;
 
 &lt;p&gt;ASP.NET の Web APIにファイルをポストしようとして、&lt;/p&gt;
@@ -71,42 +71,42 @@
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5</title>
-      <link>/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
+      <link>/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
       <pubDate>Mon, 26 Jun 2017 03:51:03 +0000</pubDate>
       
-      <guid>/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
+      <guid>/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
 
 &lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4</title>
-      <link>/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</link>
+      <link>/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</link>
       <pubDate>Tue, 20 Jun 2017 13:35:42 +0000</pubDate>
       
-      <guid>/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
+      <guid>/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3</title>
-      <link>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</link>
+      <link>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</link>
       <pubDate>Mon, 19 Jun 2017 13:40:34 +0000</pubDate>
       
-      <guid>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
+      <guid>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
 
 &lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2</title>
-      <link>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</link>
+      <link>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</link>
       <pubDate>Mon, 19 Jun 2017 03:17:49 +0000</pubDate>
       
-      <guid>/posts/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
+      <guid>/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
 
 &lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;
 
@@ -121,10 +121,10 @@
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#1</title>
-      <link>/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</link>
+      <link>/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</link>
       <pubDate>Thu, 15 Jun 2017 03:53:51 +0000</pubDate>
       
-      <guid>/posts/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</guid>
+      <guid>/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</guid>
       <description>&lt;p&gt;ASP.NET Coreをubuntuで動かしてみます。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;
@@ -140,10 +140,10 @@
     
     <item>
       <title>Docker &#43; .Net Core &#43; Visual studio 2015</title>
-      <link>/posts/2017-05-17-dockerdotnetcorevisualstudio2015/</link>
+      <link>/2017-05-17-dockerdotnetcorevisualstudio2015/</link>
       <pubDate>Wed, 17 May 2017 03:33:00 +0000</pubDate>
       
-      <guid>/posts/2017-05-17-dockerdotnetcorevisualstudio2015/</guid>
+      <guid>/2017-05-17-dockerdotnetcorevisualstudio2015/</guid>
       <description>&lt;p&gt;Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。&lt;/p&gt;
 
 &lt;p&gt;てことで、少しいじってみます。&lt;/p&gt;
@@ -153,10 +153,10 @@
     
     <item>
       <title>Class LibraryとASP.NET MVCのDB-Migration</title>
-      <link>/posts/2016-08-03-class-library-and-mvc-dbmigration/</link>
+      <link>/2016-08-03-class-library-and-mvc-dbmigration/</link>
       <pubDate>Wed, 03 Aug 2016 08:13:12 +0000</pubDate>
       
-      <guid>/posts/2016-08-03-class-library-and-mvc-dbmigration/</guid>
+      <guid>/2016-08-03-class-library-and-mvc-dbmigration/</guid>
       <description>&lt;p&gt;ASP.NET MVC(試したのは5)で、entity frameworkを使ったmodelやサービス部を別のクラスライブラリプロジェクトに切り出した時に、update-databaseのやり方で若干ハマったのでメモ。&lt;/p&gt;
 
 &lt;p&gt;環境はVisual studio 2015 update3&lt;/p&gt;
@@ -175,21 +175,21 @@
     
     <item>
       <title>OnsenUI&#43;VisualStudio2015</title>
-      <link>/posts/2016-06-27-onsenui-visualstudio2015/</link>
+      <link>/2016-06-27-onsenui-visualstudio2015/</link>
       <pubDate>Mon, 27 Jun 2016 06:11:12 +0000</pubDate>
       
-      <guid>/posts/2016-06-27-onsenui-visualstudio2015/</guid>
+      <guid>/2016-06-27-onsenui-visualstudio2015/</guid>
       <description>&lt;p&gt;Visual studio2015 update 2&lt;/p&gt;
 
-&lt;p&gt;参考　&lt;a href=&#34;http://ardalis.com/configure-grunt-in-visual-studio-2015&#34;&gt;http://ardalis.com/configure-grunt-in-visual-studio-2015&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;参考　&lt;a href=&#34;http://ardalis.com/configure-grunt-in-visual-studio-2015&#34; target=&#34;_blank&#34;&gt;http://ardalis.com/configure-grunt-in-visual-studio-2015&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Excel-DNA</title>
-      <link>/posts/2016-05-12-try-excel-dna/</link>
+      <link>/2016-05-12-try-excel-dna/</link>
       <pubDate>Thu, 12 May 2016 00:21:20 +0000</pubDate>
       
-      <guid>/posts/2016-05-12-try-excel-dna/</guid>
+      <guid>/2016-05-12-try-excel-dna/</guid>
       <description>&lt;p&gt;ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。&lt;/p&gt;
 
 &lt;p&gt;VS+C#でソース管理もしながら開発したいもんです。&lt;/p&gt;
@@ -201,19 +201,19 @@
     
     <item>
       <title>ASP.NET MVC 5でOktaを使う</title>
-      <link>/posts/2016-03-25-using-okta-from-mvc5/</link>
+      <link>/2016-03-25-using-okta-from-mvc5/</link>
       <pubDate>Fri, 25 Mar 2016 12:44:36 +0000</pubDate>
       
-      <guid>/posts/2016-03-25-using-okta-from-mvc5/</guid>
+      <guid>/2016-03-25-using-okta-from-mvc5/</guid>
       <description>&lt;p&gt;シングルサインオンサービスの&lt;a href=&#34;https://www.okta.com/&#34; target=&#34;_blank&#34;&gt;Okta&lt;/a&gt;をMVC5のログインに使う羽目になったのでメモ。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>INotifyPropertyChangedの実装</title>
-      <link>/posts/2016-01-27-implimentation-of-inotifypropertychanged/</link>
+      <link>/2016-01-27-implimentation-of-inotifypropertychanged/</link>
       <pubDate>Wed, 27 Jan 2016 08:22:57 +0000</pubDate>
       
-      <guid>/posts/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
+      <guid>/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
       <description>&lt;p&gt;久々にWindows Formsなプログラムを作っております。&lt;/p&gt;
 
 &lt;p&gt;(どのぐらい久々かというと、最後にの記憶がVB6辺りという。。。)&lt;/p&gt;
@@ -225,11 +225,11 @@
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4</title>
-      <link>/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
+      <link>/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
       <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
       
-      <guid>/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
+      <guid>/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;
 
@@ -238,30 +238,30 @@
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#３</title>
-      <link>/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
+      <link>/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
       <pubDate>Sun, 18 Oct 2015 09:00:39 +0000</pubDate>
       
-      <guid>/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
+      <guid>/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#2</title>
-      <link>/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
+      <link>/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
       <pubDate>Sat, 17 Oct 2015 10:42:07 +0000</pubDate>
       
-      <guid>/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
+      <guid>/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
 
 &lt;p&gt;今回はwebアプリから使ってみます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</title>
-      <link>/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
+      <link>/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
       <pubDate>Thu, 15 Oct 2015 13:49:32 +0000</pubDate>
       
-      <guid>/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
+      <guid>/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
       <description>&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;
 
 &lt;div&gt;あまぞんりんく&lt;/div&gt;
@@ -281,10 +281,10 @@
     
     <item>
       <title>Entity FrameworkでInsertするときに関連するレコードもInsertされる</title>
-      <link>/posts/2015-09-16-ef-insert-duplicate-object/</link>
+      <link>/2015-09-16-ef-insert-duplicate-object/</link>
       <pubDate>Wed, 16 Sep 2015 05:49:39 +0000</pubDate>
       
-      <guid>/posts/2015-09-16-ef-insert-duplicate-object/</guid>
+      <guid>/2015-09-16-ef-insert-duplicate-object/</guid>
       <description>&lt;p&gt;Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。&lt;/p&gt;
 
 &lt;p&gt;なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？&lt;/p&gt;
@@ -294,11 +294,11 @@
     
     <item>
       <title>ASP.NET IdentityでActive Directory認証#2</title>
-      <link>/posts/2015-08-18-asp-net-identity-with-adfs-2/</link>
+      <link>/2015-08-18-asp-net-identity-with-adfs-2/</link>
       <pubDate>Tue, 18 Aug 2015 04:04:05 +0000</pubDate>
       
-      <guid>/posts/2015-08-18-asp-net-identity-with-adfs-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;
+      <guid>/2015-08-18-asp-net-identity-with-adfs-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;
 
 &lt;p&gt;この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。&lt;/p&gt;
 
@@ -311,10 +311,10 @@
     
     <item>
       <title>ASP.NET IdentityでActive Directory認証</title>
-      <link>/posts/2015-08-11-asp-net-identity-with-adfs/</link>
+      <link>/2015-08-11-asp-net-identity-with-adfs/</link>
       <pubDate>Tue, 11 Aug 2015 07:44:05 +0000</pubDate>
       
-      <guid>/posts/2015-08-11-asp-net-identity-with-adfs/</guid>
+      <guid>/2015-08-11-asp-net-identity-with-adfs/</guid>
       <description>&lt;p&gt;最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。&lt;/p&gt;
 
 &lt;p&gt;これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。&lt;/p&gt;
@@ -326,32 +326,32 @@
     
     <item>
       <title>再度AngularJS(#2)</title>
-      <link>/posts/2015-03-02-angularjs-again-2/</link>
+      <link>/2015-03-02-angularjs-again-2/</link>
       <pubDate>Mon, 02 Mar 2015 05:23:12 +0000</pubDate>
       
-      <guid>/posts/2015-03-02-angularjs-again-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
+      <guid>/2015-03-02-angularjs-again-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>再度AngularJS(#1)</title>
-      <link>/posts/2015-03-02-angularjs-again-1/</link>
+      <link>/2015-03-02-angularjs-again-1/</link>
       <pubDate>Mon, 02 Mar 2015 05:22:43 +0000</pubDate>
       
-      <guid>/posts/2015-03-02-angularjs-again-1/</guid>
+      <guid>/2015-03-02-angularjs-again-1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.buildinsider.net/web/popularjslib/2015&#34; target=&#34;_blank&#34;&gt;JavaScriptライブラリ人気調査&lt;/a&gt;によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。&lt;/p&gt;
 
 &lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;
 
-&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
+&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET MVC 4を基本で作った後でknockout.js等使う</title>
-      <link>/posts/2014-08-29-asp-net-mvc-4-basicknockout/</link>
+      <link>/2014-08-29-asp-net-mvc-4-basicknockout/</link>
       <pubDate>Fri, 29 Aug 2014 03:47:56 +0000</pubDate>
       
-      <guid>/posts/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
+      <guid>/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
       <description>&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;
 
 &lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;</description>
@@ -359,43 +359,43 @@
     
     <item>
       <title>AngularJS &#43; Bootstrap</title>
-      <link>/posts/2014-04-16-angularjsbootstrap/</link>
+      <link>/2014-04-16-angularjsbootstrap/</link>
       <pubDate>Wed, 16 Apr 2014 08:04:57 +0000</pubDate>
       
-      <guid>/posts/2014-04-16-angularjsbootstrap/</guid>
+      <guid>/2014-04-16-angularjsbootstrap/</guid>
       <description>&lt;p&gt;Bootstrapはやってますね。使ったことありませんが、お手軽にきれいなサイトができるらしいっす。&lt;/p&gt;
 
-&lt;p&gt;てことで、&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
+&lt;p&gt;てことで、&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
 
 &lt;p&gt;AngularJS と Bootstrapを合わせ技で使う場合、&lt;a href=&#34;http://angular-ui.github.io/bootstrap/&#34; target=&#34;_blank&#34;&gt;UI Bootstrap&lt;/a&gt;がよさそうです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AngularJS &#43; ASP.NET MVC 4 #3(更新・削除)</title>
-      <link>/posts/2014-04-14-angularjsasp-netmvc4_3/</link>
+      <link>/2014-04-14-angularjsasp-netmvc4_3/</link>
       <pubDate>Mon, 14 Apr 2014 06:39:12 +0000</pubDate>
       
-      <guid>/posts/2014-04-14-angularjsasp-netmvc4_3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
+      <guid>/2014-04-14-angularjsasp-netmvc4_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
 
 &lt;p&gt;CRUDのUです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加)</title>
-      <link>/posts/2014-04-11-angularjsasp-netmvc4_2/</link>
+      <link>/2014-04-11-angularjsasp-netmvc4_2/</link>
       <pubDate>Fri, 11 Apr 2014 05:19:24 +0000</pubDate>
       
-      <guid>/posts/2014-04-11-angularjsasp-netmvc4_2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
+      <guid>/2014-04-11-angularjsasp-netmvc4_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)</title>
-      <link>/posts/2014-04-11-angularjsasp-netmvc4_1/</link>
+      <link>/2014-04-11-angularjsasp-netmvc4_1/</link>
       <pubDate>Fri, 11 Apr 2014 05:18:46 +0000</pubDate>
       
-      <guid>/posts/2014-04-11-angularjsasp-netmvc4_1/</guid>
+      <guid>/2014-04-11-angularjsasp-netmvc4_1/</guid>
       <description>&lt;p&gt;AngularJS + ASP.NET MVC 4でなんか作ってみます。&lt;/p&gt;
 
 &lt;p&gt;Visual Studio 2010 &lt;a href=&#34;http://localhost:8000/unclassified/577/&#34; title=&#34;Visual Studio 2010 + ASP.NET MVC 4&#34; target=&#34;_blank&#34;&gt;+ MVC4&lt;/a&gt;で開発します。2013とかほしいっす。&lt;/p&gt;</description>
@@ -403,10 +403,10 @@
     
     <item>
       <title>Visual Studio 2010 &#43; ASP.NET MVC 4</title>
-      <link>/posts/2014-04-09-visualstudio2010asp-netmvc4/</link>
+      <link>/2014-04-09-visualstudio2010asp-netmvc4/</link>
       <pubDate>Wed, 09 Apr 2014 05:27:57 +0000</pubDate>
       
-      <guid>/posts/2014-04-09-visualstudio2010asp-netmvc4/</guid>
+      <guid>/2014-04-09-visualstudio2010asp-netmvc4/</guid>
       <description>なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。
 ただし我がVisual Studio 2010(SP1) 、つるしの状態だとMVC3までのサポートなので、4を使えるようにします。
 http://www.microsoft.com/ja-jp/download/details.aspx?id=30683から
@@ -432,10 +432,10 @@ D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup_JPN.exe
     
     <item>
       <title>Visual Studio 2010 &#43; NUnit デバッグ実行</title>
-      <link>/posts/2014-01-17-vs2010nunitdebug/</link>
+      <link>/2014-01-17-vs2010nunitdebug/</link>
       <pubDate>Fri, 17 Jan 2014 01:54:38 +0000</pubDate>
       
-      <guid>/posts/2014-01-17-vs2010nunitdebug/</guid>
+      <guid>/2014-01-17-vs2010nunitdebug/</guid>
       <description>TDDもうあたりまえになってるんでしょうかね。
 Visual StudioでNUnitデバック実行ではまったのでメモ。
 「Visual Studio NUnit デバック実行」でググるといろんなサイトが出てきますが、とりあえずこちらを参考に

@@ -13,10 +13,10 @@
     
     <item>
       <title>ionic native plugin</title>
-      <link>/posts/2018-08-09-create-ionic-native-plugin/</link>
+      <link>/2018-08-09-create-ionic-native-plugin/</link>
       <pubDate>Thu, 09 Aug 2018 07:39:27 +0000</pubDate>
       
-      <guid>/posts/2018-08-09-create-ionic-native-plugin/</guid>
+      <guid>/2018-08-09-create-ionic-native-plugin/</guid>
       <description>&lt;p&gt;ionic用のプラグインを作ってみたくなったんでやってみる。&lt;/p&gt;
 
 &lt;p&gt;環境は&lt;/p&gt;
@@ -36,24 +36,24 @@
     
     <item>
       <title>OnsenUI&#43;VisualStudio2015</title>
-      <link>/posts/2016-06-27-onsenui-visualstudio2015/</link>
+      <link>/2016-06-27-onsenui-visualstudio2015/</link>
       <pubDate>Mon, 27 Jun 2016 06:11:12 +0000</pubDate>
       
-      <guid>/posts/2016-06-27-onsenui-visualstudio2015/</guid>
+      <guid>/2016-06-27-onsenui-visualstudio2015/</guid>
       <description>&lt;p&gt;Visual studio2015 update 2&lt;/p&gt;
 
-&lt;p&gt;参考　&lt;a href=&#34;http://ardalis.com/configure-grunt-in-visual-studio-2015&#34;&gt;http://ardalis.com/configure-grunt-in-visual-studio-2015&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;参考　&lt;a href=&#34;http://ardalis.com/configure-grunt-in-visual-studio-2015&#34; target=&#34;_blank&#34;&gt;http://ardalis.com/configure-grunt-in-visual-studio-2015&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PhoneGap/Cordova Tips &amp; つまづきポイント</title>
-      <link>/posts/2015-06-24-phonegap-cordova-traps/</link>
+      <link>/2015-06-24-phonegap-cordova-traps/</link>
       <pubDate>Wed, 24 Jun 2015 06:14:55 +0000</pubDate>
       
-      <guid>/posts/2015-06-24-phonegap-cordova-traps/</guid>
+      <guid>/2015-06-24-phonegap-cordova-traps/</guid>
       <description>&lt;p&gt;PhoneGap/Cordovaで手探り状態で開発してます。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;/posts/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
     </item>
     
   </channel>

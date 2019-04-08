@@ -13,10 +13,10 @@
     
     <item>
       <title>Redmineでチケットに応じたコマンドを表示</title>
-      <link>/posts/2019-03-19-redmine-ticket-command/</link>
+      <link>/2019-03-19-redmine-ticket-command/</link>
       <pubDate>Tue, 19 Mar 2019 00:50:34 +0000</pubDate>
       
-      <guid>/posts/2019-03-19-redmine-ticket-command/</guid>
+      <guid>/2019-03-19-redmine-ticket-command/</guid>
       <description>&lt;p&gt;タイトル何言ってるかわかりませんか、そーですか。&lt;/p&gt;
 
 &lt;p&gt;運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。&lt;/p&gt;
@@ -42,9 +42,9 @@
     
     
     
-    &lt;a class=&#34;luminous&#34; href=&#34;/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;
-            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;
-                height=&#34;201&#34; data-original=&#34;/posts/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34; /&gt;
+    &lt;a class=&#34;luminous&#34; href=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;
+            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;
+                height=&#34;201&#34; data-original=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34; /&gt;
     &lt;/a&gt;</description>
     </item>
     

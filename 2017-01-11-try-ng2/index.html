@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2017-01-11-try-ng2/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Angular2を使ってみる - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;SPAの強い味方Angularから2がリリースされました。&lt;/p&gt;&lt;p&gt;てことで試してみます。&lt;/p&gt;&lt;p&gt;環境は&lt;/p&gt;&lt;p&gt;windows 7&lt;/p&gt;&lt;p&gt;visual studio code&lt;/p&gt;&lt;p&gt;npm 4.1.1&lt;/p&gt;&lt;p&gt;node 6.9.2&lt;/p&gt;">
+
+<meta property="og:title" content="Angular2を使ってみる - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2017-01-11-try-ng2/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;SPAの強い味方Angularから2がリリースされました。&lt;/p&gt;&lt;p&gt;てことで試してみます。&lt;/p&gt;&lt;p&gt;環境は&lt;/p&gt;&lt;p&gt;windows 7&lt;/p&gt;&lt;p&gt;visual studio code&lt;/p&gt;&lt;p&gt;npm 4.1.1&lt;/p&gt;&lt;p&gt;node 6.9.2&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2017-01-11-try-ng2/">
+<meta name="twitter:title" content="Angular2を使ってみる - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;SPAの強い味方Angularから2がリリースされました。&lt;/p&gt;&lt;p&gt;てことで試してみます。&lt;/p&gt;&lt;p&gt;環境は&lt;/p&gt;&lt;p&gt;windows 7&lt;/p&gt;&lt;p&gt;visual studio code&lt;/p&gt;&lt;p&gt;npm 4.1.1&lt;/p&gt;&lt;p&gt;node 6.9.2&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Angular2を使ってみる - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-01-11T08:22:15JST",
+    "dateModified": "2017-01-11T08:22:15JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>SPAの強い味方Angularから2がリリースされました。</p>
+
+<p>てことで試してみます。</p>
+
+<p>環境は</p>
+
+<p>windows 7</p>
+
+<p>visual studio code</p>
+
+<p>npm 4.1.1</p>
+
+<p>node 6.9.2</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2017-01-11-try-ng2/CAP000113.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Angular2を使ってみる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-11T08:22:15JST">Jan 11, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2017-01-11-try-ng2%2f&title=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2017-01-11-try-ng2%2f&text=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2017-01-11-try-ng2%2f&t=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2017-01-11-try-ng2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2017-01-11-try-ng2%2f&title=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b %2f2017-01-11-try-ng2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>SPAの強い味方Angularから2がリリースされました。</p>
+
+<p>てことで試してみます。</p>
+
+<p>環境は</p>
+
+<p>windows 7</p>
+
+<p>visual studio code</p>
+
+<p>npm 4.1.1</p>
+
+<p>node 6.9.2</p>
+
+<h3 id="とりあえず動くか確認">とりあえず動くか確認</h3>
+
+<p><a href="https://angular.io/docs/ts/latest/guide/learning-angular.html" target="_blank">https://angular.io/docs/ts/latest/guide/learning-angular.html</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">c:<span class="se">\u</span>sr<span class="se">\s</span>rc&gt;git clone https://github.com/angular/quickstart.git ng2quickstart
+c:<span class="se">\u</span>sr<span class="se">\s</span>rc&gt;cd ng2quickstart
+c:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\n</span>g2quickstart&gt;code .</code></pre></td></tr></table>
+</div>
+</div>
+<p>こっからはvisual studio code の統合ターミナル(Ctrl+@)で作業してみる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">C:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\n</span>g2quickstart&gt;npm install
+C:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\n</span>g2quickstart&gt;npm start    <span class="c1">#開発中は実行しっぱなしにしとく</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>でた</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2017-01-11-try-ng2/CAP000113.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2017-01-11-try-ng2/CAP000113_hubc2079c2ae699ebf0276b6b751bdc4f9_14963_240x0_resize_q75_box.jpg" width="240"
+                height="121" data-original="/2017-01-11-try-ng2/CAP000113.jpg" />
+    </a>
+
+
+<h3 id="visual-studio-codeの設定">Visual Studio Codeの設定</h3>
+
+<p>app以下の*.tsファイルを開くと</p>
+
+<p>&#8220;ワークスペース フォルダーには TypeScript バージョン 2.0.10 があります。バンドルされたバージョン 2.1.4 ではな&#8230;&#8221;的なメッセージが表示されます。</p>
+
+<p><a href="https://code.visualstudio.com/Docs/languages/typescript#_using-newer-typescript-versions" target="_blank">こちら</a>を参考にユーザー設定ファイルに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;typescript.check.workspaceVersion&#34;: false,
+        &#34;typescript.check.tscVersion&#34;: false        </code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加しときます。</p>
+
+<p>typescript(*.ts)から生成されたjavascript(*.js)が若干うざいので<a href="https://code.visualstudio.com/Docs/languages/typescript#_hiding-derived-javascript-files" target="_blank">こちら</a>にあるとおりにして表示しないようにします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;files.exclude&#34;: {
+        &#34;**/.git&#34;: true,
+        &#34;**/.svn&#34;: true,
+        &#34;**/.hg&#34;: true,
+        &#34;**/.DS_Store&#34;: true,
+        &#34;**/*.js&#34;: { &#34;when&#34;: &#34;$(basename).ts&#34;}
+    },</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="チュートリアルをやってみる">チュートリアルをやってみる</h3>
+
+<p>結構しっかりした<a href="https://angular.io/docs/ts/latest/tutorial/" target="_blank">チュートリアル</a>が用意されているのでやってみます。</p>
+
+<p>つまづきポイントをメモ。</p>
+
+<h4 id="a-href-https-angular-io-docs-ts-latest-tutorial-toh-pt1-html-target-blank-the-hero-editor-a"><a href="https://angular.io/docs/ts/latest/tutorial/toh-pt1.html" target="_blank">THE HERO EDITOR</a></h4>
+
+<ul>
+<li>export class Hero は@Componentより前に書く。</li>
+</ul>
+
+<h3 id="visual-studio-codeでデバッグ">Visual Studio Codeでデバッグ</h3>
+
+<p><a href="http://stackoverflow.com/questions/36494938/debug-run-angular2-typescript-with-visual-studio-code" target="_blank">こちらによると</a>Angular2 + Typescript + Visual Studio Codeでデバックするには。</p>
+
+<p>&#8220;<a href="https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code" target="_blank">Debugger for Chrome</a>&#8220;というのが要るらしい。</p>
+
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd> =&gt; &#8220;Extentions: Install&#8221; =&gt; &#8220;Debugger for Chrome&#8221; =&gt; インストール</p>
+
+<p>インストールが終わったら、</p>
+
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>でデバッグを開いて、歯車アイコンをクリック。環境はnode.jsを選択。すると、.vscode\launch.jsonが作られます。</p>
+
+<p>stackoverflowの構成ではうまく動きませんでした。いろいろ試してこんな感じになりました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">{
+            &#34;name&#34;: &#34;Launch&#34;,
+            &#34;type&#34;: &#34;chrome&#34;,
+            &#34;request&#34;: &#34;launch&#34;,
+            &#34;url&#34;: &#34;http://127.0.0.1:3000&#34;,
+            &#34;port&#34;: 9222,
+            &#34;sourceMaps&#34;: true,
+            &#34;diagnosticLogging&#34;: true,
+            &#34;webRoot&#34;: &#34;${workspaceRoot}&#34;,
+            &#34;userDataDir&#34;: &#34;temp&#34;
+        },</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="で">で</h3>
+
+<p>angular1とは似て非なるものになっています。aspとaspxみたいなもん？</p>
+
+<p>typescriptベースになったので、環境準備が若干面倒ですが、すっきりかけるようになりました。</p>
+
+<p>まだチュートリアル途中です。コツコツやっていきます。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2017-01-11-try-ng2%2f&title=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2017-01-11-try-ng2%2f&text=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2017-01-11-try-ng2%2f&t=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2017-01-11-try-ng2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2017-01-11-try-ng2%2f&title=Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Angular2%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b %2f2017-01-11-try-ng2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Angular2を使ってみる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+          <li><a href="/categories/visual-studio-code/">visual studio code</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2016-12-27-ttrss-upgrade/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2016-12-27-ttrss-upgrade/SS-2016-12-27-23.57.26.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Tiny Tiny RSSのバージョンアップ</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-12-27T15:02:43JST">Dec 27, 2016</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2017-02-07-fail2ban-config-should-be-on-dotlocal/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">fail2banの設定はjail.localに書け</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-07T00:57:26JST">Feb 7, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2014-04-17-angularjsvalidation/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>AngularJSでバリデーション - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
+
+<meta property="og:title" content="AngularJSでバリデーション - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2014-04-17-angularjsvalidation/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2014-04-17-angularjsvalidation/">
+<meta name="twitter:title" content="AngularJSでバリデーション - My New Hugo Site">
+<meta name="twitter:description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "AngularJSでバリデーション - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-04-17T04:54:59JST",
+    "dateModified": "2014-04-17T04:54:59JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<h3 id="クライアントでバリデーション">クライアントでバリデーション</h3>
+
+<p><a href="/posts/2014/2014-04-16-angularjsbootstrap" title="AngularJS + Bootstrap" target="_blank">前回作った新規入力フォーム</a>にバリデーション機能を付けてみたので、コツっぽいものをメモ。</p>
+
+<p>ポイント的には</p>
+
+<ul>
+<li>フォームやフォーム部品には名前(name属性)を付ける。</li>
+<li>$errorや$validの評価はエレメントにつけた名前で行う。</li>
+</ul>
+
+<p>ぐらいでしょうか。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-04-17-angularjsvalidation/CAP000018.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">AngularJSでバリデーション</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-17T04:54:59JST">Apr 17, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-04-17-angularjsvalidation%2f&title=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-04-17-angularjsvalidation%2f&text=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-04-17-angularjsvalidation%2f&t=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-04-17-angularjsvalidation%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-04-17-angularjsvalidation%2f&title=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3 %2f2014-04-17-angularjsvalidation%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><h3 id="クライアントでバリデーション">クライアントでバリデーション</h3>
+
+<p><a href="/posts/2014/2014-04-16-angularjsbootstrap" title="AngularJS + Bootstrap" target="_blank">前回作った新規入力フォーム</a>にバリデーション機能を付けてみたので、コツっぽいものをメモ。</p>
+
+<p>ポイント的には</p>
+
+<ul>
+<li>フォームやフォーム部品には名前(name属性)を付ける。</li>
+<li>$errorや$validの評価はエレメントにつけた名前で行う。</li>
+</ul>
+
+<p>ぐらいでしょうか。</p>
+
+<p>フォームの入力要素にAngularJSから提供されてるバリデーション用のdirectiveを記述しとくとバリデートしてくれます。</p>
+
+<p>たとえば<a href="http://code.angularjs.org/1.2.16/docs/api/ng/directive/input" target="_blank">inputには ng-required,ng-minlength,ng-maxlength,ng-pattern　が使える</a>ようです。詳しくはリファレンス見ましょうってことですかね。</p>
+
+<h4 id="view">View</h4>
+
+<p>入力フォーム用のViewはこんな風にしました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">&#34;myApp&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/angular.min.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+・・・中略・・・
+    <span class="nt">&lt;style</span> <span class="na">type=</span><span class="s">&#34;text/css&#34;</span><span class="nt">&gt;</span>
+      /*invalidな時のスタイル。編集後のみ効くようにng-dirtyを付ける*/
+      input.ng-invalid.ng-dirty { border: 1px solid red !important; }   
+    <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&#34;TasksController&#34;</span><span class="nt">&gt;</span>
+・・・中略・・・
+        <span class="nt">&lt;hr&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">&#34;form-horizontal&#34;</span> <span class="na">role=</span><span class="s">&#34;form&#34;</span> <span class="na">ng-model=</span><span class="s">&#39;newTask&#39;</span> <span class="err">novalidate</span> <span class="na">name=</span><span class="s">&#34;newTaskForm&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#34;form-group&#34;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&#34;DatepickerCtrl&#34;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&#34;newDueDate&#34;</span> <span class="na">class=</span><span class="s">&#34;col-sm-2 control-label&#34;</span><span class="nt">&gt;</span>締切日<span class="nt">&lt;/label&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#34;col-sm-6&#34;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&#34;input-group&#34;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">class=</span><span class="s">&#34;form-control&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;newTask.DueDate&#34;</span> <span class="na">id=</span><span class="s">&#34;newDueDate&#34;</span>
+                                <span class="na">datepicker-popup=</span><span class="s">&#34;yyyy-MM-dd&#34;</span> <span class="na">is-open=</span><span class="s">&#34;opened&#34;</span> <span class="na">datepicker-options=</span><span class="s">&#34;dateOptions&#34;</span> <span class="na">date-disabled=</span><span class="s">&#34;disabled(date, mode)&#34;</span> 
+                                <span class="na">ng-required=</span><span class="s">&#34;true&#34;</span>  <span class="nt">/&gt;</span>
+                            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&#34;input-group-btn&#34;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&#34;btn btn-default&#34;</span> <span class="na">ng-click=</span><span class="s">&#34;open($event)&#34;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&#34;glyphicon glyphicon-calendar&#34;</span><span class="nt">&gt;&lt;/i&gt;&lt;/button&gt;</span>
+                            <span class="nt">&lt;/span&gt;</span>
+                        <span class="nt">&lt;/p&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#34;form-group&#34;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&#34;newDescription&#34;</span> <span class="na">class=</span><span class="s">&#34;col-sm-2 control-label&#34;</span><span class="nt">&gt;</span>詳細<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#34;col-sm-10&#34;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;newTask.Description&#34;</span> <span class="na">placeholder=</span><span class="s">&#34;Input Description&#34;</span> <span class="na">id=</span><span class="s">&#34;newDescription&#34;</span> <span class="na">name=</span><span class="s">&#34;txtNewDescription&#34;</span><span class="na">class=</span><span class="s">&#34;form-control&#34;</span>
+                    <span class="na">ng-required=</span><span class="s">&#34;true&#34;</span> <span class="na">ng-maxlength=</span><span class="s">&#34;50&#34;</span>
+                    <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">ng-show=</span><span class="s">&#34;newTaskForm.txtNewDescription.$error.maxlength&#34;</span><span class="nt">&gt;</span>too long<span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">ng-hide=</span><span class="s">&#34;newTaskForm.txtNewDescription.$error.maxlength&#34;</span><span class="nt">&gt;</span>{{50-newTask.Description.length}}<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#34;form-group&#34;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#34;col-sm-offset-2 col-sm-10&#34;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&#34;add(newTask,newTaskForm)&#34;</span> <span class="na">class=</span><span class="s">&#34;btn btn-primary&#34;</span>  <span class="na">ng-disabled=</span><span class="s">&#34;!newTaskForm.$valid&#34;</span><span class="nt">&gt;</span>追加<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            {{newTask}}
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;hr&gt;</span>
+・・・中略・・・
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>8行目:エラーがある要素にはng-invalidってクラスが付与されるっぽいので、スタイルを設定。</p>
+
+<p>15行目:fromにはnameとnovalidateを設定します。</p>
+
+<p>23,37行目:バリデーション用のdirectiveです。必須と長さ制限。</p>
+
+<p>39,40行目:フォーム要素(modelでは無い)を評価してエラーメッセージとか出してます。</p>
+
+<p>45行目:<code>ng-disabled=&quot;!newTaskForm.$valid&quot;</code>でフォームが正しくない時はサブミットできなくしてます。</p>
+
+<h4 id="controller">controller</h4>
+
+<p>コントローラは、新規追加後にフォームをクリアする処理を追加しました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">$scope.add = function (task, newForm) {  //追加処理
+            aTasks.save({ Description: task.Description, DueDate: task.DueDate }, function (saved_object) {
+                $scope.Tasks.push(saved_object);    //成功ハンドラの第一引数にWebAPIの返り値が入るっぽい。
+                $scope.newTask = {};    //入力内容初期化
+                newForm.$setPristine(); //フォームもリセット
+            });
+        };</code></pre></td></tr></table>
+</div>
+</div>
+<p>実行するとこんな感じです。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-04-17-angularjsvalidation/CAP000018.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-04-17-angularjsvalidation/CAP000018_hu8accd615750076f76623d538768f0980_15850_240x0_resize_q75_box.jpg" width="240"
+                height="98" data-original="/2014-04-17-angularjsvalidation/CAP000018.jpg" />
+    </a>
+
+
+<p>枠が赤くなって、エラーメッセージ(too long)が出て追加ボタンが押せなくなってます。</p>
+
+<p>ほぼコードを書くことなく動いちゃうところが凄いですな。</p>
+
+<h3 id="サーバ側バリデーション">サーバ側バリデーション</h3>
+
+<p>バリデーションというかエラーハンドリングです。</p>
+
+<p>変な入力があったらexceptionをthrowして、クライアントで表示するようにしてみます。</p>
+
+<h4 id="controller-サーバ">controller(サーバ)</h4>
+
+<p>WebAPIのコントローラにバリデーションロジックを追加します。</p>
+
+<p>ロジック的には新規作成の時にDescriptionに&#8221;ぬるぽ&#8221;が含まれてたら&#8221;ガッ&#8221;例外を発生させるというあほらしいものです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// POST api/tasks   新規作成
+</span><span class="c1"></span>        <span class="k">public</span> <span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="n">Post</span><span class="p">(</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">value</span><span class="p">.</span><span class="n">Description</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&#34;ぬるぽ&#34;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">ApplicationException</span><span class="p">(</span><span class="s">&#34;ガッ&#34;</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+                <span class="k">return</span> <span class="k">value</span><span class="p">;</span>   <span class="c1">//保存された値を返す
+</span><span class="c1"></span>            <span class="p">}</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="controller-angularjs">controller(AngularJS)</h4>
+
+<p>クライアント側のコントローラにAJAX呼び出しの際のエラーハンドラを追加します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">$scope.add = function (task, newForm) {  //追加処理
+            aTasks.save({ Description: task.Description, DueDate: task.DueDate }, function (saved_object) {
+                $scope.Tasks.push(saved_object);    //成功ハンドラの第一引数にWebAPIの返り値が入るっぽい。
+                $scope.newTask = {};    //入力内容初期化
+                newForm.$setPristine(); //フォームもリセット
+            },
+            function (httpResponse) {  //エラーハンドら
+                $scope.DebugObj = httpResponse;
+                alert(httpResponse.data.ExceptionMessage);
+            });
+        };</code></pre></td></tr></table>
+</div>
+</div>
+<p>いじょうですけど。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-04-17-angularjsvalidation%2f&title=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-04-17-angularjsvalidation%2f&text=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-04-17-angularjsvalidation%2f&t=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-04-17-angularjsvalidation%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-04-17-angularjsvalidation%2f&title=AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?AngularJS%e3%81%a7%e3%83%90%e3%83%aa%e3%83%87%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3 %2f2014-04-17-angularjsvalidation%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">AngularJSでバリデーション</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2014-04-16-angularjsbootstrap/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-04-16-angularjsbootstrap/CAP000015.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">AngularJS &#43; Bootstrap</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-16T08:04:57JST">Apr 16, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2014-05-14-svn-git-translate/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-05-14-svn-git-translate/CAP000019.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SubversionをGitにする</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-05-14T14:45:05JST">May 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

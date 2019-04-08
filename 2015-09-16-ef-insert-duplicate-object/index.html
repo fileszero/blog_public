@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2015-09-16-ef-insert-duplicate-object/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Entity FrameworkでInsertするときに関連するレコードもInsertされる - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。&lt;/p&gt;&lt;p&gt;なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？&lt;/p&gt;&lt;p&gt;動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。&lt;/p&gt;">
+
+<meta property="og:title" content="Entity FrameworkでInsertするときに関連するレコードもInsertされる - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2015-09-16-ef-insert-duplicate-object/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。&lt;/p&gt;&lt;p&gt;なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？&lt;/p&gt;&lt;p&gt;動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2015-09-16-ef-insert-duplicate-object/">
+<meta name="twitter:title" content="Entity FrameworkでInsertするときに関連するレコードもInsertされる - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。&lt;/p&gt;&lt;p&gt;なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？&lt;/p&gt;&lt;p&gt;動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Entity FrameworkでInsertするときに関連するレコードもInsertされる - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-09-16T05:49:39JST",
+    "dateModified": "2015-09-16T05:49:39JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。</p>
+
+<p>なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？</p>
+
+<p>動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-09-16-ef-insert-duplicate-object/CAP000078.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Entity FrameworkでInsertするときに関連するレコードもInsertされる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-09-16T05:49:39JST">Sep 16, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-09-16-ef-insert-duplicate-object%2f&title=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-09-16-ef-insert-duplicate-object%2f&text=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-09-16-ef-insert-duplicate-object%2f&t=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-09-16-ef-insert-duplicate-object%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-09-16-ef-insert-duplicate-object%2f&title=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b %2f2015-09-16-ef-insert-duplicate-object%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。</p>
+
+<p>なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？</p>
+
+<p>動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。</p>
+
+<h3 id="状況の再現">状況の再現</h3>
+
+<h4 id="テーブル">テーブル</h4>
+
+<p>SQL Express 2012に適当なDBを作って、PersonとDepartementデーブルを作ります。</p>
+
+<p>DepartmentIDでつながるよう FOREIGN KEYも作成。</p>
+
+<p>部署データとして&#8221;IT&#8221;部をセットしておきます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">USE</span> <span class="p">[</span><span class="n">TestDB</span><span class="p">]</span>
+<span class="k">GO</span>
+<span class="k">DROP</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Person</span><span class="p">]</span>
+<span class="k">DROP</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Department</span><span class="p">]</span>
+
+
+<span class="cm">/****** Object:  Table [dbo].[Person]    Script Date: 2015/09/16 10:48:25 ******/</span>
+<span class="k">SET</span> <span class="n">ANSI_NULLS</span> <span class="k">ON</span>
+<span class="k">GO</span>
+
+<span class="k">SET</span> <span class="n">QUOTED_IDENTIFIER</span> <span class="k">ON</span>
+<span class="k">GO</span>
+<span class="c1">-- テーブル作成
+</span><span class="c1"></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Department</span><span class="p">](</span>
+	<span class="p">[</span><span class="n">DepartmentID</span><span class="p">]</span> <span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>	<span class="c1">--キー(自動採番なし)
+</span><span class="c1"></span>	<span class="p">[</span><span class="n">DepartmentName</span><span class="p">]</span> <span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="p">[</span><span class="k">Location</span><span class="p">]</span> <span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">50</span><span class="p">)</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="k">CONSTRAINT</span> <span class="p">[</span><span class="n">PK_Department</span><span class="p">]</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">CLUSTERED</span> 
+	<span class="p">(</span>
+		<span class="p">[</span><span class="n">DepartmentID</span><span class="p">]</span> <span class="k">ASC</span>
+	<span class="p">)</span>
+<span class="p">)</span> <span class="k">ON</span> <span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Person</span><span class="p">](</span>
+	<span class="p">[</span><span class="n">PersonID</span><span class="p">]</span> <span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="p">[</span><span class="n">Name</span><span class="p">]</span> <span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">50</span><span class="p">)</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="p">[</span><span class="n">Age</span><span class="p">]</span> <span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="p">[</span><span class="n">DepartmentID</span><span class="p">]</span> <span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="k">NULL</span><span class="p">,</span>
+	<span class="k">CONSTRAINT</span> <span class="p">[</span><span class="n">PK_Person</span><span class="p">]</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">CLUSTERED</span> <span class="p">(</span>
+ 		<span class="p">[</span><span class="n">PersonID</span><span class="p">]</span> <span class="k">ASC</span>
+	<span class="p">)</span>
+<span class="p">)</span> <span class="k">ON</span> <span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+
+<span class="c1">--DepartmentIDでつながるよう FOREIGN KEY作成
+</span><span class="c1"></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Person</span><span class="p">]</span>  <span class="k">WITH</span> <span class="k">CHECK</span> <span class="k">ADD</span>  <span class="k">CONSTRAINT</span> <span class="p">[</span><span class="n">FK_Person_Department</span><span class="p">]</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">([</span><span class="n">DepartmentID</span><span class="p">])</span>
+<span class="k">REFERENCES</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Department</span><span class="p">]</span> <span class="p">([</span><span class="n">DepartmentID</span><span class="p">])</span>
+
+<span class="c1">--ダミーデータ
+</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Department</span><span class="p">]</span> <span class="p">([</span><span class="n">DepartmentID</span><span class="p">],</span> <span class="p">[</span><span class="n">DepartmentName</span><span class="p">]</span> <span class="p">,[</span><span class="k">Location</span><span class="p">])</span>
+     <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;IT&#39;</span><span class="p">,</span><span class="s1">&#39;TOKYO&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>絵にするとこんな感じ</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-09-16-ef-insert-duplicate-object/CAP000078.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-09-16-ef-insert-duplicate-object/CAP000078_hu8c2ec45a09a30641199097d6db6bf9d5_13366_240x0_resize_q75_box.jpg" width="240"
+                height="101" data-original="/2015-09-16-ef-insert-duplicate-object/CAP000078.jpg" />
+    </a>
+
+
+<p>部署に複数人が所属するっつーベタな構造です。</p>
+
+<h4 id="プロジェクト">プロジェクト</h4>
+
+<p>プロジェクトはコマンドラインプロジェクトにしました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-09-16-ef-insert-duplicate-object/CAP000073.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-09-16-ef-insert-duplicate-object/CAP000073_hu55bbfc9d03eeffdab157f0af52497605_10172_240x0_resize_q75_box.jpg" width="240"
+                height="144" data-original="/2015-09-16-ef-insert-duplicate-object/CAP000073.jpg" />
+    </a>
+
+
+<h4 id="entity">Entity</h4>
+
+<p>ADO.NET Entity Data Model</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-09-16-ef-insert-duplicate-object/CAP000074.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-09-16-ef-insert-duplicate-object/CAP000074_hu7fbfbbda6da27a51bece692023d7ba87_64663_240x0_resize_q75_box.jpg" width="240"
+                height="139" data-original="/2015-09-16-ef-insert-duplicate-object/CAP000074.jpg" />
+    </a>
+
+
+<p>Code Firest From database</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-09-16-ef-insert-duplicate-object/CAP000076.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-09-16-ef-insert-duplicate-object/CAP000076_hu8bc26753e8eb4ba857cebb98f43d6447_33374_240x0_resize_q75_box.jpg" width="240"
+                height="132" data-original="/2015-09-16-ef-insert-duplicate-object/CAP000076.jpg" />
+    </a>
+
+
+<p>テーブルは2つ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-09-16-ef-insert-duplicate-object/CAP000077.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-09-16-ef-insert-duplicate-object/CAP000077_hued6d65f93ea70e2b3fb48175b6e0952e_40594_240x0_resize_q75_box.jpg" width="240"
+                height="250" data-original="/2015-09-16-ef-insert-duplicate-object/CAP000077.jpg" />
+    </a>
+
+
+<h4 id="できたコード">できたコード</h4>
+
+<p>Visual Studioがいい感じにEntity用のコードを作ってくれます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Model1</span> <span class="p">:</span> <span class="n">DbContext</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">Model1</span><span class="p">()</span>
+            <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="s">&#34;name=Model1&#34;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">virtual</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Department</span><span class="p">&gt;</span> <span class="n">Department</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="k">virtual</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="n">Person</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="n">OnModelCreating</span><span class="p">(</span><span class="n">DbModelBuilder</span> <span class="n">modelBuilder</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">    [Table(&#34;Person&#34;)]</span>
+    <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Person</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">PersonID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">int?</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">int?</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">virtual</span> <span class="n">Department</span> <span class="n">Department</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">    [Table(&#34;Department&#34;)]</span>
+    <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Department</span>
+    <span class="p">{</span><span class="na">
+</span><span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2214:DoNotCallOverridableMethodsInConstructors&#34;)]</span>
+        <span class="k">public</span> <span class="n">Department</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;();</span>
+        <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [DatabaseGenerated(DatabaseGeneratedOption.None)]</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">        [Required]
+</span><span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">DepartmentName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Location</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2227:CollectionPropertiesShouldBeReadOnly&#34;)]</span>
+        <span class="k">public</span> <span class="k">virtual</span> <span class="n">ICollection</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="n">Person</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>(実際は各クラス毎にファイルが作成されます)</p>
+
+<h4 id="テストコード">テストコード</h4>
+
+<p>テストコードはPersonを追加するだけの処理です。</p>
+
+<p>この時、部署情報は呼び出し元からオブジェクトで渡されることを想定して、コンテキスト外で作成しています。</p>
+
+<p>AddPersonがメインの処理です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//外から部署を渡されることを再現するため、追加するコンテキスト外でインスタンス作成
+</span><span class="c1"></span>            <span class="n">Models</span><span class="p">.</span><span class="n">Department</span> <span class="n">IT</span><span class="p">;</span>
+            <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Model1</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">IT</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Department</span><span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">d</span> <span class="p">=&gt;</span> <span class="n">d</span><span class="p">.</span><span class="n">DepartmentID</span> <span class="p">==</span> <span class="m">1</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="n">AddPerson</span><span class="p">(</span><span class="s">&#34;土方 藍亭&#34;</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="n">IT</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="n">AddPerson</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span><span class="kt">int</span> <span class="n">age</span><span class="p">,</span> <span class="n">Models</span><span class="p">.</span><span class="n">Department</span> <span class="n">department</span><span class="p">){</span>
+            <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Model1</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">Log</span> <span class="p">=</span> <span class="p">(</span><span class="n">sql</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Debug</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span> <span class="p">};</span>   <span class="c1">//SQLを出す
+</span><span class="c1"></span>                <span class="c1">//Personを追加
+</span><span class="c1"></span>                <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Person</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">,</span>
+                    <span class="n">Age</span> <span class="p">=</span> <span class="n">age</span><span class="p">,</span>
+                    <span class="n">Department</span> <span class="p">=</span> <span class="n">department</span>
+                <span class="p">};</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>   <span class="c1">//ここでエラー
+</span><span class="c1"></span>            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="エラー再現">エラー再現</h4>
+
+<p>実行すると</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Violation of PRIMARY KEY constraint &#39;PK_Department&#39;. Cannot insert duplicate key in object &#39;dbo.Department&#39;. The duplicate key value is (1).</code></pre></td></tr></table>
+</div>
+</div>
+<p>と例外が発生します。</p>
+
+<p>デバッグ出力を見ると</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">Department</span><span class="p">]([</span><span class="n">DepartmentID</span><span class="p">],</span> <span class="p">[</span><span class="n">DepartmentName</span><span class="p">],</span> <span class="p">[</span><span class="k">Location</span><span class="p">])</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="o">@</span><span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">-- @0: &#39;1&#39; (Type = Int32)
+</span><span class="c1">-- @1: &#39;IT&#39; (Type = String, Size = 50)
+</span><span class="c1">-- @2: &#39;TOKYO&#39; (Type = String, Size = 50)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>とやろうとしています。</p>
+
+<p>AddしたのはPersonなのになぜかDepartmentを追加しようとしてます。</p>
+
+<p>コンテキスト内にオブジェクトが存在しないのが理由だと思いますが、余計なお世話サマーな気がします。</p>
+
+<h3 id="解決策1-オブジェクトを使わない">解決策1 オブジェクトを使わない</h3>
+
+<p>オブジェクトを使わないで、IDだけ指定してやるととりあえず動きます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">//Personを追加
+</span><span class="c1"></span>                <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Person</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">,</span>
+                    <span class="n">Age</span> <span class="p">=</span> <span class="n">age</span><span class="p">,</span>
+                    <span class="c1">//Department = department   //これやめて
+</span><span class="c1"></span>                    <span class="n">DepartmentID</span> <span class="p">=</span> <span class="n">department</span><span class="p">.</span><span class="n">DepartmentID</span>  <span class="c1">//こうする
+</span><span class="c1"></span>                <span class="p">};</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>   </code></pre></td></tr></table>
+</div>
+</div>
+<p>オブジェクト階層が深くなったり、複合キーになったりすると破綻しそうな気がします。</p>
+
+<h3 id="解決策2-attachする">解決策2 Attachする</h3>
+
+<p>コンテキストにdepartmentすでにあるよと教えてやると、インサートしないみたいです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">//Personを追加
+</span><span class="c1"></span>                <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Person</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">,</span>
+                    <span class="n">Age</span> <span class="p">=</span> <span class="n">age</span><span class="p">,</span>
+                    <span class="n">Department</span> <span class="p">=</span> <span class="n">department</span>
+                <span class="p">};</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Department</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">department</span><span class="p">);</span>   <span class="c1">//もうあるからよろしく
+</span><span class="c1"></span>                <span class="n">db</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>う～ん、これも関連するオブジェクトが増えるとキツそうです。</p>
+
+<h3 id="解決策3-コンテキスト内で再検索">解決策3 コンテキスト内で再検索</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">//Personを追加
+</span><span class="c1"></span>                <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Person</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">,</span>
+                    <span class="n">Age</span> <span class="p">=</span> <span class="n">age</span><span class="p">,</span>
+                    <span class="n">Department</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Department</span><span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">d</span><span class="p">=&gt;</span><span class="n">d</span><span class="p">.</span><span class="n">DepartmentID</span><span class="p">==</span><span class="n">department</span><span class="p">.</span><span class="n">DepartmentID</span><span class="p">)</span>  <span class="c1">//ないわー
+</span><span class="c1"></span>                <span class="p">};</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>無駄な処理を増やすだけですな。ナイナイ。</p>
+
+<h3 id="結局自分で書くしかないの">結局自分で書くしかないの？</h3>
+
+<p>DbContextが非常に優秀なので、この辺の処理もなんとかうまいことやってくれてもいいような気がしますが、</p>
+
+<p>結局のところ、自分でリレーションを意識しつつ書くしかないみたいです。</p>
+
+<p>アトリビュートとかでサクッと解決する方法ないですかねー？</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-09-16-ef-insert-duplicate-object%2f&title=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-09-16-ef-insert-duplicate-object%2f&text=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-09-16-ef-insert-duplicate-object%2f&t=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-09-16-ef-insert-duplicate-object%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-09-16-ef-insert-duplicate-object%2f&title=Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Entity%20Framework%e3%81%a7Insert%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d%e3%81%ab%e9%96%a2%e9%80%a3%e3%81%99%e3%82%8b%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89%e3%82%82Insert%e3%81%95%e3%82%8c%e3%82%8b %2f2015-09-16-ef-insert-duplicate-object%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Entity FrameworkでInsertするときに関連するレコードもInsertされる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2015-08-18-asp-net-identity-with-adfs-2/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET IdentityでActive Directory認証#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-08-18T04:04:05JST">Aug 18, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2015-10-15-sort-filter-paging-list-on-mvc5-1/">
+    
+
+
+
+  
+  
+    
+      
+      
+        
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&amp;#038;l=as2&amp;#038;o=9&amp;#038;a=4798041793)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-10-15T13:49:32JST">Oct 15, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

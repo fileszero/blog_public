@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;&lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;&lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/">
+<meta name="twitter:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;&lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-06-19T13:40:34JST",
+    "dateModified": "2017-06-19T13:40:34JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2" target="_blank">前回</a>ローカルでDB接続できたので、Ubuntuにデプロイしてみます。</p>
+
+<p>肝は環境の切り替えとDBマイグレーションです。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/CAP000133.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-19T13:40:34JST">Jun 19, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&text=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&t=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233 %2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2" target="_blank">前回</a>ローカルでDB接続できたので、Ubuntuにデプロイしてみます。</p>
+
+<p>肝は環境の切り替えとDBマイグレーションです。</p>
+
+<h3 id="接続文字列はappsettings-env-jsonで管理">接続文字列はappsettings.<em>{ENV}</em>.jsonで管理</h3>
+
+<p>ASP.NET Coreでは<a href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-strings" target="_blank">接続文字列はappsettings.json</a>に書くのが良いみたいです。</p>
+
+<p>さらに環境設定は<a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration" target="_blank">appsettings.{env.EnvironmentName}.json</a>で手軽に切り替えられるようです。</p>
+
+<h3 id="まずはローカル開発環境で動くようにする">まずはローカル開発環境で動くようにする</h3>
+
+<p>実行時の環境は環境変数<a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments" target="_blank">ASPNETCORE_ENVIRONMENT</a>を参照するみたいです。</p>
+
+<p>VSではプロジェクトのプロパティのDebugセクションに定義してあります。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/CAP000133.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/CAP000133_hu6ba876ad36d03ac6b75f72c16dccdd0d_31286_240x0_resize_q75_box.jpg" width="240"
+                height="108" data-original="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/CAP000133.jpg" />
+    </a>
+
+
+<p>ということで、appsettings.Development.jsonを</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">{
+  &#34;Logging&#34;: {
+    &#34;IncludeScopes&#34;: false,
+    &#34;LogLevel&#34;: {
+      &#34;Default&#34;: &#34;Debug&#34;,
+      &#34;System&#34;: &#34;Information&#34;,
+      &#34;Microsoft&#34;: &#34;Information&#34;
+    }
+  },
+  &#34;ConnectionStrings&#34;: {
+    &#34;BloggingDatabase&#34;: &#34;Host=localhost;Database=aspnetdb_dev;Username=vagrant&#34;
+  }
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>な感じに書き換えます。</p>
+
+<h4 id="dbcontextをdependency-injection">DbContextをdependency injection</h4>
+
+<p>BloggingContext.csはからは直接appsettings.json内の値を参照できないので、<a href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/configuring-dbcontext" target="_blank">DIするように設定</a>します。</p>
+
+<p>BloggingContext.csにコンストラクタを追加。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="p">....</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">BloggingContext</span> <span class="p">:</span> <span class="n">DbContext</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">BloggingContext</span><span class="p">(</span><span class="n">DbContextOptions</span><span class="p">&lt;</span><span class="n">BloggingContext</span><span class="p">&gt;</span> <span class="n">options</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">options</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">//追記
+</span><span class="c1"></span>        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="n">OnConfiguring</span><span class="p">(</span><span class="n">DbContextOptionsBuilder</span> <span class="n">optionsBuilder</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">//空に
+</span><span class="c1"></span>
+        <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Blog</span><span class="p">&gt;</span> <span class="n">Blogs</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Post</span><span class="p">&gt;</span> <span class="n">Posts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">....</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Startup.csのConfigureServicesにAddDbContextを追記します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">Microsoft.EntityFrameworkCore</span><span class="p">;</span>  <span class="c1">//追記
+</span><span class="c1"></span><span class="k">using</span> <span class="nn">WebApplication3.Models</span><span class="p">;</span>  <span class="c1">//追記
+</span><span class="c1"></span><span class="p">....</span>
+        <span class="c1">// This method gets called by the runtime. Use this method to add services to the container.
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">ConfigureServices</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">services</span><span class="p">.</span><span class="n">AddDbContext</span><span class="p">&lt;</span><span class="n">BloggingContext</span><span class="p">&gt;(</span><span class="n">options</span> <span class="p">=&gt;</span> <span class="n">options</span><span class="p">.</span><span class="n">UseNpgsql</span><span class="p">(</span><span class="n">Configuration</span><span class="p">.</span><span class="n">GetConnectionString</span><span class="p">(</span><span class="s">&#34;BloggingDatabase&#34;</span><span class="p">)));</span>  <span class="c1">//追記
+</span><span class="c1"></span>            <span class="c1">// Add framework services.
+</span><span class="c1"></span>            <span class="n">services</span><span class="p">.</span><span class="n">AddMvc</span><span class="p">();</span>
+        <span class="p">}</span>
+<span class="p">....</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ControllerにInjectされるようコンストラクタを新設して、DIされたオブジェクトを使用するよう変更。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="p">....</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">HomeController</span> <span class="p">:</span> <span class="n">Controller</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="n">Models</span><span class="p">.</span><span class="n">BloggingContext</span> <span class="n">db</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">HomeController</span><span class="p">(</span><span class="n">Models</span><span class="p">.</span><span class="n">BloggingContext</span> <span class="n">context</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">db</span> <span class="p">=</span> <span class="n">context</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">public</span> <span class="n">IActionResult</span> <span class="n">Index</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">blogs</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Blogs</span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">b</span> <span class="p">=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Url</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
+            <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="n">blogs</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">IActionResult</span> <span class="n">About</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">ViewData</span><span class="na">[&#34;Message&#34;]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
+            <span class="kt">var</span> <span class="n">blog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Blog</span> <span class="p">{</span> <span class="n">Url</span> <span class="p">=</span> <span class="s">&#34;http://sample.com/&#34;</span><span class="p">+</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;yyyyMMdd_hhmmssms&#34;</span><span class="p">)</span> <span class="p">};</span>
+            <span class="n">db</span><span class="p">.</span><span class="n">Blogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">blog</span><span class="p">);</span>
+            <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+            <span class="k">return</span> <span class="n">View</span><span class="p">();</span>
+        <span class="p">}</span>
+<span class="p">...</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ひとまずデバッグ実行でちゃんと動くか確認。</p>
+
+<h3 id="production用のappsettings作成">Production用のappsettings作成</h3>
+
+<p>無事ローカルで動いたら、appsettings.Development.jsonをコピーしてappsettings.Production.jsonを作成。db名をaspnetdbに変更。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;BloggingDatabase&#34;: &#34;Host=localhost;Database=aspnetdb;Username=vagrant&#34;</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="productionにdeploy">Productionにdeploy</h3>
+
+<p>例によって</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt;dotnet restore
+&gt;dotnet build
+&gt;dotnet publish --configuration Release -r ubuntu.16.04-x64</code></pre></td></tr></table>
+</div>
+</div>
+<p>scpなりftpなりでコピー。</p>
+
+<h4 id="ubuntu環境をproduction扱いにする">Ubuntu環境をProduction扱いにする</h4>
+
+<p>環境変数をセットします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~/src/publish$ <span class="nb">export</span> <span class="nv">ASPNETCORE_ENVIRONMENT</span><span class="o">=</span>Production</code></pre></td></tr></table>
+</div>
+</div>
+<p>必要なら.bash_profileに書いとく。</p>
+
+<h3 id="実行とエラー対応">実行とエラー対応</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~/src/publish$ dotnet WebApplication3.dll</code></pre></td></tr></table>
+</div>
+</div>
+<p>で実行。</p>
+
+<h4 id="postgersユーザーのパスワード">postgersユーザーのパスワード</h4>
+
+<p>こんなエラーが出ました</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">No password has been provided but the backend requires one (in MD5)</code></pre></td></tr></table>
+</div>
+</div>
+<p>空パスワードはダメらしいので設定します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~/src/publish$ sudo -i -u postgres
+postgres@vagrant:~$ psql
+<span class="nv">postgres</span><span class="o">=</span><span class="c1"># alter user vagrant WITH PASSWORD &#39;test&#39;;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>合わせてconnection stringを書き換え。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">&#34;BloggingDatabase&#34;: &#34;Host=localhost;Database=aspnetdb;Username=vagrant;Password=test&#34;</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="ubuntuでdb-migration">ubuntuでdb migration</h4>
+
+<p>続いてこのエラー</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Npgsql.PostgresException: 42P01: relation &#34;Blogs&#34; does not exist</code></pre></td></tr></table>
+</div>
+</div>
+<p>Udate-Databaseしてないからねー。</p>
+
+<p><a href="https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations" target="_blank">こちら</a>を参考に</p>
+
+<p>WebApplication3.csprojを編集</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;DotNetCliToolReference</span> <span class="na">Include=</span><span class="s">&#34;Microsoft.VisualStudio.Web.CodeGeneration.Tools&#34;</span> <span class="na">Version=</span><span class="s">&#34;1.0.1&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DotNetCliToolReference</span> <span class="na">Include=</span><span class="s">&#34;Microsoft.EntityFrameworkCore.Tools.DotNet&#34;</span> <span class="na">Version=</span><span class="s">&#34;1.0.1&#34;</span> <span class="nt">/&gt;</span><span class="c">&lt;!--追記--&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>してpublish して dotnet efしても</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">No executable found matching command &#34;dotnet-ef&#34;</code></pre></td></tr></table>
+</div>
+</div>
+<p>と怒られます。</p>
+
+<p>いろいろ調べたんですが、まともな解決法は見つからず。</p>
+
+<p><a href="https://stackoverflow.com/questions/40080427/asp-core-ef-migrations-on-production-server" target="_blank">stackoverflow</a>先生によると、</p>
+
+<p>SQLを生成して実行か、dbContext.Database.Migrate()を実行だそうです。</p>
+
+<p>今回はSQL実行します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">c:<span class="se">\u</span>sr<span class="se">\v</span>stest<span class="se">\W</span>ebApplication3<span class="se">\W</span>ebApplication3&gt;dotnet ef migrations script
+
+Build succeeded.
+    <span class="m">0</span> Warning<span class="o">(</span>s<span class="o">)</span>
+    <span class="m">0</span> Error<span class="o">(</span>s<span class="o">)</span>
+
+Time Elapsed <span class="m">00</span>:00:02.65
+CREATE TABLE <span class="s2">&#34;__EFMigrationsHistory&#34;</span> <span class="o">(</span>
+    <span class="s2">&#34;MigrationId&#34;</span> varchar<span class="o">(</span><span class="m">150</span><span class="o">)</span> NOT NULL,
+    <span class="s2">&#34;ProductVersion&#34;</span> varchar<span class="o">(</span><span class="m">32</span><span class="o">)</span> NOT NULL,
+    CONSTRAINT <span class="s2">&#34;PK___EFMigrationsHistory&#34;</span> PRIMARY KEY <span class="o">(</span><span class="s2">&#34;MigrationId&#34;</span><span class="o">)</span>
+<span class="o">)</span><span class="p">;</span>
+
+CREATE TABLE <span class="s2">&#34;Blogs&#34;</span> <span class="o">(</span>
+    <span class="s2">&#34;BlogId&#34;</span> serial NOT NULL,
+    <span class="s2">&#34;Rating&#34;</span> int4 NOT NULL,
+    <span class="s2">&#34;Url&#34;</span> text,
+    CONSTRAINT <span class="s2">&#34;PK_Blogs&#34;</span> PRIMARY KEY <span class="o">(</span><span class="s2">&#34;BlogId&#34;</span><span class="o">)</span>
+<span class="o">)</span><span class="p">;</span>
+
+CREATE TABLE <span class="s2">&#34;Posts&#34;</span> <span class="o">(</span>
+    <span class="s2">&#34;PostId&#34;</span> serial NOT NULL,
+    <span class="s2">&#34;BlogId&#34;</span> int4 NOT NULL,
+    <span class="s2">&#34;Content&#34;</span> text,
+    <span class="s2">&#34;Title&#34;</span> text,
+    CONSTRAINT <span class="s2">&#34;PK_Posts&#34;</span> PRIMARY KEY <span class="o">(</span><span class="s2">&#34;PostId&#34;</span><span class="o">)</span>,
+    CONSTRAINT <span class="s2">&#34;FK_Posts_Blogs_BlogId&#34;</span> FOREIGN KEY <span class="o">(</span><span class="s2">&#34;BlogId&#34;</span><span class="o">)</span> REFERENCES <span class="s2">&#34;Blogs&#34;</span> <span class="o">(</span><span class="s2">&#34;BlogId&#34;</span><span class="o">)</span> ON DELETE CASCADE
+<span class="o">)</span><span class="p">;</span>
+
+CREATE INDEX <span class="s2">&#34;IX_Posts_BlogId&#34;</span> ON <span class="s2">&#34;Posts&#34;</span> <span class="o">(</span><span class="s2">&#34;BlogId&#34;</span><span class="o">)</span><span class="p">;</span>
+
+INSERT INTO <span class="s2">&#34;__EFMigrationsHistory&#34;</span> <span class="o">(</span><span class="s2">&#34;MigrationId&#34;</span>, <span class="s2">&#34;ProductVersion&#34;</span><span class="o">)</span>
+VALUES <span class="o">(</span><span class="s1">&#39;20170615065858_InitialCreate&#39;</span>, <span class="s1">&#39;1.1.2&#39;</span><span class="o">)</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>吐かれたSQLをpgAdminで実行。</p>
+
+<h3 id="動きます">動きます</h3>
+
+<p>無事エラーが解決ができたら、<a href="http://localhost:5050/にアクセスすると、ちゃんと動いている様子。" target="_blank">http://localhost:5050/にアクセスすると、ちゃんと動いている様子。</a></p>
+
+<p>コンソールに吐かれるログは</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">dbug: Npgsql.NpgsqlConnection[3]
+      Opening connection to database &#39;aspnetdb&#39; on server &#39;tcp://localhost:5432&#39;.
+info: Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory[1]
+      Executed DbCommand (16ms) [Parameters=[], CommandType=&#39;Text&#39;, CommandTimeout=&#39;30&#39;]
+      SELECT &#34;b&#34;.&#34;BlogId&#34;, &#34;b&#34;.&#34;Rating&#34;, &#34;b&#34;.&#34;Url&#34;
+      FROM &#34;Blogs&#34; AS &#34;b&#34;
+      ORDER BY &#34;b&#34;.&#34;Url&#34;
+dbug: Npgsql.NpgsqlConnection[4]
+      Closing connection to database &#39;aspnetdb&#39; on server &#39;tcp://localhost:5432&#39;.</code></pre></td></tr></table>
+</div>
+</div>
+<p>こんな感じで、EFも動いているようです。</p>
+
+<p><a href="/posts/2017/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4" target="_blank">次回</a>はDBマイグレーション関係を試してみます。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&text=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&t=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f&title=ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20Core%20on%20Ubuntu%2016.04%20on%20Vagrant%20with%20Visual%20Studio2017%233 %2f2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/linux/">linux</a></li>
+          
+          <li><a href="/categories/vagrant/">vagrant</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/CAP000129.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-19T03:17:49JST">Jun 19, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/CAP000134.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-20T13:35:42JST">Jun 20, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

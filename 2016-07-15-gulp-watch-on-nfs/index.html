@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2016-07-15-gulp-watch-on-nfs/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>nfsをgulp watchできない時にやったこと - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。&lt;/p&gt;&lt;p&gt;構成は&lt;/p&gt;&lt;p&gt;・Mac(nfsサーバ　 &#43; ソースファイル )&lt;/p&gt;&lt;p&gt;・Vagrant &#43; ubuntu/xenial64&lt;/p&gt;&lt;p&gt;config.vm.synced_folder &amp;#8220;src/&amp;#8221;, home_dir &#43; &amp;#8220;/src&amp;#8221;,　type: &amp;#8220;nfs&amp;#8221;&lt;/p&gt;&lt;p&gt;でmacとubuntuでファイルを共有します。&lt;/p&gt;&lt;p&gt;ソースの編集はmac上のエディタ(sublime)で、gulp serveはubuntu上で実行します。&lt;/p&gt;">
+
+<meta property="og:title" content="nfsをgulp watchできない時にやったこと - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2016-07-15-gulp-watch-on-nfs/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。&lt;/p&gt;&lt;p&gt;構成は&lt;/p&gt;&lt;p&gt;・Mac(nfsサーバ　 &#43; ソースファイル )&lt;/p&gt;&lt;p&gt;・Vagrant &#43; ubuntu/xenial64&lt;/p&gt;&lt;p&gt;config.vm.synced_folder &amp;#8220;src/&amp;#8221;, home_dir &#43; &amp;#8220;/src&amp;#8221;,　type: &amp;#8220;nfs&amp;#8221;&lt;/p&gt;&lt;p&gt;でmacとubuntuでファイルを共有します。&lt;/p&gt;&lt;p&gt;ソースの編集はmac上のエディタ(sublime)で、gulp serveはubuntu上で実行します。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2016-07-15-gulp-watch-on-nfs/">
+<meta name="twitter:title" content="nfsをgulp watchできない時にやったこと - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。&lt;/p&gt;&lt;p&gt;構成は&lt;/p&gt;&lt;p&gt;・Mac(nfsサーバ　 &#43; ソースファイル )&lt;/p&gt;&lt;p&gt;・Vagrant &#43; ubuntu/xenial64&lt;/p&gt;&lt;p&gt;config.vm.synced_folder &amp;#8220;src/&amp;#8221;, home_dir &#43; &amp;#8220;/src&amp;#8221;,　type: &amp;#8220;nfs&amp;#8221;&lt;/p&gt;&lt;p&gt;でmacとubuntuでファイルを共有します。&lt;/p&gt;&lt;p&gt;ソースの編集はmac上のエディタ(sublime)で、gulp serveはubuntu上で実行します。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "nfsをgulp watchできない時にやったこと - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2016-07-15T00:50:49JST",
+    "dateModified": "2016-07-15T00:50:49JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。</p>
+
+<p>構成は</p>
+
+<p>・Mac(nfsサーバ　 + ソースファイル )</p>
+
+<p>・Vagrant + ubuntu/xenial64</p>
+
+<p>config.vm.synced_folder &#8220;src/&#8221;, home_dir + &#8220;/src&#8221;,　type: &#8220;nfs&#8221;</p>
+
+<p>でmacとubuntuでファイルを共有します。</p>
+
+<p>ソースの編集はmac上のエディタ(sublime)で、gulp serveはubuntu上で実行します。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">nfsをgulp watchできない時にやったこと</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-07-15T00:50:49JST">Jul 15, 2016</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2016-07-15-gulp-watch-on-nfs%2f&title=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2016-07-15-gulp-watch-on-nfs%2f&text=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2016-07-15-gulp-watch-on-nfs%2f&t=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2016-07-15-gulp-watch-on-nfs%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2016-07-15-gulp-watch-on-nfs%2f&title=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8 %2f2016-07-15-gulp-watch-on-nfs%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>angular fullstackでgulp serveすると、ファイル監視が働いて、ソース編集をトリガーに色々とやってくれるんですが、nfsをマウントしたフォルダ内のファイルを、サーバ側で変更した時にうまいこと捕捉できないようです。</p>
+
+<p>構成は</p>
+
+<p>・Mac(nfsサーバ　 + ソースファイル )</p>
+
+<p>・Vagrant + ubuntu/xenial64</p>
+
+<p>config.vm.synced_folder &#8220;src/&#8221;, home_dir + &#8220;/src&#8221;,　type: &#8220;nfs&#8221;</p>
+
+<p>でmacとubuntuでファイルを共有します。</p>
+
+<p>ソースの編集はmac上のエディタ(sublime)で、gulp serveはubuntu上で実行します。</p>
+
+<p>gulp serveではgulp-watchというプラグインでファイル監視をしており、さらに内部的には<a href="https://github.com/paulmillr/chokidar" target="_blank">chokidar</a>なるライブラリを使っているようです。</p>
+
+<p>さらにさらに、chokidarはMac上で実行された場合はfsevents、それ以外はnodejsの<a href="https://nodejs.org/api/fs.html#fs_fs_watch_filename_options_listener" target="_blank">fs.watch</a>系の機能を使うようです。</p>
+
+<p>んで、fs.watchにはこんな悲しい記述が。。。</p>
+
+<blockquote>
+<p>If the underlying functionality is not available for some reason, then fs.watch will not be able to function. For example, watching files or directories can be unreliable, and in some cases impossible, on network file systems (NFS, SMB, etc), or host file systems when using virtualization software such as Vagrant, Docker, etc.</p>
+
+<p>You can still use fs.watchFile, which uses stat polling, but it is slower and less reliable.</p>
+</blockquote>
+
+<p>要は、ポーリングしろということですな。</p>
+
+<p>chokidarは　usePolling:true　でポーリングモードになるようです。</p>
+
+<p>gulp-watchに渡すオプションはそのままchokidarに渡るようなので、usePolling:trueを使うようにgulpfile.babel.jsの&#8217;watch&#8217;タスクを書き換えます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">gulp.task(&#39;watch&#39;, () =&gt; {
+    var testFiles = _.union(paths.client.test, paths.server.test.unit, paths.server.test.integration);
+
+    plugins.livereload.listen();
+    var wc_opt={usePolling:true};   //追加！
+    plugins.watch(paths.client.styles, wc_opt , () =&gt; {  //[&#39;inject:scss&#39;] //wc_optwを第二引数に
+        gulp.src(paths.client.mainStyle)
+            .pipe(plugins.plumber())
+            .pipe(styles())
+            .pipe(gulp.dest(&#39;.tmp/app&#39;))
+            .pipe(plugins.livereload());
+    });
+
+    plugins.watch(paths.client.views, wc_opt) //wc_optwを第二引数に
+        .pipe(plugins.plumber())
+        .pipe(plugins.livereload());
+
+    plugins.watch(paths.client.scripts, wc_opt) //[&#39;inject:js&#39;] //wc_optwを第二引数に
+        .pipe(plugins.plumber())
+        .pipe(transpileClient())
+        .pipe(gulp.dest(&#39;.tmp&#39;))
+        .pipe(plugins.livereload());
+
+    plugins.watch(_.union(paths.server.scripts, testFiles), wc_opt) //wc_optwを第二引数に
+        .pipe(plugins.plumber())
+        .pipe(lintServerScripts())
+        .pipe(plugins.livereload());
+
+    gulp.watch(&#39;bower.json&#39;, [&#39;wiredep:client&#39;]);
+});</code></pre></td></tr></table>
+</div>
+</div>
+<p>一応動いております。</p>
+
+<p>CPU負荷もそれほどでもないし、開発時にしか使わないんで、これでおkとしよう。</p>
+
+<p>あんま関係ないけどlivereloadがうまく動かん。<a href="/posts/2016/2016-07-16-angular-fullstack-with-rowsersync">Browsersyncに差し替える</a>かも。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2016-07-15-gulp-watch-on-nfs%2f&title=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2016-07-15-gulp-watch-on-nfs%2f&text=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2016-07-15-gulp-watch-on-nfs%2f&t=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2016-07-15-gulp-watch-on-nfs%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2016-07-15-gulp-watch-on-nfs%2f&title=nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?nfs%e3%82%92gulp%20watch%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%99%82%e3%81%ab%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8 %2f2016-07-15-gulp-watch-on-nfs%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">nfsをgulp watchできない時にやったこと</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+          <li><a href="/categories/node.js/">node.js</a></li>
+          
+          <li><a href="/categories/vagrant/">vagrant</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2016-07-07-angular-fullstack-gulp-build-failed/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">angular-fullstackでgulp buildできない時にやったこと</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-07-07T07:35:21JST">Jul 7, 2016</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2016-07-16-angular-fullstack-with-rowsersync/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">angular fullstackのwatchをBrowserSyncにする</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-07-16T05:47:40JST">Jul 16, 2016</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

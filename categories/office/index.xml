@@ -13,10 +13,10 @@
     
     <item>
       <title>Excel-DNA</title>
-      <link>/posts/2016-05-12-try-excel-dna/</link>
+      <link>/2016-05-12-try-excel-dna/</link>
       <pubDate>Thu, 12 May 2016 00:21:20 +0000</pubDate>
       
-      <guid>/posts/2016-05-12-try-excel-dna/</guid>
+      <guid>/2016-05-12-try-excel-dna/</guid>
       <description>&lt;p&gt;ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。&lt;/p&gt;
 
 &lt;p&gt;VS+C#でソース管理もしながら開発したいもんです。&lt;/p&gt;

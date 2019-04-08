@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2016-05-12-try-excel-dna/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Excel-DNA - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。&lt;/p&gt;&lt;p&gt;VS&#43;C#でソース管理もしながら開発したいもんです。&lt;/p&gt;&lt;p&gt;そういった場合、選択肢としては&lt;a href=&#34;https://excel-dna.net/&#34; target=&#34;_blank&#34;&gt;Excel-DNA&lt;/a&gt;とかVSTOとかあるみたいなんですが、&lt;a href=&#34;http://stackoverflow.com/questions/26974959/pros-and-cons-of-vsto-vs-excel-dna&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか&lt;a href=&#34;http://supermab.com/wp/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F/&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか見ると、Excel-DNAが良さげな感じがします。&lt;/p&gt;&lt;p&gt;てことで試してみます。環境はVS2015 &#43; Office2013。&lt;/p&gt;">
+
+<meta property="og:title" content="Excel-DNA - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2016-05-12-try-excel-dna/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。&lt;/p&gt;&lt;p&gt;VS&#43;C#でソース管理もしながら開発したいもんです。&lt;/p&gt;&lt;p&gt;そういった場合、選択肢としては&lt;a href=&#34;https://excel-dna.net/&#34; target=&#34;_blank&#34;&gt;Excel-DNA&lt;/a&gt;とかVSTOとかあるみたいなんですが、&lt;a href=&#34;http://stackoverflow.com/questions/26974959/pros-and-cons-of-vsto-vs-excel-dna&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか&lt;a href=&#34;http://supermab.com/wp/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F/&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか見ると、Excel-DNAが良さげな感じがします。&lt;/p&gt;&lt;p&gt;てことで試してみます。環境はVS2015 &#43; Office2013。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2016-05-12-try-excel-dna/">
+<meta name="twitter:title" content="Excel-DNA - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。&lt;/p&gt;&lt;p&gt;VS&#43;C#でソース管理もしながら開発したいもんです。&lt;/p&gt;&lt;p&gt;そういった場合、選択肢としては&lt;a href=&#34;https://excel-dna.net/&#34; target=&#34;_blank&#34;&gt;Excel-DNA&lt;/a&gt;とかVSTOとかあるみたいなんですが、&lt;a href=&#34;http://stackoverflow.com/questions/26974959/pros-and-cons-of-vsto-vs-excel-dna&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか&lt;a href=&#34;http://supermab.com/wp/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F/&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか見ると、Excel-DNAが良さげな感じがします。&lt;/p&gt;&lt;p&gt;てことで試してみます。環境はVS2015 &#43; Office2013。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Excel-DNA - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2016-05-12T00:21:20JST",
+    "dateModified": "2016-05-12T00:21:20JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。</p>
+
+<p>VS+C#でソース管理もしながら開発したいもんです。</p>
+
+<p>そういった場合、選択肢としては<a href="https://excel-dna.net/" target="_blank">Excel-DNA</a>とかVSTOとかあるみたいなんですが、<a href="http://stackoverflow.com/questions/26974959/pros-and-cons-of-vsto-vs-excel-dna" target="_blank">ここ</a>とか<a href="http://supermab.com/wp/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F/" target="_blank">ここ</a>とか見ると、Excel-DNAが良さげな感じがします。</p>
+
+<p>てことで試してみます。環境はVS2015 + Office2013。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2016-05-12-try-excel-dna/CAP000102.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Excel-DNA</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-05-12T00:21:20JST">May 12, 2016</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2016-05-12-try-excel-dna%2f&title=Excel-DNA" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2016-05-12-try-excel-dna%2f&text=Excel-DNA&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2016-05-12-try-excel-dna%2f&t=Excel-DNA" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2016-05-12-try-excel-dna%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2016-05-12-try-excel-dna%2f&title=Excel-DNA" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Excel-DNA %2f2016-05-12-try-excel-dna%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。</p>
+
+<p>VS+C#でソース管理もしながら開発したいもんです。</p>
+
+<p>そういった場合、選択肢としては<a href="https://excel-dna.net/" target="_blank">Excel-DNA</a>とかVSTOとかあるみたいなんですが、<a href="http://stackoverflow.com/questions/26974959/pros-and-cons-of-vsto-vs-excel-dna" target="_blank">ここ</a>とか<a href="http://supermab.com/wp/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F/" target="_blank">ここ</a>とか見ると、Excel-DNAが良さげな感じがします。</p>
+
+<p>てことで試してみます。環境はVS2015 + Office2013。</p>
+
+<p><a href="https://excel-dna.net/" target="_blank">Excel-DNA</a>のGetting Startedを参考に簡単なUser Defined Functions (UDF)を作ってみます。</p>
+
+<h3 id="プロジェクト作成">プロジェクト作成</h3>
+
+<p>VSでVisualC#-&gt;Windows-&gt;Class library</p>
+
+<p>名前は&#8221;MyExcelFunctions&#8221;としました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2016-05-12-try-excel-dna/CAP000102.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2016-05-12-try-excel-dna/CAP000102_hu9ae70507e879ff5670204565b89da8e5_71785_240x0_resize_q75_box.jpg" width="240"
+                height="166" data-original="/2016-05-12-try-excel-dna/CAP000102.jpg" />
+    </a>
+
+
+<p>(ソース管理はGit)</p>
+
+<h4 id="excel-dna追加">Excel-DNA追加</h4>
+
+<p>Tools-&gt;NuGet Package Manager-&gt;Package Manager Consoleで</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; Install-Package Excel-DNA</code></pre></td></tr></table>
+</div>
+</div>
+<p>で必要なファイルがプロジェクトに追加されます。</p>
+
+<h3 id="udf作成">UDF作成</h3>
+
+<p>既存のClass1.csを削除して、MyFunctions.csを追加。</p>
+
+<p>こんな風に書きます(コピペコードです)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">ExcelDna.Integration</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyExcelFunctions</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">MyFunctions</span>
+    <span class="p">{</span><span class="na">
+</span><span class="na">        [ExcelFunction(Description = &#34;My first .NET function&#34;)]</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">SayHello</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&#34;Hello &#34;</span> <span class="p">+</span> <span class="n">name</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>デバッグ実行するとExcelが起動するんで、適当なセルに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">=SayHello(&#34;World!&#34;)</code></pre></td></tr></table>
+</div>
+</div>
+<p>って入れて動作確認します。</p>
+
+<p>関数ウイザードにも出ますね。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2016-05-12-try-excel-dna/CAP000103.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2016-05-12-try-excel-dna/CAP000103_hu488f6d16ab3f7112bf3f24b564f57f5c_25111_240x0_resize_q75_box.jpg" width="240"
+                height="188" data-original="/2016-05-12-try-excel-dna/CAP000103.jpg" />
+    </a>
+
+
+<h3 id="配布">配布</h3>
+
+<p>Excelアドインの配布にはいろいろ苦労が付きまとうようですが、個人的に使う分にはbuildで作成される「<em>プロジェクト名</em>-AddIn-packed.xll」ファイルをExcelアドインとして登録してあげれば良いみたいです。</p>
+
+<h3 id="rangeを渡す">Rangeを渡す</h3>
+
+<p>UDFにExcelのRangeを&#8221;参照&#8221;で渡すのにはちょっと工夫がいるようです。</p>
+
+<p><a href="http://exceldna.codeplex.com/wikipage?title=Range%20Parameters&#038;referringTitle=Documentation" target="_blank">こちら</a>に書いてあるんですが、VBなんでC#で書いてみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[ExcelFunction(Description = &#34;Get range address&#34;,IsMacroType =true)]</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">GetAddress</span><span class="p">(</span><span class="na">[ExcelArgument(AllowReference =true)]</span><span class="kt">object</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">address_builder</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+            <span class="kt">var</span> <span class="n">range</span> <span class="p">=</span> <span class="p">(</span><span class="n">ExcelReference</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">cell</span> <span class="k">in</span> <span class="n">range</span><span class="p">.</span><span class="n">InnerReferences</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">string</span> <span class="n">ref_text</span> <span class="p">=</span> <span class="n">XlCall</span><span class="p">.</span><span class="n">Excel</span><span class="p">(</span><span class="n">XlCall</span><span class="p">.</span><span class="n">xlfReftext</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="k">true</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span>
+                <span class="n">address_builder</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">&#34;,&#34;</span><span class="p">);</span>
+                <span class="n">address_builder</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">ref_text</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">ref_text</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="s">&#34;!&#34;</span><span class="p">)+</span><span class="m">1</span><span class="p">));</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">address_builder</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">Substring</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="c1">//remove first &#39;,&#39;
+</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>肝はパラメータのAttributeで[ExcelArgument(AllowReference =true)]を指定してやるところでしょうか。</p>
+
+<h3 id="もうちょっと使えるudf">もうちょっと使えるUDF</h3>
+
+<p>あいさつとかアドレスとか実用的ではないんで、もうちょっと使える例として、指定範囲で平均値を出すようなUDFを作ってみます。</p>
+
+<p>移動平均の積算範囲を動的に変えるような使用法用を想定しています。</p>
+
+<p>C#なコードはこれ↓</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">/// &lt;summary&gt;
+</span><span class="c1"></span>        <span class="c1">/// 積算範囲
+</span><span class="c1"></span>        <span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span>        <span class="k">private</span> <span class="k">enum</span> <span class="n">XLAverageShift</span>
+        <span class="p">{</span>
+            <span class="n">xlPrev</span><span class="p">=</span><span class="m">0</span><span class="p">,</span>
+            <span class="n">xlCenter</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span>
+            <span class="n">xlNext</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+        <span class="p">};</span>
+        <span class="c1">/// &lt;summary&gt;
+</span><span class="c1"></span>        <span class="c1">/// データ向き
+</span><span class="c1"></span>        <span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span>        <span class="k">private</span> <span class="k">enum</span> <span class="n">XLDirection</span>
+        <span class="p">{</span>
+            <span class="n">xlVertical</span> <span class="p">=</span> <span class="m">0</span><span class="p">,</span>
+            <span class="n">xlHorizontal</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span>
+        <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [ExcelFunction(Description = &#34;Get Average&#34;, IsMacroType = true)]</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">double</span> <span class="n">AverageVRange</span><span class="p">(</span><span class="na">[ExcelArgument(AllowReference = true, Description = &#34;Data Range&#34;, Name = &#34;arg&#34;)]</span><span class="kt">object</span> <span class="n">baseCell</span>
+                                                <span class="p">,</span><span class="na"> [ExcelArgument(Description = &#34;length of summary&#34;, Name = &#34;length&#34;)]</span> <span class="kt">int</span> <span class="n">length</span>
+                                                <span class="p">,</span><span class="na"> [ExcelArgument(Description = &#34;shift to summary 0:prev, 1: center, 2:next&#34;, Name = &#34;shift&#34;)]</span> <span class="kt">int</span> <span class="n">shift</span> <span class="p">=</span> <span class="m">0</span>
+        <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">AverageByRange</span><span class="p">(</span><span class="n">baseCell</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="p">(</span><span class="n">XLAverageShift</span><span class="p">)</span><span class="n">shift</span><span class="p">,</span> <span class="n">XLDirection</span><span class="p">.</span><span class="n">xlVertical</span><span class="p">);</span>
+        <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [ExcelFunction(Description = &#34;Get Average&#34;, IsMacroType = true)]</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="kt">double</span> <span class="n">AverageHRange</span><span class="p">(</span><span class="na">[ExcelArgument(AllowReference = true, Description = &#34;Data Range&#34;, Name = &#34;arg&#34;)]</span><span class="kt">object</span> <span class="n">baseCell</span>
+                                        <span class="p">,</span><span class="na"> [ExcelArgument(Description = &#34;length of summary&#34;, Name = &#34;length&#34;)]</span> <span class="kt">int</span> <span class="n">length</span>
+                                        <span class="p">,</span><span class="na"> [ExcelArgument(Description = &#34;shift to summary 0:prev, 1: center, 2:next&#34;, Name = &#34;shift&#34;)]</span> <span class="kt">int</span> <span class="n">shift</span> <span class="p">=</span> <span class="m">0</span>
+        <span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">AverageByRange</span><span class="p">(</span><span class="n">baseCell</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="p">(</span><span class="n">XLAverageShift</span><span class="p">)</span><span class="n">shift</span><span class="p">,</span> <span class="n">XLDirection</span><span class="p">.</span><span class="n">xlHorizontal</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">static</span> <span class="kt">double</span> <span class="n">AverageByRange</span><span class="p">(</span><span class="kt">object</span> <span class="n">baseCell</span><span class="p">,</span> <span class="kt">int</span> <span class="n">length</span><span class="p">,</span> <span class="n">XLAverageShift</span> <span class="n">shift</span><span class="p">,</span> <span class="n">XLDirection</span> <span class="n">direction</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">range</span> <span class="p">=</span> <span class="p">(</span><span class="n">ExcelReference</span><span class="p">)</span><span class="n">baseCell</span><span class="p">;</span>   <span class="c1">//基準となるセル
+</span><span class="c1"></span>            <span class="c1">// shiftからデータ開始位置のオフセットを取得
+</span><span class="c1"></span>            <span class="kt">int</span> <span class="n">offset</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">shift</span> <span class="p">==</span> <span class="n">XLAverageShift</span><span class="p">.</span><span class="n">xlPrev</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//前
+</span><span class="c1"></span>                <span class="n">offset</span> <span class="p">=</span> <span class="p">-</span><span class="n">length</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">shift</span> <span class="p">==</span> <span class="n">XLAverageShift</span><span class="p">.</span><span class="n">xlCenter</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">//真ん中
+</span><span class="c1"></span>                <span class="n">offset</span> <span class="p">=</span> <span class="p">-(</span><span class="n">length</span> <span class="p">/</span> <span class="m">2</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">shift</span> <span class="p">==</span> <span class="n">XLAverageShift</span><span class="p">.</span><span class="n">xlNext</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">//後ろ
+</span><span class="c1"></span>                <span class="n">offset</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">ArgumentException</span><span class="p">();</span>   <span class="c1">//えらー
+</span><span class="c1"></span>            <span class="p">}</span>
+
+            <span class="c1">// sum
+</span><span class="c1"></span>            <span class="kt">double</span> <span class="n">result</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>  <span class="c1">//合計
+</span><span class="c1"></span>            <span class="kt">double</span> <span class="n">data_length</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="c1">//データ個数
+</span><span class="c1"></span>            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+                <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">direction</span> <span class="p">==</span> <span class="n">XLDirection</span><span class="p">.</span><span class="n">xlVertical</span> <span class="p">?</span> <span class="n">range</span><span class="p">.</span><span class="n">RowFirst</span> <span class="p">+</span> <span class="n">i</span> <span class="p">+</span> <span class="n">offset</span> <span class="p">:</span> <span class="n">range</span><span class="p">.</span><span class="n">RowFirst</span><span class="p">;</span>
+                <span class="kt">var</span> <span class="n">col</span> <span class="p">=</span> <span class="n">direction</span> <span class="p">==</span> <span class="n">XLDirection</span><span class="p">.</span><span class="n">xlHorizontal</span> <span class="p">?</span> <span class="n">range</span><span class="p">.</span><span class="n">ColumnFirst</span> <span class="p">+</span> <span class="n">i</span> <span class="p">+</span> <span class="n">offset</span> <span class="p">:</span> <span class="n">range</span><span class="p">.</span><span class="n">ColumnFirst</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="p">&gt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">col</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//有効範囲？
+</span><span class="c1"></span>                    <span class="kt">var</span> <span class="n">cell</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExcelReference</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+                    <span class="kt">var</span> <span class="n">val</span> <span class="p">=</span> <span class="n">cell</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="k">is</span> <span class="kt">double</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//数値？
+</span><span class="c1"></span>                        <span class="n">result</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">val</span><span class="p">;</span>
+                        <span class="n">data_length</span><span class="p">++;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">result</span> <span class="p">/</span> <span class="n">data_length</span><span class="p">;</span>    <span class="c1">//平均値計算
+</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>AverageVRangeとAverageHRangeがExcelに公開する関数でデータの積算方向が違います。</p>
+
+<p>AverageByRangeが処理本体。</p>
+
+<p>enumは一応使ってるだけでstaticでもＯＫかと。Excel側でenumが効けばいいんですけどねー。</p>
+
+<p>使用例はこんな感じ。わかりずれー。</p>
+
+<p>この例では10区間分の移動平均をグラフに出しています。C1セルの値を変えると平均区間数が動的に変更できます。
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2016-05-12-try-excel-dna/CAP000104.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2016-05-12-try-excel-dna/CAP000104_hu21bbd97e380d898dd1710e995a1fa6da_130904_240x0_resize_q75_box.jpg" width="240"
+                height="124" data-original="/2016-05-12-try-excel-dna/CAP000104.jpg" />
+    </a>
+</p>
+
+<p>式はこんな感じ</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">=AverageVRange(B5,C$1,C$2)</code></pre></td></tr></table>
+</div>
+</div>
+<p>ちなみにデータは去年の日経平均終値（せめて2万台まで回復しねーかなー）。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2016-05-12-try-excel-dna%2f&title=Excel-DNA" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2016-05-12-try-excel-dna%2f&text=Excel-DNA&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2016-05-12-try-excel-dna%2f&t=Excel-DNA" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2016-05-12-try-excel-dna%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2016-05-12-try-excel-dna%2f&title=Excel-DNA" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Excel-DNA %2f2016-05-12-try-excel-dna%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Excel-DNA</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/office/">office</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2016-03-25-using-okta-from-mvc5/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2016-03-25-using-okta-from-mvc5/OktaProject0011.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET MVC 5でOktaを使う</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-03-25T12:44:36JST">Mar 25, 2016</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2016-06-27-onsenui-visualstudio2015/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2016-06-27-onsenui-visualstudio2015/CAP000106.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">OnsenUI&#43;VisualStudio2015</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-06-27T06:11:12JST">Jun 27, 2016</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

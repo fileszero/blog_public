@@ -13,10 +13,10 @@
     
     <item>
       <title>ASP.NET MVC 4を基本で作った後でknockout.js等使う</title>
-      <link>/posts/2014-08-29-asp-net-mvc-4-basicknockout/</link>
+      <link>/2014-08-29-asp-net-mvc-4-basicknockout/</link>
       <pubDate>Fri, 29 Aug 2014 03:47:56 +0000</pubDate>
       
-      <guid>/posts/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
+      <guid>/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
       <description>&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;
 
 &lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;</description>

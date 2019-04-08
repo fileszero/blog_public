@@ -13,21 +13,21 @@
     
     <item>
       <title>PhoneGap/Cordova Tips &amp; つまづきポイント</title>
-      <link>/posts/2015-06-24-phonegap-cordova-traps/</link>
+      <link>/2015-06-24-phonegap-cordova-traps/</link>
       <pubDate>Wed, 24 Jun 2015 06:14:55 +0000</pubDate>
       
-      <guid>/posts/2015-06-24-phonegap-cordova-traps/</guid>
+      <guid>/2015-06-24-phonegap-cordova-traps/</guid>
       <description>&lt;p&gt;PhoneGap/Cordovaで手探り状態で開発してます。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;/posts/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PhoneGapでビルドしたアプリがインストールできない</title>
-      <link>/posts/2015-05-18-application-not-installed/</link>
+      <link>/2015-05-18-application-not-installed/</link>
       <pubDate>Mon, 18 May 2015 08:05:49 +0000</pubDate>
       
-      <guid>/posts/2015-05-18-application-not-installed/</guid>
+      <guid>/2015-05-18-application-not-installed/</guid>
       <description>&lt;p&gt;PhoneGapアプリをエミュで実行させようとして、&lt;/p&gt;
 
 &lt;p&gt;phonegap run android -e としますと、&lt;/p&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>PhoneGapを使ってみる(Android編)</title>
-      <link>/posts/2015-02-12-try-phonegap-android/</link>
+      <link>/2015-02-12-try-phonegap-android/</link>
       <pubDate>Thu, 12 Feb 2015 06:59:07 +0000</pubDate>
       
-      <guid>/posts/2015-02-12-try-phonegap-android/</guid>
+      <guid>/2015-02-12-try-phonegap-android/</guid>
       <description>&lt;h3 id=&#34;android開発環境&#34;&gt;Android開発環境&lt;/h3&gt;
 
 &lt;p&gt;IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。&lt;/p&gt;
@@ -54,10 +54,10 @@
     
     <item>
       <title>PhoneGapを使ってみる(iOS編)</title>
-      <link>/posts/2015-01-21-try-phonegap-ios/</link>
+      <link>/2015-01-21-try-phonegap-ios/</link>
       <pubDate>Wed, 21 Jan 2015 11:47:30 +0000</pubDate>
       
-      <guid>/posts/2015-01-21-try-phonegap-ios/</guid>
+      <guid>/2015-01-21-try-phonegap-ios/</guid>
       <description>&lt;p&gt;スマホアプリ作るのにはObjective-CとかJavaとか別々に覚えて、ライブラリなんかもプラットフォーム別にお勉強するってのが、本来なんでしょうけど、まぁやってられません。&lt;/p&gt;
 
 &lt;p&gt;SPA気分でネイティブ風アプリが開発できる&lt;a href=&#34;http://phonegap.com/&#34; target=&#34;_blank&#34;&gt;PhoneGap&lt;/a&gt;に挑戦してみます。&lt;/p&gt;

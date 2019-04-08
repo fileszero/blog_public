@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2013-05-31-using-git/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>gitを使ってみる - My New Hugo Site</title>
+    
+
+<meta name="description" content="gitインストールしたんで使ってみましょう。手始めにGitHubからソースをいただいてみます。お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。↑のページからGitHubにリンクが張られていますんで、即クリック。レポジトリのURLは に出てますね。コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます1 2 3 4 5 6 7 8 9 10 11 12 13  \workspace&amp;gt;mkdir ttrss \workspace&amp;gt;cd ttrss \workspace\ttrss&amp;gt;git init Initialized empty Git repository in /workspace/ttrss/.git/ \workspace\ttrss&amp;gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS -for-Honeycomb.git Cloning into &amp;#39;Tiny-Tiny-RSS-for-Honeycomb&amp;#39;... remote: Counting objects: 7896, done. remote: Compressing objects: 100% (2415/2415), done. remote: Total 7896 (delta 3910), reused 7724 (delta 3745) Receiving objects: 100% (7896/7896), 3.">
+
+<meta property="og:title" content="gitを使ってみる - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2013-05-31-using-git/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="gitインストールしたんで使ってみましょう。手始めにGitHubからソースをいただいてみます。お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。↑のページからGitHubにリンクが張られていますんで、即クリック。レポジトリのURLは に出てますね。コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます1 2 3 4 5 6 7 8 9 10 11 12 13  \workspace&amp;gt;mkdir ttrss \workspace&amp;gt;cd ttrss \workspace\ttrss&amp;gt;git init Initialized empty Git repository in /workspace/ttrss/.git/ \workspace\ttrss&amp;gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS -for-Honeycomb.git Cloning into &amp;#39;Tiny-Tiny-RSS-for-Honeycomb&amp;#39;... remote: Counting objects: 7896, done. remote: Compressing objects: 100% (2415/2415), done. remote: Total 7896 (delta 3910), reused 7724 (delta 3745) Receiving objects: 100% (7896/7896), 3.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2013-05-31-using-git/">
+<meta name="twitter:title" content="gitを使ってみる - My New Hugo Site">
+<meta name="twitter:description" content="gitインストールしたんで使ってみましょう。手始めにGitHubからソースをいただいてみます。お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。↑のページからGitHubにリンクが張られていますんで、即クリック。レポジトリのURLは に出てますね。コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます1 2 3 4 5 6 7 8 9 10 11 12 13  \workspace&amp;gt;mkdir ttrss \workspace&amp;gt;cd ttrss \workspace\ttrss&amp;gt;git init Initialized empty Git repository in /workspace/ttrss/.git/ \workspace\ttrss&amp;gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS -for-Honeycomb.git Cloning into &amp;#39;Tiny-Tiny-RSS-for-Honeycomb&amp;#39;... remote: Counting objects: 7896, done. remote: Compressing objects: 100% (2415/2415), done. remote: Total 7896 (delta 3910), reused 7724 (delta 3745) Receiving objects: 100% (7896/7896), 3.">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "gitを使ってみる - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-05-31T13:37:37JST",
+    "dateModified": "2013-05-31T13:37:37JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "gitインストールしたんで使ってみましょう。
+手始めにGitHubからソースをいただいてみます。
+お目当てはTiny Tiny RSS &#8211; Android Clientです。
+↑のページからGitHubにリンクが張られていますんで、即クリック。
+レポジトリのURLは
+ に出てますね。
+コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます
+1 2 3 4 5 6 7 8 9 10 11 12 13  \workspace&gt;mkdir ttrss \workspace&gt;cd ttrss \workspace\ttrss&gt;git init Initialized empty Git repository in /workspace/ttrss/.git/ \workspace\ttrss&gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS -for-Honeycomb.git Cloning into &#39;Tiny-Tiny-RSS-for-Honeycomb&#39;... remote: Counting objects: 7896, done. remote: Compressing objects: 100% (2415/2415), done. remote: Total 7896 (delta 3910), reused 7724 (delta 3745) Receiving objects: 100% (7896/7896), 3."
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-31-using-git/WS000070.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">gitを使ってみる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-31T13:37:37JST">May 31, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-31-using-git%2f&title=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-31-using-git%2f&text=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-31-using-git%2f&t=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-31-using-git%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-31-using-git%2f&title=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b %2f2013-05-31-using-git%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2013/2013-05-30-starting-git" title="gitはじめてみる">gitインストール</a>したんで使ってみましょう。</p>
+
+<p>手始めにGitHubからソースをいただいてみます。</p>
+
+<p>お目当ては<a href="http://tt-rss.org/redmine/projects/tt-rss-android/wiki" target="_blank">Tiny Tiny RSS &#8211; Android Client</a>です。</p>
+
+<p>↑のページから<a href="https://github.com/gothfox/Tiny-Tiny-RSS-for-Honeycomb" target="_blank">GitHub</a>にリンクが張られていますんで、即クリック。</p>
+
+<p>レポジトリのURLは</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-31-using-git/WS000070.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-31-using-git/WS000070_hu2704eaee129a0ebf1e94c015d0d9c86e_23364_240x0_resize_q75_box.jpg" width="240"
+                height="29" data-original="/2013-05-31-using-git/WS000070.jpg" />
+    </a>
+
+
+<p>に出てますね。</p>
+
+<p>コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">\workspace&gt;mkdir ttrss
+\workspace&gt;cd ttrss
+\workspace\ttrss&gt;git init
+Initialized empty Git repository in /workspace/ttrss/.git/
+
+\workspace\ttrss&gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS
+-for-Honeycomb.git
+Cloning into &#39;Tiny-Tiny-RSS-for-Honeycomb&#39;...
+remote: Counting objects: 7896, done.
+remote: Compressing objects: 100% (2415/2415), done.
+remote: Total 7896 (delta 3910), reused 7724 (delta 3745)
+Receiving objects: 100% (7896/7896), 3.65 MiB | 673 KiB/s, done.
+Resolving deltas: 100% (3910/3910), done.</code></pre></td></tr></table>
+</div>
+</div>
+<p>でソースが降臨しました。</p>
+
+<p>Eclipseに読ませてみましょうかね。ちなみにEclipseはgoogleから提供されてるADT Bundle版です。</p>
+
+<p>Eclipse立ち上げて File-Import</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-31-using-git/WS000073.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-31-using-git/WS000073_hucff298c7bcccb4c4054701d343c60bff_27179_240x0_resize_q75_box.jpg" width="240"
+                height="432" data-original="/2013-05-31-using-git/WS000073.jpg" />
+    </a>
+
+
+<p>Android-Existing Android Code Into Workspace</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-31-using-git/WS000074.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-31-using-git/WS000074_hu49d05a55dfc80f4074927fa46a21778b_60973_240x0_resize_q75_box.jpg" width="240"
+                height="137" data-original="/2013-05-31-using-git/WS000074.jpg" />
+    </a>
+
+
+<p>クローンしたフォルダを指定します。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-31-using-git/WS000075.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-31-using-git/WS000075_hub03e00c70a19b284f6b81b466bc1de34_102458_240x0_resize_q75_box.jpg" width="240"
+                height="137" data-original="/2013-05-31-using-git/WS000075.jpg" />
+    </a>
+
+
+<p>んでFinish!</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    <a class="luminous" href="/2013-05-31-using-git/WS000076.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-31-using-git/WS000076.jpg" width="198"
+                height="355" data-original="/2013-05-31-using-git/WS000076.jpg" />
+    </a>
+
+
+<p>こんな感じで取り込めましたが、エラー出まくってますね。</p>
+
+<p>これから楽しいプログラミング的作業になります(´；ω；｀)ﾌﾞﾜｯ</p>
+
+<p>ライブラリが無いとか、定義が無いとかエラーが出た場合は周辺ライブラリを最新のにしたりするといくらか解決します。</p>
+
+<p>Android SDK Managerでとにかくアップデートしまくり。</p>
+
+<p>とかやってたらADTをアップデートしろと出た！長くなりそうなので今回はここまで。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-31-using-git%2f&title=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-31-using-git%2f&text=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-31-using-git%2f&t=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-31-using-git%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-31-using-git%2f&title=git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?git%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b %2f2013-05-31-using-git%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">gitを使ってみる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          
+          <li><a href="/categories/git/">git</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2013-05-30-starting-git/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-30-starting-git/WS000066s.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">gitはじめてみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-30T14:18:41JST">May 30, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2013-06-03-updating-adt/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-06-03-updating-adt/WS000077.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ADTのアップデート</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-06-03T12:41:36JST">Jun 3, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

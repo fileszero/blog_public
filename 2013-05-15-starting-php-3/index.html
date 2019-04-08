@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2013-05-15-starting-php-3/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>PHPをはじめてみる(3) - My New Hugo Site</title>
+    
+
+<meta name="description" content="Eclipse の調整 前回でインストールは終わったのでこまい設定をします。なるべく素の状態で使う主義ですが、以下の設定はしときます。Window-Preferences設定画面を開いて。General-&amp;gt;Keys　Command:[Next Editor] の Binding　を　Ctrl&#43;Tab　に。 同じくGeneral-&amp;gt;Workspace　の　text file encoding　を Other UTF-8　に。 Run/Debug-&amp;gt;Launching の Launch Option　を　Always Launch …に Hello world 一応環境ができたので、簡単なプログラムを作って実行してみます。File-New-PHP Projectで新しいProjectを作ります。Project name : HelloWorldContects を Create Project at existing locationにしてDirectory を xmappのhtdocs以下のHelloWorldにします。 ほかは良くわからんのでデフォルトで。[Next]-&amp;gt;[Next]-&amp;gt;[Finish]！こんな感じでProjectができました。 物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。 プロジェクトの名前を右クリックで[New]-[PHP File]File Nameをindex.phpに。 [Use PHP Template]はOnにして、[New PHP file &amp;#8211; HTML frameset]を選択して[Finish]!">
+
+<meta property="og:title" content="PHPをはじめてみる(3) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2013-05-15-starting-php-3/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="Eclipse の調整 前回でインストールは終わったのでこまい設定をします。なるべく素の状態で使う主義ですが、以下の設定はしときます。Window-Preferences設定画面を開いて。General-&amp;gt;Keys　Command:[Next Editor] の Binding　を　Ctrl&#43;Tab　に。 同じくGeneral-&amp;gt;Workspace　の　text file encoding　を Other UTF-8　に。 Run/Debug-&amp;gt;Launching の Launch Option　を　Always Launch …に Hello world 一応環境ができたので、簡単なプログラムを作って実行してみます。File-New-PHP Projectで新しいProjectを作ります。Project name : HelloWorldContects を Create Project at existing locationにしてDirectory を xmappのhtdocs以下のHelloWorldにします。 ほかは良くわからんのでデフォルトで。[Next]-&amp;gt;[Next]-&amp;gt;[Finish]！こんな感じでProjectができました。 物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。 プロジェクトの名前を右クリックで[New]-[PHP File]File Nameをindex.phpに。 [Use PHP Template]はOnにして、[New PHP file &amp;#8211; HTML frameset]を選択して[Finish]!">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2013-05-15-starting-php-3/">
+<meta name="twitter:title" content="PHPをはじめてみる(3) - My New Hugo Site">
+<meta name="twitter:description" content="Eclipse の調整 前回でインストールは終わったのでこまい設定をします。なるべく素の状態で使う主義ですが、以下の設定はしときます。Window-Preferences設定画面を開いて。General-&amp;gt;Keys　Command:[Next Editor] の Binding　を　Ctrl&#43;Tab　に。 同じくGeneral-&amp;gt;Workspace　の　text file encoding　を Other UTF-8　に。 Run/Debug-&amp;gt;Launching の Launch Option　を　Always Launch …に Hello world 一応環境ができたので、簡単なプログラムを作って実行してみます。File-New-PHP Projectで新しいProjectを作ります。Project name : HelloWorldContects を Create Project at existing locationにしてDirectory を xmappのhtdocs以下のHelloWorldにします。 ほかは良くわからんのでデフォルトで。[Next]-&amp;gt;[Next]-&amp;gt;[Finish]！こんな感じでProjectができました。 物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。 プロジェクトの名前を右クリックで[New]-[PHP File]File Nameをindex.phpに。 [Use PHP Template]はOnにして、[New PHP file &amp;#8211; HTML frameset]を選択して[Finish]!">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "PHPをはじめてみる(3) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-05-15T15:00:09JST",
+    "dateModified": "2013-05-15T15:00:09JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "Eclipse の調整 前回でインストールは終わったのでこまい設定をします。
+なるべく素の状態で使う主義ですが、以下の設定はしときます。
+Window-Preferences設定画面を開いて。
+General-&gt;Keys　Command:[Next Editor] の Binding　を　Ctrl+Tab　に。
+ 同じくGeneral-&gt;Workspace　の　text file encoding　を Other UTF-8　に。
+ Run/Debug-&gt;Launching の Launch Option　を　Always Launch …に
+ Hello world 一応環境ができたので、簡単なプログラムを作って実行してみます。
+File-New-PHP Projectで新しいProjectを作ります。
+Project name : HelloWorld
+Contects を Create Project at existing locationにして
+Directory を xmappのhtdocs以下のHelloWorldにします。
+ ほかは良くわからんのでデフォルトで。[Next]-&gt;[Next]-&gt;[Finish]！
+こんな感じでProjectができました。
+ 物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。
+ プロジェクトの名前を右クリックで[New]-[PHP File]
+File Nameをindex.phpに。
+ [Use PHP Template]はOnにして、[New PHP file &#8211; HTML frameset]を選択して[Finish]!"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-15-starting-php-3/WS000014.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">PHPをはじめてみる(3)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-15T15:00:09JST">May 15, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-15-starting-php-3%2f&title=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-15-starting-php-3%2f&text=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-15-starting-php-3%2f&t=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-15-starting-php-3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-15-starting-php-3%2f&title=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29 %2f2013-05-15-starting-php-3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<h3 id="eclipse-の調整">Eclipse の調整</h3>
+
+<p><a href="/posts/2013/2013-05-15-starting-php-2" title="PHPをはじめてみる(2)">前回</a>でインストールは終わったのでこまい設定をします。</p>
+
+<p>なるべく素の状態で使う主義ですが、以下の設定はしときます。</p>
+
+<p>Window-Preferences設定画面を開いて。</p>
+
+<p>General-&gt;Keys　Command:[Next Editor] の Binding　を　Ctrl+Tab　に。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000014.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000014_huc25299a3b3d18fa0f077f4f7860ad934_133368_240x0_resize_q75_box.jpg" width="240"
+                height="175" data-original="/2013-05-15-starting-php-3/WS000014.jpg" />
+    </a>
+
+
+<p>同じくGeneral-&gt;Workspace　の　text file encoding　を Other UTF-8　に。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000015.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000015_huc25299a3b3d18fa0f077f4f7860ad934_114598_240x0_resize_q75_box.jpg" width="240"
+                height="175" data-original="/2013-05-15-starting-php-3/WS000015.jpg" />
+    </a>
+
+
+<p>Run/Debug-&gt;Launching の Launch Option　を　Always Launch …に</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000016.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000016_huc25299a3b3d18fa0f077f4f7860ad934_151531_240x0_resize_q75_box.jpg" width="240"
+                height="175" data-original="/2013-05-15-starting-php-3/WS000016.jpg" />
+    </a>
+
+
+<h3 id="hello-world">Hello world</h3>
+
+<p>一応環境ができたので、簡単なプログラムを作って実行してみます。</p>
+
+<p>File-New-PHP Projectで新しいProjectを作ります。</p>
+
+<p>Project name : HelloWorld</p>
+
+<p>Contects を Create Project at existing locationにして</p>
+
+<p>Directory を xmappのhtdocs以下のHelloWorldにします。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000017.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000017_hu108864c4701a9dbe84e8cdacaa86a1e8_103688_240x0_resize_q75_box.jpg" width="240"
+                height="182" data-original="/2013-05-15-starting-php-3/WS000017.jpg" />
+    </a>
+
+
+<p>ほかは良くわからんのでデフォルトで。[Next]-&gt;[Next]-&gt;[Finish]！</p>
+
+<p>こんな感じでProjectができました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000018.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000018_hu1910ade6d6ec46c16a5b816f08f416ec_18041_240x0_resize_q75_box.jpg" width="240"
+                height="163" data-original="/2013-05-15-starting-php-3/WS000018.jpg" />
+    </a>
+
+
+<p>物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000019.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000019_hue8976ff872c004eb519c56a4759ee3dd_18674_240x0_resize_q75_box.jpg" width="240"
+                height="152" data-original="/2013-05-15-starting-php-3/WS000019.jpg" />
+    </a>
+
+
+<p>プロジェクトの名前を右クリックで[New]-[PHP File]</p>
+
+<p>File Nameをindex.phpに。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000020.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000020_hu98c0f633fe86eb483c342181ec025bea_27689_240x0_resize_q75_box.jpg" width="240"
+                height="172" data-original="/2013-05-15-starting-php-3/WS000020.jpg" />
+    </a>
+
+
+<p>[Use PHP Template]はOnにして、[New PHP file &#8211; HTML frameset]を選択して[Finish]!</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000021.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000021_hu39aa831cba89abe2f6ef29dd4a24e7c2_46780_240x0_resize_q75_box.jpg" width="240"
+                height="209" data-original="/2013-05-15-starting-php-3/WS000021.jpg" />
+    </a>
+
+
+<p>index.phpが出来上がるので、<frameset>の部分をさっくり削除してこんな感じのコードにしました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.01 Frameset//EN&#34;&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Type&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;text/html; charset=UTF-8&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Insert title here<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="cp">&lt;?php</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Hello world&lt;br/&gt;&#34;</span><span class="p">);</span>
+	<span class="nx">phpinfo</span><span class="p">();</span>
+<span class="cp">?&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>プロジェクト名を右クリックで、[Run as]-[Run Configurations&#8230;]をクリック。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000022.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000022_hu1fdc267429e6845cade928f6f753da2a_54391_240x0_resize_q75_box.jpg" width="240"
+                height="196" data-original="/2013-05-15-starting-php-3/WS000022.jpg" />
+    </a>
+
+
+<p>[PHP Web Application]-[New]</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000023.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000023_hu686960f3498895098198e5d8e3d5dafd_31396_240x0_resize_q75_box.jpg" width="240"
+                height="219" data-original="/2013-05-15-starting-php-3/WS000023.jpg" />
+    </a>
+
+
+<p>Fileに&#8221;/HelloWorld/index.php&#8221; ほかは良くわからないのでデフォルト。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000024.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000024_hu8e0d2e1410235c388d1d1a56a9099233_119708_240x0_resize_q75_box.jpg" width="240"
+                height="151" data-original="/2013-05-15-starting-php-3/WS000024.jpg" />
+    </a>
+
+
+<p>んで　[Run]</p>
+
+<p>Eclipse上に表示されました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-15-starting-php-3/WS000025.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-15-starting-php-3/WS000025_hue16a0d7e1e72643cc232482d0f114c4a_27052_240x0_resize_q75_box.jpg" width="240"
+                height="165" data-original="/2013-05-15-starting-php-3/WS000025.jpg" />
+    </a>
+
+
+<p>うまいこと実行されているようです。</p>
+
+<p><a href="/posts/2013/2013-05-16-starting-php-4" title="PHPをはじめてみる(4)">次回</a>はデバッグしてみます～。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-15-starting-php-3%2f&title=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-15-starting-php-3%2f&text=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-15-starting-php-3%2f&t=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-15-starting-php-3%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-15-starting-php-3%2f&title=PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?PHP%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b%283%29 %2f2013-05-15-starting-php-3%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">PHPをはじめてみる(3)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          
+          <li><a href="/categories/php/">PHP</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2013-05-14-starting-php-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-14-starting-php-2/WS000011.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">PHPをはじめてみる(2)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-14T15:28:50JST">May 14, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2013-05-16-starting-php-4/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-16-starting-php-4/WS000027.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">PHPをはじめてみる(4)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-16T12:51:33JST">May 16, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

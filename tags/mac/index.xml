@@ -13,10 +13,10 @@
     
     <item>
       <title>iTunes Wifi同期できないの解決</title>
-      <link>/posts/2014-02-11-itunes-wifi-sync/</link>
+      <link>/2014-02-11-itunes-wifi-sync/</link>
       <pubDate>Tue, 11 Feb 2014 14:00:04 +0000</pubDate>
       
-      <guid>/posts/2014-02-11-itunes-wifi-sync/</guid>
+      <guid>/2014-02-11-itunes-wifi-sync/</guid>
       <description>iPadとiTunesをWifiで同期できなくで困ってたんです。
 一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
 試しにmacのipv6をオンにしてみたら動きやがった〜。

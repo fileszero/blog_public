@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2013-05-21-tiny-tiny-rss/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Tiny Tiny RSS - My New Hugo Site</title>
+    
+
+<meta name="description" content="Google Readerが終わってしまいますね。feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。ざっと検索したところTiny Tiny RSSが良いみたい。まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGetwgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。データベースの用意1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.">
+
+<meta property="og:title" content="Tiny Tiny RSS - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2013-05-21-tiny-tiny-rss/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="Google Readerが終わってしまいますね。feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。ざっと検索したところTiny Tiny RSSが良いみたい。まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGetwgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。データベースの用意1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2013-05-21-tiny-tiny-rss/">
+<meta name="twitter:title" content="Tiny Tiny RSS - My New Hugo Site">
+<meta name="twitter:description" content="Google Readerが終わってしまいますね。feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。ざっと検索したところTiny Tiny RSSが良いみたい。まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGetwgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。データベースの用意1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Tiny Tiny RSS - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-05-21T14:18:03JST",
+    "dateModified": "2013-05-21T14:18:03JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "Google Readerが終わってしまいますね。
+feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。
+ざっと検索したところTiny Tiny RSSが良いみたい。
+まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGet
+wgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。
+1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。
+データベースの用意
+1 2 3 4 5  $ mysql -u root -p mysql&gt; create database ttrss; mysql&gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &#39;******&#39;; mysql&gt; FLUSH PRIVILEGES; mysql&gt; exit   ソースを展開してwebに配置
+1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1."
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-21-tiny-tiny-rss/WS000052.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Tiny Tiny RSS</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-21T14:18:03JST">May 21, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-21-tiny-tiny-rss%2f&title=Tiny%20Tiny%20RSS" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-21-tiny-tiny-rss%2f&text=Tiny%20Tiny%20RSS&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-21-tiny-tiny-rss%2f&t=Tiny%20Tiny%20RSS" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-21-tiny-tiny-rss%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-21-tiny-tiny-rss%2f&title=Tiny%20Tiny%20RSS" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Tiny%20Tiny%20RSS %2f2013-05-21-tiny-tiny-rss%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body">
+
+<p>Google Readerが終わってしまいますね。</p>
+
+<p><a href="http://www.feedly.com/" target="_blank">feedly</a>もいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。</p>
+
+<p>ざっと検索したところ<a href="http://tt-rss.org/redmine/projects/tt-rss/wiki" target="_blank">Tiny Tiny RSS</a>が良いみたい。</p>
+
+<p>まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGet</p>
+
+<p>wgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">$ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz
+$ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz</code></pre></td></tr></table>
+</div>
+</div>
+<p>そしたら<a href="http://tt-rss.org/redmine/projects/tt-rss/wiki/InstallationNotes" target="_blank">Installation Notes</a>を参考にインストールを進めます。</p>
+
+<p>データベースの用意</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">$ mysql -u root -p
+mysql&gt; create database ttrss;
+mysql&gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &#39;******&#39;;
+mysql&gt; FLUSH PRIVILEGES;
+mysql&gt; exit</code></pre></td></tr></table>
+</div>
+</div>
+<p>ソースを展開してwebに配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">$ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz
+$ mv Tiny-Tiny-RSS-1.7.9 tt-rss
+$ su
+# cp -r tt-rss /Document/Root/ttrss
+# chown -R nginx:nginx /Document/Root/ttrss</code></pre></td></tr></table>
+</div>
+</div>
+<p>http://<em>hostname</em>/ttrss/install にアクセス。</p>
+
+<p>こんな感じでDB情報入れます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-21-tiny-tiny-rss/WS000052.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-21-tiny-tiny-rss/WS000052_huba45466facbf988751d344b50a694826_50500_240x0_resize_q75_box.jpg" width="240"
+                height="137" data-original="/2013-05-21-tiny-tiny-rss/WS000052.jpg" />
+    </a>
+
+
+<p>[Test Configuration]すると</p>
+
+<p>「PHP support for DOMDocument is required, but was not found.」とか出るー。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"># yum install --enablerepo=remi php-xml
+# /etc/init.d/php-fpm restart</code></pre></td></tr></table>
+</div>
+</div>
+<p>でphp-xmlをインストールして再度[Test Configuration]</p>
+
+<p>でた！</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-21-tiny-tiny-rss/WS000053.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-21-tiny-tiny-rss/WS000053_hu1d09290561f6ccda68c68f2d60c51afc_35334_240x0_resize_q75_box.jpg" width="240"
+                height="98" data-original="/2013-05-21-tiny-tiny-rss/WS000053.jpg" />
+    </a>
+
+
+<p>[Initialize database]します。</p>
+
+<p>なんか良くわからんconfigファイルが出来上がって「Save configuration」ボタンが出るので、クリック。</p>
+
+<p>こんなんが出るので、</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-21-tiny-tiny-rss/WS000054.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-21-tiny-tiny-rss/WS000054_hu0461d1fa4d10004aa0a6bdd0a9966d44_14307_240x0_resize_q75_box.jpg" width="240"
+                height="53" data-original="/2013-05-21-tiny-tiny-rss/WS000054.jpg" />
+    </a>
+
+
+<p>「loading tt-rss now」をクリックしてみる。</p>
+
+<p>きたこれ</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-21-tiny-tiny-rss/WS000056.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-21-tiny-tiny-rss/WS000056_huc6e49090631254eaa105b7a94b128cab_22195_240x0_resize_q75_box.jpg" width="240"
+                height="168" data-original="/2013-05-21-tiny-tiny-rss/WS000056.jpg" />
+    </a>
+
+
+<p>初期ユーザーIDとパスワード(username: admin, password: password)で入って・・・</p>
+
+<p>動いてるっぽイー</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-21-tiny-tiny-rss/WS000057.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-21-tiny-tiny-rss/WS000057_hu15c9a83c52210e36789b28521180ad12_30144_240x0_resize_q75_box.jpg" width="240"
+                height="113" data-original="/2013-05-21-tiny-tiny-rss/WS000057.jpg" />
+    </a>
+
+
+<p>とりあえずパスワード変えて、ユーザー追加とかしていきます。</p>
+
+<h3 id="google-readerのインポート">google readerのインポート</h3>
+
+<h4 id="google-reader">google reader</h4>
+
+<p>[google reader] &#8211; [設定] &#8211; [インポート/エクスポート] &#8211; [Download your data through Takeout]をクリック　<a href="https://www.google.com/takeout/?pli=1#custom:reader" target="_blank">直リン</a>でもいけるか？</p>
+
+<p>「アーカイブを作成」して「ダウンロード」</p>
+
+<h4 id="tt-rss">TT-RSS</h4>
+
+<p>[操作]-[Preferences]-[フィード]-[OPML]で「ファイルを選択」</p>
+
+<p>ダウンロードしたファイルの中の「subscriptions.xml」を選択して、[Import my OPML]!</p>
+
+<p>記事読めたー</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-21-tiny-tiny-rss/WS000058.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-21-tiny-tiny-rss/WS000058_hufc346cfb2e002f8497112225b4f7ac97_51609_240x0_resize_q75_box.jpg" width="240"
+                height="84" data-original="/2013-05-21-tiny-tiny-rss/WS000058.jpg" />
+    </a>
+
+
+<p>つるしの状態だと使いずらいかも。おいおいカスタマイズしていきます。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-21-tiny-tiny-rss%2f&title=Tiny%20Tiny%20RSS" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-21-tiny-tiny-rss%2f&text=Tiny%20Tiny%20RSS&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-21-tiny-tiny-rss%2f&t=Tiny%20Tiny%20RSS" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-21-tiny-tiny-rss%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-21-tiny-tiny-rss%2f&title=Tiny%20Tiny%20RSS" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Tiny%20Tiny%20RSS %2f2013-05-21-tiny-tiny-rss%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Tiny Tiny RSS</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/software/">software</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2013-05-20-mysql-setting/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-20-mysql-setting/WS000051.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">MySQLの設定(文字コード)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-20T14:23:17JST">May 20, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2013-05-23-tiny-tiny-rss-update-feeds/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-23-tiny-tiny-rss-update-feeds/WS000059.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Tiny Tiny RSSのFeed更新</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-23T13:33:41JST">May 23, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

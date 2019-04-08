@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2017-02-08-docker-for-mac-wp/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Docker for Macでwordpressの開発環境を作ってみる - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;&lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;">
+
+<meta property="og:title" content="Docker for Macでwordpressの開発環境を作ってみる - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2017-02-08-docker-for-mac-wp/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;&lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2017-02-08-docker-for-mac-wp/">
+<meta name="twitter:title" content="Docker for Macでwordpressの開発環境を作ってみる - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる&lt;a href=&#34;https://docs.docker.com/docker-for-mac/&#34; target=&#34;_blank&#34;&gt;Docker for Mac&lt;/a&gt;がリリースされたようです。&lt;/p&gt;&lt;p&gt;なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Docker for Macでwordpressの開発環境を作ってみる - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-02-08T14:29:07JST",
+    "dateModified": "2017-02-08T14:29:07JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる<a href="https://docs.docker.com/docker-for-mac/" target="_blank">Docker for Mac</a>がリリースされたようです。</p>
+
+<p>なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.01.00.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Docker for Macでwordpressの開発環境を作ってみる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-08T14:29:07JST">Feb 8, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2017-02-08-docker-for-mac-wp%2f&title=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2017-02-08-docker-for-mac-wp%2f&text=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2017-02-08-docker-for-mac-wp%2f&t=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2017-02-08-docker-for-mac-wp%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2017-02-08-docker-for-mac-wp%2f&title=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b %2f2017-02-08-docker-for-mac-wp%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>かつてDockerはLinux以外にインストールするにはVirtualBox等使って仮想マシンを用意したのち、仮想マシン上にインストールするもんだったようですが、最近、自分のようなよく解ってない人間にもDockerできる<a href="https://docs.docker.com/docker-for-mac/" target="_blank">Docker for Mac</a>がリリースされたようです。</p>
+
+<p>なんか簡単そうなので、wordpressのテーマとかいじる時用の環境を作ってみます。</p>
+
+<h3 id="docker-for-macインストール">Docker for Macインストール</h3>
+
+<p><a href="https://docs.docker.com/docker-for-mac/" target="_blank">Docker for Mac</a>のStable channelを使用します</p>
+
+<p>&#8220;Get Docker for Mac (stable)&#8221;からDocker.dmgをダウンロード</p>
+
+<p>ダブルクリック=&gt;Docker.appをApplicationsにD&amp;D</p>
+
+<p>ファインダーのアプリケーションからDocker.appを実行。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.01.00.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.01.00_hu2a1927aa31c8cd3f96cce7e92e6162a3_63301_240x0_resize_q75_box.jpg" width="240"
+                height="98" data-original="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.01.00.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.02.23.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.02.23_hu2a1927aa31c8cd3f96cce7e92e6162a3_87108_240x0_resize_q75_box.jpg" width="240"
+                height="102" data-original="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.02.23.jpg" />
+    </a>
+
+
+<p>ステータスバーにDockerのアイコンが追加されます。</p>
+
+<p>最初はウエルカムメッセージっぽい表示が出ます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.03.14.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.03.14_hue7e1ebc67b457137f25f1d445a30ce84_111193_240x0_resize_q75_box.jpg" width="240"
+                height="403" data-original="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.03.14.jpg" />
+    </a>
+
+
+<p>&#8220;Got it!&#8221;</p>
+
+<h4 id="インストールチェック">インストールチェック</h4>
+
+<p>ターミナルでバージョン表示してみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ docker --version
+Docker version <span class="m">1</span>.13.0, build 49bf474
+Mac ~$ docker-compose --version
+docker-compose version <span class="m">1</span>.10.0, build 4bd6f1a
+Mac ~$ docker-machine --version
+docker-machine version <span class="m">0</span>.9.0, build 15fd4c7</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ <span class="nb">cd</span> ~/src/docker/
+Mac ~/src/docker$ docker run hello-world
+Unable to find image <span class="s1">&#39;hello-world:latest&#39;</span> locally
+latest: Pulling from library/hello-world
+78445dd45222: Pull <span class="nb">complete</span>
+Digest: sha256:c5515758d4c5e1e838e9cd307f6c6a0d620b5e07e6f927b07d05f6d12a1ac8d7
+Status: Downloaded newer image <span class="k">for</span> hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ <span class="m">1</span>. The Docker client contacted the Docker daemon.
+ <span class="m">2</span>. The Docker daemon pulled the <span class="s2">&#34;hello-world&#34;</span> image from the Docker Hub.
+ <span class="m">3</span>. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ <span class="m">4</span>. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/docker$ docker run -d -p <span class="m">80</span>:80 --name webserver nginx
+Mac ~/src/docker$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
+a4eabae453e3        nginx               <span class="s2">&#34;nginx -g &#39;daemon ...&#34;</span>   <span class="m">22</span> seconds ago      Up <span class="m">21</span> seconds       <span class="m">0</span>.0.0.0:80-&gt;80/tcp, <span class="m">443</span>/tcp   webserver</code></pre></td></tr></table>
+</div>
+</div>
+<p><a href="http://localhost/" target="_blank"><a href="http://localhost/" target="_blank">http://localhost/</a></a>にアクセスすると、</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.26.24.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.26.24_hue7e1ebc67b457137f25f1d445a30ce84_158301_240x0_resize_q75_box.jpg" width="240"
+                height="144" data-original="/2017-02-08-docker-for-mac-wp/SS-2017-02-07-16.26.24.jpg" />
+    </a>
+
+
+<p>動いてます。</p>
+
+<h3 id="wordpress用コンテナ作成">WordPress用コンテナ作成</h3>
+
+<div class='del'>
+  <a href="https://github.com/tutumcloud/wordpress" target="_blank">tutum/wordpress</a>というのを使うとお手軽そうです。</p> 
+  
+  ```bash
+
+Mac ~/src/docker$ docker run -d -p 80:80 --name=wordpress tutum/wordpress
+```
+</div>
+
+<p>と思ったら、tutum/wordpressはもう使うな的なことが書いてありました。</p>
+
+<p>こっちを使えとのこと、<a href="https://hub.docker.com/_/wordpress/" target="_blank"><a href="https://hub.docker.com/_/wordpress/" target="_blank">https://hub.docker.com/_/wordpress/</a></a>。</p>
+
+<p>この人単体だとMySQLとか入っていないようなので、そちらも別途用意してやらないといけないようですが、DockerHUBの説明ページにdocker composerの例が出てるので、そのまま使います。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/docker$ mkdir wordpress
+Mac ~/src/docker$ <span class="nb">cd</span> wordpress/
+Mac ~/src/docker/wordpress$
+Mac ~/src/docker/wordpress$ code docker-compose.yml</code></pre></td></tr></table>
+</div>
+</div>
+<p>内容はコピペで。パスワード部分は外部ファイルにした方がいいような気もする。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">version: &#39;2&#39;
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_PASSWORD: example
+
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example</code></pre></td></tr></table>
+</div>
+</div>
+<p>起動します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/docker/wordpress$ docker-compose up</code></pre></td></tr></table>
+</div>
+</div>
+<p>なんか</p>
+
+<p>wordpress_1 | MySQL Connection Error: (2002) Connection refused</p>
+
+<p>とか出るんで、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">links:
+      - mysql</code></pre></td></tr></table>
+</div>
+</div>
+<p>追加してみたけど、あんまり効果なし。</p>
+
+<p>気にせずに<a href="http://localhost:8080/" target="_blank"><a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a></a>にアクセスすると、</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2017-02-08-docker-for-mac-wp/SS-2017-02-08-11.33.19.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2017-02-08-docker-for-mac-wp/SS-2017-02-08-11.33.19_huacddc0871c0a412f54f3e1ba534d434e_141229_240x0_resize_q75_box.jpg" width="240"
+                height="165" data-original="/2017-02-08-docker-for-mac-wp/SS-2017-02-08-11.33.19.jpg" />
+    </a>
+
+
+<p>出ます。</p>
+
+<h4 id="mac側のファイルを参照するようにする">Mac側のファイルを参照するようにする</h4>
+
+<p>docker-compose.ymlに共有フォルダ設定(volumes)を追加すると、ホスト側(Mac)のコンテンツを使用できます。</p>
+
+<p>Macで ~/src/wordpress/ にwordpressを展開してるとすると</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">version: &#39;2&#39;
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_PASSWORD: example
+    links:
+      - mysql
+    volumes:       #  追加 
+      - ~/src/wordpress/:/var/www/html
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example</code></pre></td></tr></table>
+</div>
+</div>
+<p>といった感じです。</p>
+
+<p>コンテナ作り直す</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/docker/wordpress$ docker-compose down
+Mac ~/src/docker/wordpress$ docker-compose up</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="データベース抜き出し">データベース抜き出し</h4>
+
+<p>composeで一緒にインストールされた<a href="https://hub.docker.com/_/mariadb/" target="_blank">mariadb</a>のドキュメントの&#8221;Initializing a fresh instance&#8221;を参考にホストとの共有フォルダを設定します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">....
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:       #  追加
+      - ./mariadb/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d</code></pre></td></tr></table>
+</div>
+</div>
+<p>/docker-entrypoint-initdb.dにsql置いとくと勝手に実行してくれるようです。</p>
+
+<p>コンテナ作り直し</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/docker/wordpress$ docker-compose down
+Mac ~/src/docker/wordpress$ docker-compose up</code></pre></td></tr></table>
+</div>
+</div>
+<p>docker上のWordpressでユーザーやサンプル記事など適当に作って、テスト環境を用意したらデータベースの内容をホスト側(Mac)にdumpします。参考&#8221;Creating database dumps&#8221;</p>
+
+<p>もしgithubなんかでdumpを管理するつもりなら、メールアドレスはリアルなのを使わないようにしましょう。@example.jp推奨。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/docker/wordpress$ docker <span class="nb">exec</span> wordpress_mysql_1 sh -c <span class="s1">&#39;exec mysqldump --all-databases -uroot -p&#34;$MYSQL_ROOT_PASSWORD&#34;&#39;</span> &gt; ./mariadb/docker-entrypoint-initdb.d/mysqldump.sql</code></pre></td></tr></table>
+</div>
+</div>
+<p>リダイレクト先(./mariadb/docker-entrypoint-initdb.d/mysqldump.sql)はホスト側(Mac)のパスです。標準出力万歳。</p>
+
+<p>コンテナ作り直しても、設定したユーザーとかが出てくればオK</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/docker/wordpress$ docker-compose down
+Mac ~/src/docker/wordpress$ docker-compose up</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="git">git</h3>
+
+<p>gitで管理します。</p>
+
+<p>docker定義のgitignoreは簡単で、</p>
+
+<p>~/src/docker/wordpress/.gitignore</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">mariadb/mysql/*</code></pre></td></tr></table>
+</div>
+</div>
+<p>wordpressのgitignoreはちょい複雑。</p>
+
+<p><a href="https://github.com/github/gitignore/blob/master/WordPress.gitignore" target="_blank">gitignoreサンプル</a>を参考に、.gitignoreを作ります。</p>
+
+<p>色々悩んだ末、今の所こんな感じ。wordpress本体は管理しません。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">*.log
+wp-config.php
+
+# ignore wordpress
+/*
+
+# include customize targets
+!wp-content/
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
+
+# ignore these plugins
+wp-content/plugins/hello.php
+
+# ignore specific themes
+wp-content/themes/twenty*/
+
+# ignore node/grunt dependency directories
+node_modules/
+
+.htaccess
+license.txt
+readme.html
+sitemap.xml
+sitemap.xml.gz</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="で">で</h3>
+
+<p>Docker for Macのおかげですごい手軽にdockerできるようになりました。</p>
+
+<p>dockerとgitで気軽にやり直しができるんで、Try&amp;Errorな自分にはとってもいい環境な気がします。</p>
+
+<p>この勢いで本番へのデプロイの自動化<del datetime="2017-02-11T12:37:45+00:00">もしたいかも。</del><a href="/posts/2017/2017-02-11-auto-deploy-wordpress-and-git" target="_blank">してみました</a>。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2017-02-08-docker-for-mac-wp%2f&title=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2017-02-08-docker-for-mac-wp%2f&text=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2017-02-08-docker-for-mac-wp%2f&t=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2017-02-08-docker-for-mac-wp%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2017-02-08-docker-for-mac-wp%2f&title=Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Docker%20for%20Mac%e3%81%a7wordpress%e3%81%ae%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b %2f2017-02-08-docker-for-mac-wp%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Docker for Macでwordpressの開発環境を作ってみる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/docker/">docker</a></li>
+          
+          <li><a href="/categories/mac/">Mac</a></li>
+          
+          <li><a href="/categories/wordpress/">wordpress</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2017-02-07-fail2ban-config-should-be-on-dotlocal/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">fail2banの設定はjail.localに書け</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-07T00:57:26JST">Feb 7, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2017-02-11-auto-deploy-wordpress-and-git/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">wordpressとgitで自動deploy</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-11T12:37:26JST">Feb 11, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

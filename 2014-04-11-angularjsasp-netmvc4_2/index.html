@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2014-04-11-angularjsasp-netmvc4_2/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS &#43; ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;">
+
+<meta property="og:title" content="AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2014-04-11-angularjsasp-netmvc4_2/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS &#43; ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2014-04-11-angularjsasp-netmvc4_2/">
+<meta name="twitter:title" content="AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS &#43; ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-04-11T05:19:24JST",
+    "dateModified": "2014-04-11T05:19:24JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2014/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1" target="_blank">Model,Controllerを作った</a>ので、次はViewです。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-04-11-angularjsasp-netmvc4_2/CAP000008.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-11T05:19:24JST">Apr 11, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-04-11-angularjsasp-netmvc4_2%2f&title=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-04-11-angularjsasp-netmvc4_2%2f&text=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-04-11-angularjsasp-netmvc4_2%2f&t=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-04-11-angularjsasp-netmvc4_2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-04-11-angularjsasp-netmvc4_2%2f&title=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29 %2f2014-04-11-angularjsasp-netmvc4_2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2014/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1" target="_blank">Model,Controllerを作った</a>ので、次はViewです。</p>
+
+<h3 id="viewのたたき台">Viewのたたき台</h3>
+
+<p>UI用Viewを生成するControllerを作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Web</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Web.Mvc</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Mvc4App.Controllers</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">UIController</span> <span class="p">:</span> <span class="n">Controller</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">ActionResult</span> <span class="n">Index</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">View</span><span class="p">();</span>   <span class="c1">//view呼ぶだけです
+</span><span class="c1"></span>        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>その後Views\UI\Index.cshtmlを作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">@{ViewBag.Title = &#34;Index&#34;;}
+<span class="nt">&lt;h2&gt;</span>Index<span class="nt">&lt;/h2&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>実行して　<a href="http://localhost:????/ui" target="_blank">http://localhost:????/ui</a> にアクセスするとなんか表示されるはずです。</p>
+
+<p>こいつをAngularJSな感じに仕上げていきたいと思います。</p>
+
+<p>参考にするのは<a href="http://angularjs.org/" target="_blank">http://angularjs.org/</a></p>
+
+<h3 id="angularjsの動作確認">AngularJSの動作確認</h3>
+
+<p>AngularJSがまともに動くかチェックするべくIndex.cshtmlを以下のように書き換えます。</p>
+
+<p><a href="http://angularjs.org/" target="_blank">angularjs</a>のThe Basicsをコピペしてスクリプトパスを絶対パスにするよう変更しただけです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="err">ng-app</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/angular.min.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;label&gt;</span>Name:<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;yourName&#34;</span> <span class="na">placeholder=</span><span class="s">&#34;Enter a name here&#34;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;hr&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Hello {{yourName}}!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>テキストボックスになんか入れるとHello以下がダイナミックに変わればOK。</p>
+
+<p>どういう仕組みだか知らんけどAngularJSすげー。</p>
+
+<h3 id="angularjsなmodule">AngularJSなModule</h3>
+
+<p>Scripts\myapp.jsを追加してmoduldeを定義します。</p>
+
+<p>公式の<a href="http://code.angularjs.org/1.2.16/docs/guide/module" target="_blank">/ Developer Guide / Modules</a>によるとmoduldeとはcontrollers, services, filters, directives などなどを入れとくコンテナらしいです。</p>
+
+<p>この辺のものをまとめとくと値が勝手に同期するとか、色々良いことがあるらしいです。</p>
+
+<p>というとで、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">(function () {  //一応即時関数で安全性に考慮
+    var my_app = angular.module(&#39;myApp&#39;, []);
+    //モデルは factoryで定義するらしい
+    my_app.factory(&#39;Tasks&#39;, function () {
+        return [
+            { Id: 1, Status: &#39;New&#39;, Description: &#39;JSでべたなデータ&#39; },
+            { Id: 2, Status: &#39;New&#39;, Description: &#39;この部分をServerで生成したいな&#39; },
+            { Id: 3, Status: &#39;New&#39;, Description: &#39;できるのかね？&#39; }
+        ];
+    });
+
+    my_app.controller(&#39;TasksController&#39;,[&#39;$scope&#39;,&#39;Tasks&#39;, function ($scope,aTasks) {
+        $scope.Tasks = aTasks;
+    }]);
+})();</code></pre></td></tr></table>
+</div>
+</div>
+<p>モジュールとページをリンクさせます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">&#34;myApp&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/angular.min.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/myapp.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">ng-controller=</span><span class="s">&#34;TasksController&#34;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&#34;task in Tasks&#34;</span><span class="nt">&gt;</span>{{ task.Id }} {{ task.Status }}  {{ task.Description }}<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;hr&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;label&gt;</span>Name:<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;yourName&#34;</span> <span class="na">placeholder=</span><span class="s">&#34;Enter a name here&#34;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Hello {{yourName}}!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ng-app=&#8221;myApp&#8221;でmoduleと関連付けて、ng-controller=&#8221;TasksController&#8221;でコントローラを使うって感じでしょうか。</p>
+
+<p>実行するとこんな感じ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-04-11-angularjsasp-netmvc4_2/CAP000008.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-04-11-angularjsasp-netmvc4_2/CAP000008_hud99858b25c988d3baa6a0d933621945c_22240_240x0_resize_q75_box.jpg" width="240"
+                height="202" data-original="/2014-04-11-angularjsasp-netmvc4_2/CAP000008.jpg" />
+    </a>
+
+
+<h3 id="restfulなapiを呼び出す">RESTfulなAPIを呼び出す</h3>
+
+<p>RESTfulなサービスを呼び出すには<a href="http://docs.angularjs.org/api/ngResource" target="_blank">ngResource</a>というモジュールを使うらしいです。</p>
+
+<p>名前がどうかと思いますが、便利そうです。</p>
+
+<p>angular-resource.min.jsをダウンロードしてScriptsフォルダにコピーして、ページから参照しておきます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/angular-resource.min.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>さっそくサーバを呼び出すようにしてみます。</p>
+
+<p>まずは一番簡単そうな全件取得から。CRUDでいうとこのRですな。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">(function () {  //一応即時関数で安全性に考慮
+    var my_app = angular.module(&#39;myApp&#39;, [&#39;ngResource&#39;]);   //RESTfulなサービス呼出のためngResourceを使います
+    //モデルは factoryで定義するらしい
+    my_app.factory(&#39;Tasks&#39;, [&#39;$resource&#39;, function ($resource) {
+        return $resource(&#39;/api/tasks&#39;);
+    }]);
+    my_app.controller(&#39;TasksController&#39;,[&#39;$scope&#39;,&#39;Tasks&#39;, function ($scope,aTasks) {
+        $scope.Tasks = aTasks.query();
+    }]);
+})();</code></pre></td></tr></table>
+</div>
+</div>
+<p>factoryの定義部分をデータべたうちから、WebAPIの定義に変更して、controllerで実際にコールしています。</p>
+
+<p>うまくいくと、Global.asax.csでセットしたテストデータが表示されるはずです。</p>
+
+<h3 id="追加処理追加">追加処理追加</h3>
+
+<p>全件取得ができたので、次に追加をしてみます。CRUDでいうとこのC。</p>
+
+<p>まず追加用フォームをページに追加します。</p>
+
+<p>TasksControllerでリストとフォームの面倒も見るので、divで囲ってng-controller=&#8221;TasksController&#8221;を移動しました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">&#34;myApp&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/angular.min.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/angular-resource.min.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&#34;@Url.Content(&#34;</span><span class="err">~/Scripts/myapp.js&#34;)&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&#34;TasksController&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&#34;task in Tasks&#34;</span><span class="nt">&gt;</span>{{ task.Id }} {{ task.Status }}  {{ task.Description }}<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;hr&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;newDescription&#34;</span> <span class="na">placeholder=</span><span class="s">&#34;Input Description&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&#34;add()&#34;</span><span class="nt">&gt;</span>追加<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;hr&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;label&gt;</span>Name:<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;yourName&#34;</span> <span class="na">placeholder=</span><span class="s">&#34;Enter a name here&#34;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Hello {{yourName}}!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>実行するとこんな感じ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-04-11-angularjsasp-netmvc4_2/CAP000007.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-04-11-angularjsasp-netmvc4_2/CAP000007_huc2ce1fbf83d09540c430014a4b87b116_18058_240x0_resize_q75_box.jpg" width="240"
+                height="238" data-original="/2014-04-11-angularjsasp-netmvc4_2/CAP000007.jpg" />
+    </a>
+
+
+<p>次にコントローラーにaddメソッドを定義します。client側の肝ですな。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">(function () {  //一応即時関数で安全性に考慮
+
+    var my_app = angular.module(&#39;myApp&#39;, [&#39;ngResource&#39;]);   //RESTfulなサービス呼出のためngResourceを使います
+
+    //モデルは factoryで定義するらしい
+    my_app.factory(&#39;Tasks&#39;, [&#39;$resource&#39;, function ($resource) {
+        return $resource(&#39;/api/tasks&#39;);
+    } ]);
+
+    my_app.controller(&#39;TasksController&#39;, [&#39;$scope&#39;, &#39;Tasks&#39;, function ($scope, aTasks) {
+        $scope.Tasks = aTasks.query();
+        $scope.add = function () {  //追加処理
+            aTasks.save({ Description: $scope.newDescription }, function (saved_object) {
+                $scope.Tasks.push(saved_object);    //成功ハンドラの第一引数にWebAPIの返り値が入るっぽい。
+            });
+        };
+    } ]);
+})();</code></pre></td></tr></table>
+</div>
+</div>
+<p>成功ハンドラに値を返したいので、WebAPIを保存されたデータを返すように変更します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// POST api/tasks
+</span><span class="c1"></span>        <span class="k">public</span> <span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="n">Post</span><span class="p">(</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+                <span class="k">return</span> <span class="k">value</span><span class="p">;</span>   <span class="c1">//保存された値を返す
+</span><span class="c1"></span>            <span class="p">}</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>APIのコールには、factory &#8220;Tasks&#8221;で定義された$resource(&#8216;/api/tasks&#8217;)にディフォルトで設定されているsaveを使います。</p>
+
+<p>$scope.Tasks.push(saved_object);でリストに値を追加すると表示も変わります。すばらしい。</p>
+
+<p>引き続き、<a href="/posts/2014/2014-04-14-angularjsasp-netmvc4_3" title="AngularJS + ASP.NET MVC 4 #3(更新・削除)" target="_blank">更新・削除</a>も実装します。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-04-11-angularjsasp-netmvc4_2%2f&title=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-04-11-angularjsasp-netmvc4_2%2f&text=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-04-11-angularjsasp-netmvc4_2%2f&t=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-04-11-angularjsasp-netmvc4_2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-04-11-angularjsasp-netmvc4_2%2f&title=AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?AngularJS%20%2b%20ASP.NET%20MVC%204%20%232%28%e4%b8%80%e8%a6%a7%e3%83%bb%e8%bf%bd%e5%8a%a0%29 %2f2014-04-11-angularjsasp-netmvc4_2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2014-04-11-angularjsasp-netmvc4_1/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-11T05:18:46JST">Apr 11, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2014-04-14-angularjsasp-netmvc4_3/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-04-14-angularjsasp-netmvc4_3/CAP000009.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">AngularJS &#43; ASP.NET MVC 4 #3(更新・削除)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-04-14T06:39:12JST">Apr 14, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

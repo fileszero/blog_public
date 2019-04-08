@@ -13,10 +13,10 @@
     
     <item>
       <title>Angular5でChangeDetectorRefをInject出来なかった話</title>
-      <link>/posts/2017-12-11-cannot-inject-changedetectorref-on-ng5/</link>
+      <link>/2017-12-11-cannot-inject-changedetectorref-on-ng5/</link>
       <pubDate>Mon, 11 Dec 2017 07:17:18 +0000</pubDate>
       
-      <guid>/posts/2017-12-11-cannot-inject-changedetectorref-on-ng5/</guid>
+      <guid>/2017-12-11-cannot-inject-changedetectorref-on-ng5/</guid>
       <description>Angular5(5.1.0)使ってChangeDetectorRefをInjectしようとしたらある日
 1 2  compiler.js?dd9e:466 Uncaught Error: Can&amp;#39;t resolve all parameters for コンポーネント名: (?). at syntaxError (webpack-internal:///135:684:34)   と出て、動かなくなった。
 コンポーネントのコンストラクタは

@@ -13,10 +13,10 @@
     
     <item>
       <title>Typescriptで自分用のローカルなライブラリを作る</title>
-      <link>/posts/2018-07-12-typescript-my-local-library/</link>
+      <link>/2018-07-12-typescript-my-local-library/</link>
       <pubDate>Thu, 12 Jul 2018 08:46:41 +0000</pubDate>
       
-      <guid>/posts/2018-07-12-typescript-my-local-library/</guid>
+      <guid>/2018-07-12-typescript-my-local-library/</guid>
       <description>&lt;p&gt;typescriptで共通ライブラリといえばnpmでinstallなんですが、&lt;/p&gt;
 
 &lt;p&gt;自作の小さいライブラリなんかだと、npm publishするほどのものではないし、いちいちgit経由つーのもめんどくさい。&lt;/p&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>log4jsのSlack Appenderを使ってみる(node&#43;typescript)</title>
-      <link>/posts/2017-11-08-use-log4js-slack-appender/</link>
+      <link>/2017-11-07-use-log4js-slack-appender/</link>
       <pubDate>Tue, 07 Nov 2017 15:10:40 +0000</pubDate>
       
-      <guid>/posts/2017-11-08-use-log4js-slack-appender/</guid>
+      <guid>/2017-11-07-use-log4js-slack-appender/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://slack.com/&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;Slack&lt;/a&gt;流行ってますね。使ってみたいんですけど、周り誰も使ってないんでボットとおしゃべりしてます。&lt;/p&gt;
 
 &lt;p&gt;さみしいんで、ログをSlackで読めるようにします。&lt;/p&gt;

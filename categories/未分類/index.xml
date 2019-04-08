@@ -13,10 +13,10 @@
     
     <item>
       <title>OneDrive for Businessの更新日時を日付＋時間にする</title>
-      <link>/posts/2018-01-05-onedrive-for-biz-date-format/</link>
+      <link>/2018-01-05-onedrive-for-biz-date-format/</link>
       <pubDate>Fri, 05 Jan 2018 04:34:17 +0000</pubDate>
       
-      <guid>/posts/2018-01-05-onedrive-for-biz-date-format/</guid>
+      <guid>/2018-01-05-onedrive-for-biz-date-format/</guid>
       <description>&lt;p&gt;OneDrive for Businessの更新日時って最近のもの以外は日付しか表示されません。&lt;/p&gt;
 
 
@@ -30,9 +30,9 @@
     
     
     
-    &lt;a class=&#34;luminous&#34; href=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34;&gt;
-            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg&#34; width=&#34;240&#34;
-                height=&#34;116&#34; data-original=&#34;/posts/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34; /&gt;
+    &lt;a class=&#34;luminous&#34; href=&#34;/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34;&gt;
+            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/2018-01-05-onedrive-for-biz-date-format/CAP000197_hu599af0a04f0782a3c2a0418aa86b0e4b_9990_240x0_resize_q75_box.jpg&#34; width=&#34;240&#34;
+                height=&#34;116&#34; data-original=&#34;/2018-01-05-onedrive-for-biz-date-format/CAP000197.jpg&#34; /&gt;
     &lt;/a&gt;
 
 
@@ -43,10 +43,10 @@
     
     <item>
       <title>python&#43;windows 7</title>
-      <link>/posts/2017-09-11-try-pythononwindows/</link>
+      <link>/2017-09-11-try-pythononwindows/</link>
       <pubDate>Mon, 11 Sep 2017 13:35:19 +0000</pubDate>
       
-      <guid>/posts/2017-09-11-try-pythononwindows/</guid>
+      <guid>/2017-09-11-try-pythononwindows/</guid>
       <description>&lt;p&gt;とある本に刺激されて、新しい言語を勉強してみたくなりました。&lt;/p&gt;
 
 &lt;p&gt;なんかpythonが人気らしいので、ちょっといインストールしてみました。&lt;/p&gt;
@@ -56,21 +56,21 @@
     
     <item>
       <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5</title>
-      <link>/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
+      <link>/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
       <pubDate>Mon, 26 Jun 2017 03:51:03 +0000</pubDate>
       
-      <guid>/posts/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
+      <guid>/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
 
 &lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SQL Server 2012トランザクションログの圧縮</title>
-      <link>/posts/2017-06-12-shrink-sql-server-log/</link>
+      <link>/2017-06-12-shrink-sql-server-log/</link>
       <pubDate>Mon, 12 Jun 2017 00:28:07 +0000</pubDate>
       
-      <guid>/posts/2017-06-12-shrink-sql-server-log/</guid>
+      <guid>/2017-06-12-shrink-sql-server-log/</guid>
       <description>&lt;p&gt;開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。&lt;/p&gt;
 
 &lt;p&gt;ちょっと前だと&lt;/p&gt;
@@ -93,10 +93,10 @@
     
     <item>
       <title>Pythonインストール(Windows)</title>
-      <link>/posts/2014-03-13-installing-python-windows/</link>
+      <link>/2014-03-13-installing-python-windows/</link>
       <pubDate>Thu, 13 Mar 2014 06:54:49 +0000</pubDate>
       
-      <guid>/posts/2014-03-13-installing-python-windows/</guid>
+      <guid>/2014-03-13-installing-python-windows/</guid>
       <description>Pythonやってみようかと思う。
 環境は Windows7 64bit. Pythonは2系を使います。
 ダウンロード ご本尊にいき、
@@ -118,10 +118,10 @@ C:\Python27　にインストールされました。
     
     <item>
       <title>iTunes Wifi同期できないの解決</title>
-      <link>/posts/2014-02-11-itunes-wifi-sync/</link>
+      <link>/2014-02-11-itunes-wifi-sync/</link>
       <pubDate>Tue, 11 Feb 2014 14:00:04 +0000</pubDate>
       
-      <guid>/posts/2014-02-11-itunes-wifi-sync/</guid>
+      <guid>/2014-02-11-itunes-wifi-sync/</guid>
       <description>iPadとiTunesをWifiで同期できなくで困ってたんです。
 一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
 試しにmacのipv6をオンにしてみたら動きやがった〜。
@@ -131,10 +131,10 @@ ipv6とか使わないからオフにしといたんだけどなー。
     
     <item>
       <title>avahiとlocal</title>
-      <link>/posts/2013-08-30-avahi-and-local/</link>
+      <link>/2013-08-30-avahi-and-local/</link>
       <pubDate>Fri, 30 Aug 2013 10:23:40 +0000</pubDate>
       
-      <guid>/posts/2013-08-30-avahi-and-local/</guid>
+      <guid>/2013-08-30-avahi-and-local/</guid>
       <description>syslogにこんな感じのメセージがでてavahiが起動しませんでした。
 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves
 Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus
@@ -145,10 +145,10 @@ Aug 29 23:49:16 raspi avahi: since .</description>
     
     <item>
       <title>WordPressはじめました</title>
-      <link>/posts/2013-05-11-start-wordpress/</link>
+      <link>/2013-05-10-start-wordpress/</link>
       <pubDate>Fri, 10 May 2013 15:43:38 +0000</pubDate>
       
-      <guid>/posts/2013-05-11-start-wordpress/</guid>
+      <guid>/2013-05-10-start-wordpress/</guid>
       <description>書くことないけどはじめるのが大事。
 初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。
 これからカスタマイズを進めていかねば。

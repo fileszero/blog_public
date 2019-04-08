@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2014-08-05-sutadying-rails-and-vim-1/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>railsでvimのお勉強#1 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;http://www.vim.org/&#34; target=&#34;_blank&#34;&gt;vim&lt;/a&gt;、プログラマならみんな手足のように使えますよね。&lt;/p&gt;&lt;p&gt;ま、自分はまったく使えませんが。&lt;/p&gt;&lt;p&gt;vim、マスターすれば魔法のようにコードが湧いてくるとか、VBな人もマシン語が２進で読めるようになるとか噂なので、&lt;/p&gt;&lt;p&gt;前々から使えるようになりたいと思ってたんですわ。&lt;/p&gt;&lt;p&gt;とはいえ、どっぷりwindowsな人生なので使う機会もあまりなく、sakuraとかvisual studioとかで事足りてしまうわけです。&lt;/p&gt;&lt;p&gt;という事で、ターミナル経由のlinuxでrailsのお勉強をして、vimをマスターしてしまおうという企画の作業メモです。&lt;/p&gt;">
+
+<meta property="og:title" content="railsでvimのお勉強#1 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2014-08-05-sutadying-rails-and-vim-1/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;http://www.vim.org/&#34; target=&#34;_blank&#34;&gt;vim&lt;/a&gt;、プログラマならみんな手足のように使えますよね。&lt;/p&gt;&lt;p&gt;ま、自分はまったく使えませんが。&lt;/p&gt;&lt;p&gt;vim、マスターすれば魔法のようにコードが湧いてくるとか、VBな人もマシン語が２進で読めるようになるとか噂なので、&lt;/p&gt;&lt;p&gt;前々から使えるようになりたいと思ってたんですわ。&lt;/p&gt;&lt;p&gt;とはいえ、どっぷりwindowsな人生なので使う機会もあまりなく、sakuraとかvisual studioとかで事足りてしまうわけです。&lt;/p&gt;&lt;p&gt;という事で、ターミナル経由のlinuxでrailsのお勉強をして、vimをマスターしてしまおうという企画の作業メモです。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2014-08-05-sutadying-rails-and-vim-1/">
+<meta name="twitter:title" content="railsでvimのお勉強#1 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;http://www.vim.org/&#34; target=&#34;_blank&#34;&gt;vim&lt;/a&gt;、プログラマならみんな手足のように使えますよね。&lt;/p&gt;&lt;p&gt;ま、自分はまったく使えませんが。&lt;/p&gt;&lt;p&gt;vim、マスターすれば魔法のようにコードが湧いてくるとか、VBな人もマシン語が２進で読めるようになるとか噂なので、&lt;/p&gt;&lt;p&gt;前々から使えるようになりたいと思ってたんですわ。&lt;/p&gt;&lt;p&gt;とはいえ、どっぷりwindowsな人生なので使う機会もあまりなく、sakuraとかvisual studioとかで事足りてしまうわけです。&lt;/p&gt;&lt;p&gt;という事で、ターミナル経由のlinuxでrailsのお勉強をして、vimをマスターしてしまおうという企画の作業メモです。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "railsでvimのお勉強#1 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-08-05T02:30:26JST",
+    "dateModified": "2014-08-05T02:30:26JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="http://www.vim.org/" target="_blank">vim</a>、プログラマならみんな手足のように使えますよね。</p>
+
+<p>ま、自分はまったく使えませんが。</p>
+
+<p>vim、マスターすれば魔法のようにコードが湧いてくるとか、VBな人もマシン語が２進で読めるようになるとか噂なので、</p>
+
+<p>前々から使えるようになりたいと思ってたんですわ。</p>
+
+<p>とはいえ、どっぷりwindowsな人生なので使う機会もあまりなく、sakuraとかvisual studioとかで事足りてしまうわけです。</p>
+
+<p>という事で、ターミナル経由のlinuxでrailsのお勉強をして、vimをマスターしてしまおうという企画の作業メモです。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">railsでvimのお勉強#1</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-08-05T02:30:26JST">Aug 5, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-08-05-sutadying-rails-and-vim-1%2f&title=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-08-05-sutadying-rails-and-vim-1%2f&text=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-08-05-sutadying-rails-and-vim-1%2f&t=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-08-05-sutadying-rails-and-vim-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-08-05-sutadying-rails-and-vim-1%2f&title=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231 %2f2014-08-05-sutadying-rails-and-vim-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="http://www.vim.org/" target="_blank">vim</a>、プログラマならみんな手足のように使えますよね。</p>
+
+<p>ま、自分はまったく使えませんが。</p>
+
+<p>vim、マスターすれば魔法のようにコードが湧いてくるとか、VBな人もマシン語が２進で読めるようになるとか噂なので、</p>
+
+<p>前々から使えるようになりたいと思ってたんですわ。</p>
+
+<p>とはいえ、どっぷりwindowsな人生なので使う機会もあまりなく、sakuraとかvisual studioとかで事足りてしまうわけです。</p>
+
+<p>という事で、ターミナル経由のlinuxでrailsのお勉強をして、vimをマスターしてしまおうという企画の作業メモです。</p>
+
+<p>Railsのお勉強は<a href="http://www.atmarkit.co.jp/ait/kw/rails4_nyumon.html" target="_blank">「開発現場でちゃんと使えるRails 4入門」</a>を参考に進めていきます。</p>
+
+<h3 id="os">OS</h3>
+
+<p>vmware にUbuntu Server 14.04.1 LTSを（簡易モード？で）インストールします。</p>
+
+<p>sshとvimは apt-getでインストール。</p>
+
+<p>sshにはputtyを使ってアクセスします。</p>
+
+<h3 id="git">git</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ sudo apt-get install git
+cozy@ubuntu:~$ git config --global user.email <span class="s2">&#34;cozy***@***.com&#34;</span>
+cozy@ubuntu:~$ git config --global user.name <span class="s2">&#34;cozy&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>やらなくても良いgit関係</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ git add .bash*
+cozy@ubuntu:~$ git add .profile
+cozy@ubuntu:~$ git add .zlogin
+cozy@ubuntu:~$ git reset HEAD --  .bash_history</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="curlとrvm-rubyインストールツール">curlとrvm(rubyインストールツール？)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ sudo apt-get install curl
+cozy@ubuntu:~$ <span class="se">\c</span>url -sSL https://get.rvm.io <span class="p">|</span> bash -s stable
+cozy@ubuntu:~$ <span class="nb">source</span> ~/.bash_profile
+cozy@ubuntu:~$ rvm --version
+rvm <span class="m">1</span>.25.28 <span class="o">(</span>stable<span class="o">)</span> by Wayne E. Seguin &lt;wayneeseguin@gmail.com&gt;, Michal Papis &lt;mpapis@gmail.com&gt; <span class="o">[</span>https://rvm.io/<span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ruby">Ruby</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ rvm install ruby-2.1.1 --default
+cozy@ubuntu:~$ <span class="nb">source</span> ~/.bash_profile</code></pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>SSL関係のこんな感じの</p>
+
+<p>curl: (60) SSL certificate problem: unable to get local issuer certificate</p>
+
+<p>エラーがでたら</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ curl http://curl.haxx.se/ca/cacert.pem
+cozy@ubuntu:~$ vim .bash_profile
+<span class="nb">export</span> <span class="nv">CURL_CA_BUNDLE</span><span class="o">=</span><span class="s2">&#34;/home/&lt;username&gt;/cacert.pem&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>必要なら</p>
+
+<p>~/cacert.pemを編集。</p>
+</blockquote>
+
+<h3 id="pry-対話型実行環境-repl環境とかいうらしい">pry(対話型実行環境。REPL環境とかいうらしい)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ gem install pry</code></pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>同じくSSL関係のエラー。</p>
+
+<p>Unable to download data from <a href="https://rubygems.org/" target="_blank">https://rubygems.org/</a> &#8211; SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (<a href="https://api.rubygems.org/latest_specs.4.8.gz" target="_blank">https://api.rubygems.org/latest_specs.4.8.gz</a>)</p>
+
+<p><del datetime="2014-08-05T00:35:25+00:00">このコマンドで必要な証明書を認識(できるらしい)<br /> cozy@ubuntu:~$ openssl s_client -showcerts -connect rubygems.org:https<br /> 証明書をコピー<br /> cozy@ubuntu:~$ mkdir ~/ca-certificates<br /> cozy@ubuntu:~$ cd ~/ca-certificates<br /> cozy@ubuntu:~/ca-certificates$ mkdir extra<br /> なんとか(.SCPとか)して ~/ca-certificates/extra にcertificatesファイル(拡張子は.crtにする)をコピー<br /> <del datetime="2014-08-04T07:33:46+00:00">cozy@ubuntu:~/ca-certificates$ sudo ln -s ~/ca-certificates/extra /usr/share/ca-certificates/extra</del><br /> cozy@ubuntu:~/ca-certificates$ sudo cp -r ~/ca-certificates/extra/ /usr/share/ca-certificates/extra<br /> cozy@ubuntu:~/ca-certificates$ sudo dpkg-reconfigure ca-certificates<br /> </del></p>
+
+<p>なんかいろいろ試したけどgemとopensslはCA証明書の参照先がちがうらしい。</p>
+
+<p>gem用の証明書はこのコマンドで参照先確認して、証明書ファイルをコピー。既にある場合は追記するべし。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$  ruby -ropenssl -e <span class="s1">&#39;p OpenSSL::X509::DEFAULT_CERT_FILE&#39;</span>
+<span class="s2">&#34;/usr/lib/ssl/cert.pem&#34;</span>
+cozy@ubuntu:~$ sudo cp ~/cacert.pem /usr/lib/ssl/cert.pem</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+
+<h3 id="railsインストール">Railsインストール</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ gem install rails
+cozy@ubuntu:~$ rails --version
+Rails <span class="m">4</span>.1.4</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="railsアプリ作成">railsアプリ作成</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~$ mkdir ruby
+cozy@ubuntu:~$ <span class="nb">cd</span> ruby/
+cozy@ubuntu:~/ruby$ rails new book_library
+cozy@ubuntu:~/ruby$ <span class="nb">cd</span> book_library/</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="標準外のgemをインストールする">標準外のgemをインストールする</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~/ruby/book_library$ bundle install --path vendor/bundle</code></pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>エラー</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="sb">`</span>autodetect<span class="err">&#39;</span>: Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs <span class="k">for</span> a list of available runtimes. <span class="o">(</span>ExecJS::RuntimeUnavailable<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>対処</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~/ruby/book_library$  gem install execjs
+cozy@ubuntu:~/ruby/book_library$ gem install therubyracer
+cozy@ubuntu:~/ruby/book_library$ vim Gemfile
+ <span class="c1"># See https://github.com/sstephenson/execjs#readme for more supported runtimes</span>
+ <span class="c1"># gem &#39;therubyracer&#39;,  platforms: :ruby</span>
++gem <span class="s1">&#39;therubyracer&#39;</span>
+cozy@ubuntu:~/ruby/book_library$ bundle install</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+
+<p>かなり色々お仲間になるみたいです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~/ruby/book_library$ bundle install --path vendor/bundle
+Fetching gem metadata from https://rubygems.org/.........
+Fetching additional metadata from https://rubygems.org/..
+Installing rake <span class="m">10</span>.3.2
+Installing i18n <span class="m">0</span>.6.11
+Using json <span class="m">1</span>.8.1
+Installing minitest <span class="m">5</span>.4.0
+Installing thread_safe <span class="m">0</span>.3.4
+Installing tzinfo <span class="m">1</span>.2.1
+Installing activesupport <span class="m">4</span>.1.4
+Installing builder <span class="m">3</span>.2.2
+Installing erubis <span class="m">2</span>.7.0
+Installing actionview <span class="m">4</span>.1.4
+Installing rack <span class="m">1</span>.5.2
+Installing rack-test <span class="m">0</span>.6.2
+Installing actionpack <span class="m">4</span>.1.4
+Installing mime-types <span class="m">1</span>.25.1
+Installing polyglot <span class="m">0</span>.3.5
+Installing treetop <span class="m">1</span>.4.15
+Installing mail <span class="m">2</span>.5.4
+Installing actionmailer <span class="m">4</span>.1.4
+Installing activemodel <span class="m">4</span>.1.4
+Installing arel <span class="m">5</span>.0.1.20140414130214
+Installing activerecord <span class="m">4</span>.1.4
+Installing coffee-script-source <span class="m">1</span>.7.1
+Installing execjs <span class="m">2</span>.2.1
+Installing coffee-script <span class="m">2</span>.3.0
+Installing thor <span class="m">0</span>.19.1
+Installing railties <span class="m">4</span>.1.4
+Installing coffee-rails <span class="m">4</span>.0.1
+Installing hike <span class="m">1</span>.2.3
+Installing multi_json <span class="m">1</span>.10.1
+Installing jbuilder <span class="m">2</span>.1.3
+Installing jquery-rails <span class="m">3</span>.1.1
+Using bundler <span class="m">1</span>.6.5
+Installing tilt <span class="m">1</span>.4.1
+Installing sprockets <span class="m">2</span>.11.0
+Installing sprockets-rails <span class="m">2</span>.1.3
+Installing rails <span class="m">4</span>.1.4
+Installing rdoc <span class="m">4</span>.1.1
+Installing sass <span class="m">3</span>.2.19
+Installing sass-rails <span class="m">4</span>.0.3
+Installing sdoc <span class="m">0</span>.4.0
+Installing spring <span class="m">1</span>.1.3
+Installing sqlite3 <span class="m">1</span>.3.9
+Installing turbolinks <span class="m">2</span>.2.2
+Installing uglifier <span class="m">2</span>.5.3
+Your bundle is complete!
+It was installed into ./vendor/bundle
+Post-install message from rdoc:
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+&lt;<span class="o">=</span> <span class="m">1</span>.8.6 : <span class="nv">unsupported</span>
+ <span class="o">=</span> <span class="m">1</span>.8.7 : gem install rdoc-data<span class="p">;</span> rdoc-data --install
+ <span class="o">=</span> <span class="m">1</span>.9.1 : gem install rdoc-data<span class="p">;</span> rdoc-data --install
+&gt;<span class="o">=</span> <span class="m">1</span>.9.2 : nothing to <span class="k">do</span>! Yay!
+cozy@ubuntu:~/ruby/book_library$</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="アプリ実行テスト">アプリ実行テスト</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cozy@ubuntu:~/ruby/book_library$ bundle <span class="nb">exec</span> rails generate scaffold book title:string author:string outline:text
+cozy@ubuntu:~/ruby/book_library$ bundle <span class="nb">exec</span> rake db:migrate
+cozy@ubuntu:~/ruby/book_library$ bundle <span class="nb">exec</span> rails server</code></pre></td></tr></table>
+</div>
+</div>
+<p>ブラウザで<a href="http://server:3000/booksにアクセスしてなんか出ればOK。" target="_blank">http://server:3000/booksにアクセスしてなんか出ればOK。</a></p>
+
+<p>ここまでvimで作業はほとんどなし。</p>
+
+<p><a href="/posts/2014/2014-08-05-sutadying-rails-and-vim-2" title="railsでvimのお勉強#2" target="_blank">つづく</a><del datetime="2014-08-05T07:37:47+00:00">（のか？）</del></p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-08-05-sutadying-rails-and-vim-1%2f&title=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-08-05-sutadying-rails-and-vim-1%2f&text=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-08-05-sutadying-rails-and-vim-1%2f&t=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-08-05-sutadying-rails-and-vim-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-08-05-sutadying-rails-and-vim-1%2f&title=rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?rails%e3%81%a7vim%e3%81%ae%e3%81%8a%e5%8b%89%e5%bc%b7%231 %2f2014-08-05-sutadying-rails-and-vim-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">railsでvimのお勉強#1</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/ruby/">ruby</a></li>
+          
+          <li><a href="/categories/vim/">vim</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2014-06-19-rubydbsqlite3/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-06-19-rubydbsqlite3/WS000087.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ruby(dbi) &#43; db(sqlite3)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-06-19T04:39:34JST">Jun 19, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2014-08-05-sutadying-rails-and-vim-2/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">railsでvimのお勉強#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-08-05T07:37:32JST">Aug 5, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

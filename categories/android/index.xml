@@ -13,10 +13,10 @@
     
     <item>
       <title>unable to find valid certification path to requested target</title>
-      <link>/posts/2018-06-08-unable-to-find-valid-cert/</link>
+      <link>/2018-06-08-unable-to-find-valid-cert/</link>
       <pubDate>Fri, 08 Jun 2018 05:22:32 +0000</pubDate>
       
-      <guid>/posts/2018-06-08-unable-to-find-valid-cert/</guid>
+      <guid>/2018-06-08-unable-to-find-valid-cert/</guid>
       <description>&lt;p&gt;ionic + cordova on windows 7で&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -37,21 +37,21 @@
     
     <item>
       <title>PhoneGap/Cordova Tips &amp; つまづきポイント</title>
-      <link>/posts/2015-06-24-phonegap-cordova-traps/</link>
+      <link>/2015-06-24-phonegap-cordova-traps/</link>
       <pubDate>Wed, 24 Jun 2015 06:14:55 +0000</pubDate>
       
-      <guid>/posts/2015-06-24-phonegap-cordova-traps/</guid>
+      <guid>/2015-06-24-phonegap-cordova-traps/</guid>
       <description>&lt;p&gt;PhoneGap/Cordovaで手探り状態で開発してます。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;/posts/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PhoneGapを使ってみる(Android編)</title>
-      <link>/posts/2015-02-12-try-phonegap-android/</link>
+      <link>/2015-02-12-try-phonegap-android/</link>
       <pubDate>Thu, 12 Feb 2015 06:59:07 +0000</pubDate>
       
-      <guid>/posts/2015-02-12-try-phonegap-android/</guid>
+      <guid>/2015-02-12-try-phonegap-android/</guid>
       <description>&lt;h3 id=&#34;android開発環境&#34;&gt;Android開発環境&lt;/h3&gt;
 
 &lt;p&gt;IDEの選択肢としてはeclipseとAndroid Studioがメジャーなところだと思われます。&lt;/p&gt;
@@ -65,10 +65,10 @@
     
     <item>
       <title>Android の連絡先がgoogleと同期しない</title>
-      <link>/posts/2014-10-04-androidaddressbookgooglesyncproblem/</link>
+      <link>/2014-10-04-androidaddressbookgooglesyncproblem/</link>
       <pubDate>Sat, 04 Oct 2014 14:02:33 +0000</pubDate>
       
-      <guid>/posts/2014-10-04-androidaddressbookgooglesyncproblem/</guid>
+      <guid>/2014-10-04-androidaddressbookgooglesyncproblem/</guid>
       <description>&lt;p&gt;Androidの本体側の連絡先をすべてGoogle連絡先に移しました。&lt;/p&gt;
 
 &lt;p&gt;まぁ、携帯時代からアッチ行ったりコッチ行ったりしながら、長い間使ってきたアドレス帳なんで何せ汚い。&lt;/p&gt;

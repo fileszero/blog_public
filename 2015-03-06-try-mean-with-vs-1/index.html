@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2015-03-06-try-mean-with-vs-1/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>MEANをVisual Studioでやってみる#1(開発環境) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;Visual Studio 2013になってJavaScriptのコード補完がかなりいい感じです。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://nodejstools.codeplex.com/&#34; target=&#34;_blank&#34;&gt;Node.js Tools for Visual Studio&lt;/a&gt;なんてのも在って、これならnode.jsもVisual Studioで書いたほうが良いんじゃね？&lt;/p&gt;&lt;p&gt;てゆうか今流行のMEANな環境に手を出しても良いんじゃね？&lt;/p&gt;&lt;p&gt;MEAN・・・技術要素が多くってちょっと概要を調べただけで終わっておりました。&lt;/p&gt;&lt;p&gt;Visual StudioでMongoDB&#43;Express&#43;AngularJS&#43;Node.js(MEAN) &#43; TypeScript&#43;jadeに挑戦です。&lt;/p&gt;">
+
+<meta property="og:title" content="MEANをVisual Studioでやってみる#1(開発環境) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2015-03-06-try-mean-with-vs-1/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;Visual Studio 2013になってJavaScriptのコード補完がかなりいい感じです。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://nodejstools.codeplex.com/&#34; target=&#34;_blank&#34;&gt;Node.js Tools for Visual Studio&lt;/a&gt;なんてのも在って、これならnode.jsもVisual Studioで書いたほうが良いんじゃね？&lt;/p&gt;&lt;p&gt;てゆうか今流行のMEANな環境に手を出しても良いんじゃね？&lt;/p&gt;&lt;p&gt;MEAN・・・技術要素が多くってちょっと概要を調べただけで終わっておりました。&lt;/p&gt;&lt;p&gt;Visual StudioでMongoDB&#43;Express&#43;AngularJS&#43;Node.js(MEAN) &#43; TypeScript&#43;jadeに挑戦です。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2015-03-06-try-mean-with-vs-1/">
+<meta name="twitter:title" content="MEANをVisual Studioでやってみる#1(開発環境) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;Visual Studio 2013になってJavaScriptのコード補完がかなりいい感じです。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://nodejstools.codeplex.com/&#34; target=&#34;_blank&#34;&gt;Node.js Tools for Visual Studio&lt;/a&gt;なんてのも在って、これならnode.jsもVisual Studioで書いたほうが良いんじゃね？&lt;/p&gt;&lt;p&gt;てゆうか今流行のMEANな環境に手を出しても良いんじゃね？&lt;/p&gt;&lt;p&gt;MEAN・・・技術要素が多くってちょっと概要を調べただけで終わっておりました。&lt;/p&gt;&lt;p&gt;Visual StudioでMongoDB&#43;Express&#43;AngularJS&#43;Node.js(MEAN) &#43; TypeScript&#43;jadeに挑戦です。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "MEANをVisual Studioでやってみる#1(開発環境) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-03-06T12:15:46JST",
+    "dateModified": "2015-03-06T12:15:46JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>Visual Studio 2013になってJavaScriptのコード補完がかなりいい感じです。</p>
+
+<p><a href="http://nodejstools.codeplex.com/" target="_blank">Node.js Tools for Visual Studio</a>なんてのも在って、これならnode.jsもVisual Studioで書いたほうが良いんじゃね？</p>
+
+<p>てゆうか今流行のMEANな環境に手を出しても良いんじゃね？</p>
+
+<p>MEAN・・・技術要素が多くってちょっと概要を調べただけで終わっておりました。</p>
+
+<p>Visual StudioでMongoDB+Express+AngularJS+Node.js(MEAN) + TypeScript+jadeに挑戦です。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-03-06-try-mean-with-vs-1/WS000099.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">MEANをVisual Studioでやってみる#1(開発環境)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-06T12:15:46JST">Mar 6, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-03-06-try-mean-with-vs-1%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-03-06-try-mean-with-vs-1%2f&text=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-03-06-try-mean-with-vs-1%2f&t=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-03-06-try-mean-with-vs-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-03-06-try-mean-with-vs-1%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29 %2f2015-03-06-try-mean-with-vs-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>Visual Studio 2013になってJavaScriptのコード補完がかなりいい感じです。</p>
+
+<p><a href="http://nodejstools.codeplex.com/" target="_blank">Node.js Tools for Visual Studio</a>なんてのも在って、これならnode.jsもVisual Studioで書いたほうが良いんじゃね？</p>
+
+<p>てゆうか今流行のMEANな環境に手を出しても良いんじゃね？</p>
+
+<p>MEAN・・・技術要素が多くってちょっと概要を調べただけで終わっておりました。</p>
+
+<p>Visual StudioでMongoDB+Express+AngularJS+Node.js(MEAN) + TypeScript+jadeに挑戦です。</p>
+
+<h3 id="下準備">下準備</h3>
+
+<p><a href="http://www.microsoft.com/ja-jp/dev/products/community.aspx" target="_blank">Visual Studio 2013 Community Edition</a>をインストール</p>
+
+<p><a href="http://nodejs.org/" target="_blank">node.js</a>を<a href="/posts/2014/2014-11-21-try-node-js-with-windows-1" title="node.jsを使ってみる(Windows)#1" target="_blank">インストール</a></p>
+
+<p><a href="http://nodejstools.codeplex.com/" target="_blank">Node.js Tools for Visual Studio</a>をインストール。</p>
+
+<p>あと、<a href="#TSVersion">作業中</a>に判明したんですが、</p>
+
+<p><a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>の<a href="https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304" target="_blank">最新版</a>をインストールしとくと作業がスムーズかと。</p>
+
+<h3 id="プロジェクト作成">プロジェクト作成</h3>
+
+<p>[File]-[New]-[Project]-[<strong>TypeScript</strong>]-[Node.js]でnode.js用の各種テンプレートが選択できます。</p>
+
+<p>今回は「Basic Node.js Express 3 Application」を選択してみました。</p>
+
+<p>OKすると</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">The newly created project has dependencies defined in package.json.
+Do you want to run npm install to get the dependencies now?
+This operation will run in the background.  </code></pre></td></tr></table>
+</div>
+</div>
+<p>と聞いてくるのでYes。</p>
+
+<p>出来上がったプロジェクトはこんな感じ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-03-06-try-mean-with-vs-1/WS000099.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-03-06-try-mean-with-vs-1/WS000099_hufb59f84ebb2b1861c2de42c3761f356d_31059_240x0_resize_q75_box.jpg" width="240"
+                height="337" data-original="/2015-03-06-try-mean-with-vs-1/WS000099.jpg" />
+    </a>
+
+
+<h3 id="gitignore">.gitignore</h3>
+
+<p>プロジェクト作成の際に「Add to Source Control」してgitを選ぶとそれっぽい.gitignoreも作ってくれますが、少々調整。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">.ntvs_analysis.dat</code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"># Installshield output folder
+# [Ee]xpress/</code></pre></td></tr></table>
+</div>
+</div>
+<p>[Ee]xpressをコメントアウト。</p>
+
+<h3 id="デバッグ実行">デバッグ実行</h3>
+
+<p>BuildしてDebug実行すると素直に動いてくれます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-03-06-try-mean-with-vs-1/WSW000007.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-03-06-try-mean-with-vs-1/WSW000007_hudd9a0aa2bd75f749ed3b3b4e0fb4b5af_39981_240x0_resize_q75_box.jpg" width="240"
+                height="174" data-original="/2015-03-06-try-mean-with-vs-1/WSW000007.jpg" />
+    </a>
+
+
+<p>C#とかみたいにふつーにブレークポイントを設定してデバッグできます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-03-06-try-mean-with-vs-1/WSW000008.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-03-06-try-mean-with-vs-1/WSW000008_hu72e5760597223724a32aba0a2de9da9f_31829_240x0_resize_q75_box.jpg" width="240"
+                height="128" data-original="/2015-03-06-try-mean-with-vs-1/WSW000008.jpg" />
+    </a>
+
+
+<h3 id="インテリセンス">インテリセンス</h3>
+
+<p>目玉のインテリセンスです。しれっと動いてくれます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-03-06-try-mean-with-vs-1/WSW000009.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-03-06-try-mean-with-vs-1/WSW000009_huf1be8cd94c8f3be7dd1b29fcd6a4e9cb_23831_240x0_resize_q75_box.jpg" width="240"
+                height="109" data-original="/2015-03-06-try-mean-with-vs-1/WSW000009.jpg" />
+    </a>
+
+
+<h3 id="npm">npm</h3>
+
+<p>npm関係の操作もGUIでできます。</p>
+
+<p>Solution Explorerでプロジェクト直下のnpmを右クリックして&#8221;Install New npm Packages&#8221;</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-03-06-try-mean-with-vs-1/WSW000014.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-03-06-try-mean-with-vs-1/WSW000014_hu96db3c70d1ee6924f05921412fab0d8c_19331_240x0_resize_q75_box.jpg" width="240"
+                height="121" data-original="/2015-03-06-try-mean-with-vs-1/WSW000014.jpg" />
+    </a>
+
+
+<p>パッケージリストのダウンロードが終わると</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-03-06-try-mean-with-vs-1/WSW000010.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-03-06-try-mean-with-vs-1/WSW000010_huc86756c47f7cab9d01569bfcae8a34ce_72659_240x0_resize_q75_box.jpg" width="240"
+                height="171" data-original="/2015-03-06-try-mean-with-vs-1/WSW000010.jpg" />
+    </a>
+
+
+<p>こんな感じでパッケージがインストールできます。</p>
+
+<p>npmはコマンドラインからも可能なようです。</p>
+
+<h3 id="typescript型定義ファイル">TypeScript型定義ファイル</h3>
+
+<p>追加したパッケージを使おうとすると、</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-03-06-try-mean-with-vs-1/WSW000012.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-03-06-try-mean-with-vs-1/WSW000012_hu796c8272d509c2a0536db72691eaa779_18046_240x0_resize_q75_box.jpg" width="240"
+                height="87" data-original="/2015-03-06-try-mean-with-vs-1/WSW000012.jpg" />
+    </a>
+
+
+<p>こんな感じで怒られます。</p>
+
+<p>「型定義ファイル」と言われるTypeScript用のヘッダファイルみたいなのが必要となります。拡張子は&#8221;.dt.s&#8221;。</p>
+
+<p>大概のパッケージは<a href="https://github.com/borisyankov/DefinitelyTyped" target="_blank">DefinitelyTyped</a>で提供されているようです。</p>
+
+<p>DefinitelyTypedを利用するにはGitHubからコピー、NuGet、TypeScript Definition manager(TSD)の３通りがあるらしいです。</p>
+
+<p>TSDを使ってみます。</p>
+
+<p>今回はコマンドラインから</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; npm install tsd@next -g
+...
+&gt;tsd --version
+
+&gt;&gt; tsd <span class="m">0</span>.6.0-beta.5</code></pre></td></tr></table>
+</div>
+</div>
+<p>AngularJSをインストールしてみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ProjectDir &gt; <span class="nb">cd</span> Scripts
+ProjectDir<span class="se">\S</span>cripts &gt; tsd query angular --resolve --action install --save
+ProjectDir<span class="se">\S</span>cripts &gt; <span class="nb">cd</span> ..
+ProjectDir &gt; git add .
+ProjectDir &gt; git status
+On branch master
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">&#34;git reset HEAD &lt;file&gt;...&#34;</span> to unstage<span class="o">)</span>
+
+        new file:   Scripts/tsd.json
+        new file:   Scripts/typings/angularjs/angular.d.ts
+        new file:   Scripts/typings/jquery/jquery.d.ts
+        new file:   Scripts/typings/tsd.d.ts
+ProjectDir &gt; </code></pre></td></tr></table>
+</div>
+</div>
+<p>という感じで、いくつかファイルが追加されています。</p>
+
+<p>この方法だと、追加されたファイルがVSのプロジェクトには登録されないので、手動で登録します。</p>
+
+<p><a name="TSVersion"></a></p>
+
+<h4 id="typescriptのバージョンアップ">TypeScriptのバージョンアップ</h4>
+
+<p>自分の環境だと、ビルドしようとすると 「Build: &#8216;,&#8217; expected.」 とか「Build: &#8216;=&#8217; expected.」とか大量に出ます。</p>
+
+<p>typescriptのバージョンが古いっぽい</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt;tsc -v
+&gt;Version <span class="m">1</span>.0.3.0</code></pre></td></tr></table>
+</div>
+</div>
+<p>ので最新にしときます。</p>
+
+<p>Visual Studioを終了させて、</p>
+
+<p><a href="https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304" target="_blank">ここか</a>らインストーラをダウンロードしてインストール。</p>
+
+<p>PATHから「C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\」を削除しときます。</p>
+
+<p>Visual Studioを開始させて、VSからコマンドプロンプトを起動(ソリューションの適当なところを右クリック&#8221;Open Comand Prompt here..&#8221;)して、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt;tsc -v
+message TS6029: Version <span class="m">1</span>.4.0.0</code></pre></td></tr></table>
+</div>
+</div>
+<p>みたいになれば良いんじゃないでしょうか。</p>
+
+<p><a href="/posts/2015/2015-03-10-try-mean-with-vs-2" title="MEANをVisual Studioでやってみる#2(viewとか)" target="_blank">づづく</a><del datetime="2015-03-10T12:17:02+00:00">と思います</del>。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-03-06-try-mean-with-vs-1%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-03-06-try-mean-with-vs-1%2f&text=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-03-06-try-mean-with-vs-1%2f&t=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-03-06-try-mean-with-vs-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-03-06-try-mean-with-vs-1%2f&title=MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?MEAN%e3%82%92Visual%20Studio%e3%81%a7%e3%82%84%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%231%28%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%29 %2f2015-03-06-try-mean-with-vs-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">MEANをVisual Studioでやってみる#1(開発環境)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/node.js/">node.js</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2015-03-02-angularjs-again-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-03-02-angularjs-again-2/WSW000005.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">再度AngularJS(#2)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-02T05:23:12JST">Mar 2, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2015-03-10-try-mean-with-vs-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-03-10-try-mean-with-vs-2/WSW000015.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">MEANをVisual Studioでやってみる#2(viewとか)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-10T12:16:51JST">Mar 10, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

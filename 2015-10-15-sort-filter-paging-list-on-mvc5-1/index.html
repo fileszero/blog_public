@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2015-10-15-sort-filter-paging-list-on-mvc5-1/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;&lt;div&gt;あまぞんりんく&lt;/div&gt;&lt;p&gt;&lt;div&gt;あまぞんりんく&lt;/div&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&amp;#038;l=as2&amp;#038;o=9&amp;#038;a=4798041793&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;&lt;p&gt;必要な内容が体系的に理解できる良書かと思います。&lt;/p&gt;&lt;p&gt;非常にお勧めできる内容です。&lt;/p&gt;&lt;p&gt;が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。&lt;/p&gt;&lt;p&gt;似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。&lt;/p&gt;&lt;p&gt;てことで、もうちょっと再利用できるような形にしてみたいと思います。&lt;/p&gt;">
+
+<meta property="og:title" content="ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2015-10-15-sort-filter-paging-list-on-mvc5-1/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;&lt;div&gt;あまぞんりんく&lt;/div&gt;&lt;p&gt;&lt;div&gt;あまぞんりんく&lt;/div&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&amp;#038;l=as2&amp;#038;o=9&amp;#038;a=4798041793&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;&lt;p&gt;必要な内容が体系的に理解できる良書かと思います。&lt;/p&gt;&lt;p&gt;非常にお勧めできる内容です。&lt;/p&gt;&lt;p&gt;が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。&lt;/p&gt;&lt;p&gt;似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。&lt;/p&gt;&lt;p&gt;てことで、もうちょっと再利用できるような形にしてみたいと思います。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2015-10-15-sort-filter-paging-list-on-mvc5-1/">
+<meta name="twitter:title" content="ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;&lt;div&gt;あまぞんりんく&lt;/div&gt;&lt;p&gt;&lt;div&gt;あまぞんりんく&lt;/div&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&amp;#038;l=as2&amp;#038;o=9&amp;#038;a=4798041793&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;&lt;p&gt;必要な内容が体系的に理解できる良書かと思います。&lt;/p&gt;&lt;p&gt;非常にお勧めできる内容です。&lt;/p&gt;&lt;p&gt;が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。&lt;/p&gt;&lt;p&gt;似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。&lt;/p&gt;&lt;p&gt;てことで、もうちょっと再利用できるような形にしてみたいと思います。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-10-15T13:49:32JST",
+    "dateModified": "2015-10-15T13:49:32JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。</p>
+
+<div>あまぞんりんく</div>
+
+<p><div>あまぞんりんく</div><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&#038;l=as2&#038;o=9&#038;a=4798041793" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>必要な内容が体系的に理解できる良書かと思います。</p>
+
+<p>非常にお勧めできる内容です。</p>
+
+<p>が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。</p>
+
+<p>似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。</p>
+
+<p>てことで、もうちょっと再利用できるような形にしてみたいと思います。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+        
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&amp;#038;l=as2&amp;#038;o=9&amp;#038;a=4798041793)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-10-15T13:49:32JST">Oct 15, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&text=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&t=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231 %2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。</p>
+
+<div>あまぞんりんく</div>
+
+<p><div>あまぞんりんく</div><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&#038;l=as2&#038;o=9&#038;a=4798041793" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>必要な内容が体系的に理解できる良書かと思います。</p>
+
+<p>非常にお勧めできる内容です。</p>
+
+<p>が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。</p>
+
+<p>似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。</p>
+
+<p>てことで、もうちょっと再利用できるような形にしてみたいと思います。</p>
+
+<h3 id="参考資料">参考資料</h3>
+
+<p>問題のサンプルはWebでも読めます。感謝！</p>
+
+<p><a href="http://www.buildinsider.net/web/bookaspmvc5/050303" target="_blank">LINQ：データを並べ替える &#8211; orderby句</a></p>
+
+<p>codeprojectはこちら</p>
+
+<p><a href="http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina" target="_blank">Sample for to list, sort, search data and add pagination in ASP.Net MVC 5</a></p>
+
+<h3 id="プロジェクト">プロジェクト</h3>
+
+<p>プロジェクトは</p>
+
+<p>クラスライブラリ、単体テスト、サンプルＭＶＣの3つでいこうかと思います。</p>
+
+<p>まずはクラスライブラリ、単体テストを作って、テストファーストで開発して行こうかと思います。</p>
+
+<h3 id="ソートフィールド定義">ソートフィールド定義</h3>
+
+<p>サンプルを見ますと各フィールドごとに、</p>
+
+<ul>
+<li>ソートキー文字列</li>
+<li><a href="https://msdn.microsoft.com/ja-jp/library/bb534855(v=vs.110).aspx" target="_blank">要素からキーを抽出する関数</a>(ラムダ式)</li>
+<li>ラムダ式をクエリに追加する処理</li>
+</ul>
+
+<p>が定義されています。こんな感じですね。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="p">...</span>
+ <span class="n">ViewBag</span><span class="p">.</span><span class="n">Category</span>  <span class="p">=</span> <span class="p">(</span><span class="n">sort</span> <span class="p">==</span> <span class="s">&#34;Category&#34;</span> <span class="p">?</span> <span class="s">&#34;dCategory&#34;</span> <span class="p">:</span> <span class="s">&#34;Category&#34;</span><span class="p">);</span>
+<span class="p">...</span>
+    <span class="k">case</span> <span class="s">&#34;Category&#34;</span><span class="p">:</span>
+      <span class="n">articles</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">a</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Category</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">&#34;dCategory&#34;</span><span class="p">:</span>
+      <span class="n">articles</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="n">OrderByDescending</span><span class="p">(</span><span class="n">a</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Category</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+<span class="p">...</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>サンプルではソートキーとかべた書きですし、同じ文字列が何度も出てきたりしてますが、こいつをもう少し簡単に扱えるようにSortFieldDefinitionクラスを作ります。</p>
+
+<h4 id="ソートキーの生成">ソートキーの生成</h4>
+
+<p>ソートキーとフィールド名は同じなことが多いので、ラムダ式を与えれば後は勝手にやってくれるとうれしいような気がします。</p>
+
+<p>てことで、テストはこんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">/// &lt;summary&gt;
+</span><span class="c1"></span>    <span class="c1">/// テスト用データクラス
+</span><span class="c1"></span>    <span class="c1">/// Class for test data
+</span><span class="c1"></span>    <span class="c1">/// &lt;/summary&gt;
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">class</span> <span class="nc">Article</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Category</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Published</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">long</span> <span class="n">Viewcount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">    [TestClass]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">SortFieldDefinition</span>
+    <span class="p">{</span><span class="na">
+</span><span class="na">        [TestMethod]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="n">SortKey_Test1</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">SortKey</span><span class="p">);</span>      <span class="c1">//キーを抽出する関数からソートキー文字列生成
+</span><span class="c1"></span>        <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>インプリはこんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">SortFieldDefinition</span><span class="p">(</span><span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;&gt;</span> <span class="n">aKeySelector</span><span class="p">){</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span> <span class="p">=</span> <span class="p">((</span><span class="n">MemberExpression</span><span class="p">)</span><span class="n">aKeySelector</span><span class="p">.</span><span class="n">Body</span><span class="p">).</span><span class="n">Member</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">SortKey</span><span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>キモはラムダ式からメンバ名を取ってきてるところでしょうか。</p>
+
+<p><a href="http://blog.shos.info/archives/2012/12/cexpression_expression_2.html" target="_blank">こちらを参考</a>にさせていただきました。</p>
+
+<h4 id="ui用ソートキー">UI用ソートキー</h4>
+
+<p>サンプルではUI上で選択した値によって、次に使うべきソートキーを決定しています。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ViewBag</span><span class="p">.</span><span class="n">Category</span>  <span class="p">=</span> <span class="p">(</span><span class="n">sort</span> <span class="p">==</span> <span class="s">&#34;Category&#34;</span> <span class="p">?</span> <span class="s">&#34;dCategory&#34;</span> <span class="p">:</span> <span class="s">&#34;Category&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>この部分。昇順、降順の入れ替えですね。</p>
+
+<p>テストはこんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[TestMethod]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="n">NextSortKey_Test1</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            
+            <span class="kt">var</span> <span class="n">next</span><span class="p">=</span><span class="n">sortdef</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title desc&#34;</span><span class="p">,</span> <span class="n">next</span><span class="p">);</span>    <span class="c1">//昇順の次は降順
+</span><span class="c1"></span>
+            <span class="n">next</span> <span class="p">=</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="s">&#34;Title desc&#34;</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">next</span><span class="p">);</span>         <span class="c1">//降順の次は昇順
+</span><span class="c1"></span>
+            <span class="n">next</span> <span class="p">=</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="s">&#34;unknown&#34;</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">next</span><span class="p">);</span>         <span class="c1">//別のフィールドがソートキーの場合は昇順
+</span><span class="c1"></span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>インプリ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">DESC_SUFFIX</span> <span class="p">=</span> <span class="s">&#34; desc&#34;</span><span class="p">;</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">GetNextSortKey</span><span class="p">(</span><span class="kt">string</span> <span class="n">aCurrentSortKey</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">aCurrentSortKey</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span> <span class="p">+</span> <span class="n">DESC_SUFFIX</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span><span class="p">;</span>
+            
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="orderby-orderbydescendingの追加">OrderBy/OrderByDescendingの追加</h4>
+
+<p>ソートキーとユーザー選択値を元に、クエリ(IQueryable)にOrderByを追加します。</p>
+
+<p>テストでは実際ソートしてみて結果を調べています。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[TestMethod]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="n">AddOrderBy_Test1</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">dummy_list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="na">[]</span> <span class="p">{</span>
+                <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;Z&#34;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;A&#34;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;M&#34;</span><span class="p">}</span>
+            <span class="p">};</span>
+            <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+
+            <span class="kt">var</span> <span class="n">articles</span> <span class="p">=</span> <span class="p">(</span><span class="k">from</span> <span class="n">a</span> <span class="k">in</span> <span class="n">dummy_list</span> <span class="k">select</span> <span class="n">a</span><span class="p">).</span><span class="n">AsQueryable</span><span class="p">();</span>
+
+            <span class="n">articles</span> <span class="p">=</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">AddOrderBy</span><span class="p">(</span><span class="n">articles</span><span class="p">,</span> <span class="s">&#34;Title&#34;</span><span class="p">);</span>  <span class="c1">//ソートキー&#34;Title&#34;順に並べ替え
+</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[0]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[1]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Z&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[2]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+
+        <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [TestMethod]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="n">AddOrderBy_Test2</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">dummy_list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="na">[]</span> <span class="p">{</span>
+                <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;Z&#34;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;A&#34;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;M&#34;</span><span class="p">}</span>
+            <span class="p">};</span>
+            <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+
+            <span class="kt">var</span> <span class="n">articles</span> <span class="p">=</span> <span class="p">(</span><span class="k">from</span> <span class="n">a</span> <span class="k">in</span> <span class="n">dummy_list</span> <span class="k">select</span> <span class="n">a</span><span class="p">).</span><span class="n">AsQueryable</span><span class="p">();</span>
+
+            <span class="n">articles</span> <span class="p">=</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">AddOrderBy</span><span class="p">(</span><span class="n">articles</span><span class="p">,</span> <span class="s">&#34;Title desc&#34;</span><span class="p">);</span>  <span class="c1">//ソートキー&#34;Title&#34;順に並べ替え
+</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Z&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[0]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[1]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[2]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>インプリはこんな感じ。</p>
+
+<p>コンストラクタでKeySelectorラムダ式を保存してなかったので保存するようにして、メソッド内で使用してます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;&gt;</span> <span class="n">KeySelector</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">public</span> <span class="n">SortFieldDefinition</span><span class="p">(</span><span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;&gt;</span> <span class="n">aKeySelector</span><span class="p">){</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span> <span class="p">=</span> <span class="p">((</span><span class="n">MemberExpression</span><span class="p">)</span><span class="n">aKeySelector</span><span class="p">.</span><span class="n">Body</span><span class="p">).</span><span class="n">Member</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">KeySelector</span> <span class="p">=</span> <span class="n">aKeySelector</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">...</span>
+        <span class="k">public</span> <span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">&gt;</span> <span class="n">AddOrderBy</span><span class="p">(</span><span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">&gt;</span> <span class="n">aQuery</span><span class="p">,</span> <span class="kt">string</span> <span class="n">aCurrentSortKey</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">aCurrentSortKey</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">aQuery</span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">KeySelector</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">aCurrentSortKey</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span> <span class="p">+</span> <span class="n">DESC_SUFFIX</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">aQuery</span><span class="p">.</span><span class="n">OrderByDescending</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">KeySelector</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">aQuery</span><span class="p">;</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ココまでで、一応並べ替えの処理本体ができました。</p>
+
+<h3 id="sortfielddefinitionのインスタンスをもうちょっと簡単に作れるようにする">SortFieldDefinitionのインスタンスをもうちょっと簡単に作れるようにする</h3>
+
+<p>SortFieldDefinitionをnewするには</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>のように書くのが基本ですが、なんか長いですね。特にラムダ式の戻り値の型(string)の部分とか、いちいちめんどくさいです。</p>
+
+<p>こういうときには、拡張メソッドと型推論でさっくり書けるようにできます。</p>
+
+<p><a href="http://pro.art55.jp/?eid=1303950" target="_blank">ここ</a>とか<a href="https://msdn.microsoft.com/ja-jp/library/bb308966.aspx#topic10" target="_blank">ここ</a>とか参考になります。</p>
+
+<p>テストを書きます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[TestMethod]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="n">SortDef_New_Test1</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">Article</span> <span class="n">article</span><span class="p">=</span><span class="k">null</span><span class="p">;</span>
+            <span class="c1">//理想的には Article.DefineSort(obj =&gt; obj.Title); みたいに書きたいけど無理っぽい。
+</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">SortKey</span><span class="p">);</span>  <span class="c1">//キーを抽出する関数からソートキー文字列生成
+</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>拡張メソッドでthisになるオブジェクトが必要なんで、</p>
+
+<p>Article article=null;</p>
+
+<p>してますが、ほんとはクラスの静的メソッド風に呼べるといいんですけどね、できないのかな？</p>
+
+<p>実装はこんな感じです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">SortFieldDefinitionExtention</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span><span class="n">TKey</span><span class="p">&gt;</span> <span class="n">DefineSort</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;(</span><span class="k">this</span> <span class="n">TModel</span> <span class="n">aModel</span><span class="p">,</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;&gt;</span> <span class="n">aKeySelector</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;(</span><span class="n">aKeySelector</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>長くなったので、<del datetime="2015-10-17T10:42:17+00:00">(たぶん)</del><a href="/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2" target="_blank">次回</a>に続きます。</p>
+
+<p>一応ココまでの内容は<a href="https://github.com/cozy-code/ChimaLib/tree/SortFieldDefinition" target="_blank">GitHub</a>で公開しときます。</p>
+
+<p>ブログ書きながらコード書くのって、時間食いますな。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&text=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&t=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f&title=ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ASP.NET%20MVC%205%e3%81%a7%e4%b8%a6%e3%81%b9%e6%9b%bf%e3%81%88%e3%80%81%e6%a4%9c%e7%b4%a2%e3%80%81%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0%e3%81%8c%e5%8f%af%e8%83%bd%e3%81%aa%e3%83%aa%e3%82%b9%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%231 %2f2015-10-15-sort-filter-paging-list-on-mvc5-1%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/.net/">.Net</a></li>
+          
+          <li><a href="/categories/angularjs/">AngularJS</a></li>
+          
+          <li><a href="/categories/bootstrap/">bootstrap</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2015-09-16-ef-insert-duplicate-object/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-09-16-ef-insert-duplicate-object/CAP000078.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Entity FrameworkでInsertするときに関連するレコードもInsertされる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-09-16T05:49:39JST">Sep 16, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2015-10-17-sort-filter-paging-list-on-mvc5-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-10-17-sort-filter-paging-list-on-mvc5-2/WS000106.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-10-17T10:42:07JST">Oct 17, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

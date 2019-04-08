@@ -13,11 +13,11 @@
     
     <item>
       <title>Raspberry Pi &#43; WiFiを安定させるVer3</title>
-      <link>/posts/2014-11-12-raspberrypiwifistable3/</link>
+      <link>/2014-11-12-raspberrypiwifistable3/</link>
       <pubDate>Wed, 12 Nov 2014 13:52:29 +0000</pubDate>
       
-      <guid>/posts/2014-11-12-raspberrypiwifistable3/</guid>
-      <description>&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi + WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;/posts/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi + WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;
+      <guid>/2014-11-12-raspberrypiwifistable3/</guid>
+      <description>&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi + WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;/posts/2014/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi + WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;
 
 &lt;p&gt;ココ最近、また不安定になってきました。&lt;/p&gt;
 
@@ -26,10 +26,10 @@
     
     <item>
       <title>RaspberryPi webcam</title>
-      <link>/posts/2014-08-15-raspberrypiwebcam/</link>
+      <link>/2014-08-15-raspberrypiwebcam/</link>
       <pubDate>Fri, 15 Aug 2014 08:45:27 +0000</pubDate>
       
-      <guid>/posts/2014-08-15-raspberrypiwebcam/</guid>
+      <guid>/2014-08-15-raspberrypiwebcam/</guid>
       <description>&lt;p&gt;愛犬のモニタリング用にネットワークカメラ使ってたんですが、壊れた。&lt;/p&gt;
 
 &lt;p&gt;外から携帯（いわゆるガラケー、フィーチャーフォン）からアクセスしたいけど、&lt;/p&gt;
@@ -43,10 +43,10 @@
     
     <item>
       <title>Raspberry Pi &#43; WiFiを安定させるVer2</title>
-      <link>/posts/2014-03-11-raspberrypiwifistable2/</link>
+      <link>/2014-03-11-raspberrypiwifistable2/</link>
       <pubDate>Tue, 11 Mar 2014 11:07:34 +0000</pubDate>
       
-      <guid>/posts/2014-03-11-raspberrypiwifistable2/</guid>
+      <guid>/2014-03-11-raspberrypiwifistable2/</guid>
       <description>以前WiFi安定化に向けて小細工したけど、結局安定してません。
 なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。
 そんな事でググって見た所こんなん発見しました。
@@ -58,10 +58,10 @@ Wifi and Ethernet dropout problems in raspberry pi
     
     <item>
       <title>Rasberry Pi こまい設定</title>
-      <link>/posts/2013-10-08-raspberry-pi-miner-setting/</link>
+      <link>/2013-10-08-raspberry-pi-miner-setting/</link>
       <pubDate>Tue, 08 Oct 2013 07:32:12 +0000</pubDate>
       
-      <guid>/posts/2013-10-08-raspberry-pi-miner-setting/</guid>
+      <guid>/2013-10-08-raspberry-pi-miner-setting/</guid>
       <description>Tools もろもろ必要になりそうなツールをインストール。
 1 2 3  $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool   MacからRasPiへファイルのコピー scpを使います。
 1  mac $ scp filename pi@192.168.1.5:~/   WiFi設定 USBのwifiトングルを刺す。
@@ -71,10 +71,10 @@ Wifi and Ethernet dropout problems in raspberry pi
     
     <item>
       <title>Raspberry Pi &#43; shairportのノイズ</title>
-      <link>/posts/2013-10-06-raspberrypishairportnoise/</link>
+      <link>/2013-10-06-raspberrypishairportnoise/</link>
       <pubDate>Sun, 06 Oct 2013 12:49:14 +0000</pubDate>
       
-      <guid>/posts/2013-10-06-raspberrypishairportnoise/</guid>
+      <guid>/2013-10-06-raspberrypishairportnoise/</guid>
       <description>Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。
 色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじったりして、
 結局だめだったんですが&amp;#8230;
@@ -84,10 +84,10 @@ Wifi and Ethernet dropout problems in raspberry pi
     
     <item>
       <title>Raspberry Pi &#43; WiFiを安定させる</title>
-      <link>/posts/2013-09-19-raspberrypiwifistable/</link>
+      <link>/2013-09-19-raspberrypiwifistable/</link>
       <pubDate>Thu, 19 Sep 2013 13:47:38 +0000</pubDate>
       
-      <guid>/posts/2013-09-19-raspberrypiwifistable/</guid>
+      <guid>/2013-09-19-raspberrypiwifistable/</guid>
       <description>Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。
 簡単なスクリプト書いて切れてる様子なら再接続するようにします。
 $ cat /home/pi/bin/restartwlan0.sh
@@ -102,10 +102,10 @@ Raspberry Pi + WiFiを安定させるVer3も要参照。</description>
     
     <item>
       <title>Raspberry Pi &#43; Time Machine</title>
-      <link>/posts/2013-09-08-raspberry-pi-time-machine/</link>
+      <link>/2013-09-08-raspberry-pi-time-machine/</link>
       <pubDate>Sun, 08 Sep 2013 10:48:58 +0000</pubDate>
       
-      <guid>/posts/2013-09-08-raspberry-pi-time-machine/</guid>
+      <guid>/2013-09-08-raspberry-pi-time-machine/</guid>
       <description>$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev
 $ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz
 $ cd netatalk-3.0.5/
@@ -125,10 +125,10 @@ proc /proc proc defaults 0 0
     
     <item>
       <title>Raspberry Pi &#43; SAMBA</title>
-      <link>/posts/2013-08-30-raspberry-pi-samba/</link>
+      <link>/2013-08-30-raspberry-pi-samba/</link>
       <pubDate>Fri, 30 Aug 2013 13:37:01 +0000</pubDate>
       
-      <guid>/posts/2013-08-30-raspberry-pi-samba/</guid>
+      <guid>/2013-08-30-raspberry-pi-samba/</guid>
       <description>省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。
 作業前には
 $ sudo rpi-update
@@ -153,10 +153,10 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes</description>
     
     <item>
       <title>Raspberry Pi &#43; USB-DAC</title>
-      <link>/posts/2013-08-26-raspberry-pi-usb-dac/</link>
+      <link>/2013-08-26-raspberry-pi-usb-dac/</link>
       <pubDate>Mon, 26 Aug 2013 14:47:38 +0000</pubDate>
       
-      <guid>/posts/2013-08-26-raspberry-pi-usb-dac/</guid>
+      <guid>/2013-08-26-raspberry-pi-usb-dac/</guid>
       <description>Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。
 デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。
 内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。
@@ -182,10 +182,10 @@ dwc_otg.fiq_split_enable=0
     
     <item>
       <title>Raspberry Pi &#43; AirPlay</title>
-      <link>/posts/2013-08-21-raspberry-pi-airplay/</link>
+      <link>/2013-08-21-raspberry-pi-airplay/</link>
       <pubDate>Wed, 21 Aug 2013 14:24:01 +0000</pubDate>
       
-      <guid>/posts/2013-08-21-raspberry-pi-airplay/</guid>
+      <guid>/2013-08-21-raspberry-pi-airplay/</guid>
       <description>Raspberry PiにAirPlay入れたメモ
 参考：
 Raspberry Piを「AirPlay化」して音楽をストリーミングする方法
@@ -206,10 +206,10 @@ $ sudo chkconfig dbus on
     
     <item>
       <title>Raspberry Pi</title>
-      <link>/posts/2013-08-13-raspberry-pi/</link>
+      <link>/2013-08-13-raspberry-pi/</link>
       <pubDate>Tue, 13 Aug 2013 04:07:16 +0000</pubDate>
       
-      <guid>/posts/2013-08-13-raspberry-pi/</guid>
+      <guid>/2013-08-13-raspberry-pi/</guid>
       <description>日経のRaspberry Piセット本が増刷されてたので、買ってみました。
 OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。
 一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。

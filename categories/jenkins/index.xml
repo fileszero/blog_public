@@ -13,10 +13,10 @@
     
     <item>
       <title>Install Jenkins</title>
-      <link>/posts/2018-11-09-install-jenkins/</link>
+      <link>/2018-11-09-install-jenkins/</link>
       <pubDate>Fri, 09 Nov 2018 02:32:35 +0000</pubDate>
       
-      <guid>/posts/2018-11-09-install-jenkins/</guid>
+      <guid>/2018-11-09-install-jenkins/</guid>
       <description>&lt;p&gt;いまさらながらJenkinsです。&lt;/p&gt;
 
 &lt;p&gt;みなさんJenkinsでCIでCDでAgileなDevOpsしてますよね。&lt;/p&gt;

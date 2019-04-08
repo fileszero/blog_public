@@ -13,11 +13,11 @@
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4</title>
-      <link>/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
+      <link>/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
       <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
       
-      <guid>/posts/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
+      <guid>/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;
 
@@ -26,30 +26,30 @@
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#３</title>
-      <link>/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
+      <link>/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
       <pubDate>Sun, 18 Oct 2015 09:00:39 +0000</pubDate>
       
-      <guid>/posts/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
+      <guid>/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#2</title>
-      <link>/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
+      <link>/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
       <pubDate>Sat, 17 Oct 2015 10:42:07 +0000</pubDate>
       
-      <guid>/posts/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
+      <guid>/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
 
 &lt;p&gt;今回はwebアプリから使ってみます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</title>
-      <link>/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
+      <link>/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
       <pubDate>Thu, 15 Oct 2015 13:49:32 +0000</pubDate>
       
-      <guid>/posts/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
+      <guid>/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
       <description>&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;
 
 &lt;div&gt;あまぞんりんく&lt;/div&gt;

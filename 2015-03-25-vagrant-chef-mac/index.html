@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2015-03-25-vagrant-chef-mac/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Vagrant&#43;chef(mac) - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;VMの自動構成には&lt;a href=&#34;https://www.chef.io/&#34; target=&#34;_blank&#34;&gt;Chef&lt;/a&gt;(とその仲間達)を使うといいみたいです。&lt;/p&gt;&lt;p&gt;chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。&lt;/p&gt;&lt;p&gt;公式もあてにならなかったりします。&lt;/p&gt;&lt;p&gt;そんな中&lt;a href=&#34;http://koooya.hatenablog.com/entry/2014/12/22/051400&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;http://www.creationline.com/lab/6401&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にさせていただきました。&lt;/p&gt;">
+
+<meta property="og:title" content="Vagrant&#43;chef(mac) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2015-03-25-vagrant-chef-mac/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;VMの自動構成には&lt;a href=&#34;https://www.chef.io/&#34; target=&#34;_blank&#34;&gt;Chef&lt;/a&gt;(とその仲間達)を使うといいみたいです。&lt;/p&gt;&lt;p&gt;chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。&lt;/p&gt;&lt;p&gt;公式もあてにならなかったりします。&lt;/p&gt;&lt;p&gt;そんな中&lt;a href=&#34;http://koooya.hatenablog.com/entry/2014/12/22/051400&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;http://www.creationline.com/lab/6401&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にさせていただきました。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2015-03-25-vagrant-chef-mac/">
+<meta name="twitter:title" content="Vagrant&#43;chef(mac) - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;VMの自動構成には&lt;a href=&#34;https://www.chef.io/&#34; target=&#34;_blank&#34;&gt;Chef&lt;/a&gt;(とその仲間達)を使うといいみたいです。&lt;/p&gt;&lt;p&gt;chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。&lt;/p&gt;&lt;p&gt;公式もあてにならなかったりします。&lt;/p&gt;&lt;p&gt;そんな中&lt;a href=&#34;http://koooya.hatenablog.com/entry/2014/12/22/051400&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;http://www.creationline.com/lab/6401&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にさせていただきました。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Vagrant&#43;chef(mac) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-03-25T15:32:39JST",
+    "dateModified": "2015-03-25T15:32:39JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>VMの自動構成には<a href="https://www.chef.io/" target="_blank">Chef</a>(とその仲間達)を使うといいみたいです。</p>
+
+<p>chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。</p>
+
+<p>公式もあてにならなかったりします。</p>
+
+<p>そんな中<a href="http://koooya.hatenablog.com/entry/2014/12/22/051400" target="_blank">こちら</a>とか<a href="http://www.creationline.com/lab/6401" target="_blank">こちら</a>を参考にさせていただきました。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">Vagrant&#43;chef(mac)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-25T15:32:39JST">Mar 25, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-03-25-vagrant-chef-mac%2f&title=Vagrant%2bchef%28mac%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-03-25-vagrant-chef-mac%2f&text=Vagrant%2bchef%28mac%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-03-25-vagrant-chef-mac%2f&t=Vagrant%2bchef%28mac%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-03-25-vagrant-chef-mac%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-03-25-vagrant-chef-mac%2f&title=Vagrant%2bchef%28mac%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Vagrant%2bchef%28mac%29 %2f2015-03-25-vagrant-chef-mac%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>VMの自動構成には<a href="https://www.chef.io/" target="_blank">Chef</a>(とその仲間達)を使うといいみたいです。</p>
+
+<p>chef関連の情報はググると色々でてきますが、chef自体の変化が激しいようなので情報錯綜気味です。</p>
+
+<p>公式もあてにならなかったりします。</p>
+
+<p>そんな中<a href="http://koooya.hatenablog.com/entry/2014/12/22/051400" target="_blank">こちら</a>とか<a href="http://www.creationline.com/lab/6401" target="_blank">こちら</a>を参考にさせていただきました。</p>
+
+<h3 id="chefツール群">Chefツール群</h3>
+
+<p>よくわからないツール・コンポーネントがたくさん。</p>
+
+<dl>
+<dt>ChefDK</dt>
+<dd><p><a href="https://www.chef.io/" target="_blank">Chef</a></p>
+
+<dl>
+<dd>インフラをコードで書こうってコンセプトの自動構成ツール。コードのまとまりをcookbookと呼ぶらしい
+<br /></dd>
+<dt><a href="http://berkshelf.com/" target="_blank">berkshelf</a></dt>
+<dd>cookbookのライブラリを管理するツール
+<br /></dd>
+<dt>knife</dt>
+<dd>chefの管理コマンド</dd>
+</dl></dd>
+<dt>Vagrant Plugin</dt>
+<dd><p>vagrant-omnibus</p>
+
+<dl>
+<dd>VMにchefをセットアップしてくれるvagrantプラグイン
+<br /></dd>
+<dt><a href="https://github.com/berkshelf/vagrant-berkshelf" target="_blank">vagrant-berkshelf</a></dt>
+<dd><div class="delete">
+  &#8220;Berkshelf integration to the Chef provisioners&#8221;だそうで、なんかvagrantでいい感じにBerkshelf使えるようにしてくれるみたいです。(理解不足)
+</div>
+        
+
+<p>いらないっぽい。 </dd> </dl> </dd></p>
+
+<p>その他</p>
+
+<dl>
+<dd><p><a href="http://matschaffer.github.io/knife-solo/" target="_blank">knife solo</a></p>
+
+<dl>
+<dd>chefレポジトリの雛形作るときに使用します。他にもいろいろ便利なツールらしいです。knifeのプラグイン
+<br /></dd>
+<dt>bundler</dt>
+<dd>ruby-gem のライブラリ構成管理ツール </dl>
+<br /></dd>
+</dl></dd>
+</dl>
+
+<p>それぞれインストールします。</p>
+
+<h4 id="chef-berkshelf">Chef + berkshelf</h4>
+
+<p>berkshelfのページによりますと、<a href="https://downloads.chef.io/chef-dk/" target="_blank">Chef-DK</a>をインストールすればよさそうです。</p>
+
+<p><a href="https://downloads.chef.io/chef-dk/" target="_blank">Chef-DK</a>のMAC OS Xからdmgをダウンロードしてpkgでインストール。</p>
+
+<p>pkg後にも<a href="https://docs.chef.io/install_dk.html" target="_blank">色々設定が必要</a>なようです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#インストールチェック</span>
+Mac ~<span class="nv">$chef</span> verify
+<span class="c1">#rubyをChefDK付属のものと使うようにする(やらなくてもいいかも？）</span>
+Mac ~/vagrant/testvm/myapp<span class="nv">$which</span> ruby
+/usr/bin/ruby
+Mac ~<span class="nv">$echo</span> <span class="s1">&#39;eval &#34;$(chef shell-init bash)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
+Mac ~<span class="nv">$source</span> ~/.bash_profile
+Mac ~<span class="nv">$which</span> ruby
+/opt/chefdk/embedded/bin/ruby 
+<span class="c1">#knife初期設定。</span>
+Mac ~<span class="nv">$knife</span> configure</code></pre></td></tr></table>
+</div>
+</div>
+<p>rubyを指定のものにしとかないといけないようですが、なんかイケてないような気がします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#Chefは色々なコマンドの集合みたいですが、代表選手はknife</span>
+Mac ~<span class="nv">$knife</span> --version
+Chef: <span class="m">12</span>.0.3
+<span class="c1">#berkshelfもインストールされています</span>
+Mac ~<span class="nv">$berks</span> --version
+<span class="m">3</span>.2.3
+<span class="c1">#/usr/bin/から/opt/chefdkにリンクされているようです。</span>
+Mac ~<span class="nv">$ls</span> -la /usr/bin/ <span class="p">|</span> grep <span class="s2">&#34;chef&#34;</span>
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">21</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 berks -&gt; /opt/chefdk/bin/berks
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">20</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 chef -&gt; /opt/chefdk/bin/chef
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">26</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 chef-apply -&gt; /opt/chefdk/bin/chef-apply
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">27</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 chef-client -&gt; /opt/chefdk/bin/chef-client
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">26</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 chef-shell -&gt; /opt/chefdk/bin/chef-shell
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">25</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 chef-solo -&gt; /opt/chefdk/bin/chef-solo
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">25</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 chef-zero -&gt; /opt/chefdk/bin/chef-zero
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">23</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 fauxhai -&gt; /opt/chefdk/bin/fauxhai
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">26</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 foodcritic -&gt; /opt/chefdk/bin/foodcritic
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">23</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 kitchen -&gt; /opt/chefdk/bin/kitchen
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">21</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 knife -&gt; /opt/chefdk/bin/knife
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">20</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 ohai -&gt; /opt/chefdk/bin/ohai
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">23</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 rubocop -&gt; /opt/chefdk/bin/rubocop
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">20</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 shef -&gt; /opt/chefdk/bin/shef
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">22</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 strain -&gt; /opt/chefdk/bin/strain
+lrwxr-xr-x     <span class="m">1</span> root   wheel        <span class="m">24</span>  <span class="m">3</span> <span class="m">19</span> <span class="m">10</span>:00 strainer -&gt; /opt/chefdk/bin/strainer</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="knife-solo">knife solo</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~<span class="nv">$gem</span> i knife-solo --no-ri --no-rdoc</code></pre></td></tr></table>
+</div>
+</div>
+<p>&#8220;knife solo&#8221;コマンドが無いみたいなこと言われたら、ターミナル再起動で動くこともあるみたいです。</p>
+
+<h4 id="vagrantプラグイン">vagrantプラグイン</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~<span class="nv">$vagrant</span> plugin install vagrant-omnibus</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="bundler">bundler</h4>
+
+<p>すでにインストール済みな場合が多いかも。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~<span class="nv">$sudo</span> gem update
+Mac ~<span class="nv">$sudo</span> gem install bundler
+Mac ~<span class="nv">$bundle</span> -v
+Bundler version <span class="m">1</span>.8.5</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="vmの作成">VMの作成</h3>
+
+<p>前回作成したVMだとchefがすでに入ってて、動作検証には向かない気がするので、新たなboxからVMを作成します。</p>
+
+<p>いちばんメジャーっぽい<a href="https://atlas.hashicorp.com/chef/boxes/centos-6.5" target="_blank">chef/centos-6.5</a>を使用します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~<span class="nv">$vagrant</span> box add chef/centos-6.5 --provider virtualbox --insecure
+Mac ~<span class="nv">$mkdir</span> ~/vagrant/testvm
+Mac ~<span class="nv">$cd</span> ~/vagrant/testvm
+Mac ~/vagrant/testvm<span class="nv">$vagrant</span> init chef/centos-6.5
+Mac ~/vagrant/testvm<span class="nv">$vagrant</span> up</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="vmにchefとネットワーク設定">VMにchefとネットワーク設定</h4>
+
+<p>Vagrantfileに</p>
+
+<p>config.omnibus.chef_version = :latest</p>
+
+<p>と</p>
+
+<p>config.vm.network</p>
+
+<p>を追加します。</p>
+
+<p>```bash
+Mac ~/vagrant/testvm$ cat Vagrantfile</p>
+
+<h1 id="mode-ruby">-<em>- mode: ruby -</em>-</h1>
+
+<h1 id="vi-set-ft-ruby">vi: set ft=ruby :</h1></dd>
+</dl></dd>
+</dl>
+
+<p>Vagrant.configure(2) do |config|
+  config.vm.box = &ldquo;chef/centos-6.5&rdquo;
+  config.omnibus.chef_version = :latest
+  # Create a private network, which allows host-only access to the machine
+  #   # using a specific IP.
+  config.vm.network &ldquo;private_network&rdquo;, ip: &ldquo;192.168.33.10&rdquo;</p>
+
+<p>end</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        #### sshのconfig設定
+        
+        vagrant sshでなくてsshからお手軽にアクセスできるよう設定します。
+        
+        ```bash
+#~/.ssh/config設定
+Mac ~/vagrant/testvm$ vagrant ssh-config --host testvm &gt;&gt; ~/.ssh/config 
+#スカッとアクセスできるようになります
+Mac ~/vagrant/testvm$ ssh testvm
+Last login:  from 10.0.2.2
+[vagrant@localhost ~]$ </pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    後でcookするときにrsyncが必要になります。なんか本末転倒のようきがするけどyumでインストールします。
+
+    ```bash</pre></td></tr></table>
+</div>
+</div>
+<p>Mac ~/vagrant/testvm$ ssh testvm
+[vagrant@localhost ~]$ sudo yum install rsync</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        ### chefレポジトリ作成
+        
+        ```bash
+Mac ~/vagrant/testvm$ knife solo init chef-repo</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    ### テスト用cookbookを作る
+
+    #### テスト用cookbook
+
+    helloという名前のcookbookを作ります。
+
+    独自のcookbookはsite-cookbooksに作るお作法みたいです。
+
+    ```bash</pre></td></tr></table>
+</div>
+</div>
+<p>Mac ~/vagrant/testvm$ cd chef-repo/
+Mac ~/vagrant/testvm/chef-repo$ knife cookbook create hello -o site-cookbooks/
+Mac ~/vagrant/testvm/chef-repo$ vim site-cookbooks/hello/recipes/default.rb
+Mac ~/vagrant/testvm/chef-repo$ cat site-cookbooks/hello/recipes/default.rb
+log &ldquo;hello world&rdquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        #### node定義
+        
+        cookbookを作ったら、node定義を作らなきゃいけないようです。なんか面倒っすね。
+  
+        run_listの書き方とかよくわからんし。
+        
+        ```bash
+#node定義作成
+Mac ~/vagrant/testvm/chef-repo$ knife node create testvm -e vim -z
+Mac ~/vagrant/testvm/chef-repo$ knife node list -z
+testvm
+Mac ~/vagrant/testvm/chef-repo$ ls nodes/
+testvm.json
+Mac ~/vagrant/testvm/chef-repo$ cat nodes/testvm.json 
+{
+  &#34;name&#34;: &#34;testvm&#34;,
+  &#34;run_list&#34;: [
+    &#34;recipe[hello]&#34;
+  ]
+}</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    #### cookbook適用
+
+    cookbookをnodeに適用します
+
+    ```bash</pre></td></tr></table>
+</div>
+</div>
+<p>Mac ~/vagrant/testvm/chef-repo$ knife solo cook testvm nodes/testvm.json</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        ### Berkshelfでcookbook
+        
+        Berkshelfのパッケージをセットアップするcookbookを作ります。
+  
+        とは言っても、&amp;#8221;knife solo init chef-repo&amp;#8221;でつくられるBerksfileを編集してcookすればOKみたい。
+        
+        ```bash
+#Berksfile編集
+Mac ~/vagrant/testvm/chef-repo$ vim Berksfile
+Mac ~/vagrant/testvm/chef-repo$ cat Berksfile
+#site :opscode  #もう古いらしい
+source &#34;https://supermarket.chef.io&#34;
+
+#metadata  #これあるとエラーが出るので無しで
+
+cookbook &#39;nodejs&#39;
+cookbook &#39;mongodb&#39;</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    #### node定義編集
+
+    ```bash</pre></td></tr></table>
+</div>
+</div>
+<p>Mac ~/vagrant/testvm/chef-repo$ vim nodes/testvm.json
+Mac ~/vagrant/testvm/chef-repo$ cat nodes/testvm.json
+{
+  &ldquo;name&rdquo;: &ldquo;testvm&rdquo;,
+  &ldquo;run_list&rdquo;: [
+    &ldquo;recipe[hello]&ldquo;,
+    &ldquo;recipe[nodejs]&ldquo;,
+    &ldquo;recipe[mongodb]&rdquo;
+  ]
+}</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        #### レシピゲット and 適用
+        
+        ```bash
+Mac ~/vagrant/testvm/chef-repo$ knife solo cook testvm nodes/testvm.json </pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    これだけでcookbooksフォルダが作られて、各種cookbookが持ってこられます。
+
+    なぜBerksfile編集するだけで上手い事いくのか？
+
+    よくわからんですけどchef/knife.rb に定義済みだからだと思われます。
+
+    ```bash</pre></td></tr></table>
+</div>
+</div>
+<p>Mac ~/vagrant/testvm/chef-repo$ cat .chef/knife.rb
+cookbook_path    [&ldquo;cookbooks&rdquo;, &ldquo;site-cookbooks&rdquo;]
+node_path        &ldquo;nodes&rdquo;
+role_path        &ldquo;roles&rdquo;
+environment_path &ldquo;environments&rdquo;
+data_bag_path    &ldquo;data_bags&rdquo;
+#encrypted_data_bag_secret &ldquo;data_bag_key&rdquo;</p>
+
+<p>knife[:berkshelf_path] = &ldquo;cookbooks&rdquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">        
+        うまくいくとインストールされます。
+        
+        ```bash
+Mac ~/vagrant/testvm$ ssh testvm
+[vagrant@localhost ~]$ node -v
+v0.10.33</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    ### まとめ
+
+    明らかに理解不足です。
+
+    つーか、情報が古かったり纏まってなかったりして、けっこうハマりポイントが多いとおもいます。
+
+    わかっちゃえば、な〜んだって事でも、なかなか正解がわからない感じです。
+
+    ただ、vagrantで気軽に仮想環境を作ったり壊したりできるので思い切っていろいろ試せるのはいいですね。</pre></td></tr></table>
+</div>
+</div></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-03-25-vagrant-chef-mac%2f&title=Vagrant%2bchef%28mac%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-03-25-vagrant-chef-mac%2f&text=Vagrant%2bchef%28mac%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-03-25-vagrant-chef-mac%2f&t=Vagrant%2bchef%28mac%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-03-25-vagrant-chef-mac%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-03-25-vagrant-chef-mac%2f&title=Vagrant%2bchef%28mac%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Vagrant%2bchef%28mac%29 %2f2015-03-25-vagrant-chef-mac%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Vagrant&#43;chef(mac)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/mac/">Mac</a></li>
+          
+          <li><a href="/categories/vagrant/">vagrant</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2015-03-20-try-vagrant/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Vagrant(mac)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-20T11:14:38JST">Mar 20, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2015-03-31-version-up-npm/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Mac各種パッケージのバージョンアップ</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-03-31T12:17:53JST">Mar 31, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

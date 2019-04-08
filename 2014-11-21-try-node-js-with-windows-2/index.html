@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2014-11-21-try-node-js-with-windows-2/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>node.jsを使ってみる(Windows) #2 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://socket.io/&#34; target=&#34;_blank&#34;&gt;socket.io&lt;/a&gt;という楽しげなパッケージがあるので、&lt;/p&gt;&lt;p&gt;ためしにチャットツールを作ってみます。&lt;/p&gt;">
+
+<meta property="og:title" content="node.jsを使ってみる(Windows) #2 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2014-11-21-try-node-js-with-windows-2/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://socket.io/&#34; target=&#34;_blank&#34;&gt;socket.io&lt;/a&gt;という楽しげなパッケージがあるので、&lt;/p&gt;&lt;p&gt;ためしにチャットツールを作ってみます。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2014-11-21-try-node-js-with-windows-2/">
+<meta name="twitter:title" content="node.jsを使ってみる(Windows) #2 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;http://socket.io/&#34; target=&#34;_blank&#34;&gt;socket.io&lt;/a&gt;という楽しげなパッケージがあるので、&lt;/p&gt;&lt;p&gt;ためしにチャットツールを作ってみます。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "node.jsを使ってみる(Windows) #2 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2014-11-21T15:26:51JST",
+    "dateModified": "2014-11-21T15:26:51JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p><a href="/posts/2014/2014-11-21-try-node-js-with-windows-1" title="node.jsを使ってみる(Windows)#1" target="_blank">前回</a>に引き続きnode.jsのお勉強です。</p>
+
+<p><a href="http://socket.io/" target="_blank">socket.io</a>という楽しげなパッケージがあるので、</p>
+
+<p>ためしにチャットツールを作ってみます。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-11-21-try-node-js-with-windows-2/CAP000058.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">node.jsを使ってみる(Windows) #2</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-21T15:26:51JST">Nov 21, 2014</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-11-21-try-node-js-with-windows-2%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-11-21-try-node-js-with-windows-2%2f&text=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-11-21-try-node-js-with-windows-2%2f&t=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-11-21-try-node-js-with-windows-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-11-21-try-node-js-with-windows-2%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232 %2f2014-11-21-try-node-js-with-windows-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2014/2014-11-21-try-node-js-with-windows-1" title="node.jsを使ってみる(Windows)#1" target="_blank">前回</a>に引き続きnode.jsのお勉強です。</p>
+
+<p><a href="http://socket.io/" target="_blank">socket.io</a>という楽しげなパッケージがあるので、</p>
+
+<p>ためしにチャットツールを作ってみます。</p>
+
+<h3 id="socket-ioインストール">socket.ioインストール</h3>
+
+<p>D:\nodejs&gt;mkdir chat</p>
+
+<p>D:\nodejs&gt;cd chat</p>
+
+<p>D:\nodejs\chat&gt;npm install socket.io</p>
+
+<p>D:\nodejs\chat&gt;npm install socket.io-client</p>
+
+<p>なんか、結構時間がかかるうえに警告が出まくりました。</p>
+
+<p>大丈夫なんでしょうか。</p>
+
+<h3 id="動作確認">動作確認</h3>
+
+<p>インストールが不安なので、動作確認用の超簡単サーバ・クライアントを作ってみます。</p>
+
+<h4 id="サーバ">サーバ</h4>
+
+<p>なんか繋がってきたら&#8221;someone connect&#8221;を表示します。</p>
+
+<p>コメントが無理がある英語なのは、vimで日本語の入力のやり方がわからないからです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">var http=require(&#39;http&#39;).createServer(handler);
+var io= require(&#39;socket.io&#39;)(http);
+
+// start http server
+http.listen(3333,function(){
+        console.log(&#34;listen 3333&#34;);
+});
+
+// http handler
+function handler(req,res){
+        res.end(&#34;chat server&#34;); //just response simple string
+}
+
+// socket.io connection handler
+io.on(&#34;connection&#34;,function(socket){
+        console.log(&#34;someone connect&#34;); // heartbeat
+});</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="クライアント">クライアント</h4>
+
+<p>とにかく繋げるだけです。</p>
+
+<p>クライアントはブラウザに実装することが多いようですが、今回はとりあえずnode.jsで作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">var client=require(&#39;socket.io-client&#39;)(&#34;http://localhost:3333&#34;);</code></pre></td></tr></table>
+</div>
+</div>
+<p>Node.js command promptを２つ立ち上げ、かたっぽでサーバ、もう一方でクライアントを実行します。</p>
+
+<p>うまくいくと、</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-11-21-try-node-js-with-windows-2/CAP000058.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-11-21-try-node-js-with-windows-2/CAP000058_hu52933a4eff1e98ed36b4928548ef5057_15749_240x0_resize_q75_box.jpg" width="240"
+                height="41" data-original="/2014-11-21-try-node-js-with-windows-2/CAP000058.jpg" />
+    </a>
+
+
+<p>こんな感じに、サーバ側に反応が出ます。</p>
+
+<h3 id="チャットっぽくする">チャットっぽくする</h3>
+
+<p>パッケージの動作確認ができたら、あとはチャットっぽい機能を追加します。</p>
+
+<h4 id="サーバ-1">サーバ</h4>
+
+<ul>
+<li>メッセージを受け付ける</li>
+<li>来たメッセージを接続されてるクライアントにばらまく</li>
+</ul>
+
+<h4 id="クライアント-1">クライアント</h4>
+
+<ul>
+<li>ユーザーからの入力受付</li>
+<li>サーバに送信</li>
+<li>サーバからのメッセージ表示</li>
+</ul>
+
+<p>ができればOKでしょう。</p>
+
+<p>socket.ioでのメッセージの送信はemitでやり、</p>
+
+<p>受信はonハンドラで補足するみたいです。イベント名は自由に設定可能っぽい。</p>
+
+<p>てことでとりあえずチャットっぽくできたのがこちら。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">var http=require(&#39;http&#39;).createServer(handler);
+var io= require(&#39;socket.io&#39;)(http);
+
+// start http server
+http.listen(3333,function(){
+    console.log(&#34;listen 3333&#34;);
+});
+
+// http handler
+function handler(req,res){
+    res.end(&#34;chat server&#34;);     //just response simple string
+}
+
+// socket.io connection handler
+io.on(&#34;connection&#34;,function(socket){
+    console.log(&#34;someone connect&#34;);     // heartbeat
+    ////////////////////////////
+    // properties by socket
+    var userName=&#34;nanashi&#34;;
+
+    //////////////////////////////////////
+    // set socket event handlers
+
+    // start chatting
+    socket.on(&#34;hello&#34;,function(user){
+        userName=user;
+        io.emit(&#34;message&#34;, &#34;New user joined:&#34; + user);
+    });
+
+    // nomal message
+    socket.on(&#34;say&#34;,function(msg){
+        console.log(msg);
+        io.emit(&#34;message&#34;,userName + &#34;:&#34; + msg);
+    });
+
+});</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">var client=require(&#39;socket.io-client&#39;)(&#34;http://localhost:3333&#34;);
+// param
+var userName=process.argv[2];
+if( !userName ){
+    userName=&#34;Nanashi&#34;;
+}
+
+// create user interface
+var ui= require(&#34;readline&#34;).createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+ui.setPrompt(&#34;&gt;&gt;&#34;);
+ui.prompt();
+
+ui.on(&#39;line&#39;,function(line){
+    //console.log(line);
+    //send message
+    client.emit(&#34;say&#34;,line.toString());
+    ui.prompt();
+});
+
+ui.on(&#39;close&#39;,function(){
+    console.log(&#34;bye!&#34;);
+    process.exit(0);
+});
+
+// start chatting
+client.emit(&#34;hello&#34;,userName);
+
+// wait message
+client.on(&#34;message&#34;,function(message){
+    console.log(message.toString());
+    ui.prompt();
+});</code></pre></td></tr></table>
+</div>
+</div>
+<p>サーバ一個とクライアント複数立ち上げればチャット風なことができます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2014-11-21-try-node-js-with-windows-2/CAP000059.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2014-11-21-try-node-js-with-windows-2/CAP000059_hu5b2c90fa46e1b15328b1a5922bd7e79a_49914_240x0_resize_q75_box.jpg" width="240"
+                height="120" data-original="/2014-11-21-try-node-js-with-windows-2/CAP000059.jpg" />
+    </a>
+
+
+<p>意外とはまったのがコンソールからの入力を受けるところ、readlineってのを使うのが楽で良いらしい。</p>
+
+<p>自分的にはrubyよりとっつきやすいです。何に使うかは不明。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2014-11-21-try-node-js-with-windows-2%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2014-11-21-try-node-js-with-windows-2%2f&text=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2014-11-21-try-node-js-with-windows-2%2f&t=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2014-11-21-try-node-js-with-windows-2%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2014-11-21-try-node-js-with-windows-2%2f&title=node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?node.js%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Windows%29%20%232 %2f2014-11-21-try-node-js-with-windows-2%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">node.jsを使ってみる(Windows) #2</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/node.js/">node.js</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2014-11-21-try-node-js-with-windows-1/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2014-11-21-try-node-js-with-windows-1/CAP000052.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">node.jsを使ってみる(Windows)#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-21T04:01:13JST">Nov 21, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2014-11-23-try-node-js-with-mac-3/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">node.jsを使ってみる(Mac) #3</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-11-23T13:42:24JST">Nov 23, 2014</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

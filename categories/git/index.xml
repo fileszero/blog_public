@@ -13,10 +13,10 @@
     
     <item>
       <title>Git ExtentionsでOffice文書の差分表示</title>
-      <link>/posts/2017-04-28-msoffice-document-diff-on-git-ext/</link>
+      <link>/2017-04-28-msoffice-document-diff-on-git-ext/</link>
       <pubDate>Fri, 28 Apr 2017 04:00:40 +0000</pubDate>
       
-      <guid>/posts/2017-04-28-msoffice-document-diff-on-git-ext/</guid>
+      <guid>/2017-04-28-msoffice-document-diff-on-git-ext/</guid>
       <description>&lt;p&gt;windowsでgitするときには&lt;a href=&#34;https://sourceforge.net/projects/gitextensions/&#34; target=&#34;_blank&#34;&gt;Git Extentions&lt;/a&gt;を使っています。&lt;/p&gt;
 
 &lt;p&gt;かなり便利だと思うんですがWord,Excel,PowerPoint等いわゆるバイナリファイルの差分表示ができません。&lt;/p&gt;
@@ -26,11 +26,11 @@
     
     <item>
       <title>wordpressとgitで自動deploy</title>
-      <link>/posts/2017-02-11-auto-deploy-wordpress-and-git/</link>
+      <link>/2017-02-11-auto-deploy-wordpress-and-git/</link>
       <pubDate>Sat, 11 Feb 2017 12:37:26 +0000</pubDate>
       
-      <guid>/posts/2017-02-11-auto-deploy-wordpress-and-git/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
+      <guid>/2017-02-11-auto-deploy-wordpress-and-git/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
 
 &lt;p&gt;いちいち転送ソフト立ち上げるのもめんどくさいし、転送忘れとかもありそうです。&lt;/p&gt;
 
@@ -39,10 +39,10 @@
     
     <item>
       <title>GitHub上のhtmlをページとして公開</title>
-      <link>/posts/2014-12-01-publish-html-on-github/</link>
+      <link>/2014-12-01-publish-html-on-github/</link>
       <pubDate>Mon, 01 Dec 2014 12:25:28 +0000</pubDate>
       
-      <guid>/posts/2014-12-01-publish-html-on-github/</guid>
+      <guid>/2014-12-01-publish-html-on-github/</guid>
       <description>&lt;p&gt;今更ながらGitHub使い始めました。&lt;/p&gt;
 
 &lt;p&gt;コミットが積み重なっていくのって楽しいですよね。&lt;/p&gt;
@@ -58,10 +58,10 @@
     
     <item>
       <title>etckeeperをインストール</title>
-      <link>/posts/2014-10-25-installing-etckeeper/</link>
+      <link>/2014-10-25-installing-etckeeper/</link>
       <pubDate>Sat, 25 Oct 2014 12:32:56 +0000</pubDate>
       
-      <guid>/posts/2014-10-25-installing-etckeeper/</guid>
+      <guid>/2014-10-25-installing-etckeeper/</guid>
       <description>&lt;p&gt;VPSを借りてこのブログを運用しています。&lt;/p&gt;
 
 &lt;p&gt;linux CentOS6です。&lt;/p&gt;
@@ -75,10 +75,10 @@
     
     <item>
       <title>SubversionをGitにする</title>
-      <link>/posts/2014-05-14-svn-git-translate/</link>
+      <link>/2014-05-14-svn-git-translate/</link>
       <pubDate>Wed, 14 May 2014 14:45:05 +0000</pubDate>
       
-      <guid>/posts/2014-05-14-svn-git-translate/</guid>
+      <guid>/2014-05-14-svn-git-translate/</guid>
       <description>作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。
 こちらを参考にさせていただきました。
 Windowsマシンでgit svnを使ってみる
@@ -99,10 +99,10 @@ TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bit
     
     <item>
       <title>Tiny Tiny RSS – Android Clientをビルドしてみる</title>
-      <link>/posts/2013-06-03-buidling-ttrss-android/</link>
+      <link>/2013-06-03-buidling-ttrss-android/</link>
       <pubDate>Mon, 03 Jun 2013 14:45:09 +0000</pubDate>
       
-      <guid>/posts/2013-06-03-buidling-ttrss-android/</guid>
+      <guid>/2013-06-03-buidling-ttrss-android/</guid>
       <description>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。
 APIバージョンを確認→17でOK。
 Google APIsを入れてみる→ダメ。
@@ -117,10 +117,10 @@ Android-ViewPagerIndicator こちらもGitHubで公開されています。
     
     <item>
       <title>gitを使ってみる</title>
-      <link>/posts/2013-05-31-using-git/</link>
+      <link>/2013-05-31-using-git/</link>
       <pubDate>Fri, 31 May 2013 13:37:37 +0000</pubDate>
       
-      <guid>/posts/2013-05-31-using-git/</guid>
+      <guid>/2013-05-31-using-git/</guid>
       <description>gitインストールしたんで使ってみましょう。
 手始めにGitHubからソースをいただいてみます。
 お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。
@@ -133,10 +133,10 @@ Android-ViewPagerIndicator こちらもGitHubで公開されています。
     
     <item>
       <title>gitはじめてみる</title>
-      <link>/posts/2013-05-30-starting-git/</link>
+      <link>/2013-05-30-starting-git/</link>
       <pubDate>Thu, 30 May 2013 14:18:41 +0000</pubDate>
       
-      <guid>/posts/2013-05-30-starting-git/</guid>
+      <guid>/2013-05-30-starting-git/</guid>
       <description>git　みんな使ってますね。みんなって誰だよ。
 こんなサービスもできたりして、盛り上がってますな。
 少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。

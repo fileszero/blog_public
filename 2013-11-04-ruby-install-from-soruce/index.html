@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2013-11-04-ruby-install-from-soruce/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>rubyのインストール（ソースから版) - My New Hugo Site</title>
+    
+
+<meta name="description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。今回はソースからインストールしてみます。さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。という事で、作業はすべて一般ユーザーアカウントで行います。ユーザーhomeにソース展開用のフォルダを作って、rubyのダウンロードページhttps://www.ruby-lang.org/ja/downloads/から最新のソースをゲットして展開します。1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。1 2 3 4 5 6 7 8 9  ruby-2.">
+
+<meta property="og:title" content="rubyのインストール（ソースから版) - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2013-11-04-ruby-install-from-soruce/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。今回はソースからインストールしてみます。さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。という事で、作業はすべて一般ユーザーアカウントで行います。ユーザーhomeにソース展開用のフォルダを作って、rubyのダウンロードページhttps://www.ruby-lang.org/ja/downloads/から最新のソースをゲットして展開します。1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。1 2 3 4 5 6 7 8 9  ruby-2.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2013-11-04-ruby-install-from-soruce/">
+<meta name="twitter:title" content="rubyのインストール（ソースから版) - My New Hugo Site">
+<meta name="twitter:description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。今回はソースからインストールしてみます。さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。という事で、作業はすべて一般ユーザーアカウントで行います。ユーザーhomeにソース展開用のフォルダを作って、rubyのダウンロードページhttps://www.ruby-lang.org/ja/downloads/から最新のソースをゲットして展開します。1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。1 2 3 4 5 6 7 8 9  ruby-2.">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "rubyのインストール（ソースから版) - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-11-04T08:54:57JST",
+    "dateModified": "2013-11-04T08:54:57JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。
+今回はソースからインストールしてみます。
+さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。
+という事で、作業はすべて一般ユーザーアカウントで行います。
+ユーザーhomeにソース展開用のフォルダを作って、
+rubyのダウンロードページ
+https://www.ruby-lang.org/ja/downloads/
+から最新のソースをゲットして展開します。
+1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。
+1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。
+1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。
+1 2 3 4 5 6 7 8 9  ruby-2."
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+  <header class="article-header">
+    <h1 class="title">rubyのインストール（ソースから版)</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-11-04T08:54:57JST">Nov 4, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-11-04-ruby-install-from-soruce%2f&title=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-11-04-ruby-install-from-soruce%2f&text=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-11-04-ruby-install-from-soruce%2f&t=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-11-04-ruby-install-from-soruce%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-11-04-ruby-install-from-soruce%2f&title=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29 %2f2013-11-04-ruby-install-from-soruce%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p><a href="/posts/2013/2013-11-02-installing-ruby" title="rubyのインストール(とりあえずyum版)" target="_blank">前回</a>yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。</p>
+
+<p>今回はソースからインストールしてみます。</p>
+
+<p>さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。</p>
+
+<p>という事で、作業はすべて一般ユーザーアカウントで行います。</p>
+
+<p>ユーザーhomeにソース展開用のフォルダを作って、</p>
+
+<p>rubyのダウンロードページ</p>
+
+<p><a href="https://www.ruby-lang.org/ja/downloads/" target="_blank"><a href="https://www.ruby-lang.org/ja/downloads/" target="_blank">https://www.ruby-lang.org/ja/downloads/</a></a></p>
+
+<p>から最新のソースをゲットして展開します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> ~
+$ mkdir src
+src<span class="o">]</span>$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
+src<span class="o">]</span>$ tar vzxf ruby-2.0.0-p247.tar.gz
+src<span class="o">]</span>$ <span class="nb">cd</span> ruby-2.0.0-p247</code></pre></td></tr></table>
+</div>
+</div>
+<p>インストール先を指定してconfigureします。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ruby-2.0.0-p247<span class="o">]</span>$ ./configure -prefix<span class="o">=</span><span class="nv">$HOME</span>/local
+ruby-2.0.0-p247<span class="o">]</span>$ make
+ruby-2.0.0-p247<span class="o">]</span>$ make install</code></pre></td></tr></table>
+</div>
+</div>
+<p>そすっとこんな感じでインストールされます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ruby-2.0.0-p247<span class="o">]</span>$ ~/local/bin/ruby -v
+ruby <span class="m">2</span>.0.0p247 <span class="o">(</span><span class="m">2013</span>-06-27 revision <span class="m">41674</span><span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ruby-2.0.0-p247<span class="o">]</span>$ which ruby
+/usr/bin/ruby
+ruby-2.0.0-p247<span class="o">]</span>$ vi ~/.bashrc
+
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/local/bin:<span class="nv">$PATH</span>　を追加
+
+ruby-2.0.0-p247<span class="o">]</span>$ <span class="nb">source</span> ~/.bashrc
+ruby-2.0.0-p247<span class="o">]</span>$ which ruby
+~/local/bin/ruby</code></pre></td></tr></table>
+</div>
+</div>
+<p>これでgemとかも一緒にインストールされている様子です。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ruby-2.0.0-p247<span class="o">]</span>$ which gem
+~/local/bin/gem</code></pre></td></tr></table>
+</div>
+</div>
+<p>んで前回失敗したgemのインストールを実行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> ~
+~<span class="o">]</span>$  gem install mechanize
+Fetching: net-http-digest_auth-1.4.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed net-http-digest_auth-1.4
+Fetching: net-http-persistent-2.9.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed net-http-persistent-2.9
+Fetching: mime-types-1.25.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed mime-types-1.25
+Fetching: unf_ext-0.0.6.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Building native extensions.  This could take a <span class="k">while</span>...
+Successfully installed unf_ext-0.0.6
+Fetching: unf-0.1.3.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed unf-0.1.3
+Fetching: domain_name-0.5.14.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed domain_name-0.5.14
+Fetching: http-cookie-1.0.2.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed http-cookie-1.0.2
+Fetching: mini_portile-0.5.2.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed mini_portile-0.5.2
+Fetching: nokogiri-1.6.0.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Building native extensions.  This could take a <span class="k">while</span>...
+Successfully installed nokogiri-1.6.0
+Fetching: ntlm-http-0.1.1.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed ntlm-http-0.1.1
+Fetching: webrobots-0.1.1.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed webrobots-0.1.1
+Fetching: mechanize-2.7.2.gem <span class="o">(</span><span class="m">100</span>%<span class="o">)</span>
+Successfully installed mechanize-2.7.2
+Parsing documentation <span class="k">for</span> net-http-digest_auth-1.4
+Installing ri documentation <span class="k">for</span> net-http-digest_auth-1.4
+Parsing documentation <span class="k">for</span> net-http-persistent-2.9
+Installing ri documentation <span class="k">for</span> net-http-persistent-2.9
+Parsing documentation <span class="k">for</span> mime-types-1.25
+Installing ri documentation <span class="k">for</span> mime-types-1.25
+Parsing documentation <span class="k">for</span> unf_ext-0.0.6
+unable to convert <span class="s2">&#34;\xA8&#34;</span> from ASCII-8BIT to UTF-8 <span class="k">for</span> lib/unf_ext.so, skipping
+Installing ri documentation <span class="k">for</span> unf_ext-0.0.6
+Parsing documentation <span class="k">for</span> unf-0.1.3
+Installing ri documentation <span class="k">for</span> unf-0.1.3
+Parsing documentation <span class="k">for</span> domain_name-0.5.14
+Installing ri documentation <span class="k">for</span> domain_name-0.5.14
+Parsing documentation <span class="k">for</span> http-cookie-1.0.2
+Installing ri documentation <span class="k">for</span> http-cookie-1.0.2
+Parsing documentation <span class="k">for</span> mini_portile-0.5.2
+Installing ri documentation <span class="k">for</span> mini_portile-0.5.2
+Parsing documentation <span class="k">for</span> nokogiri-1.6.0
+unable to convert <span class="s2">&#34;\x81&#34;</span> from ASCII-8BIT to UTF-8 <span class="k">for</span> lib/nokogiri/nokogiri.so, skipping
+Installing ri documentation <span class="k">for</span> nokogiri-1.6.0
+Parsing documentation <span class="k">for</span> ntlm-http-0.1.1
+Installing ri documentation <span class="k">for</span> ntlm-http-0.1.1
+Parsing documentation <span class="k">for</span> webrobots-0.1.1
+Installing ri documentation <span class="k">for</span> webrobots-0.1.1
+Parsing documentation <span class="k">for</span> mechanize-2.7.2
+Installing ri documentation <span class="k">for</span> mechanize-2.7.2
+<span class="m">12</span> gems installed
+ ~<span class="o">]</span>$</code></pre></td></tr></table>
+</div>
+</div>
+<p>なんか色々お仲間になっちゃってるけど、キタコレ。</p>
+
+<p>gemは　~/local/lib/ruby/gems/2.0.0/gems/　に入るみたい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">~<span class="o">]</span>$ ls ~/local/lib/ruby/gems/2.0.0/gems/
+domain_name-0.5.14
+mechanize-2.7.2
+mini_portile-0.5.2
+net-http-persistent-2.9
+ntlm-http-0.1.1
+rdoc-4.0.0
+unf-0.1.3
+webrobots-0.1.1
+http-cookie-1.0.2
+mime-types-1.25
+net-http-digest_auth-1.4
+nokogiri-1.6.0
+rake-0.9.6
+test-unit-2.0.0.0
+unf_ext-0.0.6</code></pre></td></tr></table>
+</div>
+</div></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-11-04-ruby-install-from-soruce%2f&title=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-11-04-ruby-install-from-soruce%2f&text=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-11-04-ruby-install-from-soruce%2f&t=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-11-04-ruby-install-from-soruce%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-11-04-ruby-install-from-soruce%2f&title=ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ruby%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%ef%bc%88%e3%82%bd%e3%83%bc%e3%82%b9%e3%81%8b%e3%82%89%e7%89%88%29 %2f2013-11-04-ruby-install-from-soruce%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">rubyのインストール（ソースから版)</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/ruby/">ruby</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2013-11-02-installing-ruby/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">rubyのインストール(とりあえずyum版)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-11-02T12:53:07JST">Nov 2, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2013-11-28-ban-spam/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">spam対策</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-11-28T02:29:39JST">Nov 28, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2018-08-09-create-ionic-native-plugin/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ionic native plugin - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;ionic用のプラグインを作ってみたくなったんでやってみる。&lt;/p&gt;&lt;p&gt;環境は&lt;/p&gt;&lt;p&gt;Macで&lt;/p&gt;&lt;p&gt;$ ionic &amp;#8211;version&lt;/p&gt;&lt;p&gt;4.0.3&lt;/p&gt;&lt;p&gt;$ cordova &amp;#8211;version&lt;/p&gt;&lt;p&gt;8.0.0&lt;/p&gt;&lt;p&gt;となっております。&lt;/p&gt;">
+
+<meta property="og:title" content="ionic native plugin - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2018-08-09-create-ionic-native-plugin/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;ionic用のプラグインを作ってみたくなったんでやってみる。&lt;/p&gt;&lt;p&gt;環境は&lt;/p&gt;&lt;p&gt;Macで&lt;/p&gt;&lt;p&gt;$ ionic &amp;#8211;version&lt;/p&gt;&lt;p&gt;4.0.3&lt;/p&gt;&lt;p&gt;$ cordova &amp;#8211;version&lt;/p&gt;&lt;p&gt;8.0.0&lt;/p&gt;&lt;p&gt;となっております。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2018-08-09-create-ionic-native-plugin/">
+<meta name="twitter:title" content="ionic native plugin - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;ionic用のプラグインを作ってみたくなったんでやってみる。&lt;/p&gt;&lt;p&gt;環境は&lt;/p&gt;&lt;p&gt;Macで&lt;/p&gt;&lt;p&gt;$ ionic &amp;#8211;version&lt;/p&gt;&lt;p&gt;4.0.3&lt;/p&gt;&lt;p&gt;$ cordova &amp;#8211;version&lt;/p&gt;&lt;p&gt;8.0.0&lt;/p&gt;&lt;p&gt;となっております。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "ionic native plugin - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2018-08-09T07:39:27JST",
+    "dateModified": "2018-08-09T07:39:27JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>ionic用のプラグインを作ってみたくなったんでやってみる。</p>
+
+<p>環境は</p>
+
+<p>Macで</p>
+
+<p>$ ionic &#8211;version</p>
+
+<p>4.0.3</p>
+
+<p>$ cordova &#8211;version</p>
+
+<p>8.0.0</p>
+
+<p>となっております。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">ionic native plugin</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2018-08-09-create-ionic-native-plugin%2f&title=ionic%20native%20plugin" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2018-08-09-create-ionic-native-plugin%2f&text=ionic%20native%20plugin&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2018-08-09-create-ionic-native-plugin%2f&t=ionic%20native%20plugin" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2018-08-09-create-ionic-native-plugin%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2018-08-09-create-ionic-native-plugin%2f&title=ionic%20native%20plugin" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ionic%20native%20plugin %2f2018-08-09-create-ionic-native-plugin%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>ionic用のプラグインを作ってみたくなったんでやってみる。</p>
+
+<p>環境は</p>
+
+<p>Macで</p>
+
+<p>$ ionic &#8211;version</p>
+
+<p>4.0.3</p>
+
+<p>$ cordova &#8211;version</p>
+
+<p>8.0.0</p>
+
+<p>となっております。</p>
+
+<p>３つのプロジェクトを作ります</p>
+
+<ul>
+<li>Cordovaプラグインのプロジェクト</li>
+<li>Cordovaプラグインをionic-native化するプロジェクト</li>
+<li>ionic-native経由でcordovaプラグイン使うionicプロジェクト</li>
+</ul>
+
+<h3 id="cordovaプラグインのプロジェクト">Cordovaプラグインのプロジェクト</h3>
+
+<p><a href="https://cordova.apache.org/docs/en/latest/plugin_ref/plugman.html" rel="noopener" target="_blank">plugman</a>を使います。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src$ npm install -g plugman</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="プロジェクト作成">プロジェクト作成</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#お好みでplug-inのソースを置いとくフォルダ作成。</span>
+Mac ~/src$ mkdir cordova_plugins
+Mac ~/src$ <span class="nb">cd</span> cordova_plugins/
+<span class="c1">#プラグインプロジェクト作成</span>
+Mac ~/src/cordova_plugins$ plugman create --name HelloWorld --plugin_id cordova-plugin-hello-world --plugin_version <span class="m">0</span>.0.1
+<span class="c1">#--nameで指定したフォルダにプロジェクトが作成されるので、移動。</span>
+Mac ~/src/cordova_plugins$ <span class="nb">cd</span> HelloWorld/
+<span class="c1">#ターゲットプラットフォーム追加(今回はandroidのみ)</span>
+Mac ~/src/cordova_plugins/HelloWorld$ plugman platform add --platform_name android</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="package-json作成">package.json作成</h4>
+
+<p>plugman createpackagejson .　で色々聞いてくるので全てそのまま。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/cordova_plugins/HelloWorld$ plugman createpackagejson .
+name: <span class="o">(</span>cordova-plugin-hello-world<span class="o">)</span>
+version: <span class="o">(</span><span class="m">0</span>.0.1<span class="o">)</span>
+description:
+git repository:
+author:
+license: <span class="o">(</span>ISC<span class="o">)</span>
+About to write to /path/to/src/cordova_plugins/HelloWorld/package.json:
+
+<span class="o">{</span>
+  <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;cordova-plugin-hello-world&#34;</span>,
+  <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;0.0.1&#34;</span>,
+  <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;&#34;</span>,
+  <span class="s2">&#34;cordova&#34;</span>: <span class="o">{</span>
+    <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;cordova-plugin-hello-world&#34;</span>,
+    <span class="s2">&#34;platforms&#34;</span>: <span class="o">[</span>
+      <span class="s2">&#34;android&#34;</span>
+    <span class="o">]</span>
+  <span class="o">}</span>,
+  <span class="s2">&#34;keywords&#34;</span>: <span class="o">[</span>
+    <span class="s2">&#34;ecosystem:cordova&#34;</span>,
+    <span class="s2">&#34;cordova-android&#34;</span>
+  <span class="o">]</span>,
+  <span class="s2">&#34;author&#34;</span>: <span class="s2">&#34;&#34;</span>,
+  <span class="s2">&#34;license&#34;</span>: <span class="s2">&#34;ISC&#34;</span>
+<span class="o">}</span>
+
+
+Is this OK? <span class="o">(</span>yes<span class="o">)</span>
+Mac ~/src/cordova_plugins/HelloWorld$</code></pre></td></tr></table>
+</div>
+</div>
+<p>ここまででこんな感じのプロジェクトになってます。</p>
+
+<pre>.
+├── package.json
+├── plugin.xml
+├── src
+│   └── android
+│       └── HelloWorld.java
+└── www
+    └── HelloWorld.js
+
+3 directories, 4 files
+</pre>
+
+<h4 id="helloworld-javaの修正">HelloWorld.javaの修正</h4>
+
+<p>生成されたHelloWorld.javaのpackageが文法違反なので適当に直します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// package cordova-plugin-hello-world;  //こうじゃなくて
+</span><span class="c1"></span><span class="kn">package</span> <span class="nn">cordova.plugin.helloworld</span><span class="o">;</span>      <span class="o">//</span><span class="n">こう</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>これに合わせてplugin.xmlも変更。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&#34;android-package&#34;</span> <span class="na">value=</span><span class="s">&#34;cordova-plugin-hello-world.HelloWorld&#34;</span> <span class="nt">/&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>を</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&#34;android-package&#34;</span> <span class="na">value=</span><span class="s">&#34;cordova.plugin.helloworld.HelloWorld&#34;</span> <span class="nt">/&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>こうする。</p>
+
+<p>本番のパッケージ名はちゃんとしたのつけましょう。</p>
+
+<p>ネイティブコードはこのHelloWorld.javaにガシガシ書いて行くわけですが、今回は生成時に作られたcoolMethodのみで進めます。</p>
+
+<p>この時点でコンパイルできないのが辛い。</p>
+
+<h3 id="cordovaプラグインをionic-native化するプロジェクト">Cordovaプラグインをionic-native化するプロジェクト</h3>
+
+<p>作ったプラグインは素のjavascriptなのでionic(typescript)から使うには何かと不便。</p>
+
+<p>angularのモジュールに仕立ててDI出来るようにします。</p>
+
+<p>native化プロジェクトは<a href="https://github.com/ionic-team/ionic-native" rel="noopener" target="_blank">ionic-native</a>のビルド定義を使います。</p>
+
+<p>cloneして自作プラグイン用のコードを追加して作ります。</p>
+
+<p>プロジェクトフォルダをどこにするか悩むところですが、今回はプラグインのお隣に作成。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ <span class="nb">cd</span> ~/src/cordova_plugins/
+Mac ~/src/cordova_plugins$ git clone https://github.com/ionic-team/ionic-native.git
+Mac ~/src/cordova_plugins$ <span class="nb">cd</span> ionic-native/
+<span class="c1"># 組み込み(?) native pluginを削除しとく</span>
+Mac ~/src/cordova_plugins/ionic-native$ rm -rf src/@ionic-native/plugins/*
+<span class="c1"># npmパッケージをインストール</span> 
+Mac ~/src/cordova_plugins/ionic-native$ npm install</code></pre></td></tr></table>
+</div>
+</div>
+<p>以上でビルド環境ができたので自作プラグイン用のコードを書いていきます。</p>
+
+<h4 id="native-plugin雛形の作成">Native plugin雛形の作成</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/cordova_plugins/ionic-native$ gulp plugin:create -n HelloWorld</code></pre></td></tr></table>
+</div>
+</div>
+<p>そうすると</p>
+
+<p>./src/@ionic-native/plugins/hello-world/index.ts</p>
+
+<p>が作成されるので、これを変更します。</p>
+
+<p>まずは@Pluginデコレーターを書きかえ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="err">@</span><span class="nf">Plugin</span><span class="p">({</span>
+  <span class="nx">pluginName</span><span class="p">:</span> <span class="err">&#39;</span><span class="nx">HelloWorld</span><span class="err">&#39;</span><span class="p">,</span>
+  <span class="c1">// plugin.xml　の &lt;plugin id=&#34;cordova-plugin-hello-world&#34; から
+</span><span class="c1"></span>  <span class="nx">plugin</span><span class="p">:</span> <span class="err">&#39;</span><span class="nx">cordova</span><span class="o">-</span><span class="nx">plugin</span><span class="o">-</span><span class="nx">hello</span><span class="o">-</span><span class="nx">world</span><span class="err">&#39;</span><span class="p">,</span> <span class="c1">// npm package name, example: cordova-plugin-camera
+</span><span class="c1"></span>  <span class="c1">// plugin.xml　の &lt;clobbers target=&#34;cordova.plugins.HelloWorld&#34; /&gt; から
+</span><span class="c1"></span>  <span class="nx">pluginRef</span><span class="p">:</span> <span class="err">&#39;</span><span class="nx">cordova</span><span class="p">.</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">HelloWorld</span><span class="err">&#39;</span><span class="p">,</span> <span class="c1">// the variable reference to call the plugin, example: navigator.geolocation
+</span><span class="c1"></span>  <span class="nx">repo</span><span class="p">:</span> <span class="err">&#39;&#39;</span><span class="p">,</span> <span class="c1">// the github repository URL for the plugin
+</span><span class="c1"></span>  <span class="nx">install</span><span class="p">:</span> <span class="err">&#39;&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL install command, in case the plugin requires variables
+</span><span class="c1"></span>  <span class="nx">installVariables</span><span class="p">:</span> <span class="p">[],</span> <span class="c1">// OPTIONAL the plugin requires variables
+</span><span class="c1"></span>  <span class="c1">// サポートプラットフォーム
+</span><span class="c1"></span>  <span class="nx">platforms</span><span class="p">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="nx">Android</span><span class="err">&#39;</span><span class="p">]</span> <span class="c1">// Array of platforms supported, example: [&#39;Android&#39;, &#39;iOS&#39;]
+</span><span class="c1"></span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>メソッド追加します。Observableな呼び出しにしてみました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">export class HelloWorld extends IonicNativePlugin {
+....
+  @Cordova({
+    observable: true
+  })
+  coolMethod(options: HelloWorldOptions): Observable&lt;any&gt; {
+    return;
+  }
+....</code></pre></td></tr></table>
+</div>
+</div>
+<p>tslintでimportがらみで怒られるので、使用していないimportを外すか、　tslint:disable-next-line:no-unused-variable　します。</p>
+
+<p>んでビルド。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/cordova_plugins/ionic-native$ npm run build</code></pre></td></tr></table>
+</div>
+</div>
+<p>~/src/cordova_plugins/ionic-native/dist/@ionic-native/hello-world/ に色々できてればOK。</p>
+
+<p>まだプラグインのコンパイルはできないっぽい。</p>
+
+<h3 id="ionic-native経由でcordovaプラグイン使うionicプロジェクト">ionic-native経由でcordovaプラグイン使うionicプロジェクト</h3>
+
+<p>普通のionicプロジェクトを作成。</p>
+
+<p>今回はplugin-clientで作成。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ <span class="nb">cd</span> ~/src/cordova_plugins/
+Mac ~/src/cordova_plugins$ ionic start plugin-client sidemenu
+....
+? Integrate your new app with Cordova to target native iOS and Android? Yes <span class="c1">#Yesにする</span>
+....
+? Install the free Ionic Pro SDK and connect your app? No <span class="c1">#Noで</span>
+....
+
+Mac ~/src/cordova_plugins$ <span class="nb">cd</span> ./plugin-client/</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="プラグインとionic-nativeの追加">プラグインとionic-nativeの追加</h4>
+
+<p>先に作ったプラグインとionic-nativeを追加します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># プラグイン</span>
+Mac ~/src/cordova_plugins/plugin-client$ ionic cordova plugin add ../HelloWorld/
+<span class="c1">#ionic native</span>
+Mac ~/src/cordova_plugins/plugin-client$ npm install --save ../ionic-native/dist/<span class="se">\@</span>ionic-native/hello-world</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="使う">使う</h4>
+
+<p>plugin-client/src/app/app.module.tsに登録。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">....
+import { HelloWorld } from &#39;@ionic-native/hello-world&#39;;    // 追加
+....
+@NgModule({
+....
+  providers: [
+....
+    HelloWorld,    // 追加
+....
+  ]
+})
+....</code></pre></td></tr></table>
+</div>
+</div>
+<p>plugin-client/src/pages/home/home.htmlに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;button</span> <span class="err">ion-button</span> <span class="err">(click)=&#34;callPluginTest()&#34;</span><span class="nt">&gt;</span>test<span class="nt">&lt;/button&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>追加。</p>
+
+<p>plugin-client/src/pages/home/home.tsを以下のように変更。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">import { Component } from &#39;@angular/core&#39;;
+import { NavController } from &#39;ionic-angular&#39;;
+import { HelloWorld } from &#39;@ionic-native/hello-world&#39;;    //追加
+
+@Component({
+  selector: &#39;page-home&#39;,
+  templateUrl: &#39;home.html&#39;
+})
+export class HomePage {
+
+  constructor(public navCtrl: NavController, private hw: HelloWorld) { //プラグインをDI
+
+  }
+  callPluginTest() {    //追加
+    this.hw.coolMethod(&#34;cool!!&#34;).subscribe(   // これが呼び出し！
+      (result) =&gt; { alert(result); }
+    );
+  }
+}</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="実行">実行！</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/src/cordova_plugins/plugin-client$ ionic cordova emulate android --livereload</code></pre></td></tr></table>
+</div>
+</div>
+<p>ここではじめてコンパイルが走ります。</p>
+
+<p>うまくいったら動きます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2018-08-09-create-ionic-native-plugin/Screenshot_1533798924.png">
+            <img style="max-width: 100%; height: auto;" src="/2018-08-09-create-ionic-native-plugin/Screenshot_1533798924_hu5cae4367a021640263c1ae581f39cf9d_45497_240x0_resize_box_2.png" width="240"
+                height="400" data-original="/2018-08-09-create-ionic-native-plugin/Screenshot_1533798924.png" />
+    </a>
+
+
+<h3 id="で">で</h3>
+
+<p>手順は簡単だけど知らないとできないのがちょっとイヤ。</p>
+
+<p>デバッグとか修正後の再コンパイルとかどうすんすかね？</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2018-08-09-create-ionic-native-plugin%2f&title=ionic%20native%20plugin" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2018-08-09-create-ionic-native-plugin%2f&text=ionic%20native%20plugin&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2018-08-09-create-ionic-native-plugin%2f&t=ionic%20native%20plugin" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2018-08-09-create-ionic-native-plugin%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2018-08-09-create-ionic-native-plugin%2f&title=ionic%20native%20plugin" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?ionic%20native%20plugin %2f2018-08-09-create-ionic-native-plugin%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ionic native plugin</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/cordova/">cordova</a></li>
+          
+          <li><a href="/categories/ionic/">ionic</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2018-07-12-typescript-my-local-library/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Typescriptで自分用のローカルなライブラリを作る</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-12T08:46:41JST">Jul 12, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

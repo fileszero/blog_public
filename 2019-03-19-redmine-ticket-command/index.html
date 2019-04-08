@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2019-03-19-redmine-ticket-command/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Redmineでチケットに応じたコマンドを表示 - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;タイトル何言ってるかわかりませんか、そーですか。&lt;/p&gt;&lt;p&gt;運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。&lt;/p&gt;&lt;p&gt;んで、チケット毎にブランチをきったりフォルダを作ったりするんですが、&lt;/p&gt;&lt;p&gt;名前規則を、_日付&lt;strong&gt;&lt;em&gt;チケット番号&lt;/em&gt;&lt;/strong&gt;内容_みたいにしてます。&lt;/p&gt;&lt;p&gt;いちいち手打ちだと面倒なんで、チケット画面からコピペでコマンド打てると楽だなってことです。&lt;/p&gt;&lt;p&gt;わかりませんね。&lt;/p&gt;&lt;p&gt;画面はこんな感じ。&lt;/p&gt;                                            &lt;a class=&#34;luminous&#34; href=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;                height=&#34;201&#34; data-original=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34; /&gt;    &lt;/a&gt;">
+
+<meta property="og:title" content="Redmineでチケットに応じたコマンドを表示 - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2019-03-19-redmine-ticket-command/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;タイトル何言ってるかわかりませんか、そーですか。&lt;/p&gt;&lt;p&gt;運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。&lt;/p&gt;&lt;p&gt;んで、チケット毎にブランチをきったりフォルダを作ったりするんですが、&lt;/p&gt;&lt;p&gt;名前規則を、_日付&lt;strong&gt;&lt;em&gt;チケット番号&lt;/em&gt;&lt;/strong&gt;内容_みたいにしてます。&lt;/p&gt;&lt;p&gt;いちいち手打ちだと面倒なんで、チケット画面からコピペでコマンド打てると楽だなってことです。&lt;/p&gt;&lt;p&gt;わかりませんね。&lt;/p&gt;&lt;p&gt;画面はこんな感じ。&lt;/p&gt;                                            &lt;a class=&#34;luminous&#34; href=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;                height=&#34;201&#34; data-original=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34; /&gt;    &lt;/a&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2019-03-19-redmine-ticket-command/">
+<meta name="twitter:title" content="Redmineでチケットに応じたコマンドを表示 - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;タイトル何言ってるかわかりませんか、そーですか。&lt;/p&gt;&lt;p&gt;運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。&lt;/p&gt;&lt;p&gt;んで、チケット毎にブランチをきったりフォルダを作ったりするんですが、&lt;/p&gt;&lt;p&gt;名前規則を、_日付&lt;strong&gt;&lt;em&gt;チケット番号&lt;/em&gt;&lt;/strong&gt;内容_みたいにしてます。&lt;/p&gt;&lt;p&gt;いちいち手打ちだと面倒なんで、チケット画面からコピペでコマンド打てると楽だなってことです。&lt;/p&gt;&lt;p&gt;わかりませんね。&lt;/p&gt;&lt;p&gt;画面はこんな感じ。&lt;/p&gt;                                            &lt;a class=&#34;luminous&#34; href=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34;&gt;            &lt;img style=&#34;max-width: 100%; height: auto;&#34; src=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png&#34; width=&#34;240&#34;                height=&#34;201&#34; data-original=&#34;/2019-03-19-redmine-ticket-command/20190319_rmcommand.png&#34; /&gt;    &lt;/a&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Redmineでチケットに応じたコマンドを表示 - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2019-03-19T00:50:34JST",
+    "dateModified": "2019-03-19T00:50:34JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>タイトル何言ってるかわかりませんか、そーですか。</p>
+
+<p>運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。</p>
+
+<p>んで、チケット毎にブランチをきったりフォルダを作ったりするんですが、</p>
+
+<p>名前規則を、_日付<strong><em>チケット番号</em></strong>内容_みたいにしてます。</p>
+
+<p>いちいち手打ちだと面倒なんで、チケット画面からコピペでコマンド打てると楽だなってことです。</p>
+
+<p>わかりませんね。</p>
+
+<p>画面はこんな感じ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-03-19-redmine-ticket-command/20190319_rmcommand.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png" width="240"
+                height="201" data-original="/2019-03-19-redmine-ticket-command/20190319_rmcommand.png" />
+    </a>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Redmineでチケットに応じたコマンドを表示</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2019-03-19-redmine-ticket-command%2f&title=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2019-03-19-redmine-ticket-command%2f&text=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2019-03-19-redmine-ticket-command%2f&t=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2019-03-19-redmine-ticket-command%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2019-03-19-redmine-ticket-command%2f&title=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba %2f2019-03-19-redmine-ticket-command%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>タイトル何言ってるかわかりませんか、そーですか。</p>
+
+<p>運用作業なんかの記録をRedmineで管理してて、作業に伴ってできるファイルなんかはgitで管理したりしてます。</p>
+
+<p>んで、チケット毎にブランチをきったりフォルダを作ったりするんですが、</p>
+
+<p>名前規則を、_日付<strong><em>チケット番号</em></strong>内容_みたいにしてます。</p>
+
+<p>いちいち手打ちだと面倒なんで、チケット画面からコピペでコマンド打てると楽だなってことです。</p>
+
+<p>わかりませんね。</p>
+
+<p>画面はこんな感じ。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-03-19-redmine-ticket-command/20190319_rmcommand.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-03-19-redmine-ticket-command/20190319_rmcommand_hu2b321218abc2f0e85a4cb0713ea8fb61_38144_240x0_resize_box_2.png" width="240"
+                height="201" data-original="/2019-03-19-redmine-ticket-command/20190319_rmcommand.png" />
+    </a>
+
+
+<h3 id="下準備">下準備</h3>
+
+<p>管理者権限が必要です。</p>
+
+<h4 id="プラグイン">プラグイン</h4>
+
+<p>必要なプラグインは</p>
+
+<p><a href="https://github.com/onozaty/redmine-view-customize" rel="noopener noreferrer" target="_blank">View Customize plugin</a></p>
+
+<h4 id="api有効化">API有効化</h4>
+
+<p><a href="http://redmine.jp/glossary/r/rest-api/" rel="noopener noreferrer" target="_blank">REST APIを有効</a>にしておきます。</p>
+
+<h3 id="表示のカスタマイズ">表示のカスタマイズ</h3>
+
+<p>[管理]→[表示のカスタマイズ]で、<a href="https://github.com/onozaty/redmine-view-customize" rel="noopener noreferrer" target="_blank">View Customize plugin</a>の設定画面を開きます。</p>
+
+<p>[新しい表示のカスタマイズ]で、カスタマイズを作成します。</p>
+
+<p>パスのパターン: /issues/[0-9]+</p>
+
+<p>挿入位置: チケット詳細の下</p>
+
+<p>種別: JavaScript</p>
+
+<p>コードは</p>
+
+<script src="https://gist.github.com/fileszero/333582464ef357282f19a5edfb74e4b3.js?filename=showCmdOfIssue.js"></script>
+  
+
+<p>こんな感じ。</p>
+
+<p>commands周辺をお好みで変更します。</p>
+
+<p>REST callを２段階でやってるので、コマンド表示まで若干のタイムラグがあったりなかったりします。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p><a href="https://github.com/onozaty/redmine-view-customize" rel="noopener noreferrer" target="_blank">View Customize plugin</a>超便利。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2019-03-19-redmine-ticket-command%2f&title=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2019-03-19-redmine-ticket-command%2f&text=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2019-03-19-redmine-ticket-command%2f&t=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2019-03-19-redmine-ticket-command%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2019-03-19-redmine-ticket-command%2f&title=Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Redmine%e3%81%a7%e3%83%81%e3%82%b1%e3%83%83%e3%83%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%82%92%e8%a1%a8%e7%a4%ba %2f2019-03-19-redmine-ticket-command%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Redmineでチケットに応じたコマンドを表示</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/alminium/">ALMinium</a></li>
+          
+          <li><a href="/categories/redmine/">redmine</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

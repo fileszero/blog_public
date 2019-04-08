@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2013-05-30-starting-git/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>gitはじめてみる - My New Hugo Site</title>
+    
+
+<meta name="description" content="git　みんな使ってますね。みんなって誰だよ。こんなサービスもできたりして、盛り上がってますな。少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。linuxから出たツールですがwindowsでもいけるようです。windowsだったらGit Extensionsいれときゃ間違いないのではないでしょうか。よく知らんけど。Download latest version:のmsiをダウンロードして、実行。Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。 ほかはdefaultでいいと思われます。まず、Kdiff2のインストールが始まりますんでなにも考えずにすべてdefaultでインスコ。引き続いてmsysgit。好みですけどexplorer統合はsimpleにしときました。 PATHは素のコマンドプロンプトでも使えるようにします。 ほかはデフォで。そしたらすたーとめにゅーからGit Extensionsを起動！言語を選んで、グローバル設定のユーザー名とメアドをセットしときます。コマンドプロンプト開いて1 2  R:\&amp;gt;git version git version 1.8.1.msysgit.1   とか出れば良いんじゃないでしょうか。ワインうめー。ねる。">
+
+<meta property="og:title" content="gitはじめてみる - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2013-05-30-starting-git/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="git　みんな使ってますね。みんなって誰だよ。こんなサービスもできたりして、盛り上がってますな。少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。linuxから出たツールですがwindowsでもいけるようです。windowsだったらGit Extensionsいれときゃ間違いないのではないでしょうか。よく知らんけど。Download latest version:のmsiをダウンロードして、実行。Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。 ほかはdefaultでいいと思われます。まず、Kdiff2のインストールが始まりますんでなにも考えずにすべてdefaultでインスコ。引き続いてmsysgit。好みですけどexplorer統合はsimpleにしときました。 PATHは素のコマンドプロンプトでも使えるようにします。 ほかはデフォで。そしたらすたーとめにゅーからGit Extensionsを起動！言語を選んで、グローバル設定のユーザー名とメアドをセットしときます。コマンドプロンプト開いて1 2  R:\&amp;gt;git version git version 1.8.1.msysgit.1   とか出れば良いんじゃないでしょうか。ワインうめー。ねる。">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2013-05-30-starting-git/">
+<meta name="twitter:title" content="gitはじめてみる - My New Hugo Site">
+<meta name="twitter:description" content="git　みんな使ってますね。みんなって誰だよ。こんなサービスもできたりして、盛り上がってますな。少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。linuxから出たツールですがwindowsでもいけるようです。windowsだったらGit Extensionsいれときゃ間違いないのではないでしょうか。よく知らんけど。Download latest version:のmsiをダウンロードして、実行。Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。 ほかはdefaultでいいと思われます。まず、Kdiff2のインストールが始まりますんでなにも考えずにすべてdefaultでインスコ。引き続いてmsysgit。好みですけどexplorer統合はsimpleにしときました。 PATHは素のコマンドプロンプトでも使えるようにします。 ほかはデフォで。そしたらすたーとめにゅーからGit Extensionsを起動！言語を選んで、グローバル設定のユーザー名とメアドをセットしときます。コマンドプロンプト開いて1 2  R:\&amp;gt;git version git version 1.8.1.msysgit.1   とか出れば良いんじゃないでしょうか。ワインうめー。ねる。">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "gitはじめてみる - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2013-05-30T14:18:41JST",
+    "dateModified": "2013-05-30T14:18:41JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "git　みんな使ってますね。みんなって誰だよ。
+こんなサービスもできたりして、盛り上がってますな。
+少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。
+linuxから出たツールですがwindowsでもいけるようです。
+windowsだったらGit Extensionsいれときゃ間違いないのではないでしょうか。よく知らんけど。
+Download latest version:のmsiをダウンロードして、実行。
+Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。
+ ほかはdefaultでいいと思われます。
+まず、Kdiff2のインストールが始まりますんでなにも考えずにすべてdefaultでインスコ。
+引き続いてmsysgit。
+好みですけどexplorer統合はsimpleにしときました。
+ PATHは素のコマンドプロンプトでも使えるようにします。
+ ほかはデフォで。
+そしたらすたーとめにゅーからGit Extensionsを起動！
+言語を選んで、グローバル設定のユーザー名とメアドをセットしときます。
+コマンドプロンプト開いて
+1 2  R:\&gt;git version git version 1.8.1.msysgit.1   とか出れば良いんじゃないでしょうか。
+ワインうめー。ねる。"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-30-starting-git/WS000066s.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">gitはじめてみる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-30T14:18:41JST">May 30, 2013</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-30-starting-git%2f&title=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-30-starting-git%2f&text=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-30-starting-git%2f&t=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-30-starting-git%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-30-starting-git%2f&title=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b %2f2013-05-30-starting-git%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>git　みんな使ってますね。みんなって誰だよ。</p>
+
+<p><a href="http://www.codebreak.com/" target="_blank">こんなサービス</a>もできたりして、盛り上がってますな。</p>
+
+<p>少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。</p>
+
+<p>linuxから出たツールですがwindowsでもいけるようです。</p>
+
+<p>windowsだったら<a href="https://code.google.com/p/gitextensions/" target="_blank">Git Extensions</a>いれときゃ間違いないのではないでしょうか。よく知らんけど。</p>
+
+<p>Download latest version:のmsiをダウンロードして、実行。</p>
+
+<p>Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-30-starting-git/WS000066s.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-30-starting-git/WS000066s_hu85c89ccf00c4bf836e12b188fd1a6352_63800_240x0_resize_q75_box.jpg" width="240"
+                height="187" data-original="/2013-05-30-starting-git/WS000066s.jpg" />
+    </a>
+
+
+<p>ほかはdefaultでいいと思われます。</p>
+
+<p>まず、Kdiff2のインストールが始まりますんでなにも考えずにすべてdefaultでインスコ。</p>
+
+<p>引き続いてmsysgit。</p>
+
+<p>好みですけどexplorer統合はsimpleにしときました。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-30-starting-git/WS000067.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-30-starting-git/WS000067_hu34590e92466e25e17e8b9988c4998a5b_62004_240x0_resize_q75_box.jpg" width="240"
+                height="185" data-original="/2013-05-30-starting-git/WS000067.jpg" />
+    </a>
+
+
+<p>PATHは素のコマンドプロンプトでも使えるようにします。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2013-05-30-starting-git/WS000068.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2013-05-30-starting-git/WS000068_hu55fe604ac5cd2b72f667a25df24d6da5_66386_240x0_resize_q75_box.jpg" width="240"
+                height="185" data-original="/2013-05-30-starting-git/WS000068.jpg" />
+    </a>
+
+
+<p>ほかはデフォで。</p>
+
+<p>そしたらすたーとめにゅーからGit Extensionsを起動！</p>
+
+<p>言語を選んで、グローバル設定のユーザー名とメアドをセットしときます。</p>
+
+<p>コマンドプロンプト開いて</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">R:\&gt;git version
+git version 1.8.1.msysgit.1</code></pre></td></tr></table>
+</div>
+</div>
+<p>とか出れば良いんじゃないでしょうか。</p>
+
+<p>ワインうめー。ねる。</p>
+</div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2013-05-30-starting-git%2f&title=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2013-05-30-starting-git%2f&text=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2013-05-30-starting-git%2f&t=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2013-05-30-starting-git%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2013-05-30-starting-git%2f&title=git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?git%e3%81%af%e3%81%98%e3%82%81%e3%81%a6%e3%81%bf%e3%82%8b %2f2013-05-30-starting-git%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">gitはじめてみる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/git/">git</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2013-05-28-pageinit-dose-not-fire/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">jQuery Mobileのpageinitが発火しない</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-28T13:02:51JST">May 28, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2013-05-31-using-git/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2013-05-31-using-git/WS000070.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">gitを使ってみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-05-31T13:37:37JST">May 31, 2013</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+

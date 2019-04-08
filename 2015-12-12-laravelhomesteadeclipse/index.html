@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+<link rel="apple-touch-icon" href="/images/logo.png">
+
+
+<link rel="canonical" href="/2015-12-12-laravelhomesteadeclipse/">
+
+
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Laravel&#43;Homestead&#43;XDebug&#43;Eclipse - My New Hugo Site</title>
+    
+
+<meta name="description" content="&lt;p&gt;Laravelちょっと&lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart.html&#34; target=&#34;_blank&#34;&gt;チュートリアル&lt;/a&gt;的なことをやってみましたが、良い感じです。&lt;/p&gt;&lt;p&gt;開発環境の設定で若干試行錯誤があったので、メモしときます。&lt;/p&gt;">
+
+<meta property="og:title" content="Laravel&#43;Homestead&#43;XDebug&#43;Eclipse - My New Hugo Site">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2015-12-12-laravelhomesteadeclipse/">
+<meta property="og:image" content="/images/default.png">
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:description" content="&lt;p&gt;Laravelちょっと&lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart.html&#34; target=&#34;_blank&#34;&gt;チュートリアル&lt;/a&gt;的なことをやってみましたが、良い感じです。&lt;/p&gt;&lt;p&gt;開発環境の設定で若干試行錯誤があったので、メモしときます。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="My New Hugo Site">
+<meta name="twitter:url" content="/2015-12-12-laravelhomesteadeclipse/">
+<meta name="twitter:title" content="Laravel&#43;Homestead&#43;XDebug&#43;Eclipse - My New Hugo Site">
+<meta name="twitter:description" content="&lt;p&gt;Laravelちょっと&lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart.html&#34; target=&#34;_blank&#34;&gt;チュートリアル&lt;/a&gt;的なことをやってみましたが、良い感じです。&lt;/p&gt;&lt;p&gt;開発環境の設定で若干試行錯誤があったので、メモしときます。&lt;/p&gt;">
+<meta name="twitter:image" content="/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"/"
+    },
+    "headline": "Laravel&#43;Homestead&#43;XDebug&#43;Eclipse - My New Hugo Site",
+    "image": {
+      "@type": "ImageObject",
+      "url": "/images/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2015-12-12T12:04:26JST",
+    "dateModified": "2015-12-12T12:04:26JST",
+    "author": {
+      "@type": "Person",
+      "name": "My New Hugo Site"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "<p>Laravelちょっと<a href="http://readouble.com/laravel/5/1/ja/quickstart.html" target="_blank">チュートリアル</a>的なことをやってみましたが、良い感じです。</p>
+
+<p>開発環境の設定で若干試行錯誤があったので、メモしときます。</p>"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="/">My New Hugo Site</a>
+        </div>
+        
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2015-12-12-laravelhomesteadeclipse/SS.jpg)"></div>
+
+  <header class="article-header">
+    <h1 class="title">Laravel&#43;Homestead&#43;XDebug&#43;Eclipse</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-12-12T12:04:26JST">Dec 12, 2015</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-12-12-laravelhomesteadeclipse%2f&title=Laravel%2bHomestead%2bXDebug%2bEclipse" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-12-12-laravelhomesteadeclipse%2f&text=Laravel%2bHomestead%2bXDebug%2bEclipse&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-12-12-laravelhomesteadeclipse%2f&t=Laravel%2bHomestead%2bXDebug%2bEclipse" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-12-12-laravelhomesteadeclipse%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-12-12-laravelhomesteadeclipse%2f&title=Laravel%2bHomestead%2bXDebug%2bEclipse" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Laravel%2bHomestead%2bXDebug%2bEclipse %2f2015-12-12-laravelhomesteadeclipse%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>Laravelちょっと<a href="http://readouble.com/laravel/5/1/ja/quickstart.html" target="_blank">チュートリアル</a>的なことをやってみましたが、良い感じです。</p>
+
+<p>開発環境の設定で若干試行錯誤があったので、メモしときます。</p>
+
+<h3 id="homestead">Homestead</h3>
+
+<p>まずはBoxの用意。(vagrantはインストール済み)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant$ vagrant box add laravel/homestead</code></pre></td></tr></table>
+</div>
+</div>
+<p>vm用のフォルダを用意して、その中で<a href="http://laravel.com/docs/5.1/homestead#per-project-installation" target="_blank">プロジェクト毎用のhomestead</a>を作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant$ mkdir homestead
+Mac ~/vagrant$ <span class="nb">cd</span> homestead/
+Mac ~/vagrant/homestead$ composer require laravel/homestead --dev
+Mac ~/vagrant/homestead$ php vendor/bin/homestead make
+ <span class="c1">#windowsでは &gt; vendor\bin\homestead make</span>
+Mac ~/vagrant/homestead$ vagrant up
+<span class="c1">#起動確認</span>
+Mac ~/vagrant/homestead$ vagrant ssh
+Welcome to Ubuntu <span class="m">14</span>.04.3 LTS <span class="o">(</span>GNU/Linux <span class="m">3</span>.19.0-25-generic x86_64<span class="o">)</span>
+
+ * Documentation:  https://help.ubuntu.com/
+vagrant@homestead:~$ uname -a
+Linux homestead <span class="m">3</span>.19.0-25-generic <span class="c1">#26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux</span>
+vagrant@homestead:~$ ls ~/homestead/
+composer.json  composer.lock  Homestead.yaml  Vagrantfile  vendor</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="hosts編集">hosts編集</h4>
+
+<p>hostsを編集しときます。後にプロジェクトを追加する際にもレコードを追加するので、動作確認しときます。</p>
+
+<p>/etc/hostsか%SYSTEMROOT%\System32\drivers\etc\hosts　に</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">192.168.10.10  homestead.app</code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加。sshなりputtyなりで、接続してみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant/homestead$ ssh vagrant@homestead.app</code></pre></td></tr></table>
+</div>
+</div>
+<p>hostsの編集って障害時の最終手段的な感じがして後ろめたい感じします。</p>
+
+<h3 id="複数プロジェクトのホスティング">複数プロジェクトのホスティング</h3>
+
+<p>1つのHomesteadで複数のプロジェクトをホストします。</p>
+
+<h4 id="プロジェクト作成">プロジェクト作成</h4>
+
+<p>デモ用に２つのプロジェクト(app1,app2)を作ってhomesteadに登録してみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~$ <span class="nb">cd</span> ~/src/            <span class="c1">#作業はhomesteadとは別のフォルダで</span>
+Mac ~/src$ composer create-project laravel/laravel app1 --prefer-dist
+Mac ~/src$ composer create-project laravel/laravel app2 --prefer-dist</code></pre></td></tr></table>
+</div>
+</div>
+<p>各プロジェクトの .env ファイルの <strong>DB_DATABASE をそれぞれapp1,app2に書き換え</strong>ときます。(←忘れがち)</p>
+
+<h4 id="homestead-yaml">Homestead.yaml</h4>
+
+<p>ここが今回の肝です。</p>
+
+<p>Homestead.yamlのfolders,sites,databasesに各プロジェクト用の設定を追加します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">folders:
+    - map: &#34;/Users/cozy/vagrant/homestead&#34;
+      to: &#34;/home/vagrant/homestead&#34;
+
+    - map: &#34;/Users/cozy/src/app1&#34;
+      to: &#34;/home/vagrant/projects/app1&#34;
+
+    - map: &#34;/Users/cozy/src/app2&#34;
+      to: &#34;/home/vagrant/projects/app2&#34;
+
+sites:
+    - map: homestead.app
+      to: &#34;/home/vagrant/homestead/public&#34;
+
+    - map: app1.homestead.app
+      to: &#34;/home/vagrant/projects/app1/public&#34;
+
+    - map: app2.homestead.app
+      to: &#34;/home/vagrant/projects/app2/public&#34;
+
+databases:
+    - homestead
+    - app1
+    - app2</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="hosts">hosts</h4>
+
+<p>hostsにプロジェクトごとのサイトを登録します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">192.168.10.10  app1.homestead.app
+192.168.10.10  app2.homestead.app</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="provision">provision</h4>
+
+<p>そしたらhomesteadのフォルダでprovisionして動作確認</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Mac ~/vagrant/homestead$ vagrant reload --provision
+Mac ~/vagrant/homestead$ vagrant ssh
+vagrant@homestead:~$ ls ~/projects
+app1  app2
+vagrant@homestead:~$ mysql -uhomestead -psecret -e <span class="s2">&#34;show databases;&#34;</span>
+mysql: <span class="o">[</span>Warning<span class="o">]</span> Using a password on the <span class="nb">command</span> line interface can be insecure.
++--------------------+
+<span class="p">|</span> Database           <span class="p">|</span>
++--------------------+
+<span class="p">|</span> information_schema <span class="p">|</span>
+<span class="p">|</span> app1               <span class="p">|</span>
+<span class="p">|</span> app2               <span class="p">|</span>
+<span class="p">|</span> homestead          <span class="p">|</span>
+<span class="p">|</span> mysql              <span class="p">|</span>
+<span class="p">|</span> performance_schema <span class="p">|</span>
+<span class="p">|</span> sys                <span class="p">|</span>
++--------------------+
+vagrant@homestead:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>ブラウザで<a href="http://app1.homestead.app/" target="_blank"><a href="http://app1.homestead.app/" target="_blank">http://app1.homestead.app/</a></a>、<a href="http://app2.homestead.app/" target="_blank"><a href="http://app2.homestead.app/" target="_blank">http://app2.homestead.app/</a></a>にアクセスするとなんか表示されるはずです。</p>
+
+<h4 id="gitignore">.gitignore</h4>
+
+<p>今んとこシンプルに</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">/vendor
+/.vagrant</code></pre></td></tr></table>
+</div>
+</div>
+<p>だけです。</p>
+
+<p>Homestead.yamlがべったり環境依存になるので無視するかどうか悩むところですが、</p>
+
+<p>まぁ共有したりしないですし、バージョン管理しといた方が無難でかと。</p>
+
+<h3 id="eclipse">Eclipse</h3>
+
+<p>当初Sublimeで書いてたんですが、どうもSublimeのXDebugClientがうまく動いてくれません。</p>
+
+<p>てことでEclipseで環境を作ってみます。</p>
+
+<p><a href="http://www.eclipse.org/downloads/packages/eclipse-php-developers/mars1" target="_blank">Eclipse for PHP Developers</a>を使用します。</p>
+
+<p>バージョンはMARS1でした。しばらく見ないうちにだいぶバージョンが進んだようですな。</p>
+
+<h4 id="既存のプロジェクトを追加">既存のプロジェクトを追加</h4>
+
+<p>eclipseにlaravelプロジェクトを追加しときます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-12-12-laravelhomesteadeclipse/SS.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-12-12-laravelhomesteadeclipse/SS_hu2a1927aa31c8cd3f96cce7e92e6162a3_197895_240x0_resize_q75_box.jpg" width="240"
+                height="282" data-original="/2015-12-12-laravelhomesteadeclipse/SS.jpg" />
+    </a>
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-11-23.52.03.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-11-23.52.03_hu2a1927aa31c8cd3f96cce7e92e6162a3_70837_240x0_resize_q75_box.jpg" width="240"
+                height="360" data-original="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-11-23.52.03.jpg" />
+    </a>
+
+
+<h4 id="laravel-5-ide-helper-generator">Laravel 5 IDE Helper Generator</h4>
+
+<p>補完とかできるようになるヘルパーらしいです。</p>
+
+<p>プロジェクトフォルダ(.envがあるところ)で</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ composer require barryvdh/laravel-ide-helper</code></pre></td></tr></table>
+</div>
+</div>
+<p>config/app.phpのproviders配列に</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,</code></pre></td></tr></table>
+</div>
+</div>
+<p>を追加。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ php artisan ide-helper:generate</code></pre></td></tr></table>
+</div>
+</div>
+<p>Please configure your database connection correctly, or use the sqlite memory driver (-M). みたいなエラーがでたらMオプションをつけて実行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ php artisan ide-helper:generate -M</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="xdebug">XDebug</h3>
+
+<h4 id="eclipseの設定">eclipseの設定</h4>
+
+<p>メニューから</p>
+
+<p>Run-&gt;Debug Configurations&#8230;-&gt;PHP Web Application-&gt;右クリック-&gt;New</p>
+
+<p>PHP Server-&gt;New</p>
+
+<p>Server Name:好きな名前</p>
+
+<p>base url: <a href="http://app1.homestead.app" target="_blank">http://app1.homestead.app</a> (hostsに追加したアドレス)</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.18.20.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.18.20_hu2a1927aa31c8cd3f96cce7e92e6162a3_91627_240x0_resize_q75_box.jpg" width="240"
+                height="222" data-original="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.18.20.jpg" />
+    </a>
+
+
+<p>Debugger: XDebug</p>
+
+<p>Port:9000</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.18.47.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.18.47_hu2a1927aa31c8cd3f96cce7e92e6162a3_100741_240x0_resize_q75_box.jpg" width="240"
+                height="222" data-original="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.18.47.jpg" />
+    </a>
+
+
+<p>Path Mappingは空で</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.19.05.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.19.05_hu2a1927aa31c8cd3f96cce7e92e6162a3_85038_240x0_resize_q75_box.jpg" width="240"
+                height="222" data-original="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.19.05.jpg" />
+    </a>
+
+
+<p>File-&gt;Browseでプロジェクトのpublic/index.phpを選択</p>
+
+<p>URLはAuto Generateは無しにして、パス部分はブランクにします。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.36.42.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.36.42_hu2a1927aa31c8cd3f96cce7e92e6162a3_189019_240x0_resize_q75_box.jpg" width="240"
+                height="192" data-original="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.36.42.jpg" />
+    </a>
+
+
+<p>これでデバッグするとブレークや変数Watchができてくれるはずです。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.53.11.jpg">
+            <img style="max-width: 100%; height: auto;" src="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.53.11_hu2a1927aa31c8cd3f96cce7e92e6162a3_291659_240x0_resize_q75_box.jpg" width="240"
+                height="213" data-original="/2015-12-12-laravelhomesteadeclipse/SS-2015-12-12-14.53.11.jpg" />
+    </a>
+
+
+<h4 id="windowsでxdebug動かないんですけど-8230">windowsでxdebug動かないんですけど&#8230;</h4>
+
+<p>Macでは上記の設定でうまくいったんですが、WindowsではHomestead側の設定をいじってやる必要がありました。</p>
+
+<p>homesteadにログインして20-xdebug.iniを編集して、php5-fpmを再起動します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@homestead:~$ sudo vim /etc/php5/cli/conf.d/20-xdebug.ini
+vagrant@homestead:~$ cat /etc/php5/cli/conf.d/20-xdebug.ini
+<span class="nv">zend_extension</span><span class="o">=</span>xdebug.so
+xdebug.remote_enable <span class="o">=</span> <span class="m">1</span>
+<span class="p">;</span>xdebug.remote_connect_back <span class="o">=</span> <span class="m">1</span>  <span class="p">;</span>0に変更
+xdebug.remote_connect_back <span class="o">=</span> <span class="m">0</span>
+xdebug.remote_port <span class="o">=</span> <span class="m">9000</span>
+xdebug.max_nesting_level <span class="o">=</span> <span class="m">512</span>
+<span class="p">;</span>追加
+xdebug.remote_host<span class="o">=</span><span class="m">10</span>.0.2.2
+xdebug.remote_log<span class="o">=</span><span class="s2">&#34;/tmp/xdebug.log&#34;</span>
+
+vagrant@homestead:~$ sudo service php5-fpm restart   <span class="c1">#要php5-fpm再起動</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>どうもremote_connect_backがうまく働かないみたいです。</p>
+
+<p>xdebug.remote_log=&#8221;/tmp/xdebug.log&#8221;はMacでも付けといたほうがいいかと思われますー。</p>
+
+<p>後はひたすらeclipseで書けばいいと思う。</p></div>
+
+  <footer class="article-footer">
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=%2f2015-12-12-laravelhomesteadeclipse%2f&title=Laravel%2bHomestead%2bXDebug%2bEclipse" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=%2f2015-12-12-laravelhomesteadeclipse%2f&text=Laravel%2bHomestead%2bXDebug%2bEclipse&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=%2f2015-12-12-laravelhomesteadeclipse%2f&t=Laravel%2bHomestead%2bXDebug%2bEclipse" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=%2f2015-12-12-laravelhomesteadeclipse%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=%2f2015-12-12-laravelhomesteadeclipse%2f&title=Laravel%2bHomestead%2bXDebug%2bEclipse" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Laravel%2bHomestead%2bXDebug%2bEclipse %2f2015-12-12-laravelhomesteadeclipse%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Laravel&#43;Homestead&#43;XDebug&#43;Eclipse</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="/categories/eclipse/">Eclipse</a></li>
+          
+          <li><a href="/categories/laravel/">Laravel</a></li>
+          
+          <li><a href="/categories/php/">PHP</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="/2015-12-04-try-laravel-mac-setup/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Laravel を使ってみる（Macセットアップ編)</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2015-12-04T15:48:52JST">Dec 4, 2015</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+        <div class="mcol c6">
+          <header>Next Article</header>
+          <article class="lism">
+  <a href="/2016-01-09-laravel-tips-and-rule/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Laravel tips&amp;オレオレルール</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-01-09T08:14:59JST">Jan 9, 2016</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Migrate to Hugo</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+
+
+
+  <div class="thumb"></div>
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-2/">
+    
+
+
+
+  
+  
+    
+      
+      
+      
+        
+        
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#2</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T05:05:34JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-30-upgrade-alminium-environment-1/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-1/fish_foilyaki-624x429.png)"></div>
+
+
+    <div class="inner">
+      <div class="title">ALMinium環境バージョンアップ#1</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-30T02:31:17JST">Aug 30, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="/2018-08-09-create-ionic-native-plugin/">
+    
+
+
+
+    
+
+
+
+  <div class="thumb " style="background-image:url(/2018-08-09-create-ionic-native-plugin/SS-2018-08-09-16.38.25-624x198.jpg)"></div>
+
+
+    <div class="inner">
+      <div class="title">ionic native plugin</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-08-09T07:39:27JST">Aug 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header>CATEGORIES</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="/categories/php">php <span class="count">(11)</span></a></li><li><a href="/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="/categories/git">git <span class="count">(8)</span></a></li><li><a href="/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header>TAGS</header>
+  <div>
+    <ul class="terms">
+      <li><a href="/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                My New Hugo Site</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+  </body>
+</html>
+
