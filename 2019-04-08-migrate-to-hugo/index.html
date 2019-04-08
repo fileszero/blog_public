@@ -22,21 +22,21 @@
     <title>Migrate to Hugo - My New Hugo Site</title>
     
 
-<meta name="description" content="HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるため。">
+<meta name="description" content="HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるためです。引っ越しの手順 引っ越しは結構大変でした。wordpressからのエクスポート all-in-one-wp-migrationを使いコンテンツのエクスポート。仮想環境作成 Dockerで移行作業用のwordpress環境を作ります。 wordpress-to-hugo-exporterを無理やり自分好みにカスタマイズしてます。プラグインとかもろもろ入れた環境がこちら。 ワンショットプログラムなので、コード汚いです。要点は 記事ごとにフォルダを作成する イメージはリソースとして使えるよう記事と同じフォルダに配置 コードブロックを```で変換 gistへのリンク(scriptタグ)を残す  といったところです。仮想環境にインポート→変換 仮想環境上にもall-in-one-wp-migrationが入ってるので、インポートします。 その後Export to HUGOします。HUGO環境 公式通りインストール。テーマはRobustというテーマがよさげだったので、フォークしてカスタマイズして使わせていただきます。Github Pagesで公開 CircleCIでGithub Pagesに公開するようフローを組みます。 やり方は別記事で書くかも。で 運用はこれからです。Markdownいいんだけど、日本語と記号の切り替えが面倒な気がする。 IMEの設定で「りんく」→「[]()」みたいなの設定してもいいかも。">
 
 <meta property="og:title" content="Migrate to Hugo - My New Hugo Site">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/2019-04-08-migrate-to-hugo/">
 <meta property="og:image" content="/images/default.png">
 <meta property="og:site_name" content="My New Hugo Site">
-<meta property="og:description" content="HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるため。">
+<meta property="og:description" content="HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるためです。引っ越しの手順 引っ越しは結構大変でした。wordpressからのエクスポート all-in-one-wp-migrationを使いコンテンツのエクスポート。仮想環境作成 Dockerで移行作業用のwordpress環境を作ります。 wordpress-to-hugo-exporterを無理やり自分好みにカスタマイズしてます。プラグインとかもろもろ入れた環境がこちら。 ワンショットプログラムなので、コード汚いです。要点は 記事ごとにフォルダを作成する イメージはリソースとして使えるよう記事と同じフォルダに配置 コードブロックを```で変換 gistへのリンク(scriptタグ)を残す  といったところです。仮想環境にインポート→変換 仮想環境上にもall-in-one-wp-migrationが入ってるので、インポートします。 その後Export to HUGOします。HUGO環境 公式通りインストール。テーマはRobustというテーマがよさげだったので、フォークしてカスタマイズして使わせていただきます。Github Pagesで公開 CircleCIでGithub Pagesに公開するようフローを組みます。 やり方は別記事で書くかも。で 運用はこれからです。Markdownいいんだけど、日本語と記号の切り替えが面倒な気がする。 IMEの設定で「りんく」→「[]()」みたいなの設定してもいいかも。">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="My New Hugo Site">
 <meta name="twitter:url" content="/2019-04-08-migrate-to-hugo/">
 <meta name="twitter:title" content="Migrate to Hugo - My New Hugo Site">
-<meta name="twitter:description" content="HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるため。">
+<meta name="twitter:description" content="HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるためです。引っ越しの手順 引っ越しは結構大変でした。wordpressからのエクスポート all-in-one-wp-migrationを使いコンテンツのエクスポート。仮想環境作成 Dockerで移行作業用のwordpress環境を作ります。 wordpress-to-hugo-exporterを無理やり自分好みにカスタマイズしてます。プラグインとかもろもろ入れた環境がこちら。 ワンショットプログラムなので、コード汚いです。要点は 記事ごとにフォルダを作成する イメージはリソースとして使えるよう記事と同じフォルダに配置 コードブロックを```で変換 gistへのリンク(scriptタグ)を残す  といったところです。仮想環境にインポート→変換 仮想環境上にもall-in-one-wp-migrationが入ってるので、インポートします。 その後Export to HUGOします。HUGO環境 公式通りインストール。テーマはRobustというテーマがよさげだったので、フォークしてカスタマイズして使わせていただきます。Github Pagesで公開 CircleCIでGithub Pagesに公開するようフローを組みます。 やり方は別記事で書くかも。で 運用はこれからです。Markdownいいんだけど、日本語と記号の切り替えが面倒な気がする。 IMEの設定で「りんく」→「[]()」みたいなの設定してもいいかも。">
 <meta name="twitter:image" content="/images/default.png">
 
 
@@ -71,7 +71,19 @@
         "height": 60
       }
     },
-    "description": "HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるため。"
+    "description": "HUGOに引っ越しました WordpressのエディタがGutenbergに変更されましたね。 使える人には使えるんでしょうけど、自分にはちょっと合わなかったのでHUGOに引っ越してみました。 以前ちょっと試した時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるためです。
+引っ越しの手順 引っ越しは結構大変でした。
+wordpressからのエクスポート all-in-one-wp-migrationを使いコンテンツのエクスポート。
+仮想環境作成 Dockerで移行作業用のwordpress環境を作ります。 wordpress-to-hugo-exporterを無理やり自分好みにカスタマイズしてます。
+プラグインとかもろもろ入れた環境がこちら。 ワンショットプログラムなので、コード汚いです。
+要点は
+ 記事ごとにフォルダを作成する イメージはリソースとして使えるよう記事と同じフォルダに配置 コードブロックを```で変換 gistへのリンク(scriptタグ)を残す  といったところです。
+仮想環境にインポート→変換 仮想環境上にもall-in-one-wp-migrationが入ってるので、インポートします。 その後Export to HUGOします。
+HUGO環境 公式通りインストール。
+テーマはRobustというテーマがよさげだったので、フォークしてカスタマイズして使わせていただきます。
+Github Pagesで公開 CircleCIでGithub Pagesに公開するようフローを組みます。 やり方は別記事で書くかも。
+で 運用はこれからです。
+Markdownいいんだけど、日本語と記号の切り替えが面倒な気がする。 IMEの設定で「りんく」→「[]()」みたいなの設定してもいいかも。"
   }
 </script>
 
@@ -146,7 +158,57 @@
 使える人には使えるんでしょうけど、自分にはちょっと合わなかったので<a href="https://gohugo.io/" target="_blank">HUGO</a>に引っ越してみました。
 <!-- more --></p>
 
-<p><a href="/2018-11-20-try-hugo/" target="_blank">以前ちょっと試した</a>時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるため。</p>
+<p><a href="/2018-11-20-try-hugo/" target="_blank">以前ちょっと試した</a>時に軽くてよさそうだったのと、あんまし得意じゃないMarkdownに慣れるためです。</p>
+
+<h3 id="引っ越しの手順">引っ越しの手順</h3>
+
+<p>引っ越しは結構大変でした。</p>
+
+<h4 id="wordpressからのエクスポート">wordpressからのエクスポート</h4>
+
+<p><a href="https://ja.wordpress.org/plugins/all-in-one-wp-migration/" target="_blank">all-in-one-wp-migration</a>を使いコンテンツのエクスポート。</p>
+
+<h4 id="仮想環境作成">仮想環境作成</h4>
+
+<p>Dockerで移行作業用のwordpress環境を作ります。
+<a href="https://github.com/SchumacherFM/wordpress-to-hugo-exporter" target="_blank">wordpress-to-hugo-exporter</a>を無理やり自分好みにカスタマイズしてます。</p>
+
+<p>プラグインとかもろもろ入れた環境が<a href="https://github.com/fileszero/wordpress-to-hugo-exporter/tree/customize" target="_blank">こちら</a>。
+ワンショットプログラムなので、コード汚いです。</p>
+
+<p>要点は</p>
+
+<ul>
+<li>記事ごとにフォルダを作成する</li>
+<li>イメージはリソースとして使えるよう記事と同じフォルダに配置</li>
+<li>コードブロックを```で変換</li>
+<li>gistへのリンク(scriptタグ)を残す</li>
+</ul>
+
+<p>といったところです。</p>
+
+<h4 id="仮想環境にインポート-変換">仮想環境にインポート→変換</h4>
+
+<p>仮想環境上にも<a href="https://ja.wordpress.org/plugins/all-in-one-wp-migration/" target="_blank">all-in-one-wp-migration</a>が入ってるので、インポートします。
+その後Export to HUGOします。</p>
+
+<h4 id="hugo環境">HUGO環境</h4>
+
+<p>公式通りインストール。</p>
+
+<p>テーマは<a href="https://github.com/dim0627/hugo_theme_robust" target="_blank">Robust</a>というテーマがよさげだったので、<a href="https://github.com/fileszero/hugo_theme_robust/tree/customize" target="_blank">フォークしてカスタマイズ</a>して使わせていただきます。</p>
+
+<h4 id="github-pagesで公開">Github Pagesで公開</h4>
+
+<p>CircleCIでGithub Pagesに公開するようフローを組みます。
+やり方は別記事で書くかも。</p>
+
+<h3 id="で">で</h3>
+
+<p>運用はこれからです。</p>
+
+<p>Markdownいいんだけど、日本語と記号の切り替えが面倒な気がする。
+IMEの設定で「りんく」→「[]()」みたいなの設定してもいいかも。</p>
 </div>
 
   <footer class="article-footer">
