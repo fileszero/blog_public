@@ -8,7 +8,7 @@
 
 <meta name="generator" content="Hugo 0.54.0" />
 
-<link rel="apple-touch-icon" href="https://fileszero.kimurak.netimages/logo.png">
+<link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
 
 <link rel="canonical" href="https://fileszero.kimurak.net/2014-05-14-svn-git-translate/">
@@ -27,7 +27,7 @@
 <meta property="og:title" content="SubversionをGitにする - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2014-05-14-svn-git-translate/">
-<meta property="og:image" content="https://fileszero.kimurak.netimages/default.png">
+<meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。こちらを参考にさせていただきました。Windowsマシンでgit svnを使ってみるwindowsで作業します。Git Extensions使ってます。元レポジトリ:D:\TEMP\SVN_FSFSこのレポジトリはソースの管理とかではなくオフィスドキュメントとかの類を管理していたものなので、trunkとかそーいった難しい事はしてませんので、-sオプションは使いません。ちなみに revisionは841。サイズは3Gとかあります。分割できればしたいです。1  $ git svn clone file:///D:/TEMP/SVN_FSFS   とやるとPermission denied: Can&amp;#8217;t open &amp;#8216;/tmp/report.tmp&amp;#8217;: Permission denied at /usr/lib/perl5/site_perl/Git/SVN.pm line 1210とか出てうまくいきませんでした。svnでdump-&amp;gt;loadしてやる必要があるみたいです。TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bitをコマンドラインツール付きでインストールします。 （既定ではインストールされません）1 2 3 4 5 6  D:\TEMP&amp;gt;svnadmin dump SVN_FSFS &amp;gt; svnrepo.dump * Dumped revision 999. 長い D:\TEMP&amp;gt;mkdir svn_repo2 D:\TEMP&amp;gt;svnadmin create --fs-type fsfs svn_repo2 D:\TEMP&amp;gt;svnadmin load svn_repo2 &amp;lt; svnrepo.">
 <meta property="og:locale" content="ja_JP">
@@ -37,7 +37,7 @@
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2014-05-14-svn-git-translate/">
 <meta name="twitter:title" content="SubversionをGitにする - FILES=0">
 <meta name="twitter:description" content="作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。こちらを参考にさせていただきました。Windowsマシンでgit svnを使ってみるwindowsで作業します。Git Extensions使ってます。元レポジトリ:D:\TEMP\SVN_FSFSこのレポジトリはソースの管理とかではなくオフィスドキュメントとかの類を管理していたものなので、trunkとかそーいった難しい事はしてませんので、-sオプションは使いません。ちなみに revisionは841。サイズは3Gとかあります。分割できればしたいです。1  $ git svn clone file:///D:/TEMP/SVN_FSFS   とやるとPermission denied: Can&amp;#8217;t open &amp;#8216;/tmp/report.tmp&amp;#8217;: Permission denied at /usr/lib/perl5/site_perl/Git/SVN.pm line 1210とか出てうまくいきませんでした。svnでdump-&amp;gt;loadしてやる必要があるみたいです。TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bitをコマンドラインツール付きでインストールします。 （既定ではインストールされません）1 2 3 4 5 6  D:\TEMP&amp;gt;svnadmin dump SVN_FSFS &amp;gt; svnrepo.dump * Dumped revision 999. 長い D:\TEMP&amp;gt;mkdir svn_repo2 D:\TEMP&amp;gt;svnadmin create --fs-type fsfs svn_repo2 D:\TEMP&amp;gt;svnadmin load svn_repo2 &amp;lt; svnrepo.">
-<meta name="twitter:image" content="https://fileszero.kimurak.netimages/default.png">
+<meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
 <script type="application/ld+json">
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "SubversionをGitにする - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.netimages/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,7 +66,7 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.netimages/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
@@ -107,7 +107,7 @@ TortoiseSVN 1.8.6, Build 25419 &#8211; 64 Bit
     <header class="l-header">
       <div class="l-container">
         <div class="logo">
-          <a href="https://fileszero.kimurak.net">FILES=0</a>
+          <a href="https://fileszero.kimurak.net/">FILES=0</a>
         </div>
         
 <div class="description">
@@ -151,7 +151,7 @@ TortoiseSVN 1.8.6, Build 25419 &#8211; 64 Bit
 
     <ul class="facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2014-05-14T14:45:05JST">May 14, 2014</time></li>
-      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://fileszero.kimurak.netposts/">POSTS</a></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://fileszero.kimurak.net/posts/">POSTS</a></li>
       
     </ul>
 
@@ -324,9 +324,9 @@ D:<span class="se">\T</span>EMP&gt;svnadmin load svn_repo2 &lt; svnrepo.dump
       <div>
         <nav class="crumb">
           <ol>
-            <li><a href="https://fileszero.kimurak.net"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            <li><a href="https://fileszero.kimurak.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
             
-            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://fileszero.kimurak.netposts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://fileszero.kimurak.net/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
             
             <li class="active">SubversionをGitにする</li>
           </ol>
@@ -339,12 +339,12 @@ D:<span class="se">\T</span>EMP&gt;svnadmin load svn_repo2 &lt; svnrepo.dump
     
     <section class="footer">
       <header>
-        <a href="https://fileszero.kimurak.netcategories/">CATEGORIES</a>
+        <a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a>
       </header>
       <div>
         <ul class="terms">
           
-          <li><a href="https://fileszero.kimurak.netcategories/git/">git</a></li>
+          <li><a href="https://fileszero.kimurak.net/categories/git/">git</a></li>
           
         </ul>
       </div>
@@ -459,7 +459,7 @@ D:<span class="se">\T</span>EMP&gt;svnadmin load svn_repo2 &lt; svnrepo.dump
   <div>
     <div class="author">
       
-      <div class="author-thumb" style="background-image: url(https://fileszero.kimurak.netimages/author.png);"></div>
+      <div class="author-thumb" style="background-image: url(https://fileszero.kimurak.net/images/author.png);"></div>
       
       <div class="author-name">FILES=0</div>
       <ul class="author-facts">
@@ -813,7 +813,7 @@ D:<span class="se">\T</span>EMP&gt;svnadmin load svn_repo2 &lt; svnrepo.dump
   <header>CATEGORIES</header>
   <div>
     <ul class="terms">
-      <li><a href="https://fileszero.kimurak.netcategories/.net">.net <span class="count">(29)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/php">php <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/git">git <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/linux">linux <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.netcategories/ruby">ruby <span class="count">(8)</span></a></li>
+      <li><a href="https://fileszero.kimurak.net/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/php">php <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/git">git <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/ruby">ruby <span class="count">(8)</span></a></li>
     </ul>
   </div>
 </section>
@@ -825,7 +825,7 @@ D:<span class="se">\T</span>EMP&gt;svnadmin load svn_repo2 &lt; svnrepo.dump
   <header>TAGS</header>
   <div>
     <ul class="terms">
-      <li><a href="https://fileszero.kimurak.nettags/mac">mac <span class="count">(1)</span></a></li>
+      <li><a href="https://fileszero.kimurak.net/tags/mac">mac <span class="count">(1)</span></a></li>
     </ul>
   </div>
 </section>
