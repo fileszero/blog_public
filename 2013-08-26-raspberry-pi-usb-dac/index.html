@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -22,21 +22,21 @@
     <title>Raspberry Pi &#43; USB-DAC - FILES=0</title>
     
 
-<meta name="description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。色々調べた結果、http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。んでリブート。超クリアに音でてるー。dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。要はUSBの帯域が足りなかったという事ですね。8&amp;frasl;29 追記dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。うーん、むずかしいな。dwc_otg.speed=1を消して、$ sudo rpi-updateしてみる。ちょっと改善するも、今度はプチプチノイズが出るようになった。dwc_otg.fiq_split_enable=0をつけてみる。なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。しばらく様子見だな。">
+<meta name="description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。 デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。 内蔵音源は解">
 
 <meta property="og:title" content="Raspberry Pi &#43; USB-DAC - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2013-08-26-raspberry-pi-usb-dac/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。色々調べた結果、http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。んでリブート。超クリアに音でてるー。dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。要はUSBの帯域が足りなかったという事ですね。8&amp;frasl;29 追記dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。うーん、むずかしいな。dwc_otg.speed=1を消して、$ sudo rpi-updateしてみる。ちょっと改善するも、今度はプチプチノイズが出るようになった。dwc_otg.fiq_split_enable=0をつけてみる。なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。しばらく様子見だな。">
+<meta property="og:description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。 デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。 内蔵音源は解">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2013-08-26-raspberry-pi-usb-dac/">
 <meta name="twitter:title" content="Raspberry Pi &#43; USB-DAC - FILES=0">
-<meta name="twitter:description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。色々調べた結果、http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。んでリブート。超クリアに音でてるー。dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。要はUSBの帯域が足りなかったという事ですね。8&amp;frasl;29 追記dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。うーん、むずかしいな。dwc_otg.speed=1を消して、$ sudo rpi-updateしてみる。ちょっと改善するも、今度はプチプチノイズが出るようになった。dwc_otg.fiq_split_enable=0をつけてみる。なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。しばらく様子見だな。">
+<meta name="twitter:description" content="Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。 デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。 内蔵音源は解">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
-    "headline": "Raspberry Pi &#43; USB-DAC - FILES=0",
+    "headline": "Raspberry Pi \x2b USB-DAC - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,32 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。
-デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。
-内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。
-色々調べた結果、
-http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866
-こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。
-んでリブート。
-超クリアに音でてるー。
-dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。
-要はUSBの帯域が足りなかったという事ですね。
-8&frasl;29 追記
-dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。
-うーん、むずかしいな。
-dwc_otg.speed=1を消して、
-$ sudo rpi-update
-してみる。
-ちょっと改善するも、今度はプチプチノイズが出るようになった。
-dwc_otg.fiq_split_enable=0
-をつけてみる。
-なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。
-しばらく様子見だな。"
+    "description": "Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。 デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。 内蔵音源は解"
   }
 </script>
 
@@ -358,7 +338,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

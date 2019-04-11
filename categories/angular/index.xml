@@ -5,7 +5,7 @@
     <link>https://fileszero.kimurak.net/categories/angular/</link>
     <description>Recent content in Angular on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Mon, 11 Dec 2017 07:17:18 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/angular/index.xml" rel="self" type="application/rss+xml" />
@@ -17,12 +17,7 @@
       <pubDate>Mon, 11 Dec 2017 07:17:18 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-12-11-cannot-inject-changedetectorref-on-ng5/</guid>
-      <description>Angular5(5.1.0)使ってChangeDetectorRefをInjectしようとしたらある日
-1 2  compiler.js?dd9e:466 Uncaught Error: Can&amp;#39;t resolve all parameters for コンポーネント名: (?). at syntaxError (webpack-internal:///135:684:34)   と出て、動かなくなった。
-コンポーネントのコンストラクタは
-1  constructor(private ref: ChangeDetectorRef) { }   １日悩んだ末
-1  constructor( @Inject(ChangeDetectorRef) private ref: ChangeDetectorRef) { }   こう書きかえて、ひとまず解決。
-なぜ突然動かなくなったかは不明。</description>
+      <description>Angular5(5.1.0)使ってChangeDetectorRefをInjectしようとしたらある日 1 2 compiler.js?dd9e:466 Uncaught Error: Can&amp;#39;t resolve all parameters for コンポーネント名</description>
     </item>
     
   </channel>

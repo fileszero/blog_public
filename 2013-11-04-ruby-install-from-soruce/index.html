@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -22,21 +22,21 @@
     <title>rubyのインストール（ソースから版) - FILES=0</title>
     
 
-<meta name="description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。今回はソースからインストールしてみます。さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。という事で、作業はすべて一般ユーザーアカウントで行います。ユーザーhomeにソース展開用のフォルダを作って、rubyのダウンロードページhttps://www.ruby-lang.org/ja/downloads/から最新のソースをゲットして展開します。1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。1 2 3 4 5 6 7 8 9  ruby-2.">
+<meta name="description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。 今回はソースからインストール">
 
 <meta property="og:title" content="rubyのインストール（ソースから版) - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2013-11-04-ruby-install-from-soruce/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。今回はソースからインストールしてみます。さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。という事で、作業はすべて一般ユーザーアカウントで行います。ユーザーhomeにソース展開用のフォルダを作って、rubyのダウンロードページhttps://www.ruby-lang.org/ja/downloads/から最新のソースをゲットして展開します。1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。1 2 3 4 5 6 7 8 9  ruby-2.">
+<meta property="og:description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。 今回はソースからインストール">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2013-11-04-ruby-install-from-soruce/">
 <meta name="twitter:title" content="rubyのインストール（ソースから版) - FILES=0">
-<meta name="twitter:description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。今回はソースからインストールしてみます。さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。という事で、作業はすべて一般ユーザーアカウントで行います。ユーザーhomeにソース展開用のフォルダを作って、rubyのダウンロードページhttps://www.ruby-lang.org/ja/downloads/から最新のソースをゲットして展開します。1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。1 2 3 4 5 6 7 8 9  ruby-2.">
+<meta name="twitter:description" content="前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。 今回はソースからインストール">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "rubyのインストール（ソースから版) - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,23 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。
-今回はソースからインストールしてみます。
-さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。
-という事で、作業はすべて一般ユーザーアカウントで行います。
-ユーザーhomeにソース展開用のフォルダを作って、
-rubyのダウンロードページ
-https://www.ruby-lang.org/ja/downloads/
-から最新のソースをゲットして展開します。
-1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。
-1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。
-1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。
-1 2 3 4 5 6 7 8 9  ruby-2."
+    "description": "前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。 今回はソースからインストール"
   }
 </script>
 
@@ -558,7 +547,7 @@ unf_ext-0.0.6</code></pre></td></tr></table>
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

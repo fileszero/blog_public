@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -22,21 +22,21 @@
     <title>Eclipseでsmarty - FILES=0</title>
     
 
-<meta name="description" content="EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。テンプレートエンジンではsmartyとか有名みたいですね。んで、例によってEclipseはsmartyな構文をサポートしてないわけです。そういう時は誰かしらがプラグインとか作ってくれてるわけです。ハイこれっSmarty Support for PDTこういうの作る人ってマジで天才だと思う。んで、インストールはInstallSmartyPDTを参考に進めます。まずは.tplに既存の関連付けが無いか確認。Window-&amp;gt;Preferences-&amp;gt;General-&amp;gt;Content TypesのTEXT配下のHTMLとPHPの拡張子に.tplがないか確認。もしあったら削除。 うちにはありませんでした。そしたら Help-&amp;gt; Install New Software。いつも思うんですが、なんでHelpからインストールなんですかね？Work withのとこにhttp://smartypdt.googlecode.com/svn/trunk/org.eclipse.php.smarty.updatesite/を入れてエンター。するとプラグインが選べるようになるんで[Next]-&amp;gt;[Next]-&amp;gt;(読んで)[I accept&amp;#8230;]-&amp;gt;[Finish] インストール中に署名されてないとか何とか言ってくるかもしれませんが、自己責任でＯＫで良いんではないかと思われます。リスタートするか聞いてきたら、素直にリスタート。.tplを開くと、こんなん出てますDidn&amp;#8217;t find the default PHP executable, please define a default PHP executable of type &amp;#8216;Zend Debugger&amp;#8217;.インストール説明書にデバッガを設定しろとあるので、とりあえずしてみたところこちらのエラーも消えました。なんで？デバッガの設定は　Window-&amp;gt;Preferences-&amp;gt;PHP-&amp;gt;PHP Executables　で[Add]実行ファイルとiniのパスを設定します。 基本、配布元の説明の通りですね。良い感じで色ついてます。 ">
+<meta name="description" content="EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。 MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思">
 
 <meta property="og:title" content="Eclipseでsmarty - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2013-05-26-eclipse-with-smarty/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。テンプレートエンジンではsmartyとか有名みたいですね。んで、例によってEclipseはsmartyな構文をサポートしてないわけです。そういう時は誰かしらがプラグインとか作ってくれてるわけです。ハイこれっSmarty Support for PDTこういうの作る人ってマジで天才だと思う。んで、インストールはInstallSmartyPDTを参考に進めます。まずは.tplに既存の関連付けが無いか確認。Window-&amp;gt;Preferences-&amp;gt;General-&amp;gt;Content TypesのTEXT配下のHTMLとPHPの拡張子に.tplがないか確認。もしあったら削除。 うちにはありませんでした。そしたら Help-&amp;gt; Install New Software。いつも思うんですが、なんでHelpからインストールなんですかね？Work withのとこにhttp://smartypdt.googlecode.com/svn/trunk/org.eclipse.php.smarty.updatesite/を入れてエンター。するとプラグインが選べるようになるんで[Next]-&amp;gt;[Next]-&amp;gt;(読んで)[I accept&amp;#8230;]-&amp;gt;[Finish] インストール中に署名されてないとか何とか言ってくるかもしれませんが、自己責任でＯＫで良いんではないかと思われます。リスタートするか聞いてきたら、素直にリスタート。.tplを開くと、こんなん出てますDidn&amp;#8217;t find the default PHP executable, please define a default PHP executable of type &amp;#8216;Zend Debugger&amp;#8217;.インストール説明書にデバッガを設定しろとあるので、とりあえずしてみたところこちらのエラーも消えました。なんで？デバッガの設定は　Window-&amp;gt;Preferences-&amp;gt;PHP-&amp;gt;PHP Executables　で[Add]実行ファイルとiniのパスを設定します。 基本、配布元の説明の通りですね。良い感じで色ついてます。 ">
+<meta property="og:description" content="EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。 MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2013-05-26-eclipse-with-smarty/">
 <meta name="twitter:title" content="Eclipseでsmarty - FILES=0">
-<meta name="twitter:description" content="EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。テンプレートエンジンではsmartyとか有名みたいですね。んで、例によってEclipseはsmartyな構文をサポートしてないわけです。そういう時は誰かしらがプラグインとか作ってくれてるわけです。ハイこれっSmarty Support for PDTこういうの作る人ってマジで天才だと思う。んで、インストールはInstallSmartyPDTを参考に進めます。まずは.tplに既存の関連付けが無いか確認。Window-&amp;gt;Preferences-&amp;gt;General-&amp;gt;Content TypesのTEXT配下のHTMLとPHPの拡張子に.tplがないか確認。もしあったら削除。 うちにはありませんでした。そしたら Help-&amp;gt; Install New Software。いつも思うんですが、なんでHelpからインストールなんですかね？Work withのとこにhttp://smartypdt.googlecode.com/svn/trunk/org.eclipse.php.smarty.updatesite/を入れてエンター。するとプラグインが選べるようになるんで[Next]-&amp;gt;[Next]-&amp;gt;(読んで)[I accept&amp;#8230;]-&amp;gt;[Finish] インストール中に署名されてないとか何とか言ってくるかもしれませんが、自己責任でＯＫで良いんではないかと思われます。リスタートするか聞いてきたら、素直にリスタート。.tplを開くと、こんなん出てますDidn&amp;#8217;t find the default PHP executable, please define a default PHP executable of type &amp;#8216;Zend Debugger&amp;#8217;.インストール説明書にデバッガを設定しろとあるので、とりあえずしてみたところこちらのエラーも消えました。なんで？デバッガの設定は　Window-&amp;gt;Preferences-&amp;gt;PHP-&amp;gt;PHP Executables　で[Add]実行ファイルとiniのパスを設定します。 基本、配布元の説明の通りですね。良い感じで色ついてます。 ">
+<meta name="twitter:description" content="EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。 MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "Eclipseでsmarty - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,38 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。
-MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。
-テンプレートエンジンではsmartyとか有名みたいですね。
-んで、例によってEclipseはsmartyな構文をサポートしてないわけです。
-そういう時は誰かしらがプラグインとか作ってくれてるわけです。
-ハイこれっ
-Smarty Support for PDT
-こういうの作る人ってマジで天才だと思う。
-んで、インストールはInstallSmartyPDTを参考に進めます。
-まずは.tplに既存の関連付けが無いか確認。
-Window-&gt;Preferences-&gt;General-&gt;Content TypesのTEXT配下のHTMLとPHPの拡張子に.tplがないか確認。もしあったら削除。
- うちにはありませんでした。
-そしたら Help-&gt; Install New Software。いつも思うんですが、なんでHelpからインストールなんですかね？
-Work withのとこに
-http://smartypdt.googlecode.com/svn/trunk/org.eclipse.php.smarty.updatesite/
-を入れてエンター。するとプラグインが選べるようになるんで[Next]-&gt;[Next]-&gt;(読んで)[I accept&#8230;]-&gt;[Finish]
- インストール中に署名されてないとか何とか言ってくるかもしれませんが、自己責任でＯＫで良いんではないかと思われます。
-リスタートするか聞いてきたら、素直にリスタート。
-.tplを開くと、こんなん出てます
-Didn&#8217;t find the default PHP executable, please define a default PHP executable of type &#8216;Zend Debugger&#8217;.
-インストール説明書にデバッガを設定しろとあるので、とりあえずしてみたところこちらのエラーも消えました。
-なんで？
-デバッガの設定は　Window-&gt;Preferences-&gt;PHP-&gt;PHP Executables　で[Add]
-実行ファイルとiniのパスを設定します。
- 基本、配布元の説明の通りですね。
-良い感じで色ついてます。
- "
+    "description": "EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。 MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思"
   }
 </script>
 
@@ -462,7 +436,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

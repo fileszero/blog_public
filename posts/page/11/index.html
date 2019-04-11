@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://fileszero.kimurak.net/posts/index.xml">
@@ -99,18 +99,7 @@ if (!doNotTrack) {
         
       </ul>
 
-      <div class="summary">前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。
-今回はソースからインストールしてみます。
-さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。
-という事で、作業はすべて一般ユーザーアカウントで行います。
-ユーザーhomeにソース展開用のフォルダを作って、
-rubyのダウンロードページ
-https://www.ruby-lang.org/ja/downloads/
-から最新のソースをゲットして展開します。
-1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。
-1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。
-1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。
-1 2 3 4 5 6 7 8 9  ruby-2.</div>
+      <div class="summary">前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。 今回はソースからインストール</div>
     </div>
   </a>
 </article>
@@ -139,11 +128,7 @@ https://www.ruby-lang.org/ja/downloads/
         
       </ul>
 
-      <div class="summary">yamでインストールすればとりあえず入る。（けど、最新のgemとか使えなかったりするので要注意。）
-1 2 3 4 5 6 7 8 9 10 11  $ su # rpm -q ruby パッケージ ruby はインストールされていません。 # yum install ruby ruby-devel rdoc irb # yum install rubygems # exit exit $ ruby -v ruby 1.8.7 (2011-06-30 patchlevel 352) [x86_64-linux] $ gem -v 1.3.7   パッケージ的には
-ruby x86_64 1.8.7.352-12.el6_4 updates 534 k
-ruby-devel x86_64 1.8.7.352-12.el6_4 updates 314 k
-ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</div>
+      <div class="summary">yamでインストールすればとりあえず入る。（けど、最新のgemとか使えなかったりするので要注意。） 1 2 3 4 5 6 7 8 9 10 11 $ su # rpm -q ruby パッケー</div>
     </div>
   </a>
 </article>
@@ -172,11 +157,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</div>
         
       </ul>
 
-      <div class="summary">Tools もろもろ必要になりそうなツールをインストール。
-1 2 3  $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool   MacからRasPiへファイルのコピー scpを使います。
-1  mac $ scp filename pi@192.168.1.5:~/   WiFi設定 USBのwifiトングルを刺す。
-認識されたか確認
-1 2 3 4  $ lsusb Bus 001 Device 007: ID 0411:01a2 BUFFALO INC. (formerly MelCo., Inc.) WLI-UC-GNM Wireless LAN Adapter [Ralink RT8070] $ ifconfig wlan0 Link encap:Ethernet .......   こことか参考に無線lanにつなぎます。</div>
+      <div class="summary">Tools もろもろ必要になりそうなツールをインストール。 1 2 3 $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool MacからRasPiへファイルのコピー scpを使います。</div>
     </div>
   </a>
 </article>
@@ -205,11 +186,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</div>
         
       </ul>
 
-      <div class="summary">Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。
-色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじったりして、
-結局だめだったんですが&#8230;
-有線LANからWiFiにしたらあっさり解決しました。
-なんじゃそら。</div>
+      <div class="summary">Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。 色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじ</div>
     </div>
   </a>
 </article>
@@ -238,46 +215,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</div>
         
       </ul>
 
-      <div class="summary">第２種電気工事士試験の筆記が終了しましたー。
-自己採点では何とか合格しているようです。
-一応合格した（っぽい）ので勉強方法とか書いてみます。
-ワタクシのお勉強前の電気の知識はオームの法則をなんとか覚えてるぐらい。E=IRってやつね。
-数学…というか算数の知識は通常の数字の四則演算は覚えてるけど、分数の計算は忘れてるレベル。
-お勉強期間は３ヶ月ぐらい。
-週に３～４日、一日３０分から１時間ぐらいお勉強したでしょうか。（二ヶ月目は中だるみでだいぶサボったかも。）
-まずは試験自体が良くわからんかったので、こちらの本で試験の概要とゆーか雰囲気をつかみます。
-あまぞんりんく 「マンガでそこそこわかる第2種電気工事士筆記＋技能入門すい~っと合格コミック」
-ゆるゆるの内容ですけど、漫画好きなので結構やる気＋受かるような気になれました。
-お勉強やる気出ないな～、って時に読み返したりして、お勉強してる気分になったりするのにも役立ちます。
-やる気が出たところで、こちらの本の教科書部分を一通り読みます。
-あまぞんりんく 「ぜんぶ絵で見て覚える第2種電気工事士筆記試験すい~っと合格」
-一応覚えるつもりでノートに要点を書き写したりしながら読み進めます。
-まぁ、覚えられませんが…
-過去問が問題の分野ごとについてるので、順に進めていきます。
-１周目はさっぱり解けないので、一問ずつ解説と該当の教科書を参照して内容を理解しつつ進めていきます。
-２周目はある程度解けるかと思うので、１ページ分の問題に解答してから、答えあわせと解説読みをします。
-３周目は…やりませんでした。
-後は過去問をひたすらやります。
-「すい~っと合格」にも前年度分の過去問が付いてますが、これだとちょっと足りない気がしますんで、
-こちらの本でH19~H24までの過去問をこなしました。
-あまぞんりんく 「2013年版 第二種電気工事士筆記試験標準解答集」
-５年分もやっときゃ十分かなと。
-過去問やるときは、わかんないのも含めて取り合えず全部解きます。わかんなかったり自信がない問題にはマークをつけときます。
-んで、採点。
-間違ったとこと自信が無かったとこの解説をチェックしときます。
-毎回似たような問題が出るみたいですけど、何題か新しい問題も出るようです。（今回は２～３題ぐらい？）
-電車に乗ってるときにアプリでお勉強も結構効果的でした。
-使わせてもらったのは
-第二種電気工事士　過去問題集（一般）
-と
-第二種電気工事士写真問題
-です。
-自転車通勤なんで電車あんまり乗らないんですけどね。
-あ、当然ですけど、参考書・問題集は最新年度のを使いましょう～。
-試験会場ではかなりの空席がありました。３～４割は欠席してたんではないでしょうか。
-受験番号あるって事は受験料払ってるんでしょうに、もったいないっすねー。
-続いて技能試験になるわけですが、こっちも当然経験なし。
-工具とかも無いのでこれから注文します～。</div>
+      <div class="summary">第２種電気工事士試験の筆記が終了しましたー。 自己採点では何とか合格しているようです。 一応合格した（っぽい）ので勉強方法とか書いてみます。 ワタ</div>
     </div>
   </a>
 </article>
@@ -306,16 +244,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</div>
         
       </ul>
 
-      <div class="summary">Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。
-簡単なスクリプト書いて切れてる様子なら再接続するようにします。
-$ cat /home/pi/bin/restartwlan0.sh
-1 2 3 4 5 6 7 8 9 10 11  #!/bin/sh  cnn=`/sbin/ifconfig wlan0 | /bin/grep &#34;inet addr:&#34;` logger &#34;[$cnn]&#34; echo &#34;$cnn&#34; if [ &#34;$cnn&#34; = &#34;&#34; ]; then ifup --force wlan0 logger &#34;wlan0 restarted&#34; echo &#34;wlan0 restarted&#34; fi   cron に登録
-*/5 * * * * /home/pi/bin/restartwlan0.sh
-５分ごとに実行する感じで。
-うまく行くか分かりませんが、しばらく様子見ですな。
-追記：
-微妙にうまく行ってません。
-Raspberry Pi + WiFiを安定させるVer3も要参照。</div>
+      <div class="summary">Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。 簡単なスクリプト書いて切れてる様子なら再接続するようにします。 $ cat /home/pi/bin/restartwlan0.sh 1 2 3 4 5 6 7 8 9 10 11 #!/bin/sh</div>
     </div>
   </a>
 </article>
@@ -344,15 +273,7 @@ Raspberry Pi + WiFiを安定させるVer3も要参照。</div>
         
       </ul>
 
-      <div class="summary">vmwareの自動起動設定ではまったのでメモ。
-vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、
-ホストＯＳがWindowsの場合、サービスとして登録する方法が詳細されています。
-http://www.kinusati.net/2011/10/03/vmware-player%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%8C%96/
-とか簡潔で参考になります。
-サービスの実行時アカウントが重要で、このアカウントでＶＭが起動できる状態になっていないとダメみたいです。
-普段使ってるアカウントがADのアカウントとかで、ポリシーでパスワード有効期限が切ってあったりすると、サービスの方もいちいちパスワードを設定しなおさなければなりません。
-めんどくさいんでローカルアカウントを作ったりするんですが、作ったアカウントでいったんログオンして、一度ＶＭを起動しないとサービスとして立ち上がってきません。
-playerの設定もアップデートの確認やらなんやらをしないようにしとくといいかと思われます。</div>
+      <div class="summary">vmwareの自動起動設定ではまったのでメモ。 vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、 ホスト</div>
     </div>
   </a>
 </article>
@@ -381,21 +302,7 @@ playerの設定もアップデートの確認やらなんやらをしないよ�
         
       </ul>
 
-      <div class="summary">$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev
-$ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz
-$ cd netatalk-3.0.5/
-$ ./configure &#8211;with-init-style=debian
-$ make
-$ sudo make install
-$ sudo mkdir -p /mnt/timemachine
-$ sudo chown pi /mnt/timemachine
-$ sudo nano /etc/fstab
-デバイスは/dev/sda21でext3でフォーマット済み
-$ sudo cat /etc/fstab
-proc /proc proc defaults 0 0
-/dev/mmcblk0p1 /boot vfat defaults 0 2
-/dev/mmcblk0p2 / ext4 defaults,noatime 0 1
-# a swapfile is not a swap partition, so no using swapon|off from here on, use dphys-swapfile swap[on|off] for that</div>
+      <div class="summary">$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev $ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz $ cd netatalk-3.0.5/ $ ./configure &#8211;with-init-style=debian $ make $ sudo make install $ sudo mkdir -p /mnt/timemachine $ sudo chown pi /mnt/timemachine $ sudo nano /etc/fstab デバイスは/dev/sda21でext3でフォーマット済</div>
     </div>
   </a>
 </article>
@@ -424,26 +331,7 @@ proc /proc proc defaults 0 0
         
       </ul>
 
-      <div class="summary">省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。
-作業前には
-$ sudo rpi-update
-$ sudo apt-get update
-$ sudo apt-get upgrade
-をやっとくといいかもしれません。
-ストレージ ストレージとしては1TByteのUSB-HDDを使います。
-/dev/sdaとして認識されました。
-パーティションは２つにきります。
-/dev/sda1をSAMBA用
-/dev/sda2をMacのTimeMachine用
-にします。
-こんな感じ。
-pi@raspi ~ $ sudo fdisk /dev/sda
-Command (m for help): p
-Disk /dev/sda: 1000.2 GB, 1000204885504 bytes
-255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes</div>
+      <div class="summary">省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。 作業前には $ sudo rpi-update $ sudo apt-get update $ sudo apt-get upgrade をや</div>
     </div>
   </a>
 </article>
@@ -472,12 +360,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes</div>
         
       </ul>
 
-      <div class="summary">syslogにこんな感じのメセージがでてavahiが起動しませんでした。
-Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves
-Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus
-Aug 29 23:49:16 raspi avahi: Avahi disabled itself. If you want to use Avahi in this network, please
-Aug 29 23:49:16 raspi avahi: contact your administrator and convince him to use a different DNS domain,
-Aug 29 23:49:16 raspi avahi: since .</div>
+      <div class="summary">syslogにこんな感じのメセージがでてavahiが起動しませんでした。 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus Aug 29 23:49:16</div>
     </div>
   </a>
 </article>
@@ -517,7 +400,7 @@ Aug 29 23:49:16 raspi avahi: since .</div>
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

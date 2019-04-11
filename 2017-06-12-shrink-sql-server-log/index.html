@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "SQL Server 2012トランザクションログの圧縮 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,29 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "<p>開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。</p>
-
-<p>ちょっと前だと</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">BACKUP</span> <span class="n">LOG</span> <span class="p">[</span><span class="n">db_name</span><span class="p">]</span> <span class="k">WITH</span> <span class="n">TRUNCATE_ONLY</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>でシュリンクしてくれたんですが、最近のSQLServerだと</p>
-
-<p><strong>&#8216;TRUNCATE_ONLY&#8217; is not a recognized BACKUP option.</strong></p>
-
-<p>とか怒られます。</p>
-
-<p>やり方毎回忘れるのでメモ。</p>"
+    "description": "\x3cp\x3e開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。\x3c\/p\x3e\n\n\x3cp\x3eちょっと前だと\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-sql\x22 data-lang=\x22sql\x22\x3e\x3cspan class=\x22lnt\x22\x3e1\n\x3c\/span\x3e\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-sql\x22 data-lang=\x22sql\x22\x3e\x3cspan class=\x22n\x22\x3eBACKUP\x3c\/span\x3e \x3cspan class=\x22n\x22\x3eLOG\x3c\/span\x3e \x3cspan class=\x22p\x22\x3e[\x3c\/span\x3e\x3cspan class=\x22n\x22\x3edb_name\x3c\/span\x3e\x3cspan class=\x22p\x22\x3e]\x3c\/span\x3e \x3cspan class=\x22k\x22\x3eWITH\x3c\/span\x3e \x3cspan class=\x22n\x22\x3eTRUNCATE_ONLY\x3c\/span\x3e\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\n\x3cp\x3eでシュリンクしてくれたんですが、最近のSQLServerだと\x3c\/p\x3e\n\n\x3cp\x3e\x3cstrong\x3e\x26#8216;TRUNCATE_ONLY\x26#8217; is not a recognized BACKUP option.\x3c\/strong\x3e\x3c\/p\x3e\n\n\x3cp\x3eとか怒られます。\x3c\/p\x3e\n\n\x3cp\x3eやり方毎回忘れるのでメモ。\x3c\/p\x3e"
   }
 </script>
 
@@ -384,7 +367,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

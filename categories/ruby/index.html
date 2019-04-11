@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://fileszero.kimurak.net/categories/ruby/index.xml">
@@ -19,7 +19,7 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>Ruby - FILES=0</title>
+    <title>ruby - FILES=0</title>
     
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/custom.css">
@@ -69,7 +69,7 @@ if (!doNotTrack) {
 
     
     <header class="page-title">
-      <h1 class="title">Ruby</h1>
+      <h1 class="title">ruby</h1>
     </header>
     
 
@@ -251,21 +251,7 @@ if (!doNotTrack) {
         
       </ul>
 
-      <div class="summary">Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。
-rubyからDBにアクセスするには、
- DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&#8216;等の&#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。
-DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。
-DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。
-1 2 3 4  C:\&gt;sqlite3 SQLite version 3.5.6 Enter &#34;.help&#34; for instructions sqlite&gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。
-最新版はこちらから。
-rubyライブラリの準備 先ずはsqlite3用のライブラリ。
-DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。
-1 2  #&gt; gem install sqlite3 #&gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。
-こちらもgemで。
-1 2  #&gt; gem install dbi #&gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。
-eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインで
-Kepler &#8211; http://download.eclipse.org/releases/kepler
-&#8220;Database Development&#8221;</div>
+      <div class="summary">Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。 rubyからDBにアクセスするには、 DBネイティブなライブラ</div>
     </div>
   </a>
 </article>
@@ -304,31 +290,7 @@ Kepler &#8211; http://download.eclipse.org/releases/kepler
         
       </ul>
 
-      <div class="summary">テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。
-軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。
-Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。
-例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。
-D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。
-インストールはこれで終了。インストーラないほうが好きです。
-あ、日本語化はしません。
-RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。
-このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ
- RDT=純Rubyの統合開発環境
-RadRails=RDTにRailsのサポートを追加したもの
-Aptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの
- と理解しときます。
-一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。
-手順は標準的なplugin入れる方法で、
-Help -&gt; Install New Software&#8230; で
-Work withに&#8221;Kepler &#8211; http://download.eclipse.org/releases/kepler&amp;#8221;を選択。
- Programming Languages -&gt; Dynamic Languages Toolkit &#8211; Ruby Development Tools
-にチェックを入れてNext-&gt;Next-&gt; I accept -&gt; Finish
-でRubyなEclipseができるはずです。
-Rubyのインストール ためしにプロジェクト作ってみようと
-File-&gt;New-&gt;Project&#8230; -&gt; Ruby-&gt;Ruby Project
-Project Name: FirstRubyProject
-まで来たら&#8221;At least one interpreter must be configured&#8221;
-とのこと。</div>
+      <div class="summary">テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。 軟弱者には、やっぱIDEですよね。って</div>
     </div>
   </a>
 </article>
@@ -357,18 +319,7 @@ Project Name: FirstRubyProject
         
       </ul>
 
-      <div class="summary">前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。
-今回はソースからインストールしてみます。
-さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。
-という事で、作業はすべて一般ユーザーアカウントで行います。
-ユーザーhomeにソース展開用のフォルダを作って、
-rubyのダウンロードページ
-https://www.ruby-lang.org/ja/downloads/
-から最新のソースをゲットして展開します。
-1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。
-1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。
-1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。
-1 2 3 4 5 6 7 8 9  ruby-2.</div>
+      <div class="summary">前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。 今回はソースからインストール</div>
     </div>
   </a>
 </article>
@@ -397,11 +348,7 @@ https://www.ruby-lang.org/ja/downloads/
         
       </ul>
 
-      <div class="summary">yamでインストールすればとりあえず入る。（けど、最新のgemとか使えなかったりするので要注意。）
-1 2 3 4 5 6 7 8 9 10 11  $ su # rpm -q ruby パッケージ ruby はインストールされていません。 # yum install ruby ruby-devel rdoc irb # yum install rubygems # exit exit $ ruby -v ruby 1.8.7 (2011-06-30 patchlevel 352) [x86_64-linux] $ gem -v 1.3.7   パッケージ的には
-ruby x86_64 1.8.7.352-12.el6_4 updates 534 k
-ruby-devel x86_64 1.8.7.352-12.el6_4 updates 314 k
-ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</div>
+      <div class="summary">yamでインストールすればとりあえず入る。（けど、最新のgemとか使えなかったりするので要注意。） 1 2 3 4 5 6 7 8 9 10 11 $ su # rpm -q ruby パッケー</div>
     </div>
   </a>
 </article>
@@ -431,7 +378,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</div>
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

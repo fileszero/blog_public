@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cordova on FILES=0</title>
+    <title>cordova on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/cordova/</link>
-    <description>Recent content in Cordova on FILES=0</description>
+    <description>Recent content in cordova on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Thu, 09 Aug 2018 07:39:27 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/cordova/index.xml" rel="self" type="application/rss+xml" />

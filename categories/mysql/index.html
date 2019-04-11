@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://fileszero.kimurak.net/categories/mysql/index.xml">
@@ -19,7 +19,7 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>Mysql - FILES=0</title>
+    <title>MySQL - FILES=0</title>
     
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/custom.css">
@@ -69,7 +69,7 @@ if (!doNotTrack) {
 
     
     <header class="page-title">
-      <h1 class="title">Mysql</h1>
+      <h1 class="title">MySQL</h1>
     </header>
     
 
@@ -109,15 +109,7 @@ if (!doNotTrack) {
         
       </ul>
 
-      <div class="summary">素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。
-XAMPPのコントロールパネルからmy.iniを編集。
- 1 2 3 4 5 6  ## UTF 8 Settings #init-connect=\&#39;SET NAMES utf8\&#39; #collation_server=utf8_unicode_ci #character_set_server=utf8 #skip-character-set-client-handshake #character_sets-dir=&#34;D:/xampp/mysql/share/charsets&#34;   という箇所があったので、コメントを解除してみます。
-1 2 3 4 5 6  # UTF 8 Settings #init-connect=\&#39;SET NAMES utf8\&#39; collation_server=utf8_unicode_ci character_set_server=utf8 skip-character-set-client-handshake character_sets-dir=&#34;D:/xampp/mysql/share/charsets&#34;   保存して、MySQLを再起動します。
-適当にテーブル作って日本語データをInsert Selectして「？？？？」になってなかったらOKですかね。
-init-connect=&amp;#8217;SET NAMES utf8&amp;#8217;　はダメ絶対 この設定つけると接続するときに
-&#8220;Communication link failure: 1184 Aborted connection 15 to db&#8221;とか出て接続できません。
-MySQLのログを見ると
-[Warning] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#8221;SET NAMES utf8&#8221; at line 1</div>
+      <div class="summary">素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。 XAMPPのコントロールパネルからmy</div>
     </div>
   </a>
 </article>
@@ -147,7 +139,7 @@ MySQLのログを見ると
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

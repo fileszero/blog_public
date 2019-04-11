@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -22,21 +22,21 @@
     <title>Raspberry Pi &#43; WiFiを安定させるVer2 - FILES=0</title>
     
 
-<meta name="description" content="以前WiFi安定化に向けて小細工したけど、結局安定してません。なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。そんな事でググって見た所こんなん発見しました。Wifi and Ethernet dropout problems in raspberry pi症状的には非常に酷似してるようです。意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &amp;gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &amp;#34;[$cnn]&amp;#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。">
+<meta name="description" content="以前WiFi安定化に向けて小細工したけど、結局安定してません。 なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見え">
 
 <meta property="og:title" content="Raspberry Pi &#43; WiFiを安定させるVer2 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2014-03-11-raspberrypiwifistable2/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="以前WiFi安定化に向けて小細工したけど、結局安定してません。なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。そんな事でググって見た所こんなん発見しました。Wifi and Ethernet dropout problems in raspberry pi症状的には非常に酷似してるようです。意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &amp;gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &amp;#34;[$cnn]&amp;#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。">
+<meta property="og:description" content="以前WiFi安定化に向けて小細工したけど、結局安定してません。 なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見え">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2014-03-11-raspberrypiwifistable2/">
 <meta name="twitter:title" content="Raspberry Pi &#43; WiFiを安定させるVer2 - FILES=0">
-<meta name="twitter:description" content="以前WiFi安定化に向けて小細工したけど、結局安定してません。なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。そんな事でググって見た所こんなん発見しました。Wifi and Ethernet dropout problems in raspberry pi症状的には非常に酷似してるようです。意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &amp;gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &amp;#34;[$cnn]&amp;#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。">
+<meta name="twitter:description" content="以前WiFi安定化に向けて小細工したけど、結局安定してません。 なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見え">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
-    "headline": "Raspberry Pi &#43; WiFiを安定させるVer2 - FILES=0",
+    "headline": "Raspberry Pi \x2b WiFiを安定させるVer2 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,18 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "以前WiFi安定化に向けて小細工したけど、結局安定してません。
-なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。
-そんな事でググって見た所こんなん発見しました。
-Wifi and Ethernet dropout problems in raspberry pi
-症状的には非常に酷似してるようです。
-意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。
-1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &#34;[$cnn]&#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。"
+    "description": "以前WiFi安定化に向けて小細工したけど、結局安定してません。 なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見え"
   }
 </script>
 
@@ -335,7 +329,7 @@ logger <span class="s2">&#34;[</span><span class="nv">$cnn</span><span class="s2
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

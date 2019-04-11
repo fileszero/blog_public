@@ -5,7 +5,7 @@
     <link>https://fileszero.kimurak.net/categories/.net/</link>
     <description>Recent content in .Net on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Wed, 14 Feb 2018 07:06:30 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/.net/index.xml" rel="self" type="application/rss+xml" />
@@ -407,27 +407,7 @@
       <pubDate>Wed, 09 Apr 2014 05:27:57 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-04-09-visualstudio2010asp-netmvc4/</guid>
-      <description>なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。
-ただし我がVisual Studio 2010(SP1) 、つるしの状態だとMVC3までのサポートなので、4を使えるようにします。
-http://www.microsoft.com/ja-jp/download/details.aspx?id=30683から
-AspNetMVC4Setup.exe と AspNetMVC4Setup_JPN.exeをダウンロード。
-AspNetMVC4Setup.exe
-AspNetMVC4Setup_JPN.exe
-の順で実行してみました。
-「Processing: Microsoft Visual Studio 2010」のところでやけに時間がかかるので、
-タスクマネージャを見ると[VS10SP1-KB2581019-x86.exe]がハングしているような予感（勘です）
-インストーラをキャンセルしてPCリブート。
-再実行してもダメなので
-SP1を再適用…しようとするとディスク容量が不足とか出ます。TEMPをRAM Disk(500M)に割り当ててるからでしょう、たぶん。
-そこでコマンドプロンプトを立ち上げ、
-D:&amp;gt;cd D:\DownloadFiles\VisualStudio
-D:\DownloadFiles\VisualStudio &amp;gt; set TEMP=D:\TEMP
-D:\DownloadFiles\VisualStudio &amp;gt; set TMP=D:\TEMP
-D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup.exe
-D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup_JPN.exe
-で実行したところなんとか終了。所要時間２０分ぐらいでした。
-でました
- </description>
+      <description>なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。 ただし</description>
     </item>
     
     <item>
@@ -436,20 +416,7 @@ D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup_JPN.exe
       <pubDate>Fri, 17 Jan 2014 01:54:38 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-01-17-vs2010nunitdebug/</guid>
-      <description>TDDもうあたりまえになってるんでしょうかね。
-Visual StudioでNUnitデバック実行ではまったのでメモ。
-「Visual Studio NUnit デバック実行」でググるといろんなサイトが出てきますが、とりあえずこちらを参考に
-VS2010+NUnit2.5.10でテストメソッドをデバッグ
-外部プログラムの開始→NUnit.exeのフルパス
-コマンドライン引数→DLL名(特にパスは指定しないでファイル名だけでOKみたいです。)
-nunit.exe.configの
-1 2 3  &amp;lt;startup useLegacyV2RuntimeActivationPolicy=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;!-- Comment out the next line to force use of .NET 4.0 --&amp;gt; &amp;lt;/startup&amp;gt;   を
-1 2 3 4  &amp;lt;startup useLegacyV2RuntimeActivationPolicy=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;!-- Comment out the next line to force use of .NET 4.0 --&amp;gt; &amp;lt;supportedRuntime version=&amp;#34;v4.0.30319&amp;#34; /&amp;gt; &amp;lt;/startup&amp;gt;   と変更してデバック実行。
-・・・ブレークポイントに反応しません、
-ちなみに、NUnitのバージョンは2.6.3.13283となっております。
-いろいろ試した結果、
-[Tools]-[Settings]-[Test Loader]-[Assembly Isolation]-[Default Process Model]
-を</description>
+      <description>TDDもうあたりまえになってるんでしょうかね。 Visual StudioでNUnitデバック実行ではまったのでメモ。 「Visual Studio NUnit デバック実行」でグ</description>
     </item>
     
   </channel>

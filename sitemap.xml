@@ -3,8 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/</loc>
+    <lastmod>2019-04-08T13:05:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/</loc>
+    <lastmod>2019-04-08T13:05:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/</loc>
     <lastmod>2019-04-08T13:05:43+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/posts/</loc>
+    <lastmod>2019-04-08T13:05:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/hugo/</loc>
+    <lastmod>2019-04-08T13:05:43+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -13,8 +37,44 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/php/</loc>
+    <lastmod>2019-04-02T04:47:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/docker/</loc>
+    <lastmod>2019-04-02T04:47:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/wordpress/</loc>
+    <lastmod>2019-04-02T04:47:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/alminium/</loc>
+    <lastmod>2019-03-19T00:50:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/</loc>
     <lastmod>2019-03-19T00:50:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/redmine/</loc>
+    <lastmod>2019-03-19T00:50:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/sql-server/</loc>
+    <lastmod>2018-11-29T04:15:36+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -33,8 +93,20 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/jenkins/</loc>
+    <lastmod>2018-11-09T02:32:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/</loc>
     <lastmod>2018-10-24T14:07:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/pc/</loc>
+    <lastmod>2018-10-24T14:07:24+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -43,8 +115,32 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/linux/</loc>
+    <lastmod>2018-08-30T05:05:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/vagrant/</loc>
+    <lastmod>2018-08-30T05:05:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2018-08-30-upgrade-alminium-environment-1/</loc>
     <lastmod>2018-08-30T02:31:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/cordova/</loc>
+    <lastmod>2018-08-09T07:39:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/ionic/</loc>
+    <lastmod>2018-08-09T07:39:27+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -58,8 +154,32 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/typescript/</loc>
+    <lastmod>2018-07-12T08:46:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/android/</loc>
+    <lastmod>2018-06-08T05:22:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/java/</loc>
+    <lastmod>2018-06-08T05:22:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2018-06-08-unable-to-find-valid-cert/</loc>
     <lastmod>2018-06-08T05:22:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/.net/</loc>
+    <lastmod>2018-02-14T07:06:30+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -68,8 +188,26 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/azure/</loc>
+    <lastmod>2018-02-14T07:06:30+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2018-01-05-onedrive-for-biz-date-format/</loc>
     <lastmod>2018-01-05T04:34:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</loc>
+    <lastmod>2018-01-05T04:34:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/angular/</loc>
+    <lastmod>2017-12-11T07:17:18+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -83,8 +221,26 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/node.js/</loc>
+    <lastmod>2017-11-07T15:10:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/angularjs/</loc>
+    <lastmod>2017-10-10T14:05:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2017-10-10-angularjs-httpd-content-type-trap/</loc>
     <lastmod>2017-10-10T14:05:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/javascript/</loc>
+    <lastmod>2017-09-21T13:47:05+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -93,8 +249,20 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/nightmare/</loc>
+    <lastmod>2017-09-21T13:47:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2017-09-20-try-nightmare-js-1/</loc>
     <lastmod>2017-09-20T13:51:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/python/</loc>
+    <lastmod>2017-09-14T03:49:38+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -148,6 +316,12 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/git/</loc>
+    <lastmod>2017-04-28T04:00:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2017-02-11-auto-deploy-wordpress-and-git/</loc>
     <lastmod>2017-02-11T12:37:26+00:00</lastmod>
   </url>
@@ -155,6 +329,12 @@
   <url>
     <loc>https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp/</loc>
     <lastmod>2017-02-08T14:29:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/mac/</loc>
+    <lastmod>2017-02-08T14:29:07+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -168,13 +348,37 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/visual-studio-code/</loc>
+    <lastmod>2017-01-11T08:22:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2016-12-27-ttrss-upgrade/</loc>
     <lastmod>2016-12-27T15:02:43+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/tt-rss/</loc>
+    <lastmod>2016-12-27T15:02:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2016-12-14-visual-studio-code-memo/</loc>
     <lastmod>2016-12-14T03:42:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/editor/</loc>
+    <lastmod>2016-12-14T03:42:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/windows/</loc>
+    <lastmod>2016-12-08T08:24:22+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -213,8 +417,20 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/onsenui/</loc>
+    <lastmod>2016-06-27T06:11:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2016-05-12-try-excel-dna/</loc>
     <lastmod>2016-05-12T00:21:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/office/</loc>
+    <lastmod>2016-05-12T00:21:20+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -228,8 +444,20 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/laravel/</loc>
+    <lastmod>2016-01-09T08:14:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2016-01-09-laravel-tips-and-rule/</loc>
     <lastmod>2016-01-09T08:14:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/eclipse/</loc>
+    <lastmod>2015-12-12T12:04:26+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -250,6 +478,12 @@
   <url>
     <loc>https://fileszero.kimurak.net/2015-11-24-sort-filter-paging-list-on-mvc5-4/</loc>
     <lastmod>2015-11-24T12:02:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/bootstrap/</loc>
+    <lastmod>2015-11-24T12:02:21+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -293,6 +527,18 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/phonegap/</loc>
+    <lastmod>2015-06-24T06:14:55+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/sublimetext/</loc>
+    <lastmod>2015-06-10T06:10:50+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2015-06-10-sync-sublime-config-with-git/</loc>
     <lastmod>2015-06-10T06:10:50+00:00</lastmod>
   </url>
@@ -300,6 +546,12 @@
   <url>
     <loc>https://fileszero.kimurak.net/2015-05-18-application-not-installed/</loc>
     <lastmod>2015-05-18T08:05:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/ruby/</loc>
+    <lastmod>2015-04-01T04:19:22+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -378,6 +630,12 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/raspberry-pi/</loc>
+    <lastmod>2014-11-12T13:52:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2014-11-12-raspberrypiwifistable3/</loc>
     <lastmod>2014-11-12T13:52:29+00:00</lastmod>
   </url>
@@ -385,6 +643,12 @@
   <url>
     <loc>https://fileszero.kimurak.net/2014-10-25-installing-etckeeper/</loc>
     <lastmod>2014-10-25T12:32:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/software/</loc>
+    <lastmod>2014-10-25T12:32:56+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -398,6 +662,12 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/knockoutjs/</loc>
+    <lastmod>2014-08-29T03:47:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2014-08-15-raspberrypiwebcam/</loc>
     <lastmod>2014-08-15T08:45:27+00:00</lastmod>
   </url>
@@ -405,6 +675,12 @@
   <url>
     <loc>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-2/</loc>
     <lastmod>2014-08-05T07:37:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/vim/</loc>
+    <lastmod>2014-08-05T07:37:32+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -483,13 +759,37 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/tags/</loc>
+    <lastmod>2014-02-11T14:00:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2014-02-11-itunes-wifi-sync/</loc>
     <lastmod>2014-02-11T14:00:04+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/tags/mac/</loc>
+    <lastmod>2014-02-11T14:00:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/electric/</loc>
+    <lastmod>2014-01-18T15:22:24+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2014-01-18-electric-test2/</loc>
     <lastmod>2014-01-18T15:22:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/unittest/</loc>
+    <lastmod>2014-01-17T01:54:38+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -578,6 +878,12 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/jquery-mobile/</loc>
+    <lastmod>2013-06-13T13:24:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</loc>
     <lastmod>2013-06-13T13:24:10+00:00</lastmod>
   </url>
@@ -623,6 +929,12 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/categories/mysql/</loc>
+    <lastmod>2013-05-20T14:23:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/2013-05-20-mysql-setting/</loc>
     <lastmod>2013-05-20T14:23:17+00:00</lastmod>
   </url>
@@ -660,318 +972,6 @@
   <url>
     <loc>https://fileszero.kimurak.net/2013-05-10-start-wordpress/</loc>
     <lastmod>2013-05-10T15:43:38+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/.net/</loc>
-    <lastmod>2018-02-14T07:06:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/alminium/</loc>
-    <lastmod>2019-03-19T00:50:34+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/android/</loc>
-    <lastmod>2018-06-08T05:22:32+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/angular/</loc>
-    <lastmod>2017-12-11T07:17:18+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/angularjs/</loc>
-    <lastmod>2017-10-10T14:05:08+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/azure/</loc>
-    <lastmod>2018-02-14T07:06:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/bootstrap/</loc>
-    <lastmod>2015-11-24T12:02:21+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/</loc>
-    <lastmod>2018-02-14T07:06:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/cordova/</loc>
-    <lastmod>2018-08-09T07:39:27+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/docker/</loc>
-    <lastmod>2019-04-02T04:47:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/eclipse/</loc>
-    <lastmod>2015-12-12T12:04:26+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/editor/</loc>
-    <lastmod>2016-12-14T03:42:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/electric/</loc>
-    <lastmod>2014-01-18T15:22:24+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/</loc>
-    <lastmod>2019-04-08T13:05:43+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/git/</loc>
-    <lastmod>2017-04-28T04:00:40+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/hugo/</loc>
-    <lastmod>2019-04-08T13:05:43+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/ionic/</loc>
-    <lastmod>2018-08-09T07:39:27+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/java/</loc>
-    <lastmod>2018-06-08T05:22:32+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/javascript/</loc>
-    <lastmod>2017-09-21T13:47:05+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/jenkins/</loc>
-    <lastmod>2018-11-09T02:32:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/jquery-mobile/</loc>
-    <lastmod>2013-06-13T13:24:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/knockoutjs/</loc>
-    <lastmod>2014-08-29T03:47:56+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/laravel/</loc>
-    <lastmod>2016-01-09T08:14:59+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/linux/</loc>
-    <lastmod>2018-08-30T05:05:34+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/tags/mac/</loc>
-    <lastmod>2014-02-11T14:00:04+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/mac/</loc>
-    <lastmod>2017-02-08T14:29:07+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/mysql/</loc>
-    <lastmod>2013-05-20T14:23:17+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/nightmare/</loc>
-    <lastmod>2017-09-21T13:47:05+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/node.js/</loc>
-    <lastmod>2017-11-07T15:10:40+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/office/</loc>
-    <lastmod>2016-05-12T00:21:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/onsenui/</loc>
-    <lastmod>2016-06-27T06:11:12+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/pc/</loc>
-    <lastmod>2018-10-24T14:07:24+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/phonegap/</loc>
-    <lastmod>2015-06-24T06:14:55+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/php/</loc>
-    <lastmod>2019-04-02T04:47:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/posts/</loc>
-    <lastmod>2019-04-08T13:05:43+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/python/</loc>
-    <lastmod>2017-09-14T03:49:38+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/raspberry-pi/</loc>
-    <lastmod>2014-11-12T13:52:29+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/redmine/</loc>
-    <lastmod>2019-03-19T00:50:34+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/ruby/</loc>
-    <lastmod>2015-04-01T04:19:22+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/software/</loc>
-    <lastmod>2014-10-25T12:32:56+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/sql-server/</loc>
-    <lastmod>2018-11-29T04:15:36+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/sublimetext/</loc>
-    <lastmod>2015-06-10T06:10:50+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/tags/</loc>
-    <lastmod>2014-02-11T14:00:04+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/tt-rss/</loc>
-    <lastmod>2016-12-27T15:02:43+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/typescript/</loc>
-    <lastmod>2018-07-12T08:46:41+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/unittest/</loc>
-    <lastmod>2014-01-17T01:54:38+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/vagrant/</loc>
-    <lastmod>2018-08-30T05:05:34+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/vim/</loc>
-    <lastmod>2014-08-05T07:37:32+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/visual-studio-code/</loc>
-    <lastmod>2017-01-11T08:22:15+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/windows/</loc>
-    <lastmod>2016-12-08T08:24:22+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/wordpress/</loc>
-    <lastmod>2019-04-02T04:47:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</loc>
-    <lastmod>2018-01-05T04:34:17+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

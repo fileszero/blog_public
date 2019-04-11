@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://fileszero.kimurak.net/index.xml">
@@ -173,21 +173,7 @@ if (!doNotTrack) {
         
       </ul>
 
-      <div class="summary">Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。
-rubyからDBにアクセスするには、
- DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&#8216;等の&#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。
-DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。
-DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。
-1 2 3 4  C:\&gt;sqlite3 SQLite version 3.5.6 Enter &#34;.help&#34; for instructions sqlite&gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。
-最新版はこちらから。
-rubyライブラリの準備 先ずはsqlite3用のライブラリ。
-DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。
-1 2  #&gt; gem install sqlite3 #&gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。
-こちらもgemで。
-1 2  #&gt; gem install dbi #&gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。
-eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインで
-Kepler &#8211; http://download.eclipse.org/releases/kepler
-&#8220;Database Development&#8221;</div>
+      <div class="summary">Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。 rubyからDBにアクセスするには、 DBネイティブなライブラ</div>
     </div>
   </a>
 </article>
@@ -226,31 +212,7 @@ Kepler &#8211; http://download.eclipse.org/releases/kepler
         
       </ul>
 
-      <div class="summary">テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。
-軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。
-Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。
-例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。
-D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。
-インストールはこれで終了。インストーラないほうが好きです。
-あ、日本語化はしません。
-RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。
-このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ
- RDT=純Rubyの統合開発環境
-RadRails=RDTにRailsのサポートを追加したもの
-Aptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの
- と理解しときます。
-一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。
-手順は標準的なplugin入れる方法で、
-Help -&gt; Install New Software&#8230; で
-Work withに&#8221;Kepler &#8211; http://download.eclipse.org/releases/kepler&amp;#8221;を選択。
- Programming Languages -&gt; Dynamic Languages Toolkit &#8211; Ruby Development Tools
-にチェックを入れてNext-&gt;Next-&gt; I accept -&gt; Finish
-でRubyなEclipseができるはずです。
-Rubyのインストール ためしにプロジェクト作ってみようと
-File-&gt;New-&gt;Project&#8230; -&gt; Ruby-&gt;Ruby Project
-Project Name: FirstRubyProject
-まで来たら&#8221;At least one interpreter must be configured&#8221;
-とのこと。</div>
+      <div class="summary">テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。 軟弱者には、やっぱIDEですよね。って</div>
     </div>
   </a>
 </article>
@@ -289,22 +251,7 @@ Project Name: FirstRubyProject
         
       </ul>
 
-      <div class="summary">作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。
-こちらを参考にさせていただきました。
-Windowsマシンでgit svnを使ってみる
-windowsで作業します。
-Git Extensions使ってます。
-元レポジトリ:D:\TEMP\SVN_FSFS
-このレポジトリはソースの管理とかではなくオフィスドキュメントとかの類を管理していたものなので、trunkとかそーいった難しい事はしてませんので、-sオプションは使いません。
-ちなみに revisionは841。サイズは3Gとかあります。分割できればしたいです。
-1  $ git svn clone file:///D:/TEMP/SVN_FSFS   とやると
-Permission denied: Can&#8217;t open &#8216;/tmp/report.tmp&#8217;: Permission denied at /usr/lib/perl5/site_perl/Git/SVN.pm line 1210
-とか出てうまくいきませんでした。
-svnでdump-&gt;loadしてやる必要があるみたいです。
-TortoiseSVN 1.8.6, Build 25419 &#8211; 64 Bit
-をコマンドラインツール付きでインストールします。
- （既定ではインストールされません）
-1 2 3 4 5 6  D:\TEMP&gt;svnadmin dump SVN_FSFS &gt; svnrepo.dump * Dumped revision 999. 長い D:\TEMP&gt;mkdir svn_repo2 D:\TEMP&gt;svnadmin create --fs-type fsfs svn_repo2 D:\TEMP&gt;svnadmin load svn_repo2 &lt; svnrepo.</div>
+      <div class="summary">作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。 こちらを参考にさせていただきました。 Window</div>
     </div>
   </a>
 </article>
@@ -548,7 +495,7 @@ TortoiseSVN 1.8.6, Build 25419 &#8211; 64 Bit
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

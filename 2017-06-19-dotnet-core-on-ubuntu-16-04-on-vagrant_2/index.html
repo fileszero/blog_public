@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,22 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "<p><a href="/posts/2017/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1" target="_blank">前回</a>、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。</p>
-
-<p>DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。</p>
-
-<p>本命は<a href="https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu" target="_blank">SQL Server on Linux</a>なんですが、</p>
-
-<blockquote>
-<p>You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements</p>
-</blockquote>
-
-<p>なんで、却下。</p>"
+    "description": "\x3cp\x3e\x3ca href=\x22\/posts\/2017\/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3e、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。\x3c\/p\x3e\n\n\x3cp\x3eDBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。\x3c\/p\x3e\n\n\x3cp\x3e本命は\x3ca href=\x22https:\/\/docs.microsoft.com\/ja-jp\/sql\/linux\/sql-server-linux-setup-ubuntu\x22 target=\x22_blank\x22\x3eSQL Server on Linux\x3c\/a\x3eなんですが、\x3c\/p\x3e\n\n\x3cblockquote\x3e\n\x3cp\x3eYou need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements\x3c\/p\x3e\n\x3c\/blockquote\x3e\n\n\x3cp\x3eなんで、却下。\x3c\/p\x3e"
   }
 </script>
 
@@ -338,7 +328,8 @@ PM&gt; Install-Package Microsoft.EntityFrameworkCore.Tools -Version <span class=
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseSqlServer</span><span class="p">(</span><span class="s">@&#34;Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=True;&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseSqlServer</span><span class="p">(</span><span class="s">@&#34;Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=True;&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>を</p>
@@ -347,7 +338,8 @@ PM&gt; Install-Package Microsoft.EntityFrameworkCore.Tools -Version <span class=
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseNpgsql</span><span class="p">(</span><span class="s">@&#34;Host=localhost;Database=aspnetdb_dev;Username=vagrant&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseNpgsql</span><span class="p">(</span><span class="s">@&#34;Host=localhost;Database=aspnetdb_dev;Username=vagrant&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>に変更する。</p>
@@ -430,7 +422,8 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
                 <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">View</span><span class="p">();</span>
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>にします。</p>
@@ -461,7 +454,8 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
     <span class="p">{</span>
         <span class="p">&lt;</span><span class="n">li</span> <span class="p">&gt;</span><span class="err">@</span><span class="p">(</span><span class="n">blog</span><span class="p">.</span><span class="n">Url</span><span class="p">)&lt;/</span><span class="n">li</span><span class="p">&gt;</span>
     <span class="p">}</span>
-<span class="p">&lt;/</span><span class="n">ol</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="n">ol</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>こんな感じにします。</p>
@@ -669,7 +663,7 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

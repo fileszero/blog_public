@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,14 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "<p><a href="/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2" target="_blank">前回</a>ローカルでDB接続できたので、Ubuntuにデプロイしてみます。</p>
-
-<p>肝は環境の切り替えとDBマイグレーションです。</p>"
+    "description": "\x3cp\x3e\x3ca href=\x22\/posts\/2017\/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eローカルでDB接続できたので、Ubuntuにデプロイしてみます。\x3c\/p\x3e\n\n\x3cp\x3e肝は環境の切り替えとDBマイグレーションです。\x3c\/p\x3e"
   }
 </script>
 
@@ -266,7 +264,8 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Post</span><span class="p">&gt;</span> <span class="n">Posts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
     <span class="p">}</span>
-<span class="p">....</span></code></pre></td></tr></table>
+<span class="p">....</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>Startup.csのConfigureServicesにAddDbContextを追記します。</p>
@@ -295,7 +294,8 @@ if (!doNotTrack) {
 </span><span class="c1"></span>            <span class="c1">// Add framework services.
 </span><span class="c1"></span>            <span class="n">services</span><span class="p">.</span><span class="n">AddMvc</span><span class="p">();</span>
         <span class="p">}</span>
-<span class="p">....</span></code></pre></td></tr></table>
+<span class="p">....</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>ControllerにInjectされるようコンストラクタを新設して、DIされたオブジェクトを使用するよう変更。</p>
@@ -348,7 +348,8 @@ if (!doNotTrack) {
             <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
             <span class="k">return</span> <span class="n">View</span><span class="p">();</span>
         <span class="p">}</span>
-<span class="p">...</span></code></pre></td></tr></table>
+<span class="p">...</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>ひとまずデバッグ実行でちゃんと動くか確認。</p>
@@ -756,7 +757,7 @@ dbug: Npgsql.NpgsqlConnection[4]
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tt Rss on FILES=0</title>
+    <title>tt-rss on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/tt-rss/</link>
-    <description>Recent content in Tt Rss on FILES=0</description>
+    <description>Recent content in tt-rss on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Tue, 27 Dec 2016 15:02:43 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/tt-rss/index.xml" rel="self" type="application/rss+xml" />
@@ -32,16 +32,7 @@
       <pubDate>Mon, 03 Jun 2013 14:45:09 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-06-03-buidling-ttrss-android/</guid>
-      <description>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。
-APIバージョンを確認→17でOK。
-Google APIsを入れてみる→ダメ。
-プロジェクトのプロパティを見てみると、こんなん発見。
- こりゃ色々足りてませんな。
-エラーメッセージを元にライブラリを探してくるしかないみたいです。
-Android-ViewPagerIndicator こちらもGitHubで公開されています。
-さくっといただきます。
-1 2 3 4 5 6 7  \workspace\ttrss&amp;gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &amp;#39;Android-ViewPagerIndicator&amp;#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると
-「library] Unable to resolve target &amp;#8216;android-16&amp;#8217;」と出ます。</description>
+      <description>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。 APIバージョンを確認→17でOK。 Google APIsを入れて</description>
     </item>
     
   </channel>

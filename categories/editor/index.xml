@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Editor on FILES=0</title>
+    <title>editor on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/editor/</link>
-    <description>Recent content in Editor on FILES=0</description>
+    <description>Recent content in editor on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Wed, 14 Dec 2016 03:42:35 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/editor/index.xml" rel="self" type="application/rss+xml" />

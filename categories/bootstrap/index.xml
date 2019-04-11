@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bootstrap on FILES=0</title>
+    <title>bootstrap on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/bootstrap/</link>
-    <description>Recent content in Bootstrap on FILES=0</description>
+    <description>Recent content in bootstrap on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Tue, 24 Nov 2015 12:02:21 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/bootstrap/index.xml" rel="self" type="application/rss+xml" />

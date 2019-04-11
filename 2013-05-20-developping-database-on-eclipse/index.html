@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -22,21 +22,21 @@
     <title>EclipseでDatabase開発 - FILES=0</title>
     
 
-<meta name="description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
+<meta name="description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。 ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思わ">
 
 <meta property="og:title" content="EclipseでDatabase開発 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2013-05-20-developping-database-on-eclipse/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
+<meta property="og:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。 ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思わ">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2013-05-20-developping-database-on-eclipse/">
 <meta name="twitter:title" content="EclipseでDatabase開発 - FILES=0">
-<meta name="twitter:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。開発環境がXAMPP&#43;Eclipse&#43;PDTなのでDBMSにはMySQLを使います。当然SQLも書くんですが、Eclipse&#43;PDTにSQL用のエディタが無いので追加します。今回はEDTを使ってみます。work withに「http://download.eclipse.org/datatools/updates」なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。このコンポーネントが多機能SQLエディタを含んでるっぽい [Eclipse Data Tools Platform 1.7.0]も入れてみる。こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽいインストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。 [Type]のあたりにMySQLが出てくれば良さそうです。そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。こちらから JDBC Driver for MySQL (Connector/J) をDLダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add] [MySQL JDBC Driver]の[5.1]を選択 [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。 とりあえず、ここまででインストール関係はひと段落。後は接続情報をEclipseに教えます。[Open perspective]-[New]-[Other] [Database Development] で、データベースいじるパースペクティブを開きます。[Data Source Explorer]-[Database connections]-右クリック-[New] [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]資格情報とかセットして Finish!">
+<meta name="twitter:description" content="PHPといえばWebアプリ、Webアプリといえばデータベース。 ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思わ">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "EclipseでDatabase開発 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,40 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "PHPといえばWebアプリ、Webアプリといえばデータベース。
-ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。
-開発環境がXAMPP+Eclipse+PDTなのでDBMSにはMySQLを使います。
-当然SQLも書くんですが、Eclipse+PDTにSQL用のエディタが無いので追加します。
-今回はEDTを使ってみます。
-work withに「http://download.eclipse.org/datatools/updates」
-なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。
-このコンポーネントが多機能SQLエディタを含んでるっぽい
- [Eclipse Data Tools Platform 1.7.0]も入れてみる。
-こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽい
-インストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。
-一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。
- [Type]のあたりにMySQLが出てくれば良さそうです。
-そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。
-JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。
-こちらから JDBC Driver for MySQL (Connector/J) をDL
-ダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)
-[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add]
- [MySQL JDBC Driver]の[5.1]を選択
- [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。
- とりあえず、ここまででインストール関係はひと段落。
-後は接続情報をEclipseに教えます。
-[Open perspective]-[New]-[Other]
- [Database Development]
- で、データベースいじるパースペクティブを開きます。
-[Data Source Explorer]-[Database connections]-右クリック-[New]
- [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]
-資格情報とかセットして
- Finish!"
+    "description": "PHPといえばWebアプリ、Webアプリといえばデータベース。 ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思わ"
   }
 </script>
 
@@ -584,7 +556,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

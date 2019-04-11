@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,26 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "<p>ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。</p>
-
-<div>あまぞんりんく</div>
-
-<p><div>あまぞんりんく</div><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=cozyas01-22&#038;l=as2&#038;o=9&#038;a=4798041793" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
-
-<p>必要な内容が体系的に理解できる良書かと思います。</p>
-
-<p>非常にお勧めできる内容です。</p>
-
-<p>が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。</p>
-
-<p>似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。</p>
-
-<p>てことで、もうちょっと再利用できるような形にしてみたいと思います。</p>"
+    "description": "\x3cp\x3eASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。\x3c\/p\x3e\n\n\x3cdiv\x3eあまぞんりんく\x3c\/div\x3e\n\n\x3cp\x3e\x3cdiv\x3eあまぞんりんく\x3c\/div\x3e\x3cimg src=\x22http:\/\/ir-jp.amazon-adsystem.com\/e\/ir?t=cozyas01-22\x26#038;l=as2\x26#038;o=9\x26#038;a=4798041793\x22 width=\x221\x22 height=\x221\x22 border=\x220\x22 alt=\x22\x22 style=\x22border:none !important; margin:0px !important;\x22 \/\x3e\x3c\/p\x3e\n\n\x3cp\x3e必要な内容が体系的に理解できる良書かと思います。\x3c\/p\x3e\n\n\x3cp\x3e非常にお勧めできる内容です。\x3c\/p\x3e\n\n\x3cp\x3eが、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。\x3c\/p\x3e\n\n\x3cp\x3e似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。\x3c\/p\x3e\n\n\x3cp\x3eてことで、もうちょっと再利用できるような形にしてみたいと思います。\x3c\/p\x3e"
   }
 </script>
 
@@ -250,7 +236,8 @@ if (!doNotTrack) {
     <span class="k">case</span> <span class="s">&#34;dCategory&#34;</span><span class="p">:</span>
       <span class="n">articles</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="n">OrderByDescending</span><span class="p">(</span><span class="n">a</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Category</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
-<span class="p">...</span></code></pre></td></tr></table>
+<span class="p">...</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>サンプルではソートキーとかべた書きですし、同じ文字列が何度も出てきたりしてますが、こいつをもう少し簡単に扱えるようにSortFieldDefinitionクラスを作ります。</p>
@@ -307,7 +294,8 @@ if (!doNotTrack) {
             <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
             <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">SortKey</span><span class="p">);</span>      <span class="c1">//キーを抽出する関数からソートキー文字列生成
 </span><span class="c1"></span>        <span class="p">}</span>
-    <span class="p">}</span></code></pre></td></tr></table>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>インプリはこんな感じ。</p>
@@ -330,7 +318,8 @@ if (!doNotTrack) {
         <span class="p">}</span>
 
         <span class="k">public</span> <span class="kt">string</span> <span class="n">SortKey</span><span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">}</span></code></pre></td></tr></table>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>キモはラムダ式からメンバ名を取ってきてるところでしょうか。</p>
@@ -345,7 +334,8 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ViewBag</span><span class="p">.</span><span class="n">Category</span>  <span class="p">=</span> <span class="p">(</span><span class="n">sort</span> <span class="p">==</span> <span class="s">&#34;Category&#34;</span> <span class="p">?</span> <span class="s">&#34;dCategory&#34;</span> <span class="p">:</span> <span class="s">&#34;Category&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ViewBag</span><span class="p">.</span><span class="n">Category</span>  <span class="p">=</span> <span class="p">(</span><span class="n">sort</span> <span class="p">==</span> <span class="s">&#34;Category&#34;</span> <span class="p">?</span> <span class="s">&#34;dCategory&#34;</span> <span class="p">:</span> <span class="s">&#34;Category&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>この部分。昇順、降順の入れ替えですね。</p>
@@ -384,7 +374,8 @@ if (!doNotTrack) {
             <span class="n">next</span> <span class="p">=</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="s">&#34;unknown&#34;</span><span class="p">);</span>
             <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">next</span><span class="p">);</span>         <span class="c1">//別のフィールドがソートキーの場合は昇順
 </span><span class="c1"></span>
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>インプリ。</p>
@@ -407,7 +398,8 @@ if (!doNotTrack) {
             <span class="p">}</span>
             <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span><span class="p">;</span>
             
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="orderby-orderbydescendingの追加">OrderBy/OrderByDescendingの追加</h4>
@@ -496,7 +488,8 @@ if (!doNotTrack) {
             <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[1]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
             <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[2]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
 
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>インプリはこんな感じ。</p>
@@ -535,7 +528,8 @@ if (!doNotTrack) {
                 <span class="k">return</span> <span class="n">aQuery</span><span class="p">.</span><span class="n">OrderByDescending</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">KeySelector</span><span class="p">);</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">aQuery</span><span class="p">;</span>
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>ココまでで、一応並べ替えの処理本体ができました。</p>
@@ -548,7 +542,8 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>のように書くのが基本ですが、なんか長いですね。特にラムダ式の戻り値の型(string)の部分とか、いちいちめんどくさいです。</p>
@@ -575,7 +570,8 @@ if (!doNotTrack) {
             <span class="c1">//理想的には Article.DefineSort(obj =&gt; obj.Title); みたいに書きたいけど無理っぽい。
 </span><span class="c1"></span>            <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
             <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">SortKey</span><span class="p">);</span>  <span class="c1">//キーを抽出する関数からソートキー文字列生成
-</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span>        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>拡張メソッドでthisになるオブジェクトが必要なんで、</p>
@@ -600,7 +596,8 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="k">static</span> <span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span><span class="n">TKey</span><span class="p">&gt;</span> <span class="n">DefineSort</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;(</span><span class="k">this</span> <span class="n">TModel</span> <span class="n">aModel</span><span class="p">,</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;&gt;</span> <span class="n">aKeySelector</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="k">new</span> <span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;(</span><span class="n">aKeySelector</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">}</span></code></pre></td></tr></table>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>長くなったので、<del datetime="2015-10-17T10:42:17+00:00">(たぶん)</del><a href="/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2" target="_blank">次回</a>に続きます。</p>
@@ -772,7 +769,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

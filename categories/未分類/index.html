@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://fileszero.kimurak.net/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/index.xml">
@@ -267,23 +267,7 @@ if (!doNotTrack) {
         
       </ul>
 
-      <div class="summary">Pythonやってみようかと思う。
-環境は Windows7 64bit. Pythonは2系を使います。
-ダウンロード ご本尊にいき、
-Download-&gt;Windows-&gt;Latest Python 2 Release &#8211; Python 2.X.X
-Windows X86-64 MSI Installer (2.X.X)
-をダウンロード。
-現時点では2.7.6が最新っぽい。
-python-2.7.6.amd64.msi みたいなファイルがダウンロードされます。
-インストール ダウンロードしたファイルを実行。
-インストールオプションは全部そのままで「次へ」連打。
-C:\Python27　にインストールされました。
-環境変数PATH Windowsの環境変数PATHに「C:\Python27;」を追加しときます。
-おわり コマンドプロンプトで
-&lt;br /&gt; #:\&gt;python --version&lt;br /&gt; Python 2.7.6&lt;br /&gt; 
-みたいな感じになればOKではないかと。
-インストール簡単、ファイルサイズも小さいわ。
-ただし&#8221;python&#8221;打ちにくい。</div>
+      <div class="summary">Pythonやってみようかと思う。 環境は Windows7 64bit. Pythonは2系を使います。 ダウンロード ご本尊にいき、 Download-&gt;Windows-&gt;Latest Python 2 Release &#8211; Python 2.X.X Windows X86-64 MSI Installer (2.X.X) をダウンロード。</div>
     </div>
   </a>
 </article>
@@ -312,11 +296,7 @@ C:\Python27　にインストールされました。
         
       </ul>
 
-      <div class="summary">iPadとiTunesをWifiで同期できなくで困ってたんです。
-一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
-試しにmacのipv6をオンにしてみたら動きやがった〜。
-ipv6とか使わないからオフにしといたんだけどなー。
-つーかシステム条件とやらに書いといてほしいわ。</div>
+      <div class="summary">iPadとiTunesをWifiで同期できなくで困ってたんです。 一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にや</div>
     </div>
   </a>
 </article>
@@ -345,12 +325,7 @@ ipv6とか使わないからオフにしといたんだけどなー。
         
       </ul>
 
-      <div class="summary">syslogにこんな感じのメセージがでてavahiが起動しませんでした。
-Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves
-Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus
-Aug 29 23:49:16 raspi avahi: Avahi disabled itself. If you want to use Avahi in this network, please
-Aug 29 23:49:16 raspi avahi: contact your administrator and convince him to use a different DNS domain,
-Aug 29 23:49:16 raspi avahi: since .</div>
+      <div class="summary">syslogにこんな感じのメセージがでてavahiが起動しませんでした。 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus Aug 29 23:49:16</div>
     </div>
   </a>
 </article>
@@ -379,22 +354,7 @@ Aug 29 23:49:16 raspi avahi: since .</div>
         
       </ul>
 
-      <div class="summary">書くことないけどはじめるのが大事。
-初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。
-これからカスタマイズを進めていかねば。
-と思ったら、パーマリンクがうまく動いてないー。
-nginxだからですね。
-設定ファイルのserverディレクティブに下を追加。
-`
-location /wordpress {
-index index.php index.html index.htm;
-# static files
-include /etc/nginx/conf.d/common/expires.conf;
-# request to index.php
-if (!-e $request_filename) {
-rewrite ^(.+)$ /index.php?q=$1 last;
- 1 2 3 4  rewrite ^.+?($/-.*) $1 last;&lt;br /&gt; rewrite ^.+?(/.*\.php)$ $1 last;&lt;br /&gt; rewrite ^ /wordpress/index.php last;&lt;br /&gt; }&lt;br /&gt;   }
-`</div>
+      <div class="summary">書くことないけどはじめるのが大事。 初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。 これからカスタマイズを</div>
     </div>
   </a>
 </article>
@@ -424,7 +384,7 @@ rewrite ^(.+)$ /index.php?q=$1 last;
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

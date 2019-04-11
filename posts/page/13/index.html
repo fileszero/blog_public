@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://fileszero.kimurak.net/posts/index.xml">
@@ -99,14 +99,7 @@ if (!doNotTrack) {
         
       </ul>
 
-      <div class="summary">PHPついでにjQuery Mobileはじめました。
-jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバインドしろみたいな事が書いてあって、
-さらにpageinitの説明見ると
-1 2 3  $( &#39;#home&#39; ).live( &#39;pageinit&#39;,function(event){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   こんな風に書いてあったから、こぴぺしてみましたが、実行されません。なぜー。
-そこで
-1 2 3  $(document).delegate(&#39;#home&#39;, &#39;pageinit&#39;, function(){ alert( &#39;This page was just enhanced by jQuery Mobile!&#39; ); });   って書いてみたら動いた。
-なぜだー。わからん。
-jQueryも良くわからんのにmobileは早すぎたか？</div>
+      <div class="summary">PHPついでにjQuery Mobileはじめました。 jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバイン</div>
     </div>
   </a>
 </article>
@@ -145,33 +138,7 @@ jQueryも良くわからんのにmobileは早すぎたか？</div>
         
       </ul>
 
-      <div class="summary">EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。
-MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。
-テンプレートエンジンではsmartyとか有名みたいですね。
-んで、例によってEclipseはsmartyな構文をサポートしてないわけです。
-そういう時は誰かしらがプラグインとか作ってくれてるわけです。
-ハイこれっ
-Smarty Support for PDT
-こういうの作る人ってマジで天才だと思う。
-んで、インストールはInstallSmartyPDTを参考に進めます。
-まずは.tplに既存の関連付けが無いか確認。
-Window-&gt;Preferences-&gt;General-&gt;Content TypesのTEXT配下のHTMLとPHPの拡張子に.tplがないか確認。もしあったら削除。
- うちにはありませんでした。
-そしたら Help-&gt; Install New Software。いつも思うんですが、なんでHelpからインストールなんですかね？
-Work withのとこに
-http://smartypdt.googlecode.com/svn/trunk/org.eclipse.php.smarty.updatesite/
-を入れてエンター。するとプラグインが選べるようになるんで[Next]-&gt;[Next]-&gt;(読んで)[I accept&#8230;]-&gt;[Finish]
- インストール中に署名されてないとか何とか言ってくるかもしれませんが、自己責任でＯＫで良いんではないかと思われます。
-リスタートするか聞いてきたら、素直にリスタート。
-.tplを開くと、こんなん出てます
-Didn&#8217;t find the default PHP executable, please define a default PHP executable of type &#8216;Zend Debugger&#8217;.
-インストール説明書にデバッガを設定しろとあるので、とりあえずしてみたところこちらのエラーも消えました。
-なんで？
-デバッガの設定は　Window-&gt;Preferences-&gt;PHP-&gt;PHP Executables　で[Add]
-実行ファイルとiniのパスを設定します。
- 基本、配布元の説明の通りですね。
-良い感じで色ついてます。
- </div>
+      <div class="summary">EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。 MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思</div>
     </div>
   </a>
 </article>
@@ -210,42 +177,7 @@ Didn&#8217;t find the default PHP executable, please define a default PHP execut
         
       </ul>
 
-      <div class="summary">Tiny Tiny RSS良い感じで使っております。
-webのUI上からフィードをダブルクリックすると記事が更新されるんですが、
-自動で定期的に更新してくれないと困りますね。
-てことで自動更新の仕方を参考に設定していきます。
-[Update daemon]方式がお勧めみたいですが、CentOSへの組み込み方が良くわからんのでパス。
-cronで実行するのが簡単そうな感じがします。
-要するに
-update.php &#8211;feeds
-を定期的に実行するわけですな。
-daemon方式のところにwebサイトユーザー権限で実行しろ見たいなことが書いてあるので、こっちもそんな感じで設定します。
-まずは普通にコマンドから実行してみますか。
-suでルートになって
-# sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &#8211;feeds
-そーすっと、なにやらごにょごにょ初めて
-これが
- こうなります
- 読み切れねー。
-更新自体は問題ないようです。
-
-rootのcrontabに登録します。
-
-
-# crontab -e
-*/15 * * * * sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &#8211;feeds &#8211;quiet
-これで快適情強生活ができるでしょうか。
-
-
-・・・できませんでした。
-朝起きてみるとcronさんから
-「sudo: sorry, you must have a tty to run sudo」
-こんなメールが大量に！
-sudoは端末からじゃないとだめなのね。
-
-ってことで
-rootのスケジュールはさっくり消して、
-1 2 3 4 5  # sudo -u nginx crontab -e no crontab for nginx - using an empty one crontab: installing new crontab # sudo -u nginx crontab -l */15 * * * * /usr/bin/php /tt/rss/dir/update.</div>
+      <div class="summary">Tiny Tiny RSS良い感じで使っております。 webのUI上からフィードをダブルクリックすると記事が更新されるんですが、 自動で定期的に更新してくれない</div>
     </div>
   </a>
 </article>
@@ -284,15 +216,7 @@ rootのスケジュールはさっくり消して、
         
       </ul>
 
-      <div class="summary">Google Readerが終わってしまいますね。
-feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。
-ざっと検索したところTiny Tiny RSSが良いみたい。
-まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGet
-wgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。
-1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。
-データベースの用意
-1 2 3 4 5  $ mysql -u root -p mysql&gt; create database ttrss; mysql&gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &#39;******&#39;; mysql&gt; FLUSH PRIVILEGES; mysql&gt; exit   ソースを展開してwebに配置
-1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.</div>
+      <div class="summary">Google Readerが終わってしまいますね。 feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。 ざっと検索し</div>
     </div>
   </a>
 </article>
@@ -331,15 +255,7 @@ wgetで落とすとなぜだかファイル名が「1.7.9」とかになるの�
         
       </ul>
 
-      <div class="summary">素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。
-XAMPPのコントロールパネルからmy.iniを編集。
- 1 2 3 4 5 6  ## UTF 8 Settings #init-connect=\&#39;SET NAMES utf8\&#39; #collation_server=utf8_unicode_ci #character_set_server=utf8 #skip-character-set-client-handshake #character_sets-dir=&#34;D:/xampp/mysql/share/charsets&#34;   という箇所があったので、コメントを解除してみます。
-1 2 3 4 5 6  # UTF 8 Settings #init-connect=\&#39;SET NAMES utf8\&#39; collation_server=utf8_unicode_ci character_set_server=utf8 skip-character-set-client-handshake character_sets-dir=&#34;D:/xampp/mysql/share/charsets&#34;   保存して、MySQLを再起動します。
-適当にテーブル作って日本語データをInsert Selectして「？？？？」になってなかったらOKですかね。
-init-connect=&amp;#8217;SET NAMES utf8&amp;#8217;　はダメ絶対 この設定つけると接続するときに
-&#8220;Communication link failure: 1184 Aborted connection 15 to db&#8221;とか出て接続できません。
-MySQLのログを見ると
-[Warning] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#8221;SET NAMES utf8&#8221; at line 1</div>
+      <div class="summary">素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。 XAMPPのコントロールパネルからmy</div>
     </div>
   </a>
 </article>
@@ -378,35 +294,7 @@ MySQLのログを見ると
         
       </ul>
 
-      <div class="summary">PHPといえばWebアプリ、Webアプリといえばデータベース。
-ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。
-開発環境がXAMPP+Eclipse+PDTなのでDBMSにはMySQLを使います。
-当然SQLも書くんですが、Eclipse+PDTにSQL用のエディタが無いので追加します。
-今回はEDTを使ってみます。
-work withに「http://download.eclipse.org/datatools/updates」
-なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。
-このコンポーネントが多機能SQLエディタを含んでるっぽい
- [Eclipse Data Tools Platform 1.7.0]も入れてみる。
-こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽい
-インストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。
-一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。
- [Type]のあたりにMySQLが出てくれば良さそうです。
-そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。
-JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。
-こちらから JDBC Driver for MySQL (Connector/J) をDL
-ダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)
-[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add]
- [MySQL JDBC Driver]の[5.1]を選択
- [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。
- とりあえず、ここまででインストール関係はひと段落。
-後は接続情報をEclipseに教えます。
-[Open perspective]-[New]-[Other]
- [Database Development]
- で、データベースいじるパースペクティブを開きます。
-[Data Source Explorer]-[Database connections]-右クリック-[New]
- [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]
-資格情報とかセットして
- Finish!</div>
+      <div class="summary">PHPといえばWebアプリ、Webアプリといえばデータベース。 ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思わ</div>
     </div>
   </a>
 </article>
@@ -445,15 +333,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
         
       </ul>
 
-      <div class="summary">まだ続くのかい。
-前回は簡単なプログラムを実行してみたので、今回はデバッグしてみようかと思います。
-DEBUG とりあえずブレークポイントを設定して、
- デバッグを実行してみます。
- が、ブレークしませんね。
-調べたところXDebugってのを使うみたいです。
-php.iniの最後に
-1 2 3 4 5 6 7 8 9 10 11  [XDebug] ;zend_extension = &#34;D:\xampp\php\ext\php_xdebug.dll&#34; ;xdebug.profiler_append = 0 ;xdebug.profiler_enable = 1 ;xdebug.profiler_enable_trigger = 0 ;xdebug.profiler_output_dir = &#34;D:\xampp\tmp&#34; ;xdebug.profiler_output_name = &#34;cachegrind.out.%t-%s&#34; ;xdebug.remote_enable = 0 ;xdebug.remote_handler = &#34;dbgp&#34; ;xdebug.remote_host = &#34;127.0.0.1&#34; ;xdebug.trace_output_dir = &#34;D:\xampp\tmp&#34;   こんなんがあったんで、コメントをすべてはずして、ちょっと調整
-1 2 3 4 5 6 7 8 9 10 11 12  [XDebug] zend_extension = &#34;D:\xampp\php\ext\php_xdebug.</div>
+      <div class="summary">まだ続くのかい。 前回は簡単なプログラムを実行してみたので、今回はデバッグしてみようかと思います。 DEBUG とりあえずブレークポイントを設定して、 デバ</div>
     </div>
   </a>
 </article>
@@ -492,23 +372,7 @@ php.iniの最後に
         
       </ul>
 
-      <div class="summary">Eclipse の調整 前回でインストールは終わったのでこまい設定をします。
-なるべく素の状態で使う主義ですが、以下の設定はしときます。
-Window-Preferences設定画面を開いて。
-General-&gt;Keys　Command:[Next Editor] の Binding　を　Ctrl+Tab　に。
- 同じくGeneral-&gt;Workspace　の　text file encoding　を Other UTF-8　に。
- Run/Debug-&gt;Launching の Launch Option　を　Always Launch …に
- Hello world 一応環境ができたので、簡単なプログラムを作って実行してみます。
-File-New-PHP Projectで新しいProjectを作ります。
-Project name : HelloWorld
-Contects を Create Project at existing locationにして
-Directory を xmappのhtdocs以下のHelloWorldにします。
- ほかは良くわからんのでデフォルトで。[Next]-&gt;[Next]-&gt;[Finish]！
-こんな感じでProjectができました。
- 物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。
- プロジェクトの名前を右クリックで[New]-[PHP File]
-File Nameをindex.phpに。
- [Use PHP Template]はOnにして、[New PHP file &#8211; HTML frameset]を選択して[Finish]!</div>
+      <div class="summary">Eclipse の調整 前回でインストールは終わったのでこまい設定をします。 なるべく素の状態で使う主義ですが、以下の設定はしときます。 Window-Pref</div>
     </div>
   </a>
 </article>
@@ -547,18 +411,7 @@ File Nameをindex.phpに。
         
       </ul>
 
-      <div class="summary">Eclipse PDT まさかの第二回。
-前回でXAMPPが一応入ったので、今回はEclipse PDTを入れて見る。
-まずはダウンロード
- 「Download All-In-One package including Eclipse 3.7.2 and PDT 3.0.2 from Zend」からの、
- 「(ZIP) 92.61 MB」っ。
-ダウンロードが終了したら適当なフォルダに展開。
-ちなみに私は目的に応じて複数Eclipseをインストールしてます。
-たとえばAndroid開発するならADT Bundleとか使い分けたほうがいいと思うんですよねぇ。
-邪道でしょうか？
-展開にしばらくかかりますが、終わったらeclipse-php.exeをダブルクリックで起動。
- きました～。ちょっと古いEclipseみたいですね。
-次回は環境のチェックをかねてHello World的なプログラムを作ってみます。</div>
+      <div class="summary">Eclipse PDT まさかの第二回。 前回でXAMPPが一応入ったので、今回はEclipse PDTを入れて見る。 まずはダウンロード 「Download All-In-One package including Eclipse 3.7.2</div>
     </div>
   </a>
 </article>
@@ -597,33 +450,7 @@ File Nameをindex.phpに。
         
       </ul>
 
-      <div class="summary">このブログ、VPSでやってます。
-せっかくなんでPHPとかやってみようかと思います。
-実は、ちょろっとWeb記事見ながらサンプル走らせたことぐらいはあるんですが、動的型付け言語にどーしてもなじめなくって、あんまり真面目に取り組んだこと無いんです。
-開発環境 開発環境はWindows上に構築します。
-とりあえずは鉄板っぽいXAMPP + Eclipse PDT で行きます。
-そんな大そうな物を作る気はないんでテキストエディタでもいけそうな気がしますが、貧弱なのでIDEです。
-XAMPP いやー、ほんと便利っすよねこれ。
- XAMPPサイトからWindows版インストーラをダウンロードして実行します。
-オプションはすべて選択。
-インストールフォルダはD:ドライブに変えました。
-「Learn more &#8230;. BitNami &#8230;」のチェックはOFFで。
-インストールが終わったらXAMPP Control Panelを開きます。
-なんかこんなん出てます。
-[Apache] Problem detected!
-[Apache] Port 80 in use by &#8220;system&#8221;!
-Windowsのサービスで「World Wide Web Publishing Service」が動いてないので、
-コマンドプロンプトで
- netstat -ano
- でPIDを調べて、タスクマネージャを見てみると「NT Kernel&amp;system」とかなってる。????
-カーネルがProt80直接握るとかあるの？う～ん、よくわからん。
-よくわからんので「Windows機能の有効化または無効化」の「インターネットインフォメーションサービス」をまるっと無効にしました。
-再起動・・・解決してねー。
-サービスで「Microsoft .NET Framework NGEN 」を停止。「自動(遅延開始)」だったので手動に・・・解決せず。
-「Web Deployment Agent Service」を停止。「自動」から手動に・・・解決！
-調べたらこんなん出てきた [MEMO] WebMatrix とポート80 の関係を断つ方法　MSめっ。
-Apacheをスタートさせると今度はこんな…
- うっとうしーわー。とりあえずアクセスを許可。</div>
+      <div class="summary">このブログ、VPSでやってます。 せっかくなんでPHPとかやってみようかと思います。 実は、ちょろっとWeb記事見ながらサンプル走らせたことぐら</div>
     </div>
   </a>
 </article>
@@ -663,7 +490,7 @@ Apacheをスタートさせると今度はこんな…
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#３ - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,12 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "<p><a href="/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2" target="_blank">前回</a>テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。</p>"
+    "description": "\x3cp\x3e\x3ca href=\x22\/posts\/2015\/2015-10-17-sort-filter-paging-list-on-mvc5-2\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eテスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。\x3c\/p\x3e"
   }
 </script>
 
@@ -290,7 +290,8 @@ if (!doNotTrack) {
             <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
                 <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="m">9</span><span class="p">-</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="na">[i]</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">);</span>
             <span class="p">}</span>
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="複数のソートフィールド定義を管理するクラス">複数のソートフィールド定義を管理するクラス</h3>
@@ -339,7 +340,8 @@ if (!doNotTrack) {
             <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
                 <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="na">[i]</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">);</span>
             <span class="p">}</span>
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>実装は簡単で、主にループ部分を抜き出しただけ。</p>
@@ -370,7 +372,8 @@ if (!doNotTrack) {
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">aQuery</span><span class="p">;</span>
         <span class="p">}</span>
-    <span class="p">}</span></code></pre></td></tr></table>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="リンク作成に必要なデータ">リンク作成に必要なデータ</h3>
@@ -383,7 +386,8 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ViewBag</span><span class="p">.</span><span class="n">Category</span>  <span class="p">=</span> <span class="p">(</span><span class="n">sort</span> <span class="p">==</span> <span class="s">&#34;Category&#34;</span> <span class="p">?</span> <span class="s">&#34;dCategory&#34;</span> <span class="p">:</span> <span class="s">&#34;Category&#34;</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">ViewBag</span><span class="p">.</span><span class="n">Category</span>  <span class="p">=</span> <span class="p">(</span><span class="n">sort</span> <span class="p">==</span> <span class="s">&#34;Category&#34;</span> <span class="p">?</span> <span class="s">&#34;dCategory&#34;</span> <span class="p">:</span> <span class="s">&#34;Category&#34;</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>といった感じで、フィールド毎にViewBagに入れています。</p>
@@ -455,7 +459,8 @@ if (!doNotTrack) {
             <span class="n">keyforlink</span> <span class="p">=</span> <span class="n">sort_def</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="n">a</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">);</span>
             <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Viewcount&#34;</span><span class="p">,</span> <span class="n">keyforlink</span><span class="p">);</span>
 
-        <span class="p">}</span></code></pre></td></tr></table>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>実装はSortDefinitionをthisとする拡張メソッドにします。</p>
@@ -478,7 +483,8 @@ if (!doNotTrack) {
             <span class="kt">var</span> <span class="n">field</span> <span class="p">=</span> <span class="n">aSortDef</span><span class="p">.</span><span class="n">Fields</span><span class="p">.</span><span class="n">First</span><span class="p">((</span><span class="n">def</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">def</span><span class="p">.</span><span class="n">SortKey</span> <span class="p">==</span> <span class="n">targetKey</span><span class="p">);</span>
             <span class="k">return</span> <span class="n">field</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="n">aSortDef</span><span class="p">.</span><span class="n">SortKey</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">}</span></code></pre></td></tr></table>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>そしたらSortDefinitionごとViewに引き渡してあげれば何とかなるはずです。</p>
@@ -535,7 +541,8 @@ if (!doNotTrack) {
 
             <span class="n">ViewBag</span><span class="p">.</span><span class="n">SortDef</span> <span class="p">=</span> <span class="n">sort_def</span><span class="p">;</span>     <span class="c1">//リンク作成用にソート定義を渡す
 </span><span class="c1"></span>            <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="n">query</span><span class="p">.</span><span class="n">ToList</span><span class="p">());</span>    <span class="c1">//ソート済み結果をViewに返す。
-</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span>        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="view">View</h3>
@@ -558,7 +565,8 @@ if (!doNotTrack) {
 <span class="err">@</span><span class="p">{</span>
     <span class="n">ViewBag</span><span class="p">.</span><span class="n">Title</span> <span class="p">=</span> <span class="s">&#34;Index&#34;</span><span class="p">;</span>
     <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span> <span class="n">SortDef</span> <span class="p">=</span> <span class="n">ViewBag</span><span class="p">.</span><span class="n">SortDef</span><span class="p">;</span> <span class="c1">//型付け
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>これでView内でインテリセンスが使えます。</p>
@@ -575,7 +583,8 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">@Html</span><span class="p">.</span><span class="n">ActionLink</span><span class="p">(</span>
                 <span class="n">Html</span><span class="p">.</span><span class="n">DisplayNameFor</span><span class="p">(</span><span class="n">model</span> <span class="p">=&gt;</span> <span class="n">model</span><span class="p">.</span><span class="n">Url</span><span class="p">).</span><span class="n">ToString</span><span class="p">(),</span>
-                <span class="s">&#34;Index&#34;</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">sort</span> <span class="p">=</span> <span class="n">SortDef</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="n">model</span><span class="p">=&gt;</span><span class="n">model</span><span class="p">.</span><span class="n">Url</span><span class="p">)</span> <span class="p">})</span></code></pre></td></tr></table>
+                <span class="s">&#34;Index&#34;</span><span class="p">,</span> <span class="k">new</span> <span class="p">{</span> <span class="n">sort</span> <span class="p">=</span> <span class="n">SortDef</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="n">model</span><span class="p">=&gt;</span><span class="n">model</span><span class="p">.</span><span class="n">Url</span><span class="p">)</span> <span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>ソートキーはSortDefinitionの機能を使って生成、その際にラムダ式が使えるのでインテリセンスOKで、スペルミスには警告が出ます。</p>
@@ -659,7 +668,8 @@ if (!doNotTrack) {
 
             <span class="n">ViewBag</span><span class="p">.</span><span class="n">SortDef</span> <span class="p">=</span> <span class="n">sort_def</span><span class="p">;</span>     <span class="c1">//リンク作成用にソート定義を渡す
 </span><span class="c1"></span>            <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="n">query</span><span class="p">.</span><span class="n">ToList</span><span class="p">());</span>    <span class="c1">//ソート済み結果をViewに返す。
-</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span>        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>と</p>
@@ -842,7 +852,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

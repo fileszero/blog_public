@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="https://fileszero.kimurak.net/categories/software/index.xml">
@@ -19,7 +19,7 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>Software - FILES=0</title>
+    <title>software - FILES=0</title>
     
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/custom.css">
@@ -69,7 +69,7 @@ if (!doNotTrack) {
 
     
     <header class="page-title">
-      <h1 class="title">Software</h1>
+      <h1 class="title">software</h1>
     </header>
     
 
@@ -136,15 +136,7 @@ if (!doNotTrack) {
         
       </ul>
 
-      <div class="summary">vmwareの自動起動設定ではまったのでメモ。
-vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、
-ホストＯＳがWindowsの場合、サービスとして登録する方法が詳細されています。
-http://www.kinusati.net/2011/10/03/vmware-player%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%8C%96/
-とか簡潔で参考になります。
-サービスの実行時アカウントが重要で、このアカウントでＶＭが起動できる状態になっていないとダメみたいです。
-普段使ってるアカウントがADのアカウントとかで、ポリシーでパスワード有効期限が切ってあったりすると、サービスの方もいちいちパスワードを設定しなおさなければなりません。
-めんどくさいんでローカルアカウントを作ったりするんですが、作ったアカウントでいったんログオンして、一度ＶＭを起動しないとサービスとして立ち上がってきません。
-playerの設定もアップデートの確認やらなんやらをしないようにしとくといいかと思われます。</div>
+      <div class="summary">vmwareの自動起動設定ではまったのでメモ。 vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、 ホスト</div>
     </div>
   </a>
 </article>
@@ -183,42 +175,7 @@ playerの設定もアップデートの確認やらなんやらをしないよ�
         
       </ul>
 
-      <div class="summary">Tiny Tiny RSS良い感じで使っております。
-webのUI上からフィードをダブルクリックすると記事が更新されるんですが、
-自動で定期的に更新してくれないと困りますね。
-てことで自動更新の仕方を参考に設定していきます。
-[Update daemon]方式がお勧めみたいですが、CentOSへの組み込み方が良くわからんのでパス。
-cronで実行するのが簡単そうな感じがします。
-要するに
-update.php &#8211;feeds
-を定期的に実行するわけですな。
-daemon方式のところにwebサイトユーザー権限で実行しろ見たいなことが書いてあるので、こっちもそんな感じで設定します。
-まずは普通にコマンドから実行してみますか。
-suでルートになって
-# sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &#8211;feeds
-そーすっと、なにやらごにょごにょ初めて
-これが
- こうなります
- 読み切れねー。
-更新自体は問題ないようです。
-
-rootのcrontabに登録します。
-
-
-# crontab -e
-*/15 * * * * sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &#8211;feeds &#8211;quiet
-これで快適情強生活ができるでしょうか。
-
-
-・・・できませんでした。
-朝起きてみるとcronさんから
-「sudo: sorry, you must have a tty to run sudo」
-こんなメールが大量に！
-sudoは端末からじゃないとだめなのね。
-
-ってことで
-rootのスケジュールはさっくり消して、
-1 2 3 4 5  # sudo -u nginx crontab -e no crontab for nginx - using an empty one crontab: installing new crontab # sudo -u nginx crontab -l */15 * * * * /usr/bin/php /tt/rss/dir/update.</div>
+      <div class="summary">Tiny Tiny RSS良い感じで使っております。 webのUI上からフィードをダブルクリックすると記事が更新されるんですが、 自動で定期的に更新してくれない</div>
     </div>
   </a>
 </article>
@@ -257,15 +214,7 @@ rootのスケジュールはさっくり消して、
         
       </ul>
 
-      <div class="summary">Google Readerが終わってしまいますね。
-feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。
-ざっと検索したところTiny Tiny RSSが良いみたい。
-まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGet
-wgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。
-1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。
-データベースの用意
-1 2 3 4 5  $ mysql -u root -p mysql&gt; create database ttrss; mysql&gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &#39;******&#39;; mysql&gt; FLUSH PRIVILEGES; mysql&gt; exit   ソースを展開してwebに配置
-1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.</div>
+      <div class="summary">Google Readerが終わってしまいますね。 feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。 ざっと検索し</div>
     </div>
   </a>
 </article>
@@ -304,28 +253,7 @@ wgetで落とすとなぜだかファイル名が「1.7.9」とかになるの�
         
       </ul>
 
-      <div class="summary">いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
-スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
-WordPressのプラグインより先に導入するべしですな。
-色々あるかとは思いますが、有名どころのWinShotを入れてみました。
-設定的には
-ファイルの保存場所をRAMディスクに(どーせすぐアップロードして消すし)
-「保存後に保存フォルダを開く」にチェック
-JPEG保存のショートカット(規定ではCtrl+Alt+F9)
-矩形範囲を毎回指定する
-みたいな感じにしておけばとっても快適にスクリーンショットがとれます。
-スクショとったらフォルダが表示されるので、  でアップロード。
-こんな感じで絵が出ます。
- オシャンティな枠とか影とかはWordPressが勝手に付けてくれるのですね～。
-コード貼り付け 後はコードの貼り付けのときに見た目よくするやつ。
-SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます。
-まず管理画面のからプラグイン検索で「SyntaxHighlighter Evolved」を検索。
- そうすっと
- 出てくるので、「今すぐインストール」。
-こんな感じでインストールが終わります。
- んで、「プラグインを有効化」
-タグ[code][/code]で囲ってやると、こんな感じでとってもコードっぽく表示されるんすね。
-1 2 3 4 5 6 7 8 9 10 11 12  location /wordpress { index index.php index.html index.htm; # static files include /etc/nginx/conf.d/common/expires.conf; # request to index.php if (!-e $request_filename) { # rewrite ^(.+)$ /index.php?q=$1 last; rewrite ^.</div>
+      <div class="summary">いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。 スクリーンショット まず必要そうなのがスクリ</div>
     </div>
   </a>
 </article>
@@ -355,7 +283,7 @@ SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます�
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

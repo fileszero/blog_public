@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mac on FILES=0</title>
+    <title>mac on FILES=0</title>
     <link>https://fileszero.kimurak.net/tags/mac/</link>
-    <description>Recent content in Mac on FILES=0</description>
+    <description>Recent content in mac on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Tue, 11 Feb 2014 14:00:04 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/tags/mac/index.xml" rel="self" type="application/rss+xml" />
@@ -17,11 +17,7 @@
       <pubDate>Tue, 11 Feb 2014 14:00:04 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-02-11-itunes-wifi-sync/</guid>
-      <description>iPadとiTunesをWifiで同期できなくで困ってたんです。
-一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
-試しにmacのipv6をオンにしてみたら動きやがった〜。
-ipv6とか使わないからオフにしといたんだけどなー。
-つーかシステム条件とやらに書いといてほしいわ。</description>
+      <description>iPadとiTunesをWifiで同期できなくで困ってたんです。 一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にや</description>
     </item>
     
   </channel>

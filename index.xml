@@ -5,7 +5,7 @@
     <link>https://fileszero.kimurak.net/</link>
     <description>Recent content on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Mon, 08 Apr 2019 13:05:43 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/index.xml" rel="self" type="application/rss+xml" />
@@ -292,12 +292,7 @@
       <pubDate>Mon, 11 Dec 2017 07:17:18 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-12-11-cannot-inject-changedetectorref-on-ng5/</guid>
-      <description>Angular5(5.1.0)使ってChangeDetectorRefをInjectしようとしたらある日
-1 2  compiler.js?dd9e:466 Uncaught Error: Can&amp;#39;t resolve all parameters for コンポーネント名: (?). at syntaxError (webpack-internal:///135:684:34)   と出て、動かなくなった。
-コンポーネントのコンストラクタは
-1  constructor(private ref: ChangeDetectorRef) { }   １日悩んだ末
-1  constructor( @Inject(ChangeDetectorRef) private ref: ChangeDetectorRef) { }   こう書きかえて、ひとまず解決。
-なぜ突然動かなくなったかは不明。</description>
+      <description>Angular5(5.1.0)使ってChangeDetectorRefをInjectしようとしたらある日 1 2 compiler.js?dd9e:466 Uncaught Error: Can&amp;#39;t resolve all parameters for コンポーネント名</description>
     </item>
     
     <item>
@@ -1309,21 +1304,7 @@
       <pubDate>Thu, 19 Jun 2014 04:39:34 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-06-19-rubydbsqlite3/</guid>
-      <description>Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。
-rubyからDBにアクセスするには、
- DBネイティブなライブラリ DBI等のベンダ非依存のライブラリ。(&amp;#8216;等の&amp;#8217;とか言ってますがDBI以外知りません) ActiveRecord等の高機能O/Rマッパー  なんてのが使えるかと思います。ネイティブライブラリはちょっと拡張性にかけるし、O/Rラッパーは大げさなので、DBIを使ってみようかと思います。
-DBMSもsqlite,mysql,postgresqlとか色々使えるようですが、お手軽なsqliteにします。
-DBMS(sqlite3)の準備 いつ入れたかわからないけど既に入ってました。
-1 2 3 4  C:\&amp;gt;sqlite3 SQLite version 3.5.6 Enter &amp;#34;.help&amp;#34; for instructions sqlite&amp;gt; .quit   だいぶ古いけど、まぁ問題が出たらバージョンアップする方向で。
-最新版はこちらから。
-rubyライブラリの準備 先ずはsqlite3用のライブラリ。
-DBI使う場合でもネイティブライブラリは必要なのです。gemでインストールします。
-1 2  #&amp;gt; gem install sqlite3 #&amp;gt; gem install sqlite3-ruby   つぎにデータベースへのアクセスをある程度抽象化してくれるというDBIというライブラリ。
-こちらもgemで。
-1 2  #&amp;gt; gem install dbi #&amp;gt; gem install dbd-sqlite3   dbd-sqlite3はsqliteとdbiの仲を取り持つライブラリらしい。
-eclipseにDB開発ツールをインストールしてSQLite用に仕立てる eclipseのプラグインで
-Kepler &amp;#8211; http://download.eclipse.org/releases/kepler
-&amp;#8220;Database Development&amp;#8221;</description>
+      <description>Webアプリに欠かせないデータベース関係の処理をお試しで書いてみたいと思います。 rubyからDBにアクセスするには、 DBネイティブなライブラ</description>
     </item>
     
     <item>
@@ -1332,31 +1313,7 @@ Kepler &amp;#8211; http://download.eclipse.org/releases/kepler
       <pubDate>Sat, 14 Jun 2014 09:07:11 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-06-14-windows-eclipse-ruby/</guid>
-      <description>テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。
-軟弱者には、やっぱIDEですよね。ってことでEclipseでRubyやってみようかと思います。
-Eclipse Install Eclipseは本家のからEclipse Standard 4.3.2 Windows 64bitをダウンロードしました。
-例によってインストーラは無いので、落としてきたファイルをD:\eclipseに展開して終了。
-D:\eclipse\eclipse.exeを実行するとworkspaceを聞いてくるので、D:\usr\src\workspaceにしました。フォルダ名は好みですな。
-インストールはこれで終了。インストーラないほうが好きです。
-あ、日本語化はしません。
-RDTインストール EclipseをRubyな感じにさせるにはプラグインをインストールするみたいです。
-このへん調べてると、RDTとかRadRailsとかAptanaとか色々出てきて混乱します。自分の理解ではザックリ
- RDT=純Rubyの統合開発環境
-RadRails=RDTにRailsのサポートを追加したもの
-Aptana Studio=EclipseにRadRailsを組み込んでいろいろ高機能化したもの
- と理解しときます。
-一番軽そうで、Eclipseのサイトから(純正？)pluginが導入できるRDT単体で行ってみたいと思います。お勉強の身なんでrails使わなさそうだし。
-手順は標準的なplugin入れる方法で、
-Help -&amp;gt; Install New Software&amp;#8230; で
-Work withに&amp;#8221;Kepler &amp;#8211; http://download.eclipse.org/releases/kepler&amp;amp;#8221;を選択。
- Programming Languages -&amp;gt; Dynamic Languages Toolkit &amp;#8211; Ruby Development Tools
-にチェックを入れてNext-&amp;gt;Next-&amp;gt; I accept -&amp;gt; Finish
-でRubyなEclipseができるはずです。
-Rubyのインストール ためしにプロジェクト作ってみようと
-File-&amp;gt;New-&amp;gt;Project&amp;#8230; -&amp;gt; Ruby-&amp;gt;Ruby Project
-Project Name: FirstRubyProject
-まで来たら&amp;#8221;At least one interpreter must be configured&amp;#8221;
-とのこと。</description>
+      <description>テキストエディタでちっさいスクリプトとか書いてたけど、ちょっとWebアプリとか作ってみたくなりました。 軟弱者には、やっぱIDEですよね。って</description>
     </item>
     
     <item>
@@ -1365,22 +1322,7 @@ Project Name: FirstRubyProject
       <pubDate>Wed, 14 May 2014 14:45:05 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-05-14-svn-git-translate/</guid>
-      <description>作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。
-こちらを参考にさせていただきました。
-Windowsマシンでgit svnを使ってみる
-windowsで作業します。
-Git Extensions使ってます。
-元レポジトリ:D:\TEMP\SVN_FSFS
-このレポジトリはソースの管理とかではなくオフィスドキュメントとかの類を管理していたものなので、trunkとかそーいった難しい事はしてませんので、-sオプションは使いません。
-ちなみに revisionは841。サイズは3Gとかあります。分割できればしたいです。
-1  $ git svn clone file:///D:/TEMP/SVN_FSFS   とやると
-Permission denied: Can&amp;#8217;t open &amp;#8216;/tmp/report.tmp&amp;#8217;: Permission denied at /usr/lib/perl5/site_perl/Git/SVN.pm line 1210
-とか出てうまくいきませんでした。
-svnでdump-&amp;gt;loadしてやる必要があるみたいです。
-TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bit
-をコマンドラインツール付きでインストールします。
- （既定ではインストールされません）
-1 2 3 4 5 6  D:\TEMP&amp;gt;svnadmin dump SVN_FSFS &amp;gt; svnrepo.dump * Dumped revision 999. 長い D:\TEMP&amp;gt;mkdir svn_repo2 D:\TEMP&amp;gt;svnadmin create --fs-type fsfs svn_repo2 D:\TEMP&amp;gt;svnadmin load svn_repo2 &amp;lt; svnrepo.</description>
+      <description>作業メモとかをSubversionで管理してたんですが、Gitに移行しちゃいたいと思います。 こちらを参考にさせていただきました。 Window</description>
     </item>
     
     <item>
@@ -1453,27 +1395,7 @@ TortoiseSVN 1.8.6, Build 25419 &amp;#8211; 64 Bit
       <pubDate>Wed, 09 Apr 2014 05:27:57 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-04-09-visualstudio2010asp-netmvc4/</guid>
-      <description>なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。
-ただし我がVisual Studio 2010(SP1) 、つるしの状態だとMVC3までのサポートなので、4を使えるようにします。
-http://www.microsoft.com/ja-jp/download/details.aspx?id=30683から
-AspNetMVC4Setup.exe と AspNetMVC4Setup_JPN.exeをダウンロード。
-AspNetMVC4Setup.exe
-AspNetMVC4Setup_JPN.exe
-の順で実行してみました。
-「Processing: Microsoft Visual Studio 2010」のところでやけに時間がかかるので、
-タスクマネージャを見ると[VS10SP1-KB2581019-x86.exe]がハングしているような予感（勘です）
-インストーラをキャンセルしてPCリブート。
-再実行してもダメなので
-SP1を再適用…しようとするとディスク容量が不足とか出ます。TEMPをRAM Disk(500M)に割り当ててるからでしょう、たぶん。
-そこでコマンドプロンプトを立ち上げ、
-D:&amp;gt;cd D:\DownloadFiles\VisualStudio
-D:\DownloadFiles\VisualStudio &amp;gt; set TEMP=D:\TEMP
-D:\DownloadFiles\VisualStudio &amp;gt; set TMP=D:\TEMP
-D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup.exe
-D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup_JPN.exe
-で実行したところなんとか終了。所要時間２０分ぐらいでした。
-でました
- </description>
+      <description>なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。 ただし</description>
     </item>
     
     <item>
@@ -1482,14 +1404,7 @@ D:\DownloadFiles\VisualStudio &amp;gt; AspNetMVC4Setup_JPN.exe
       <pubDate>Wed, 19 Mar 2014 02:41:51 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-03-19-install-pip-for-windows/</guid>
-      <description>pythonにもパッケージ管理ツールがあるみたいで、pipってのが有名なようです。
-こちらを参考にインストールします。
-get-pip.pyをD:\DownloadFiles\python\にダウンロード
-D:\DownloadFiles\python\で作業します。
-1 2 3 4 5 6  d:\DownloadFiles\python&amp;gt; python get-pip.py Downloading/unpacking pip Downloading/unpacking setuptools Installing collected packages: pip, setuptools Successfully installed pip setuptools Cleaning up...   でpythonのインストールフォルダにpip(とsetuptools)がインストールされるようです。
-うちの環境では
-c:\Python27\Scripts\pip.exe
-です。PATHを通すか悩むところ。。。</description>
+      <description>pythonにもパッケージ管理ツールがあるみたいで、pipってのが有名なようです。 こちらを参考にインストールします。 get-pip.pyをD</description>
     </item>
     
     <item>
@@ -1498,13 +1413,7 @@ c:\Python27\Scripts\pip.exe
       <pubDate>Fri, 14 Mar 2014 02:34:27 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-03-14-setup-sublime-text-2/</guid>
-      <description>Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。
- コード補完も動くみたいだし、ctrl+bで実行もできていい感じなんですが、
-ちょいちょい使いずらいところもあるのでカスタマイズ。
-Package Control Package Controlって謎のサイトに登録されてる各種パッケージをお手軽にインストールできたりするようになるプラグイン的なものらしい。基本らしい。
-インストール方法はこちらが原典ですな。
-ctrl+@ か view-&amp;gt;show console　でコンソール(?)を表示させて、
-&amp;lt;br /&amp;gt; import urllib2,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404&#39; + &#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &#39;http://sublime.wbond.net/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &#39;wb&#39; ).write(by) if dh == h else None; print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h) if dh !</description>
+      <description>Sublime Text をインストールしたので試しにpython書いてみると、初期状態ではこんな感じ。 コード補完も動くみたいだし、ctrl+bで実行もできていい</description>
     </item>
     
     <item>
@@ -1513,20 +1422,7 @@ ctrl+@ か view-&amp;gt;show console　でコンソール(?)を表示させて�
       <pubDate>Thu, 13 Mar 2014 07:16:12 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-03-13-installing-sublime-text-2-windows/</guid>
-      <description>Pythonの開発環境ってよく知らない。
-いい機会なので、なんか最近話題のSublime Text 2を使ってみます。
-無料ではないので良さげだったらお金払います。
-ダウンロード 本家に行って、
-Downloadページの[Windows 64 bit]を選んでインストーラをダウンロードします。
-今日の時点では「Sublime Text 2.0.2 x64 Setup.exe」がダウンロードされました。
-3はまだbetaとかなんとか書いてあるところを見ると、活発に開発が進んでるご様子。
-インストール Sublime Text 2.0.2 x64 Setup.exeを実行。
-&amp;#8220;Add to explorer context menu&amp;#8221;はONにしといたほうが良いかも。
-後はそのままで。
-「C:\Program Files\Sublime Text 2」にインストールされたようです。
-実行 特にショートカット等は作られないみたいなので、
-C:\Program Files\Sublime Text 2\sublime_text.exeを実行します。
- でました。</description>
+      <description>Pythonの開発環境ってよく知らない。 いい機会なので、なんか最近話題のSublime Text 2を使ってみます。 無料ではないので良さげだったらお金</description>
     </item>
     
     <item>
@@ -1535,23 +1431,7 @@ C:\Program Files\Sublime Text 2\sublime_text.exeを実行します。
       <pubDate>Thu, 13 Mar 2014 06:54:49 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-03-13-installing-python-windows/</guid>
-      <description>Pythonやってみようかと思う。
-環境は Windows7 64bit. Pythonは2系を使います。
-ダウンロード ご本尊にいき、
-Download-&amp;gt;Windows-&amp;gt;Latest Python 2 Release &amp;#8211; Python 2.X.X
-Windows X86-64 MSI Installer (2.X.X)
-をダウンロード。
-現時点では2.7.6が最新っぽい。
-python-2.7.6.amd64.msi みたいなファイルがダウンロードされます。
-インストール ダウンロードしたファイルを実行。
-インストールオプションは全部そのままで「次へ」連打。
-C:\Python27　にインストールされました。
-環境変数PATH Windowsの環境変数PATHに「C:\Python27;」を追加しときます。
-おわり コマンドプロンプトで
-&amp;lt;br /&amp;gt; #:\&amp;gt;python --version&amp;lt;br /&amp;gt; Python 2.7.6&amp;lt;br /&amp;gt; 
-みたいな感じになればOKではないかと。
-インストール簡単、ファイルサイズも小さいわ。
-ただし&amp;#8221;python&amp;#8221;打ちにくい。</description>
+      <description>Pythonやってみようかと思う。 環境は Windows7 64bit. Pythonは2系を使います。 ダウンロード ご本尊にいき、 Download-&amp;gt;Windows-&amp;gt;Latest Python 2 Release &amp;#8211; Python 2.X.X Windows X86-64 MSI Installer (2.X.X) をダウンロード。</description>
     </item>
     
     <item>
@@ -1560,13 +1440,7 @@ C:\Python27　にインストールされました。
       <pubDate>Tue, 11 Mar 2014 11:07:34 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-03-11-raspberrypiwifistable2/</guid>
-      <description>以前WiFi安定化に向けて小細工したけど、結局安定してません。
-なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見えなくなってるっぽい雰囲気。
-そんな事でググって見た所こんなん発見しました。
-Wifi and Ethernet dropout problems in raspberry pi
-症状的には非常に酷似してるようです。
-意味はよくわからんのですが、デバイスファイルの内容をしばらくモニタリングしてみます。
-1 2 3 4 5 6 7  $ cat /home/pi/bin/restartwlan0.sh #!/bin/sh  echo 08 &amp;gt; /sys/devices/platform/bcm2708_usb/regoffset cnn=`cat /sys/devices/platform/bcm2708_usb/regvalue` logger &amp;#34;[$cnn]&amp;#34;   こーゆーモニタとかしてると現象出なかったりするのですよね。</description>
+      <description>以前WiFi安定化に向けて小細工したけど、結局安定してません。 なんか、raspbery pi自体は立ち上がってるんだけど、USBデバイスが見え</description>
     </item>
     
     <item>
@@ -1575,11 +1449,7 @@ Wifi and Ethernet dropout problems in raspberry pi
       <pubDate>Tue, 11 Feb 2014 14:00:04 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-02-11-itunes-wifi-sync/</guid>
-      <description>iPadとiTunesをWifiで同期できなくで困ってたんです。
-一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にやってみましたけど、解決ゼズ。
-試しにmacのipv6をオンにしてみたら動きやがった〜。
-ipv6とか使わないからオフにしといたんだけどなー。
-つーかシステム条件とやらに書いといてほしいわ。</description>
+      <description>iPadとiTunesをWifiで同期できなくで困ってたんです。 一応、AppleのiTunes Wi-Fi 同期に関するトラブルシューティングを正直にや</description>
     </item>
     
     <item>
@@ -1588,54 +1458,7 @@ ipv6とか使わないからオフにしといたんだけどなー。
       <pubDate>Sat, 18 Jan 2014 15:22:24 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-01-18-electric-test2/</guid>
-      <description>無事筆記も合格しまして、技能もなんとか合格いたしました。
-技能は自己採点できないから、合格発表までヤキモキしますね。
-一応合格したんで、技能の方も勉強方法をメモしときます。
-技能に関する知識・経験ともに無しからのスタートです。
-まずは筆記試験の自己採点で合格した事を見越して、工具と教材を購入。
-工具はコレ。
-あまぞんりんく 定番っぽいような雰囲気です。
-この中の「VVFストリッパー P-957」、コレが無ければ合格できたか分からんぐらいお役に立ちました。
-教材はコレ。
-あまぞんりんく どのくらい練習が必要なもんか分からんので、３回分にしましたが、２回でも良かったかもなー。
-テキストにはこちら
-あまぞんりんく を使用。筆記と同じくすい〜っとシリーズですな。
-全部で約35,000円ですよ、たけー。
-勉強方法は基本的にテキストをこなしていきました。
-テキストの前半にケーブルの加工方法とか、各種部品への接続方法やら書いてあるんで一通り読んだ後、
-No.12を手取り足取り教えてくれてる章で初めて実際に作業。
-この章で大体の感じをつかんだら、後は候補問題をひたすらこなします。
-教材は注文して４日ぐらいですべて揃ったんで、お勉強期間は２ヶ月ぐらいですかね。
-１．５ヶ月ぐらいで２周、試験前の１週間で３周目をこなしました。
-候補問題をやる時は、
-・部材を揃える
-　問題に必要な部材のみ机に出ている状態にします。
-・開始時間メモ
-・作業
-・終了時間メモ
-　作業時間は常に意識すると良いかと思われます。
-・お片づけ
-　コレがクソメンドクセーっす
-で最初は１問１時間ぐらいかかってましたが、
-作業自体は２５分〜３０分ぐらいでこなせるようになり、
-片付け含めても４０分かからなくなりました。
-部材のケーブルですが、練習１・２周目ではカットしないで長いまま。３周目で材料表の長さにカットして作業しました。
-なぜなら、あらかじめ材料表の長さにカットしてしまうと、半端な長さのケーブルが残ってしまい、もったいない事になるからです。
-とは言え、実際の試験ではケーブル使い放題って訳ではないので、限られた長さのケーブルでの練習もやっときたいので、３周目は予想問題通りの長さで練習しました。
-作業では、複線図を書いて施行となる訳ですが、
-複線図書く時は４色ボールペンで電線の色も最初から意識して書くようにしました。
-テキストだと全部黒で書いて電線の色は最後に記号で記入って事になってましたが、
-自分にはちょっと合わなかったです。
-複線図の書き方は自分に合った書き方を見つけられると楽かもしれません。
-ちなみに、付属の複線図練習ノートは使いませんでした。
-練習する時は作業スペースをあまり広くしない方が本番で焦らなくて済むと思います。
-自分の場合は日本工学院で受験だったんですが、机の奥行きは４０センチぐらいで幅は８０センチぐらいでした。
-幅はともかく、奥行き４０センチはけっこう狭いっす。
-あと、剥いたビニールだとか電線の切れっ端とかは、マメに片付ける癖をつけといた方が作業スペースを有効に使えるようになると思いますー。
-VVFストリッパーがあれば電工ナイフが必要なのはVVRを剥く時ぐらいかと思われますが、
-VVFの外装とか電線皮むきとか、ナイフだけで一通りの事はできるように成っとくと安心できますね。
-と言う事で、無事試験には合格しましたが、免許申請がこれまためんどくさそうです。
-行政、土日やれよー。</description>
+      <description>無事筆記も合格しまして、技能もなんとか合格いたしました。 技能は自己採点できないから、合格発表までヤキモキしますね。 一応合格したんで、技能の方</description>
     </item>
     
     <item>
@@ -1644,20 +1467,7 @@ VVFの外装とか電線皮むきとか、ナイフだけで一通りの事は�
       <pubDate>Fri, 17 Jan 2014 01:54:38 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-01-17-vs2010nunitdebug/</guid>
-      <description>TDDもうあたりまえになってるんでしょうかね。
-Visual StudioでNUnitデバック実行ではまったのでメモ。
-「Visual Studio NUnit デバック実行」でググるといろんなサイトが出てきますが、とりあえずこちらを参考に
-VS2010+NUnit2.5.10でテストメソッドをデバッグ
-外部プログラムの開始→NUnit.exeのフルパス
-コマンドライン引数→DLL名(特にパスは指定しないでファイル名だけでOKみたいです。)
-nunit.exe.configの
-1 2 3  &amp;lt;startup useLegacyV2RuntimeActivationPolicy=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;!-- Comment out the next line to force use of .NET 4.0 --&amp;gt; &amp;lt;/startup&amp;gt;   を
-1 2 3 4  &amp;lt;startup useLegacyV2RuntimeActivationPolicy=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;!-- Comment out the next line to force use of .NET 4.0 --&amp;gt; &amp;lt;supportedRuntime version=&amp;#34;v4.0.30319&amp;#34; /&amp;gt; &amp;lt;/startup&amp;gt;   と変更してデバック実行。
-・・・ブレークポイントに反応しません、
-ちなみに、NUnitのバージョンは2.6.3.13283となっております。
-いろいろ試した結果、
-[Tools]-[Settings]-[Test Loader]-[Assembly Isolation]-[Default Process Model]
-を</description>
+      <description>TDDもうあたりまえになってるんでしょうかね。 Visual StudioでNUnitデバック実行ではまったのでメモ。 「Visual Studio NUnit デバック実行」でグ</description>
     </item>
     
     <item>
@@ -1666,18 +1476,7 @@ nunit.exe.configの
       <pubDate>Thu, 28 Nov 2013 02:29:39 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-11-28-ban-spam/</guid>
-      <description>今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。
-今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異常。
-ちなみにAkismetの統計では
-2013-10 193件　に対し
-2013-11 37,208件
-とまさしく桁違いの数。
-なんかあったの？
-Akismetでブロックしてくれますが、page viewのカウントとかにも影響あるので、
-IPでアクセスブロックできる、WP-Ban というプラグインを導入してみました。
-効果は絶大です。
-ただ、IPは手動で入力せねばならないので経過観察は必要ですねー。
-Akismetと連携して自動でIPセットしてくれるようなプラグインは無いのでしょうか？denyhosts的な。</description>
+      <description>今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。 今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異</description>
     </item>
     
     <item>
@@ -1686,18 +1485,7 @@ Akismetと連携して自動でIPセットしてくれるようなプラグイ�
       <pubDate>Mon, 04 Nov 2013 08:54:57 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-11-04-ruby-install-from-soruce/</guid>
-      <description>前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。
-今回はソースからインストールしてみます。
-さらにyum管理外なので一般ユーザー（インストールに使用したユーザー）のみ対象でインストールしてみます。
-という事で、作業はすべて一般ユーザーアカウントで行います。
-ユーザーhomeにソース展開用のフォルダを作って、
-rubyのダウンロードページ
-https://www.ruby-lang.org/ja/downloads/
-から最新のソースをゲットして展開します。
-1 2 3 4 5  $ cd ~ $ mkdir src src]$ wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz src]$ tar vzxf ruby-2.0.0-p247.tar.gz src]$ cd ruby-2.0.0-p247   インストール先を指定してconfigureします。
-1 2 3  ruby-2.0.0-p247]$ ./configure -prefix=$HOME/local ruby-2.0.0-p247]$ make ruby-2.0.0-p247]$ make install   そすっとこんな感じでインストールされます。
-1 2  ruby-2.0.0-p247]$ ~/local/bin/ruby -v ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]   ただし単にrubyとするとシステムにインストールされてるのを使うようになっているので、.bachrcを変更します。
-1 2 3 4 5 6 7 8 9  ruby-2.</description>
+      <description>前回yumでrubyをインストールしましたが、入るバージョンが古いので各種便利ライブラリが使えなかったり済ます。 今回はソースからインストール</description>
     </item>
     
     <item>
@@ -1706,11 +1494,7 @@ https://www.ruby-lang.org/ja/downloads/
       <pubDate>Sat, 02 Nov 2013 12:53:07 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-11-02-installing-ruby/</guid>
-      <description>yamでインストールすればとりあえず入る。（けど、最新のgemとか使えなかったりするので要注意。）
-1 2 3 4 5 6 7 8 9 10 11  $ su # rpm -q ruby パッケージ ruby はインストールされていません。 # yum install ruby ruby-devel rdoc irb # yum install rubygems # exit exit $ ruby -v ruby 1.8.7 (2011-06-30 patchlevel 352) [x86_64-linux] $ gem -v 1.3.7   パッケージ的には
-ruby x86_64 1.8.7.352-12.el6_4 updates 534 k
-ruby-devel x86_64 1.8.7.352-12.el6_4 updates 314 k
-ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
+      <description>yamでインストールすればとりあえず入る。（けど、最新のgemとか使えなかったりするので要注意。） 1 2 3 4 5 6 7 8 9 10 11 $ su # rpm -q ruby パッケー</description>
     </item>
     
     <item>
@@ -1719,11 +1503,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
       <pubDate>Tue, 08 Oct 2013 07:32:12 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-10-08-raspberry-pi-miner-setting/</guid>
-      <description>Tools もろもろ必要になりそうなツールをインストール。
-1 2 3  $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool   MacからRasPiへファイルのコピー scpを使います。
-1  mac $ scp filename pi@192.168.1.5:~/   WiFi設定 USBのwifiトングルを刺す。
-認識されたか確認
-1 2 3 4  $ lsusb Bus 001 Device 007: ID 0411:01a2 BUFFALO INC. (formerly MelCo., Inc.) WLI-UC-GNM Wireless LAN Adapter [Ralink RT8070] $ ifconfig wlan0 Link encap:Ethernet .......   こことか参考に無線lanにつなぎます。</description>
+      <description>Tools もろもろ必要になりそうなツールをインストール。 1 2 3 $ sudo apt-get install chkconfig $ sudo apt-get install mpg123 $ sudo apt-get install ethtool MacからRasPiへファイルのコピー scpを使います。</description>
     </item>
     
     <item>
@@ -1732,11 +1512,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
       <pubDate>Sun, 06 Oct 2013 12:49:14 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-10-06-raspberrypishairportnoise/</guid>
-      <description>Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。
-色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじったりして、
-結局だめだったんですが&amp;#8230;
-有線LANからWiFiにしたらあっさり解決しました。
-なんじゃそら。</description>
+      <description>Raspberry Pi + shairport + usb DACでプチプチした感じのノイズが出る件。 色々試して、サウンド関連のパラメータやら、しまいにゃsharoportのソースまでいじ</description>
     </item>
     
     <item>
@@ -1745,46 +1521,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
       <pubDate>Sat, 05 Oct 2013 14:22:18 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-10-05-electric-test1/</guid>
-      <description>第２種電気工事士試験の筆記が終了しましたー。
-自己採点では何とか合格しているようです。
-一応合格した（っぽい）ので勉強方法とか書いてみます。
-ワタクシのお勉強前の電気の知識はオームの法則をなんとか覚えてるぐらい。E=IRってやつね。
-数学…というか算数の知識は通常の数字の四則演算は覚えてるけど、分数の計算は忘れてるレベル。
-お勉強期間は３ヶ月ぐらい。
-週に３～４日、一日３０分から１時間ぐらいお勉強したでしょうか。（二ヶ月目は中だるみでだいぶサボったかも。）
-まずは試験自体が良くわからんかったので、こちらの本で試験の概要とゆーか雰囲気をつかみます。
-あまぞんりんく 「マンガでそこそこわかる第2種電気工事士筆記＋技能入門すい~っと合格コミック」
-ゆるゆるの内容ですけど、漫画好きなので結構やる気＋受かるような気になれました。
-お勉強やる気出ないな～、って時に読み返したりして、お勉強してる気分になったりするのにも役立ちます。
-やる気が出たところで、こちらの本の教科書部分を一通り読みます。
-あまぞんりんく 「ぜんぶ絵で見て覚える第2種電気工事士筆記試験すい~っと合格」
-一応覚えるつもりでノートに要点を書き写したりしながら読み進めます。
-まぁ、覚えられませんが…
-過去問が問題の分野ごとについてるので、順に進めていきます。
-１周目はさっぱり解けないので、一問ずつ解説と該当の教科書を参照して内容を理解しつつ進めていきます。
-２周目はある程度解けるかと思うので、１ページ分の問題に解答してから、答えあわせと解説読みをします。
-３周目は…やりませんでした。
-後は過去問をひたすらやります。
-「すい~っと合格」にも前年度分の過去問が付いてますが、これだとちょっと足りない気がしますんで、
-こちらの本でH19~H24までの過去問をこなしました。
-あまぞんりんく 「2013年版 第二種電気工事士筆記試験標準解答集」
-５年分もやっときゃ十分かなと。
-過去問やるときは、わかんないのも含めて取り合えず全部解きます。わかんなかったり自信がない問題にはマークをつけときます。
-んで、採点。
-間違ったとこと自信が無かったとこの解説をチェックしときます。
-毎回似たような問題が出るみたいですけど、何題か新しい問題も出るようです。（今回は２～３題ぐらい？）
-電車に乗ってるときにアプリでお勉強も結構効果的でした。
-使わせてもらったのは
-第二種電気工事士　過去問題集（一般）
-と
-第二種電気工事士写真問題
-です。
-自転車通勤なんで電車あんまり乗らないんですけどね。
-あ、当然ですけど、参考書・問題集は最新年度のを使いましょう～。
-試験会場ではかなりの空席がありました。３～４割は欠席してたんではないでしょうか。
-受験番号あるって事は受験料払ってるんでしょうに、もったいないっすねー。
-続いて技能試験になるわけですが、こっちも当然経験なし。
-工具とかも無いのでこれから注文します～。</description>
+      <description>第２種電気工事士試験の筆記が終了しましたー。 自己採点では何とか合格しているようです。 一応合格した（っぽい）ので勉強方法とか書いてみます。 ワタ</description>
     </item>
     
     <item>
@@ -1793,16 +1530,7 @@ ruby-irb x86_64 1.8.7.352-12.el6_4 updates 313 k</description>
       <pubDate>Thu, 19 Sep 2013 13:47:38 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-09-19-raspberrypiwifistable/</guid>
-      <description>Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。
-簡単なスクリプト書いて切れてる様子なら再接続するようにします。
-$ cat /home/pi/bin/restartwlan0.sh
-1 2 3 4 5 6 7 8 9 10 11  #!/bin/sh  cnn=`/sbin/ifconfig wlan0 | /bin/grep &amp;#34;inet addr:&amp;#34;` logger &amp;#34;[$cnn]&amp;#34; echo &amp;#34;$cnn&amp;#34; if [ &amp;#34;$cnn&amp;#34; = &amp;#34;&amp;#34; ]; then ifup --force wlan0 logger &amp;#34;wlan0 restarted&amp;#34; echo &amp;#34;wlan0 restarted&amp;#34; fi   cron に登録
-*/5 * * * * /home/pi/bin/restartwlan0.sh
-５分ごとに実行する感じで。
-うまく行くか分かりませんが、しばらく様子見ですな。
-追記：
-微妙にうまく行ってません。
-Raspberry Pi + WiFiを安定させるVer3も要参照。</description>
+      <description>Raspberry PiのWiFiが不安定で、週１ぐらいで切れる。 簡単なスクリプト書いて切れてる様子なら再接続するようにします。 $ cat /home/pi/bin/restartwlan0.sh 1 2 3 4 5 6 7 8 9 10 11 #!/bin/sh</description>
     </item>
     
     <item>
@@ -1811,15 +1539,7 @@ Raspberry Pi + WiFiを安定させるVer3も要参照。</description>
       <pubDate>Wed, 18 Sep 2013 02:30:24 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-09-18-vmwareautostart/</guid>
-      <description>vmwareの自動起動設定ではまったのでメモ。
-vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、
-ホストＯＳがWindowsの場合、サービスとして登録する方法が詳細されています。
-http://www.kinusati.net/2011/10/03/vmware-player%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%8C%96/
-とか簡潔で参考になります。
-サービスの実行時アカウントが重要で、このアカウントでＶＭが起動できる状態になっていないとダメみたいです。
-普段使ってるアカウントがADのアカウントとかで、ポリシーでパスワード有効期限が切ってあったりすると、サービスの方もいちいちパスワードを設定しなおさなければなりません。
-めんどくさいんでローカルアカウントを作ったりするんですが、作ったアカウントでいったんログオンして、一度ＶＭを起動しないとサービスとして立ち上がってきません。
-playerの設定もアップデートの確認やらなんやらをしないようにしとくといいかと思われます。</description>
+      <description>vmwareの自動起動設定ではまったのでメモ。 vmwareをサーバ的に使う場合ホストＯＳが起動したらゲストＯＳも起動してほしいわけで、 ホスト</description>
     </item>
     
     <item>
@@ -1828,21 +1548,7 @@ playerの設定もアップデートの確認やらなんやらをしないよ�
       <pubDate>Sun, 08 Sep 2013 10:48:58 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-09-08-raspberry-pi-time-machine/</guid>
-      <description>$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev
-$ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz
-$ cd netatalk-3.0.5/
-$ ./configure &amp;#8211;with-init-style=debian
-$ make
-$ sudo make install
-$ sudo mkdir -p /mnt/timemachine
-$ sudo chown pi /mnt/timemachine
-$ sudo nano /etc/fstab
-デバイスは/dev/sda21でext3でフォーマット済み
-$ sudo cat /etc/fstab
-proc /proc proc defaults 0 0
-/dev/mmcblk0p1 /boot vfat defaults 0 2
-/dev/mmcblk0p2 / ext4 defaults,noatime 0 1
-# a swapfile is not a swap partition, so no using swapon|off from here on, use dphys-swapfile swap[on|off] for that</description>
+      <description>$ sudo apt-get -y install libssl-dev libgcrypt11-dev libpam0g-dev libwrap0-dev libdb-dev libavahi-client-dev libacl1-dev libldap2-dev $ wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.0.5.tar.gz $ cd netatalk-3.0.5/ $ ./configure &amp;#8211;with-init-style=debian $ make $ sudo make install $ sudo mkdir -p /mnt/timemachine $ sudo chown pi /mnt/timemachine $ sudo nano /etc/fstab デバイスは/dev/sda21でext3でフォーマット済</description>
     </item>
     
     <item>
@@ -1851,26 +1557,7 @@ proc /proc proc defaults 0 0
       <pubDate>Fri, 30 Aug 2013 13:37:01 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-08-30-raspberry-pi-samba/</guid>
-      <description>省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。
-作業前には
-$ sudo rpi-update
-$ sudo apt-get update
-$ sudo apt-get upgrade
-をやっとくといいかもしれません。
-ストレージ ストレージとしては1TByteのUSB-HDDを使います。
-/dev/sdaとして認識されました。
-パーティションは２つにきります。
-/dev/sda1をSAMBA用
-/dev/sda2をMacのTimeMachine用
-にします。
-こんな感じ。
-pi@raspi ~ $ sudo fdisk /dev/sda
-Command (m for help): p
-Disk /dev/sda: 1000.2 GB, 1000204885504 bytes
-255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes</description>
+      <description>省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。 作業前には $ sudo rpi-update $ sudo apt-get update $ sudo apt-get upgrade をや</description>
     </item>
     
     <item>
@@ -1879,12 +1566,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes</description>
       <pubDate>Fri, 30 Aug 2013 10:23:40 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-08-30-avahi-and-local/</guid>
-      <description>syslogにこんな感じのメセージがでてavahiが起動しませんでした。
-Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves
-Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus
-Aug 29 23:49:16 raspi avahi: Avahi disabled itself. If you want to use Avahi in this network, please
-Aug 29 23:49:16 raspi avahi: contact your administrator and convince him to use a different DNS domain,
-Aug 29 23:49:16 raspi avahi: since .</description>
+      <description>syslogにこんな感じのメセージがでてavahiが起動しませんでした。 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus Aug 29 23:49:16</description>
     </item>
     
     <item>
@@ -1893,27 +1575,7 @@ Aug 29 23:49:16 raspi avahi: since .</description>
       <pubDate>Mon, 26 Aug 2013 14:47:38 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-08-26-raspberry-pi-usb-dac/</guid>
-      <description>Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。
-デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。
-内蔵音源は解像度が低い感じだったけど、USB-DACの方はノイズが乗りまくる。
-色々調べた結果、
-http://www.raspberrypi.org/phpBB3/viewtopic.php?t=20866
-こちらを参考に、/boot/cmdline.txt　の最後に　dwc_otg.speed=1 を追加。
-んでリブート。
-超クリアに音でてるー。
-dwc_otg.speed=1　はUSBのスピードを強制的に一番早いモードにするおまじないらしい。
-要はUSBの帯域が足りなかったという事ですね。
-8&amp;frasl;29 追記
-dwc_otg.speed=1をやっちゃうとUSB-HDDが激遅になるみたい。
-うーん、むずかしいな。
-dwc_otg.speed=1を消して、
-$ sudo rpi-update
-してみる。
-ちょっと改善するも、今度はプチプチノイズが出るようになった。
-dwc_otg.fiq_split_enable=0
-をつけてみる。
-なんか元のノイジーな感じにもどってしまったんで、つけるのやめる。
-しばらく様子見だな。</description>
+      <description>Raspberry Pi の内蔵音源がいまいちだったんでUSB-DACをかってみた。 デバイスの認識とかは特に問題なく済んだんだけど、音がすこぶる悪い。 内蔵音源は解</description>
     </item>
     
     <item>
@@ -1922,22 +1584,7 @@ dwc_otg.fiq_split_enable=0
       <pubDate>Wed, 21 Aug 2013 14:24:01 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-08-21-raspberry-pi-airplay/</guid>
-      <description>Raspberry PiにAirPlay入れたメモ
-参考：
-Raspberry Piを「AirPlay化」して音楽をストリーミングする方法
-Raspberry Pi を AirPlayサーバーにしてiPhoneのリモートスピーカーにする。
-問題：avahi-utilsがインストールできない $ sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perl
-で
-dpkg: error processing avahi-daemon (&amp;#8211;configure):
-subprocess installed post-installation script returned error exit status 1
-dpkg: dependency problems prevent configuration of avahi-utils:
-avahi-utils depends on avahi-daemon; however:
-Package avahi-daemon is not configured yet.
-が発生。
-解決： dbusが必要らしい。
-$ sudo /etc/init.d/dbus start
-$ sudo chkconfig dbus on
-問題：Avahi mDNS/DNS-SD Daemonが動かん $ sudo .</description>
+      <description>Raspberry PiにAirPlay入れたメモ 参考： Raspberry Piを「AirPlay化」して音楽をストリーミングする方法 Raspberry Pi を AirPlayサーバーにしてiPho</description>
     </item>
     
     <item>
@@ -1946,20 +1593,7 @@ $ sudo chkconfig dbus on
       <pubDate>Tue, 13 Aug 2013 04:07:16 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-08-13-raspberry-pi/</guid>
-      <description>日経のRaspberry Piセット本が増刷されてたので、買ってみました。
-OSのインストール http://www.raspberrypi.org/downloadsから、Raspbian “wheezy”のイメージをＤＬしました。
-一見ＤＬできたかに見えても結構失敗しているようで、SHAのチェックサムは必ずチェックしたほうがいいかと思われます。
-ＤＬしたファイルを展開後Win32 Disk Imagerを使って、ＳＤカードに書き込みます。
-起動 ＳＤカードとＬＡＮケーブルをさしてから、電源のＵＳＢケーブルを差し込むと起動します。
-ＯＳイメージがちゃんと作れてないと、ACTが一瞬点滅してPWRが点灯するもそのままうんともすんともいわなくなるようです。
-モニタへの出力も何もありません。
-ＤＬしたイメージの確認をしっかりしましょう。
-ワタクシ、ノートPCしか手元に無いので、USBキーボード・USBマウスがありません。
-ただRaspberry PiのdefaultではDHCPでIPアドレスを取得して、SSHが起動するようなので、
-Puttyとか適当なSSHクライアントで接続します。
-ちなみにDHCPで割り当てられたアドレスはルータのログで確認しました。
-そうするとこんな感じでログインできます。
-&amp;lt;br /&amp;gt; login as: pi&amp;lt;br /&amp;gt; pi@192.168.1.12&#39;s password:&amp;lt;br /&amp;gt; Linux raspberrypi 3.6.11+ #474 PREEMPT Thu Jun 13 17:14:42 BST 2013 armv6l&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;The programs included with the Debian GNU/Linux system are free software;&amp;lt;br /&amp;gt; the exact distribution terms for each program are described in the&amp;lt;br /&amp;gt; individual files in /usr/share/doc/*/copyright.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent&amp;lt;br /&amp;gt; permitted by applicable law.</description>
+      <description>日経のRaspberry Piセット本が増刷されてたので、買ってみました。 OSのインストール http://www.raspberrypi.or</description>
     </item>
     
     <item>
@@ -1968,15 +1602,7 @@ Puttyとか適当なSSHクライアントで接続します。
       <pubDate>Thu, 04 Jul 2013 12:39:34 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-07-04-electric-worker/</guid>
-      <description>ソフトウエアばっかりやってないでたまには現物に触りましょう。
-ってことで、第２種電気工事士の試験に挑戦してみようかと思っております。
-とはいえ、電気の知識とか全然ないんで、合格できるかどうかは半々ってとこですかね。
-今までパソコンいじってた時間を勉強に当てていますんで、このブログも更新できなくなっとります。
-久々に勉強ってものをしとるわけですが、この試験、基本的に暗記勝負みたいです。
-よる年波には勝てず、記憶力は蟻並みですんで、かなり苦戦中。
-あと、書いて覚えるつもりが、久々に鉛筆使ったからか、筆圧低くて字がまともにかけません。
-さらに漢字が書けないんで覚える事に集中できません。
-いつの間にかおじいちゃん化している自分に気づくのでした。</description>
+      <description>ソフトウエアばっかりやってないでたまには現物に触りましょう。 ってことで、第２種電気工事士の試験に挑戦してみようかと思っております。 とはいえ、</description>
     </item>
     
     <item>
@@ -1985,12 +1611,7 @@ Puttyとか適当なSSHクライアントで接続します。
       <pubDate>Mon, 17 Jun 2013 12:11:33 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-06-17-pdo-constracter-slow/</guid>
-      <description>phpが妙に遅いのでちょっと処理を追っかけてみたところ、
-どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。
-いまどきのPCでそりゃ無いでしょ。
-コンストラクタ呼んでるコードは
-1 2 3 4 5 6 7 8 9  $dsn=&amp;#39;mysql:host=localhost;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;; try{ $this-&amp;gt;connection= new PDO($dsn, DB_USER, DB_PASS); $this-&amp;gt;connection-&amp;gt;exec(&amp;#34;set names utf8&amp;#34;); $this-&amp;gt;connection-&amp;gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	} catch(PDOException $e) { echo $e-&amp;gt;getMessage(); exit(); }   特に問題なさそうに見えるけど、$dsnを
-1  $dsn=&amp;#39;mysql:host=127.0.0.1;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;;   て書き換えたら見違えるほど早くなった。localhost難しかったですか、そーですか。</description>
+      <description>phpが妙に遅いのでちょっと処理を追っかけてみたところ、 どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいか</description>
     </item>
     
     <item>
@@ -1999,13 +1620,7 @@ Puttyとか適当なSSHクライアントで接続します。
       <pubDate>Thu, 13 Jun 2013 13:24:10 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-06-13-where-should-i-write-event-bind-code/</guid>
-      <description>jQuery mobileなかなか難しいです。
-jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場所をきちんとしとかないと、実行されなかったり、複数回実行されたりします。
-ajaxなページ遷移をしないようにすれば従来どおりの概念でいけるみたいですが、なんか負けた気がするのでajax ONでいきます。
-サンプルで実験してみます。
-ソース中の &amp;lt;!&amp;#8211; 候補地　Ｘ &amp;#8211;&amp;gt;にスクリプトを入れて挙動を試してみます。
-最初に読むページとして、「home.php」をこんな感じで作ります。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  &amp;lt;!DOCTYPE html &amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta http-equiv=&amp;#34;Content-Type&amp;#34; content=&amp;#34;text/html; charset=UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, maximum-scale=1.5, minimum-scale=1.0,user-scalable=yes,initial-scale=1.0&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;TITLE&amp;lt;/title&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css&amp;#34; /&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/jquery-1.9.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 候補地　３ --&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div data-role=&amp;#34;page&amp;#34; id=&amp;#39;home&amp;#39;&amp;gt; &amp;lt;div data-role=&amp;#34;header&amp;#34;&amp;gt; &amp;lt;h1&amp;gt;Home&amp;lt;/h1&amp;gt; &amp;lt;a href=&amp;#34;#home&amp;#34; data-icon=&amp;#34;home&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div data-role=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;next.</description>
+      <description>jQuery mobileなかなか難しいです。 jQuery mobileではページ遷移がAJAXによるDOMの部分書き換えで行われるのでイベントの登録コードを書く場</description>
     </item>
     
     <item>
@@ -2014,16 +1629,7 @@ ajaxなページ遷移をしないようにすれば従来どおりの概念で�
       <pubDate>Mon, 03 Jun 2013 14:45:09 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-06-03-buidling-ttrss-android/</guid>
-      <description>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。
-APIバージョンを確認→17でOK。
-Google APIsを入れてみる→ダメ。
-プロジェクトのプロパティを見てみると、こんなん発見。
- こりゃ色々足りてませんな。
-エラーメッセージを元にライブラリを探してくるしかないみたいです。
-Android-ViewPagerIndicator こちらもGitHubで公開されています。
-さくっといただきます。
-1 2 3 4 5 6 7  \workspace\ttrss&amp;gt;git clone https://github.com/JakeWharton/Android-ViewPagerIndicator.git Cloning into &amp;#39;Android-ViewPagerIndicator&amp;#39;... remote: Counting objects: 2700, done. remote: Compressing objects: 100% (1325/1325), done. remote: Total 2700 (delta 1111), reused 2430 (delta 867) Receiving objects: 100% (2700/2700), 3.07 MiB | 937 KiB/s, done. Resolving deltas: 100% (1111/1111), done.   Eclipseにインポートすると
-「library] Unable to resolve target &amp;#8216;android-16&amp;#8217;」と出ます。</description>
+      <description>ADTアップデートしました。んで、ビルドできるようになったかといいますと、できない～。 APIバージョンを確認→17でOK。 Google APIsを入れて</description>
     </item>
     
     <item>
@@ -2032,23 +1638,7 @@ Android-ViewPagerIndicator こちらもGitHubで公開されています。
       <pubDate>Mon, 03 Jun 2013 12:41:36 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-06-03-updating-adt/</guid>
-      <description>前回 git 使ってみる流れでTiny Tiny RSS – Android Clientをビルドしようとしたけど、
-ADTアップデートしろと出ました。
-こんなん
- いいようにコンピュータに使われてますな。
-EclipseのHelp-Install new softwareでInstallerを起動。
-Work withに「Android Developer Tools Update Site &amp;#8211; http://dl-ssl.google.com/android/eclipse/」を選択。
-「Developer tools」を選んでNext-&amp;gt;Next-&amp;gt;Agree-&amp;gt;Finish!
- アップデートが始まります。
-なんかgoogle I/Oで新しい開発ツールの紹介があったもよう。Eclipseとは別物みたいですけど、どんなんでしょか。
-とか書いてたら、「No repository found containing: 」とか出てインストールエラー
-そーゆーときはレポジトリをアップデート。Window-&amp;gt;Preferencesで Install/Update-&amp;gt;Available software Sitesで登録されてるサイトを一通りreload
- で、再度インストールをば・・・・だめでした。
-しょうがないんで、
-http://developer.android.com/intl/ja/sdk/installing/installing-adt.html からプラグインを直でダウンロード
-Work withのとこのAdd-&amp;gt;ArchiveでZIPを指定してみます。
- これで一応アップデートできたみたいです。Firewall関係かな～。
-ビルドは次回。</description>
+      <description>前回 git 使ってみる流れでTiny Tiny RSS – Android Clientをビルドしようとしたけど、 ADTアップデートしろと出ました。 こんなん いいようにコンピュータ</description>
     </item>
     
     <item>
@@ -2057,14 +1647,7 @@ Work withのとこのAdd-&amp;gt;ArchiveでZIPを指定してみます。
       <pubDate>Fri, 31 May 2013 13:37:37 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-31-using-git/</guid>
-      <description>gitインストールしたんで使ってみましょう。
-手始めにGitHubからソースをいただいてみます。
-お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。
-↑のページからGitHubにリンクが張られていますんで、即クリック。
-レポジトリのURLは
- に出てますね。
-コマンドプロンプトを立ち上げて、ローカルレポジトリ用のフォルダを作って→初期化→いただきます
-1 2 3 4 5 6 7 8 9 10 11 12 13  \workspace&amp;gt;mkdir ttrss \workspace&amp;gt;cd ttrss \workspace\ttrss&amp;gt;git init Initialized empty Git repository in /workspace/ttrss/.git/ \workspace\ttrss&amp;gt;git clone https://github.com/gothfox/Tiny-Tiny-RSS -for-Honeycomb.git Cloning into &amp;#39;Tiny-Tiny-RSS-for-Honeycomb&amp;#39;... remote: Counting objects: 7896, done. remote: Compressing objects: 100% (2415/2415), done. remote: Total 7896 (delta 3910), reused 7724 (delta 3745) Receiving objects: 100% (7896/7896), 3.</description>
+      <description>gitインストールしたんで使ってみましょう。 手始めにGitHubからソースをいただいてみます。 お目当てはTiny Tiny RSS &amp;#8211; Android Clientです。 ↑</description>
     </item>
     
     <item>
@@ -2073,24 +1656,7 @@ Work withのとこのAdd-&amp;gt;ArchiveでZIPを指定してみます。
       <pubDate>Thu, 30 May 2013 14:18:41 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-30-starting-git/</guid>
-      <description>git　みんな使ってますね。みんなって誰だよ。
-こんなサービスもできたりして、盛り上がってますな。
-少々酔ってますが、遅ればせながら酒の肴にgit使い始めてみようかと思っとります。
-linuxから出たツールですがwindowsでもいけるようです。
-windowsだったらGit Extensionsいれときゃ間違いないのではないでしょうか。よく知らんけど。
-Download latest version:のmsiをダウンロードして、実行。
-Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。
- ほかはdefaultでいいと思われます。
-まず、Kdiff2のインストールが始まりますんでなにも考えずにすべてdefaultでインスコ。
-引き続いてmsysgit。
-好みですけどexplorer統合はsimpleにしときました。
- PATHは素のコマンドプロンプトでも使えるようにします。
- ほかはデフォで。
-そしたらすたーとめにゅーからGit Extensionsを起動！
-言語を選んで、グローバル設定のユーザー名とメアドをセットしときます。
-コマンドプロンプト開いて
-1 2  R:\&amp;gt;git version git version 1.8.1.msysgit.1   とか出れば良いんじゃないでしょうか。
-ワインうめー。ねる。</description>
+      <description>git みんな使ってますね。みんなって誰だよ。 こんなサービスもできたりして、盛り上がってますな。 少々酔ってますが、遅ればせながら酒の肴にgit使い</description>
     </item>
     
     <item>
@@ -2099,14 +1665,7 @@ Required softwaerでmsysgitとkdiffを一緒に入れてもらいます。
       <pubDate>Tue, 28 May 2013 13:02:51 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-28-pageinit-dose-not-fire/</guid>
-      <description>PHPついでにjQuery Mobileはじめました。
-jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバインドしろみたいな事が書いてあって、
-さらにpageinitの説明見ると
-1 2 3  $( &amp;#39;#home&amp;#39; ).live( &amp;#39;pageinit&amp;#39;,function(event){ alert( &amp;#39;This page was just enhanced by jQuery Mobile!&amp;#39; ); });   こんな風に書いてあったから、こぴぺしてみましたが、実行されません。なぜー。
-そこで
-1 2 3  $(document).delegate(&amp;#39;#home&amp;#39;, &amp;#39;pageinit&amp;#39;, function(){ alert( &amp;#39;This page was just enhanced by jQuery Mobile!&amp;#39; ); });   って書いてみたら動いた。
-なぜだー。わからん。
-jQueryも良くわからんのにmobileは早すぎたか？</description>
+      <description>PHPついでにjQuery Mobileはじめました。 jQuery mobileのイベントの説明には、イベントハンドラはpageinitイベント内でバイン</description>
     </item>
     
     <item>
@@ -2115,33 +1674,7 @@ jQueryも良くわからんのにmobileは早すぎたか？</description>
       <pubDate>Sun, 26 May 2013 13:21:51 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-26-eclipse-with-smarty/</guid>
-      <description>EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。
-MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思うんですよハイ。
-テンプレートエンジンではsmartyとか有名みたいですね。
-んで、例によってEclipseはsmartyな構文をサポートしてないわけです。
-そういう時は誰かしらがプラグインとか作ってくれてるわけです。
-ハイこれっ
-Smarty Support for PDT
-こういうの作る人ってマジで天才だと思う。
-んで、インストールはInstallSmartyPDTを参考に進めます。
-まずは.tplに既存の関連付けが無いか確認。
-Window-&amp;gt;Preferences-&amp;gt;General-&amp;gt;Content TypesのTEXT配下のHTMLとPHPの拡張子に.tplがないか確認。もしあったら削除。
- うちにはありませんでした。
-そしたら Help-&amp;gt; Install New Software。いつも思うんですが、なんでHelpからインストールなんですかね？
-Work withのとこに
-http://smartypdt.googlecode.com/svn/trunk/org.eclipse.php.smarty.updatesite/
-を入れてエンター。するとプラグインが選べるようになるんで[Next]-&amp;gt;[Next]-&amp;gt;(読んで)[I accept&amp;#8230;]-&amp;gt;[Finish]
- インストール中に署名されてないとか何とか言ってくるかもしれませんが、自己責任でＯＫで良いんではないかと思われます。
-リスタートするか聞いてきたら、素直にリスタート。
-.tplを開くと、こんなん出てます
-Didn&amp;#8217;t find the default PHP executable, please define a default PHP executable of type &amp;#8216;Zend Debugger&amp;#8217;.
-インストール説明書にデバッガを設定しろとあるので、とりあえずしてみたところこちらのエラーも消えました。
-なんで？
-デバッガの設定は　Window-&amp;gt;Preferences-&amp;gt;PHP-&amp;gt;PHP Executables　で[Add]
-実行ファイルとiniのパスを設定します。
- 基本、配布元の説明の通りですね。
-良い感じで色ついてます。
- </description>
+      <description>EclipseでPHPやってると、テンプレートエンジンとか使うと思うんです。 MVC的にもPHPとHTMLががっつり混ざってるのは良くないと思</description>
     </item>
     
     <item>
@@ -2150,42 +1683,7 @@ Didn&amp;#8217;t find the default PHP executable, please define a default PHP ex
       <pubDate>Thu, 23 May 2013 13:33:41 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-23-tiny-tiny-rss-update-feeds/</guid>
-      <description>Tiny Tiny RSS良い感じで使っております。
-webのUI上からフィードをダブルクリックすると記事が更新されるんですが、
-自動で定期的に更新してくれないと困りますね。
-てことで自動更新の仕方を参考に設定していきます。
-[Update daemon]方式がお勧めみたいですが、CentOSへの組み込み方が良くわからんのでパス。
-cronで実行するのが簡単そうな感じがします。
-要するに
-update.php &amp;#8211;feeds
-を定期的に実行するわけですな。
-daemon方式のところにwebサイトユーザー権限で実行しろ見たいなことが書いてあるので、こっちもそんな感じで設定します。
-まずは普通にコマンドから実行してみますか。
-suでルートになって
-# sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feeds
-そーすっと、なにやらごにょごにょ初めて
-これが
- こうなります
- 読み切れねー。
-更新自体は問題ないようです。
-
-rootのcrontabに登録します。
-
-
-# crontab -e
-*/15 * * * * sudo -u nginx /usr/bin/php /tt/rss/dir/update.php &amp;#8211;feeds &amp;#8211;quiet
-これで快適情強生活ができるでしょうか。
-
-
-・・・できませんでした。
-朝起きてみるとcronさんから
-「sudo: sorry, you must have a tty to run sudo」
-こんなメールが大量に！
-sudoは端末からじゃないとだめなのね。
-
-ってことで
-rootのスケジュールはさっくり消して、
-1 2 3 4 5  # sudo -u nginx crontab -e no crontab for nginx - using an empty one crontab: installing new crontab # sudo -u nginx crontab -l */15 * * * * /usr/bin/php /tt/rss/dir/update.</description>
+      <description>Tiny Tiny RSS良い感じで使っております。 webのUI上からフィードをダブルクリックすると記事が更新されるんですが、 自動で定期的に更新してくれない</description>
     </item>
     
     <item>
@@ -2194,15 +1692,7 @@ rootのスケジュールはさっくり消して、
       <pubDate>Tue, 21 May 2013 14:18:03 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-21-tiny-tiny-rss/</guid>
-      <description>Google Readerが終わってしまいますね。
-feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。
-ざっと検索したところTiny Tiny RSSが良いみたい。
-まずはダウンロード。↑のリンクのページの下のほうにDownloadとあるので、そいつをGet
-wgetで落とすとなぜだかファイル名が「1.7.9」とかになるので、リネームします。
-1 2  $ wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.7.9.tar.gz $ mv 1.7.9 Tiny-Tiny-RSS-1.7.9.tar.gz   そしたらInstallation Notesを参考にインストールを進めます。
-データベースの用意
-1 2 3 4 5  $ mysql -u root -p mysql&amp;gt; create database ttrss; mysql&amp;gt; grant all privileges on ttrss.* to ttrss_user@localhost identified by &amp;#39;******&amp;#39;; mysql&amp;gt; FLUSH PRIVILEGES; mysql&amp;gt; exit   ソースを展開してwebに配置
-1 2 3 4 5  $ tar zxfv Tiny-Tiny-RSS-1.7.9.tar.gz $ mv Tiny-Tiny-RSS-1.</description>
+      <description>Google Readerが終わってしまいますね。 feedlyもいいですけどせっかくレンサバ借りてるので自前のRSSリーダーを入れてみます。 ざっと検索し</description>
     </item>
     
     <item>
@@ -2211,15 +1701,7 @@ wgetで落とすとなぜだかファイル名が「1.7.9」とかになるの�
       <pubDate>Mon, 20 May 2013 14:23:17 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-20-mysql-setting/</guid>
-      <description>素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。
-XAMPPのコントロールパネルからmy.iniを編集。
- 1 2 3 4 5 6  ## UTF 8 Settings #init-connect=\&amp;#39;SET NAMES utf8\&amp;#39; #collation_server=utf8_unicode_ci #character_set_server=utf8 #skip-character-set-client-handshake #character_sets-dir=&amp;#34;D:/xampp/mysql/share/charsets&amp;#34;   という箇所があったので、コメントを解除してみます。
-1 2 3 4 5 6  # UTF 8 Settings #init-connect=\&amp;#39;SET NAMES utf8\&amp;#39; collation_server=utf8_unicode_ci character_set_server=utf8 skip-character-set-client-handshake character_sets-dir=&amp;#34;D:/xampp/mysql/share/charsets&amp;#34;   保存して、MySQLを再起動します。
-適当にテーブル作って日本語データをInsert Selectして「？？？？」になってなかったらOKですかね。
-init-connect=&amp;amp;#8217;SET NAMES utf8&amp;amp;#8217;　はダメ絶対 この設定つけると接続するときに
-&amp;#8220;Communication link failure: 1184 Aborted connection 15 to db&amp;#8221;とか出て接続できません。
-MySQLのログを見ると
-[Warning] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;#8221;SET NAMES utf8&amp;#8221; at line 1</description>
+      <description>素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。 XAMPPのコントロールパネルからmy</description>
     </item>
     
     <item>
@@ -2228,35 +1710,7 @@ MySQLのログを見ると
       <pubDate>Mon, 20 May 2013 14:05:09 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-20-developping-database-on-eclipse/</guid>
-      <description>PHPといえばWebアプリ、Webアプリといえばデータベース。
-ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思われます。
-開発環境がXAMPP+Eclipse+PDTなのでDBMSにはMySQLを使います。
-当然SQLも書くんですが、Eclipse+PDTにSQL用のエディタが無いので追加します。
-今回はEDTを使ってみます。
-work withに「http://download.eclipse.org/datatools/updates」
-なんだかいっぱいあるけど、とりあえず「Eclipse Data Tools Platform SDK 1.10.2」をインストールしてみます。
-このコンポーネントが多機能SQLエディタを含んでるっぽい
- [Eclipse Data Tools Platform 1.7.0]も入れてみる。
-こっちのコンポーネントがDBへの接続管理とかの機能を提供するっぽい
-インストール後、適当なSQLファイルをプロジェクトに追加して開いてみると、DTPらしきもので開きます。
-一応シンタックスハイライトとかもされてますけど、MySQLに最適化されているわけでは無いようです。
- [Type]のあたりにMySQLが出てくれば良さそうです。
-そのためには[Eclipse Data Tools Platform 1.7.0]をインストールすればいいみたいです。つーかこっちが本体みたい。
-JDBCドライバがあるとSQLエディタ以外にもいろいろできるようになるみたいです。
-こちらから JDBC Driver for MySQL (Connector/J) をDL
-ダウンロードしたファイルを適当な場所に展開(C:\Program Files\Java\mysql-connector-java-5.1.25にしました)
-[Window]-[Preference]-[Data Management]-[Connectivity]-[Driver Definitions]で[Add]
- [MySQL JDBC Driver]の[5.1]を選択
- [JAR List]タブで古いドライバファイル定義を削除して、ダウンロードしたjarファイルを追加します。
- とりあえず、ここまででインストール関係はひと段落。
-後は接続情報をEclipseに教えます。
-[Open perspective]-[New]-[Other]
- [Database Development]
- で、データベースいじるパースペクティブを開きます。
-[Data Source Explorer]-[Database connections]-右クリック-[New]
- [Connection Profile Types]でMySQLを選択、名前は適当なの今回は[localhost]
-資格情報とかセットして
- Finish!</description>
+      <description>PHPといえばWebアプリ、Webアプリといえばデータベース。 ということで、PHP使ってるとDB関連の開発がどうしても必要になってくると思わ</description>
     </item>
     
     <item>
@@ -2265,15 +1719,7 @@ JDBCドライバがあるとSQLエディタ以外にもいろいろできるよ�
       <pubDate>Thu, 16 May 2013 12:51:33 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-16-starting-php-4/</guid>
-      <description>まだ続くのかい。
-前回は簡単なプログラムを実行してみたので、今回はデバッグしてみようかと思います。
-DEBUG とりあえずブレークポイントを設定して、
- デバッグを実行してみます。
- が、ブレークしませんね。
-調べたところXDebugってのを使うみたいです。
-php.iniの最後に
-1 2 3 4 5 6 7 8 9 10 11  [XDebug] ;zend_extension = &amp;#34;D:\xampp\php\ext\php_xdebug.dll&amp;#34; ;xdebug.profiler_append = 0 ;xdebug.profiler_enable = 1 ;xdebug.profiler_enable_trigger = 0 ;xdebug.profiler_output_dir = &amp;#34;D:\xampp\tmp&amp;#34; ;xdebug.profiler_output_name = &amp;#34;cachegrind.out.%t-%s&amp;#34; ;xdebug.remote_enable = 0 ;xdebug.remote_handler = &amp;#34;dbgp&amp;#34; ;xdebug.remote_host = &amp;#34;127.0.0.1&amp;#34; ;xdebug.trace_output_dir = &amp;#34;D:\xampp\tmp&amp;#34;   こんなんがあったんで、コメントをすべてはずして、ちょっと調整
-1 2 3 4 5 6 7 8 9 10 11 12  [XDebug] zend_extension = &amp;#34;D:\xampp\php\ext\php_xdebug.</description>
+      <description>まだ続くのかい。 前回は簡単なプログラムを実行してみたので、今回はデバッグしてみようかと思います。 DEBUG とりあえずブレークポイントを設定して、 デバ</description>
     </item>
     
     <item>
@@ -2282,23 +1728,7 @@ php.iniの最後に
       <pubDate>Wed, 15 May 2013 15:00:09 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-15-starting-php-3/</guid>
-      <description>Eclipse の調整 前回でインストールは終わったのでこまい設定をします。
-なるべく素の状態で使う主義ですが、以下の設定はしときます。
-Window-Preferences設定画面を開いて。
-General-&amp;gt;Keys　Command:[Next Editor] の Binding　を　Ctrl+Tab　に。
- 同じくGeneral-&amp;gt;Workspace　の　text file encoding　を Other UTF-8　に。
- Run/Debug-&amp;gt;Launching の Launch Option　を　Always Launch …に
- Hello world 一応環境ができたので、簡単なプログラムを作って実行してみます。
-File-New-PHP Projectで新しいProjectを作ります。
-Project name : HelloWorld
-Contects を Create Project at existing locationにして
-Directory を xmappのhtdocs以下のHelloWorldにします。
- ほかは良くわからんのでデフォルトで。[Next]-&amp;gt;[Next]-&amp;gt;[Finish]！
-こんな感じでProjectができました。
- 物理フォルダのほうにはプロジェクトのメタデータっぽいものができてますね。
- プロジェクトの名前を右クリックで[New]-[PHP File]
-File Nameをindex.phpに。
- [Use PHP Template]はOnにして、[New PHP file &amp;#8211; HTML frameset]を選択して[Finish]!</description>
+      <description>Eclipse の調整 前回でインストールは終わったのでこまい設定をします。 なるべく素の状態で使う主義ですが、以下の設定はしときます。 Window-Pref</description>
     </item>
     
     <item>
@@ -2307,18 +1737,7 @@ File Nameをindex.phpに。
       <pubDate>Tue, 14 May 2013 15:28:50 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-14-starting-php-2/</guid>
-      <description>Eclipse PDT まさかの第二回。
-前回でXAMPPが一応入ったので、今回はEclipse PDTを入れて見る。
-まずはダウンロード
- 「Download All-In-One package including Eclipse 3.7.2 and PDT 3.0.2 from Zend」からの、
- 「(ZIP) 92.61 MB」っ。
-ダウンロードが終了したら適当なフォルダに展開。
-ちなみに私は目的に応じて複数Eclipseをインストールしてます。
-たとえばAndroid開発するならADT Bundleとか使い分けたほうがいいと思うんですよねぇ。
-邪道でしょうか？
-展開にしばらくかかりますが、終わったらeclipse-php.exeをダブルクリックで起動。
- きました～。ちょっと古いEclipseみたいですね。
-次回は環境のチェックをかねてHello World的なプログラムを作ってみます。</description>
+      <description>Eclipse PDT まさかの第二回。 前回でXAMPPが一応入ったので、今回はEclipse PDTを入れて見る。 まずはダウンロード 「Download All-In-One package including Eclipse 3.7.2</description>
     </item>
     
     <item>
@@ -2327,33 +1746,7 @@ File Nameをindex.phpに。
       <pubDate>Mon, 13 May 2013 14:57:26 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-13-starting-php/</guid>
-      <description>このブログ、VPSでやってます。
-せっかくなんでPHPとかやってみようかと思います。
-実は、ちょろっとWeb記事見ながらサンプル走らせたことぐらいはあるんですが、動的型付け言語にどーしてもなじめなくって、あんまり真面目に取り組んだこと無いんです。
-開発環境 開発環境はWindows上に構築します。
-とりあえずは鉄板っぽいXAMPP + Eclipse PDT で行きます。
-そんな大そうな物を作る気はないんでテキストエディタでもいけそうな気がしますが、貧弱なのでIDEです。
-XAMPP いやー、ほんと便利っすよねこれ。
- XAMPPサイトからWindows版インストーラをダウンロードして実行します。
-オプションはすべて選択。
-インストールフォルダはD:ドライブに変えました。
-「Learn more &amp;#8230;. BitNami &amp;#8230;」のチェックはOFFで。
-インストールが終わったらXAMPP Control Panelを開きます。
-なんかこんなん出てます。
-[Apache] Problem detected!
-[Apache] Port 80 in use by &amp;#8220;system&amp;#8221;!
-Windowsのサービスで「World Wide Web Publishing Service」が動いてないので、
-コマンドプロンプトで
- netstat -ano
- でPIDを調べて、タスクマネージャを見てみると「NT Kernel&amp;amp;system」とかなってる。????
-カーネルがProt80直接握るとかあるの？う～ん、よくわからん。
-よくわからんので「Windows機能の有効化または無効化」の「インターネットインフォメーションサービス」をまるっと無効にしました。
-再起動・・・解決してねー。
-サービスで「Microsoft .NET Framework NGEN 」を停止。「自動(遅延開始)」だったので手動に・・・解決せず。
-「Web Deployment Agent Service」を停止。「自動」から手動に・・・解決！
-調べたらこんなん出てきた [MEMO] WebMatrix とポート80 の関係を断つ方法　MSめっ。
-Apacheをスタートさせると今度はこんな…
- うっとうしーわー。とりあえずアクセスを許可。</description>
+      <description>このブログ、VPSでやってます。 せっかくなんでPHPとかやってみようかと思います。 実は、ちょろっとWeb記事見ながらサンプル走らせたことぐら</description>
     </item>
     
     <item>
@@ -2362,28 +1755,7 @@ Apacheをスタートさせると今度はこんな…
       <pubDate>Sat, 11 May 2013 01:21:03 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-11-equipment-for-blogging/</guid>
-      <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
-スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
-WordPressのプラグインより先に導入するべしですな。
-色々あるかとは思いますが、有名どころのWinShotを入れてみました。
-設定的には
-ファイルの保存場所をRAMディスクに(どーせすぐアップロードして消すし)
-「保存後に保存フォルダを開く」にチェック
-JPEG保存のショートカット(規定ではCtrl+Alt+F9)
-矩形範囲を毎回指定する
-みたいな感じにしておけばとっても快適にスクリーンショットがとれます。
-スクショとったらフォルダが表示されるので、  でアップロード。
-こんな感じで絵が出ます。
- オシャンティな枠とか影とかはWordPressが勝手に付けてくれるのですね～。
-コード貼り付け 後はコードの貼り付けのときに見た目よくするやつ。
-SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます。
-まず管理画面のからプラグイン検索で「SyntaxHighlighter Evolved」を検索。
- そうすっと
- 出てくるので、「今すぐインストール」。
-こんな感じでインストールが終わります。
- んで、「プラグインを有効化」
-タグ[code][/code]で囲ってやると、こんな感じでとってもコードっぽく表示されるんすね。
-1 2 3 4 5 6 7 8 9 10 11 12  location /wordpress { index index.php index.html index.htm; # static files include /etc/nginx/conf.d/common/expires.conf; # request to index.php if (!-e $request_filename) { # rewrite ^(.+)$ /index.php?q=$1 last; rewrite ^.</description>
+      <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。 スクリーンショット まず必要そうなのがスクリ</description>
     </item>
     
     <item>
@@ -2392,22 +1764,7 @@ SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます�
       <pubDate>Fri, 10 May 2013 15:43:38 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-10-start-wordpress/</guid>
-      <description>書くことないけどはじめるのが大事。
-初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。
-これからカスタマイズを進めていかねば。
-と思ったら、パーマリンクがうまく動いてないー。
-nginxだからですね。
-設定ファイルのserverディレクティブに下を追加。
-`
-location /wordpress {
-index index.php index.html index.htm;
-# static files
-include /etc/nginx/conf.d/common/expires.conf;
-# request to index.php
-if (!-e $request_filename) {
-rewrite ^(.+)$ /index.php?q=$1 last;
- 1 2 3 4  rewrite ^.+?($/-.*) $1 last;&amp;lt;br /&amp;gt; rewrite ^.+?(/.*\.php)$ $1 last;&amp;lt;br /&amp;gt; rewrite ^ /wordpress/index.php last;&amp;lt;br /&amp;gt; }&amp;lt;br /&amp;gt;   }
-`</description>
+      <description>書くことないけどはじめるのが大事。 初期設定でとりあえずトラックバックの自動送信の停止とパーマリンクの設定をやってみた。 これからカスタマイズを</description>
     </item>
     
   </channel>

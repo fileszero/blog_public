@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Redmine on FILES=0</title>
+    <title>redmine on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/redmine/</link>
-    <description>Recent content in Redmine on FILES=0</description>
+    <description>Recent content in redmine on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Tue, 19 Mar 2019 00:50:34 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/redmine/index.xml" rel="self" type="application/rss+xml" />

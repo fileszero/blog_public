@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on FILES=0</title>
+    <title>python on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/python/</link>
-    <description>Recent content in Python on FILES=0</description>
+    <description>Recent content in python on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Thu, 14 Sep 2017 03:49:38 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/python/index.xml" rel="self" type="application/rss+xml" />
@@ -41,14 +41,7 @@
       <pubDate>Wed, 19 Mar 2014 02:41:51 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-03-19-install-pip-for-windows/</guid>
-      <description>pythonにもパッケージ管理ツールがあるみたいで、pipってのが有名なようです。
-こちらを参考にインストールします。
-get-pip.pyをD:\DownloadFiles\python\にダウンロード
-D:\DownloadFiles\python\で作業します。
-1 2 3 4 5 6  d:\DownloadFiles\python&amp;gt; python get-pip.py Downloading/unpacking pip Downloading/unpacking setuptools Installing collected packages: pip, setuptools Successfully installed pip setuptools Cleaning up...   でpythonのインストールフォルダにpip(とsetuptools)がインストールされるようです。
-うちの環境では
-c:\Python27\Scripts\pip.exe
-です。PATHを通すか悩むところ。。。</description>
+      <description>pythonにもパッケージ管理ツールがあるみたいで、pipってのが有名なようです。 こちらを参考にインストールします。 get-pip.pyをD</description>
     </item>
     
   </channel>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mysql on FILES=0</title>
+    <title>MySQL on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/mysql/</link>
-    <description>Recent content in Mysql on FILES=0</description>
+    <description>Recent content in MySQL on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Mon, 20 May 2013 14:23:17 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
@@ -17,15 +17,7 @@
       <pubDate>Mon, 20 May 2013 14:23:17 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-20-mysql-setting/</guid>
-      <description>素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。
-XAMPPのコントロールパネルからmy.iniを編集。
- 1 2 3 4 5 6  ## UTF 8 Settings #init-connect=\&amp;#39;SET NAMES utf8\&amp;#39; #collation_server=utf8_unicode_ci #character_set_server=utf8 #skip-character-set-client-handshake #character_sets-dir=&amp;#34;D:/xampp/mysql/share/charsets&amp;#34;   という箇所があったので、コメントを解除してみます。
-1 2 3 4 5 6  # UTF 8 Settings #init-connect=\&amp;#39;SET NAMES utf8\&amp;#39; collation_server=utf8_unicode_ci character_set_server=utf8 skip-character-set-client-handshake character_sets-dir=&amp;#34;D:/xampp/mysql/share/charsets&amp;#34;   保存して、MySQLを再起動します。
-適当にテーブル作って日本語データをInsert Selectして「？？？？」になってなかったらOKですかね。
-init-connect=&amp;amp;#8217;SET NAMES utf8&amp;amp;#8217;　はダメ絶対 この設定つけると接続するときに
-&amp;#8220;Communication link failure: 1184 Aborted connection 15 to db&amp;#8221;とか出て接続できません。
-MySQLのログを見ると
-[Warning] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &amp;#8221;SET NAMES utf8&amp;#8221; at line 1</description>
+      <description>素のXAMPPだとMySQLで日本語がうまく扱えないみたいなので、CharesetをUTF8にします。 XAMPPのコントロールパネルからmy</description>
     </item>
     
   </channel>

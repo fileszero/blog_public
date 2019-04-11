@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "再度AngularJS(#1) - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,16 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "<p><a href="http://www.buildinsider.net/web/popularjslib/2015" target="_blank">JavaScriptライブラリ人気調査</a>によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。</p>
-
-<p>MS謹製ということでKnockout.js使ってしまってちょっと後悔。</p>
-
-<p>Visual Studio 2013 Community Editionも出ましたし、<a href="/posts/2014/2014-04-11-angularjsasp-netmvc4_1" title="AngularJS + ASP.NET MVC 4 #1(サーバ側)" target="_blank">以前にさらっと</a>いじったAngularJSを新しめの環境で使ってみたいと思います、</p>"
+    "description": "\x3cp\x3e\x3ca href=\x22http:\/\/www.buildinsider.net\/web\/popularjslib\/2015\x22 target=\x22_blank\x22\x3eJavaScriptライブラリ人気調査\x3c\/a\x3eによるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。\x3c\/p\x3e\n\n\x3cp\x3eMS謹製ということでKnockout.js使ってしまってちょっと後悔。\x3c\/p\x3e\n\n\x3cp\x3eVisual Studio 2013 Community Editionも出ましたし、\x3ca href=\x22\/posts\/2014\/2014-04-11-angularjsasp-netmvc4_1\x22 title=\x22AngularJS \x2b ASP.NET MVC 4 #1(サーバ側)\x22 target=\x22_blank\x22\x3e以前にさらっと\x3c\/a\x3eいじったAngularJSを新しめの環境で使ってみたいと思います、\x3c\/p\x3e"
   }
 </script>
 
@@ -313,7 +309,8 @@ PM&gt; Install-Package EntityFramework.SqlServerCompact -Version <span class="m"
         <span class="k">public</span> <span class="kt">string</span> <span class="n">Text</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
         <span class="k">public</span> <span class="kt">bool</span> <span class="n">Done</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>DALフォルダを作って、AGSampleContext.csとAGSampleInitializer.csを追加。(DAL:Data Access Layer)</p>
@@ -350,7 +347,8 @@ PM&gt; Install-Package EntityFramework.SqlServerCompact -Version <span class="m"
         <span class="k">public</span> <span class="n">AGSampleContext</span><span class="p">()</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="s">&#34;AGSampleDb&#34;</span><span class="p">){}</span> <span class="c1">//connection string name
 </span><span class="c1"></span>        <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Todo</span><span class="p">&gt;</span> <span class="n">Todos</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -395,7 +393,8 @@ PM&gt; Install-Package EntityFramework.SqlServerCompact -Version <span class="m"
             <span class="n">context</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>web.configに接続文字列とInitializerの設定。</p>
@@ -504,7 +503,8 @@ The Global.asax.cs file in the project may require additional changes to enable 
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">System</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Http</span><span class="p">.</span><span class="n">GlobalConfiguration</span><span class="p">.</span><span class="n">Configure</span><span class="p">(</span><span class="n">WebApiConfig</span><span class="p">.</span><span class="n">Register</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">System</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Http</span><span class="p">.</span><span class="n">GlobalConfiguration</span><span class="p">.</span><span class="n">Configure</span><span class="p">(</span><span class="n">WebApiConfig</span><span class="p">.</span><span class="n">Register</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>を追加。</p>
@@ -543,7 +543,8 @@ The Global.asax.cs file in the project may require additional changes to enable 
     <span class="p">{</span>
         <span class="k">public</span> <span class="n">ActionResult</span> <span class="n">Index</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">View</span><span class="p">();</span> <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -771,7 +772,7 @@ The Global.asax.cs file in the project may require additional changes to enable 
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

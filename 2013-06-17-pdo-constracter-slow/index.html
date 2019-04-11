@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -22,21 +22,21 @@
     <title>PDOのコンストラクタが遅い - FILES=0</title>
     
 
-<meta name="description" content="phpが妙に遅いのでちょっと処理を追っかけてみたところ、どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。いまどきのPCでそりゃ無いでしょ。コンストラクタ呼んでるコードは1 2 3 4 5 6 7 8 9  $dsn=&amp;#39;mysql:host=localhost;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;; try{ $this-&amp;gt;connection= new PDO($dsn, DB_USER, DB_PASS); $this-&amp;gt;connection-&amp;gt;exec(&amp;#34;set names utf8&amp;#34;); $this-&amp;gt;connection-&amp;gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	} catch(PDOException $e) { echo $e-&amp;gt;getMessage(); exit(); }   特に問題なさそうに見えるけど、$dsnを1  $dsn=&amp;#39;mysql:host=127.0.0.1;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;;   て書き換えたら見違えるほど早くなった。localhost難しかったですか、そーですか。">
+<meta name="description" content="phpが妙に遅いのでちょっと処理を追っかけてみたところ、 どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいか">
 
 <meta property="og:title" content="PDOのコンストラクタが遅い - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2013-06-17-pdo-constracter-slow/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="phpが妙に遅いのでちょっと処理を追っかけてみたところ、どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。いまどきのPCでそりゃ無いでしょ。コンストラクタ呼んでるコードは1 2 3 4 5 6 7 8 9  $dsn=&amp;#39;mysql:host=localhost;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;; try{ $this-&amp;gt;connection= new PDO($dsn, DB_USER, DB_PASS); $this-&amp;gt;connection-&amp;gt;exec(&amp;#34;set names utf8&amp;#34;); $this-&amp;gt;connection-&amp;gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	} catch(PDOException $e) { echo $e-&amp;gt;getMessage(); exit(); }   特に問題なさそうに見えるけど、$dsnを1  $dsn=&amp;#39;mysql:host=127.0.0.1;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;;   て書き換えたら見違えるほど早くなった。localhost難しかったですか、そーですか。">
+<meta property="og:description" content="phpが妙に遅いのでちょっと処理を追っかけてみたところ、 どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいか">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2013-06-17-pdo-constracter-slow/">
 <meta name="twitter:title" content="PDOのコンストラクタが遅い - FILES=0">
-<meta name="twitter:description" content="phpが妙に遅いのでちょっと処理を追っかけてみたところ、どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。いまどきのPCでそりゃ無いでしょ。コンストラクタ呼んでるコードは1 2 3 4 5 6 7 8 9  $dsn=&amp;#39;mysql:host=localhost;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;; try{ $this-&amp;gt;connection= new PDO($dsn, DB_USER, DB_PASS); $this-&amp;gt;connection-&amp;gt;exec(&amp;#34;set names utf8&amp;#34;); $this-&amp;gt;connection-&amp;gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	} catch(PDOException $e) { echo $e-&amp;gt;getMessage(); exit(); }   特に問題なさそうに見えるけど、$dsnを1  $dsn=&amp;#39;mysql:host=127.0.0.1;dbname=&amp;#39; . DB_NAME . &amp;#39;&amp;#39;;   て書き換えたら見違えるほど早くなった。localhost難しかったですか、そーですか。">
+<meta name="twitter:description" content="phpが妙に遅いのでちょっと処理を追っかけてみたところ、 どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいか">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "PDOのコンストラクタが遅い - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,17 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "phpが妙に遅いのでちょっと処理を追っかけてみたところ、
-どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいかかってる。
-いまどきのPCでそりゃ無いでしょ。
-コンストラクタ呼んでるコードは
-1 2 3 4 5 6 7 8 9  $dsn=&#39;mysql:host=localhost;dbname=&#39; . DB_NAME . &#39;&#39;; try{ $this-&gt;connection= new PDO($dsn, DB_USER, DB_PASS); $this-&gt;connection-&gt;exec(&#34;set names utf8&#34;); $this-&gt;connection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	} catch(PDOException $e) { echo $e-&gt;getMessage(); exit(); }   特に問題なさそうに見えるけど、$dsnを
-1  $dsn=&#39;mysql:host=127.0.0.1;dbname=&#39; . DB_NAME . &#39;&#39;;   て書き換えたら見違えるほど早くなった。localhost難しかったですか、そーですか。"
+    "description": "phpが妙に遅いのでちょっと処理を追っかけてみたところ、 どうもPDOのコンストラクタが恐ろしく重たい。ステップ実行で(体感)0.5秒ぐらいか"
   }
 </script>
 
@@ -353,7 +348,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Wordpress on FILES=0</title>
+    <title>wordpress on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/wordpress/</link>
-    <description>Recent content in Wordpress on FILES=0</description>
+    <description>Recent content in wordpress on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Tue, 02 Apr 2019 04:47:49 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/wordpress/index.xml" rel="self" type="application/rss+xml" />
@@ -56,18 +56,7 @@
       <pubDate>Thu, 28 Nov 2013 02:29:39 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-11-28-ban-spam/</guid>
-      <description>今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。
-今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異常。
-ちなみにAkismetの統計では
-2013-10 193件　に対し
-2013-11 37,208件
-とまさしく桁違いの数。
-なんかあったの？
-Akismetでブロックしてくれますが、page viewのカウントとかにも影響あるので、
-IPでアクセスブロックできる、WP-Ban というプラグインを導入してみました。
-効果は絶大です。
-ただ、IPは手動で入力せねばならないので経過観察は必要ですねー。
-Akismetと連携して自動でIPセットしてくれるようなプラグインは無いのでしょうか？denyhosts的な。</description>
+      <description>今月、とゆうか今週に入ってからspamが大量に投稿されるようになってます。 今までもちょろちょろ微笑ましい数来てたんですが、今回のはちょっと異</description>
     </item>
     
     <item>
@@ -76,28 +65,7 @@ Akismetと連携して自動でIPセットしてくれるようなプラグイ�
       <pubDate>Sat, 11 May 2013 01:21:03 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2013-05-11-equipment-for-blogging/</guid>
-      <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。
-スクリーンショット まず必要そうなのがスクリーンショット貼り付け機能。
-WordPressのプラグインより先に導入するべしですな。
-色々あるかとは思いますが、有名どころのWinShotを入れてみました。
-設定的には
-ファイルの保存場所をRAMディスクに(どーせすぐアップロードして消すし)
-「保存後に保存フォルダを開く」にチェック
-JPEG保存のショートカット(規定ではCtrl+Alt+F9)
-矩形範囲を毎回指定する
-みたいな感じにしておけばとっても快適にスクリーンショットがとれます。
-スクショとったらフォルダが表示されるので、  でアップロード。
-こんな感じで絵が出ます。
- オシャンティな枠とか影とかはWordPressが勝手に付けてくれるのですね～。
-コード貼り付け 後はコードの貼り付けのときに見た目よくするやつ。
-SyntaxHighlighter Evolved　ってのが有名らしいので入れてみます。
-まず管理画面のからプラグイン検索で「SyntaxHighlighter Evolved」を検索。
- そうすっと
- 出てくるので、「今すぐインストール」。
-こんな感じでインストールが終わります。
- んで、「プラグインを有効化」
-タグ[code][/code]で囲ってやると、こんな感じでとってもコードっぽく表示されるんすね。
-1 2 3 4 5 6 7 8 9 10 11 12  location /wordpress { index index.php index.html index.htm; # static files include /etc/nginx/conf.d/common/expires.conf; # request to index.php if (!-e $request_filename) { # rewrite ^(.+)$ /index.php?q=$1 last; rewrite ^.</description>
+      <description>いまさらブログ初体験なんですが、特に発信する情報もないので、作業記録用として使っていくつもりです。 スクリーンショット まず必要そうなのがスクリ</description>
     </item>
     
   </channel>

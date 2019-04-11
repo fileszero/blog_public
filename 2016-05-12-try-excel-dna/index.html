@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
     "headline": "Excel-DNA - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,18 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "<p>ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。</p>
-
-<p>VS+C#でソース管理もしながら開発したいもんです。</p>
-
-<p>そういった場合、選択肢としては<a href="https://excel-dna.net/" target="_blank">Excel-DNA</a>とかVSTOとかあるみたいなんですが、<a href="http://stackoverflow.com/questions/26974959/pros-and-cons-of-vsto-vs-excel-dna" target="_blank">ここ</a>とか<a href="http://supermab.com/wp/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F/" target="_blank">ここ</a>とか見ると、Excel-DNAが良さげな感じがします。</p>
-
-<p>てことで試してみます。環境はVS2015 + Office2013。</p>"
+    "description": "\x3cp\x3eちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。\x3c\/p\x3e\n\n\x3cp\x3eVS\x2bC#でソース管理もしながら開発したいもんです。\x3c\/p\x3e\n\n\x3cp\x3eそういった場合、選択肢としては\x3ca href=\x22https:\/\/excel-dna.net\/\x22 target=\x22_blank\x22\x3eExcel-DNA\x3c\/a\x3eとかVSTOとかあるみたいなんですが、\x3ca href=\x22http:\/\/stackoverflow.com\/questions\/26974959\/pros-and-cons-of-vsto-vs-excel-dna\x22 target=\x22_blank\x22\x3eここ\x3c\/a\x3eとか\x3ca href=\x22http:\/\/supermab.com\/wp\/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F\/\x22 target=\x22_blank\x22\x3eここ\x3c\/a\x3eとか見ると、Excel-DNAが良さげな感じがします。\x3c\/p\x3e\n\n\x3cp\x3eてことで試してみます。環境はVS2015 \x2b Office2013。\x3c\/p\x3e"
   }
 </script>
 
@@ -252,7 +246,8 @@ if (!doNotTrack) {
             <span class="k">return</span> <span class="s">&#34;Hello &#34;</span> <span class="p">+</span> <span class="n">name</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>デバッグ実行するとExcelが起動するんで、適当なセルに</p>
@@ -319,7 +314,8 @@ if (!doNotTrack) {
                 <span class="n">address_builder</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">ref_text</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">ref_text</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="s">&#34;!&#34;</span><span class="p">)+</span><span class="m">1</span><span class="p">));</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">address_builder</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">Substring</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="c1">//remove first &#39;,&#39;
-</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span>        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>肝はパラメータのAttributeで[ExcelArgument(AllowReference =true)]を指定してやるところでしょうか。</p>
@@ -464,7 +460,8 @@ if (!doNotTrack) {
                 <span class="p">}</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">result</span> <span class="p">/</span> <span class="n">data_length</span><span class="p">;</span>    <span class="c1">//平均値計算
-</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span>        <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>AverageVRangeとAverageHRangeがExcelに公開する関数でデータの積算方向が違います。</p>
@@ -664,7 +661,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>

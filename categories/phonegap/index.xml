@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Phonegap on FILES=0</title>
+    <title>phonegap on FILES=0</title>
     <link>https://fileszero.kimurak.net/categories/phonegap/</link>
-    <description>Recent content in Phonegap on FILES=0</description>
+    <description>Recent content in phonegap on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Wed, 24 Jun 2015 06:14:55 +0000</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/phonegap/index.xml" rel="self" type="application/rss+xml" />

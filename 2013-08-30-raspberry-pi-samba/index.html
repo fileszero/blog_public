@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -22,21 +22,21 @@
     <title>Raspberry Pi &#43; SAMBA - FILES=0</title>
     
 
-<meta name="description" content="省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。作業前には$ sudo rpi-update$ sudo apt-get update$ sudo apt-get upgradeをやっとくといいかもしれません。ストレージ ストレージとしては1TByteのUSB-HDDを使います。/dev/sdaとして認識されました。パーティションは２つにきります。/dev/sda1をSAMBA用/dev/sda2をMacのTimeMachine用にします。こんな感じ。pi@raspi ~ $ sudo fdisk /dev/sdaCommand (m for help): pDisk /dev/sda: 1000.2 GB, 1000204885504 bytes255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectorsUnits = sectors of 1 * 512 = 512 bytesSector size (logical/physical): 512 bytes / 512 bytesI/O size (minimum/optimal): 512 bytes / 512 bytes">
+<meta name="description" content="省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。 作業前には $ sudo rpi-update $ sudo apt-get update $ sudo apt-get upgrade をや">
 
 <meta property="og:title" content="Raspberry Pi &#43; SAMBA - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2013-08-30-raspberry-pi-samba/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。作業前には$ sudo rpi-update$ sudo apt-get update$ sudo apt-get upgradeをやっとくといいかもしれません。ストレージ ストレージとしては1TByteのUSB-HDDを使います。/dev/sdaとして認識されました。パーティションは２つにきります。/dev/sda1をSAMBA用/dev/sda2をMacのTimeMachine用にします。こんな感じ。pi@raspi ~ $ sudo fdisk /dev/sdaCommand (m for help): pDisk /dev/sda: 1000.2 GB, 1000204885504 bytes255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectorsUnits = sectors of 1 * 512 = 512 bytesSector size (logical/physical): 512 bytes / 512 bytesI/O size (minimum/optimal): 512 bytes / 512 bytes">
+<meta property="og:description" content="省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。 作業前には $ sudo rpi-update $ sudo apt-get update $ sudo apt-get upgrade をや">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2013-08-30-raspberry-pi-samba/">
 <meta name="twitter:title" content="Raspberry Pi &#43; SAMBA - FILES=0">
-<meta name="twitter:description" content="省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。作業前には$ sudo rpi-update$ sudo apt-get update$ sudo apt-get upgradeをやっとくといいかもしれません。ストレージ ストレージとしては1TByteのUSB-HDDを使います。/dev/sdaとして認識されました。パーティションは２つにきります。/dev/sda1をSAMBA用/dev/sda2をMacのTimeMachine用にします。こんな感じ。pi@raspi ~ $ sudo fdisk /dev/sdaCommand (m for help): pDisk /dev/sda: 1000.2 GB, 1000204885504 bytes255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectorsUnits = sectors of 1 * 512 = 512 bytesSector size (logical/physical): 512 bytes / 512 bytesI/O size (minimum/optimal): 512 bytes / 512 bytes">
+<meta name="twitter:description" content="省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。 作業前には $ sudo rpi-update $ sudo apt-get update $ sudo apt-get upgrade をや">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -46,12 +46,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https://fileszero.kimurak.net/"
+      "@id":"https:\/\/fileszero.kimurak.net\/"
     },
-    "headline": "Raspberry Pi &#43; SAMBA - FILES=0",
+    "headline": "Raspberry Pi \x2b SAMBA - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https://fileszero.kimurak.net/images/default.png",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
@@ -66,31 +66,12 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://fileszero.kimurak.net/images/logo.png",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。
-作業前には
-$ sudo rpi-update
-$ sudo apt-get update
-$ sudo apt-get upgrade
-をやっとくといいかもしれません。
-ストレージ ストレージとしては1TByteのUSB-HDDを使います。
-/dev/sdaとして認識されました。
-パーティションは２つにきります。
-/dev/sda1をSAMBA用
-/dev/sda2をMacのTimeMachine用
-にします。
-こんな感じ。
-pi@raspi ~ $ sudo fdisk /dev/sda
-Command (m for help): p
-Disk /dev/sda: 1000.2 GB, 1000204885504 bytes
-255 heads, 63 sectors/track, 121601 cylinders, total 1953525167 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes"
+    "description": "省電力なんで常時起動に向いてるRaspberry Pi。NAS風に使うべくSAMBAをセットアップします。 作業前には $ sudo rpi-update $ sudo apt-get update $ sudo apt-get upgrade をや"
   }
 </script>
 
@@ -453,7 +434,7 @@ if (!doNotTrack) {
         <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
-      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。内容についてはもちろん無保証。ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
     </div>
   </div>
 </section>
