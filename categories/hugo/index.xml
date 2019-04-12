@@ -6,10 +6,29 @@
     <description>Recent content in hugo on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 08 Apr 2019 13:05:43 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 12 Apr 2019 09:53:18 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HUGOで新規記事作成Shell Script</title>
+      <link>https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/</link>
+      <pubDate>Fri, 12 Apr 2019 09:53:18 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/</guid>
+      <description>&lt;p&gt;このブログでHUGOで新規記事を作るときは、年でフォルダを分けて、さらに日付+slugなフォルダを切って、index.mdを作るというようなルールにしてます（しちゃいました）。
+コマンドでいうとこんな感じ&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new posts &lt;span class=&#34;m&#34;&gt;2019&lt;/span&gt;/2019-04-12-create-new-post-shellscript/index.md&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;まぁ、めんどくさいですよね。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hugoに移行しました</title>

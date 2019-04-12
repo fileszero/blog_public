@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
 
-<link rel="canonical" href="https://fileszero.kimurak.net/2013-08-30-avahi-and-local/">
+<link rel="canonical" href="https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/">
 
 <link rel="shortcut icon" href="/images/favicon.ico" />
     
@@ -19,24 +19,24 @@
     
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>avahiとlocal - FILES=0</title>
+    <title>HUGOで新規記事作成Shell Script - FILES=0</title>
     
 
-<meta name="description" content="syslogにこんな感じのメセージがでてavahiが起動しませんでした。 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus Aug 29 23:49:16">
+<meta name="description" content="&lt;p&gt;このブログでHUGOで新規記事を作るときは、年でフォルダを分けて、さらに日付&#43;slugなフォルダを切って、index.mdを作るというようなルールにしてます（しちゃいました）。コマンドでいうとこんな感じ&lt;/p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new posts &lt;span class=&#34;m&#34;&gt;2019&lt;/span&gt;/2019-04-12-create-new-post-shellscript/index.md&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;まぁ、めんどくさいですよね。&lt;/p&gt;">
 
-<meta property="og:title" content="avahiとlocal - FILES=0">
+<meta property="og:title" content="HUGOで新規記事作成Shell Script - FILES=0">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://fileszero.kimurak.net/2013-08-30-avahi-and-local/">
+<meta property="og:url" content="https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="syslogにこんな感じのメセージがでてavahiが起動しませんでした。 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus Aug 29 23:49:16">
+<meta property="og:description" content="&lt;p&gt;このブログでHUGOで新規記事を作るときは、年でフォルダを分けて、さらに日付&#43;slugなフォルダを切って、index.mdを作るというようなルールにしてます（しちゃいました）。コマンドでいうとこんな感じ&lt;/p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new posts &lt;span class=&#34;m&#34;&gt;2019&lt;/span&gt;/2019-04-12-create-new-post-shellscript/index.md&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;まぁ、めんどくさいですよね。&lt;/p&gt;">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
-<meta name="twitter:url" content="https://fileszero.kimurak.net/2013-08-30-avahi-and-local/">
-<meta name="twitter:title" content="avahiとlocal - FILES=0">
-<meta name="twitter:description" content="syslogにこんな感じのメセージがでてavahiが起動しませんでした。 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus Aug 29 23:49:16">
+<meta name="twitter:url" content="https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/">
+<meta name="twitter:title" content="HUGOで新規記事作成Shell Script - FILES=0">
+<meta name="twitter:description" content="&lt;p&gt;このブログでHUGOで新規記事を作るときは、年でフォルダを分けて、さらに日付&#43;slugなフォルダを切って、index.mdを作るというようなルールにしてます（しちゃいました）。コマンドでいうとこんな感じ&lt;/p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new posts &lt;span class=&#34;m&#34;&gt;2019&lt;/span&gt;/2019-04-12-create-new-post-shellscript/index.md&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;まぁ、めんどくさいですよね。&lt;/p&gt;">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -48,15 +48,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/fileszero.kimurak.net\/"
     },
-    "headline": "avahiとlocal - FILES=0",
+    "headline": "HUGOで新規記事作成Shell Script - FILES=0",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2013-08-30T10:23:40JST",
-    "dateModified": "2013-08-30T10:23:40JST",
+    "datePublished": "2019-04-12T09:53:18JST",
+    "dateModified": "2019-04-12T09:53:18JST",
     "author": {
       "@type": "Person",
       "name": "FILES=0"
@@ -71,7 +71,7 @@
         "height": 60
       }
     },
-    "description": "syslogにこんな感じのメセージがでてavahiが起動しませんでした。 Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus Aug 29 23:49:16"
+    "description": "\x3cp\x3eこのブログでHUGOで新規記事を作るときは、年でフォルダを分けて、さらに日付\x2bslugなフォルダを切って、index.mdを作るというようなルールにしてます（しちゃいました）。\nコマンドでいうとこんな感じ\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-shell\x22 data-lang=\x22shell\x22\x3e\x3cspan class=\x22lnt\x22\x3e1\n\x3c\/span\x3e\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-shell\x22 data-lang=\x22shell\x22\x3e$ hugo new posts \x3cspan class=\x22m\x22\x3e2019\x3c\/span\x3e\/2019-04-12-create-new-post-shellscript\/index.md\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\n\x3cp\x3eまぁ、めんどくさいですよね。\x3c\/p\x3e"
   }
 </script>
 
@@ -126,77 +126,93 @@ if (!doNotTrack) {
   
 
 
-
-  
-  
-    
-    
   
 
 
 
-  <div class="thumb"></div>
+
+  <div class="thumb " style="background-image:url(/images/hugo.svg)"></div>
 
   <header class="article-header">
-    <h1 class="title">avahiとlocal</h1>
+    <h1 class="title">HUGOで新規記事作成Shell Script</h1>
 
     <ul class="facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-30T10:23:40JST">Aug 30, 2013</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-12T09:53:18JST">Apr 12, 2019</time></li>
       <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://fileszero.kimurak.net/posts/">POSTS</a></li>
       
     </ul>
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&title=avahi%e3%81%a8local" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&text=avahi%e3%81%a8local&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&t=avahi%e3%81%a8local" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&title=avahi%e3%81%a8local" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?avahi%e3%81%a8local https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&title=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&text=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&t=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&title=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
   </header>
 
   
 
-  <div class="article-body"><p>syslogにこんな感じのメセージがでてavahiが起動しませんでした。</p>
-
-<p>Aug 29 23:49:16 raspi avahi: Avahi detected that your currently configured local DNS server serves</p>
-
-<p>Aug 29 23:49:16 raspi avahi: a domain .local. This is inherently incompatible with Avahi and thus</p>
-
-<p>Aug 29 23:49:16 raspi avahi: Avahi disabled itself. If you want to use Avahi in this network, please</p>
-
-<p>Aug 29 23:49:16 raspi avahi: contact your administrator and convince him to use a different DNS domain,</p>
-
-<p>Aug 29 23:49:16 raspi avahi: since .local should be used exclusively for Zeroconf technology.</p>
-
-<p>Aug 29 23:49:16 raspi avahi: For more information, see <a href="http://avahi.org/wiki/AvahiAndUnicastDotLocal" target="_blank">http://avahi.org/wiki/AvahiAndUnicastDotLocal</a></p>
-
-<p>んでっ</p>
-
-<p>/etc/default/avahi-daemon</p>
-
-<p>に</p>
-
-<p><del datetime="2013-10-08T11:19:46+00:00"><br /> AVAHI_DAEMON_DETECT_LOCAL=1<br /> を書いて解決。<br /> </del></p>
-
-<p>↑うそ</p>
-
-<p>AVAHI_DAEMON_DETECT_LOCAL=****</p>
-
-<p>を書いて解決。</p>
+  <div class="article-body"><p>このブログでHUGOで新規記事を作るときは、年でフォルダを分けて、さらに日付+slugなフォルダを切って、index.mdを作るというようなルールにしてます（しちゃいました）。
+コマンドでいうとこんな感じ</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ hugo new posts <span class="m">2019</span>/2019-04-12-create-new-post-shellscript/index.md</code></pre></td></tr></table>
 </div>
+</div>
+<p>まぁ、めんどくさいですよね。</p>
+
+<p>という事で、post用スクリプトを書きました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nb">cd</span> <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span>
+
+<span class="nv">year</span><span class="o">=</span><span class="k">$(</span>date <span class="s2">&#34;+%Y&#34;</span><span class="k">)</span>
+<span class="nv">date</span><span class="o">=</span><span class="k">$(</span>date <span class="s2">&#34;+%Y-%m-%d&#34;</span><span class="k">)</span>
+<span class="nv">file</span><span class="o">=</span>posts/<span class="nv">$year</span>/<span class="nv">$date</span>-<span class="nv">$1</span>/index.md
+hugo new <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+sed -i -e <span class="s2">&#34;s/^slug:.*</span>$<span class="s2">/slug: \&#34;</span><span class="nv">$1</span><span class="s2">\&#34;/&#34;</span> ./content/<span class="nv">$file</span>
+sed -i -e <span class="s2">&#34;s/^title:.*</span>$<span class="s2">/title: \&#34;</span><span class="nv">$1</span><span class="s2">\&#34;/&#34;</span> ./content/<span class="nv">$file</span>
+
+<span class="nb">exit</span> <span class="m">0</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>第一引数にslugを取って、日付付きフォルダでindex.md作成後、フロントマターも設定します。</p>
+
+<p>windows上のGit-bashで使ってます。</p>
+
+<p>小ネタでした。</p></div>
 
   <footer class="article-footer">
 
     <aside class="share">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&title=avahi%e3%81%a8local" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&text=avahi%e3%81%a8local&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&t=avahi%e3%81%a8local" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f&title=avahi%e3%81%a8local" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
-  <a href="http://line.me/R/msg/text/?avahi%e3%81%a8local https%3a%2f%2ffileszero.kimurak.net%2f2013-08-30-avahi-and-local%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&title=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&text=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&t=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f&title=HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?HUGO%e3%81%a7%e6%96%b0%e8%a6%8f%e8%a8%98%e4%ba%8b%e4%bd%9c%e6%88%90Shell%20Script https%3a%2f%2ffileszero.kimurak.net%2f2019-04-12-hugo-post-shellscript%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
 </aside>
 
 
@@ -208,7 +224,7 @@ if (!doNotTrack) {
             
             <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://fileszero.kimurak.net/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
             
-            <li class="active">avahiとlocal</li>
+            <li class="active">HUGOで新規記事作成Shell Script</li>
           </ol>
         </nav>
       </div>
@@ -224,7 +240,7 @@ if (!doNotTrack) {
       <div>
         <ul class="terms">
           
-          <li><a href="https://fileszero.kimurak.net/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/">未分類</a></li>
+          <li><a href="https://fileszero.kimurak.net/categories/hugo/">hugo</a></li>
           
         </ul>
       </div>
@@ -244,27 +260,26 @@ if (!doNotTrack) {
         <div class="mcol c6">
           <header>Previous Article</header>
           <article class="lism">
-  <a href="https://fileszero.kimurak.net/2013-08-26-raspberry-pi-usb-dac/">
+  <a href="https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/">
     
 
 
 
   
   
-    
-    
+      
   
 
 
 
-  <div class="thumb"></div>
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
 
 
     <div class="inner">
-      <div class="title">Raspberry Pi &#43; USB-DAC</div>
+      <div class="title">Hugoに移行しました</div>
 
       <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-26T14:47:38JST">Aug 26, 2013</time></li>
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
         
       </ul>
@@ -275,40 +290,6 @@ if (!doNotTrack) {
 
         </div>
         
-        
-        <div class="mcol c6">
-          <header>Next Article</header>
-          <article class="lism">
-  <a href="https://fileszero.kimurak.net/2013-08-30-raspberry-pi-samba/">
-    
-
-
-
-  
-  
-    
-    
-  
-
-
-
-  <div class="thumb"></div>
-
-
-    <div class="inner">
-      <div class="title">Raspberry Pi &#43; SAMBA</div>
-
-      <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2013-08-30T13:37:01JST">Aug 30, 2013</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-    </div>
-  </a>
-</article>
-
-        </div>
         
       </div>
     </div>
