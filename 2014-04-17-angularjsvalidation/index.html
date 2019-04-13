@@ -22,21 +22,21 @@
     <title>AngularJSでバリデーション - FILES=0</title>
     
 
-<meta name="description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
+<meta name="description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
 
 <meta property="og:title" content="AngularJSでバリデーション - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2014-04-17-angularjsvalidation/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
+<meta property="og:description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2014-04-17-angularjsvalidation/">
 <meta name="twitter:title" content="AngularJSでバリデーション - FILES=0">
-<meta name="twitter:description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
+<meta name="twitter:description" content="&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS &#43; Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;&lt;p&gt;ポイント的には&lt;/p&gt;&lt;ul&gt;&lt;li&gt;フォームやフォーム部品には名前(name属性)を付ける。&lt;/li&gt;&lt;li&gt;$errorや$validの評価はエレメントにつけた名前で行う。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;ぐらいでしょうか。&lt;/p&gt;">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -71,7 +71,7 @@
         "height": 60
       }
     },
-    "description": "\x3ch3 id=\x22クライアントでバリデーション\x22\x3eクライアントでバリデーション\x3c\/h3\x3e\n\n\x3cp\x3e\x3ca href=\x22\/posts\/2014\/2014-04-16-angularjsbootstrap\x22 title=\x22AngularJS \x2b Bootstrap\x22 target=\x22_blank\x22\x3e前回作った新規入力フォーム\x3c\/a\x3eにバリデーション機能を付けてみたので、コツっぽいものをメモ。\x3c\/p\x3e\n\n\x3cp\x3eポイント的には\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3eフォームやフォーム部品には名前(name属性)を付ける。\x3c\/li\x3e\n\x3cli\x3e$errorや$validの評価はエレメントにつけた名前で行う。\x3c\/li\x3e\n\x3c\/ul\x3e\n\n\x3cp\x3eぐらいでしょうか。\x3c\/p\x3e"
+    "description": "\x3ch3 id=\x22クライアントでバリデーション\x22\x3eクライアントでバリデーション\x3c\/h3\x3e\n\n\x3cp\x3e\x3ca href=\x22\/2014-04-16-angularjsbootstrap\x22 title=\x22AngularJS \x2b Bootstrap\x22 target=\x22_blank\x22\x3e前回作った新規入力フォーム\x3c\/a\x3eにバリデーション機能を付けてみたので、コツっぽいものをメモ。\x3c\/p\x3e\n\n\x3cp\x3eポイント的には\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3eフォームやフォーム部品には名前(name属性)を付ける。\x3c\/li\x3e\n\x3cli\x3e$errorや$validの評価はエレメントにつけた名前で行う。\x3c\/li\x3e\n\x3c\/ul\x3e\n\n\x3cp\x3eぐらいでしょうか。\x3c\/p\x3e"
   }
 </script>
 
@@ -171,7 +171,7 @@ if (!doNotTrack) {
 
   <div class="article-body"><h3 id="クライアントでバリデーション">クライアントでバリデーション</h3>
 
-<p><a href="/posts/2014/2014-04-16-angularjsbootstrap" title="AngularJS + Bootstrap" target="_blank">前回作った新規入力フォーム</a>にバリデーション機能を付けてみたので、コツっぽいものをメモ。</p>
+<p><a href="/2014-04-16-angularjsbootstrap" title="AngularJS + Bootstrap" target="_blank">前回作った新規入力フォーム</a>にバリデーション機能を付けてみたので、コツっぽいものをメモ。</p>
 
 <p>ポイント的には</p>
 
@@ -254,7 +254,7 @@ if (!doNotTrack) {
 ・・・中略・・・
     <span class="nt">&lt;style</span> <span class="na">type=</span><span class="s">&#34;text/css&#34;</span><span class="nt">&gt;</span>
       /*invalidな時のスタイル。編集後のみ効くようにng-dirtyを付ける*/
-      input.ng-invalid.ng-dirty { border: 1px solid red !important; }   
+      input.ng-invalid.ng-dirty { border: 1px solid red !important; }
     <span class="nt">&lt;/style&gt;</span>
   <span class="nt">&lt;/head&gt;</span>
   <span class="nt">&lt;body&gt;</span>
@@ -268,7 +268,7 @@ if (!doNotTrack) {
                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&#34;col-sm-6&#34;</span><span class="nt">&gt;</span>
                         <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&#34;input-group&#34;</span><span class="nt">&gt;</span>
                             <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&#34;text&#34;</span> <span class="na">class=</span><span class="s">&#34;form-control&#34;</span> <span class="na">ng-model=</span><span class="s">&#34;newTask.DueDate&#34;</span> <span class="na">id=</span><span class="s">&#34;newDueDate&#34;</span>
-                                <span class="na">datepicker-popup=</span><span class="s">&#34;yyyy-MM-dd&#34;</span> <span class="na">is-open=</span><span class="s">&#34;opened&#34;</span> <span class="na">datepicker-options=</span><span class="s">&#34;dateOptions&#34;</span> <span class="na">date-disabled=</span><span class="s">&#34;disabled(date, mode)&#34;</span> 
+                                <span class="na">datepicker-popup=</span><span class="s">&#34;yyyy-MM-dd&#34;</span> <span class="na">is-open=</span><span class="s">&#34;opened&#34;</span> <span class="na">datepicker-options=</span><span class="s">&#34;dateOptions&#34;</span> <span class="na">date-disabled=</span><span class="s">&#34;disabled(date, mode)&#34;</span>
                                 <span class="na">ng-required=</span><span class="s">&#34;true&#34;</span>  <span class="nt">/&gt;</span>
                             <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&#34;input-group-btn&#34;</span><span class="nt">&gt;</span>
                                 <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&#34;btn btn-default&#34;</span> <span class="na">ng-click=</span><span class="s">&#34;open($event)&#34;</span><span class="nt">&gt;</span>

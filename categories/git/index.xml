@@ -30,7 +30,7 @@
       <pubDate>Sat, 11 Feb 2017 12:37:26 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-02-11-auto-deploy-wordpress-and-git/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
 
 &lt;p&gt;いちいち転送ソフト立ち上げるのもめんどくさいし、転送忘れとかもありそうです。&lt;/p&gt;
 

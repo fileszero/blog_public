@@ -176,7 +176,7 @@
       <pubDate>Thu, 30 Aug 2018 05:05:34 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2018-08-30-upgrade-alminium-environment-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2018/2018-08-30-upgrade-alminium-environment-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、新環境のOSセットアップができたようなので、ALMiniumをインストールします。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2018-08-30-upgrade-alminium-environment-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、新環境のOSセットアップができたようなので、ALMiniumをインストールします。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -384,7 +384,7 @@
       <pubDate>Thu, 21 Sep 2017 13:47:05 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-09-21-try-nightmare-js-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-09-20-try-nightmare-js-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、基本的なところをお試ししてみましたが、&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-09-20-try-nightmare-js-1&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、基本的なところをお試ししてみましたが、&lt;/p&gt;
 
 &lt;p&gt;もう少しなんかやらせてみたいので、数あてゲームをやらせてみます。&lt;/p&gt;
 
@@ -410,7 +410,7 @@
       <pubDate>Thu, 14 Sep 2017 03:49:38 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-09-14-python-basic/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-09-11-try-pythononwindows&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;pythonの開発環境を作ったんで、簡単なコードを書いてみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-09-11-try-pythononwindows&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;pythonの開発環境を作ったんで、簡単なコードを書いてみます。&lt;/p&gt;
 
 &lt;p&gt;今回からコードはgistに置いてみることにしました～&lt;/p&gt;</description>
     </item>
@@ -434,7 +434,7 @@
       <pubDate>Mon, 26 Jun 2017 03:51:03 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
 
 &lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;</description>
     </item>
@@ -445,7 +445,7 @@
       <pubDate>Tue, 20 Jun 2017 13:35:42 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -454,7 +454,7 @@
       <pubDate>Mon, 19 Jun 2017 13:40:34 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
 
 &lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;</description>
     </item>
@@ -465,7 +465,7 @@
       <pubDate>Mon, 19 Jun 2017 03:17:49 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
 
 &lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;
 
@@ -555,7 +555,7 @@
       <pubDate>Sat, 11 Feb 2017 12:37:26 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2017-02-11-auto-deploy-wordpress-and-git/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2017/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-02-08-docker-for-mac-wp&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Docker+gitで良い感じのwordpress開発環境ができましたが、本番への反映はscpなりsftpなりでファイル転送する必要がありました。&lt;/p&gt;
 
 &lt;p&gt;いちいち転送ソフト立ち上げるのもめんどくさいし、転送忘れとかもありそうです。&lt;/p&gt;
 
@@ -613,7 +613,7 @@
       <guid>https://fileszero.kimurak.net/2016-12-27-ttrss-upgrade/</guid>
       <description>&lt;p&gt;RSSリーダーには&lt;a href=&#34;https://tt-rss.org/gitlab/fox/tt-rss/wikis/home&#34; target=&#34;_blank&#34;&gt;Tiny Tiny RSS&lt;/a&gt;を使っております。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2013/2013-05-21-tiny-tiny-rss&#34; target=&#34;_blank&#34;&gt;インストール&lt;/a&gt;しっぱなしで全然アップデートしておりませんでした。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2013-05-21-tiny-tiny-rss&#34; target=&#34;_blank&#34;&gt;インストール&lt;/a&gt;しっぱなしで全然アップデートしておりませんでした。&lt;/p&gt;
 
 &lt;p&gt;インストール記事が２０１３年なんで３年放置。。。&lt;/p&gt;
 
@@ -683,7 +683,7 @@
       <pubDate>Sat, 16 Jul 2016 05:47:40 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -796,7 +796,7 @@
       <pubDate>Fri, 04 Dec 2015 15:48:52 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;
 
 &lt;p&gt;Shellで作業を進めます。&lt;/p&gt;</description>
     </item>
@@ -822,7 +822,7 @@
       <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;
 
@@ -835,7 +835,7 @@
       <pubDate>Sun, 18 Oct 2015 09:00:39 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -844,7 +844,7 @@
       <pubDate>Sat, 17 Oct 2015 10:42:07 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
 
 &lt;p&gt;今回はwebアプリから使ってみます。&lt;/p&gt;</description>
     </item>
@@ -891,7 +891,7 @@
       <pubDate>Tue, 18 Aug 2015 04:04:05 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-08-18-asp-net-identity-with-adfs-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;
 
 &lt;p&gt;この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。&lt;/p&gt;
 
@@ -947,7 +947,7 @@
       <guid>https://fileszero.kimurak.net/2015-06-24-phonegap-cordova-traps/</guid>
       <description>&lt;p&gt;PhoneGap/Cordovaで手探り状態で開発してます。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-05-18-application-not-installed&#34; target=&#34;_blank&#34;&gt;こんな事&lt;/a&gt;もあったりして、けっこうつまずくポイントが多いような気がしますんでメモ書き。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1050,7 +1050,7 @@
       <pubDate>Tue, 10 Mar 2015 12:16:51 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-03-10-try-mean-with-vs-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-03-06-try-mean-with-vs-1&#34; title=&#34;MEANをVisual Studioでやってみる#1(開発環境)&#34; target=&#34;_blank&#34;&gt;いちおうの開発環境&lt;/a&gt;が用意できたので、簡単なサンプルアプリを作ってみます。&lt;/p&gt;
 
 &lt;p&gt;お題としては名簿アプリ。典型的なCRUD系のアプリですな。&lt;/p&gt;</description>
     </item>
@@ -1078,7 +1078,7 @@
       <pubDate>Mon, 02 Mar 2015 05:23:12 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-03-02-angularjs-again-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1091,7 +1091,7 @@
 
 &lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;
 
-&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
+&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1175,7 +1175,7 @@
       <pubDate>Sun, 23 Nov 2014 13:42:24 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-11-23-try-node-js-with-mac-3/</guid>
-      <description>&lt;p&gt;Windows環境で&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-11-22-try-node-js-with-windows-2&#34; title=&#34;node.jsを使ってみる(Windows) #2&#34; target=&#34;_blank&#34;&gt;ちょっと試した&lt;/a&gt;node.js。Macでも試してみます。&lt;/p&gt;
+      <description>&lt;p&gt;Windows環境で&lt;a href=&#34;https://fileszero.kimurak.net/2014-11-22-try-node-js-with-windows-2&#34; title=&#34;node.jsを使ってみる(Windows) #2&#34; target=&#34;_blank&#34;&gt;ちょっと試した&lt;/a&gt;node.js。Macでも試してみます。&lt;/p&gt;
 
 &lt;p&gt;node.jsのインストールですが、&lt;a href=&#34;https://github.com/creationix/nvm&#34; target=&#34;_blank&#34;&gt;nvmって便利ツール&lt;/a&gt;があるようです。&lt;/p&gt;
 
@@ -1188,7 +1188,7 @@
       <pubDate>Fri, 21 Nov 2014 15:26:51 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-11-21-try-node-js-with-windows-1&#34; title=&#34;node.jsを使ってみる(Windows)#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;に引き続きnode.jsのお勉強です。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://socket.io/&#34; target=&#34;_blank&#34;&gt;socket.io&lt;/a&gt;という楽しげなパッケージがあるので、&lt;/p&gt;
 
@@ -1222,7 +1222,7 @@
       <pubDate>Wed, 12 Nov 2014 13:52:29 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-11-12-raspberrypiwifistable3/</guid>
-      <description>&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi + WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi + WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;
+      <description>&lt;p&gt;Raspberry PiのWifiを安定させようと&lt;a href=&#34;http://localhost:8000/unclassified/429/&#34; title=&#34;Raspberry Pi + WiFiを安定させる&#34; target=&#34;_blank&#34;&gt;色々&lt;/a&gt;と&lt;a href=&#34;https://fileszero.kimurak.net/2014-03-11-raspberrypiwifistable2&#34; title=&#34;Raspberry Pi + WiFiを安定させるVer2&#34; target=&#34;_blank&#34;&gt;試行錯誤&lt;/a&gt;したりして、結構安定していたようなんですが、&lt;/p&gt;
 
 &lt;p&gt;ココ最近、また不安定になってきました。&lt;/p&gt;
 
@@ -1295,7 +1295,7 @@
       <pubDate>Tue, 05 Aug 2014 07:37:32 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-08-05-sutadying-rails-and-vim-1&#34; title=&#34;railsでvimのお勉強#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;OSセットアップからrailsアプリの作成までやりました。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-08-05-sutadying-rails-and-vim-1&#34; title=&#34;railsでvimのお勉強#1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;OSセットアップからrailsアプリの作成までやりました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1352,7 +1352,7 @@
       <guid>https://fileszero.kimurak.net/2014-04-17-angularjsvalidation/</guid>
       <description>&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS + Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS + Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;
 
 &lt;p&gt;ポイント的には&lt;/p&gt;
 
@@ -1372,7 +1372,7 @@
       <guid>https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap/</guid>
       <description>&lt;p&gt;Bootstrapはやってますね。使ったことありませんが、お手軽にきれいなサイトができるらしいっす。&lt;/p&gt;
 
-&lt;p&gt;てことで、&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
+&lt;p&gt;てことで、&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
 
 &lt;p&gt;AngularJS と Bootstrapを合わせ技で使う場合、&lt;a href=&#34;http://angular-ui.github.io/bootstrap/&#34; target=&#34;_blank&#34;&gt;UI Bootstrap&lt;/a&gt;がよさそうです。&lt;/p&gt;</description>
     </item>
@@ -1383,7 +1383,7 @@
       <pubDate>Mon, 14 Apr 2014 06:39:12 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-04-14-angularjsasp-netmvc4_3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
 
 &lt;p&gt;CRUDのUです。&lt;/p&gt;</description>
     </item>
@@ -1394,7 +1394,7 @@
       <pubDate>Fri, 11 Apr 2014 05:19:24 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
     </item>
     
     <item>

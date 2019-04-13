@@ -367,7 +367,7 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="k">void</span> <span class="n">NextSortKey_Test1</span><span class="p">()</span>
         <span class="p">{</span>
             <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
-            
+
             <span class="kt">var</span> <span class="n">next</span><span class="p">=</span><span class="n">sortdef</span><span class="p">.</span><span class="n">GetNextSortKey</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">);</span>
             <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title desc&#34;</span><span class="p">,</span> <span class="n">next</span><span class="p">);</span>    <span class="c1">//昇順の次は降順
 </span><span class="c1"></span>
@@ -400,7 +400,7 @@ if (!doNotTrack) {
                 <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span> <span class="p">+</span> <span class="n">DESC_SUFFIX</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">SortKey</span><span class="p">;</span>
-            
+
         <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -603,7 +603,7 @@ if (!doNotTrack) {
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>長くなったので、<del datetime="2015-10-17T10:42:17+00:00">(たぶん)</del><a href="/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2" target="_blank">次回</a>に続きます。</p>
+<p>長くなったので、<del datetime="2015-10-17T10:42:17+00:00">(たぶん)</del><a href="/2015-10-17-sort-filter-paging-list-on-mvc5-2" target="_blank">次回</a>に続きます。</p>
 
 <p>一応ココまでの内容は<a href="https://github.com/cozy-code/ChimaLib/tree/SortFieldDefinition" target="_blank">GitHub</a>で公開しときます。</p>
 

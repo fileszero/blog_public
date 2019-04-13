@@ -318,7 +318,7 @@ Welcome to Ubuntu <span class="m">16</span>.04.4 LTS <span class="o">(</span>GNU
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">vagrant@vagrant:~$ <span class="nv">PASSWORD</span><span class="o">=</span><span class="k">$(</span>perl -e <span class="s1">&#39;print crypt(&#34;some_password&#34;, &#34;\$6\$&#34;. crypt(rand, rand 100));&#39;</span><span class="k">)</span>
-vagrant@vagrant:~$ sudo useradd -m -s /bin/bash -k /etc/skel -p <span class="nv">$PASSWORD</span> admin 
+vagrant@vagrant:~$ sudo useradd -m -s /bin/bash -k /etc/skel -p <span class="nv">$PASSWORD</span> admin
 vagrant@vagrant:~$ sudo gpasswd -a admin sudo</code></pre></td></tr></table>
 </div>
 </div>
@@ -387,7 +387,7 @@ vagrant@vagrant:~$ sudo service ssh restart</code></pre></td></tr></table>
 
 <p>次にALMiniumのインストールになります。</p>
 
-<p>長くなったんで<a href="/posts/2018/2018-08-30-upgrade-alminium-environment-2" rel="noopener" target="_blank">次に書きます</a>。</p></div>
+<p>長くなったんで<a href="/2018-08-30-upgrade-alminium-environment-2" rel="noopener" target="_blank">次に書きます</a>。</p></div>
 
   <footer class="article-footer">
 

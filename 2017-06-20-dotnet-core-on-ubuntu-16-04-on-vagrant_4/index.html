@@ -22,21 +22,21 @@
     <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4 - FILES=0</title>
     
 
-<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core &#43; EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;">
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core &#43; EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;">
 
 <meta property="og:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core &#43; EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core &#43; EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/">
 <meta name="twitter:title" content="ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4 - FILES=0">
-<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core &#43; EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core &#43; EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -71,7 +71,7 @@
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/posts\/2017\/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eめでたくUbuntuでASP.NET Core \x2b EF Coreが動いたので、次はスキーマ変更を試してみます。\x3c\/p\x3e"
+    "description": "\x3cp\x3e\x3ca href=\x22\/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eめでたくUbuntuでASP.NET Core \x2b EF Coreが動いたので、次はスキーマ変更を試してみます。\x3c\/p\x3e"
   }
 </script>
 
@@ -169,7 +169,7 @@ if (!doNotTrack) {
 
   
 
-  <div class="article-body"><p><a href="/posts/2017/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3" target="_blank">前回</a>めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。</p>
+  <div class="article-body"><p><a href="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3" target="_blank">前回</a>めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。</p>
 
 <h3 id="フィールドを追加">フィールドを追加</h3>
 
@@ -261,7 +261,7 @@ Done.</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="p">....</span>
 <span class="k">CREATE</span> <span class="k">INDEX</span> <span class="s2">&#34;IX_Posts_BlogId&#34;</span> <span class="k">ON</span> <span class="s2">&#34;Posts&#34;</span> <span class="p">(</span><span class="s2">&#34;BlogId&#34;</span><span class="p">);</span>
- 
+
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="s2">&#34;__EFMigrationsHistory&#34;</span> <span class="p">(</span><span class="s2">&#34;MigrationId&#34;</span><span class="p">,</span> <span class="s2">&#34;ProductVersion&#34;</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;20170615065858_InitialCreate&#39;</span><span class="p">,</span> <span class="s1">&#39;1.1.2&#39;</span><span class="p">);</span>
 
@@ -362,7 +362,7 @@ info: Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory[1]
 
 <p>感動〜</p>
 
-<p><a href="/posts/2017/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5" target="_blank">次はNginxとコラボ</a>してみます。</p></div>
+<p><a href="/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5" target="_blank">次はNginxとコラボ</a>してみます。</p></div>
 
   <footer class="article-footer">
 

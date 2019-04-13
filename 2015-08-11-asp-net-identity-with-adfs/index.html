@@ -438,12 +438,12 @@ if (!doNotTrack) {
     <span class="p">{</span>
         <span class="k">private</span> <span class="k">readonly</span> <span class="n">PrincipalContext</span> <span class="n">_context</span><span class="p">;</span>
         <span class="k">public</span> <span class="n">ApplicationUserManager</span><span class="p">(</span><span class="n">IUserStore</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;</span> <span class="n">store</span><span class="p">,</span> <span class="n">PrincipalContext</span> <span class="n">context</span><span class="p">)</span>
-            <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">store</span><span class="p">)</span> 
+            <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">store</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">this</span><span class="p">.</span><span class="n">_context</span> <span class="p">=</span> <span class="n">context</span><span class="p">;</span>
         <span class="p">}</span>
 
-        <span class="k">public</span> <span class="k">static</span> <span class="n">ApplicationUserManager</span> <span class="n">Create</span><span class="p">(</span><span class="n">IdentityFactoryOptions</span><span class="p">&lt;</span><span class="n">ApplicationUserManager</span><span class="p">&gt;</span> <span class="n">options</span><span class="p">,</span> <span class="n">IOwinContext</span> <span class="n">context</span><span class="p">)</span> 
+        <span class="k">public</span> <span class="k">static</span> <span class="n">ApplicationUserManager</span> <span class="n">Create</span><span class="p">(</span><span class="n">IdentityFactoryOptions</span><span class="p">&lt;</span><span class="n">ApplicationUserManager</span><span class="p">&gt;</span> <span class="n">options</span><span class="p">,</span> <span class="n">IOwinContext</span> <span class="n">context</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="kt">var</span> <span class="n">user_store</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">ApplicationUserStore</span><span class="p">&gt;();</span>
             <span class="kt">var</span> <span class="n">principal_context</span><span class="p">=</span><span class="n">context</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">PrincipalContext</span><span class="p">&gt;();</span>
@@ -607,12 +607,12 @@ if (!doNotTrack) {
                 <span class="n">Provider</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CookieAuthenticationProvider</span>
                 <span class="p">{</span>
                     <span class="c1">// Enables the application to validate the security stamp when the user logs in.
-</span><span class="c1"></span>                    <span class="c1">// This is a security feature which is used when you change a password or add an external login to your account.  
+</span><span class="c1"></span>                    <span class="c1">// This is a security feature which is used when you change a password or add an external login to your account.
 </span><span class="c1"></span>                    <span class="n">OnValidateIdentity</span> <span class="p">=</span> <span class="n">SecurityStampValidator</span><span class="p">.</span><span class="n">OnValidateIdentity</span><span class="p">&lt;</span><span class="n">ApplicationUserManager</span><span class="p">,</span> <span class="n">ApplicationUser</span><span class="p">&gt;(</span>
                         <span class="n">validateInterval</span><span class="p">:</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">30</span><span class="p">),</span>
                         <span class="n">regenerateIdentity</span><span class="p">:</span> <span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">user</span><span class="p">.</span><span class="n">GenerateUserIdentityAsync</span><span class="p">(</span><span class="n">manager</span><span class="p">))</span>
                 <span class="p">}</span>
-            <span class="p">});</span>            
+            <span class="p">});</span>
         <span class="p">}</span>
     <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -698,7 +698,7 @@ if (!doNotTrack) {
 
 <p>う～ん、もともとの多機能テンプレートもいいけど、ADで(+Formで)認証とか需要あると思うんで、もっと簡単にできないもんでしょうかね～。</p>
 
-<p>もしかしたら<a href="/posts/2015/2015-08-18-asp-net-identity-with-adfs-2" target="_blank">続く</a>かも(Role関係?)</p></div>
+<p>もしかしたら<a href="/2015-08-18-asp-net-identity-with-adfs-2" target="_blank">続く</a>かも(Role関係?)</p></div>
 
   <footer class="article-footer">
 

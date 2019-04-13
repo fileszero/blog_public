@@ -357,8 +357,8 @@ a4eabae453e3        nginx               <span class="s2">&#34;nginx -g &#39;daem
 <h3 id="wordpress用コンテナ作成">WordPress用コンテナ作成</h3>
 
 <div class='del'>
-  <a href="https://github.com/tutumcloud/wordpress" target="_blank">tutum/wordpress</a>というのを使うとお手軽そうです。</p> 
-  
+  <a href="https://github.com/tutumcloud/wordpress" target="_blank">tutum/wordpress</a>というのを使うとお手軽そうです。</p>
+
   ```bash
 
 Mac ~/src/docker$ docker run -d -p 80:80 --name=wordpress tutum/wordpress
@@ -507,7 +507,7 @@ services:
       WORDPRESS_DB_PASSWORD: example
     links:
       - mysql
-    volumes:       #  追加 
+    volumes:       #  追加
       - ~/src/wordpress/:/var/www/html
   mysql:
     image: mariadb
@@ -672,7 +672,7 @@ sitemap.xml.gz</code></pre></td></tr></table>
 
 <p>dockerとgitで気軽にやり直しができるんで、Try&amp;Errorな自分にはとってもいい環境な気がします。</p>
 
-<p>この勢いで本番へのデプロイの自動化<del datetime="2017-02-11T12:37:45+00:00">もしたいかも。</del><a href="/posts/2017/2017-02-11-auto-deploy-wordpress-and-git" target="_blank">してみました</a>。</p></div>
+<p>この勢いで本番へのデプロイの自動化<del datetime="2017-02-11T12:37:45+00:00">もしたいかも。</del><a href="/2017-02-11-auto-deploy-wordpress-and-git" target="_blank">してみました</a>。</p></div>
 
   <footer class="article-footer">
 

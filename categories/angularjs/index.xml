@@ -81,7 +81,7 @@
       <pubDate>Sat, 16 Jul 2016 05:47:40 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -124,7 +124,7 @@
       <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;
 
@@ -137,7 +137,7 @@
       <pubDate>Sun, 18 Oct 2015 09:00:39 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -146,7 +146,7 @@
       <pubDate>Sat, 17 Oct 2015 10:42:07 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
 
 &lt;p&gt;今回はwebアプリから使ってみます。&lt;/p&gt;</description>
     </item>
@@ -202,7 +202,7 @@
       <pubDate>Mon, 02 Mar 2015 05:23:12 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2015-03-02-angularjs-again-2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2015/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -215,7 +215,7 @@
 
 &lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;
 
-&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
+&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -226,7 +226,7 @@
       <guid>https://fileszero.kimurak.net/2014-04-17-angularjsvalidation/</guid>
       <description>&lt;h3 id=&#34;クライアントでバリデーション&#34;&gt;クライアントでバリデーション&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS + Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap&#34; title=&#34;AngularJS + Bootstrap&#34; target=&#34;_blank&#34;&gt;前回作った新規入力フォーム&lt;/a&gt;にバリデーション機能を付けてみたので、コツっぽいものをメモ。&lt;/p&gt;
 
 &lt;p&gt;ポイント的には&lt;/p&gt;
 
@@ -246,7 +246,7 @@
       <guid>https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap/</guid>
       <description>&lt;p&gt;Bootstrapはやってますね。使ったことありませんが、お手軽にきれいなサイトができるらしいっす。&lt;/p&gt;
 
-&lt;p&gt;てことで、&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
+&lt;p&gt;てことで、&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
 
 &lt;p&gt;AngularJS と Bootstrapを合わせ技で使う場合、&lt;a href=&#34;http://angular-ui.github.io/bootstrap/&#34; target=&#34;_blank&#34;&gt;UI Bootstrap&lt;/a&gt;がよさそうです。&lt;/p&gt;</description>
     </item>
@@ -257,7 +257,7 @@
       <pubDate>Mon, 14 Apr 2014 06:39:12 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-04-14-angularjsasp-netmvc4_3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
 
 &lt;p&gt;CRUDのUです。&lt;/p&gt;</description>
     </item>
@@ -268,7 +268,7 @@
       <pubDate>Fri, 11 Apr 2014 05:19:24 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/posts/2014/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -22,21 +22,21 @@
     <title>Laravel を使ってみる（Macセットアップ編) - FILES=0</title>
     
 
-<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;&lt;p&gt;Shellで作業を進めます。&lt;/p&gt;">
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;&lt;p&gt;Shellで作業を進めます。&lt;/p&gt;">
 
 <meta property="og:title" content="Laravel を使ってみる（Macセットアップ編) - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;&lt;p&gt;Shellで作業を進めます。&lt;/p&gt;">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;&lt;p&gt;Shellで作業を進めます。&lt;/p&gt;">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2015-12-04-try-laravel-mac-setup/">
 <meta name="twitter:title" content="Laravel を使ってみる（Macセットアップ編) - FILES=0">
-<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2015/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;&lt;p&gt;Shellで作業を進めます。&lt;/p&gt;">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/2015-12-05-try-laravel-windows-setup&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。&lt;/p&gt;&lt;p&gt;Shellで作業を進めます。&lt;/p&gt;">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -71,7 +71,7 @@
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/posts\/2015\/2015-12-05-try-laravel-windows-setup\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eWindowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。\x3c\/p\x3e\n\n\x3cp\x3eShellで作業を進めます。\x3c\/p\x3e"
+    "description": "\x3cp\x3e\x3ca href=\x22\/2015-12-05-try-laravel-windows-setup\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eWindowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。\x3c\/p\x3e\n\n\x3cp\x3eShellで作業を進めます。\x3c\/p\x3e"
   }
 </script>
 
@@ -159,7 +159,7 @@ if (!doNotTrack) {
 
   
 
-  <div class="article-body"><p><a href="/posts/2015/2015-12-05-try-laravel-windows-setup" target="_blank">前回</a>Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。</p>
+  <div class="article-body"><p><a href="/2015-12-05-try-laravel-windows-setup" target="_blank">前回</a>Windowsでとりあえず動いたので、今回はMacにセットアップしていきたいと思います。</p>
 
 <p>Shellで作業を進めます。</p>
 
@@ -242,8 +242,8 @@ Composer version <span class="m">1</span>.0.0-alpha11 <span class="m">2015</span
 <h3 id="homestead">Homestead</h3>
 
 <div class="del">
-  なるべくグローバルな設定をしないようにしてみます。</p> 
-  
+  なるべくグローバルな設定をしないようにしてみます。</p>
+
   ```bash
 
 Mac ~/vagrant$ vagrant box add laravel/homestead
@@ -254,11 +254,11 @@ Mac ~/vagrant/laravel$ php vendor/bin/homestead make
 Mac ~/vagrant/laravel$ vagrant up
 ```
 
-  
+
   <p>
     起動確認。
   </p>
-  
+
   ```bash
 
 Mac ~/vagrant/laravel$ vagrant ssh
@@ -272,20 +272,20 @@ composer.json  composer.lock  Homestead.yaml  Vagrantfile  vendor
 vagrant@laravel:~$
 ```
 
-  
+
   <div class="del">
-    Macに戻ってプロジェクトを作ってみる</p> 
-    
+    Macに戻ってプロジェクトを作ってみる</p>
+
     ```bash
 
 Mac ~/vagrant/laravel$ composer create-project laravel/laravel --prefer-dist
 ```
 
-    
+
     <p>
       Homestead.yamlのfolders部分を書き換えて、vagrant reload
     </p>
-    
+
     ```plain
 
 folders:
@@ -293,12 +293,11 @@ folders:
       to: "/home/vagrant/laravel"
 ```
 
-    
+
     <p>
       http://192.168.10.10/ にアクセスすると、なんか出ます。
     </p>
   </div>
-  
 
 <p><p>
     プロジェクト毎にVMを作る場合は先にプロジェクト作ったほうが何かと都合がよさそうです。
@@ -314,7 +313,7 @@ folders:
 
 <p>の理由から、任意のフォルダにプロジェクトに依存しない形でセットアップするのがよさそうです。</p>
 
-<p>方法は<a href="/posts/2015/2015-12-12-laravelhomesteadeclipse" target="_blank">こんな感じ</a>にしてみました。</p></div>
+<p>方法は<a href="/2015-12-12-laravelhomesteadeclipse" target="_blank">こんな感じ</a>にしてみました。</p></div>
 
   <footer class="article-footer">
 

@@ -22,21 +22,21 @@
     <title>angular fullstackのwatchをBrowserSyncにする - FILES=0</title>
     
 
-<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;">
+<meta name="description" content="&lt;p&gt;&lt;a href=&#34;/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;">
 
 <meta property="og:title" content="angular fullstackのwatchをBrowserSyncにする - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/">
 <meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
 <meta property="og:site_name" content="FILES=0">
-<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;">
+<meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="FILES=0">
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2016-07-16-angular-fullstack-with-rowsersync/">
 <meta name="twitter:title" content="angular fullstackのwatchをBrowserSyncにする - FILES=0">
-<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/posts/2016/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;">
+<meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;/2016-07-15-gulp-watch-on-nfs&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、&lt;a href=&#34;https://www.browsersync.io/&#34; target=&#34;_blank&#34;&gt;BrowserSync&lt;/a&gt;に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。&lt;/p&gt;">
 <meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
 
 
@@ -71,7 +71,7 @@
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/posts\/2016\/2016-07-15-gulp-watch-on-nfs\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3egulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、\x3ca href=\x22https:\/\/www.browsersync.io\/\x22 target=\x22_blank\x22\x3eBrowserSync\x3c\/a\x3eに乗り換えてみました。プラグインいらないし、こっちの方が好みかも。\x3c\/p\x3e"
+    "description": "\x3cp\x3e\x3ca href=\x22\/2016-07-15-gulp-watch-on-nfs\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3egulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、\x3ca href=\x22https:\/\/www.browsersync.io\/\x22 target=\x22_blank\x22\x3eBrowserSync\x3c\/a\x3eに乗り換えてみました。プラグインいらないし、こっちの方が好みかも。\x3c\/p\x3e"
   }
 </script>
 
@@ -159,7 +159,7 @@ if (!doNotTrack) {
 
   
 
-  <div class="article-body"><p><a href="/posts/2016/2016-07-15-gulp-watch-on-nfs" target="_blank">前回</a>gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、<a href="https://www.browsersync.io/" target="_blank">BrowserSync</a>に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。</p>
+  <div class="article-body"><p><a href="/2016-07-15-gulp-watch-on-nfs" target="_blank">前回</a>gulp-watchでソース更新をトリガーにして色々自動でやってくれるようになりましたが、うちの環境ではlivereloadがうまく動いてくれなかったので、<a href="https://www.browsersync.io/" target="_blank">BrowserSync</a>に乗り換えてみました。プラグインいらないし、こっちの方が好みかも。</p>
 
 <h3 id="browsersyncインストール">BrowserSyncインストール</h3>
 
