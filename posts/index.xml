@@ -6,10 +6,22 @@
     <description>Recent content in Posts on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 12 Apr 2019 09:53:18 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2019 14:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker for windowsのコンテナ内でGUIアプリを実行</title>
+      <link>https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/</link>
+      <pubDate>Thu, 18 Apr 2019 14:35:00 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/</guid>
+      <description>&lt;p&gt;windows上でのpythonの開発環境ってDockerで作るのがいいような気がします。
+依存関係とか文字コードとかもろもろ面倒が少ないと思うんですよね。&lt;/p&gt;
+
+&lt;p&gt;pythonはGUIアプリも作れますが、Docker内でGUIするにはそれなりの準備が必要なようです。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>HUGOで新規記事作成Shell Script</title>
