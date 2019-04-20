@@ -190,11 +190,9 @@ if (!doNotTrack) {
 <dd><p><a href="https://www.chef.io/" target="_blank">Chef</a></p>
 
 <dl>
-<dd>インフラをコードで書こうってコンセプトの自動構成ツール。コードのまとまりをcookbookと呼ぶらしい
-<br /></dd>
+<dd>インフラをコードで書こうってコンセプトの自動構成ツール。コードのまとまりをcookbookと呼ぶらしい</dd>
 <dt><a href="http://berkshelf.com/" target="_blank">berkshelf</a></dt>
-<dd>cookbookのライブラリを管理するツール
-<br /></dd>
+<dd>cookbookのライブラリを管理するツール</dd>
 <dt>knife</dt>
 <dd>chefの管理コマンド</dd>
 </dl></dd>
@@ -202,13 +200,11 @@ if (!doNotTrack) {
 <dd><p>vagrant-omnibus</p>
 
 <dl>
-<dd>VMにchefをセットアップしてくれるvagrantプラグイン
-<br /></dd>
+<dd>VMにchefをセットアップしてくれるvagrantプラグイン</dd>
 <dt><a href="https://github.com/berkshelf/vagrant-berkshelf" target="_blank">vagrant-berkshelf</a></dt>
 <dd><div class="delete">
   &#8220;Berkshelf integration to the Chef provisioners&#8221;だそうで、なんかvagrantでいい感じにBerkshelf使えるようにしてくれるみたいです。(理解不足)
 </div>
-        
 
 <p>いらないっぽい。 </dd> </dl> </dd></p>
 
@@ -218,11 +214,9 @@ if (!doNotTrack) {
 <dd><p><a href="http://matschaffer.github.io/knife-solo/" target="_blank">knife solo</a></p>
 
 <dl>
-<dd>chefレポジトリの雛形作るときに使用します。他にもいろいろ便利なツールらしいです。knifeのプラグイン
-<br /></dd>
+<dd>chefレポジトリの雛形作るときに使用します。他にもいろいろ便利なツールらしいです。knifeのプラグイン</dd>
 <dt>bundler</dt>
-<dd>ruby-gem のライブラリ構成管理ツール </dl>
-<br /></dd>
+<dd>ruby-gem のライブラリ構成管理ツール </dl></dd>
 </dl></dd>
 </dl>
 
@@ -258,7 +252,7 @@ Mac ~/vagrant/testvm/myapp<span class="nv">$which</span> ruby
 Mac ~<span class="nv">$echo</span> <span class="s1">&#39;eval &#34;$(chef shell-init bash)&#34;&#39;</span> &gt;&gt; ~/.bash_profile
 Mac ~<span class="nv">$source</span> ~/.bash_profile
 Mac ~<span class="nv">$which</span> ruby
-/opt/chefdk/embedded/bin/ruby 
+/opt/chefdk/embedded/bin/ruby
 <span class="c1">#knife初期設定。</span>
 Mac ~<span class="nv">$knife</span> configure</code></pre></td></tr></table>
 </div>
@@ -418,21 +412,19 @@ Mac ~/vagrant/testvm$ cat Vagrantfile</p>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        #### sshのconfig設定
-        
+<pre class="chroma">        #### sshのconfig設定
+
         vagrant sshでなくてsshからお手軽にアクセスできるよう設定します。
-        
+
         ```bash
 #~/.ssh/config設定
-Mac ~/vagrant/testvm$ vagrant ssh-config --host testvm &gt;&gt; ~/.ssh/config 
+Mac ~/vagrant/testvm$ vagrant ssh-config --host testvm &gt;&gt; ~/.ssh/config
 #スカッとアクセスできるようになります
 Mac ~/vagrant/testvm$ ssh testvm
 Last login:  from 10.0.2.2
-[vagrant@localhost ~]$ </pre></td></tr></table>
+[vagrant@localhost ~]$</pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -454,12 +446,10 @@ Last login:  from 10.0.2.2
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        ### chefレポジトリ作成
-        
+<pre class="chroma">        ### chefレポジトリ作成
+
         ```bash
 Mac ~/vagrant/testvm$ knife solo init chef-repo</pre></td></tr></table>
 </div>
@@ -514,16 +504,14 @@ log &ldquo;hello world&rdquo;</p>
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
-</span><span class="lnt">21
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        #### node定義
-        
+<pre class="chroma">        #### node定義
+
         cookbookを作ったら、node定義を作らなきゃいけないようです。なんか面倒っすね。
-  
+
         run_listの書き方とかよくわからんし。
-        
+
         ```bash
 #node定義作成
 Mac ~/vagrant/testvm/chef-repo$ knife node create testvm -e vim -z
@@ -531,7 +519,7 @@ Mac ~/vagrant/testvm/chef-repo$ knife node list -z
 testvm
 Mac ~/vagrant/testvm/chef-repo$ ls nodes/
 testvm.json
-Mac ~/vagrant/testvm/chef-repo$ cat nodes/testvm.json 
+Mac ~/vagrant/testvm/chef-repo$ cat nodes/testvm.json
 {
   &#34;name&#34;: &#34;testvm&#34;,
   &#34;run_list&#34;: [
@@ -575,16 +563,14 @@ Mac ~/vagrant/testvm/chef-repo$ cat nodes/testvm.json
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        ### Berkshelfでcookbook
-        
+<pre class="chroma">        ### Berkshelfでcookbook
+
         Berkshelfのパッケージをセットアップするcookbookを作ります。
-  
+
         とは言っても、&amp;#8221;knife solo init chef-repo&amp;#8221;でつくられるBerksfileを編集してcookすればOKみたい。
-        
+
         ```bash
 #Berksfile編集
 Mac ~/vagrant/testvm/chef-repo$ vim Berksfile
@@ -625,14 +611,12 @@ Mac ~/vagrant/testvm/chef-repo$ cat nodes/testvm.json
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        #### レシピゲット and 適用
-        
+<pre class="chroma">        #### レシピゲット and 適用
+
         ```bash
-Mac ~/vagrant/testvm/chef-repo$ knife solo cook testvm nodes/testvm.json </pre></td></tr></table>
+Mac ~/vagrant/testvm/chef-repo$ knife solo cook testvm nodes/testvm.json</pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -671,12 +655,10 @@ data_bag_path    &ldquo;data_bags&rdquo;
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        うまくいくとインストールされます。
-        
+<pre class="chroma">        うまくいくとインストールされます。
+
         ```bash
 Mac ~/vagrant/testvm$ ssh testvm
 [vagrant@localhost ~]$ node -v
@@ -708,6 +690,17 @@ v0.10.33</pre></td></tr></table>
 </div></div>
 
   <footer class="article-footer">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="5021986846"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
     <aside class="share">
   <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2015-03-25-vagrant-chef-mac%2f&title=Vagrant%2bchef%28mac%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
@@ -837,17 +830,6 @@ v0.10.33</pre></td></tr></table>
         
       </div>
     </div>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4453105403920084"
-     data-ad-slot="5021986846"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
     
   </div>
@@ -870,6 +852,11 @@ v0.10.33</pre></td></tr></table>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
       <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-privacy-policy">
+        
+          <a href="/privacy-policy">PRIVACY POLICY</a>
+        
+      </div>
     </div>
   </div>
 </section>

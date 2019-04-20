@@ -418,7 +418,7 @@ launchctl setenv ANDROID_HOME <span class="nv">$ANDROID_HOME</span></code></pre>
   <h3>
     Android Studioで実行
   </h3>
-  
+
   <p>
     Android Studioで&#8221;Import Non-Android Studio project&#8221;<br /> 
 
@@ -437,11 +437,11 @@ launchctl setenv ANDROID_HOME <span class="nv">$ANDROID_HOME</span></code></pre>
     </a>
 <br /> /platforms/android/ を選択するとなんかいい感じに読み込んでくれました。
   </p>
-  
+
   <p>
     Build->Make Projectをすると
   </p>
-  
+
   ```plain
 
 Error:(3) A problem occurred evaluating root project 'android'.
@@ -449,11 +449,11 @@ Error:(3) A problem occurred evaluating root project 'android'.
    > Gradle version 1.10 is required. Current version is 2.2.1. If using the gradle wrapper, try editing the distributionUrl in /Users/????/src/????/platforms/android/gradle/wrapper/gradle-wrapper.properties to gradle-1.10-all.zip
 ```
 
-  
+
   <p>
     となります。<br /> platforms/android/build.gradleの
   </p>
-  
+
   ```plain
 
     dependencies {
@@ -461,11 +461,11 @@ Error:(3) A problem occurred evaluating root project 'android'.
     }
 ```
 
-  
+
   <p>
     を
   </p>
-  
+
   ```plain
 
     dependencies {
@@ -473,22 +473,22 @@ Error:(3) A problem occurred evaluating root project 'android'.
     }
 ```
 
-  
+
   <p>
     とします。
   </p>
-  
+
   <p>
     次に出たエラーがこれ（もうやめたい…）
   </p>
-  
+
   ```plain
 
 Error:failed to find Build Tools revision 19.0.0
 <a href="install.build.tools">Install Build Tools 19.0.0 and sync project</a>
 ```
 
-  
+
   <p>
     
 
@@ -507,49 +507,49 @@ Error:failed to find Build Tools revision 19.0.0
     </a>
 <br /> Tools->Android->SDK Managerから&#8221;Android SDK Build Tools 19&#8243;をインストールします。
   </p>
-  
+
   <p>
     はい次のエラー
   </p>
-  
+
   ```plain
 
 Task '' not found in root project 'android'.
 ```
 
-  
+
   <p>
     ちょっと分けが分からなくなってきたので、Android Studioを再起動してみると…<br /> はい、また別のエラー
   </p>
-  
+
   ```plain
 
 Error:The SDK Build Tools revision (19.0.0) is too low for project 'android'. Minimum required is 19.1.0
 ```
 
-  
+
   <p>
     さっき19.0.0って言ったじゃん。<br /> 怒りを抑えつつ、<br /> Tools->Android->SDK Managerから&#8221;Android SDK Build Tools 19.1&#8243;をインストールします。
   </p>
-  
+
   <p>
     インストールしただけだとダメなようで、<br /> platforms/android/build.gradle と platforms/android/CordovaLib/build.gradle の<br /> buildToolsVersion &#8220;19.0.0&#8221;<br /> を<br /> buildToolsVersion &#8220;19.1&#8221;<br /> にします。
   </p>
-  
+
   <p>
     はい次
   </p>
-  
+
   ```plain
 
 Error:(13, 5) uses-sdk:minSdkVersion 7 cannot be smaller than version 10 declared in library /platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/AndroidManifest.xml
 ```
 
-  
+
   <p>
     なにこの懐かしのDLL hell みたいな泥沼。<br /> AndroidManifest.xmlのsdk:minSdkVersionを10にします。
   </p>
-  
+
   <p>
     一応ビルド成功するのですが、なぜかmavenのアップデートが走ります。<br /> 
 
@@ -568,11 +568,11 @@ Error:(13, 5) uses-sdk:minSdkVersion 7 cannot be smaller than version 10 declare
     </a>
 <br /> Updating[central] http://repo1.maven.org/maven2
   </p>
-  
+
   <p>
     最終的にphonegap build androidから変更した内容は、
   </p>
-  
+
   ```plain
 
 $ git --no-pager diff platforms/android/AndroidManifest.xml platforms/android/build.gradle platforms/android/CordovaLib/build.gradle
@@ -593,20 +593,20 @@ index 47341b3..e1db448 100644
 +++ b/platforms/android/CordovaLib/build.gradle
 @@ -25,7 +25,7 @@ buildscript {
      }
- 
+
      dependencies {
 -        classpath 'com.android.tools.build:gradle:0.10.+'
 +        classpath 'com.android.tools.build:gradle:1.0.+'
      }
  }
- 
+
 @@ -33,7 +33,7 @@ apply plugin: 'android-library'
- 
+
  android {
      compileSdkVersion 19
 -    buildToolsVersion "19.0.0"
 +    buildToolsVersion "19.1"
- 
+
      compileOptions {
          sourceCompatibility JavaVersion.VERSION_1_7
 diff --git a/platforms/android/build.gradle b/platforms/android/build.gradle
@@ -615,26 +615,37 @@ index 9d1d45a..ea38dde 100644
 +++ b/platforms/android/build.gradle
 @@ -8,7 +8,7 @@ buildscript {
      }
- 
+
      dependencies {
 -        classpath 'com.android.tools.build:gradle:0.10.+'
 +        classpath 'com.android.tools.build:gradle:1.0.+'
      }
  }
- 
+
 @@ -39,7 +39,7 @@ android {
      }
- 
+
      compileSdkVersion 19
 -    buildToolsVersion "19.0.0"
 +    buildToolsVersion "19.1"
- 
+
      if (multiarch || System.env.BUILD_MULTIPLE_APKS) {
          productFlavors {
 ```
 </div></div>
 
   <footer class="article-footer">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="5021986846"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
     <aside class="share">
   <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2015-02-12-try-phonegap-android%2f&title=PhoneGap%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%28Android%e7%b7%a8%29" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
@@ -774,17 +785,6 @@ index 9d1d45a..ea38dde 100644
         
       </div>
     </div>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4453105403920084"
-     data-ad-slot="5021986846"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
     
   </div>
@@ -807,6 +807,11 @@ index 9d1d45a..ea38dde 100644
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
       <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-privacy-policy">
+        
+          <a href="/privacy-policy">PRIVACY POLICY</a>
+        
+      </div>
     </div>
   </div>
 </section>

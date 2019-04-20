@@ -183,42 +183,41 @@ if (!doNotTrack) {
   <dt>
     php artisan migrate
   </dt>
-  
+
   <dd>
     DBマイグレーションの実行。実行はサーバ上（Homestead上）で
   </dd>
-  
+
   <dt>
     php artisan make:migration create_<em>[table_name]</em>_table &#45;&#45;create=<em>[table_name]</em>
   </dt>
-  
+
   <dd>
     テーブル作成マイグレーション。<em>[table_name]</em>は複数形を使用する(users,tasks等)。スネークケースを使う
   </dd>
-  
+
   <dt>
     php artisan make:seeder <em>[TableName]</em>Seeder
   </dt>
-  
+
   <dd>
     シーダー作成<em>[TableName]</em>はデータをセットするテーブル名をキャメルケースにしたもの(Users,TableNames等)。<br /> 小規模なマスターデータとかは、既存のDatabaseSeederを使うといいと思う。
   </dd>
-  
+
   <dt>
-    php artisan make:model <em>[ModelName]</em></p> 
-    
+    php artisan make:model <em>[ModelName]</em></p>
+
     <dt>
       <dd>
         モデルを生成する。モデル名には単数形を使う(User,Task等)
       </dd>
-      
+
       <dt>
-        php artisan make:controller <em>HogeHogeController</em> &#8211;plain</p> 
-        
+        php artisan make:controller <em>HogeHogeController</em> &#8211;plain</p>
+
         <dd>
           コントローラを作成。コントローラー名は主に取り扱う対象(単数)に&#8221;Controller&#8221;をつける(UserController,TaskController等)
-        </dd></dl> 
-        
+        </dd></dl>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -305,18 +304,16 @@ use App\SelectOption;</p>
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span><span class="lnt">16
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        &lt;p&gt;
+<pre class="chroma">        &lt;p&gt;
           処理内容はともかくとして、クラスとスタティックメソッドを作ります。
         &lt;/p&gt;
-        
+
         &lt;h4&gt;
           composer.json
         &lt;/h4&gt;
-        
+
         ```jscript
 
     &#34;autoload&#34;: {
@@ -344,23 +341,21 @@ use App\SelectOption;</p>
 <p>$ composer dump-autoload</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        &lt;h4&gt;
+<pre class="chroma">        &lt;h4&gt;
           config/app.php
         &lt;/h4&gt;
-        
+
         ```php
 
     &#39;aliases&#39; =&gt; [
@@ -449,66 +444,64 @@ use App\SelectOption;</p>
 </span><span class="lnt">61
 </span><span class="lnt">62
 </span><span class="lnt">63
-</span><span class="lnt">64
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">        
-        &lt;h3&gt;
+<pre class="chroma">        &lt;h3&gt;
           git clone後
         &lt;/h3&gt;
-        
+
         &lt;p&gt;
           laravelプロジェクトをgit cloneした後は依存するライブラリや機密情報等がない状態なので
         &lt;/p&gt;
-        
+
         &lt;p&gt;
           $ composer install&lt;br /&gt; &amp;#8220;.env.example&amp;#8221;をコピーして.envファイルを作成・編集&lt;br /&gt; $ php artisan key:generate
         &lt;/p&gt;
-        
+
         &lt;p&gt;
           しときます。
         &lt;/p&gt;
-        
+
         &lt;p&gt;
           上記をやっとかないと&lt;br /&gt; Whoops, looks like something went wrong.&lt;br /&gt; とか&lt;br /&gt; No supported encrypter found. The cipher and / or key length are invalid.&lt;br /&gt; とかいわれます。
         &lt;/p&gt;
-        
+
         &lt;h3&gt;
           PHPUnit
         &lt;/h3&gt;
-        
+
         &lt;p&gt;
           project&gt; vendor/bin/phpunit
         &lt;/p&gt;
-        
+
         &lt;h3&gt;
           Model（とか）のプロパティ
         &lt;/h3&gt;
-        
+
         &lt;p&gt;
           チュートリアルやドキュメントを見ていると何の説明もなしに &lt;a href=&#34;http://readouble.com/laravel/5/1/ja/quickstart-intermediate.html#eloquent-models&#34; target=&#34;_blank&#34;&gt;$fillable&lt;/a&gt; や &lt;a href=&#34;http://readouble.com/laravel/5/1/ja/eloquent.html#eloquent-model-conventions&#34; target=&#34;_blank&#34;&gt;$table&lt;/a&gt; とか出てきて、なにこれ？ってなります。&lt;br /&gt; &lt;a href=&#34;http://laravel.com/api/5.0/Illuminate/Database/Eloquent/Model.html&#34; target=&#34;_blank&#34;&gt;APIリファレンス&lt;/a&gt;見ても何も出てないんですよね。&lt;br /&gt; ソース読めってことでしょうか？&lt;br /&gt; vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php&lt;br /&gt; 不親切な感じがしますが、コメントがしっかりしているので、リファレンスに使えます。
         &lt;/p&gt;
-        
+
         &lt;h3&gt;
           Homestead
         &lt;/h3&gt;
-        
+
         &lt;h4&gt;
           MySQLのパスワード
         &lt;/h4&gt;
-        
+
         &lt;p&gt;
           vagrant@homestead:~$ mysql -uroot -psecret
         &lt;/p&gt;
-        
+
         &lt;h3&gt;
           try catchが効かない
         &lt;/h3&gt;
-        
+
         &lt;p&gt;
           こんな感じで「エラーが出たらとにかくリダイレクト」みたいな処理を書いたんだけど、catchが反応せず。
         &lt;/p&gt;
-        
+
         ```php
 
         try{
@@ -560,6 +553,17 @@ use App\SelectOption;</p>
 </div></div>
 
   <footer class="article-footer">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="5021986846"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
     <aside class="share">
   <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2016-01-09-laravel-tips-and-rule%2f&title=Laravel%20tips%26%e3%82%aa%e3%83%ac%e3%82%aa%e3%83%ac%e3%83%ab%e3%83%bc%e3%83%ab" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
@@ -699,17 +703,6 @@ use App\SelectOption;</p>
         
       </div>
     </div>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4453105403920084"
-     data-ad-slot="5021986846"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
     
   </div>
@@ -732,6 +725,11 @@ use App\SelectOption;</p>
         <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
       </ul>
       <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-privacy-policy">
+        
+          <a href="/privacy-policy">PRIVACY POLICY</a>
+        
+      </div>
     </div>
   </div>
 </section>

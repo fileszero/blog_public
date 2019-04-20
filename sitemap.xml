@@ -20,6 +20,12 @@
   </url>
   
   <url>
+    <loc>https://fileszero.kimurak.net/pages/</loc>
+    <lastmod>2019-04-18T14:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fileszero.kimurak.net/posts/</loc>
     <lastmod>2019-04-18T14:35:00+09:00</lastmod>
     <priority>0</priority>
@@ -29,6 +35,11 @@
     <loc>https://fileszero.kimurak.net/categories/docker/</loc>
     <lastmod>2019-04-18T14:35:00+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/privacy-policy/</loc>
+    <lastmod>2019-04-18T14:35:00+09:00</lastmod>
   </url>
   
   <url>
