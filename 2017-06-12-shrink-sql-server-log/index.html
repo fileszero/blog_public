@@ -22,12 +22,24 @@
     <title>SQL Server 2012トランザクションログの圧縮 - FILES=0</title>
     
 
+
+
+
+
+
+  
+  
+    
+    
+  
+
+
 <meta name="description" content="&lt;p&gt;開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。&lt;/p&gt;&lt;p&gt;ちょっと前だと&lt;/p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;n&#34;&gt;BACKUP&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOG&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TRUNCATE_ONLY&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;でシュリンクしてくれたんですが、最近のSQLServerだと&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&amp;#8216;TRUNCATE_ONLY&amp;#8217; is not a recognized BACKUP option.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;とか怒られます。&lt;/p&gt;&lt;p&gt;やり方毎回忘れるのでメモ。&lt;/p&gt;">
 
 <meta property="og:title" content="SQL Server 2012トランザクションログの圧縮 - FILES=0">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/">
-<meta property="og:image" content="https://fileszero.kimurak.net/images/default.png">
+<meta property="og:image" content="https://fileszero.kimurak.net/images/default.jpg">
 <meta property="og:site_name" content="FILES=0">
 <meta property="og:description" content="&lt;p&gt;開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。&lt;/p&gt;&lt;p&gt;ちょっと前だと&lt;/p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;n&#34;&gt;BACKUP&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOG&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TRUNCATE_ONLY&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;でシュリンクしてくれたんですが、最近のSQLServerだと&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&amp;#8216;TRUNCATE_ONLY&amp;#8217; is not a recognized BACKUP option.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;とか怒られます。&lt;/p&gt;&lt;p&gt;やり方毎回忘れるのでメモ。&lt;/p&gt;">
 <meta property="og:locale" content="ja_JP">
@@ -37,7 +49,7 @@
 <meta name="twitter:url" content="https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/">
 <meta name="twitter:title" content="SQL Server 2012トランザクションログの圧縮 - FILES=0">
 <meta name="twitter:description" content="&lt;p&gt;開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。&lt;/p&gt;&lt;p&gt;ちょっと前だと&lt;/p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;lntd&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;n&#34;&gt;BACKUP&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LOG&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TRUNCATE_ONLY&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;でシュリンクしてくれたんですが、最近のSQLServerだと&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&amp;#8216;TRUNCATE_ONLY&amp;#8217; is not a recognized BACKUP option.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;とか怒られます。&lt;/p&gt;&lt;p&gt;やり方毎回忘れるのでメモ。&lt;/p&gt;">
-<meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.png">
+<meta name="twitter:image" content="https://fileszero.kimurak.net/images/default.jpg">
 
 
 <script type="application/ld+json">
@@ -136,6 +148,8 @@ if (!doNotTrack) {
 
 
   <div class="thumb"></div>
+
+
 
   <header class="article-header">
     <h1 class="title">SQL Server 2012トランザクションログの圧縮</h1>
@@ -293,6 +307,8 @@ if (!doNotTrack) {
   <div class="thumb " style="background-image:url(/2017-05-17-dockerdotnetcorevisualstudio2015/CAP000121.jpg)"></div>
 
 
+
+
     <div class="inner">
       <div class="title">Docker &#43; .Net Core &#43; Visual studio 2015</div>
 
@@ -336,6 +352,8 @@ if (!doNotTrack) {
 
 
   <div class="thumb " style="background-image:url(/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/CAP000127.jpg)"></div>
+
+
 
 
     <div class="inner">
@@ -439,6 +457,8 @@ if (!doNotTrack) {
   <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/2019-04-19-14-48-47.png)"></div>
 
 
+
+
     <div class="inner">
       <div class="title">Docker for windowsのコンテナ内でGUIアプリを実行</div>
 
@@ -464,6 +484,8 @@ if (!doNotTrack) {
 
 
   <div class="thumb " style="background-image:url(/images/hugo.svg)"></div>
+
+
 
 
     <div class="inner">
@@ -496,6 +518,8 @@ if (!doNotTrack) {
   <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
 
 
+
+
     <div class="inner">
       <div class="title">Hugoに移行しました</div>
 
@@ -525,6 +549,8 @@ if (!doNotTrack) {
 
 
   <div class="thumb"></div>
+
+
 
 
     <div class="inner">
@@ -568,6 +594,8 @@ if (!doNotTrack) {
   <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
 
 
+
+
     <div class="inner">
       <div class="title">Redmineでチケットに応じたコマンドを表示</div>
 
@@ -607,6 +635,8 @@ if (!doNotTrack) {
 
 
   <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
 
 
     <div class="inner">
@@ -650,6 +680,8 @@ if (!doNotTrack) {
   <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
 
 
+
+
     <div class="inner">
       <div class="title">HUGO</div>
 
@@ -691,6 +723,8 @@ if (!doNotTrack) {
   <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
 
 
+
+
     <div class="inner">
       <div class="title">Install Jenkins</div>
 
@@ -719,6 +753,8 @@ if (!doNotTrack) {
 
 
   <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
 
 
     <div class="inner">
@@ -760,6 +796,8 @@ if (!doNotTrack) {
 
 
   <div class="thumb " style="background-image:url(/2018-08-30-upgrade-alminium-environment-2/WS000035.jpg)"></div>
+
+
 
 
     <div class="inner">
