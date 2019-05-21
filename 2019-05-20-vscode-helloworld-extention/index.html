@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+<link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
+
+
+<link rel="canonical" href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+
+<link rel="shortcut icon" href="/images/favicon.ico" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Visual Studio Code の拡張機能を作ってみる - FILES=0</title>
+    
+
+
+
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+<meta name="description" content="&lt;p&gt;markdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=telesoho.vscode-markdown-paste-image&#34; target=&#34;_blank&#34;&gt;Markdown Paste&lt;/a&gt;を使わせてもらいます。&lt;/p&gt;&lt;p&gt;クリップボードに画像をコピーして&lt;kbd&gt;Ctrl&lt;/kbd&gt;&#43;&lt;kbd&gt;Alt&lt;/kbd&gt;&#43;&lt;kbd&gt;V&lt;/kbd&gt;で、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには&lt;code&gt;![](ファイル名)&lt;/code&gt;を挿入してくれます。&lt;/p&gt;&lt;p&gt;すごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/api/get-started/your-first-extension&#34; target=&#34;_blank&#34;&gt;公式&lt;/a&gt;を見ながら試してみます。&lt;/p&gt;">
+
+<meta property="og:title" content="Visual Studio Code の拡張機能を作ってみる - FILES=0">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+<meta property="og:image" content="/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png">
+<meta property="og:site_name" content="FILES=0">
+<meta property="og:description" content="&lt;p&gt;markdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=telesoho.vscode-markdown-paste-image&#34; target=&#34;_blank&#34;&gt;Markdown Paste&lt;/a&gt;を使わせてもらいます。&lt;/p&gt;&lt;p&gt;クリップボードに画像をコピーして&lt;kbd&gt;Ctrl&lt;/kbd&gt;&#43;&lt;kbd&gt;Alt&lt;/kbd&gt;&#43;&lt;kbd&gt;V&lt;/kbd&gt;で、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには&lt;code&gt;![](ファイル名)&lt;/code&gt;を挿入してくれます。&lt;/p&gt;&lt;p&gt;すごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/api/get-started/your-first-extension&#34; target=&#34;_blank&#34;&gt;公式&lt;/a&gt;を見ながら試してみます。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="FILES=0">
+<meta name="twitter:url" content="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+<meta name="twitter:title" content="Visual Studio Code の拡張機能を作ってみる - FILES=0">
+<meta name="twitter:description" content="&lt;p&gt;markdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=telesoho.vscode-markdown-paste-image&#34; target=&#34;_blank&#34;&gt;Markdown Paste&lt;/a&gt;を使わせてもらいます。&lt;/p&gt;&lt;p&gt;クリップボードに画像をコピーして&lt;kbd&gt;Ctrl&lt;/kbd&gt;&#43;&lt;kbd&gt;Alt&lt;/kbd&gt;&#43;&lt;kbd&gt;V&lt;/kbd&gt;で、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには&lt;code&gt;![](ファイル名)&lt;/code&gt;を挿入してくれます。&lt;/p&gt;&lt;p&gt;すごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/api/get-started/your-first-extension&#34; target=&#34;_blank&#34;&gt;公式&lt;/a&gt;を見ながら試してみます。&lt;/p&gt;">
+<meta name="twitter:image" content="/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"https:\/\/fileszero.kimurak.net\/"
+    },
+    "headline": "Visual Studio Code の拡張機能を作ってみる - FILES=0",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2019-05-20T14:30:01JST",
+    "dateModified": "2019-05-20T14:30:01JST",
+    "author": {
+      "@type": "Person",
+      "name": "FILES=0"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FILES=0",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "\x3cp\x3emarkdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能\x3ca href=\x22https:\/\/marketplace.visualstudio.com\/items?itemName=telesoho.vscode-markdown-paste-image\x22 target=\x22_blank\x22\x3eMarkdown Paste\x3c\/a\x3eを使わせてもらいます。\x3c\/p\x3e\n\n\x3cp\x3eクリップボードに画像をコピーして\x3ckbd\x3eCtrl\x3c\/kbd\x3e\x2b\x3ckbd\x3eAlt\x3c\/kbd\x3e\x2b\x3ckbd\x3eV\x3c\/kbd\x3eで、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには\x3ccode\x3e![](ファイル名)\x3c\/code\x3eを挿入してくれます。\x3c\/p\x3e\n\n\x3cp\x3eすごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。\x3c\/p\x3e\n\n\x3cp\x3e\x3ca href=\x22https:\/\/code.visualstudio.com\/api\/get-started\/your-first-extension\x22 target=\x22_blank\x22\x3e公式\x3c\/a\x3eを見ながら試してみます。\x3c\/p\x3e"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-57355705-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="https://fileszero.kimurak.net/">FILES=0</a>
+        </div>
+        
+<div class="description">
+  How many files(0-15)?
+</div>
+
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png)"></div>
+
+
+
+  <header class="article-header">
+    <h1 class="title">Visual Studio Code の拡張機能を作ってみる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-20T14:30:01JST">May 20, 2019</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://fileszero.kimurak.net/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&title=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&text=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&t=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&title=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>markdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能<a href="https://marketplace.visualstudio.com/items?itemName=telesoho.vscode-markdown-paste-image" target="_blank">Markdown Paste</a>を使わせてもらいます。</p>
+
+<p>クリップボードに画像をコピーして<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd>で、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには<code>![](ファイル名)</code>を挿入してくれます。</p>
+
+<p>すごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。</p>
+
+<p><a href="https://code.visualstudio.com/api/get-started/your-first-extension" target="_blank">公式</a>を見ながら試してみます。</p>
+
+<h3 id="env">環境</h3>
+
+<p>環境は</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; node --version
+v10.13.0
+&gt; code --version
+<span class="m">1</span>.33.1</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="yeoman">コードジェネレータ</h4>
+
+<p>Yeomanとコードジェネレータをインストール。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; npm install -g yo generator-code
+...
+...
+Everything looks all right!
++ generator-code@1.1.50
++ yo@2.0.6
+added <span class="m">927</span> packages from <span class="m">311</span> contributors in <span class="m">52</span>.421s</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="createscaffolds">ひな型の作成</h3>
+
+<p>yo codeでひな型を生成します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 作業フォルダ作成</span>
+c:<span class="se">\&gt;</span> mkdir c:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\v</span>scodeex
+c:<span class="se">\&gt;</span> <span class="nb">cd</span> c:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\v</span>scodeex
+<span class="c1">#　ひな型生成</span>
+c:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\v</span>scodeex&gt; yo code
+&gt; yo code
+
+     _-----_     ╭──────────────────────────╮
+    <span class="p">|</span>       <span class="p">|</span>    │   Welcome to the Visual  │
+    <span class="p">|</span>--<span class="o">(</span>o<span class="o">)</span>--<span class="p">|</span>    │   Studio Code Extension  │
+   <span class="sb">`</span>---------´   │        generator!        │
+    <span class="o">(</span> _´U<span class="sb">`</span>_ <span class="o">)</span>    ╰──────────────────────────╯
+    /___A___<span class="se">\ </span>  /
+     <span class="p">|</span>  ~  <span class="p">|</span>
+   __<span class="s1">&#39;.___.&#39;</span>__
+ ´   <span class="sb">`</span>  <span class="p">|</span>° ´ Y <span class="sb">`</span>
+
+Unable to fetch latest vscode version: Error: unable to get <span class="nb">local</span> issuer certificate
+? What <span class="nb">type</span> of extension <span class="k">do</span> you want to create? New Extension <span class="o">(</span>TypeScript<span class="o">)</span>  <span class="c1"># Enter</span>
+? What<span class="s1">&#39;s the name of your extension? helloworld                             # 文字入力
+</span><span class="s1">? What&#39;</span>s the identifier of your extension? helloworld                       <span class="c1"># Enter</span>
+? What<span class="err">&#39;</span>s the description of your extension? my first extention              <span class="c1"># 文字入力</span>
+? Initialize a git repository? Yes                                          <span class="c1"># Enter key</span>
+? Which package manager to use? npm                                         <span class="c1"># Enter key</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="firstExec">拡張機能の実行</h3>
+
+<p>生成されたひな型のフォルダをvs codeで読み込んでF5</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">c:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\v</span>scodeex&gt; <span class="nb">cd</span> helloworld
+c:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\v</span>scodeex<span class="se">\h</span>elloworld&gt; code .</code></pre></td></tr></table>
+</div>
+</div>
+<p><kbd>F5</kbd>キーで新しいvscodeウインドウが開くので、<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> → helloworld</p>
+
+<p>メッセージが出ます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45_hu9a371afe2a4b07c24a8a731420469352_3024_320x0_resize_box_2.png" width="320"
+                height="78" data-original="/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png" />
+    </a>
+
+
+<h3 id="変更-デバッグしてみる">変更・デバッグしてみる</h3>
+
+<p>./src/extension.tsがメインぽいのでこちらのメッセージをいじったり、ブレークポイントを設定したりして、実行・デバッグがちゃんとできるか確認します。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-05-20-vscode-helloworld-extention/2019-05-20-15-22-26.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-05-20-vscode-helloworld-extention/2019-05-20-15-22-26_huf0d3da46576cddecc2d7a8a1d0240b7b_14568_320x0_resize_box_2.png" width="320"
+                height="60" data-original="/2019-05-20-vscode-helloworld-extention/2019-05-20-15-22-26.png" />
+    </a>
+
+
+<h3 id="自分-だけ-で使う">自分（だけ）で使う</h3>
+
+<p>便利な拡張機能ができたら<a href="https://marketplace.visualstudio.com/" target="_blank">VS Code MarketPlace</a>に公開するのが筋なんでしょうが、自分だけで使いたいこともあるかと思います。
+そんな時には<a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions" target="_blank">Packaging extensions</a>を参考にローカルで小ぢんまり運用します。</p>
+
+<h4 id="vsce">Visual Studio Code Extensions をインストール</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; npm install -g vsce
++ vsce@1.61.0
+added <span class="m">255</span> packages from <span class="m">183</span> contributors in <span class="m">19</span>.597s</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="vsixファイル作成">vsixファイル作成</h4>
+
+<p>拡張機能のルートフォルダで<code>vsce package</code>コマンドを実行します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">c:<span class="se">\u</span>sr<span class="se">\s</span>rc<span class="se">\v</span>scodeex<span class="se">\h</span>elloworld&gt; vsce package</code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="エラー-1">エラー 1</h5>
+
+<blockquote>
+<p>ERROR  Missing publisher name. Learn more: <a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension#publishing-extensions" target="_blank">https://code.visualstudio.com/api/working-with-extensions/publishing-extension#publishing-extensions</a></p>
+</blockquote>
+
+<p>package.json に</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json">	<span class="s2">&#34;publisher&#34;</span><span class="err">:</span> <span class="s2">&#34;fileszero&#34;</span><span class="err">,</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>行を追加。</p>
+
+<h5 id="エラー-2">エラー 2</h5>
+
+<blockquote>
+<p>ERROR  Make sure to edit the README.md file before you publish your extension.</p>
+</blockquote>
+
+<p>README.mdを編集。
+最初の</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md"><span class="gh"># helloworld README
+</span><span class="gh"></span>
+This is the README for your extension &#34;helloworld&#34;. After writing up a brief description, we recommend including the following sections.</code></pre></td></tr></table>
+</div>
+</div>
+<p>部分を削除したら通った。</p>
+
+<h5 id="warning">WARNING</h5>
+
+<blockquote>
+<p>WARNING  A &lsquo;repository&rsquo; field is missing from the &lsquo;package.json&rsquo; manifest file.
+Do you want to continue? [y/N] y</p>
+</blockquote>
+
+<p>これはYで通しました。</p>
+
+<p>すると helloworld-0.0.1.vsix というファイルができるので、</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-05-20-vscode-helloworld-extention/2019-05-21-09-24-09.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-05-20-vscode-helloworld-extention/2019-05-21-09-24-09_hudd9b9580ceac6b994cd2dbd2642ee838_60249_320x0_resize_box_2.png" width="320"
+                height="254" data-original="/2019-05-20-vscode-helloworld-extention/2019-05-21-09-24-09.png" />
+    </a>
+
+
+<p>&ldquo;VSIXからのインストール&rdquo;でインストールします。</p>
+
+<h3 id="デバッグ時に特定のフォルダを読み込む">デバッグ時に特定のフォルダを読み込む</h3>
+
+<p>launch.jsonのargsにフォルダを設定するだけ。
+settings.jsonとかの読み込みテストとかで使えると思われます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js:launch.json" data-lang="js:launch.json"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js:launch.json" data-lang="js:launch.json">        <span class="p">{</span>
+            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;extensionHost&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Launch Extension&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;runtimeExecutable&#34;</span><span class="p">:</span> <span class="s2">&#34;${execPath}&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&#34;${workspaceFolder}/demo&#34;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">これ！</span>
+                <span class="s2">&#34;--extensionDevelopmentPath=${workspaceFolder}&#34;</span>
+            <span class="p">],</span>
+            <span class="nt">&#34;stopOnEntry&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&#34;sourceMaps&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&#34;outFiles&#34;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&#34;${workspaceFolder}/out/**/*.js&#34;</span>
+            <span class="p">],</span>
+            <span class="nt">&#34;preLaunchTask&#34;</span><span class="p">:</span> <span class="s2">&#34;npm: compile&#34;</span>
+        <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></div>
+
+  <footer class="article-footer">
+    
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="5021986846"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&title=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&text=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&t=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f&title=Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Visual%20Studio%20Code%20%e3%81%ae%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b https%3a%2f%2ffileszero.kimurak.net%2f2019-05-20-vscode-helloworld-extention%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="https://fileszero.kimurak.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://fileszero.kimurak.net/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Visual Studio Code の拡張機能を作ってみる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="https://fileszero.kimurak.net/categories/vscode/">vscode</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/2019-04-19-14-48-47.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker for windowsのコンテナ内でGUIアプリを実行</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-18T14:35:00JST">Apr 18, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(https://fileszero.kimurak.net/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-privacy-policy">
+        
+          <a href="/privacy-policy">PRIVACY POLICY</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+<script>
+  (function() {
+    var cx = '014017194023260524482:qz1j2w8iqzu';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+    <div style="text-align: center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="7304755207"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Visual Studio Code の拡張機能を作ってみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-20T14:30:01JST">May 20, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/2019-04-19-14-48-47.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker for windowsのコンテナ内でGUIアプリを実行</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-18T14:35:00JST">Apr 18, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/">
+    
+
+
+  
+
+
+
+
+  <div class="thumb " style="background-image:url(/images/hugo.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">HUGOで新規記事作成Shell Script</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-12T09:53:18JST">Apr 12, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Hugoに移行しました</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+    
+    
+  
+
+
+
+  <div class="thumb"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Logicoolマウスの保証交換してみた</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/categories/.net">.net <span class="count">(29)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/php">php <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/git">git <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/tags/">TAGS</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="9718110529"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                FILES=0</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+
+    <script src='/js/single.js'></script>
+
+  </body>
+</html>
+

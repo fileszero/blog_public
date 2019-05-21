@@ -4,7 +4,30 @@
   
   <url>
     <loc>https://fileszero.kimurak.net/categories/</loc>
-    <lastmod>2019-04-18T14:35:00+09:00</lastmod>
+    <lastmod>2019-05-20T14:30:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/</loc>
+    <lastmod>2019-05-20T14:30:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/posts/</loc>
+    <lastmod>2019-05-20T14:30:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/</loc>
+    <lastmod>2019-05-20T14:30:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fileszero.kimurak.net/categories/vscode/</loc>
+    <lastmod>2019-05-20T14:30:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -14,19 +37,7 @@
   </url>
   
   <url>
-    <loc>https://fileszero.kimurak.net/</loc>
-    <lastmod>2019-04-18T14:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://fileszero.kimurak.net/pages/</loc>
-    <lastmod>2019-04-18T14:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://fileszero.kimurak.net/posts/</loc>
     <lastmod>2019-04-18T14:35:00+09:00</lastmod>
     <priority>0</priority>
   </url>

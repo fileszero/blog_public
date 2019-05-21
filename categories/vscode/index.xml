@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vscode on FILES=0</title>
+    <link>https://fileszero.kimurak.net/categories/vscode/</link>
+    <description>Recent content in vscode on FILES=0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 20 May 2019 14:30:01 +0900</lastBuildDate>
+    
+	<atom:link href="https://fileszero.kimurak.net/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Visual Studio Code の拡張機能を作ってみる</title>
+      <link>https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/</link>
+      <pubDate>Mon, 20 May 2019 14:30:01 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/</guid>
+      <description>&lt;p&gt;markdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=telesoho.vscode-markdown-paste-image&#34; target=&#34;_blank&#34;&gt;Markdown Paste&lt;/a&gt;を使わせてもらいます。&lt;/p&gt;
+
+&lt;p&gt;クリップボードに画像をコピーして&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;V&lt;/kbd&gt;で、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには&lt;code&gt;![](ファイル名)&lt;/code&gt;を挿入してくれます。&lt;/p&gt;
+
+&lt;p&gt;すごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/api/get-started/your-first-extension&#34; target=&#34;_blank&#34;&gt;公式&lt;/a&gt;を見ながら試してみます。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
