@@ -24,6 +24,12 @@
         function () {/*
         <a href="//af.moshimo.com/af/c/click?a_id=1483673&p_id=1874&pc_id=3658&pl_id=26115&guid=ON" target="_blank" rel="nofollow"><img src="//image.moshimo.com/af-img/0402/000000026115.png" width="468" height="60" style="border:none;"></a><img src="//i.moshimo.com/af/i/impression?a_id=1483673&p_id=1874&pc_id=3658&pl_id=26115" width="1" height="1" style="border:none;">
     */},
+        function () {/*
+        <a href="//af.moshimo.com/af/c/click?a_id=1483679&p_id=912&pc_id=1132&pl_id=11846&guid=ON" target="_blank" rel="nofollow"><img src="//image.moshimo.com/af-img/0274/000000011846.jpg" width="468" height="60" style="border:none;"></a><img src="//i.moshimo.com/af/i/impression?a_id=1483679&p_id=912&pc_id=1132&pl_id=11846" width="1" height="1" style="border:none;"></img>
+    */},
+        function () {/*
+        <a href="//af.moshimo.com/af/c/click?a_id=1483680&p_id=1743&pc_id=3327&pl_id=24836&guid=ON" target="_blank" rel="nofollow"><img src="//image.moshimo.com/af-img/0303/000000024836.jpg" width="468" height="60" style="border:none;"></a><img src="//i.moshimo.com/af/i/impression?a_id=1483680&p_id=1743&pc_id=3327&pl_id=24836" width="1" height="1" style="border:none;"></img>
+    */},
     ];
     var rand = Math.floor(Math.random() * doc_src.length);
     var doc = doc_src[rand].toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
