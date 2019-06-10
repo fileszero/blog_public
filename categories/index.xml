@@ -165,20 +165,20 @@
     </item>
     
     <item>
-      <title>.Net</title>
-      <link>https://fileszero.kimurak.net/categories/.net/</link>
-      <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
-      
-      <guid>https://fileszero.kimurak.net/categories/.net/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>azure</title>
       <link>https://fileszero.kimurak.net/categories/azure/</link>
       <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
       
       <guid>https://fileszero.kimurak.net/categories/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dotNet</title>
+      <link>https://fileszero.kimurak.net/categories/dotnet/</link>
+      <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/categories/dotnet/</guid>
       <description></description>
     </item>
     

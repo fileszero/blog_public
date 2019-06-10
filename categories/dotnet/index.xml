@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dotNet on FILES=0</title>
+    <link>https://fileszero.kimurak.net/categories/dotnet/</link>
+    <description>Recent content in dotNet on FILES=0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 14 Feb 2018 07:06:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://fileszero.kimurak.net/categories/dotnet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Azure Functionsの雰囲気をローカルで試す</title>
+      <link>https://fileszero.kimurak.net/2018-02-14-try-azure-functions-on-local/</link>
+      <pubDate>Wed, 14 Feb 2018 07:06:30 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2018-02-14-try-azure-functions-on-local/</guid>
+      <description>&lt;p&gt;サーバーレス、流行ってますね。&lt;/p&gt;
+
+&lt;p&gt;なんかインフラ系のひとから「ぜひ使って。パッチ充てもういや」って言われたので、きっとすごい便利なんだと思われます。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、クラウドアカウント持ってないんでローカルで雰囲気だけでも感じてみます。&lt;/p&gt;
+
+&lt;p&gt;Azure Functionsです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJSの$httpdでファイルのアップロード(でハマった話)</title>
+      <link>https://fileszero.kimurak.net/2017-10-10-angularjs-httpd-content-type-trap/</link>
+      <pubDate>Tue, 10 Oct 2017 14:05:08 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2017-10-10-angularjs-httpd-content-type-trap/</guid>
+      <description>&lt;h3 id=&#34;現象&#34;&gt;現象&lt;/h3&gt;
+
+&lt;p&gt;ASP.NET の Web APIにファイルをポストしようとして、&lt;/p&gt;
+
+&lt;p&gt;angulerjsの$httpで&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jscript&#34; data-lang=&#34;jscript&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jscript&#34; data-lang=&#34;jscript&#34;&gt;$http({
+        url: url,
+        method: &amp;#39;POST&amp;#39;,
+        data: data,
+        processData: false,
+        contentType: false,
+    });&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;的な呼び出しをしても、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;Invalid &amp;#39;HttpContent&amp;#39; instance provided. It does not have a content type header starting with &amp;#39;multipart/&amp;#39;.&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;と怒られて、multipartなPostとなりません。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5</title>
+      <link>https://fileszero.kimurak.net/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</link>
+      <pubDate>Mon, 26 Jun 2017 03:51:03 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2017-06-26-dotnet-core-on-ubuntu-16-04-on-vagrant_5/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;までで一応アプリができたことにして、万が一公開する時の設定を試してみます。&lt;/p&gt;
+
+&lt;p&gt;通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にNginxのリバースプロキシ設定をします。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#4</title>
+      <link>https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</link>
+      <pubDate>Tue, 20 Jun 2017 13:35:42 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;めでたくUbuntuでASP.NET Core + EF Coreが動いたので、次はスキーマ変更を試してみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3</title>
+      <link>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</link>
+      <pubDate>Mon, 19 Jun 2017 13:40:34 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;ローカルでDB接続できたので、Ubuntuにデプロイしてみます。&lt;/p&gt;
+
+&lt;p&gt;肝は環境の切り替えとDBマイグレーションです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2</title>
+      <link>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</link>
+      <pubDate>Mon, 19 Jun 2017 03:17:49 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。&lt;/p&gt;
+
+&lt;p&gt;DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。&lt;/p&gt;
+
+&lt;p&gt;本命は&lt;a href=&#34;https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu&#34; target=&#34;_blank&#34;&gt;SQL Server on Linux&lt;/a&gt;なんですが、&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;なんで、却下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#1</title>
+      <link>https://fileszero.kimurak.net/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</link>
+      <pubDate>Thu, 15 Jun 2017 03:53:51 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1/</guid>
+      <description>&lt;p&gt;ASP.NET Coreをubuntuで動かしてみます。&lt;/p&gt;
+
+&lt;p&gt;環境は&lt;/p&gt;
+
+&lt;p&gt;Vagrant(+VirtualBox)&lt;/p&gt;
+
+&lt;p&gt;Host OS: Windows 7&lt;/p&gt;
+
+&lt;p&gt;Guest OS: ubuntu-16.04&lt;/p&gt;
+
+&lt;p&gt;Visual Studio 2017 Community + &amp;#8220;.NET Core cross-platform development&amp;#8221;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker &#43; .Net Core &#43; Visual studio 2015</title>
+      <link>https://fileszero.kimurak.net/2017-05-17-dockerdotnetcorevisualstudio2015/</link>
+      <pubDate>Wed, 17 May 2017 03:33:00 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2017-05-17-dockerdotnetcorevisualstudio2015/</guid>
+      <description>&lt;p&gt;Visual studio for Mac が発表されたりして.Net Coreの注目度が（自分の中で）あがって来ました。&lt;/p&gt;
+
+&lt;p&gt;てことで、少しいじってみます。&lt;/p&gt;
+
+&lt;p&gt;もしかしたらクラウドな環境にデプロイするかもしれないんで、試しにDockerで開発してみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Class LibraryとASP.NET MVCのDB-Migration</title>
+      <link>https://fileszero.kimurak.net/2016-08-03-class-library-and-mvc-dbmigration/</link>
+      <pubDate>Wed, 03 Aug 2016 08:13:12 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2016-08-03-class-library-and-mvc-dbmigration/</guid>
+      <description>&lt;p&gt;ASP.NET MVC(試したのは5)で、entity frameworkを使ったmodelやサービス部を別のクラスライブラリプロジェクトに切り出した時に、update-databaseのやり方で若干ハマったのでメモ。&lt;/p&gt;
+
+&lt;p&gt;環境はVisual studio 2015 update3&lt;/p&gt;
+
+&lt;p&gt;結論から言うと&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;PM&amp;gt; Update-Database -StartupProjectName MVCアプリ -ProjectName クラスライブラリプロジェクト&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;でOK。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OnsenUI&#43;VisualStudio2015</title>
+      <link>https://fileszero.kimurak.net/2016-06-27-onsenui-visualstudio2015/</link>
+      <pubDate>Mon, 27 Jun 2016 06:11:12 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2016-06-27-onsenui-visualstudio2015/</guid>
+      <description>&lt;p&gt;Visual studio2015 update 2&lt;/p&gt;
+
+&lt;p&gt;参考　&lt;a href=&#34;http://ardalis.com/configure-grunt-in-visual-studio-2015&#34; target=&#34;_blank&#34;&gt;http://ardalis.com/configure-grunt-in-visual-studio-2015&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Excel-DNA</title>
+      <link>https://fileszero.kimurak.net/2016-05-12-try-excel-dna/</link>
+      <pubDate>Thu, 12 May 2016 00:21:20 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2016-05-12-try-excel-dna/</guid>
+      <description>&lt;p&gt;ちょっと複雑な処理をVBAで書くとなると、言語やIDEの古さから開発効率が悪くなりがちです。&lt;/p&gt;
+
+&lt;p&gt;VS+C#でソース管理もしながら開発したいもんです。&lt;/p&gt;
+
+&lt;p&gt;そういった場合、選択肢としては&lt;a href=&#34;https://excel-dna.net/&#34; target=&#34;_blank&#34;&gt;Excel-DNA&lt;/a&gt;とかVSTOとかあるみたいなんですが、&lt;a href=&#34;http://stackoverflow.com/questions/26974959/pros-and-cons-of-vsto-vs-excel-dna&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか&lt;a href=&#34;http://supermab.com/wp/%E3%81%AA%E3%81%9C-excel-dna-%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F/&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;とか見ると、Excel-DNAが良さげな感じがします。&lt;/p&gt;
+
+&lt;p&gt;てことで試してみます。環境はVS2015 + Office2013。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5でOktaを使う</title>
+      <link>https://fileszero.kimurak.net/2016-03-25-using-okta-from-mvc5/</link>
+      <pubDate>Fri, 25 Mar 2016 12:44:36 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2016-03-25-using-okta-from-mvc5/</guid>
+      <description>&lt;p&gt;シングルサインオンサービスの&lt;a href=&#34;https://www.okta.com/&#34; target=&#34;_blank&#34;&gt;Okta&lt;/a&gt;をMVC5のログインに使う羽目になったのでメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>INotifyPropertyChangedの実装</title>
+      <link>https://fileszero.kimurak.net/2016-01-27-implimentation-of-inotifypropertychanged/</link>
+      <pubDate>Wed, 27 Jan 2016 08:22:57 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2016-01-27-implimentation-of-inotifypropertychanged/</guid>
+      <description>&lt;p&gt;久々にWindows Formsなプログラムを作っております。&lt;/p&gt;
+
+&lt;p&gt;(どのぐらい久々かというと、最後にの記憶がVB6辺りという。。。)&lt;/p&gt;
+
+&lt;p&gt;Windows Formsで必須のテクニックとしてデータバインディングがあります。&lt;/p&gt;
+
+&lt;p&gt;そこで必ず登場するのがINotifyPropertyChanged。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#4</title>
+      <link>https://fileszero.kimurak.net/2015-11-24-sort-filter-paging-list-on-mvc5-4/</link>
+      <pubDate>Tue, 24 Nov 2015 12:02:21 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-11-24-sort-filter-paging-list-on-mvc5-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;でひとまず並べ替えができたので、検索機能（フィルタ機能）をつけてみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.codeproject.com/Articles/723674/Sample-for-to-list-sort-search-data-and-add-pagina&#34; target=&#34;_blank&#34;&gt;codeprojectのサンプル&lt;/a&gt;だと、フィールド毎のフィルタリングをしているようですが、こういう検索ってあんまり使わないんですよねー。検索ボックスひとつで主要なフィールドを検索してくれたほうが都合が良い事が多い気がします。&lt;/p&gt;
+
+&lt;p&gt;今回は、検索ボックスひとつだけパターンで実装します。(けっしてめんどくさいわけではありません）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#３</title>
+      <link>https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3/</link>
+      <pubDate>Sun, 18 Oct 2015 09:00:39 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-10-18-sort-filter-paging-list-on-mvc5-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;テスト用のページを作りましたが、ソートするにはurlのパラメータを手で入力しなければなりませんでした。ヘッダのクリックでソートできるようにしたいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#2</title>
+      <link>https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2/</link>
+      <pubDate>Sat, 17 Oct 2015 10:42:07 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-10-17-sort-filter-paging-list-on-mvc5-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-10-15-sort-filter-paging-list-on-mvc5-1&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。&lt;/p&gt;
+
+&lt;p&gt;今回はwebアプリから使ってみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#1</title>
+      <link>https://fileszero.kimurak.net/2015-10-15-sort-filter-paging-list-on-mvc5-1/</link>
+      <pubDate>Thu, 15 Oct 2015 13:49:32 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-10-15-sort-filter-paging-list-on-mvc5-1/</guid>
+      <description>&lt;p&gt;ASP.NET MVC 5のお勉強にこちらの本を参考にさせていただいております。&lt;/p&gt;
+
+&lt;p&gt;&lt;!-- amazon  4798041793  --&gt;
+
+
+
+
+    
+&lt;div class=&#34;booklink-box&#34; style=&#34;text-align:left;padding-bottom:20px;font-size:small;zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-image&#34; style=&#34;float:left;margin:0 15px 10px 0;&#34;&gt;&lt;a href=&#34;//af.moshimo.com/af/c/click?a_id=1439513&amp;p_id=56&amp;pc_id=56&amp;pl_id=637&amp;s_v=b5Rz2P0601xu&amp;url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12940284%2F&#34; target=&#34;_blank&#34; &gt;&lt;img src=&#34;https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1797/9784798041797.jpg?_ex=200x200&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;img src=&#34;//i.moshimo.com/af/i/impression?a_id=1439513&amp;p_id=56&amp;pc_id=56&amp;pl_id=637&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border:none;&#34;&gt;&lt;/div&gt;&lt;div class=&#34;booklink-info&#34; style=&#34;line-height:120%;zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;//af.moshimo.com/af/c/click?a_id=1439513&amp;p_id=56&amp;pc_id=56&amp;pl_id=637&amp;s_v=b5Rz2P0601xu&amp;url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12940284%2F&#34; target=&#34;_blank&#34; &gt;ASP．NET　MVC5実践プログラミング&lt;/a&gt;&lt;img src=&#34;//i.moshimo.com/af/i/impression?a_id=1439513&amp;p_id=56&amp;pc_id=56&amp;pl_id=637&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border:none;&#34;&gt;&lt;div class=&#34;booklink-powered-date&#34; style=&#34;font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;https://yomereba.com&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;ヨメレバ&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-detail&#34; style=&#34;margin-bottom:5px;&#34;&gt;山田祥寛 秀和システム 2014年10月    &lt;/div&gt;&lt;div class=&#34;booklink-link2&#34; style=&#34;margin-top:10px;&#34;&gt;&lt;div class=&#34;shoplinkrakuten&#34; style=&#34;display:inline;margin-right:5px;background: url(&#39;//img.yomereba.com/yl.gif&#39;) 0 -50px no-repeat;padding: 2px 0 2px 18px;white-space: nowrap;&#34;&gt;&lt;a href=&#34;//af.moshimo.com/af/c/click?a_id=1439513&amp;p_id=56&amp;pc_id=56&amp;pl_id=637&amp;s_v=b5Rz2P0601xu&amp;url=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12940284%2F&#34; target=&#34;_blank&#34; &gt;楽天ブックス&lt;/a&gt;&lt;img src=&#34;//i.moshimo.com/af/i/impression?a_id=1439513&amp;p_id=56&amp;pc_id=56&amp;pl_id=637&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border:none;&#34;&gt;&lt;/div&gt;&lt;div class=&#34;shoplinkamazon&#34; style=&#34;display:inline;margin-right:5px;background: url(&#39;//img.yomereba.com/yl.gif&#39;) 0 0 no-repeat;padding: 2px 0 2px 18px;white-space: nowrap;&#34;&gt;&lt;a href=&#34;//af.moshimo.com/af/c/click?a_id=1436900&amp;p_id=170&amp;pc_id=185&amp;pl_id=4062&amp;s_v=b5Rz2P0601xu&amp;url=https%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4798041793&#34; target=&#34;_blank&#34; &gt;Amazon&lt;/a&gt;&lt;/div&gt;                  	  &lt;div class=&#34;shoplinkseven&#34; style=&#34;display:inline;margin-right:5px;background: url(&#39;//img.yomereba.com/yl.gif&#39;) 0 -100px no-repeat;padding: 2px 0 2px 18px;white-space: nowrap;&#34;&gt;&lt;a href=&#34;//af.moshimo.com/af/c/click?a_id=1436897&amp;p_id=932&amp;pc_id=1188&amp;pl_id=12456&amp;s_v=b5Rz2P0601xu&amp;url=http%3A%2F%2F7net.omni7.jp%2Fsearch%2F%3FsearchKeywordFlg%3D1%26keyword%3D9784798041797&#34; target=&#34;_blank&#34; &gt;7net&lt;img src=&#34;//i.moshimo.com/af/i/impression?a_id=1436897&amp;p_id=932&amp;pc_id=1188&amp;pl_id=12456&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border:none;&#34;&gt;&lt;/a&gt;&lt;/div&gt;            	  	  	  	      &lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-footer&#34; style=&#34;clear: left&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;必要な内容が体系的に理解できる良書かと思います。&lt;/p&gt;
+
+&lt;p&gt;非常にお勧めできる内容です。&lt;/p&gt;
+
+&lt;p&gt;が、こちらの中に出てくるサンプルで、ソート可能なグリッド表を作るってのがあるんですが、LINQ説明用のサンプルということもあり、あんまり汎用的に使えるコードではなかったりします。&lt;/p&gt;
+
+&lt;p&gt;似たような記事をcodeprojectでも見つけましたが、こちらも再利用するとき大変そうです。。&lt;/p&gt;
+
+&lt;p&gt;てことで、もうちょっと再利用できるような形にしてみたいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Entity FrameworkでInsertするときに関連するレコードもInsertされる</title>
+      <link>https://fileszero.kimurak.net/2015-09-16-ef-insert-duplicate-object/</link>
+      <pubDate>Wed, 16 Sep 2015 05:49:39 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-09-16-ef-insert-duplicate-object/</guid>
+      <description>&lt;p&gt;Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。&lt;/p&gt;
+
+&lt;p&gt;なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？&lt;/p&gt;
+
+&lt;p&gt;動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET IdentityでActive Directory認証#2</title>
+      <link>https://fileszero.kimurak.net/2015-08-18-asp-net-identity-with-adfs-2/</link>
+      <pubDate>Tue, 18 Aug 2015 04:04:05 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-08-18-asp-net-identity-with-adfs-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-08-11-asp-net-identity-with-adfs&#34; target=&#34;_blank&#34;&gt;前回AD認証の仕組みを作った&lt;/a&gt;ので、アクセス制御してみます。&lt;/p&gt;
+
+&lt;p&gt;この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。&lt;/p&gt;
+
+&lt;p&gt;アクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。&lt;/p&gt;
+
+&lt;p&gt;Webアプリ系のサイトなんて全ページ要認証が基本だと思うんです。&lt;/p&gt;
+
+&lt;p&gt;てことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET IdentityでActive Directory認証</title>
+      <link>https://fileszero.kimurak.net/2015-08-11-asp-net-identity-with-adfs/</link>
+      <pubDate>Tue, 11 Aug 2015 07:44:05 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-08-11-asp-net-identity-with-adfs/</guid>
+      <description>&lt;p&gt;最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。&lt;/p&gt;
+
+&lt;p&gt;これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。&lt;/p&gt;
+
+&lt;p&gt;社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。&lt;/p&gt;
+
+&lt;p&gt;AD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>再度AngularJS(#2)</title>
+      <link>https://fileszero.kimurak.net/2015-03-02-angularjs-again-2/</link>
+      <pubDate>Mon, 02 Mar 2015 05:23:12 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-03-02-angularjs-again-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2015-03-02-angularjs-again-1&#34; title=&#34;再度AngularJS(#1)&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;、必要なコンポーネントの設定・作成をしたので、アプリとしての機能を作っていきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>再度AngularJS(#1)</title>
+      <link>https://fileszero.kimurak.net/2015-03-02-angularjs-again-1/</link>
+      <pubDate>Mon, 02 Mar 2015 05:22:43 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2015-03-02-angularjs-again-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.buildinsider.net/web/popularjslib/2015&#34; target=&#34;_blank&#34;&gt;JavaScriptライブラリ人気調査&lt;/a&gt;によるとMVC系フレームワークはAngularJSぶっちぎりじゃないですか。&lt;/p&gt;
+
+&lt;p&gt;MS謹製ということでKnockout.js使ってしまってちょっと後悔。&lt;/p&gt;
+
+&lt;p&gt;Visual Studio 2013 Community Editionも出ましたし、&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;以前にさらっと&lt;/a&gt;いじったAngularJSを新しめの環境で使ってみたいと思います、&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 4を基本で作った後でknockout.js等使う</title>
+      <link>https://fileszero.kimurak.net/2014-08-29-asp-net-mvc-4-basicknockout/</link>
+      <pubDate>Fri, 29 Aug 2014 03:47:56 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2014-08-29-asp-net-mvc-4-basicknockout/</guid>
+      <description>&lt;p&gt;ASP.NET MVC 4プロジェクトを(よせばいいのに)&amp;#8221;基本&amp;#8221;なテンプレートで作ってしまった後にknockout.jsを使いたくなった時のメモ。&lt;/p&gt;
+
+&lt;p&gt;Visual studio 2010です。(新しのほしい。)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; Bootstrap</title>
+      <link>https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap/</link>
+      <pubDate>Wed, 16 Apr 2014 08:04:57 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2014-04-16-angularjsbootstrap/</guid>
+      <description>&lt;p&gt;Bootstrapはやってますね。使ったことありませんが、お手軽にきれいなサイトができるらしいっす。&lt;/p&gt;
+
+&lt;p&gt;てことで、&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1(サーバ側)&#34; target=&#34;_blank&#34;&gt;AngularJSの練習&lt;/a&gt;で作ったプロジェクトにBootstrapを組み込んでみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;AngularJS と Bootstrapを合わせ技で使う場合、&lt;a href=&#34;http://angular-ui.github.io/bootstrap/&#34; target=&#34;_blank&#34;&gt;UI Bootstrap&lt;/a&gt;がよさそうです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; ASP.NET MVC 4 #3(更新・削除)</title>
+      <link>https://fileszero.kimurak.net/2014-04-14-angularjsasp-netmvc4_3/</link>
+      <pubDate>Mon, 14 Apr 2014 06:39:12 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2014-04-14-angularjsasp-netmvc4_3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2&#34; title=&#34;AngularJS + ASP.NET MVC 4 #2(一覧・追加)&#34; target=&#34;_blank&#34;&gt;一覧と追加&lt;/a&gt;ができたっぽいので、難関な予感がする更新に手を付けてみます。&lt;/p&gt;
+
+&lt;p&gt;CRUDのUです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; ASP.NET MVC 4 #2(一覧・追加)</title>
+      <link>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2/</link>
+      <pubDate>Fri, 11 Apr 2014 05:19:24 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1&#34; title=&#34;AngularJS + ASP.NET MVC 4 #1&#34; target=&#34;_blank&#34;&gt;Model,Controllerを作った&lt;/a&gt;ので、次はViewです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AngularJS &#43; ASP.NET MVC 4 #1(サーバ側)</title>
+      <link>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1/</link>
+      <pubDate>Fri, 11 Apr 2014 05:18:46 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2014-04-11-angularjsasp-netmvc4_1/</guid>
+      <description>&lt;p&gt;AngularJS + ASP.NET MVC 4でなんか作ってみます。&lt;/p&gt;
+
+&lt;p&gt;Visual Studio 2010 &lt;a href=&#34;http://localhost:8000/unclassified/577/&#34; title=&#34;Visual Studio 2010 + ASP.NET MVC 4&#34; target=&#34;_blank&#34;&gt;+ MVC4&lt;/a&gt;で開発します。2013とかほしいっす。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio 2010 &#43; ASP.NET MVC 4</title>
+      <link>https://fileszero.kimurak.net/2014-04-09-visualstudio2010asp-netmvc4/</link>
+      <pubDate>Wed, 09 Apr 2014 05:27:57 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2014-04-09-visualstudio2010asp-netmvc4/</guid>
+      <description>なんかスマホ系のサイト(つーかRESTfulなサイト?)作るにはMVC4が良いみたいです。なにApiControllerって良さそー。 ただし</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio 2010 &#43; NUnit デバッグ実行</title>
+      <link>https://fileszero.kimurak.net/2014-01-17-vs2010nunitdebug/</link>
+      <pubDate>Fri, 17 Jan 2014 01:54:38 +0000</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2014-01-17-vs2010nunitdebug/</guid>
+      <description>TDDもうあたりまえになってるんでしょうかね。 Visual StudioでNUnitデバック実行ではまったのでメモ。 「Visual Studio NUnit デバック実行」でグ</description>
+    </item>
+    
+  </channel>
+</rss>
