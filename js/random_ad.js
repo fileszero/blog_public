@@ -13,6 +13,11 @@
     { "a_id": "1486222", "p_id": "1580", "pc_id": "2879", "pl_id": "22927", "guid": "ON", "width": "468", "height": "60", "af_img": "0899/000000022927.png" },
     { "a_id": "1486222", "p_id": "1580", "pc_id": "2879", "pl_id": "23020", "guid": "ON", "width": "468", "height": "60", "af_img": "0899/000000023020.gif" },
     { "a_id": "1486222", "p_id": "1580", "pc_id": "2879", "pl_id": "23021", "guid": "ON", "width": "728", "height": "90", "af_img": "0899/000000023021.png" },
+    { "a_id": "1483667", "p_id": "1532", "pc_id": "2751", "pl_id": "22457", "guid": "ON", "width": "728", "height": "90", "af_img": "0833/000000022457.png" },
+    { "a_id": "1483667", "p_id": "1532", "pc_id": "2751", "pl_id": "22464", "guid": "ON", "width": "728", "height": "90", "af_img": "0833/000000022464.png" },
+    { "a_id": "1483667", "p_id": "1532", "pc_id": "2751", "pl_id": "22478", "guid": "ON", "width": "468", "height": "60", "af_img": "0833/000000022478.png" },
+    { "a_id": "1483667", "p_id": "1532", "pc_id": "2751", "pl_id": "22482", "guid": "ON", "width": "468", "height": "60", "af_img": "0833/000000022482.png" },
+    { "a_id": "1483667", "p_id": "1532", "pc_id": "2751", "pl_id": "22495", "guid": "ON", "width": "468", "height": "60", "af_img": "0833/000000022495.png" },
     { "a_id": "1439526", "p_id": "1469", "pc_id": "2603", "pl_id": "22010", "guid": "ON", "width": "728", "height": "90", "af_img": "0671/000000022010.jpg" },
     { "a_id": "1439526", "p_id": "1469", "pc_id": "2603", "pl_id": "21995", "guid": "ON", "width": "468", "height": "60", "af_img": "0671/000000021995.jpg" },
     { "a_id": "1439526", "p_id": "1469", "pc_id": "2603", "pl_id": "21841", "guid": "ON", "width": "728", "height": "90", "af_img": "0671/000000021841.jpg" },
@@ -136,5 +141,4 @@
         }
     }
     document.getElementById("random_ad").innerHTML = link_tpl;
-    //document.write(link_tpl);
 })();
