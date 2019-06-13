@@ -6,10 +6,21 @@
     <description>Recent content in Posts on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 20 May 2019 14:30:01 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2019 13:41:55 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android StusioをWindows10にインストールした時のエラーの数々</title>
+      <link>https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/</link>
+      <pubDate>Fri, 24 May 2019 13:41:55 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/</guid>
+      <description>&lt;p&gt;かなり前にWindows再インストールしたんですが、Android Studio使いたくなったので、インストールします。&lt;/p&gt;
+
+&lt;p&gt;毎度のことながらすんなりインストールできてくれなかったんで、備忘録です。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Visual Studio Code の拡張機能を作ってみる</title>

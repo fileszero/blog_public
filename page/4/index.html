@@ -76,6 +76,57 @@ if (!doNotTrack) {
         
         
         <div class="mcol c6"><article class="li">
+  <a href="https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/">
+    
+
+
+
+  
+  
+    
+    
+  
+
+
+
+  <div class="thumb"></div>
+
+
+
+
+    <div class="inner">
+      <h2 class="title">SQL Server 2012トランザクションログの圧縮</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-12T00:28:07JST">Jun 12, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><p>開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。</p>
+
+<p>ちょっと前だと</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">BACKUP</span> <span class="n">LOG</span> <span class="p">[</span><span class="n">db_name</span><span class="p">]</span> <span class="k">WITH</span> <span class="n">TRUNCATE_ONLY</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>でシュリンクしてくれたんですが、最近のSQLServerだと</p>
+
+<p><strong>&#8216;TRUNCATE_ONLY&#8217; is not a recognized BACKUP option.</strong></p>
+
+<p>とか怒られます。</p>
+
+<p>やり方毎回忘れるのでメモ。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
   <a href="https://fileszero.kimurak.net/2017-05-17-dockerdotnetcorevisualstudio2015/">
     
 
@@ -483,40 +534,6 @@ if (!doNotTrack) {
 </article>
 </div>
         
-        <div class="mcol c6"><article class="li">
-  <a href="https://fileszero.kimurak.net/2016-09-01-mac-tips/">
-    
-
-
-
-  
-  
-    
-    
-  
-
-
-
-  <div class="thumb"></div>
-
-
-
-
-    <div class="inner">
-      <h2 class="title">Mac Tips</h2>
-
-      <ul class="facts">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-09-01T01:14:19JST">Sep 1, 2016</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-      <div class="summary"><p>いつも忘れるMacOS関係のメモ。随時更新予定。</p></div>
-    </div>
-  </a>
-</article>
-</div>
-        
       </div>
     </div>
 
@@ -591,6 +608,38 @@ if (!doNotTrack) {
   <header>LATESTS</header>
   <div>
     <div class="articles sm">
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Android StusioをWindows10にインストールした時のエラーの数々</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-24T13:41:55JST">May 24, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
       
       <article class="lism">
   <a href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
@@ -924,38 +973,6 @@ if (!doNotTrack) {
 
       <ul class="facts sm">
         <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-    </div>
-  </a>
-</article>
-
-      
-      <article class="lism">
-  <a href="https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/">
-    
-
-
-
-  
-  
-      
-  
-
-
-
-  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
-
-
-
-
-    <div class="inner">
-      <div class="title">Logicoolマウスの保証交換してみた</div>
-
-      <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
         
       </ul>

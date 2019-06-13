@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+<link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
+
+
+<link rel="canonical" href="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+
+<link rel="shortcut icon" href="/images/favicon.ico" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Android StusioをWindows10にインストールした時のエラーの数々 - FILES=0</title>
+    
+
+
+
+
+
+
+  
+  
+      
+  
+
+
+<meta name="description" content="&lt;p&gt;かなり前にWindows再インストールしたんですが、Android Studio使いたくなったので、インストールします。&lt;/p&gt;&lt;p&gt;毎度のことながらすんなりインストールできてくれなかったんで、備忘録です。&lt;/p&gt;">
+
+<meta property="og:title" content="Android StusioをWindows10にインストールした時のエラーの数々 - FILES=0">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+<meta property="og:image" content="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png">
+<meta property="og:site_name" content="FILES=0">
+<meta property="og:description" content="&lt;p&gt;かなり前にWindows再インストールしたんですが、Android Studio使いたくなったので、インストールします。&lt;/p&gt;&lt;p&gt;毎度のことながらすんなりインストールできてくれなかったんで、備忘録です。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="FILES=0">
+<meta name="twitter:url" content="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+<meta name="twitter:title" content="Android StusioをWindows10にインストールした時のエラーの数々 - FILES=0">
+<meta name="twitter:description" content="&lt;p&gt;かなり前にWindows再インストールしたんですが、Android Studio使いたくなったので、インストールします。&lt;/p&gt;&lt;p&gt;毎度のことながらすんなりインストールできてくれなかったんで、備忘録です。&lt;/p&gt;">
+<meta name="twitter:image" content="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"https:\/\/fileszero.kimurak.net\/"
+    },
+    "headline": "Android StusioをWindows10にインストールした時のエラーの数々 - FILES=0",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2019-05-24T13:41:55JST",
+    "dateModified": "2019-05-24T13:41:55JST",
+    "author": {
+      "@type": "Person",
+      "name": "FILES=0"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FILES=0",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "\x3cp\x3eかなり前にWindows再インストールしたんですが、Android Studio使いたくなったので、インストールします。\x3c\/p\x3e\n\n\x3cp\x3e毎度のことながらすんなりインストールできてくれなかったんで、備忘録です。\x3c\/p\x3e"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-57355705-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="https://fileszero.kimurak.net/">FILES=0</a>
+        </div>
+        
+<div class="description">
+  How many files(0-15)?
+</div>
+
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png)"></div>
+
+
+
+  <header class="article-header">
+    <h1 class="title">Android StusioをWindows10にインストールした時のエラーの数々</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-24T13:41:55JST">May 24, 2019</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://fileszero.kimurak.net/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&title=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&text=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&t=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&title=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85 https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>かなり前にWindows再インストールしたんですが、Android Studio使いたくなったので、インストールします。</p>
+
+<p>毎度のことながらすんなりインストールできてくれなかったんで、備忘録です。</p>
+
+<h3 id="haxm使えない問題">HAXM使えない問題</h3>
+
+<p>Docker for windowsがインストールされてるPCに、Android studioをインストールしてたら以下のエラーが出て、IntelCPUのアクセラレーター使えない問題発生。</p>
+
+<blockquote>
+<p>Running Intel® HAXM installer</p>
+
+<p>Failed to install Intel HAXM. For details, please check the installation log: &ldquo;C:\Users\<em>[username]</em>\AppData\Local\Temp\haxm_log.txt&rdquo;
+HAXM installation failed. To install HAXM follow the instructions found at: <a href="https://software.intel.com/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows" target="_blank">https://software.intel.com/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows</a>
+Installer log is located at C:\Users\<em>[username]</em>\AppData\Local\Temp\haxm_log.txt</p>
+
+<p>Installer log contents:</p>
+
+<p>This computer does not support Intel Virtualization Technology (VT-x) or <strong>it is being exclusively used by Hyper-V</strong>. HAXM cannot be installed.
+Please ensure Hyper-V is disabled in Windows Features, or refer to the Intel HAXM documentation for more information.</p>
+</blockquote>
+
+<p>&ldquo;it is being exclusively used by Hyper-V&rdquo;だそうで、Windows 10の場合、<a href="https://developer.android.com/studio/run/emulator-acceleration?authuser=1#vm-windows-whpx" target="_blank">WHPXつーのを使う</a>ようにするといいそうです。てことで、HAXMは使わない方向で行きます。くそ遅いけど。</p>
+
+<p>エミュレータをコマンドから実行すると使ってるがどうか確認できます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">C:<span class="se">\U</span>sers<span class="se">\_</span><span class="o">[</span>username<span class="o">]</span>_<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\A</span>ndroid<span class="se">\S</span>dk<span class="se">\e</span>mulator&gt;emulator.exe @Pixel_2_API_Q
+Windows Hypervisor Platform accelerator is operational</code></pre></td></tr></table>
+</div>
+</div>
+<p>このログStudioから見れないんすかね？</p>
+
+<h3 id="証明書ない問題">証明書ない問題</h3>
+
+<p>ファイアうろーるとかの関係で、独自な証明書とか使ってると出がちな、証明書が見つからない問題。</p>
+
+<blockquote>
+<p>ERROR: Cause: unable to find valid certification path to requested target</p>
+</blockquote>
+
+<p>ネットワークが変なプロキシ通ってるからだと思ったんで、関係しそうな証明書をインポートしまくってみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">keytool -import -alias OreOre1 -file <span class="s2">&#34;C:\usr\certs\OreOre1.cer&#34;</span> -keystore <span class="s2">&#34;C:\Program Files\Android\Android Studio\jre\jre\lib\security\cacerts&#34;</span>
+keytool -import -alias OreOre2 -file <span class="s2">&#34;C:\usr\certs\OreOre2.cer&#34;</span> -keystore <span class="s2">&#34;C:\Program Files\Android\Android Studio\jre\jre\lib\security\cacerts&#34;</span>
+keytool -import -alias OreOre3 -file <span class="s2">&#34;C:\usr\certs\OreOre3.cer&#34;</span> -keystore <span class="s2">&#34;C:\Program Files\Android\Android Studio\jre\jre\lib\security\cacerts&#34;</span>
+keytool -import -alias bintray_com -file <span class="s2">&#34;C:\usr\certs\bintray_com.cer&#34;</span> -keystore <span class="s2">&#34;C:\Program Files\Android\Android Studio\jre\jre\lib\security\cacerts&#34;</span>
+keytool -import -alias GeoTrust_RSA_CA_2018 -file <span class="s2">&#34;C:\usr\certs\GeoTrust_RSA_CA_2018.cer&#34;</span> -keystore <span class="s2">&#34;C:\Program Files\Android\Android Studio\jre\jre\lib\security\cacerts&#34;</span>
+keytool -import -alias DigiCert_Global_Root_CA -file <span class="s2">&#34;C:\usr\certs\DigiCert_Global_Root_CA.cer&#34;</span> -keystore <span class="s2">&#34;C:\Program Files\Android\Android Studio\jre\jre\lib\security\cacerts&#34;</span>
+
+キーストアのパスワードを入力してください: changeit
+この証明書を信頼しますか。 <span class="o">[</span>いいえ<span class="o">]</span>:  はい</code></pre></td></tr></table>
+</div>
+</div>
+<p>が、ここまでやってダメ。</p>
+
+<p><a href="https://stackoverflow.com/a/47406224" target="_blank">stackoverflow</a>を参考に</p>
+
+<ul>
+<li>File -&gt; Settings -&gt; Tools -&gt; Server Certificates.
+
+<ul>
+<li>C:\usr\certs\bintray_com.cerをandroid studioに取り込み</li>
+</ul></li>
+<li>File -&gt; Invalidate Caches/Restart&hellip;</li>
+</ul>
+
+<p>で一応解消。</p>
+
+<h3 id="なんかエラー">なんかエラー</h3>
+
+<p>原因不明の症状不明のエラー</p>
+
+<blockquote>
+<p>New Gradle Sync is not supported due to containing Kotlin modules using an unsupported plugin version</p>
+</blockquote>
+
+<p>しばらく見守ってたら治った。おそらくGradleさんがうまくさばいてくれたんだと思う。</p>
+
+<h3 id="adb古い問題">adb古い問題</h3>
+
+<p>お前のadbはもう古いと怒られる。さっきインストールしたばっかしなんですけど…</p>
+
+<blockquote>
+<p>-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
+
+<p>Detected ADB</p>
+
+<p>-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
+
+<p>The ADB binary found at C:\Users\<em>[username]</em>\AppData\Local\Android\Sdk\platform-tools\adb.exe is obsolete and has seriousperformance problems with the Android &gt; Emulator. Please update to a newer version to get significantly faster app/file transfer.</p>
+
+<p>-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
+
+<p>OK</p>
+
+<p>-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
+</blockquote>
+
+<p>Tools -&gt; SDK Manager -&gt; Appearance &amp; Behavior -&gt; System Settings -&gt; Android SDK -&gt; SDK Tools</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-40-12.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-40-12_hu68dc858f85e419e9edb057e9bda6019f_14454_320x0_resize_box_2.png" width="320"
+                height="78" data-original="/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-40-12.png" />
+    </a>
+
+
+<p>古いらしい。チェックボックスを[-]から[v]にしてApply。</p>
+
+<p>直らなかったので、SDK ToolsでShow Package Detailsにチェック、最新のだけにチェックを入れてApply
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-05-24-installing-android-studio-for-windows/2019-05-24-16-06-11.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-05-24-installing-android-studio-for-windows/2019-05-24-16-06-11_hu82ed5d1549e97d94dd9a2cb33b9be86e_11869_320x0_resize_box_2.png" width="320"
+                height="92" data-original="/2019-05-24-installing-android-studio-for-windows/2019-05-24-16-06-11.png" />
+    </a>
+</p>
+
+<h3 id="memtrack-couldn-t-load-memtrack-module">memtrack: Couldn&rsquo;t load memtrack module</h3>
+
+<p>logcatに<code>memtrack: Couldn't load memtrack module</code>が大量発生。</p>
+
+<p>デバイスをNexus 4、API Level を26にして、メモリサイズとかを小さく設定。</p>
+
+<h3 id="material-design使い始めたらデザイナに何も表示されなくなる">MATERIAL DESIGN使い始めたらデザイナに何も表示されなくなる</h3>
+
+<p><a href="https://material.io/develop/android/docs/getting-started/" target="_blank">こちら</a>にならって values/styles.xml のAppThemeを書き換えるとダメらしい。
+デザイナでスタイルを明示的に指定してあげるといいような気がする。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-05-24-installing-android-studio-for-windows/2019-05-29-11-53-32.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-05-24-installing-android-studio-for-windows/2019-05-29-11-53-32_huce90b4d17ba77eafbf4441726b4b6067_9231_320x0_resize_box_2.png" width="320"
+                height="138" data-original="/2019-05-24-installing-android-studio-for-windows/2019-05-29-11-53-32.png" />
+    </a>
+
+
+<h3 id="罠大杉">罠大杉</h3>
+
+<p>たまーにインストールするAndroid studio。毎回おんなじような罠にはまります。</p>
+
+<p>だいぶこなれてきてるような気もするけど、環境構築ですげー手間取る。
+細かいエラーは気にしない方がいいのかも。</p>
+
+<p>Macだとすんなり動いてくれるんですけどね～。</p></div>
+
+  <footer class="article-footer">
+    
+      <div class="single-bottom-ad">
+<script src="/js/random_ad.js"></script>
+</div>
+
+
+    
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&title=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&text=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&t=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f&title=Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Android%20Stusio%e3%82%92Windows10%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%9f%e6%99%82%e3%81%ae%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%ae%e6%95%b0%e3%80%85 https%3a%2f%2ffileszero.kimurak.net%2f2019-05-24-installing-android-studio-for-windows%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="https://fileszero.kimurak.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://fileszero.kimurak.net/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Android StusioをWindows10にインストールした時のエラーの数々</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Visual Studio Code の拡張機能を作ってみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-20T14:30:01JST">May 20, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(https://fileszero.kimurak.net/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-privacy-policy">
+        
+          <a href="/privacy-policy">PRIVACY POLICY</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+<script>
+  (function() {
+    var cx = '014017194023260524482:qz1j2w8iqzu';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+    <div style="text-align: center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="7304755207"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Android StusioをWindows10にインストールした時のエラーの数々</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-24T13:41:55JST">May 24, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Visual Studio Code の拡張機能を作ってみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-20T14:30:01JST">May 20, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/2019-04-19-14-48-47.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker for windowsのコンテナ内でGUIアプリを実行</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-18T14:35:00JST">Apr 18, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/">
+    
+
+
+  
+
+
+
+
+  <div class="thumb " style="background-image:url(/images/hugo.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">HUGOで新規記事作成Shell Script</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-12T09:53:18JST">Apr 12, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Hugoに移行しました</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+    
+    
+  
+
+
+
+  <div class="thumb"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-09-install-jenkins/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-09-install-jenkins/WS000039.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Install Jenkins</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/categories/dotnet">dotnet <span class="count">(29)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/php">php <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/git">git <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/tags/">TAGS</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="9718110529"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                FILES=0</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+
+    <script src='/js/single.js'></script>
+
+  </body>
+</html>
+

@@ -80,6 +80,73 @@ if (!doNotTrack) {
         
         
         <div class="mcol c6"><article class="li">
+  <a href="https://fileszero.kimurak.net/2017-10-10-angularjs-httpd-content-type-trap/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2017-10-10-angularjs-httpd-content-type-trap/AngularJS.png)"></div>
+
+
+
+
+    <div class="inner">
+      <h2 class="title">AngularJSの$httpdでファイルのアップロード(でハマった話)</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-10-10T14:05:08JST">Oct 10, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+      <div class="summary"><h3 id="現象">現象</h3>
+
+<p>ASP.NET の Web APIにファイルをポストしようとして、</p>
+
+<p>angulerjsの$httpで</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">$http({
+        url: url,
+        method: &#39;POST&#39;,
+        data: data,
+        processData: false,
+        contentType: false,
+    });</code></pre></td></tr></table>
+</div>
+</div>
+<p>的な呼び出しをしても、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Invalid &#39;HttpContent&#39; instance provided. It does not have a content type header starting with &#39;multipart/&#39;.</code></pre></td></tr></table>
+</div>
+</div>
+<p>と怒られて、multipartなPostとなりません。</p></div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
   <a href="https://fileszero.kimurak.net/2017-09-21-try-nightmare-js-2/">
     
 
@@ -470,57 +537,6 @@ if (!doNotTrack) {
 </article>
 </div>
         
-        <div class="mcol c6"><article class="li">
-  <a href="https://fileszero.kimurak.net/2017-06-12-shrink-sql-server-log/">
-    
-
-
-
-  
-  
-    
-    
-  
-
-
-
-  <div class="thumb"></div>
-
-
-
-
-    <div class="inner">
-      <h2 class="title">SQL Server 2012トランザクションログの圧縮</h2>
-
-      <ul class="facts">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-06-12T00:28:07JST">Jun 12, 2017</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-      <div class="summary"><p>開発環境なんかでいつの間にかトランザクションログが巨大化してることがよくあります。</p>
-
-<p>ちょっと前だと</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">BACKUP</span> <span class="n">LOG</span> <span class="p">[</span><span class="n">db_name</span><span class="p">]</span> <span class="k">WITH</span> <span class="n">TRUNCATE_ONLY</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>でシュリンクしてくれたんですが、最近のSQLServerだと</p>
-
-<p><strong>&#8216;TRUNCATE_ONLY&#8217; is not a recognized BACKUP option.</strong></p>
-
-<p>とか怒られます。</p>
-
-<p>やり方毎回忘れるのでメモ。</p></div>
-    </div>
-  </a>
-</article>
-</div>
-        
       </div>
     </div>
 
@@ -595,6 +611,38 @@ if (!doNotTrack) {
   <header>LATESTS</header>
   <div>
     <div class="articles sm">
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Android StusioをWindows10にインストールした時のエラーの数々</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-24T13:41:55JST">May 24, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
       
       <article class="lism">
   <a href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
@@ -928,38 +976,6 @@ if (!doNotTrack) {
 
       <ul class="facts sm">
         <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-09T02:32:35JST">Nov 9, 2018</time></li>
-        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
-        
-      </ul>
-
-    </div>
-  </a>
-</article>
-
-      
-      <article class="lism">
-  <a href="https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/">
-    
-
-
-
-  
-  
-      
-  
-
-
-
-  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2018-10-24-logicool-mouse-warranty/m705-refresh-pdp-624x536.png)"></div>
-
-
-
-
-    <div class="inner">
-      <div class="title">Logicoolマウスの保証交換してみた</div>
-
-      <ul class="facts sm">
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-10-24T14:07:24JST">Oct 24, 2018</time></li>
         <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
         
       </ul>
