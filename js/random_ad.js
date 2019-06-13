@@ -135,5 +135,6 @@
             link_tpl = link_tpl.split("${" + key + "}").join(doc[key]); // replace
         }
     }
-    document.write(link_tpl);
+    document.getElementById("random_ad").innerHTML = link_tpl;
+    //document.write(link_tpl);
 })();
