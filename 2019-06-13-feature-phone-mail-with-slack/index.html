@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.55.6" />
+
+<link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
+
+
+<link rel="canonical" href="https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/">
+
+<link rel="shortcut icon" href="/images/favicon.ico" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>Slackでガラケー相手にメール送受信 - FILES=0</title>
+    
+
+
+
+
+
+
+  
+  
+      
+  
+
+
+<meta name="description" content="&lt;p&gt;Slack便利（なん）です（よ）ね？私の職場では定着せず自然消滅しましたが…&lt;/p&gt;&lt;p&gt;そんな素敵な、Slackをはじめとしたビジネスチャットツール。UIも使いやすいし、他のシステムとの接続がしやすいのも魅力。&lt;/p&gt;&lt;p&gt;プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。&lt;/p&gt;">
+
+<meta property="og:title" content="Slackでガラケー相手にメール送受信 - FILES=0">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/">
+<meta property="og:image" content="https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28.png">
+<meta property="og:site_name" content="FILES=0">
+<meta property="og:description" content="&lt;p&gt;Slack便利（なん）です（よ）ね？私の職場では定着せず自然消滅しましたが…&lt;/p&gt;&lt;p&gt;そんな素敵な、Slackをはじめとしたビジネスチャットツール。UIも使いやすいし、他のシステムとの接続がしやすいのも魅力。&lt;/p&gt;&lt;p&gt;プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="FILES=0">
+<meta name="twitter:url" content="https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/">
+<meta name="twitter:title" content="Slackでガラケー相手にメール送受信 - FILES=0">
+<meta name="twitter:description" content="&lt;p&gt;Slack便利（なん）です（よ）ね？私の職場では定着せず自然消滅しましたが…&lt;/p&gt;&lt;p&gt;そんな素敵な、Slackをはじめとしたビジネスチャットツール。UIも使いやすいし、他のシステムとの接続がしやすいのも魅力。&lt;/p&gt;&lt;p&gt;プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。&lt;/p&gt;">
+<meta name="twitter:image" content="https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"https:\/\/fileszero.kimurak.net\/"
+    },
+    "headline": "Slackでガラケー相手にメール送受信 - FILES=0",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2019-06-13T09:18:15JST",
+    "dateModified": "2019-06-13T09:18:15JST",
+    "author": {
+      "@type": "Person",
+      "name": "FILES=0"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FILES=0",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "\x3cp\x3eSlack便利（なん）です（よ）ね？私の職場では定着せず自然消滅しましたが…\x3c\/p\x3e\n\n\x3cp\x3eそんな素敵な、Slackをはじめとしたビジネスチャットツール。\nUIも使いやすいし、他のシステムとの接続がしやすいのも魅力。\x3c\/p\x3e\n\n\x3cp\x3eプライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。\x3c\/p\x3e"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-57355705-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="https://fileszero.kimurak.net/">FILES=0</a>
+        </div>
+        
+<div class="description">
+  How many files(0-15)?
+</div>
+
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28.png)"></div>
+
+
+
+  <header class="article-header">
+    <h1 class="title">Slackでガラケー相手にメール送受信</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-06-13T09:18:15JST">Jun 13, 2019</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://fileszero.kimurak.net/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&title=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&text=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&t=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&title=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1 https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>Slack便利（なん）です（よ）ね？私の職場では定着せず自然消滅しましたが…</p>
+
+<p>そんな素敵な、Slackをはじめとしたビジネスチャットツール。
+UIも使いやすいし、他のシステムとの接続がしやすいのも魅力。</p>
+
+<p>プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。</p>
+
+<h3 id="作るもの">作るもの</h3>
+
+<p>特定の１名とのメールの送受信をSlack上でできるようにする。</p>
+
+<p>グループ(複数ToとかCCとか)のやり取りは考慮しておりません。</p>
+
+<h3 id="なぜ必要">なぜ必要？</h3>
+
+<p>相手がガラケーだろうと、普通にメールでも良いんじゃね？と思うかもしれ混ぜんが、以下のような特殊な事情があるんです。</p>
+
+<ul>
+<li>いつもやり取りするお相手（ヨメさま）がガラケーしか使えない。</li>
+<li>メールを小分けにチャット感覚で送ってくる
+
+<ul>
+<li>＊＊やっといて～　←　仕事中ですが。。。</li>
+<li>あ、やっぱり〇〇もお願い～　←　追加注文</li>
+<li>そー言えば××はほにゃららになったー　←　無関係な話を挟む</li>
+<li>＊＊やるときは△△にしてねー　←　いくつか前の話に追加事項</li>
+</ul></li>
+</ul>
+
+<p>的な感じのメールを散発敵に送ってきます。</p>
+
+<ul>
+<li>返信絶対使わないマン
+
+<ul>
+<li>せめて返信で送ってくれればメーラーのスレッドが効くのに、すべて新規にメール作って送ってくる。</li>
+</ul></li>
+<li>仕事中だろうが構わず送ってくる</li>
+<li>すぐ返信しろとか言ってくる</li>
+</ul>
+
+<p>そんな事で、メッセージのやり取りが見やすくて、通知がすぐ来て、PCでも見れる環境が欲しかったのです。(奴隷感)</p>
+
+<h3 id="使うもの">使うもの</h3>
+
+<ul>
+<li><a href="https://slack.com/intl/ja-jp/" target="_blank">Slack</a> <small>(専用のワークスペースがあるといいと思います)</small></li>
+<li>Gmail <small>(お相手にはGmailのアドレスをお伝えします)</small></li>
+<li><a href="https://zapier.com/" target="_blank">Zapier</a></li>
+<li>GAS(Google Apps Script)</li>
+</ul>
+
+<p>すべて無料でそろいます。いい世の中になったもんだー。</p>
+
+<h3 id="メッセージの流れ">メッセージの流れ</h3>
+
+<p>ガラケー→SlackはZapier経由で、Slack→ガラケーはGASを使ってます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28_hufc833ca4783ce404ac85450accbe07b9_63526_320x0_resize_box_2.png" width="320"
+                height="119" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28.png" />
+    </a>
+
+
+<p>すべてPushでポーリング的な処理を入れないのがポイントです。</p>
+
+<h3 id="ガラケー-slack">ガラケー→Slack</h3>
+
+<h4 id="受信用チャンネルの作成-slack">受信用チャンネルの作成(Slack)</h4>
+
+<p>Slackで送受信用のチャンネルを作成しておきます。&rdquo;Outgoing Webhook&rdquo;はprivateチャンネルだと動かないようなので、publicで作ります。ここでは<code>#garakei</code>で作りました。</p>
+
+<p>publicになってしまうので秘密を守りたい方は専用のworkspaceを作るといいと思います。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-13-40.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-13-40_huac9dc20873a952e81e24d006355696a5_64001_320x0_resize_box_2.png" width="320"
+                height="218" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-13-40.png" />
+    </a>
+
+
+<h4 id="zapierでzap作成-zapier">ZapierでZap作成(Zapier)</h4>
+
+<p>Zapierにログインして&rdquo;Make a Zap!&ldquo;でZapを作ります。</p>
+
+<h5 id="トリガー">トリガー</h5>
+
+<p>トリガーには　<strong><em>Email</em></strong>の&rdquo;Inbound Email&rdquo;を使います。<strong>Gmailではありません!</strong></p>
+
+<p>
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-29-55.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-29-55_hu990de8700714fa97c1fd7e56f80b0b39_16549_320x0_resize_box_2.png" width="320"
+                height="158" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-29-55.png" />
+    </a>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-33-42.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-33-42_hu7eda468eb9cd97799588c3e41fa697a7_26788_320x0_resize_box_2.png" width="320"
+                height="192" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-33-42.png" />
+    </a>
+</p>
+
+<p>後で、ここで作られたアドレス(以下:Zapierアドレス)にgmailからの転送設定をします。</p>
+
+<h5 id="アクション">アクション</h5>
+
+<p>続いてアクションの追加でSlack→Send Channel Message(必要に応じてアカウント接続の設定)をします。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-39-10.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-39-10_hu32a824ab66e43e80311da3fd71429525_33052_320x0_resize_box_2.png" width="320"
+                height="194" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-39-10.png" />
+    </a>
+
+
+<p>テンプレートの設定も観ればわかるレベルかと。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-52-24.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-52-24_huefd546cb9ba29dddfef5c6b7eed230c9_41654_320x0_resize_box_2.png" width="320"
+                height="292" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-52-24.png" />
+    </a>
+
+
+<p>Channelには先ほど作ったチャンネル（<code>#garakei</code>）。</p>
+
+<p>Message Textには&rdquo;Body Plain&rdquo;か&rdquo;Stripped Text&rdquo;を選んどくといいと思います（両者の違いは不明）。</p>
+
+<p>後はデフォルトのままです。Send as a bot?はよくわからないんで”Yes&rdquo;にしときました。</p>
+
+<p>最後にテストを実行すると<code>#garakei</code>に投稿されます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-56-10.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-56-10_hu394789bc657da356c2db0320e664d208_40443_320x0_resize_box_2.png" width="320"
+                height="216" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-11-56-10.png" />
+    </a>
+
+
+<h4 id="gmailで転送設定-gmail">Gmailで転送設定(Gmail)</h4>
+
+<p>説明不要な気もしますが、Gmailで転送設定します。</p>
+
+<p>Gmailにログインして、「設定」→「メール転送とPOP/IMAP」→「転送:」→「転送先アドレスを追加」をクリック。</p>
+
+<p>Zapierアドレスを入力します。「OK」→「続行」とすると、<strong>Slackに</strong>メッセージが投稿されるので、確認コードを入力するかリンクをクリック。</p>
+
+<p>次はフィルタの設定。Gmailの「設定」→「フィルタとブロック中のアドレス」でご希望のアドレスからのメールをZapierアドレスに転送するようにします。やり方は省略。</p>
+
+<p>ここまでで　ガラケー→Slack　の設定は終了。</p>
+
+<h3 id="slack-ガラケー">Slack→ガラケー</h3>
+
+<p>こっちのルートはGASを使うのでコードを書きます。</p>
+
+<h4 id="メール送信用webhookの作成-gas">メール送信用WebHookの作成(GAS)</h4>
+
+<p>Google Driveにアクセスして、「新規」→「その他」→「Google Apps Script」を選択。
+ここでプロジェクト名を変更しておきます。
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-13-08-18.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-13-08-18_hu505d4320bc2af522ecf7e8029ec624f5_54614_320x0_resize_box_2.png" width="320"
+                height="240" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-13-08-18.png" />
+    </a>
+</p>
+
+<p>コード.gsに以下のようなコードを書きます。
+要編集のユーザー名とmail_map部分は適宜書き換えてください。。
+ファンクション名は必ずdoPostじゃないとダメみたいです。</p>
+
+<script src="https://gist.github.com/fileszero/88041c7f0a9f33fd8b1db8e62ffb0a3e.js?filename=コード.gs"></script>
+
+<h4 id="webhookの公開-gas">WebHookの公開(GAS)</h4>
+
+<p>「公開」→「ウエブアプリケーションとして導入」</p>
+
+<p>プロジェクトのバージョンは&rdquo;New&rdquo;、自分で実行、アクセスできるユーザーを全員(匿名含む)にします
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-13-54-00.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-13-54-00_hu6ab16fb99589086429264d32f1b136da_18040_320x0_resize_box_2.png" width="320"
+                height="294" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-13-54-00.png" />
+    </a>
+</p>
+
+<p>「承認が必要です」的なことを言われたら、ひたすら許可します。</p>
+
+<p>「現在のウェブ アプリケーションの URL」が発行されるので、これをどっかにメモしときます。（後でも見れますが）</p>
+
+<h4 id="outgoing-webhookの設定-slack">Outgoing Webhookの設定(Slack)</h4>
+
+<p>SlackのワークスペースにAppを追加します。サイドバーのAppのとこの<code>+</code>で
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-05-03.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-05-03.png" width="238"
+                height="185" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-05-03.png" />
+    </a>
+アプリ検索画面が出るんで、&rdquo;Outgoing Webhook&rdquo;を検索してインストール。</p>
+
+<p>(たぶん)設定画面になるので、チャンネルに<code>#garakei</code>、URLにGASで作成したアプリのURLを設定。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-12-31.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-12-31_huc7ace79a08e210b00855a300a5c00b6c_51848_320x0_resize_box_2.png" width="320"
+                height="220" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-12-31.png" />
+    </a>
+
+
+<p>この時表示されるトークン(Webhook Token)をコピーしておきます(後でGAS側に設定します)。</p>
+
+<h4 id="gasにトークンをセット-gas">GASにトークンをセット(GAS)</h4>
+
+<p>GAS編集画面から「ファイル」→「プロジェクトのプロパティ」→「スクリプトのプロパティ」で行を追加、名前に”OUTGOING_WEBHOOKS_TOKEN”、値にWebhook Tokenをセットします。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-18-36.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-18-36_hu8e9d3f66f2260db00cc41bc5d582677d_11385_320x0_resize_box_2.png" width="320"
+                height="93" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-18-36.png" />
+    </a>
+
+
+<p>以上で　Slack→ガラケー　の設定は終了。</p>
+
+<h3 id="送ってみる">送ってみる</h3>
+
+<p><code>#garakei</code>でなんか入れると、GASの<code>garakei:'someone@example.com',</code>で設定したアドレスにメールが届くはずです。</p>
+
+<p>
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-35-59.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-35-59_hu3656aa55e5c177cb73373790bbd3d736_7240_320x0_resize_box_2.png" width="320"
+                height="130" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-35-59.png" />
+    </a>
+　</p>
+
+<p>↓</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-35-34.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-35-34_hu5c7a97307ecf720e3a84446df54a756d_9278_320x0_resize_box_2.png" width="320"
+                height="200" data-original="/2019-06-13-feature-phone-mail-with-slack/2019-06-13-14-35-34.png" />
+    </a>
+
+
+<h3 id="そもそも">そもそも</h3>
+
+<p>相手がスマホ使ってくれてればこんなん要らないんですけどね。</p>
+
+<p><a href="https://hangouts.google.com/" target="_blank">ハングアウト</a>使いたい。LINEよりいいと思うんですけど、自分だけ？</p>
+
+<h3 id="ms-teams-おまけ">MS Teams(おまけ)</h3>
+
+<p>MSのTeamsでも同じような仕組みができます。こっちの場合はチャンネルに直接メールアドレスを振れるので、Zapier要らずです。</p>
+
+<p>が、webhookを反応させるためにいちいちメンションを送ってやらなきゃいけません。面倒なんで不採用です。</p>
+
+<p>UIもSlackの方が使いやすいような気がします。</p></div>
+
+  <footer class="article-footer">
+    
+      <div class="single-bottom-ad">
+<script async src="/js/random_ad.js"></script>
+    <span id="random_ad"></span>
+</div>
+
+
+    
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&title=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&text=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&t=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f&title=Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?Slack%e3%81%a7%e3%82%ac%e3%83%a9%e3%82%b1%e3%83%bc%e7%9b%b8%e6%89%8b%e3%81%ab%e3%83%a1%e3%83%bc%e3%83%ab%e9%80%81%e5%8f%97%e4%bf%a1 https%3a%2f%2ffileszero.kimurak.net%2f2019-06-13-feature-phone-mail-with-slack%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="https://fileszero.kimurak.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://fileszero.kimurak.net/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">Slackでガラケー相手にメール送受信</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="https://fileszero.kimurak.net/categories/slack/">slack</a></li>
+          
+          <li><a href="https://fileszero.kimurak.net/categories/zapier/">zapier</a></li>
+          
+          <li><a href="https://fileszero.kimurak.net/categories/gas/">gas</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Android StusioをWindows10にインストールした時のエラーの数々</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-24T13:41:55JST">May 24, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(https://fileszero.kimurak.net/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-privacy-policy">
+        
+          <a href="/privacy-policy">PRIVACY POLICY</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+<script>
+  (function() {
+    var cx = '014017194023260524482:qz1j2w8iqzu';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+    <div style="text-align: center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="7304755207"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Slackでガラケー相手にメール送受信</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-06-13T09:18:15JST">Jun 13, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Android StusioをWindows10にインストールした時のエラーの数々</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-24T13:41:55JST">May 24, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Visual Studio Code の拡張機能を作ってみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-20T14:30:01JST">May 20, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/2019-04-19-14-48-47.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker for windowsのコンテナ内でGUIアプリを実行</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-18T14:35:00JST">Apr 18, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/">
+    
+
+
+  
+
+
+
+
+  <div class="thumb " style="background-image:url(/images/hugo.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">HUGOで新規記事作成Shell Script</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-12T09:53:18JST">Apr 12, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Hugoに移行しました</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+    
+    
+  
+
+
+
+  <div class="thumb"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-03-19-redmine-ticket-command/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-03-19-redmine-ticket-command/20190319_rmcommand.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Redmineでチケットに応じたコマンドを表示</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-03-19T00:50:34JST">Mar 19, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-29-sqlserver-backup-restore-basic/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-29-sqlserver-backup-restore-basic/WS000056.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">SQL Serverのバックアップとリストア</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-29T04:15:36JST">Nov 29, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2018-11-20-try-hugo/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2018-11-20-try-hugo/WS000050.jpg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">HUGO</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-11-20T04:47:06JST">Nov 20, 2018</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/categories/dotnet">dotnet <span class="count">(29)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/php">php <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/git">git <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/tags/">TAGS</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="9718110529"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                FILES=0</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+
+    <script src='/js/single.js'></script>
+
+  </body>
+</html>
+

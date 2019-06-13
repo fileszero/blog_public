@@ -6,10 +6,37 @@
     <description>Recent content in Categories on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 20 May 2019 14:30:01 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 09:18:15 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>gas</title>
+      <link>https://fileszero.kimurak.net/categories/gas/</link>
+      <pubDate>Thu, 13 Jun 2019 09:18:15 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/categories/gas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slack</title>
+      <link>https://fileszero.kimurak.net/categories/slack/</link>
+      <pubDate>Thu, 13 Jun 2019 09:18:15 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/categories/slack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zapier</title>
+      <link>https://fileszero.kimurak.net/categories/zapier/</link>
+      <pubDate>Thu, 13 Jun 2019 09:18:15 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/categories/zapier/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>vscode</title>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zapier on FILES=0</title>
+    <link>https://fileszero.kimurak.net/categories/zapier/</link>
+    <description>Recent content in zapier on FILES=0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 13 Jun 2019 09:18:15 +0900</lastBuildDate>
+    
+	<atom:link href="https://fileszero.kimurak.net/categories/zapier/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Slackでガラケー相手にメール送受信</title>
+      <link>https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/</link>
+      <pubDate>Thu, 13 Jun 2019 09:18:15 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/</guid>
+      <description>&lt;p&gt;Slack便利（なん）です（よ）ね？私の職場では定着せず自然消滅しましたが…&lt;/p&gt;
+
+&lt;p&gt;そんな素敵な、Slackをはじめとしたビジネスチャットツール。
+UIも使いやすいし、他のシステムとの接続がしやすいのも魅力。&lt;/p&gt;
+
+&lt;p&gt;プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

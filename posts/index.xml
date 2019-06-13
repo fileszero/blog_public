@@ -6,10 +6,24 @@
     <description>Recent content in Posts on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 24 May 2019 13:41:55 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 09:18:15 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Slackでガラケー相手にメール送受信</title>
+      <link>https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/</link>
+      <pubDate>Thu, 13 Jun 2019 09:18:15 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/</guid>
+      <description>&lt;p&gt;Slack便利（なん）です（よ）ね？私の職場では定着せず自然消滅しましたが…&lt;/p&gt;
+
+&lt;p&gt;そんな素敵な、Slackをはじめとしたビジネスチャットツール。
+UIも使いやすいし、他のシステムとの接続がしやすいのも魅力。&lt;/p&gt;
+
+&lt;p&gt;プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Android StusioをWindows10にインストールした時のエラーの数々</title>
