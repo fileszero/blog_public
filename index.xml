@@ -6,10 +6,21 @@
     <description>Recent content on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 13 Jun 2019 09:18:15 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 16:24:23 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Slackプライベートチャンネルでガラケー相手にメール送受信</title>
+      <link>https://fileszero.kimurak.net/2019-06-13-slack-event-handler/</link>
+      <pubDate>Thu, 13 Jun 2019 16:24:23 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-06-13-slack-event-handler/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/&#34; target=&#34;_blank&#34;&gt;前回&lt;/a&gt;Outgoing Webhook使ったSlack-&amp;gt;Mailの仕組みを作りましたが、やっぱしprivateチャンネルでやり取りしたいので、今回は自作AppでBot Eventを使う方法で実装してみます。&lt;/p&gt;
+
+&lt;p&gt;なんか不意の事故でメールのやり取り見られるのはヤバいですよね。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Slackでガラケー相手にメール送受信</title>
@@ -22,7 +33,13 @@
 &lt;p&gt;そんな素敵な、Slackをはじめとしたビジネスチャットツール。
 UIも使いやすいし、他のシステムとの接続がしやすいのも魅力。&lt;/p&gt;
 
-&lt;p&gt;プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。&lt;/p&gt;</description>
+&lt;p&gt;プライベートでも使えると思うんです。今回はガラケーメールとのやり取りをSlackでできるようにしてみました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;追記：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://fileszero.kimurak.net/2019-06-13-slack-event-handler/&#34; target=&#34;_blank&#34;&gt;プライベートチャンネルで同じこと&lt;/a&gt;するようにしてみました。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
