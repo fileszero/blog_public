@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -241,9 +241,9 @@ if (!doNotTrack) {
         <span class="p">}</span>
         <span class="c1">//
 </span><span class="c1"></span>        <span class="c1">// POST: /Account/Login
-</span><span class="c1"></span><span class="na">        [HttpPost]
-</span><span class="na">        [AllowAnonymous]
-</span><span class="na">        [ValidateAntiForgeryToken]</span>
+</span><span class="c1"></span><span class="na">        [HttpPost]</span>
+<span class="na">        [AllowAnonymous]</span>
+<span class="na">        [ValidateAntiForgeryToken]</span>
         <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ActionResult</span><span class="p">&gt;</span> <span class="n">Login</span><span class="p">(</span><span class="n">LoginViewModel</span> <span class="n">model</span><span class="p">,</span> <span class="kt">string</span> <span class="n">returnUrl</span><span class="p">)</span>
         <span class="p">{</span>
 </code></pre></td></tr></table>
@@ -470,8 +470,8 @@ if (!doNotTrack) {
                 <span class="n">joint</span> <span class="p">=</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keys</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">aConfigValues</span><span class="na">[key]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">result</span> <span class="p">+=</span> <span class="n">joint</span> <span class="p">+</span> <span class="n">aConfigValues</span><span class="na">[key]</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">aConfigValues</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">result</span> <span class="p">+=</span> <span class="n">joint</span> <span class="p">+</span> <span class="n">aConfigValues</span><span class="p">[</span><span class="n">key</span><span class="p">];</span>
                     <span class="n">joint</span> <span class="p">=</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>
                 <span class="p">}</span>
             <span class="p">}</span>

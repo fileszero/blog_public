@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -456,37 +456,37 @@ if (!doNotTrack) {
 
         <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="n">OnModelCreating</span><span class="p">(</span><span class="n">DbModelBuilder</span> <span class="n">modelBuilder</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">}</span>
-    <span class="p">}</span><span class="na">
-</span><span class="na">
+    <span class="p">}</span>
+<span class="na">
 </span><span class="na">    [Table(&#34;Person&#34;)]</span>
     <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Person</span>
     <span class="p">{</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">PersonID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">PersonID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">        [StringLength(50)]</span>
         <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
         <span class="k">public</span> <span class="kt">int?</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
         <span class="k">public</span> <span class="kt">int?</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
         <span class="k">public</span> <span class="k">virtual</span> <span class="n">Department</span> <span class="n">Department</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">}</span><span class="na">
-</span><span class="na">
+    <span class="p">}</span>
+<span class="na">
 </span><span class="na">    [Table(&#34;Department&#34;)]</span>
     <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Department</span>
-    <span class="p">{</span><span class="na">
-</span><span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2214:DoNotCallOverridableMethodsInConstructors&#34;)]</span>
+    <span class="p">{</span>
+<span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2214:DoNotCallOverridableMethodsInConstructors&#34;)]</span>
         <span class="k">public</span> <span class="n">Department</span><span class="p">()</span>
         <span class="p">{</span>
             <span class="n">Person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;();</span>
-        <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [DatabaseGenerated(DatabaseGeneratedOption.None)]</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">        [Required]
-</span><span class="na">        [StringLength(50)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">DepartmentName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">        [StringLength(50)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Location</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">        [Required]</span>
+<span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">DepartmentName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Location</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2227:CollectionPropertiesShouldBeReadOnly&#34;)]</span>
         <span class="k">public</span> <span class="k">virtual</span> <span class="n">ICollection</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="n">Person</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
@@ -533,7 +533,7 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">Program</span>
     <span class="p">{</span>
-        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">//外から部署を渡されることを再現するため、追加するコンテキスト外でインスタンス作成
 </span><span class="c1"></span>            <span class="n">Models</span><span class="p">.</span><span class="n">Department</span> <span class="n">IT</span><span class="p">;</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Model1</span><span class="p">())</span> <span class="p">{</span>

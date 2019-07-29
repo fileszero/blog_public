@@ -1,4 +1,5 @@
 (function () {
+    if (location.hostname == 'localhost') return;
     var doc_src = [{ "a_id": "1483683", "p_id": "1891", "pc_id": "3696", "pl_id": "26259", "guid": "ON", "width": "468", "height": "120", "af_img": "1133/000000026259.jpg" },
     { "a_id": "1483683", "p_id": "1891", "pc_id": "3696", "pl_id": "26261", "guid": "ON", "width": "640", "height": "100", "af_img": "1133/000000026261.jpg" },
     { "a_id": "1483683", "p_id": "1891", "pc_id": "3696", "pl_id": "26253", "guid": "ON", "width": "469", "height": "120", "af_img": "1133/000000026253.jpg" },

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -284,26 +284,26 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Article</span>
     <span class="p">{</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">
-</span><span class="na">        [DisplayName(&#34;URL&#34;)]
-</span><span class="na">        [DataType(DataType.Url)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Url</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
+</span><span class="na">        [DisplayName(&#34;URL&#34;)]</span>
+<span class="na">        [DataType(DataType.Url)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Url</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [DisplayName(&#34;タイトル&#34;)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">
-</span><span class="na">        [DisplayName(&#34;概要&#34;)]
-</span><span class="na">        [DataType(DataType.MultilineText)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Description</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
+</span><span class="na">        [DisplayName(&#34;概要&#34;)]</span>
+<span class="na">        [DataType(DataType.MultilineText)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Description</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [DisplayName(&#34;ビュー数&#34;)]</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">Viewcount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">
-</span><span class="na">        [DisplayName(&#34;公開日&#34;)]
-</span><span class="na">        [DisplayFormat(DataFormatString = &#34;{0:yyyy年MM月dd日}&#34;)]</span>
-        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Published</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Viewcount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
+</span><span class="na">        [DisplayName(&#34;公開日&#34;)]</span>
+<span class="na">        [DisplayFormat(DataFormatString = &#34;{0:yyyy年MM月dd日}&#34;)]</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Published</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [DisplayName(&#34;公開済&#34;)]</span>
         <span class="k">public</span> <span class="kt">bool</span> <span class="n">Released</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -370,7 +370,7 @@ if (!doNotTrack) {
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,*****&gt;</span><span class="na">[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span> <span class="c1">//フィールドの型が必要
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,*****&gt;[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="c1">//フィールドの型が必要
 </span><span class="c1"></span>                <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Url</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                 <span class="p">....</span>
@@ -535,7 +535,7 @@ if (!doNotTrack) {
             <span class="kt">var</span> <span class="n">query</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Articles</span><span class="p">.</span><span class="n">AsQueryable</span><span class="p">();</span>  <span class="c1">//データソース
 </span><span class="c1"></span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span><span class="na">[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span>   <span class="c1">//ソートフィールド定義
+            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span>   <span class="c1">//ソートフィールド定義
 </span><span class="c1"></span>                <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Url</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Description</span><span class="p">),</span>

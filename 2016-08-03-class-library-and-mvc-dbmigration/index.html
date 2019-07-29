@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -344,8 +344,8 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[TestClass]</span>
     <span class="k">public</span> <span class="k">class</span> <span class="nc">INITDatabase</span>
-    <span class="p">{</span><span class="na">
-</span><span class="na">        [AssemblyInitialize]</span>
+    <span class="p">{</span>
+<span class="na">        [AssemblyInitialize]</span>
         <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">AssemblyInitialize</span><span class="p">(</span><span class="n">TestContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">AppDomain</span><span class="p">.</span><span class="n">CurrentDomain</span><span class="p">.</span><span class="n">SetData</span><span class="p">(</span><span class="s">&#34;DataDirectory&#34;</span><span class="p">,</span> <span class="s">&#34;R:\\&#34;</span><span class="p">);</span> <span class="c1">//接続文字列に|DataDirectory|がある場合必要。
 </span><span class="c1"></span>            <span class="c1">// create database

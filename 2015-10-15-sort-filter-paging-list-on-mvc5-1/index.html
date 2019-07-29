@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -314,12 +314,12 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="kt">string</span> <span class="n">Category</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
         <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Published</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
         <span class="k">public</span> <span class="kt">long</span> <span class="n">Viewcount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">}</span><span class="na">
-</span><span class="na">
+    <span class="p">}</span>
+<span class="na">
 </span><span class="na">    [TestClass]</span>
     <span class="k">public</span> <span class="k">class</span> <span class="nc">SortFieldDefinition</span>
-    <span class="p">{</span><span class="na">
-</span><span class="na">        [TestMethod]</span>
+    <span class="p">{</span>
+<span class="na">        [TestMethod]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="n">SortKey_Test1</span><span class="p">()</span>
         <span class="p">{</span>
             <span class="kt">var</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChimaLib</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
@@ -483,7 +483,7 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[TestMethod]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="n">AddOrderBy_Test1</span><span class="p">()</span> <span class="p">{</span>
-            <span class="kt">var</span> <span class="n">dummy_list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="na">[]</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">dummy_list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="p">[]</span> <span class="p">{</span>
                 <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;Z&#34;</span><span class="p">},</span>
                 <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;A&#34;</span><span class="p">},</span>
                 <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;M&#34;</span><span class="p">}</span>
@@ -495,15 +495,15 @@ if (!doNotTrack) {
             <span class="n">articles</span> <span class="p">=</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">AddOrderBy</span><span class="p">(</span><span class="n">articles</span><span class="p">,</span> <span class="s">&#34;Title&#34;</span><span class="p">);</span>  <span class="c1">//ソートキー&#34;Title&#34;順に並べ替え
 </span><span class="c1"></span>            <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
 
-            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[0]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[1]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Z&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[2]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Z&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">Title</span><span class="p">);</span>
 
-        <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [TestMethod]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="n">AddOrderBy_Test2</span><span class="p">()</span> <span class="p">{</span>
-            <span class="kt">var</span> <span class="n">dummy_list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="na">[]</span> <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">dummy_list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="p">[]</span> <span class="p">{</span>
                 <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;Z&#34;</span><span class="p">},</span>
                 <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;A&#34;</span><span class="p">},</span>
                 <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span><span class="n">Title</span><span class="p">=</span><span class="s">&#34;M&#34;</span><span class="p">}</span>
@@ -515,9 +515,9 @@ if (!doNotTrack) {
             <span class="n">articles</span> <span class="p">=</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">AddOrderBy</span><span class="p">(</span><span class="n">articles</span><span class="p">,</span> <span class="s">&#34;Title desc&#34;</span><span class="p">);</span>  <span class="c1">//ソートキー&#34;Title&#34;順に並べ替え
 </span><span class="c1"></span>            <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">articles</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
 
-            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Z&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[0]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[1]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="n">result</span><span class="na">[2]</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Z&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">Title</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">Title</span><span class="p">);</span>
 
         <span class="p">}</span>
 </code></pre></td></tr></table>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -440,7 +440,7 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
 
         <span class="k">public</span> <span class="n">IActionResult</span> <span class="n">About</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">ViewData</span><span class="na">[&#34;Message&#34;]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
+            <span class="n">ViewData</span><span class="p">[</span><span class="s">&#34;Message&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">BloggingContext</span><span class="p">()){</span>
                 <span class="kt">var</span> <span class="n">blog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Blog</span> <span class="p">{</span> <span class="n">Url</span> <span class="p">=</span> <span class="s">&#34;http://sample.com/&#34;</span><span class="p">+</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;yyyyMMdd_hhmmssms&#34;</span><span class="p">)</span> <span class="p">};</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Blogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">blog</span><span class="p">);</span>
@@ -471,7 +471,7 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">@model</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WebApplication3</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">Blog</span><span class="p">&gt;</span>
 <span class="err">@</span><span class="p">{</span>
-    <span class="n">ViewData</span><span class="na">[&#34;Title&#34;]</span> <span class="p">=</span> <span class="s">&#34;Home Page&#34;</span><span class="p">;</span>
+    <span class="n">ViewData</span><span class="p">[</span><span class="s">&#34;Title&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Home Page&#34;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="p">&lt;</span><span class="n">ol</span><span class="p">&gt;</span>

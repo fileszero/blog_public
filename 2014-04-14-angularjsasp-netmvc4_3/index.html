@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -417,7 +417,7 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// PUT api/tasks/5
-</span><span class="c1"></span>        <span class="k">public</span> <span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span><span class="na"> [FromBody]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
+</span><span class="c1"></span>        <span class="k">public</span> <span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="p">[</span><span class="n">FromBody</span><span class="p">]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
                 <span class="k">value</span><span class="p">.</span><span class="n">Description</span> <span class="p">=</span> <span class="s">&#34;[&#34;</span> <span class="p">+</span> <span class="k">value</span><span class="p">.</span><span class="n">Description</span> <span class="p">+</span> <span class="s">&#34;]&#34;</span><span class="p">;</span>  <span class="c1">//サーバサイドのビジネスロジック的な処理

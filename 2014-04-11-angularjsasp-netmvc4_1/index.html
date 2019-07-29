@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -248,8 +248,8 @@ if (!doNotTrack) {
         <span class="n">New</span><span class="p">,</span>
         <span class="n">Completed</span><span class="p">,</span>
         <span class="n">Canceled</span>
-    <span class="p">}</span><span class="na">
-</span><span class="na">
+    <span class="p">}</span>
+<span class="na">
 </span><span class="na">    [Table(&#34;Tasks&#34;)]</span>
     <span class="k">public</span> <span class="k">class</span> <span class="nc">Task</span>
     <span class="p">{</span>
@@ -473,7 +473,7 @@ if (!doNotTrack) {
         <span class="p">}</span>
 
         <span class="c1">// POST api/tasks
-</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Post</span><span class="p">(</span><span class="na">[FromBody]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Post</span><span class="p">([</span><span class="n">FromBody</span><span class="p">]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
@@ -482,7 +482,7 @@ if (!doNotTrack) {
         <span class="p">}</span>
 
         <span class="c1">// PUT api/tasks/5
-</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span><span class="na"> [FromBody]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="p">[</span><span class="n">FromBody</span><span class="p">]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Entry</span><span class="p">&lt;</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span><span class="p">&gt;(</span><span class="k">value</span><span class="p">).</span><span class="n">State</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Entity</span><span class="p">.</span><span class="n">EntityState</span><span class="p">.</span><span class="n">Modified</span><span class="p">;</span>

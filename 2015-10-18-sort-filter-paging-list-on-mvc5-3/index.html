@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.56.1" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -264,12 +264,12 @@ if (!doNotTrack) {
 </span><span class="c1"></span>        <span class="c1">/// &lt;param name=&#34;num&#34;&gt;num of data. must be an even number.&lt;/param&gt;
 </span><span class="c1"></span>        <span class="c1">/// &lt;returns&gt;&lt;/returns&gt;
 </span><span class="c1"></span>        <span class="k">private</span> <span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span> <span class="n">TestData1</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">Article</span><span class="na">[]</span> <span class="n">data</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="na">[num]</span><span class="p">;</span>
+            <span class="n">Article</span><span class="p">[]</span> <span class="n">data</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="p">[</span><span class="n">num</span><span class="p">];</span>
             <span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">num</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
                 <span class="cm">/* mixed index. if num=10 then 0,9,2,7,4,5,6,3,8,1 */</span>
                 <span class="kt">var</span> <span class="n">idx</span> <span class="p">=</span> <span class="p">(</span><span class="n">i</span> <span class="p">%</span> <span class="m">2</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="n">i</span><span class="p">:</span> <span class="n">num</span> <span class="p">-</span> <span class="n">i</span><span class="p">;</span>
                 <span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Debug</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
-                <span class="n">data</span><span class="na">[i]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Article</span><span class="p">()</span> <span class="p">{</span>
                     <span class="n">Title</span> <span class="p">=</span> <span class="s">&#34;Title&#34;</span> <span class="p">+</span> <span class="n">idx</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span>
                     <span class="n">Category</span> <span class="p">=</span> <span class="s">&#34;Category&#34;</span> <span class="p">+</span> <span class="n">idx</span><span class="p">.</span><span class="n">ToString</span><span class="p">(),</span>
                     <span class="n">Published</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DateTime</span><span class="p">(</span><span class="m">2015</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">idx</span><span class="p">+</span><span class="m">1</span><span class="p">),</span>
@@ -277,13 +277,13 @@ if (!doNotTrack) {
                 <span class="p">};</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="n">AsQueryable</span><span class="p">();</span>
-        <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [TestMethod]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="n">MultiSortField_Asc_Test1</span><span class="p">()</span> <span class="p">{</span>
             <span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">TestData1</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span><span class="na">[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
+            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
 </span><span class="c1"></span>                <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Published</span><span class="p">),</span>
@@ -294,15 +294,15 @@ if (!doNotTrack) {
             <span class="p">}</span>
             <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
             <span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-                <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="na">[i]</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">);</span>
+                <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Viewcount</span><span class="p">);</span>
             <span class="p">}</span>
-        <span class="p">}</span><span class="na">
-</span><span class="na">
+        <span class="p">}</span>
+<span class="na">
 </span><span class="na">        [TestMethod]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="n">MultiSortField_Desc_Test1</span><span class="p">()</span> <span class="p">{</span>
             <span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">TestData1</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span><span class="na">[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
+            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
 </span><span class="c1"></span>                <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Published</span><span class="p">),</span>
@@ -313,7 +313,7 @@ if (!doNotTrack) {
             <span class="p">}</span>
             <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
             <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-                <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="m">9</span><span class="p">-</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="na">[i]</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">);</span>
+                <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="m">9</span><span class="p">-</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Viewcount</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -352,7 +352,7 @@ if (!doNotTrack) {
             <span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">TestData1</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
             <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span> <span class="n">sort_def</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;()</span> <span class="p">{</span>
-                <span class="n">Fields</span><span class="p">=</span><span class="k">new</span><span class="na">[]</span><span class="p">{</span>   <span class="c1">//ソート列定義
+                <span class="n">Fields</span><span class="p">=</span><span class="k">new</span><span class="p">[]{</span>   <span class="c1">//ソート列定義
 </span><span class="c1"></span>                    <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Published</span><span class="p">)</span>
@@ -363,7 +363,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>
             <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
             <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-                <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="na">[i]</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">);</span>
+                <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Viewcount</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -470,7 +470,7 @@ if (!doNotTrack) {
             <span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">TestData1</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
             <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span> <span class="n">sort_def</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;()</span> <span class="p">{</span>
-                <span class="n">Fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span><span class="p">{</span>   <span class="c1">//ソート列定義
+                <span class="n">Fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]{</span>   <span class="c1">//ソート列定義
 </span><span class="c1"></span>                    <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Viewcount</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Published</span><span class="p">)</span>
@@ -551,7 +551,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
             <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span> <span class="n">sort_def</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;()</span> <span class="p">{</span>
-                <span class="n">Fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
+                <span class="n">Fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
 </span><span class="c1"></span>                    <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Url</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Description</span><span class="p">),</span>
@@ -678,7 +678,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
             <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span> <span class="n">sort_def</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;()</span> <span class="p">{</span>
-                <span class="n">Fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
+                <span class="n">Fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span>   <span class="c1">//ソート列定義
 </span><span class="c1"></span>                    <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Url</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                     <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Description</span><span class="p">),</span>
