@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
+
+<meta name="generator" content="Hugo 0.57.2" />
+
+<link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
+
+
+<link rel="canonical" href="https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/">
+
+<link rel="shortcut icon" href="/images/favicon.ico" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ReactのチュートリアルをTypeScriptで試してみる - FILES=0</title>
+    
+
+
+
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+        
+      
+    
+  
+
+
+<meta name="description" content="&lt;p&gt;フロント開発といえば、&lt;a href=&#34;https://ja.reactjs.org&#34; target=&#34;_blank&#34;&gt;React&lt;/a&gt;。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://jp.vuejs.org/index.html&#34; target=&#34;_blank&#34;&gt;Vue.js&lt;/a&gt;と人気を二分していますね。そんな私は、&lt;a href=&#34;https://angular.io/&#34; target=&#34;_blank&#34;&gt;Angular&lt;/a&gt;使いがち、全部入りの方が安心するんです。&lt;/p&gt;&lt;p&gt;今更ですが、React始めてみます。&lt;/p&gt;&lt;p&gt;でも言語はTypeScript。鳥頭なのでjavascriptでちょっと大きなコードを書くと、あっという間に破綻するのです。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://create-react-app.dev/docs/adding-typescript&#34; target=&#34;_blank&#34;&gt;Adding TypeScript&lt;/a&gt;を参考に勧めます。&lt;/p&gt;">
+
+<meta property="og:title" content="ReactのチュートリアルをTypeScriptで試してみる - FILES=0">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/">
+<meta property="og:image" content="https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/2019-08-23-15-26-21.png">
+<meta property="og:site_name" content="FILES=0">
+<meta property="og:description" content="&lt;p&gt;フロント開発といえば、&lt;a href=&#34;https://ja.reactjs.org&#34; target=&#34;_blank&#34;&gt;React&lt;/a&gt;。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://jp.vuejs.org/index.html&#34; target=&#34;_blank&#34;&gt;Vue.js&lt;/a&gt;と人気を二分していますね。そんな私は、&lt;a href=&#34;https://angular.io/&#34; target=&#34;_blank&#34;&gt;Angular&lt;/a&gt;使いがち、全部入りの方が安心するんです。&lt;/p&gt;&lt;p&gt;今更ですが、React始めてみます。&lt;/p&gt;&lt;p&gt;でも言語はTypeScript。鳥頭なのでjavascriptでちょっと大きなコードを書くと、あっという間に破綻するのです。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://create-react-app.dev/docs/adding-typescript&#34; target=&#34;_blank&#34;&gt;Adding TypeScript&lt;/a&gt;を参考に勧めます。&lt;/p&gt;">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="FILES=0">
+<meta name="twitter:url" content="https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/">
+<meta name="twitter:title" content="ReactのチュートリアルをTypeScriptで試してみる - FILES=0">
+<meta name="twitter:description" content="&lt;p&gt;フロント開発といえば、&lt;a href=&#34;https://ja.reactjs.org&#34; target=&#34;_blank&#34;&gt;React&lt;/a&gt;。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://jp.vuejs.org/index.html&#34; target=&#34;_blank&#34;&gt;Vue.js&lt;/a&gt;と人気を二分していますね。そんな私は、&lt;a href=&#34;https://angular.io/&#34; target=&#34;_blank&#34;&gt;Angular&lt;/a&gt;使いがち、全部入りの方が安心するんです。&lt;/p&gt;&lt;p&gt;今更ですが、React始めてみます。&lt;/p&gt;&lt;p&gt;でも言語はTypeScript。鳥頭なのでjavascriptでちょっと大きなコードを書くと、あっという間に破綻するのです。&lt;/p&gt;&lt;p&gt;&lt;a href=&#34;https://create-react-app.dev/docs/adding-typescript&#34; target=&#34;_blank&#34;&gt;Adding TypeScript&lt;/a&gt;を参考に勧めます。&lt;/p&gt;">
+<meta name="twitter:image" content="https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/2019-08-23-15-26-21.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"https:\/\/fileszero.kimurak.net\/"
+    },
+    "headline": "ReactのチュートリアルをTypeScriptで試してみる - FILES=0",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2019-08-23T15:11:28JST",
+    "dateModified": "2019-08-23T15:11:28JST",
+    "author": {
+      "@type": "Person",
+      "name": "FILES=0"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FILES=0",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "\x3cp\x3eフロント開発といえば、\x3ca href=\x22https:\/\/ja.reactjs.org\x22 target=\x22_blank\x22\x3eReact\x3c\/a\x3e。\x3c\/p\x3e\n\n\x3cp\x3e\x3ca href=\x22https:\/\/jp.vuejs.org\/index.html\x22 target=\x22_blank\x22\x3eVue.js\x3c\/a\x3eと人気を二分していますね。\nそんな私は、\x3ca href=\x22https:\/\/angular.io\/\x22 target=\x22_blank\x22\x3eAngular\x3c\/a\x3e使いがち、全部入りの方が安心するんです。\x3c\/p\x3e\n\n\x3cp\x3e今更ですが、React始めてみます。\x3c\/p\x3e\n\n\x3cp\x3eでも言語はTypeScript。鳥頭なのでjavascriptでちょっと大きなコードを書くと、あっという間に破綻するのです。\x3c\/p\x3e\n\n\x3cp\x3e\x3ca href=\x22https:\/\/create-react-app.dev\/docs\/adding-typescript\x22 target=\x22_blank\x22\x3eAdding TypeScript\x3c\/a\x3eを参考に勧めます。\x3c\/p\x3e"
+  }
+</script>
+
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-57355705-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="https://fileszero.kimurak.net/">FILES=0</a>
+        </div>
+        
+<div class="description">
+  How many files(0-15)?
+</div>
+
+
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    <article class="sn">
+  
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-08-23-try-react-with-typescript/2019-08-23-15-26-21.png)"></div>
+
+
+
+  <header class="article-header">
+    <h1 class="title">ReactのチュートリアルをTypeScriptで試してみる</h1>
+
+    <ul class="facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-08-23T15:11:28JST">Aug 23, 2019</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="https://fileszero.kimurak.net/posts/">POSTS</a></li>
+      
+    </ul>
+
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&title=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&text=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&t=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&title=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+  </header>
+
+  
+
+  <div class="article-body"><p>フロント開発といえば、<a href="https://ja.reactjs.org" target="_blank">React</a>。</p>
+
+<p><a href="https://jp.vuejs.org/index.html" target="_blank">Vue.js</a>と人気を二分していますね。
+そんな私は、<a href="https://angular.io/" target="_blank">Angular</a>使いがち、全部入りの方が安心するんです。</p>
+
+<p>今更ですが、React始めてみます。</p>
+
+<p>でも言語はTypeScript。鳥頭なのでjavascriptでちょっと大きなコードを書くと、あっという間に破綻するのです。</p>
+
+<p><a href="https://create-react-app.dev/docs/adding-typescript" target="_blank">Adding TypeScript</a>を参考に勧めます。</p>
+
+<h2 id="動かしてみる">動かしてみる</h2>
+
+<p>環境確認を兼ねて、ジェネレーターでてきたアプリをそのまま動かしてみます。
+環境は</p>
+
+<ul>
+<li>Windows 10</li>
+<li>node.js v10.13.0</li>
+</ul>
+
+<p>です。</p>
+
+<h3 id="ジェネレーターを-アンインストール">ジェネレーターを<strong><em>アンインストール</em></strong></h3>
+
+<p>公式に</p>
+
+<blockquote>
+<p>If you&rsquo;ve previously installed create-react-app globally via npm install -g create-react-app, we <strong>recommend you uninstall the package</strong> using npm uninstall -g create-react-app to ensure that npx always uses the latest version.</p>
+</blockquote>
+
+<p>とあります。インストールじゃなく<strong>アン</strong>インストールしろという事らしいです。</p>
+
+<p><code>&gt; npm uninstall -g create-react-app</code></p>
+
+<p>こうすると、勝手に最新版を使うようになるそうです。黒魔術。</p>
+
+<h3 id="プロジェクト作成">プロジェクト作成</h3>
+
+<p>&ndash;typescriptオプションを付けてジェネレーターを実行します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&gt; npx create-react-app my-react-app --typescript
+&gt; cd my-react-app</pre></td></tr></table>
+</div>
+</div>
+<p>そうすると、tsやらtsxやらで生成されます。
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-08-23-try-react-with-typescript/2019-08-23-15-26-21.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-08-23-try-react-with-typescript/2019-08-23-15-26-21_hu17fca03e65317d0abc8ef94e166f63e9_62229_320x0_resize_box_2.png" width="320"
+                height="208" data-original="/2019-08-23-try-react-with-typescript/2019-08-23-15-26-21.png" />
+    </a>
+</p>
+
+<p><code>manifest.json</code>なんてのも見えますね。PWA対応してるのかな？？？</p>
+
+<h3 id="実行">実行</h3>
+
+<p><code>&gt; npm start</code></p>
+
+<p>で実行されて、ブラウザも勝手に開きます。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-08-23-try-react-with-typescript/2019-08-23-15-30-10.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-08-23-try-react-with-typescript/2019-08-23-15-30-10_hu1ba9e65924913b40ddda4532e6aa2a87_22529_320x0_resize_box_2.png" width="320"
+                height="241" data-original="/2019-08-23-try-react-with-typescript/2019-08-23-15-30-10.png" />
+    </a>
+
+
+<p>Node.js環境があれば、動かすだけなら簡単。</p>
+
+<h2 id="チュートリアルをやってみる">チュートリアルをやってみる</h2>
+
+<p>完全初心者なので、<a href="https://ja.reactjs.org/tutorial/tutorial.html" target="_blank">チュートリアル</a>を見ながら、三目並べを作ってみます。</p>
+
+<h3 id="取りあえず動かす">取りあえず動かす</h3>
+
+<p>見た目だけでもチュートリアルの初期状態に持っていきます。</p>
+
+<h4 id="index-css">index.css</h4>
+
+<p>チュートリアルのcssをまるっとコピーします。</p>
+
+<h4 id="app-tsx">App.tsx</h4>
+
+<p>App.tsxにJSのクラス部分を追加。</p>
+
+<p>&lsquo;renderSquare(i) {&lsquo;で、型が無いと怒られるので、number型にする。</p>
+
+<p>Appを</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">const</span> <span class="nx">App</span>: <span class="kt">React.FC</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Game</span> <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">};</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>に変更。ちゃんと補完されるところがうれしい。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-08-23-try-react-with-typescript/2019-08-23-16-19-10.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-08-23-try-react-with-typescript/2019-08-23-16-19-10_hu2c3f0b7746535237cbcfc6749d3a4691_14775_320x0_resize_box_2.png" width="320"
+                height="149" data-original="/2019-08-23-try-react-with-typescript/2019-08-23-16-19-10.png" />
+    </a>
+
+
+<p><code>npm start</code> で一応動く。</p>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-08-23-try-react-with-typescript/2019-08-23-16-25-39.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-08-23-try-react-with-typescript/2019-08-23-16-25-39_hu1e260b7c5c7c72ba43226fb08cd868fe_7756_320x0_resize_box_2.png" width="320"
+                height="173" data-original="/2019-08-23-try-react-with-typescript/2019-08-23-16-25-39.png" />
+    </a>
+
+
+<h3 id="データを-props-経由で渡す-をtypescriptでやる">「データを Props 経由で渡す」をtypescriptでやる</h3>
+
+<p><a href="https://ja.reactjs.org/tutorial/tutorial.html#passing-data-through-props" target="_blank">データを Props 経由で渡す</a>というのがありますが、typescriptだと</p>
+
+<blockquote>
+<p>TypeScript error in C:/usr/src/my-react-app/src/App.tsx(19,17):
+Type &lsquo;{ value: number; }&rsquo; is not assignable to type &lsquo;IntrinsicAttributes &amp; IntrinsicClassAttributes<Square> &amp; Readonly&lt;{}&gt; &amp; Readonly&lt;{ children?: ReactNode; }&gt;&lsquo;.
+ Property &lsquo;value&rsquo; does not exist on type &lsquo;IntrinsicAttributes &amp; IntrinsicClassAttributes<Square> &amp; Readonly&lt;{}&gt; &amp; Readonly&lt;{ children?: ReactNode; }&gt;&lsquo;.  TS2322</p>
+</blockquote>
+
+<p>などと怒られます。
+Propsの型を明示的に指定してあげると、補完機能とともにデータが渡せるようになるようです。具体的には Square クラスに型引数を追記します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">class</span> <span class="nx">Square</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="p">{</span> <span class="nx">value</span>: <span class="kt">number</span> <span class="p">}</span><span class="o">&gt;</span> <span class="p">{</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="インタラクティブなコンポーネントを作る-をtypescriptでやる">「インタラクティブなコンポーネントを作る」をtypescriptでやる</h3>
+
+<p>ここのミソはstateですね。</p>
+
+<p>これもPropsと同じく、コンポーネントの型引数で型を指定するようです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">class</span> <span class="nx">Square</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="p">{</span> <span class="nx">value</span>: <span class="kt">number</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">value</span>: <span class="kt">string</span> <span class="p">}</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">//propsの型とstateの型を指定
+</span><span class="c1"></span>    <span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="o">:</span> <span class="p">{</span> <span class="nx">value</span>: <span class="kt">number</span> <span class="p">})</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">};</span>
+    <span class="p">}</span>
+    <span class="nx">render() {</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">className</span><span class="o">=</span><span class="s2">&#34;square&#34;</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;X&#39;</span> <span class="p">})}</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="err">/button&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>こんな感じでしょうか。</p>
+
+<h3 id="state-のリフトアップ">State のリフトアップ</h3>
+
+<p>ここでのポイントは</p>
+
+<ul>
+<li>ゲームの状態を親コンポーネント(Board)で管理する</li>
+<li>子コンポーネント(Square)から親コンポーネント(Board)にイベントを通知する</li>
+</ul>
+
+<p>でしょうか。</p>
+
+<p>typesecipt化するには、BoardにPropsの型定義と、Squareにイベントハンドラの型定義を追加する必要があるようです。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">class</span> <span class="nx">Square</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="p">{</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">;</span> <span class="nx">onclick</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="p">}</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="p">....</span>
+
+<span class="kr">class</span> <span class="nx">Board</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="p">{},</span> <span class="p">{</span> <span class="nx">squares</span>: <span class="kt">string</span><span class="p">[]</span> <span class="p">}</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="o">:</span> <span class="p">{})</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">squares</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">9</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+
+<span class="p">....</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>こんな感じ。Squareのstateは使わなくなるので削除してます。</p>
+
+<h3 id="state-のリフトアップ-再び">State のリフトアップ、再び</h3>
+
+<p>型引数が複雑になってきたので、interfaceを定義してみます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">interface</span> <span class="nx">BoardProp</span> <span class="p">{</span>
+    <span class="nx">squares</span>: <span class="kt">string</span><span class="p">[];</span>
+    <span class="nx">onClick</span><span class="o">?:</span> <span class="p">(</span><span class="nx">arg0</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">class</span> <span class="nx">Board</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">BoardProp</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="p">....</span>
+
+<span class="kr">interface</span> <span class="nx">GameState</span> <span class="p">{</span>
+    <span class="nx">history</span>: <span class="kt">BoardProp</span><span class="p">[];</span>
+    <span class="nx">xIsNext</span>: <span class="kt">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">class</span> <span class="nx">Game</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span><span class="o">&lt;</span><span class="p">{},</span> <span class="nx">GameState</span><span class="o">&gt;</span> <span class="p">{</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>リフトアップによりBoardにはステートを持たなくなるので、Boardの型引数はProp用のもののみになります。</p>
+
+<h3 id="過去の着手の表示">過去の着手の表示</h3>
+
+<p><code>this.jumpTo(move)</code>は未実装だとコンパイルが通らないので、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;button onClick={() =&gt; /*this.jumpTo(move)*/ null}&gt;{desc}&lt;/button&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>こんな感じでお茶を濁します。onclick無しでも良いかと。</p>
+
+<h3 id="出来上がりイメージ">出来上がりイメージ</h3>
+
+
+
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    <a class="luminous" href="/2019-08-23-try-react-with-typescript/2019-08-26-13-54-21.png">
+            <img style="max-width: 100%; height: auto;" src="/2019-08-23-try-react-with-typescript/2019-08-26-13-54-21_hu2824f5007ae4b438484d768a45320475_16080_320x0_resize_box_2.png" width="320"
+                height="212" data-original="/2019-08-23-try-react-with-typescript/2019-08-26-13-54-21.png" />
+    </a>
+
+
+<p>童心に帰ろう。。。</p>
+
+<h2 id="で">で</h2>
+
+<p>コードは<a href="https://github.com/fileszero/react-ts-tutorial" target="_blank">こちら</a>です。</p>
+
+<p>React手軽ですね。直観的だし、流行るのもわかります。</p>
+
+<p>双方向バインディングとかどうやるのかなー。</p></div>
+
+  <footer class="article-footer">
+    
+      <div class="single-bottom-ad">
+<script async src="/js/random_ad.js"></script>
+    <span id="random_ad"></span>
+</div>
+
+
+    
+    <aside class="share">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&title=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow">B!</a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&text=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&t=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f&title=React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b" title="Pocketに保存" class="pk" target="_blank" rel="nofollow"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
+  <a href="http://line.me/R/msg/text/?React%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92TypeScript%e3%81%a7%e8%a9%a6%e3%81%97%e3%81%a6%e3%81%bf%e3%82%8b https%3a%2f%2ffileszero.kimurak.net%2f2019-08-23-try-react-with-typescript%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow">LINE</a>
+</aside>
+
+
+    <section class="footer">
+      <div>
+        <nav class="crumb">
+          <ol>
+            <li><a href="https://fileszero.kimurak.net/"><i class="fa fa-home" aria-hidden="true"></i>TOP</a></li>
+            
+            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://fileszero.kimurak.net/posts/" itemprop="url"><span itemprop="title">POSTS</span></a></li>
+            
+            <li class="active">ReactのチュートリアルをTypeScriptで試してみる</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    
+    
+    
+    <section class="footer">
+      <header>
+        <a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a>
+      </header>
+      <div>
+        <ul class="terms">
+          
+          <li><a href="https://fileszero.kimurak.net/categories/react/">react</a></li>
+          
+          <li><a href="https://fileszero.kimurak.net/categories/typescript/">typescript</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    
+  </footer>
+
+</article>
+
+
+    <div class="adj">
+      <div class="mrow">
+        
+        <div class="mcol c6">
+          <header>Previous Article</header>
+          <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-06-20-access-google-calendar-by-nodejs/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-06-20-access-google-calendar-by-nodejs/2019-06-20-10-25-03.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Node.js(TypeScript)でGoogle Calendarにアクセス</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-06-20T10:23:30JST">Jun 20, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+        </div>
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    
+<section class="sidebar">
+  <header>AUTHOR</header>
+  <div>
+    <div class="author">
+      
+      <div class="author-thumb" style="background-image: url(https://fileszero.kimurak.net/images/author.png);"></div>
+      
+      <div class="author-name">FILES=0</div>
+      <ul class="author-facts">
+        
+        <li><a href="https://twitter.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/fileszero" rel="nofollow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul>
+      <div class="author-description"><p>このサイトは筆者が手探り状態で、個人的にやってみた事をメモするサイトです。<strong>内容についてはもちろん無保証。</strong>ネットの情報は玉石混淆。ここは石の方ですよ。ちゃんとした情報はちゃんとしたサイトで見つけましょう。</p></div>
+      <div class="author-privacy-policy">
+        
+          <a href="/privacy-policy">PRIVACY POLICY</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+<script>
+  (function() {
+    var cx = '014017194023260524482:qz1j2w8iqzu';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+    <div style="text-align: center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="7304755207"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    <section class="sidebar">
+  <header>LATESTS</header>
+  <div>
+    <div class="articles sm">
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-08-23-try-react-with-typescript/2019-08-23-15-26-21.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">ReactのチュートリアルをTypeScriptで試してみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-08-23T15:11:28JST">Aug 23, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-06-20-access-google-calendar-by-nodejs/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-06-20-access-google-calendar-by-nodejs/2019-06-20-10-25-03.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Node.js(TypeScript)でGoogle Calendarにアクセス</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-06-20T10:23:30JST">Jun 20, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-06-13-slack-event-handler/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-06-13-slack-event-handler/2019-06-14-10-21-25.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Slackプライベートチャンネルでガラケー相手にメール送受信</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-06-13T16:24:23JST">Jun 13, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-06-13-feature-phone-mail-with-slack/2019-06-13-10-15-28.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Slackでガラケー相手にメール送受信</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-06-13T09:18:15JST">Jun 13, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-05-24-installing-android-studio-for-windows/2019-05-24-15-18-08.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Android StusioをWindows10にインストールした時のエラーの数々</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-24T13:41:55JST">May 24, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-05-20-vscode-helloworld-extention/">
+    
+
+
+
+  
+  
+    
+    
+      
+        
+        
+        
+          
+          
+          
+        
+      
+    
+  
+
+
+
+  <div class="thumb " style="background-image:url(/2019-05-20-vscode-helloworld-extention/2019-05-20-14-58-45.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Visual Studio Code の拡張機能を作ってみる</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-05-20T14:30:01JST">May 20, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-18-docker-and-gui-on-windows/2019-04-19-14-48-47.png)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker for windowsのコンテナ内でGUIアプリを実行</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-18T14:35:00JST">Apr 18, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-12-hugo-post-shellscript/">
+    
+
+
+  
+
+
+
+
+  <div class="thumb " style="background-image:url(/images/hugo.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">HUGOで新規記事作成Shell Script</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-12T09:53:18JST">Apr 12, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/">
+    
+
+
+
+  
+  
+      
+  
+
+
+
+  <div class="thumb " style="background-image:url(https://fileszero.kimurak.net/2019-04-08-migrate-to-hugo/hugo-logo-wide.svg)"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Hugoに移行しました</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-08T13:05:43JST">Apr 8, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+      <article class="lism">
+  <a href="https://fileszero.kimurak.net/2019-04-02-debug-docker-php-xdebug-vscode/">
+    
+
+
+
+  
+  
+    
+    
+  
+
+
+
+  <div class="thumb"></div>
+
+
+
+
+    <div class="inner">
+      <div class="title">Docker(compose)&#43;PHP(wordpress)&#43;xdebug&#43;vscodeのデバックでハマった話</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2019-04-02T04:47:49JST">Apr 2, 2019</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POSTS</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+      
+    </div>
+  </div>
+</section>
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/categories/">CATEGORIES</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/categories/dotnet">dotnet <span class="count">(29)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/angularjs">angularjs <span class="count">(17)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/php">php <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/raspberry-pi">raspberry-pi <span class="count">(11)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/node.js">node.js <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/vagrant">vagrant <span class="count">(10)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/eclipse">eclipse <span class="count">(9)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/git">git <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/linux">linux <span class="count">(8)</span></a></li><li><a href="https://fileszero.kimurak.net/categories/ruby">ruby <span class="count">(8)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
+<section class="sidebar">
+  <header><a href="https://fileszero.kimurak.net/tags/">TAGS</a></header>
+  <div>
+    <ul class="terms">
+      <li><a href="https://fileszero.kimurak.net/tags/mac">mac <span class="count">(1)</span></a></li>
+    </ul>
+  </div>
+</section>
+
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4453105403920084"
+     data-ad-slot="9718110529"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+</aside>
+
+  </div>
+</div>
+
+      </div>
+    </main>
+    <footer class="l-footer">
+    <div class="l-container">
+        <p><span class="h-logo">&copy;
+                FILES=0</span></p>
+        <aside>
+            <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+            <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a
+                    href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js" ></script>
+    <script>
+      for(var e of document.querySelectorAll('a.luminous')) new Luminous(e);
+    </script>
+
+    <script src='/js/single.js'></script>
+
+  </body>
+</html>
+

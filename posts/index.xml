@@ -6,10 +6,28 @@
     <description>Recent content in Posts on FILES=0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 20 Jun 2019 10:23:30 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 23 Aug 2019 15:11:28 +0900</lastBuildDate>
     
 	<atom:link href="https://fileszero.kimurak.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ReactのチュートリアルをTypeScriptで試してみる</title>
+      <link>https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/</link>
+      <pubDate>Fri, 23 Aug 2019 15:11:28 +0900</pubDate>
+      
+      <guid>https://fileszero.kimurak.net/2019-08-23-try-react-with-typescript/</guid>
+      <description>&lt;p&gt;フロント開発といえば、&lt;a href=&#34;https://ja.reactjs.org&#34; target=&#34;_blank&#34;&gt;React&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jp.vuejs.org/index.html&#34; target=&#34;_blank&#34;&gt;Vue.js&lt;/a&gt;と人気を二分していますね。
+そんな私は、&lt;a href=&#34;https://angular.io/&#34; target=&#34;_blank&#34;&gt;Angular&lt;/a&gt;使いがち、全部入りの方が安心するんです。&lt;/p&gt;
+
+&lt;p&gt;今更ですが、React始めてみます。&lt;/p&gt;
+
+&lt;p&gt;でも言語はTypeScript。鳥頭なのでjavascriptでちょっと大きなコードを書くと、あっという間に破綻するのです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://create-react-app.dev/docs/adding-typescript&#34; target=&#34;_blank&#34;&gt;Adding TypeScript&lt;/a&gt;を参考に勧めます。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Node.js(TypeScript)でGoogle Calendarにアクセス</title>
