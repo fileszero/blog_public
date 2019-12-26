@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -58,12 +58,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "ASP.NET IdentityでActive Directory認証#2 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -78,12 +78,20 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/2015-08-11-asp-net-identity-with-adfs\x22 target=\x22_blank\x22\x3e前回AD認証の仕組みを作った\x3c\/a\x3eので、アクセス制御してみます。\x3c\/p\x3e\n\n\x3cp\x3eこの辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。\x3c\/p\x3e\n\n\x3cp\x3eアクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。\x3c\/p\x3e\n\n\x3cp\x3eWebアプリ系のサイトなんて全ページ要認証が基本だと思うんです。\x3c\/p\x3e\n\n\x3cp\x3eてことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。\x3c\/p\x3e"
+    "description": "<p><a href="/2015-08-11-asp-net-identity-with-adfs" target="_blank">前回AD認証の仕組みを作った</a>ので、アクセス制御してみます。</p>
+
+<p>この辺はASP.NET Identityの話でADだろうが外部認証だろうがおなじです。</p>
+
+<p>アクセス制御するには各コントローラクラスやメソッドに対してAuthorize属性を設定する方法が基本みたいですが、めんどくさいです。</p>
+
+<p>Webアプリ系のサイトなんて全ページ要認証が基本だと思うんです。</p>
+
+<p>てことで、まず、すべてのアクセスに対して要認証として、必要に応じて匿名アクセス可にします。</p>"
   }
 </script>
 
@@ -199,8 +207,7 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">RegisterGlobalFilters</span><span class="p">(</span><span class="n">GlobalFilterCollection</span> <span class="n">filters</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">filters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">AuthorizeAttribute</span><span class="p">());</span>
             <span class="n">filters</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">HandleErrorAttribute</span><span class="p">());</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>これだけ。この辺がASP.NET Identityに準拠する利点だと思われます。</p>
@@ -241,12 +248,11 @@ if (!doNotTrack) {
         <span class="p">}</span>
         <span class="c1">//
 </span><span class="c1"></span>        <span class="c1">// POST: /Account/Login
-</span><span class="c1"></span><span class="na">        [HttpPost]</span>
-<span class="na">        [AllowAnonymous]</span>
-<span class="na">        [ValidateAntiForgeryToken]</span>
+</span><span class="c1"></span><span class="na">        [HttpPost]
+</span><span class="na">        [AllowAnonymous]
+</span><span class="na">        [ValidateAntiForgeryToken]</span>
         <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ActionResult</span><span class="p">&gt;</span> <span class="n">Login</span><span class="p">(</span><span class="n">LoginViewModel</span> <span class="n">model</span><span class="p">,</span> <span class="kt">string</span> <span class="n">returnUrl</span><span class="p">)</span>
-        <span class="p">{</span>
-</code></pre></td></tr></table>
+        <span class="p">{</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="特定のadグループにアクセス許可する">特定のADグループにアクセス許可する</h3>
@@ -259,8 +265,7 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[Authorize(Roles = &#34;ADGroup1,ADGroup2&#34;)]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">OreOreController</span> <span class="p">:</span> <span class="n">Controller</span>
-</code></pre></td></tr></table>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">OreOreController</span> <span class="p">:</span> <span class="n">Controller</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>的な記述で、アクセス制限をかけます。そのためにはASP.NET IdentityにRole情報を提供してやらないといけないんで、</p>
@@ -283,8 +288,7 @@ if (!doNotTrack) {
             <span class="k">get</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="n">mADUser</span><span class="p">;</span>
             <span class="p">}</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>IUserRoleStoreをこんな感じに実装。Addとかはできないことにしてます。</p>
@@ -365,8 +369,7 @@ if (!doNotTrack) {
         <span class="p">}</span>
 
         <span class="cp">#endregion
-</span><span class="cp"></span>    <span class="p">}</span>
-</code></pre></td></tr></table>
+</span><span class="cp"></span>    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>グループは再帰的に取得する必要があります。最初UserPrincipalのGetAuthorizationGroupsってメソッドが使えるかと思ったんですが、「グループの列挙中にエラー (1301) が発生しました。グループの SID を解決できませんでした。」となって動きませんでした。仕方がないんで再帰的にグループを持ってくるところは自作（AddGroupsRecursive）。遅いです。なんかいい方法ありませんかね？</p>
@@ -470,8 +473,8 @@ if (!doNotTrack) {
                 <span class="n">joint</span> <span class="p">=</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keys</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">aConfigValues</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">result</span> <span class="p">+=</span> <span class="n">joint</span> <span class="p">+</span> <span class="n">aConfigValues</span><span class="p">[</span><span class="n">key</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">aConfigValues</span><span class="na">[key]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">result</span> <span class="p">+=</span> <span class="n">joint</span> <span class="p">+</span> <span class="n">aConfigValues</span><span class="na">[key]</span><span class="p">;</span>
                     <span class="n">joint</span> <span class="p">=</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
@@ -479,8 +482,7 @@ if (!doNotTrack) {
             <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
         <span class="p">}</span>
 
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>肝はOnAuthorizationのオーバーライド部分。</p>
@@ -532,8 +534,7 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[ConfiguredAuthorize(RoleKeys = &#34;AdminADGroups&#34;, UserKeys = &#34;AdminADUsers&#34;)]</span>
-<span class="k">public</span> <span class="k">class</span> <span class="nc">OreOreController</span> <span class="p">:</span> <span class="n">Controller</span>
-</code></pre></td></tr></table>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">OreOreController</span> <span class="p">:</span> <span class="n">Controller</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>これで、再コンパイル無しでWeb.configを書き換えれば権限を差し替えられます。</p>

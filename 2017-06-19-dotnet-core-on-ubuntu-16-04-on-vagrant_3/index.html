@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#3 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,14 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eローカルでDB接続できたので、Ubuntuにデプロイしてみます。\x3c\/p\x3e\n\n\x3cp\x3e肝は環境の切り替えとDBマイグレーションです。\x3c\/p\x3e"
+    "description": "<p><a href="/2017-06-19-dotnet-core-on-ubuntu-16-04-on-vagrant_2" target="_blank">前回</a>ローカルでDB接続できたので、Ubuntuにデプロイしてみます。</p>
+
+<p>肝は環境の切り替えとDBマイグレーションです。</p>"
   }
 </script>
 
@@ -289,8 +291,7 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Post</span><span class="p">&gt;</span> <span class="n">Posts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
     <span class="p">}</span>
-<span class="p">....</span>
-</code></pre></td></tr></table>
+<span class="p">....</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Startup.csのConfigureServicesにAddDbContextを追記します。</p>
@@ -319,8 +320,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>            <span class="c1">// Add framework services.
 </span><span class="c1"></span>            <span class="n">services</span><span class="p">.</span><span class="n">AddMvc</span><span class="p">();</span>
         <span class="p">}</span>
-<span class="p">....</span>
-</code></pre></td></tr></table>
+<span class="p">....</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>ControllerにInjectされるようコンストラクタを新設して、DIされたオブジェクトを使用するよう変更。</p>
@@ -367,14 +367,13 @@ if (!doNotTrack) {
 
         <span class="k">public</span> <span class="n">IActionResult</span> <span class="n">About</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">ViewData</span><span class="p">[</span><span class="s">&#34;Message&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
+            <span class="n">ViewData</span><span class="na">[&#34;Message&#34;]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
             <span class="kt">var</span> <span class="n">blog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Blog</span> <span class="p">{</span> <span class="n">Url</span> <span class="p">=</span> <span class="s">&#34;http://sample.com/&#34;</span><span class="p">+</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;yyyyMMdd_hhmmssms&#34;</span><span class="p">)</span> <span class="p">};</span>
             <span class="n">db</span><span class="p">.</span><span class="n">Blogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">blog</span><span class="p">);</span>
             <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
             <span class="k">return</span> <span class="n">View</span><span class="p">();</span>
         <span class="p">}</span>
-<span class="p">...</span>
-</code></pre></td></tr></table>
+<span class="p">...</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>ひとまずデバッグ実行でちゃんと動くか確認。</p>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -58,12 +58,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "Class LibraryとASP.NET MVCのDB-Migration - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -78,12 +78,25 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3eASP.NET MVC(試したのは5)で、entity frameworkを使ったmodelやサービス部を別のクラスライブラリプロジェクトに切り出した時に、update-databaseのやり方で若干ハマったのでメモ。\x3c\/p\x3e\n\n\x3cp\x3e環境はVisual studio 2015 update3\x3c\/p\x3e\n\n\x3cp\x3e結論から言うと\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-bash\x22 data-lang=\x22bash\x22\x3e\x3cspan class=\x22lnt\x22\x3e1\n\x3c\/span\x3e\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-bash\x22 data-lang=\x22bash\x22\x3ePM\x26gt; Update-Database -StartupProjectName MVCアプリ -ProjectName クラスライブラリプロジェクト\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\n\x3cp\x3eでOK。\x3c\/p\x3e"
+    "description": "<p>ASP.NET MVC(試したのは5)で、entity frameworkを使ったmodelやサービス部を別のクラスライブラリプロジェクトに切り出した時に、update-databaseのやり方で若干ハマったのでメモ。</p>
+
+<p>環境はVisual studio 2015 update3</p>
+
+<p>結論から言うと</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">PM&gt; Update-Database -StartupProjectName MVCアプリ -ProjectName クラスライブラリプロジェクト</code></pre></td></tr></table>
+</div>
+</div>
+<p>でOK。</p>"
   }
 </script>
 
@@ -231,8 +244,7 @@ if (!doNotTrack) {
     <span class="k">public</span> <span class="k">class</span> <span class="nc">SomethingDBContext</span> <span class="p">:</span> <span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Entity</span><span class="p">.</span><span class="n">DbContext</span>
     <span class="p">{</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="migrationの有効化">migrationの有効化</h4>
@@ -256,8 +268,7 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">virtual</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">HogeHoge</span><span class="p">&gt;</span> <span class="n">HogeHoges</span><span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">virtual</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">HogeHoge</span><span class="p">&gt;</span> <span class="n">HogeHoges</span><span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>を追加します。んで、</p>
@@ -344,8 +355,8 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="na">[TestClass]</span>
     <span class="k">public</span> <span class="k">class</span> <span class="nc">INITDatabase</span>
-    <span class="p">{</span>
-<span class="na">        [AssemblyInitialize]</span>
+    <span class="p">{</span><span class="na">
+</span><span class="na">        [AssemblyInitialize]</span>
         <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">AssemblyInitialize</span><span class="p">(</span><span class="n">TestContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">AppDomain</span><span class="p">.</span><span class="n">CurrentDomain</span><span class="p">.</span><span class="n">SetData</span><span class="p">(</span><span class="s">&#34;DataDirectory&#34;</span><span class="p">,</span> <span class="s">&#34;R:\\&#34;</span><span class="p">);</span> <span class="c1">//接続文字列に|DataDirectory|がある場合必要。
 </span><span class="c1"></span>            <span class="c1">// create database
@@ -354,8 +365,7 @@ if (!doNotTrack) {
             <span class="n">db</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">Delete</span><span class="p">();</span>
             <span class="n">db</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>app.configに</p>

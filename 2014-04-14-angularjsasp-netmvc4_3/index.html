@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
-    "headline": "AngularJS \x2b ASP.NET MVC 4 #3(更新・削除) - FILES=0",
+    "headline": "AngularJS &#43; ASP.NET MVC 4 #3(更新・削除) - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,14 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/2014-04-11-angularjsasp-netmvc4_2\x22 title=\x22AngularJS \x2b ASP.NET MVC 4 #2(一覧・追加)\x22 target=\x22_blank\x22\x3e一覧と追加\x3c\/a\x3eができたっぽいので、難関な予感がする更新に手を付けてみます。\x3c\/p\x3e\n\n\x3cp\x3eCRUDのUです。\x3c\/p\x3e"
+    "description": "<p><a href="/2014-04-11-angularjsasp-netmvc4_2" title="AngularJS + ASP.NET MVC 4 #2(一覧・追加)" target="_blank">一覧と追加</a>ができたっぽいので、難関な予感がする更新に手を付けてみます。</p>
+
+<p>CRUDのUです。</p>"
   }
 </script>
 
@@ -417,7 +419,7 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// PUT api/tasks/5
-</span><span class="c1"></span>        <span class="k">public</span> <span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="p">[</span><span class="n">FromBody</span><span class="p">]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
+</span><span class="c1"></span>        <span class="k">public</span> <span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span><span class="na"> [FromBody]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
                 <span class="k">value</span><span class="p">.</span><span class="n">Description</span> <span class="p">=</span> <span class="s">&#34;[&#34;</span> <span class="p">+</span> <span class="k">value</span><span class="p">.</span><span class="n">Description</span> <span class="p">+</span> <span class="s">&#34;]&#34;</span><span class="p">;</span>  <span class="c1">//サーバサイドのビジネスロジック的な処理
@@ -425,8 +427,7 @@ if (!doNotTrack) {
                 <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
                 <span class="k">return</span> <span class="k">value</span><span class="p">;</span>   <span class="c1">//保存された値を返す
 </span><span class="c1"></span>            <span class="p">}</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="実行">実行</h3>

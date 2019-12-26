@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "ASP.NET MVC 5で並べ替え、検索、ページングが可能なリストを作る#2 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,14 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/2015-10-15-sort-filter-paging-list-on-mvc5-1\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3e、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。\x3c\/p\x3e\n\n\x3cp\x3e今回はwebアプリから使ってみます。\x3c\/p\x3e"
+    "description": "<p><a href="/2015-10-15-sort-filter-paging-list-on-mvc5-1" target="_blank">前回</a>、ソートフィールド定義を扱うクラスを作って、単体テストでソートできるところまで作ってみました。</p>
+
+<p>今回はwebアプリから使ってみます。</p>"
   }
 </script>
 
@@ -284,29 +286,28 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Article</span>
     <span class="p">{</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
-</span><span class="na">        [DisplayName(&#34;URL&#34;)]</span>
-<span class="na">        [DataType(DataType.Url)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Url</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [DisplayName(&#34;URL&#34;)]
+</span><span class="na">        [DataType(DataType.Url)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Url</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">        [DisplayName(&#34;タイトル&#34;)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
-</span><span class="na">        [DisplayName(&#34;概要&#34;)]</span>
-<span class="na">        [DataType(DataType.MultilineText)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Description</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [DisplayName(&#34;概要&#34;)]
+</span><span class="na">        [DataType(DataType.MultilineText)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Description</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">        [DisplayName(&#34;ビュー数&#34;)]</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">Viewcount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
-</span><span class="na">        [DisplayName(&#34;公開日&#34;)]</span>
-<span class="na">        [DisplayFormat(DataFormatString = &#34;{0:yyyy年MM月dd日}&#34;)]</span>
-        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Published</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Viewcount</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [DisplayName(&#34;公開日&#34;)]
+</span><span class="na">        [DisplayFormat(DataFormatString = &#34;{0:yyyy年MM月dd日}&#34;)]</span>
+        <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Published</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">        [DisplayName(&#34;公開済&#34;)]</span>
-        <span class="k">public</span> <span class="kt">bool</span> <span class="n">Released</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="k">public</span> <span class="kt">bool</span> <span class="n">Released</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="controller">Controller</h3>
@@ -350,8 +351,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>        <span class="k">public</span> <span class="n">ActionResult</span> <span class="n">Index</span><span class="p">()</span>
         <span class="p">{</span>
             <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Articles</span><span class="p">.</span><span class="n">ToList</span><span class="p">());</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>これに色々追加していきます。</p>
@@ -370,12 +370,11 @@ if (!doNotTrack) {
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,*****&gt;[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="c1">//フィールドの型が必要
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">,*****&gt;</span><span class="na">[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span> <span class="c1">//フィールドの型が必要
 </span><span class="c1"></span>                <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Url</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                 <span class="p">....</span>
-            <span class="p">};</span>
-</code></pre></td></tr></table>
+            <span class="p">};</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>てことで、interfaceを作ります。</p>
@@ -396,8 +395,7 @@ if (!doNotTrack) {
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
             <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span> <span class="n">sortdef</span> <span class="p">=</span> <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">obj</span> <span class="p">=&gt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>  <span class="c1">//interfaceです
 </span><span class="c1"></span>            <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="s">&#34;Title&#34;</span><span class="p">,</span> <span class="n">sortdef</span><span class="p">.</span><span class="n">SortKey</span><span class="p">);</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>interfaceはVSのインターフェースの抽出を使って、マウスでちょいっと作れます。</p>
@@ -477,8 +475,7 @@ if (!doNotTrack) {
 
         <span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">&gt;</span> <span class="n">AddOrderBy</span><span class="p">(</span><span class="n">IQueryable</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">&gt;</span> <span class="n">aQuery</span><span class="p">,</span> <span class="kt">string</span> <span class="n">aCurrentSortKey</span><span class="p">);</span>
         <span class="kt">string</span> <span class="n">GetNextSortKey</span><span class="p">(</span><span class="kt">string</span> <span class="n">aCurrentSortKey</span><span class="p">);</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>拡張メソッドもinterfaceを返すように変更します。</p>
@@ -497,8 +494,7 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="k">static</span> <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">&gt;</span> <span class="n">DefineSort</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;(</span><span class="k">this</span> <span class="n">TModel</span> <span class="n">aModel</span><span class="p">,</span> <span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;&gt;</span> <span class="n">aKeySelector</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="k">new</span> <span class="n">SortFieldDefinition</span><span class="p">&lt;</span><span class="n">TModel</span><span class="p">,</span> <span class="n">TKey</span><span class="p">&gt;(</span><span class="n">aKeySelector</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="indexアクションの変更">Indexアクションの変更</h3>
@@ -535,7 +531,7 @@ if (!doNotTrack) {
             <span class="kt">var</span> <span class="n">query</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Articles</span><span class="p">.</span><span class="n">AsQueryable</span><span class="p">();</span>  <span class="c1">//データソース
 </span><span class="c1"></span>
             <span class="n">Article</span> <span class="n">article</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
-            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span>   <span class="c1">//ソートフィールド定義
+            <span class="n">ISortFieldDefinition</span><span class="p">&lt;</span><span class="n">Article</span><span class="p">&gt;</span><span class="na">[]</span> <span class="n">sort_fields</span> <span class="p">=</span> <span class="k">new</span><span class="na">[]</span> <span class="p">{</span>   <span class="c1">//ソートフィールド定義
 </span><span class="c1"></span>                <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Url</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Title</span><span class="p">),</span>
                 <span class="n">article</span><span class="p">.</span><span class="n">DefineSort</span><span class="p">(</span><span class="n">a</span><span class="p">=&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">Description</span><span class="p">),</span>
@@ -549,8 +545,7 @@ if (!doNotTrack) {
             <span class="p">}</span>
 
             <span class="k">return</span> <span class="n">View</span><span class="p">(</span><span class="n">query</span><span class="p">.</span><span class="n">ToList</span><span class="p">());</span>    <span class="c1">//ソート済み結果をViewに返す。
-</span><span class="c1"></span>        <span class="p">}</span>
-</code></pre></td></tr></table>
+</span><span class="c1"></span>        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="データソース">データソース</h4>

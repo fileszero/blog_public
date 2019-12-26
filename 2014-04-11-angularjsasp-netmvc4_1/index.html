@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -58,12 +58,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
-    "headline": "AngularJS \x2b ASP.NET MVC 4 #1(サーバ側) - FILES=0",
+    "headline": "AngularJS &#43; ASP.NET MVC 4 #1(サーバ側) - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -78,12 +78,14 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3eAngularJS \x2b ASP.NET MVC 4でなんか作ってみます。\x3c\/p\x3e\n\n\x3cp\x3eVisual Studio 2010 \x3ca href=\x22http:\/\/localhost:8000\/unclassified\/577\/\x22 title=\x22Visual Studio 2010 \x2b ASP.NET MVC 4\x22 target=\x22_blank\x22\x3e\x2b MVC4\x3c\/a\x3eで開発します。2013とかほしいっす。\x3c\/p\x3e"
+    "description": "<p>AngularJS + ASP.NET MVC 4でなんか作ってみます。</p>
+
+<p>Visual Studio 2010 <a href="http://localhost:8000/unclassified/577/" title="Visual Studio 2010 + ASP.NET MVC 4" target="_blank">+ MVC4</a>で開発します。2013とかほしいっす。</p>"
   }
 </script>
 
@@ -248,8 +250,8 @@ if (!doNotTrack) {
         <span class="n">New</span><span class="p">,</span>
         <span class="n">Completed</span><span class="p">,</span>
         <span class="n">Canceled</span>
-    <span class="p">}</span>
-<span class="na">
+    <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">    [Table(&#34;Tasks&#34;)]</span>
     <span class="k">public</span> <span class="k">class</span> <span class="nc">Task</span>
     <span class="p">{</span>
@@ -257,8 +259,7 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="n">TaskStatus</span> <span class="n">Status</span><span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span>
         <span class="k">public</span> <span class="kt">string</span> <span class="n">Description</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="db-context">DB Context</h4>
@@ -293,8 +294,7 @@ if (!doNotTrack) {
     <span class="p">{</span>
         <span class="k">public</span> <span class="n">DbSet</span><span class="p">&lt;</span><span class="n">Task</span><span class="p">&gt;</span> <span class="n">Tasks</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="connection">Connection</h4>
@@ -354,8 +354,7 @@ if (!doNotTrack) {
                 <span class="n">db</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
             <span class="p">}</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>ここまででとりあえず実行してみると</p>
@@ -473,7 +472,7 @@ if (!doNotTrack) {
         <span class="p">}</span>
 
         <span class="c1">// POST api/tasks
-</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Post</span><span class="p">([</span><span class="n">FromBody</span><span class="p">]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Post</span><span class="p">(</span><span class="na">[FromBody]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Tasks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
@@ -482,7 +481,7 @@ if (!doNotTrack) {
         <span class="p">}</span>
 
         <span class="c1">// PUT api/tasks/5
-</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="p">[</span><span class="n">FromBody</span><span class="p">]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
+</span><span class="c1"></span>        <span class="k">public</span> <span class="k">void</span> <span class="n">Put</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span><span class="na"> [FromBody]</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span> <span class="k">value</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">TaskContext</span><span class="p">())</span> <span class="p">{</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Entry</span><span class="p">&lt;</span><span class="n">Models</span><span class="p">.</span><span class="n">Task</span><span class="p">&gt;(</span><span class="k">value</span><span class="p">).</span><span class="n">State</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Entity</span><span class="p">.</span><span class="n">EntityState</span><span class="p">.</span><span class="n">Modified</span><span class="p">;</span>
@@ -502,8 +501,7 @@ if (!doNotTrack) {
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>TasksはWebAPIに専念するのでTasks用Viewは在りません。</p>

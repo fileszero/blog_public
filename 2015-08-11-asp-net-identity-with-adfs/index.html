@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "ASP.NET IdentityでActive Directory認証 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,18 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3e最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。\x3c\/p\x3e\n\n\x3cp\x3eこれ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。\x3c\/p\x3e\n\n\x3cp\x3e社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。\x3c\/p\x3e\n\n\x3cp\x3eAD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。\x3c\/p\x3e"
+    "description": "<p>最近のASP.NET MVCでは昔ながらのForm認証ではなくASP.NET Identityという仕組みが使われるようになったようです。</p>
+
+<p>これ、ユーザー登録・削除とかプロファイル管理とかもろもの機能も用意されてて、そりゃもー便利なんですが、VSのテンプレートではEntityFramework(DB)でユーザー管理するようになっています。</p>
+
+<p>社内アプリとか作ってると、ユーザーの管理はActiveDirectoryでやってるで、認証機能だけあれば良いんだけど…MS親切過ぎっ、てこともあると思います。</p>
+
+<p>AD使うなら「組織アカウント」なり「Winodws認証」なり使えそうな気がするのですが、大人の事情で使えないこともあったりするのです。</p>"
   }
 </script>
 
@@ -304,8 +310,7 @@ if (!doNotTrack) {
             <span class="p">}</span>
         <span class="p">}</span>
         <span class="cp">#endregion
-</span><span class="cp"></span>    <span class="p">}</span>
-</code></pre></td></tr></table>
+</span><span class="cp"></span>    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="ユーザーストア-applicationuserstore">ユーザーストア ApplicationUserStore</h3>
@@ -416,8 +421,7 @@ if (!doNotTrack) {
         <span class="p">}</span>
 
         <span class="cp">#endregion
-</span><span class="cp"></span>    <span class="p">}</span>
-</code></pre></td></tr></table>
+</span><span class="cp"></span>    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="ユーザーマネージャapplicationusermanager">ユーザーマネージャApplicationUserManager</h3>
@@ -476,8 +480,7 @@ if (!doNotTrack) {
         <span class="k">public</span> <span class="k">override</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;</span> <span class="n">CheckPasswordAsync</span><span class="p">(</span><span class="n">ApplicationUser</span> <span class="n">user</span><span class="p">,</span> <span class="kt">string</span> <span class="n">password</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">FromResult</span><span class="p">(</span><span class="n">_context</span><span class="p">.</span><span class="n">ValidateCredentials</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">UserName</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">ContextOptions</span><span class="p">.</span><span class="n">Negotiate</span><span class="p">));</span>
         <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>パスワードチェックにはCheckPasswordAsyncをオーバーライドすればOKみたいです。</p>
@@ -562,8 +565,7 @@ if (!doNotTrack) {
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
         <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>ロックアウトとかその辺はさっくり省略しています。</p>
@@ -636,8 +638,7 @@ if (!doNotTrack) {
                 <span class="p">}</span>
             <span class="p">});</span>
         <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="ログインフォーム変更">ログインフォーム変更</h3>
@@ -668,20 +669,19 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">LoginViewModel</span>
-    <span class="p">{</span>
-<span class="na">        [Required]</span>
-<span class="na">        [Display(Name = &#34;User ID&#34;)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">UserID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
-</span><span class="na">        [Required]</span>
-<span class="na">        [DataType(DataType.Password)]</span>
-<span class="na">        [Display(Name = &#34;Password&#34;)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Password</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
+    <span class="p">{</span><span class="na">
+</span><span class="na">        [Required]
+</span><span class="na">        [Display(Name = &#34;User ID&#34;)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">UserID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
+</span><span class="na">        [Required]
+</span><span class="na">        [DataType(DataType.Password)]
+</span><span class="na">        [Display(Name = &#34;Password&#34;)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Password</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">        [Display(Name = &#34;Remember me?&#34;)]</span>
         <span class="k">public</span> <span class="kt">bool</span> <span class="n">RememberMe</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>例によって便利機能関係のViewModelは削除。(LoginViewModelのみ残しました)</p>
@@ -710,8 +710,7 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">await</span> <span class="n">SignInManager</span><span class="p">.</span><span class="n">PasswordSignInAsync</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">UserID</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">Password</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">RememberMe</span><span class="p">,</span> <span class="n">shouldLockout</span><span class="p">:</span> <span class="k">false</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="k">await</span> <span class="n">SignInManager</span><span class="p">.</span><span class="n">PasswordSignInAsync</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">UserID</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">Password</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">RememberMe</span><span class="p">,</span> <span class="n">shouldLockout</span><span class="p">:</span> <span class="k">false</span><span class="p">);</span></code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="長い">長い</h3>

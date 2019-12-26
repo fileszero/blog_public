@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "Entity FrameworkでInsertするときに関連するレコードもInsertされる - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,16 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3eEntity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。\x3c\/p\x3e\n\n\x3cp\x3eなんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？\x3c\/p\x3e\n\n\x3cp\x3e動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。\x3c\/p\x3e"
+    "description": "<p>Entity Frameworkで追加処理を書いていると、目的のオブジェクトでは無い（関連する）オブジェクトも一緒にインサートしようとしてくれちゃいます。</p>
+
+<p>なんででしょ？EFエキスパートな人にとっては常識なんでしょうか？そもそもDBの設計が悪い？</p>
+
+<p>動作がちょっと直観的ではないので、解決策をすぐ忘れます。てことでメモ。</p>"
   }
 </script>
 
@@ -456,41 +460,40 @@ if (!doNotTrack) {
 
         <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="n">OnModelCreating</span><span class="p">(</span><span class="n">DbModelBuilder</span> <span class="n">modelBuilder</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">}</span>
-    <span class="p">}</span>
-<span class="na">
+    <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">    [Table(&#34;Person&#34;)]</span>
     <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Person</span>
     <span class="p">{</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">PersonID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">PersonID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">        [StringLength(50)]</span>
         <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
         <span class="k">public</span> <span class="kt">int?</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
         <span class="k">public</span> <span class="kt">int?</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
         <span class="k">public</span> <span class="k">virtual</span> <span class="n">Department</span> <span class="n">Department</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">}</span>
-<span class="na">
+    <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">    [Table(&#34;Department&#34;)]</span>
     <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Department</span>
-    <span class="p">{</span>
-<span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2214:DoNotCallOverridableMethodsInConstructors&#34;)]</span>
+    <span class="p">{</span><span class="na">
+</span><span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2214:DoNotCallOverridableMethodsInConstructors&#34;)]</span>
         <span class="k">public</span> <span class="n">Department</span><span class="p">()</span>
         <span class="p">{</span>
             <span class="n">Person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;();</span>
-        <span class="p">}</span>
-<span class="na">
+        <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">        [DatabaseGenerated(DatabaseGeneratedOption.None)]</span>
-        <span class="k">public</span> <span class="kt">int</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">        [Required]</span>
-<span class="na">        [StringLength(50)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">DepartmentName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">        [StringLength(50)]</span>
-        <span class="k">public</span> <span class="kt">string</span> <span class="n">Location</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-<span class="na">
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">DepartmentID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">        [Required]
+</span><span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">DepartmentName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">        [StringLength(50)]</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Location</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span><span class="na">
+</span><span class="na">
 </span><span class="na">        [System.Diagnostics.CodeAnalysis.SuppressMessage(&#34;Microsoft.Usage&#34;, &#34;CA2227:CollectionPropertiesShouldBeReadOnly&#34;)]</span>
         <span class="k">public</span> <span class="k">virtual</span> <span class="n">ICollection</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="n">Person</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>(実際は各クラス毎にファイルが作成されます)</p>
@@ -533,7 +536,7 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">Program</span>
     <span class="p">{</span>
-        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">//外から部署を渡されることを再現するため、追加するコンテキスト外でインスタンス作成
 </span><span class="c1"></span>            <span class="n">Models</span><span class="p">.</span><span class="n">Department</span> <span class="n">IT</span><span class="p">;</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Model1</span><span class="p">())</span> <span class="p">{</span>
@@ -555,8 +558,7 @@ if (!doNotTrack) {
                 <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>   <span class="c1">//ここでエラー
 </span><span class="c1"></span>            <span class="p">}</span>
         <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <h4 id="エラー再現">エラー再現</h4>
@@ -619,8 +621,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>                    <span class="n">DepartmentID</span> <span class="p">=</span> <span class="n">department</span><span class="p">.</span><span class="n">DepartmentID</span>  <span class="c1">//こうする
 </span><span class="c1"></span>                <span class="p">};</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
-                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
-</code></pre></td></tr></table>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>オブジェクト階層が深くなったり、複合キーになったりすると破綻しそうな気がします。</p>
@@ -649,8 +650,7 @@ if (!doNotTrack) {
                 <span class="p">};</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Department</span><span class="p">.</span><span class="n">Attach</span><span class="p">(</span><span class="n">department</span><span class="p">);</span>   <span class="c1">//もうあるからよろしく
 </span><span class="c1"></span>                <span class="n">db</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
-                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
-</code></pre></td></tr></table>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>う～ん、これも関連するオブジェクトが増えるとキツそうです。</p>
@@ -675,8 +675,7 @@ if (!doNotTrack) {
                     <span class="n">Department</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Department</span><span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">d</span><span class="p">=&gt;</span><span class="n">d</span><span class="p">.</span><span class="n">DepartmentID</span><span class="p">==</span><span class="n">department</span><span class="p">.</span><span class="n">DepartmentID</span><span class="p">)</span>  <span class="c1">//ないわー
 </span><span class="c1"></span>                <span class="p">};</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
-                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
-</code></pre></td></tr></table>
+                <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>無駄な処理を増やすだけですな。ナイナイ。</p>

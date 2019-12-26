@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#2 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,22 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3e、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。\x3c\/p\x3e\n\n\x3cp\x3eDBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。\x3c\/p\x3e\n\n\x3cp\x3e本命は\x3ca href=\x22https:\/\/docs.microsoft.com\/ja-jp\/sql\/linux\/sql-server-linux-setup-ubuntu\x22 target=\x22_blank\x22\x3eSQL Server on Linux\x3c\/a\x3eなんですが、\x3c\/p\x3e\n\n\x3cblockquote\x3e\n\x3cp\x3eYou need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements\x3c\/p\x3e\n\x3c\/blockquote\x3e\n\n\x3cp\x3eなんで、却下。\x3c\/p\x3e"
+    "description": "<p><a href="/2017-06-15-dotnet-core-on-ubuntu-16-04-on-vagrant_1" target="_blank">前回</a>、ASP.NET Coreをubuntuで動かせたので、今回はDBアクセスしてみます。</p>
+
+<p>DBMSにはいろいろ選択肢がありますが、Entity Framework Coreのサポートが充実してるPostgreSQLを選びました。</p>
+
+<p>本命は<a href="https://docs.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-ubuntu" target="_blank">SQL Server on Linux</a>なんですが、</p>
+
+<blockquote>
+<p>You need at least 3.25GB of memory to run SQL Server on Linux. For other system requirements</p>
+</blockquote>
+
+<p>なんで、却下。</p>"
   }
 </script>
 
@@ -353,8 +363,7 @@ PM&gt; Install-Package Microsoft.EntityFrameworkCore.Tools -Version <span class=
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseSqlServer</span><span class="p">(</span><span class="s">@&#34;Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=True;&#34;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseSqlServer</span><span class="p">(</span><span class="s">@&#34;Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=True;&#34;</span><span class="p">);</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>を</p>
@@ -363,8 +372,7 @@ PM&gt; Install-Package Microsoft.EntityFrameworkCore.Tools -Version <span class=
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseNpgsql</span><span class="p">(</span><span class="s">@&#34;Host=localhost;Database=aspnetdb_dev;Username=vagrant&#34;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">optionsBuilder</span><span class="p">.</span><span class="n">UseNpgsql</span><span class="p">(</span><span class="s">@&#34;Host=localhost;Database=aspnetdb_dev;Username=vagrant&#34;</span><span class="p">);</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>に変更する。</p>
@@ -440,15 +448,14 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
 
         <span class="k">public</span> <span class="n">IActionResult</span> <span class="n">About</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">ViewData</span><span class="p">[</span><span class="s">&#34;Message&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
+            <span class="n">ViewData</span><span class="na">[&#34;Message&#34;]</span> <span class="p">=</span> <span class="s">&#34;Your application description page.&#34;</span><span class="p">;</span>
             <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">BloggingContext</span><span class="p">()){</span>
                 <span class="kt">var</span> <span class="n">blog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Models</span><span class="p">.</span><span class="n">Blog</span> <span class="p">{</span> <span class="n">Url</span> <span class="p">=</span> <span class="s">&#34;http://sample.com/&#34;</span><span class="p">+</span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;yyyyMMdd_hhmmssms&#34;</span><span class="p">)</span> <span class="p">};</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">Blogs</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">blog</span><span class="p">);</span>
                 <span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">View</span><span class="p">();</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>にします。</p>
@@ -471,7 +478,7 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">@model</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WebApplication3</span><span class="p">.</span><span class="n">Models</span><span class="p">.</span><span class="n">Blog</span><span class="p">&gt;</span>
 <span class="err">@</span><span class="p">{</span>
-    <span class="n">ViewData</span><span class="p">[</span><span class="s">&#34;Title&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;Home Page&#34;</span><span class="p">;</span>
+    <span class="n">ViewData</span><span class="na">[&#34;Title&#34;]</span> <span class="p">=</span> <span class="s">&#34;Home Page&#34;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="p">&lt;</span><span class="n">ol</span><span class="p">&gt;</span>
@@ -479,8 +486,7 @@ DDL系のSQLが出力されます。</code></pre></td></tr></table>
     <span class="p">{</span>
         <span class="p">&lt;</span><span class="n">li</span> <span class="p">&gt;</span><span class="err">@</span><span class="p">(</span><span class="n">blog</span><span class="p">.</span><span class="n">Url</span><span class="p">)&lt;/</span><span class="n">li</span><span class="p">&gt;</span>
     <span class="p">}</span>
-<span class="p">&lt;/</span><span class="n">ol</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="n">ol</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>こんな感じにします。</p>

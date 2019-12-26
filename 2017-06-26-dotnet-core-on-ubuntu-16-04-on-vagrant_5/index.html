@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "ASP.NET Core on Ubuntu 16.04 on Vagrant with Visual Studio2017#5 - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,14 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3e\x3ca href=\x22\/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4\x22 target=\x22_blank\x22\x3e前回\x3c\/a\x3eまでで一応アプリができたことにして、万が一公開する時の設定を試してみます。\x3c\/p\x3e\n\n\x3cp\x3e通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、\x3ca href=\x22https:\/\/docs.microsoft.com\/en-us\/aspnet\/core\/publishing\/linuxproduction\x22 target=\x22_blank\x22\x3eこちら\x3c\/a\x3eを参考にNginxのリバースプロキシ設定をします。\x3c\/p\x3e"
+    "description": "<p><a href="/2017-06-20-dotnet-core-on-ubuntu-16-04-on-vagrant_4" target="_blank">前回</a>までで一応アプリができたことにして、万が一公開する時の設定を試してみます。</p>
+
+<p>通常、公開するときは何らかのWebサーバを経由して公開すると思うんで、<a href="https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction" target="_blank">こちら</a>を参考にNginxのリバースプロキシ設定をします。</p>"
   }
 </script>
 
@@ -485,8 +487,7 @@ Jun <span class="m">20</span> <span class="m">02</span>:46:12 vagrant dotnet-exa
 　　        <span class="c1">//変更
 </span><span class="c1"></span>            <span class="n">Configuration</span> <span class="p">=</span> <span class="n">BulidConfiguration</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">ContentRootPath</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">EnvironmentName</span><span class="p">);</span>
         <span class="p">}</span>
-<span class="p">....</span>
-</code></pre></td></tr></table>
+<span class="p">....</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><a href="https://stackoverflow.com/a/37468237" target="_blank">こちらのコメント</a>を参考に環境別のappsettings.*.jsonから設定を読むようにします。</p>
@@ -512,7 +513,7 @@ Jun <span class="m">20</span> <span class="m">02</span>:46:12 vagrant dotnet-exa
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="kt">var</span> <span class="n">hostBuilder</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WebHostBuilder</span><span class="p">();</span>
 
@@ -529,8 +530,7 @@ Jun <span class="m">20</span> <span class="m">02</span>:46:12 vagrant dotnet-exa
                 <span class="p">.</span><span class="n">Build</span><span class="p">();</span>
 
             <span class="n">host</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
-        <span class="p">}</span>
-</code></pre></td></tr></table>
+        <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>appsettings.*.jsonに&#8221;urls&#8221;を追加します。</p>

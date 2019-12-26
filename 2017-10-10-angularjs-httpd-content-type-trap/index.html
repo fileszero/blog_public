@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -57,12 +57,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "AngularJSの$httpdでファイルのアップロード(でハマった話) - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -77,12 +77,46 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3ch3 id=\x22現象\x22\x3e現象\x3c\/h3\x3e\n\n\x3cp\x3eASP.NET の Web APIにファイルをポストしようとして、\x3c\/p\x3e\n\n\x3cp\x3eangulerjsの$httpで\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-jscript\x22 data-lang=\x22jscript\x22\x3e\x3cspan class=\x22lnt\x22\x3e1\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e2\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e3\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e4\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e5\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e6\n\x3c\/span\x3e\x3cspan class=\x22lnt\x22\x3e7\n\x3c\/span\x3e\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-jscript\x22 data-lang=\x22jscript\x22\x3e$http({\n        url: url,\n        method: \x26#39;POST\x26#39;,\n        data: data,\n        processData: false,\n        contentType: false,\n    });\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\n\x3cp\x3e的な呼び出しをしても、\x3c\/p\x3e\n\x3cdiv class=\x22highlight\x22\x3e\x3cdiv class=\x22chroma\x22\x3e\n\x3ctable class=\x22lntable\x22\x3e\x3ctr\x3e\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-plain\x22 data-lang=\x22plain\x22\x3e\x3cspan class=\x22lnt\x22\x3e1\n\x3c\/span\x3e\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\n\x3ctd class=\x22lntd\x22\x3e\n\x3cpre class=\x22chroma\x22\x3e\x3ccode class=\x22language-plain\x22 data-lang=\x22plain\x22\x3eInvalid \x26#39;HttpContent\x26#39; instance provided. It does not have a content type header starting with \x26#39;multipart\/\x26#39;.\x3c\/code\x3e\x3c\/pre\x3e\x3c\/td\x3e\x3c\/tr\x3e\x3c\/table\x3e\n\x3c\/div\x3e\n\x3c\/div\x3e\n\x3cp\x3eと怒られて、multipartなPostとなりません。\x3c\/p\x3e"
+    "description": "<h3 id="現象">現象</h3>
+
+<p>ASP.NET の Web APIにファイルをポストしようとして、</p>
+
+<p>angulerjsの$httpで</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jscript" data-lang="jscript">$http({
+        url: url,
+        method: &#39;POST&#39;,
+        data: data,
+        processData: false,
+        contentType: false,
+    });</code></pre></td></tr></table>
+</div>
+</div>
+<p>的な呼び出しをしても、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">Invalid &#39;HttpContent&#39; instance provided. It does not have a content type header starting with &#39;multipart/&#39;.</code></pre></td></tr></table>
+</div>
+</div>
+<p>と怒られて、multipartなPostとなりません。</p>"
   }
 </script>
 

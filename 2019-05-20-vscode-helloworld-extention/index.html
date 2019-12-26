@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 
-<meta name="generator" content="Hugo 0.57.2" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 <link rel="apple-touch-icon" href="https://fileszero.kimurak.net/images/logo.png">
 
@@ -66,12 +66,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id":"https:\/\/fileszero.kimurak.net\/"
+      "@id":"https://fileszero.kimurak.net/"
     },
     "headline": "Visual Studio Code の拡張機能を作ってみる - FILES=0",
     "image": {
       "@type": "ImageObject",
-      "url": "https:\/\/fileszero.kimurak.net\/images\/default.png",
+      "url": "https://fileszero.kimurak.net/images/default.png",
       "height": 800,
       "width": 800
     },
@@ -86,12 +86,18 @@
       "name": "FILES=0",
       "logo": {
         "@type": "ImageObject",
-        "url": "https:\/\/fileszero.kimurak.net\/images/logo.png",
+        "url": "https://fileszero.kimurak.net/images/logo.png",
         "width": 600,
         "height": 60
       }
     },
-    "description": "\x3cp\x3emarkdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能\x3ca href=\x22https:\/\/marketplace.visualstudio.com\/items?itemName=telesoho.vscode-markdown-paste-image\x22 target=\x22_blank\x22\x3eMarkdown Paste\x3c\/a\x3eを使わせてもらいます。\x3c\/p\x3e\n\n\x3cp\x3eクリップボードに画像をコピーして\x3ckbd\x3eCtrl\x3c\/kbd\x3e\x2b\x3ckbd\x3eAlt\x3c\/kbd\x3e\x2b\x3ckbd\x3eV\x3c\/kbd\x3eで、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには\x3ccode\x3e![](ファイル名)\x3c\/code\x3eを挿入してくれます。\x3c\/p\x3e\n\n\x3cp\x3eすごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。\x3c\/p\x3e\n\n\x3cp\x3e\x3ca href=\x22https:\/\/code.visualstudio.com\/api\/get-started\/your-first-extension\x22 target=\x22_blank\x22\x3e公式\x3c\/a\x3eを見ながら試してみます。\x3c\/p\x3e"
+    "description": "<p>markdownで文書を書いてると画像の貼り付けがが結構めんどくさかったりします。そこでこの拡張機能<a href="https://marketplace.visualstudio.com/items?itemName=telesoho.vscode-markdown-paste-image" target="_blank">Markdown Paste</a>を使わせてもらいます。</p>
+
+<p>クリップボードに画像をコピーして<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd>で、貼り付け対象.mdファイルがあるフォルダに .pngファイルを作成して、.mdファイルには<code>![](ファイル名)</code>を挿入してくれます。</p>
+
+<p>すごく便利なんですが、画像貼り付けの時にHUGOのショートコードになってほしかったりするので、カスタマイズしたい欲にかられますが、VSCodeの拡張機能の開発についてはよくわからんので、まずは拡張機能のお勉強をします。</p>
+
+<p><a href="https://code.visualstudio.com/api/get-started/your-first-extension" target="_blank">公式</a>を見ながら試してみます。</p>"
   }
 </script>
 
@@ -412,9 +418,9 @@ added <span class="m">255</span> packages from <span class="m">183</span> contri
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="gh"># helloworld README
-</span><span class="gh"></span>
-This is the README for your extension &#34;helloworld&#34;. After writing up a brief description, we recommend including the following sections.</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-md" data-lang="md"><span class="gh">#</span> helloworld README
+<span class="err">
+</span><span class="err"></span>This is the README for your extension &#34;helloworld&#34;. After writing up a brief description, we recommend including the following sections.</code></pre></td></tr></table>
 </div>
 </div>
 <p>部分を削除したら通った。</p>
